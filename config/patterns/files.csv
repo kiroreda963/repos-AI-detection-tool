@@ -1,0 +1,94 @@
+pattern,type,subtype
+copilot-instructions.md,AI_FILE,Copilot
+copilot_instructions.md,AI_FILE,Copilot
+copilot-instructions/,AI_FILE,Copilot
+.github/instructions/,AI_FILE,Copilot
+.copilot-*.md,AI_FILE,Copilot
+.copilotignore,AI_FILE,Copilot
+.copilot/,AI_FILE,Copilot
+.github/workflows/copilot/,AI_FILE,Copilot
+.cursor/,AI_FILE,Cursor
+.cursorrules,AI_FILE,Cursor
+CURSOR.md,AI_FILE,Cursor
+AGENTS.md,AI_FILE,Generic
+.codex/,AI_FILE,Codex
+CLAUDE.md,AI_FILE,Claude Code
+.claude/,AI_FILE,Claude Code
+.anthropic/,AI_FILE,Claude Code
+.claudeignore,AI_FILE,Claude Code
+.github/workflows/claude,AI_FILE,Claude Code
+.devin/,AI_FILE,Devin
+.augment/,AI_FILE,Augment Code
+.augmentignore,AI_FILE,Augment Code
+.augment-guidelines,AI_FILE,Augment Code
+.windsurf/,AI_FILE,Windsurf
+.windsurfrules,AI_FILE,Windsurf
+.codeium/,AI_FILE,Windsurf
+.clinerules,AI_FILE,Cline
+.cline/,AI_FILE,Cline
+README-task-master.md,AI_FILE,Taskmaster
+taskmaster.md,AI_FILE,Taskmaster
+.taskmaster/,AI_FILE,Taskmaster
+memory-bank/,AI_FILE,Cline
+memory_bank/,AI_FILE,Cline
+.specify/memory/constitution.md,AI_FILE,SpecKit
+.specify,AI_FILE,SpecKit
+AGENT.md,AI_FILE,Amp
+.sourcegraph/,AI_FILE,Amp
+aider.conf.yaml,AI_FILE,Aider
+aider.conf.yml,AI_FILE,Aider
+.aider.conf.yaml,AI_FILE,Aider
+.aider.conf.yml,AI_FILE,Aider
+.aiderignore,AI_FILE,Aider
+.aider/,AI_FILE,Aider
+.junie/,AI_FILE,Junie
+.jetbrains/instructions.md,AI_FILE,Junie
+.junieignore,AI_FILE,Junie
+.jules/,AI_FILE,Jules
+.aiderrules,AI_FILE,Aider
+.roo/,AI_FILE,Roo Code
+.roorules,AI_FILE,Roo Code
+.trae/,AI_FILE,Trae
+.traerules,AI_FILE,Trae
+GEMINI.md,AI_FILE,Gemini
+.gemini/,AI_FILE,Gemini
+.openhands/,AI_FILE,OpenHands
+.openhands_instructions,AI_FILE,OpenHands
+.goosehints,AI_FILE,Goose
+.plandexignore,AI_FILE,Plandex
+.plandex/,AI_FILE,Plandex
+.plandex-v2,AI_FILE,Plandex
+.continue/,AI_FILE,Continue
+.kiro/,AI_FILE,Kiro
+.brokk/,AI_FILE,Brokk
+.kilocode/,AI_FILE,Kilo Code
+.kilocodeignore,AI_FILE,Kilo Code
+.opencode/,AI_FILE,Opencode
+.opencode.json,AI_FILE,Opencode
+opencode.json,AI_FILE,Opencode
+WARP.md,AI_FILE,Warp
+.warp/,AI_FILE,Warp
+.crush/,AI_FILE,Crush
+.amazonq/,AI_FILE,Amazon Q
+AmazonQ.md,AI_FILE,Amazon Q
+AMAZONQ.md,AI_FILE,Amazon Q
+CRUSH.md,AI_FILE,Crush
+QWEN.md,AI_FILE,Qwen Coder
+CODEBUDDY.md,AI_FILE,Codebuddy
+.comate/,AI_FILE,Baidu Comate
+.lingma/,AI_FILE,Alibaba Lingma
+.tessl/,AI_FILE,Tessl
+.serena/,AI_FILE,Serena
+.rulesync/,AI_FILE,Rulesync
+.factory/droids/,AI_FILE,Factory
+.factory/commands/,AI_FILE,Factory
+.factory/docs/,AI_FILE,Factory
+.qodo/,AI_FILE,Qodo
+.verdent/,AI_FILE,Verdent
+.marscode/,AI_FILE,Trae
+.charlie/instructions/,AI_FILE,Charlie
+.kimi/,AI_FILE, Kimi Code
+.pi/,AI_FILE,Pi
+.pi/prompts/,AI_FILE,Pi
+.pi/extensions/,AI_FILE,Pi
+.rovodev/,AI_FILE, Atlassian Rovodev

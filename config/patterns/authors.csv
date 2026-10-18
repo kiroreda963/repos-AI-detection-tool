@@ -1,0 +1,80 @@
+pattern,type,subtype
+aider,AI,Aider
+aider@aider.chat,AI,Aider
+Claude,AI,Claude Code
+noreply@anthropic.com,AI,Claude Code
+claude@anthropic.com,AI,Claude Code
+assistant@anthropic.com,AI,Claude Code
+Copilot,AI,Copilot
+openhands@all-hands.dev,AI,OpenHands
+openhands-agent,AI,OpenHands
+devin-ai-integration,AI,Devin
+google-labs-jules,AI,Jules
+jules@users.noreply.github.com,AI,Jules
+copilot-swe-agent,AI,Copilot
+cline,AI,Cline
+cline@example.com, AI,Cline
+junie,AI,Junie
+jetbrains-junie,AI,Junie
+gru-agent,AI,Gru
+cursor,AI,Cursor
+cursoragent@cursor.com,AI,Cursor
+gemini-code-assist,AI,Gemini
+gemini-cli,AI,Gemini
+sweep-ai,AI,Sweep
+coderabbit,AI,Coderabbit
+sourcery-ai,AI,Sourcery
+deepsource-autofix,AI,Deepsource
+gpt-engineer,AI,GPT-Engineer
+codegen-sh,AI,Codegen
+hello@sketch.dev,AI,Sketch
+windsurf-bot,AI,Windsurf
+cascade@windsurf.ai,AI,Windsurf
+dev@fly.io,AI,Fly
+ChatGPT,AI,ChatGPT
+chatgpt@chatgpt.com,AI,ChatGPT
+chatgpt@openai.com,AI,ChatGPT
+chatGPT@no-reply.com,AI,ChatGPT
+roomote-agent,AI,Roo Code
+roomote@roocode.com,AI,Roo Code
+roomote,AI,Roo Code
+Roo Code,AI,Roo Code
+amp@ampcode.com,AI,Amp
+noreply@opencode.ai,AI,Opencode
+Kilo Code,AI,Kilo Code
+crush@charm.land,AI,Crush
+codex@openai.com,AI,Codex
+Gemini 2.5 Pro,AI,Gemini
+Gemini 2.5 Flash,AI,Gemini
+Qwen-Coder,AI,Qwen Coder
+qwen-coder@alibabacloud.com,AI,Qwen Coder
+open-swe,AI,Langchain Open SWE
+noreply@warp.dev,AI,Warp
+no-reply@ona.com,AI,Ona
+AI [Aa]ssistant,AI,Generic
+seer-by-sentry,AI,Sentry Seer
+agent@abacus.ai,AI,Abacus
+abacus-ai-automation[bot],AI,Abacus
+vibe@mistral.ai,AI,Mistral Vibe
+noreply@letta.com,AI,Letta Code
+factory-droid[bot],AI,Factory Droid
+Claude Opus 4.5,AI,Claude Code
+Claude Opus 4.6,AI,Claude Code
+Claude Haiku 4.5,AI,Claude Code
+Claude Sonnet 4.5,AI,Claude Code
+Codex (gpt-5.2-codex),AI,Codex
+codex@openai.com,AI,Codex
+opencode-agent,AI,Opencode
+Claude (glm-4.7),AI,Claude Code
+Claude (GLM-4.7),AI,Claude Code
+Claude (glm-4.6),AI,Claude Code
+Claude (GLM-4.6),AI,Claude Code
+Claude (kimi-for-coding),AI,Claude Code
+Claude (kimi-k2.5),AI,Claude Code
+Claude (MiniMax-M2.1),AI,Claude Code
+kiro@aws.amazon.com,AI,Kiro
+kiro-noreply@amazon.com,AI,Kiro
+kiro-agent@amazon.com,AI,Kiro
+microsoft-amplifier@users.noreply.github.com,AI, Microsoft Amplifier
+verdent@verdent.ai,AI,Verdent
+noreply@verdent.ai,AI,Verd

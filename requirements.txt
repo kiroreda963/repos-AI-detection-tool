@@ -1,0 +1,7 @@
+pandas
+pyyaml
+requests
+seaborn
+tqdm
+upsetplot
+cliffs_delta

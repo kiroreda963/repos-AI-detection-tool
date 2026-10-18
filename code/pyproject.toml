@@ -1,0 +1,28 @@
+[project]
+name = "code"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "seaborn>=0.13.2",
+    "requests",
+    "pyyaml",
+    "tqdm",
+    "upsetplot",
+    "adjustText",
+    "emoji",
+    "cliffs_delta",
+    "statsmodels",
+    "scikit-learn",
+    "pltpublish",
+    "plotly"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["utils*", "reports*"]

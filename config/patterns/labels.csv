@@ -1,0 +1,5 @@
+pattern,type,subtype
+ai-generated,AI-PR,Generic
+codex,AI-PR,Codex
+open-swe,AI-PR,Langchain Open SWE
+^amp$,AI-PR,Amp

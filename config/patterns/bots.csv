@@ -1,0 +1,85 @@
+pattern,type,subtype
+dependabot\[bot\],Bot,dependabot
+github-actions\[bot\],Bot,github actions
+gh-action-bump-version@users.noreply.github.com,Bot,github actions
+microsoft-github-policy-service\[bot\],Bot,microsoft
+renovate\[bot\],Bot,renovate
+github-actions\[bot\],Bot,github actions
+Microsoft Open Source,Bot,Bot
+omahs,Bot,Bot
+snyk-bot,Bot,snyk
+Renovate Bot,Bot,renovate
+microsoft-github-operations\[bot\],Bot,microsoft
+msftbot\[bot\],Bot,microsoft
+Microsoft GitHub User,Bot,microsoft
+dotnet-maestro\[bot\],Bot,dotnet
+dotnet bot,Bot,dotnet
+dotnet-maestro\[bot\],Bot,dotnet
+dotnet-policy-service\[bot\],Bot,dotnet
+Azure SDK Bot,Bot,azure
+dotnet-bot,Bot,dotnet
+GitHub Action,Bot,github actions
+dotnet-maestro-bot,Bot,dotnet
+DotNet Bot,Bot,dotnet
+dotnet-maestro,Bot,dotnet
+github-actions,Bot,github actions
+GitStart,Bot,Bot
+ImgBotApp,Bot,Bot
+github-action-benchmark,Bot,Bot
+integration-test@airbyte.io,Bot,Bot
+ASP.NET CI,Bot,Bot
+PyTorch MergeBot,Bot,Bot
+Mattermost Build,Bot,Bot
+Fluent UI Build,Bot,Bot
+Crowdin Bot,Bot,Bot
+repo-visualizer,Bot,Bot
+dotnet-bot,Bot,Bot
+getsentry-bot,Bot,Bot
+QUIC Dev Bot,Bot,Bot
+xerial-bot,Bot,Bot
+Azure SDK for Python bot,Bot,Bot
+stainless-app\[bot\],Bot,Bot
+Travis CI User,Bot,Bot
+octo-sts\[bot\],Bot,Bot
+kodiakhq\[bot\],Bot,Bot
+Calypso Bot,Bot,Bot
+pytorchbot,Bot,Bot
+QUIC Dev\[bot\],Bot,Bot
+Loc Bot,Bot,Bot
+GitHub Actions,Bot,Bot
+UI Fabric Build Bot,Bot,Bot
+Azure CLI Bot,Bot,Bot
+semantic-release-bot,Bot,Bot
+Turbobot,Bot,Bot
+getsantry\[bot\],Bot,Bot
+dependabot-preview\[bot\],Bot,Bot
+PyTorch UpdateBot,Bot,Bot
+microsoft-github-policy-service\[bot\],Bot,Bot
+bott@conexco.com,Bot,Bot
+release-please\[bot\],Bot,Bot
+GitHub Actions Bot,Bot,Bot
+Docusaurus bot,Bot,Bot
+vellum-automation\[bot\],Bot,Bot
+unified-ci-app\[bot\],Bot,Bot
+Calcom Bot,Bot,Bot
+scala-steward-wvlet\[bot\],Bot,Bot
+mergify\[bot\],Bot,Bot
+WhiteSource Renovate,Bot,Bot
+penify-dev\[bot\],Bot,Bot
+enzyme-ci-bot\[bot\],Bot,Bot
+NuGet Team Bot,Bot,Bot
+support@kodexa.com,Bot,Bot
+Bff Bot,Bot,Bot
+Facebook Community Bot,Bot,Bot
+release-automation-rllyy97@microsoft.com,Bot,Bot
+Mend Renovate,Bot,Bot
+fern-api\[bot\],Bot,Bot
+GitHub Design Systems Bot,Bot,Bot
+primer\[bot\],Bot,Bot
+pytorchbot,Bot,Bot
+SXS Bot,Bot,Bot
+gcf-owl-bot\[bot\],Bot,Bot
+Sentry Bot,Bot,Bot
+Release Bot,Bot,Bot
+ASP.NET Push Bot,Bot,Bot
+sentry-autofix\[bot\],Bot,Bot

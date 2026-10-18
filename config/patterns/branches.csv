@@ -1,0 +1,21 @@
+pattern,type,subtype
+codex/,AI-PR,Codex
+copilot/,AI-PR,Copilot
+jetbrains_junie,AI-PR,Junie
+cursor/,AI-PR,Cursor
+openhands/,AI-PR,OpenHands
+devin/,AI-PR,Devin
+gru/,AI-PR,Gru
+claudecode/,AI-PR,Claude Code
+claudecode/,AI-PR,Claude Code
+claude/,AI-PR,Claude Code
+opencode/,AI-PR,Opencode
+jules/,AI-PR,Jules
+sweep/,AI-PR,Sweep
+coderabbit/,AI-PR,Coderabbit
+sourcery-ai/,AI-PR,Sourcery
+windsurf-bot/,AI-PR,Windsurf
+open-swe/,AI-PR,Langchain Open SWE
+codegen-bot/,AI-PR,Codegen
+serena/,AI-PR,Serena
+goose/,AI-PR,Goose

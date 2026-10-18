@@ -1,0 +1,68 @@
+export ADOP=/Users/rrobbes/Projects/agent-impact/repo/agent-impact/temp/feb/Volumes/LaCie/adoption/feb-21
+
+# table 1, overall adoption
+python reports/basic_stats.py $ADOP --exclude dotfiles
+# copy the statistics to data/statistics.tex
+
+# table 2, file level adoption and commit level adoption
+python reports/tool_metrics_table_spark.py $ADOP --exclude dotfiles --output_tex $ADOP/tables/file_adoption_table.tex
+# copy the output to tables/file_adoption_table.tex
+
+# figure 3, correlation between adoption metrics
+python reports/tool_metrics_report.py --exclude dotfiles --output_pdf $ADOP/figures $ADOP
+# upload figure to overleaf, as figures/file_vs_commit_ratio.pdf
+
+# table 3 file adoption stats vs project-level metrics
+python reports/table_ratios.py --exclude dotfiles $ADOP
+# then paste into tables/ratio_tables.tex
+
+#then the analyses excluding one year and two years
+uv run python reports/table_ratios.py --exclude dotfiles $ADOP --no-one-year
+uv run python reports/table_ratios.py --exclude dotfiles $ADOP --no-two-year
+# and paste into data/adoption_sparklines.tex
+
+# TODO: see how andre does for the statistical tests here
+uv run python reports/table_ratios.py --exclude dotfiles $ADOP 2>null | grep "observed\|expected"
+#then copy the output in reports/decile_tests_file_level
+uv run python reports/decile_tests_file_level.py
+
+
+# table 4, commit adoption by project categories
+python reports/commit_ratio_spark.py --exclude dotfiles $ADOP
+# then paste into tables/adoption_ratio_table.tex
+# then uncomment the second "threshold" line in commit_ratio_spark
+# then copy the lines \AllFileswithcommitsMajorityValue and \AllFileswithcommitsExtremeValue into rq2_project_characteristics.tex
+
+# TODO: see how andre does for the statistical tests here
+
+# then copy the lines "All Files ..." ... "Commits only" inside reports/decile_tests_commit_level.py 
+uv run python reports/decile_tests_commit_level.py
+
+# top 20 organizations
+python reports/top_organizations.py --exclude dotfiles $ADOP
+# then paste into tables/organization_adoption
+# then fix formatting ....
+# then manually compute the relative increase of industry vs others
+
+# Figure 4, topic adoption
+python reports/repo_properties_report.py --exclude dotfiles $ADOP
+# then change things in the text ...
+
+# 99% sure for these, but next time double-check
+python reports/consolidate_metrics.py --exclude dotfiles $ADOP consolidated_data
+mv consolidated_data_main.csv ../data
+mv consolidated_data_pl.csv ../data
+# not used
+# python reports/ratio_category_report.py --exclude dotfiles ../data/consolidated_data_main.csv
+
+python reports/ratio_pl_report.py --exclude dotfiles ../data/consolidated_data_pl.csv
+# then upload generated pdfs
+
+# Evolution figures are all in this script (thank god...)
+python reports/rq2-timeline-latex.py --exclude dotfiles $ADOP
+# then upload data as a directory in overleaf
+
+# Commit size figures
+python reports/commit_sizes.py --exclude dotfiles --no-cache $ADOP
+# then upload box plot and the size difference figure
+# and update stats in data/boxplot_metrics.tex
