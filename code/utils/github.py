@@ -180,6 +180,14 @@ class GitHubAPI:
             'User-Agent': 'AIE-Refactoring-Script'
         })
         self.token_pool = TokenPool(tokens)
+        self._call_counts_lock = threading.Lock()
+        self._call_counts = {'rest': 0, 'graphql': 0, 'rate_limited': 0, 'errors': 0}
+
+    def _print_call_counter(self):
+        with self._call_counts_lock:
+            c = self._call_counts
+            print(f"\rAPI calls: REST={c['rest']} GraphQL={c['graphql']} "
+                  f"(rate-limit retries={c['rate_limited']}, errors={c['errors']})   ", end='', flush=True)
 
     def get_updated_rate_limits(self) -> Dict[str, Dict]:
         """Returns only the rate limit information that has been updated by the API."""
@@ -234,7 +242,16 @@ class GitHubAPI:
         return response
 
     def _make_request(self, method: str, url: str, api_type: str = 'rest', **kwargs) -> requests.Response:
-            """Makes an HTTP request with proper API type handling."""
+            """Makes an HTTP request with proper API type handling.
+
+            Doesn't print per-call details - just bumps a running counter
+            (REST/GraphQL/retries/errors) and reprints it on one line, so you
+            see activity and volume without a scrolling call-by-call log.
+            """
+            # Without an explicit timeout, a slow/stalled GraphQL field (e.g.
+            # `blame`, which GitHub computes on demand) can hang far longer
+            # than its eventual 502/504 - the socket just sits open.
+            kwargs.setdefault('timeout', 25)
             while True:
                 token = self.token_pool.get_token(api_type)
                 if not token:
@@ -244,15 +261,31 @@ class GitHubAPI:
                 headers['Authorization'] = f'Bearer {token}' if api_type == 'graphql' else f'token {token}'
                 kwargs['headers'] = headers
 
-                response = self.session.request(method, url, **kwargs)
+                with self._call_counts_lock:
+                    self._call_counts[api_type] += 1
+                self._print_call_counter()
+
+                try:
+                    response = self.session.request(method, url, **kwargs)
+                except requests.exceptions.RequestException:
+                    with self._call_counts_lock:
+                        self._call_counts['errors'] += 1
+                    self._print_call_counter()
+                    raise
 
                 # Always update the pool with fresh headers
                 self.token_pool.update_rate_limit(token, response.headers, api_type)
 
                 if response.status_code == 403 and 'rate limit' in response.text.lower():
-                    api_name = "GraphQL" if api_type == 'graphql' else "REST"
-                    print(f"⚠️ Token {token[:8]}...{token[-4:]} hit {api_name} rate limit. Retrying with another token...")
+                    with self._call_counts_lock:
+                        self._call_counts['rate_limited'] += 1
+                    self._print_call_counter()
                     continue
+
+                if response.status_code >= 400:
+                    with self._call_counts_lock:
+                        self._call_counts['errors'] += 1
+                    self._print_call_counter()
 
                 response.raise_for_status()
                 return response
@@ -329,7 +362,6 @@ class GitHubAPI:
             requests.exceptions.HTTPError: For other API errors.
         """
         api_url = f"{self.base_url}/repos/{owner}/{repo}/git/trees/HEAD"
-        #print(f"Attempting to get file list for '{owner}/{repo}' via API...")
 
         response = self._make_request('get', api_url, params={'recursive': '1'})
 
@@ -406,6 +438,67 @@ class GitHubAPI:
 
         return data
 
+
+    def get_commit(self, owner: str, repo: str, sha: str) -> Dict:
+        """
+        Fetches a single commit via REST, including per-file patches.
+        Used only for commits that need line-level fix/revert attribution,
+        so this stays rare relative to the (cheap) GraphQL commit-history walk.
+        """
+        api_url = f"{self.base_url}/repos/{owner}/{repo}/commits/{sha}"
+        response = self._make_request('get', api_url)
+        return response.json()
+
+    def get_blame_batch(self, owner: str, repo: str, oid: str, paths: List[str]) -> Dict[str, List[Dict]]:
+        """
+        Fetches git-blame ranges for several files at one commit in a single
+        GraphQL request (one aliased `blame(path:...)` field per file), to avoid
+        one round-trip per file.
+
+        Returns: {path: [{startingLine, endingLine, age, commit: {...}}, ...]}
+        """
+        if not paths:
+            return {}
+
+        field_parts = []
+        variables: Dict[str, str] = {"owner": owner, "repo": repo, "oid": oid}
+        for i, path in enumerate(paths):
+            variables[f"path{i}"] = path
+            field_parts.append(f'''
+              b{i}: blame(path: $path{i}) {{
+                ranges {{
+                  startingLine
+                  endingLine
+                  age
+                  commit {{
+                    oid
+                    committedDate
+                    message
+                    author {{ name email user {{ login }} }}
+                  }}
+                }}
+              }}''')
+
+        path_vars = ", ".join(f"$path{i}: String!" for i in range(len(paths)))
+        query = f'''
+        query($owner: String!, $repo: String!, $oid: GitObjectID!, {path_vars}) {{
+          repository(owner: $owner, name: $repo) {{
+            object(oid: $oid) {{
+              ... on Commit {{
+                {"".join(field_parts)}
+              }}
+            }}
+          }}
+        }}'''
+
+        data = self.run_graphQL_query(query, variables)
+        commit_obj = (data.get("repository") or {}).get("object") or {}
+
+        result: Dict[str, List[Dict]] = {}
+        for i, path in enumerate(paths):
+            blame = commit_obj.get(f"b{i}")
+            result[path] = blame["ranges"] if blame else []
+        return result
 
     def run_graphQL_query(self, query, variables):
         """GraphQL query with proper rate limit handling."""

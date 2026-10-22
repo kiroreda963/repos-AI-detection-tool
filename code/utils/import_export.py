@@ -39,6 +39,10 @@ def deserialize_value(value: Any, target_type: Any) -> Any:
         return datetime.fromisoformat(value)
     elif target_type == date:
         return date.fromisoformat(value)
+    elif target_type == bool:
+        # bool("False") is True in Python - any non-empty string is truthy -
+        # so this needs its own branch rather than falling into target_type(value).
+        return str(value).strip().lower() in ("true", "1", "yes")
     elif is_dataclass(target_type):
         return target_type(**json.loads(value))
     elif origin == list:
