@@ -39,6 +39,9 @@ class ClassifiedCommit:
     date: datetime
     author_type: str  # Human | AI | Bot
     tool: str
+    additions: int        # total lines added, across all files in this commit
+    deletions: int         # total lines deleted, across all files in this commit
+    changed_files: int | None  # None if GitHub didn't report it (very large commits)
     is_fix_strict: bool
     is_fix_keyword: bool
     is_fix_issue_linked: bool
@@ -193,6 +196,7 @@ class LeanAnalyzer:
                 classified.append(ClassifiedCommit(
                     github_url=self.github_url, sha=commit.sha, date=commit_date,
                     author_type=author_type, tool=tool,
+                    additions=commit.additions, deletions=commit.deletions, changed_files=commit.changed_files,
                     is_fix_strict=label.is_fix_strict, is_fix_keyword=label.is_fix_keyword,
                     is_fix_issue_linked=label.is_fix_issue_linked, is_revert=label.is_revert,
                     message=commit.message,
