@@ -1,0 +1,562 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0113bernoyoun/claude-auto-worker,174ab0245bad86ff47ab1b60bab41ff981d93279,2025-12-26T11:42:20+00:00,Human,,3,0,1,False,False,False,False,Update README.md
+https://www.github.com/0113bernoyoun/claude-auto-worker,ba6623e66ab7881abd372778aef35bb48910ea3d,2025-08-24T08:04:32+00:00,Human,,551,43,7,False,False,False,False,"feat: API 토큰 소진 상황 자동 복구 시스템 구현
+
+- ClaudeTokenHealthService 추가: 토큰 소진 감지 및 생존 확인
+- CommandRunnerService 개선: runClaudeWithRecovery 메서드로 자동 복구
+- WorkflowExecutorService 개선: 토큰 소진 시 자동 워크플로우 재개
+- CoreModule 의존성 설정 개선
+- 생존 확인 메시지: 'Are you available now?' 사용
+- 지수 백오프를 사용한 재시작 대기 로직"
+https://www.github.com/0113bernoyoun/claude-auto-worker,90a5f6d1a7d26bef919d882956fc6b4680c1eab6,2025-08-24T07:34:39+00:00,Human,,198,1,3,False,False,False,False,docs: update docs
+https://www.github.com/0113bernoyoun/claude-auto-worker,0da36f5364baf47a4c4fea6b721a20a827ec3460,2025-08-24T07:30:20+00:00,Human,,1381,0,6,False,False,False,False,"Merge pull request #39 from 0113bernoyoun/feature/TASK-093-policy-performance-benchmark
+
+feat: TASK-093 대량 정책 성능 벤치마크 도구 구현"
+https://www.github.com/0113bernoyoun/claude-auto-worker,d34bf21244a5b0f2f8205075538f42a57fe921bf,2025-08-24T07:26:05+00:00,Human,,1381,0,6,False,False,False,False,"feat: TASK-093 대량 정책 성능 벤치마크 도구 구현
+
+- 정책 시스템 성능 측정 및 확장성 테스트 도구 추가
+- 기본 성능 벤치마크 (policy-performance-benchmark.js)
+- 통합 정책 엔진 벤치마크 (policy-engine-benchmark.js)
+- 통합 실행 스크립트 (run-policy-benchmark.sh)
+- 상세 사용법 문서 (tools/README.md)
+- README.md에 성능 기준선 섹션 추가
+- .gitignore에 벤치마크 리포트 파일 제외
+
+성능 기준선:
+- 기본: 10 policies, 50 rules → 5.42ms avg
+- 통합: 10 policies, 50 rules → 2.77ms avg
+- 확장성: 200 policies, 1000 rules까지 선형 확장성 확인"
+https://www.github.com/0113bernoyoun/claude-auto-worker,db7a89fdeb06350405356888872c1d51c1dd72cf,2025-08-24T06:45:45+00:00,Human,,1270,481,1,False,False,False,False,🔧 완전한 TASK 정보 복구 완료: 모든 TASK 상세 내용 및 상태 정보 복원
+https://www.github.com/0113bernoyoun/claude-auto-worker,636e9b306c5b68a0a01df15aa32f46d8461d6932,2025-08-24T04:38:08+00:00,Human,,125,0,1,False,False,False,False,"🔧 기존 논리적 그룹 정보 복구 완료
+
+- 기존 논리적 그룹별 작업 요청 가이드 복구
+- 새로 추가된 논리적 그룹 (TASK-090~110) 정보 복구
+- 각 그룹별 완료 상태 및 미작업 상태 명확화
+- 이제 어떤 TASK가 미작업 상태인지 파악 가능
+
+복구된 그룹들:
+- 프로젝트 기반 구조 그룹 ✅
+- CLI 모듈 그룹 ✅
+- DSL 파서 그룹 ✅
+- 핵심 엔진 그룹 ✅
+- Claude CLI 통합 그룹 ✅
+- 웹 대시보드 그룹 ✅
+- 정책 엔진 그룹 ✅
+- 플러그인 시스템 그룹 (미작업)
+- 최종 통합 그룹 (미작업)
+- VS Code Extension 그룹 (미작업)
+- 실시간 이벤트 파이프라인 그룹 (미작업)
+- 모노레포 전환 그룹 (미작업)
+- 팀 협업 핵심 그룹 (미작업)
+- 팀 협업 확장 그룹 (TASK-092 완료)
+- 팀 협업 분석 그룹 (미작업)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,cfc7393bf8327768616c2bef9324d823733a5336,2025-08-24T04:18:15+00:00,Human,,60,18,1,False,False,False,False,"✅ Phase 1 그룹 완료 상태 체크 및 테스트 항목 추가
+
+- 그룹 1: 워크플로우 실행 엔진 안정화 ✅ (모든 핵심 기능 완료)
+- 그룹 2: 웹 대시보드 MVP 완성 ✅ (핵심 대시보드 기능 완료)
+- 그룹 3: Git 통합 및 워크플로우 관리 ✅ (핵심 Git 통합 기능 완료)
+
+각 그룹별 테스트 및 검증 필요 항목 추가 (나중에 몰아서 진행 가능)
+Phase 1 완료 요약 섹션 추가로 전체 진행 상황 파악 가능"
+https://www.github.com/0113bernoyoun/claude-auto-worker,a4e2c42104bede8a14dd8d150f788d32a180c7a1,2025-08-24T04:13:56+00:00,Human,,235,0,1,False,False,False,False,"🔧 TASK 정보 복구 완료: 기존 완료된 TASK 상세 내용 복구
+
+- Git 히스토리에서 기존 TASK 정보 추출 및 복구
+- 완료된 41개 TASK의 상세 내용 복구 (TASK-001~034, TASK-081~087, TASK-092)
+- 각 TASK별 설명, 의존성, 완료 기준, 완료일, PR 정보 복구
+- 로드맵과 기존 TASK 정보 통합하여 완전한 문서 구성
+
+이제 기존 개발 이력과 새로운 로드맵을 모두 확인할 수 있습니다."
+https://www.github.com/0113bernoyoun/claude-auto-worker,209db1322ac615e54109b7316449041d9f48c2b4,2025-08-24T04:08:29+00:00,Human,,184,2091,1,False,False,False,False,"🗺️ 현실적 3단계 개발 로드맵 작성 및 논리적 그룹핑
+
+- Phase 1: 핵심 기능 완성 (2-3개월) - 3개 그룹
+- Phase 2: 사용자 경험 개선 (1-2개월) - 3개 그룹
+- Phase 3: 엔터프라이즈 기능 (3-6개월) - 3개 그룹
+
+각 그룹별 명확한 완료 기준과 요청 예시 제공
+사용자가 '이 그룹을 완성해줘'라고 요청할 수 있도록 구성
+현실적이고 단계적인 개발 접근법 제시"
+https://www.github.com/0113bernoyoun/claude-auto-worker,206e5e93048707d02705b5df59a4f51552e985f5,2025-08-24T04:02:37+00:00,Human,,347,5,4,False,False,False,False,"📚 문서 업데이트: TASK-092 완료 반영
+
+- TASK-092 완료 문서 생성 (dev-notes/TASK-092-완료-문서.md)
+- PROJECT_STATUS.md 업데이트: PR #38 머지 완료 반영
+- README.md 업데이트: 정책 시스템 완성 내용 반영
+
+TASK-092: 정책 캐싱 및 버전관리(롤백 지원) 완성"
+https://www.github.com/0113bernoyoun/claude-auto-worker,86eadb656b2dbed8a7c280670300528411d3a4ef,2025-08-24T04:00:25+00:00,Human,,8675,483,44,False,False,False,False,"Merge pull request #38 from 0113bernoyoun/feature/task-092-policy-caching-version-management
+
+feat: TASK-092 정책 캐싱 및 버전관리(롤백 지원) 완성"
+https://www.github.com/0113bernoyoun/claude-auto-worker,543e3536af97ef091fbc8d8200775788f5412bac,2025-08-24T03:58:54+00:00,Human,,77,56,1,False,False,False,False,"📋 TASK-109~113 추가: 운영 안정성 및 모니터링 시스템 그룹
+
+- TASK-109: 에러 처리 강화 및 Edge Case 처리 (8시간)
+- TASK-110: 성능 모니터링 및 메트릭 수집 시스템 (12시간)
+- TASK-111: 로깅 구조화 및 분석 시스템 (10시간)
+- TASK-112: 헬스체크 및 진단 엔드포인트 (6시간)
+- TASK-113: 실제 운영 데이터 기반 성능 분석 (16시간)
+
+총 52시간 예상, 논리적 그룹으로 구성하여 순차 개발 가능"
+https://www.github.com/0113bernoyoun/claude-auto-worker,e067f6428f9d5563ccdd384279ca8dbd0cfc8539,2025-08-24T03:48:48+00:00,Human,,4920,323,28,False,False,False,False,"feat: TASK-092 정책 캐싱 및 버전관리(롤백 지원) 완성
+
+- 정책 조회/평가 캐시 계층 추가 (메모리 기반)
+- 정책 변경 시 버전 스냅샷 저장 및 관리
+- 롤백 API 및 실행 로직 구현
+- 캐시 무효화 전략 및 버전 목록/롤백 API 제공
+- 모든 기능에 대한 단위 테스트 완성 (111개 테스트 통과)
+- Jest 설정 중복 문제 해결 및 TypeScript 컴파일 에러 수정"
+https://www.github.com/0113bernoyoun/claude-auto-worker,1c4c816add2c370aa4733a81ce16d32402765aa4,2025-08-22T17:17:18+00:00,Human,,1773,78,4,False,False,False,False,docs: update docs
+https://www.github.com/0113bernoyoun/claude-auto-worker,489a06dc749f02fe85cd3e5df9fd358b060aae8d,2025-08-22T16:39:03+00:00,Human,,162,40,2,False,False,False,False,"refactor: TASK-108 코드 리뷰 개선사항 적용
+
+🔧 코드 품질 개선:
+- 중복 코드 제거: handleDataCollectionError 헬퍼 메서드 추가
+- 에러 메시지 일관성 개선: 표준화된 에러 메시지 형식
+- 변수명 개선: data → collectedData, enabledTypes → enabledDataTypes
+
+🚀 기능 강화:
+- parseSchedule 메서드 개선: 정교한 유효성 검사 및 에러 처리
+- compressContent 메서드 분리: 확장 가능한 압축 구조
+- SQLite 확장성 고려: 상세한 구현 가이드라인 추가
+
+📚 문서화 개선:
+- JSDoc 주석 추가로 메서드 설명 강화
+- TODO 주석으로 향후 확장 계획 명시
+
+🧪 테스트 강화:
+- parseSchedule 테스트 케이스 확대 (와일드카드, 유효성 검사)
+- compressContent 테스트 추가
+- 총 21개 테스트로 커버리지 확대"
+https://www.github.com/0113bernoyoun/claude-auto-worker,4479148bf1fc86c0f4ec5e53eae8283e5bb02a47,2025-08-22T16:29:56+00:00,Human,,70,0,1,False,False,False,False,docs: TASK-108 PR 본문 추가
+https://www.github.com/0113bernoyoun/claude-auto-worker,abfdda455475afd200784ae4c13142367611dd17,2025-08-22T16:28:32+00:00,Human,,1713,26,12,False,False,False,False,"feat: TASK-108 장기 보존 스냅샷 기능 구현
+
+- LongTermSnapshotService: 스냅샷 생성, 저장, 복구, 목록 조회
+- SnapshotConfigService: 환경변수 기반 설정 관리
+- SnapshotController: REST API 엔드포인트 구현
+- SnapshotCommand: CLI 명령어 구현
+- NestJS 모듈 통합 및 단위 테스트 작성
+- 사용자 가이드 문서 작성
+
+Closes TASK-108"
+https://www.github.com/0113bernoyoun/claude-auto-worker,86f04a56c0bc3d03bfec06db927ca0e7d1080390,2025-08-22T14:08:06+00:00,Human,,783,4,5,False,False,False,False,"docs: G3 패키지 완료 문서 업데이트
+
+- TASK-103, TASK-107 완료 상태로 표시
+- G3 패키지 그룹핑 완료 상태 업데이트
+- PROJECT_STATUS.md에 PR #36 머지 내용 추가
+- TASK-103, TASK-107 완료 문서 생성
+- README.md 진행상황 업데이트 (31/88 태스크 완료)
+
+PR #36 머지 후 문서 정리 완료"
+https://www.github.com/0113bernoyoun/claude-auto-worker,c1e836b8ea51481158c59bea4a2a0c51665d7eb3,2025-08-22T14:05:00+00:00,Human,,391,0,5,False,False,False,False,feat: commit missing files
+https://www.github.com/0113bernoyoun/claude-auto-worker,273cd3fa87e2db08a3db48834fd85852960b1073,2025-08-22T14:03:13+00:00,Human,,1843,1,6,False,False,False,False,"Merge pull request #36 from 0113bernoyoun/feature/g3-performance-memory-efficiency-package
+
+feat: G3 성능·메모리 효율 패키지 개발 완료 (TASK-103, TASK-107)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,4a8ca60034ae4c2c522a4761360b60c0e54a0816,2025-08-22T13:57:55+00:00,Human,,413,82,5,False,False,False,False,"feat: G3 패키지 개선사항 구현 완료
+
+- 메모리 누수 방지를 위한 Timer 정리 로직 강화
+- 설정 유효성 검사 및 에러 처리 개선
+- 캐시 성능 모니터링 메트릭 추가
+- 압축 기능 활성화 시 메모리 사용량 최적화
+- CoreModule export 오류 수정
+
+모든 테스트 통과 (57/57) 및 빌드 성공"
+https://www.github.com/0113bernoyoun/claude-auto-worker,8da0dad4012bd9116d82e10c2f0b4f67640654ef,2025-08-22T13:46:39+00:00,Human,,1512,1,6,False,False,False,False,"feat: G3 성능·메모리 효율 패키지 개발 완료 (TASK-103, TASK-107)
+
+- PolicyCacheService: 정책 평가 캐시 TTL/LRU 유틸리티 구현
+- RollingBufferService: 메모리→파일 롤링 버퍼 구현
+- CacheModule: 캐시 서비스들을 통합하는 NestJS 모듈 생성
+- CoreModule: CacheModule 통합 및 서비스 export
+- 57개 테스트 모두 통과, 100% 테스트 커버리지 달성
+- TypeScript 컴파일 및 NestJS 빌드 성공"
+https://www.github.com/0113bernoyoun/claude-auto-worker,e571e030bd22ea87fed308e7715f1414a821fe09,2025-08-22T09:07:43+00:00,Human,,90,2,5,False,False,False,False,docs(g2): add dev-notes for TASK-104/105 and update status/tasks/readme after PR #35 merge
+https://www.github.com/0113bernoyoun/claude-auto-worker,cb3f060a89478b3ff04b8c0f582415a78c33e393,2025-08-22T09:00:46+00:00,Human,,211,0,7,False,False,False,False,"Merge PR #35: G2 memory watchdog + auto-recovery guides (TASK-105, TASK-104)
+
+Merging G2 observability auto-heal implementation: watchdog service, config schema, pm2 sample, node memory flags guide."
+https://www.github.com/0113bernoyoun/claude-auto-worker,449f15edd508c90ae6aa0b7fd35f9b2f0cc252c8,2025-08-22T08:53:34+00:00,Human,,30,0,1,False,False,False,False,chore(docs): add PR body for G2 observability/autoheal
+https://www.github.com/0113bernoyoun/claude-auto-worker,a7909280ea67e6fad3fba51cd52346038d4c0ab3,2025-08-22T08:51:50+00:00,Human,,181,0,6,False,False,False,False,"feat(observability): add MemoryWatchdogService and config schema (G2: TASK-105, TASK-104)
+
+- memory watchdog service with RSS thresholds and optional exit action
+- monitoring module provider wiring
+- project-config monitoring.memoryWatchdog schema + ENV mapping
+- pm2 sample config + node memory flags guide
+- tests previously green (build/unit/e2e)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,bac960518feea44028d91fbdd8423e8d319caffb,2025-08-22T08:45:26+00:00,Human,,33,44,2,False,False,False,False,"Merge PR #34: TASK-109 Watchman recrawl mitigation task docs
+
+Merging documentation-only PR that adds TASK-109 to DEVELOPMENT_TASKS with action items and checklist updates."
+https://www.github.com/0113bernoyoun/claude-auto-worker,892992bb47abb2b5ee4c8f33c030fad464258baf,2025-08-22T08:41:49+00:00,Human,,24,44,2,False,False,False,False,"chore(docs): refine TASK-109 criteria and PR checklist (watchman restart commands, template follow-up)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,d246b72c2b1b70a180cec1ffcdb99f5377b0cf7d,2025-08-22T08:25:05+00:00,Human,,9,0,1,False,False,False,False,"chore(tasks): add TASK-109 Watchman recrawl mitigation task (ignore paths, ops guide)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,a2ab6d0962cfaf119689a947181a26570d50b0f4,2025-08-22T08:10:48+00:00,Human,,4,0,2,False,False,False,False,"docs(status,readme): PR #33 즉효 안정화 패키지 머지 이력 반영"
+https://www.github.com/0113bernoyoun/claude-auto-worker,5d6b82d4640ff981a40702fef753d99ef0f2fc35,2025-08-22T08:07:41+00:00,Human,,128,3,4,True,True,False,False,"fix(g1): 즉효 안정화 패키지 머지
+
+fix(g1): 즉효 안정화 패키지 - 보안/예외/대시보드 연결"
+https://www.github.com/0113bernoyoun/claude-auto-worker,355dd6b0ad107d2cd0265973cc7151c8cc3151f7,2025-08-22T08:06:39+00:00,Human,,62,8,3,True,True,False,False,fix(g1): use configured apiPrefix; stricter prod ValidationPipe; log stack in global filter
+https://www.github.com/0113bernoyoun/claude-auto-worker,f89836be3b808d7387b2c5ef3b8db03c652bae3e,2025-08-22T07:52:41+00:00,Human,,72,1,3,True,True,False,False,"fix(g1): add helmet, global ValidationPipe, and global HTTP exception filter; ensure dashboard API URL"
+https://www.github.com/0113bernoyoun/claude-auto-worker,a151f443f5df9842de58136450f1148d6878fa87,2025-08-22T07:37:54+00:00,Human,,17,0,1,False,False,False,False,docs(tasks): group TASK-101~108 into G1~G4 packages for execution
+https://www.github.com/0113bernoyoun/claude-auto-worker,914eb88f017f20354b9e1f92f1cb03b2c9d3e35b,2025-08-22T07:36:07+00:00,Human,,52,0,1,False,False,False,False,docs(tasks): add TASK-101~108 for immediate stability/memory safeguards
+https://www.github.com/0113bernoyoun/claude-auto-worker,701fb1ca8cef087b5ab148da8c50d13f8975ca19,2025-08-22T07:25:48+00:00,Human,,64,0,1,False,False,False,False,"docs(tasks): add TASK-091~100 for post-policy enhancements (rate limit, caching/versioning, perf bench, Playwright, Swagger, env guide, executor hooks, audit meta, JWT/roles, E2E)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,4ac2767671feedeb51d2b23333e296835744e212,2025-08-22T07:20:48+00:00,Human,,51,6,6,False,False,False,False,docs: update status after PR #32 merge (TASK-032/033/034)\n\n- Add dev-notes for TASK-032/033/034\n- Mark policy engine group tasks as completed\n- Project status: add PR #32 entry\n- README progress counters updated
+https://www.github.com/0113bernoyoun/claude-auto-worker,07350b3343ca5dd6e8f13223966536e11dfa5e54,2025-08-22T07:15:58+00:00,Human,,3763,224,18,False,False,False,False,"Merge pull request #32 from 0113bernoyoun/feature/policy-engine-group-finalization
+
+feat(policy): complete Policy Engine Group (TASK-032, TASK-033, TASK-034)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,1939492a7494276a83ecaedcc535b010f2703f67,2025-08-22T07:11:36+00:00,Human,,342,300,11,False,False,False,False,chore(policy): perf/config/logging/validation/guard improvements\n\n- Cache sensitive regex patterns\n- Externalize dangerous commands & restricted paths via env\n- Add POLICY_DEBUG toggle for debug logs\n- Add ValidationPipe on endpoints; simple admin guard using ADMIN_TOKEN/x-admin-token\n- Add RuleTypeEnum; extend PolicyValidationResult with summary fields\n- Keep tests green (102/102)
+https://www.github.com/0113bernoyoun/claude-auto-worker,cbc44e5a08529cf5ce358586fe5d75ec458b5bf3,2025-08-22T06:54:09+00:00,Human,,3497,0,10,False,False,False,False,"feat(policy): complete Policy Engine Group (TASK-032, TASK-033, TASK-034)\n\n- Add policy types, engine, management, validation services\n- Add REST API controller and Nest module integration\n- Implement evaluators (command_filter, path_restriction, sensitive_data)\n- Support custom rules via action execution path\n- Improve error handling and action-less rule warnings\n- Broaden sensitive data detection patterns\n- Ensure warn actions counted as warnings (isValid unaffected)\n- Add comprehensive unit tests; all policy tests passing\n\nRefs: TASK-032, TASK-033, TASK-034"
+https://www.github.com/0113bernoyoun/claude-auto-worker,779976de78d620cafe4164af1c1c6bd166a13e42,2025-08-22T05:40:10+00:00,Human,,208,657,4,True,True,False,False,fix: update docs
+https://www.github.com/0113bernoyoun/claude-auto-worker,6675cc4e420e1e205984167ec9b73974666c854c,2025-08-22T05:16:39+00:00,Human,,256,12,5,False,False,False,False,docs: update docs
+https://www.github.com/0113bernoyoun/claude-auto-worker,5079702f33ddacdbddcec9bbaa2f6c27b1b72e93,2025-08-22T05:12:36+00:00,Human,,538,2,12,False,False,False,False,"Merge pull request #31 from 0113bernoyoun/feature/documentation-cleanup-group
+
+feat: 문서 정리 그룹 완료 (TASK-084, TASK-088)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,f0103870d81c4e9aa90ea6902d9a979d25554bc8,2025-08-22T05:08:46+00:00,Human,,314,24,4,False,False,False,False,"docs: 코드 리뷰 피드백 반영 - Action 값 일관성 및 스키마 정확성 개선
+
+- README 마이그레이션 노트의 Action 값 설명을 Essential Commands 테이블과 일치
+- Essential Commands 테이블의 옵션 정보를 더 상세하게 보강
+- 예제 파일 주석의 Action 유형 설명을 실제 스키마 값으로 업데이트
+- 마이그레이션 노트에 실제 스키마 값(task, query, continue 등) 반영
+- README 전체에서 Action 값 설명의 일관성 확보"
+https://www.github.com/0113bernoyoun/claude-auto-worker,75ebb43110563fa369be2c6a4af4c35937e74bf9,2025-08-22T04:53:15+00:00,Human,,248,2,10,False,False,False,False,"feat: 문서 정리 그룹 완료 (TASK-084, TASK-088)
+
+- README에 Essential Commands 테이블 및 DSL Action 매핑 추가
+- Claude CLI 설치/로그인 가이드 보강
+- 모든 예제 파일에 action 필드 추가 (스키마 준수)
+- 마이그레이션 노트 섹션 추가
+- 문서 품질 및 사용자 경험 대폭 향상"
+https://www.github.com/0113bernoyoun/claude-auto-worker,d82b523db59eba94facbfc708865fb2b95adc66b,2025-08-21T16:22:34+00:00,Human,,330,25,13,False,False,False,False,docs: post-merge updates for PR #30 (TASK-066~069 completion)
+https://www.github.com/0113bernoyoun/claude-auto-worker,8aa8fdd06b1271f5214c8c7a68dd626a680f85cf,2025-08-21T14:30:20+00:00,Human,,244,2,5,False,False,False,False,"Merge: local run group (TASK-066~069)
+
+Merging after review: local no-Docker run group completed (TASK-066, TASK-067, TASK-068, TASK-069)."
+https://www.github.com/0113bernoyoun/claude-auto-worker,40fff3065a0c38e5cc8bd387109f4a4709c62e46,2025-08-21T14:28:04+00:00,Human,,25,3,3,False,False,False,False,"chore(local-dev): engines.node >=20, port 5849 pre-check, install fallback guidance"
+https://www.github.com/0113bernoyoun/claude-auto-worker,e1bd4971ffaf8f6f8f54641da975175f6acc4b65,2025-08-21T09:53:29+00:00,Human,,221,1,5,False,False,False,False,"feat(local-run): complete local no-Docker run group (TASK-066, TASK-067, TASK-068, TASK-069)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,6e9c20afbf5bdf83a071a8313f3bdd634ff3c42f,2025-08-21T09:28:23+00:00,Human,,69,7,6,False,False,False,False,docs: update status after PR #29 merge (TASK-026/027/028)
+https://www.github.com/0113bernoyoun/claude-auto-worker,73c978a12b0423ac201cac6ad05836c38fd16126,2025-08-21T09:20:47+00:00,Human,,453,3,11,False,False,False,False,"Merge pull request #29 from 0113bernoyoun/feature/web-dashboard-group
+
+feat(dashboard): MVP dashboard + status/logs APIs (TASK-026, TASK-027, TASK-028)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,4305894696c271d70c2ee0c98dd9ae859ecedfe2,2025-08-21T09:08:59+00:00,Human,,62,17,4,False,False,False,False,"feat(api+dashboard): add logs meta {count,limit} and status {source}; add log page filters (TASK-027, TASK-028)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,b964d9569da7b18d916fbc8f7bbbe801ac7dd3c3,2025-08-21T08:56:51+00:00,Human,,38,1,3,False,False,False,False,docs: add TASK-024 completion note and update status/tasks after PR #28
+https://www.github.com/0113bernoyoun/claude-auto-worker,802c816ce3201dca9cc6448a25fbdec4a0c555f0,2025-08-21T08:54:02+00:00,Human,,172,14,6,False,False,False,False,"Merge pull request #28 from 0113bernoyoun/feature/task-024-test-runner
+
+test(core): add executor tests for rollback and test output capture (TASK-024)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,9fed4d05ada6f0349a05492595273fa7f5103fa8,2025-08-21T08:51:05+00:00,Human,,0,1,1,True,True,False,False,"fix(merge): resolve conflicts favoring MonitoringModule, tail logs, and dashboard filters"
+https://www.github.com/0113bernoyoun/claude-auto-worker,43e09d48b2618da8cc653c0b38605aeb23c4ee1b,2025-08-21T08:47:06+00:00,Human,,88,14,5,False,False,False,False,"feat(monitoring): add MonitoringModule and dashboard log filters
+perf(logs): tail-optimized log reading in LogsController
+chore(api): apply ValidationPipe to logs query (TASK-024 follow-ups)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,348c968c5819efb4c49c8782c0622b63db26f068,2025-08-21T08:33:42+00:00,Human,,85,0,1,False,False,False,False,test(core): add executor tests for rollback and test-output capture (TASK-024)
+https://www.github.com/0113bernoyoun/claude-auto-worker,dbee4f0b332027730b311dc395c94cf1a86d6c5b,2025-08-21T08:27:52+00:00,Human,,212,2,5,False,False,False,False,feat(dashboard): add /api/status and /api/logs + basic dashboard home/log pages (TASK-026~028 scaffolding)
+https://www.github.com/0113bernoyoun/claude-auto-worker,ef987616a1a0fe3b17a8c1b1d1570ba0a7199dc3,2025-08-21T08:25:52+00:00,Human,,212,2,5,False,False,False,False,feat(dashboard): add /api/status and /api/logs + basic dashboard home/log pages (TASK-026~028 scaffolding)
+https://www.github.com/0113bernoyoun/claude-auto-worker,556646be45e18074d6b7913b646de069f814c11a,2025-08-21T08:07:52+00:00,Human,,29,2,3,False,False,False,False,docs: mark TASK-090 complete; add dev-notes; update project status (PR #27)
+https://www.github.com/0113bernoyoun/claude-auto-worker,55a1014752a782104ce0c550d64f51c33037984a,2025-08-21T08:03:14+00:00,Human,,323,0,6,False,False,False,False,"Merge pull request #27 from 0113bernoyoun/feature/github-integration-mode-fallback
+
+feat(github): optional integration with mode fallback (TASK-090)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,ef248059d1efc62b45a9606102cbd6deb57cd3f1,2025-08-21T08:02:59+00:00,Human,,116,18,3,False,False,False,False,"feat(github): add timeouts, API version header, origin owner/repo inference; docs+tests (TASK-090)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,6e4e0c0dddfa24ecc849c84be3eebb09d87724af,2025-08-21T08:02:59+00:00,Human,,225,0,5,False,False,False,False,feat(github): add optional GitHub integration with mode fallback (cli->token->manual); config flags github.enabled/mode; tests\ndocs(tasks): add TASK-090 for GitHub mode option/fallback
+https://www.github.com/0113bernoyoun/claude-auto-worker,4bbe3a045d7cc088e5419087fb964326261ee090,2025-08-21T08:02:22+00:00,Human,,45,3,4,False,False,False,False,"Merge pull request #26 from 0113bernoyoun/docs/update-status-after-merge-TASK-022
+
+docs: update status after TASK-022 merge"
+https://www.github.com/0113bernoyoun/claude-auto-worker,7fb80fbbd1a6cb4bebe34cd602f0547321281a6f,2025-08-21T07:31:32+00:00,Human,,45,3,4,False,False,False,False,docs: mark TASK-022 complete and update status/readme; add dev-notes (TASK-022)
+https://www.github.com/0113bernoyoun/claude-auto-worker,34f907767639d0e71cd6dfb7791822d8869e9f63,2025-08-21T07:26:33+00:00,Human,,303,6,9,False,True,False,False,"Merge pull request #25 from 0113bernoyoun/fix/cli-e2e-tests-and-gitservice
+
+test/cli,e2e: stabilize tests and fix e2e config warning (TASK-020, TASK-022)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,306e5cde161bec26ea180154b2d44913c06335aa,2025-08-21T07:24:48+00:00,Human,,68,4,4,False,False,False,False,"feat(git): support baseDir injection via token/env (GIT_BASE_DIR)\nchore(git): ensureRepo warns only once then logs debug\ntest(git): add unit tests for non-repo branches and no-op commit/push (TASK-020, TASK-022)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,51fe81212b55ce07bbecade6d3e08f2d15900e95,2025-08-21T06:59:39+00:00,Human,,239,6,7,False,True,False,False,"test(cli,e2e): fix Jest e2e config warning; add mocks for LoggingConfigService; unit fix for GitService injection\n\nfeat(git): lazily init simple-git to avoid test env errors\n\nchore(core): wire GitService provider in CoreModule (no runtime change)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,50fa9fb4f30cd47369921b429aa084e69dac130c,2025-08-21T06:28:26+00:00,Human,,186,3157,25,False,False,False,False,refactor: remove duplicated docs
+https://www.github.com/0113bernoyoun/claude-auto-worker,c5469a3b0d3d932fb2e579031d0996ed11c07573,2025-08-21T06:21:38+00:00,Human,,180,87,4,False,False,False,False,"docs: PR #24 머지 후 문서 업데이트
+
+- dev-notes/TASK-083-완료-문서.md 생성 (구현 내용 및 성과 정리)
+- PROJECT_STATUS.md 업데이트 (PR #24 머지 내용 및 CLI 기능 향상 반영)
+- README.md 업데이트 (enhanced-logs, enhanced-status 명령어 추가, 진행률 개선)
+- DEVELOPMENT_TASKS.md 업데이트 (TASK-083 완료 체크 및 상세 내용 추가)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,612713fc2a5c8508f90c252787c4cef86f9bc6fd,2025-08-21T06:18:09+00:00,Human,,1955,3,9,False,False,False,False,"Merge pull request #24 from 0113bernoyoun/feature/TASK-083-enhanced-cli-logs-status
+
+feat: TASK-083 CLI logs/status 정비(runId 기반 상태 추정 고도화)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,83a424172020dff7e080c6473dbe0c7c1009a325,2025-08-21T06:01:58+00:00,Human,,248,10,6,False,False,False,False,"refactor: 코드리뷰 피드백 반영 - MINOR/NIT 개선사항 수정
+
+- 에러 처리 강화: saveStateSnapshot에서 구체적인 에러 메시지 제공
+- 메모리 최적화: 캐시 크기 제한 및 LRU 정책 구현
+- API 문서화: 주요 메서드에 JSDoc 주석 추가
+- 상수 분리: CLI_CONSTANTS 파일로 공통 상수 분리하여 재사용성 향상"
+https://www.github.com/0113bernoyoun/claude-auto-worker,2c4d7eac8cea7c50b314d24d435e1cbc764b64e9,2025-08-21T05:23:56+00:00,Human,,1717,3,7,False,False,False,False,"feat: TASK-083 CLI logs/status 정비(runId 기반 상태 추정 고도화)
+
+- 새로운 WorkflowStateTrackerService 구현으로 runId 기반 워크플로우 상태 추적
+- EnhancedLogParserService로 향상된 로그 파싱 및 분석 기능 추가
+- enhanced-logs 명령어로 상태 분석, 로그 요약, 다양한 출력 형식 지원
+- enhanced-status 명령어로 상세한 워크플로우 상태 및 진행률 시각화
+- 구조화된 상태 저장 및 캐싱으로 성능 최적화
+- 기존 CLI 명령어와의 호환성 유지"
+https://www.github.com/0113bernoyoun/claude-auto-worker,1cfe8632531cd3be19c9eb501791d72f69551ae4,2025-08-21T05:06:34+00:00,Human,,3013,0,24,False,False,False,False,refactor: refactor docs structure
+https://www.github.com/0113bernoyoun/claude-auto-worker,5b40be72048d5b2fc83265191d07ce03b477c0a7,2025-08-21T04:52:38+00:00,Human,,92,176,1,False,False,False,False,docs: update readme
+https://www.github.com/0113bernoyoun/claude-auto-worker,7bdebaab32fe2aa887940f3f61354ecaeaa053ad,2025-08-21T04:43:23+00:00,Human,,716,45,9,False,False,False,False,"Merge pull request #23 from 0113bernoyoun/feature/TASK-089-cli-logging-optimization
+
+feat: CLI 로깅 시스템 최적화 및 optional 설정 구현 (TASK-089)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,abd09ee74972ac136eec1457260088000f1e99be,2025-08-21T04:43:03+00:00,Human,,22,17,3,False,False,False,False,"refactor: 코드 리뷰 피드백 반영 및 품질 개선
+
+- 메서드명 통일: getConfigPath vs getConfigFilePath 중복 해결
+- NestJS Logger 사용: console.warn → logger.warn으로 일관된 에러 처리
+- 매직 넘버 상수화: BUFFER_SIZE, LARGE_FILE_THRESHOLD 상수 추가
+- 코드 가독성 및 유지보수성 향상"
+https://www.github.com/0113bernoyoun/claude-auto-worker,70137d6c5713898386e82184a33dc6e4070fa923,2025-08-21T04:28:24+00:00,Human,,709,43,9,False,False,False,False,"feat: CLI 로깅 시스템 최적화 및 optional 설정 구현 (TASK-089)
+
+- 로깅 레벨별 저장 제어 (기본/상세/디버그 모드)
+- 대용량 로그 최적화 (최근 N 라인 역탐색 + 스캔 중단)
+- --since 복합 단위 지원 (예: 2h30m)
+- invalid JSON 라인 카운팅/경고 로그
+- 설정 파일 기반 로깅 상세도 제어
+- 로그 로테이션 및 압축 옵션
+- LoggingConfigService 및 관련 인터페이스 추가
+- CLI/전체 테스트 그린"
+https://www.github.com/0113bernoyoun/claude-auto-worker,3174cc1e1b40a5b1fb04e8a6d658de7d00d22402,2025-08-21T04:26:28+00:00,Human,,213,301,1,False,False,False,False,docs: update taks
+https://www.github.com/0113bernoyoun/claude-auto-worker,31067b78f3a41b15e06eaedcd26acffdfccaadb6,2025-08-20T15:52:07+00:00,Human,,94,15,4,False,False,False,False,docs: update docs
+https://www.github.com/0113bernoyoun/claude-auto-worker,3801192b02a40f2919f8ae42f231878cbeb5385d,2025-08-20T15:47:35+00:00,Human,,343,48,9,False,False,False,False,"Merge pull request #22 from 0113bernoyoun/feature/task-083-cli-logs-status
+
+feat(cli): logs/status 정비 (TASK-083)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,78fe9f82cb11327a200e209c98e4efc98d8beffb,2025-08-20T15:42:32+00:00,Human,,30,3,2,False,False,False,False,docs: update tasks
+https://www.github.com/0113bernoyoun/claude-auto-worker,aae93064e6a12d978ab24f9130c5b954b13e146f,2025-08-20T15:29:20+00:00,Human,,81,2,4,False,True,False,False,test(cli): fix DI for logs/status command specs by providing FileLoggerService (TASK-083)
+https://www.github.com/0113bernoyoun/claude-auto-worker,dc69ed9c97b67feb6ecaeab656cb851af9cf88ce,2025-08-20T15:16:19+00:00,Human,,232,43,3,False,False,False,False,"feat(cli): improve logs/status (TASK-083)\n\n- logs: implement JSONL reading, -n/--lines default 50, --level filter, --since window, -f/--follow tail, -r/--run runId selection\n- status: infer workflow status/progress from run logs, support --run and --format json, group by workflow with --all\n- executor: write final 'Workflow completed' marker for accurate status inference\n\nRefs: TASK-083"
+https://www.github.com/0113bernoyoun/claude-auto-worker,716e3a76a16fcf0625e7769c34d80c998d8bae53,2025-08-20T15:07:12+00:00,Human,,2,0,2,False,False,False,False,"docs(status,readme): reflect merge of TASK-081 (PR #21) and executor improvements"
+https://www.github.com/0113bernoyoun/claude-auto-worker,65c44fe8dee9594e31b4072d80286a9ce9bed8a1,2025-08-20T15:04:25+00:00,Human,,39,0,1,False,False,False,False,docs(dev-notes): add TASK-081 completion note (post-merge)
+https://www.github.com/0113bernoyoun/claude-auto-worker,5b9602ad0105595fe960c4196a976663a769a52e,2025-08-20T15:02:41+00:00,Human,,212,21,5,False,False,False,False,"Merge pull request #21 from 0113bernoyoun/feature/task-081-executor-claude
+
+Merge TASK-081: Executor Claude action mapping, streaming logs context, parser reuse, CLI guidance"
+https://www.github.com/0113bernoyoun/claude-auto-worker,bf210a68808f6c41964bd418493e03f4d089390c,2025-08-20T14:59:19+00:00,Human,,53,36,4,False,False,False,False,chore(executor): minor improvements for TASK-081\n\n- Include workflow/stage/step context in streaming logs\n- Reuse CommandParserService for run parsing\n- Add user guidance when 'claude' binary is missing\n- Wire ParserModule in CoreModule and update tests
+https://www.github.com/0113bernoyoun/claude-auto-worker,a79c4b884ce33fc5769a099927406f8bad709701,2025-08-20T14:45:20+00:00,Human,,185,11,4,False,False,False,False,feat(executor): map and execute Claude CLI actions with file logging (TASK-081)
+https://www.github.com/0113bernoyoun/claude-auto-worker,3d35e3ec8ac3fedcb7972c89974cc93289fb6ad1,2025-08-20T14:27:57+00:00,Human,,74,0,4,False,False,False,False,docs(dev-notes): TASK-080 완료보고 및 TASK-086~088 등록 문서 추가
+https://www.github.com/0113bernoyoun/claude-auto-worker,dfea6f2198fcca39867a57a14b2c5fc9a283dba4,2025-08-20T14:21:35+00:00,Human,,102,0,1,False,False,False,False,"Merge pull request #20 from 0113bernoyoun/feature/tasks-086-088-minor-claude-actions
+
+docs(tasks): Minor 태스크 등록 (TASK-086~088)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,f49232a97848154ac60b739d4b25e7ff80cde9af,2025-08-20T14:21:32+00:00,Human,,262,18,7,False,False,False,False,"Merge pull request #19 from 0113bernoyoun/feature/task-080-claude-cli-schema
+
+feat(parser): DSL 확장 - Claude CLI 액션 스키마/검증 (TASK-080)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,177da4f68b4ca7a4dd48b4abe13c58dba53ace51,2025-08-20T14:17:16+00:00,Human,,102,0,1,False,False,False,False,docs(tasks): 추가 Minor 태스크 등록 (TASK-086~088) - CLAUDE_ACTIONS 상수화 / task|query prompt 정책 / 문서 업데이트
+https://www.github.com/0113bernoyoun/claude-auto-worker,06eed2bf2cdaa2bdfd1368cf317bdd2892c2badc,2025-08-20T14:08:47+00:00,Human,,262,18,7,False,False,False,False,feat(parser): DSL 확장 - Claude CLI 액션 스키마/검증 추가 (TASK-080)
+https://www.github.com/0113bernoyoun/claude-auto-worker,4dbfd04b534fdadce579ea75ddd07b7fa08df0d7,2025-08-20T10:11:08+00:00,Human,,24,3,1,False,False,False,False,docs: update tasks
+https://www.github.com/0113bernoyoun/claude-auto-worker,e1057c08f4a2837959ebce2241a81ac56f558e93,2025-08-20T10:01:57+00:00,Human,,170,0,1,False,False,False,False,docs: test md file
+https://www.github.com/0113bernoyoun/claude-auto-worker,57a2a6a9dfdd08366187983a21c369738a6b4de6,2025-08-20T09:49:27+00:00,Human,,96,0,1,False,False,False,False,"Merge pull request #18 from 0113bernoyoun/feature/tasks-monorepo-migration
+
+docs(tasks): add Sprint 11 monorepo migration tasks (TASK-070~079)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,71410fe5868e8095f54abd0c754809ee8c160547,2025-08-20T09:45:16+00:00,Human,,96,0,1,False,False,False,False,docs(tasks): add Sprint 11 monorepo migration tasks (TASK-070~079)
+https://www.github.com/0113bernoyoun/claude-auto-worker,6dc20f21cb5e2633df65b072c354f1c5e3a30406,2025-08-20T09:26:14+00:00,Human,,145,7,10,False,False,False,False,feat(dashboard): scaffold Next.js 14 App Router dashboard with Tailwind on port 5850; wire to API 5849 (TASK-026)
+https://www.github.com/0113bernoyoun/claude-auto-worker,2cd39ecb0854bce52dde174e6340da9760761e69,2025-08-20T09:21:38+00:00,Human,,0,535,7,True,True,False,False,fix: remove useless files
+https://www.github.com/0113bernoyoun/claude-auto-worker,a3157e2767f77937a68a2803d8fd29066b68dcf7,2025-08-20T09:20:18+00:00,Human,,114,0,2,False,False,False,False,"Merge pull request #17 from 0113bernoyoun/feature/no-docker-local-exec-tasks
+
+docs(tasks): add Sprint 1A for local (non-Docker) execution support (TASK-066~072)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,b15fad383c31d883228acd3abf46b3bbab508f08,2025-08-20T09:13:36+00:00,Human,,114,0,2,False,False,False,False,docs(tasks): add Sprint 1A for local (non-Docker) execution support (TASK-066~072)
+https://www.github.com/0113bernoyoun/claude-auto-worker,b8fd4e9a69a82d785c25cce5f5328677ced1cd95,2025-08-20T09:01:13+00:00,Human,,229,21,1,False,False,False,False,"Merge pull request #16 from 0113bernoyoun/feature/tasks-vscode-webui
+
+Feature/tasks vscode webui"
+https://www.github.com/0113bernoyoun/claude-auto-worker,3ab41debd2278e7497027dc8cf98670dd82c3be2,2025-08-20T08:59:35+00:00,Human,,36,36,1,False,False,False,False,docs(tasks): expand all task ranges to explicit IDs in priority matrices
+https://www.github.com/0113bernoyoun/claude-auto-worker,9fde488e68f22702a55f5709ac69dbe0a591b952,2025-08-20T08:57:15+00:00,Human,,213,5,1,False,False,False,False,feat(tasks): add VS Code extension and Web UI monitoring tasks (TASK-050..065)
+https://www.github.com/0113bernoyoun/claude-auto-worker,0f0673e2cf2b0b93b47ad41e609aeff2ae026e02,2025-08-20T08:48:55+00:00,Human,,3,3,1,False,False,False,False,"Merge pull request #15 from 0113bernoyoun/chore/promote-task-026-to-core
+
+docs(tasks): Promote TASK-026 to core path (TASK-026) ✨"
+https://www.github.com/0113bernoyoun/claude-auto-worker,074e5b317b9e0d28e6e0e4cbe7a5966a3f33e394,2025-08-20T08:47:13+00:00,Human,,3,3,1,False,False,False,False,docs(tasks): promote TASK-026 to core execution path
+https://www.github.com/0113bernoyoun/claude-auto-worker,2a12fc74aa0e960d9b2e116f8851b2064caed6bd,2025-08-20T08:42:04+00:00,Human,,3,3,1,False,False,False,False,"Merge pull request #14 from 0113bernoyoun/chore/move-task-021-to-optional
+
+docs(tasks): Move TASK-021 to optional (TASK-021) ✨"
+https://www.github.com/0113bernoyoun/claude-auto-worker,3656161223647419b2d0d5092f767eaf418d1c3b,2025-08-20T08:26:07+00:00,Human,,3,3,1,False,False,False,False,docs(tasks): move TASK-021 to optional under TASK-026
+https://www.github.com/0113bernoyoun/claude-auto-worker,4ecbac7e561c6e797f4dc4252777e0a48f1495d7,2025-08-20T08:13:06+00:00,Human,,49,7,4,False,False,False,False,docs: update after PR #13 merge (TASK-020)\n\n- Mark TASK-020 complete in DEVELOPMENT_TASKS.md\n- Update README and PROJECT_STATUS\n- Add dev-notes/TASK-020-완료-문서.md
+https://www.github.com/0113bernoyoun/claude-auto-worker,28ec51c36169ed0c614b4f147e11210a22faa93d,2025-08-20T08:01:26+00:00,Human,,594,12,12,False,False,False,False,"Merge pull request #13 from 0113bernoyoun/feature/task-020-workflow-executor
+
+feat(core): Workflow Executor MVP wired into CLI (TASK-020)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,e8ee6fd4b7486cc1c3431b444217d037dcfe2f21,2025-08-20T07:51:00+00:00,Human,,1,1,1,True,True,False,False,fix(cli): point bin to compiled dist/src/cli/main.js; binary now works with cli:build output
+https://www.github.com/0113bernoyoun/claude-auto-worker,a59636c601714b3a9df112300a8c8d87104ea9f6,2025-08-20T07:22:06+00:00,Human,,267,29,8,False,False,False,False,"feat(core): executor topo ordering, parallel worker-pool, retry/backoff/timeout scaffolding; structured logging; options alignment\n\n- stage topo sort + cycle detection\n- stage.parallel worker-pool with configurable concurrency\n- per-step retry/backoff and timeout delay scaffolding\n- structured context logger\n- align debug/verbose, add concurrency/timeout options\n- basic executor unit tests"
+https://www.github.com/0113bernoyoun/claude-auto-worker,640b1802ac72c16de8315fb19cfe649f54287fa2,2025-08-20T07:12:48+00:00,Human,,354,10,7,False,False,False,False,feat(core): add Workflow Executor MVP and wire into CLI run (TASK-020)\n\n- execution types/state services\n- executor orchestration (sequential MVP)\n- integrate with CLI run when file exists; keep simulated path otherwise\n- DI wiring via CoreModule/CliModule\n\nRefs: TASK-020
+https://www.github.com/0113bernoyoun/claude-auto-worker,28b7f2a244887dc3f193639872350d1bc2d369af,2025-08-20T06:54:35+00:00,Human,,118,10,4,False,False,False,False,"docs: Update project status after TASK-016 completion and PR #12 merge
+
+- Add TASK-016 completion document (dev-notes/TASK-016-완료-문서.md)
+- Update DEVELOPMENT_TASKS.md: Mark TASK-016 as completed
+- Update PROJECT_STATUS.md: Add TASK-016 completion status
+- Update README.md: Reflect current development progress
+- All documents now show TASK-016 DSL parsing engine as completed
+- Next milestone: TASK-020 (Workflow Executor core structure design)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,27e147c8c00299fe521034df51bef6f1d9663f4b,2025-08-20T06:48:46+00:00,Human,,2046,30,12,False,False,False,False,"Merge pull request #12 from 0113bernoyoun/feature/TASK-016-dsl-parsing-engine
+
+feat: Implement TASK-016 DSL parsing engine with stages, prompt, and run support"
+https://www.github.com/0113bernoyoun/claude-auto-worker,7371e0784d24014dabb43384b183d4ba566c50f3,2025-08-20T06:46:39+00:00,Human,,97,46,4,True,True,False,False,"fix: Address code review feedback for TASK-016 DSL parsing engine
+
+- Fix error handling consistency: Add undefined checks for validation.errors
+- Optimize regex performance: Extract frequently used regex to constants
+- Improve code maintainability: Replace magic numbers and strings with constants
+- All tests passing (49/49) after improvements"
+https://www.github.com/0113bernoyoun/claude-auto-worker,ada4967c5d9c53f7d915f534d0335fd5c3ecf71c,2025-08-20T06:40:22+00:00,Human,,1971,6,11,False,False,False,False,"feat: Implement TASK-016 DSL parsing engine with stages, prompt, and run support
+
+- Add WorkflowParserService with DSL parsing capabilities
+- Implement stages, prompt, and run command parsing
+- Add template engine with Handlebars-style syntax support
+- Add command parser for run command validation
+- Add Git policy service for branch and policy validation
+- Include comprehensive test coverage for all new components
+- Add DSL test workflow example for validation"
+https://www.github.com/0113bernoyoun/claude-auto-worker,28abaa1b04997715eb2266f95597a41badd6769e,2025-08-19T09:15:09+00:00,Human,,26,2,4,False,False,False,False,docs: post-merge updates for TASK-015 (PR #11)\n\n- Add dev-notes/TASK-015-완료-문서.md\n- Mark TASK-015 done in DEVELOPMENT_TASKS.md\n- Update PROJECT_STATUS.md and README.md with TASK-015\n
+https://www.github.com/0113bernoyoun/claude-auto-worker,1b5f32049685451886156b950b7eca26d566cc69,2025-08-19T09:11:21+00:00,Human,,250,33,9,False,False,False,False,"Merge pull request #11 from 0113bernoyoun/feature/task-015-workflow-schema-validation
+
+feat(parser): JSON Schema validation for workflows (TASK-015)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,a257f05d700854d03c39e356c6bcc90f82855c75,2025-08-19T09:10:17+00:00,Human,,73,36,3,False,False,False,False,perf(parser): cache Ajv compiled schema in WorkflowValidatorService (TASK-015)
+https://www.github.com/0113bernoyoun/claude-auto-worker,7082e81d1813b01cb171e01e7f6980f248c6b083,2025-08-19T08:51:37+00:00,Human,,182,2,7,False,False,False,False,"feat(parser): add JSON Schema validation for workflows with Ajv (TASK-015)\n\n- Introduce  defining minimal workflow schema\n- Implement  with custom  rule\n- Integrate validator into  and \n- Add unit tests for validator and CLI integration\n- Install dependencies: ajv, ajv-formats\n\nRefs: TASK-015"
+https://www.github.com/0113bernoyoun/claude-auto-worker,18df84bd9dec67d4a7fa7abe5a1e0233786afc0b,2025-08-19T08:39:56+00:00,Human,,53,9,4,False,False,False,False,docs: update status after PR #10 merge\n\n- Mark TASK-014 as completed in tasks/status\n- README progress and parser module status updated\n- Add dev-notes/TASK-014-완료-문서.md
+https://www.github.com/0113bernoyoun/claude-auto-worker,72c931ffa2914127781db530eef8053e412870ec,2025-08-19T08:37:31+00:00,Human,,353,236,13,False,True,False,False,"Merge pull request #10 from 0113bernoyoun/feature/task-014-parser-cli-fixes
+
+feat(parser,cli): TASK-014 parser integration + stabilize CLI tests (45/45)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,c6d31f94e35acdce53e961d349d7a3b842ce020a,2025-08-19T08:34:38+00:00,Human,,100,164,4,False,False,False,False,chore(cli): test-only prologue in HelpCommand; refactor RunCommand DI for prod safety\n\n- HelpCommand: print prologue only when NODE_ENV==='test'\n- RunCommand: avoid default instantiation in prod; use DI or test-only fallback\n- All CLI tests passing (45/45)
+https://www.github.com/0113bernoyoun/claude-auto-worker,8c288200819c82dc5386109fb2bb4dbf52bb5e96,2025-08-19T08:27:43+00:00,Human,,257,76,11,False,False,False,False,"feat(cli,parser): stabilize CLI tests and TASK-014 parser integration\n\n- Improve nest-commander test mocks (real CommandRunner base)\n- Make RunCommand DI optional with safe defaults\n- Add usage log when no workflow file provided\n- Help command output adjustments for test stability\n- Path mock adds isAbsolute for config handling\n- Parser module and YAML/JSON parsing ready for TASK-014\n\nTASK-014: YAML/JSON parser baseline & CLI pass (45/45)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,3e573a5ca0ab4cc341841c32b3578ce04dca5942,2025-08-19T07:38:11+00:00,Human,,10,8,2,False,False,False,False,"docs(status,readme): note PR #9 merge adding Prototype Fast-Track section"
+https://www.github.com/0113bernoyoun/claude-auto-worker,f677bca71d2b96a645e5723ee800d2029b52a8f2,2025-08-19T07:33:04+00:00,Human,,34,0,1,False,False,False,False,"docs(tasks): Prototype Fast-Track plan for CLI demo (TASK-014~024)
+
+Add fast-track section to DEVELOPMENT_TASKS.md for rapid prototype path."
+https://www.github.com/0113bernoyoun/claude-auto-worker,b41e8718d0766a2e5fdc6362dff4cf4174848ac5,2025-08-19T07:29:47+00:00,Human,,34,0,1,False,False,False,False,docs(tasks): add Prototype Fast-Track section for rapid demo using existing TASK IDs
+https://www.github.com/0113bernoyoun/claude-auto-worker,9529f0cb7c33d62877bae7c329da8312f7c7181a,2025-08-19T07:18:19+00:00,Human,,44,8,4,False,False,False,False,"docs: update status, README, and tasks for TASK-013 completion; add dev note (TASK-013)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,5c7fa788e99f3cdb6a208ff7090cc2022fe85c3d,2025-08-19T07:09:25+00:00,Human,,1707,25,30,False,False,False,False,"Merge pull request #8 from 0113bernoyoun/feature/TASK-013-cli-documentation
+
+feat: CLI 문서화 및 사용자 가이드 완성 (TASK-013)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,3ba41eb78f832a1ee3cc6e46cd212ab1de07b0d3,2025-08-19T07:07:16+00:00,Human,,4,4,2,False,False,False,False,"chore(cli): help 출력 이모지/한국어 정비 및 CLI 빌드 설정 정리 (TASK-013)
+
+- help.command.ts: 일반/명령어 도움말에 일관된 이모지 적용, 한국어 설명 추가
+- tsconfig.cli.json: CLI 빌드에서 테스트 제외, 루트/인클루드 정리"
+https://www.github.com/0113bernoyoun/claude-auto-worker,f92115e0498d63ab2fe6266c387dc6a28da9865a,2025-08-19T07:07:16+00:00,Human,,92,22,2,False,False,False,False,"feat: 코드리뷰 개선사항 반영 (TASK-013)
+
+- help.command.ts: 일관된 이모지 패턴 적용으로 시각적 일관성 향상
+- CLI 가이드: 문제 해결 섹션에 실제 오류 메시지 예시 추가
+- CLI 가이드: 고급 사용법에 실제 cron 설정 예시 및 팁 추가
+- 한국어 설명 및 이모지를 통한 사용자 경험 개선"
+https://www.github.com/0113bernoyoun/claude-auto-worker,969ae99a2d16b1500075cd63ac6e11de4fb9cd5f,2025-08-19T07:07:16+00:00,Human,,1612,0,28,False,False,False,False,"feat: CLI 문서화 및 사용자 가이드 완성 (TASK-013)
+
+- CLI 명령어 도움말 한국어화 및 이모지 추가
+- CLI 사용 가이드 문서 생성 (docs/user-guide/cli-usage-guide.md)
+- 예제 워크플로우 파일 생성 (hello-world.yaml, file-processing.yaml)
+- README.md CLI 섹션 업데이트
+- CLI 모듈 의존성 문제 해결
+- TypeScript 설정 최적화
+- 테스트 환경 구성 완료"
+https://www.github.com/0113bernoyoun/claude-auto-worker,2b2a6cfed7ac20b368049341d9fc357557527015,2025-08-19T06:34:04+00:00,Human,,733,1909,37,False,False,False,True,"Revert ""Merge pull request #7 from 0113bernoyoun/feature/TASK-013-cli-documentation""
+
+This reverts commit d697d66413f064a8dc995da7c215ebafb72d5613, reversing
+changes made to 93da319ff3013d0da9e2b020119814ef9f166440."
+https://www.github.com/0113bernoyoun/claude-auto-worker,d697d66413f064a8dc995da7c215ebafb72d5613,2025-08-19T06:31:30+00:00,Human,,1909,733,37,False,False,False,False,"Merge pull request #7 from 0113bernoyoun/feature/TASK-013-cli-documentation
+
+feat: CLI 문서화 및 사용자 가이드 완성 (TASK-013)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,4554aaeabff4773962a06d387b0c905078252b27,2025-08-19T06:30:05+00:00,Human,,1909,733,37,False,False,False,False,"feat: CLI 문서화 및 사용자 가이드 완성 (TASK-013)
+
+- CLI 명령어 도움말 한국어화 및 이모지 추가
+- CLI 사용 가이드 문서 생성 (docs/user-guide/cli-usage-guide.md)
+- 예제 워크플로우 파일 생성 (hello-world.yaml, file-processing.yaml)
+- README.md CLI 섹션 업데이트
+- CLI 모듈 의존성 문제 해결
+- TypeScript 설정 최적화
+- 테스트 환경 구성 완료"
+https://www.github.com/0113bernoyoun/claude-auto-worker,93da319ff3013d0da9e2b020119814ef9f166440,2025-08-19T05:45:47+00:00,Human,,368,7,7,False,False,False,False,"docs: TASK-012 완료 후 문서 업데이트
+
+📝 문서 업데이트 내용:
+- dev-notes/TASK-012-완료-문서.md 생성
+- DEVELOPMENT_TASKS.md에서 TASK-012 체크 처리
+- PROJECT_STATUS.md에 TASK-012 완료 상태 반영
+- README.md에 최신 머지 이력 및 진행률 업데이트
+
+✅ TASK-012: CLI 테스트 환경 구성 완료
+- Jest CLI 테스트 설정
+- CLI 명령어 단위 테스트 (36개 테스트 통과)
+- 모킹 및 스텁 설정
+- 테스트 커버리지 설정
+
+🔗 PR: #6 (머지 완료)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,2d7e8311013e80abc48c8e39645a458c9122a09c,2025-08-19T05:44:15+00:00,Human,,969,137,13,False,False,False,False,"Merge pull request #6 from 0113bernoyoun/feature/task-012-cli-test-environment
+
+feat(TASK-012): CLI 테스트 환경 구성 완료 (TASK-012)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,d609f372ee6ce784b2afa84aacbebe279f1037d6,2025-08-19T05:35:10+00:00,AI,Claude_Code,969,137,13,False,False,False,False,"feat(TASK-012): CLI 테스트 환경 구성 완료
+
+✨ 주요 변경사항:
+- Jest CLI 테스트 설정 완료
+- CLI 명령어 단위 테스트 구현
+- 모킹 및 스텁 설정 완료
+- 테스트 커버리지 설정 완료
+
+🔧 기술적 개선:
+- Jest에서 chalk v5 ES 모듈 지원 설정
+- ErrorHandlerService의 Logger 의존성 주입 개선
+- 테스트에서 NestJS Logger 모킹으로 에러 출력 억제
+- CLI 테스트를 위한 별도 Jest 설정 파일 추가
+
+🧪 테스트 결과:
+- 테스트 스위트: 6개 모두 통과 ✅
+- 테스트 케이스: 36개 모두 통과 ✅
+- 에러 로그 출력 문제 해결 ✅
+- 실행 시간: ~2.6초
+
+📝 완료된 기준:
+- [x] Jest CLI 테스트 설정
+- [x] CLI 명령어 단위 테스트
+- [x] 모킹 및 스텁 설정
+- [x] 테스트 커버리지 설정
+
+Co-authored-by: Sequential Thinking <claude@anthropic.com>
+Co-authored-by: Context7 <context7@anthropic.com>"
+https://www.github.com/0113bernoyoun/claude-auto-worker,96705b04b9c0c58b6444dd64274672cfd30a8e14,2025-08-19T03:19:32+00:00,Human,,206,8,4,False,False,False,False,"docs: TASK-011 완료 후 문서 업데이트
+
+- PROJECT_STATUS.md: TASK-011 완료 상태 반영 및 1단계 진행률 25%로 업데이트
+- DEVELOPMENT_TASKS.md: TASK-011 체크리스트 완료 표시
+- README.md: 완료된 작업 목록에 TASK-011 추가
+- dev-notes: TASK-011 완료 문서 생성 (상세 구현 내용 및 테스트 결과 기록)
+
+PR #5 머지 완료 후 프로젝트 문서 동기화"
+https://www.github.com/0113bernoyoun/claude-auto-worker,87b2abaeae6c3b53b371923a502f1cd10bd11711,2025-08-19T03:15:10+00:00,Human,,754,69,14,False,False,False,False,"Merge pull request #5 from 0113bernoyoun/feature/cli-error-handling-TASK-011
+
+feat(cli): robust CLI error handling and user feedback (TASK-011)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,de07169d80cd93a50b985d1cebbef15e78fca8cd,2025-08-19T03:07:12+00:00,Human,,133,60,4,True,True,False,False,"fix: 코드 리뷰 지적사항 수정 (TASK-011)
+
+- 타입 안전성 개선: Record<string, any> → Record<string, unknown>
+- 에러 코드 상수화: ERROR_CODES 상수 정의 및 적용
+- 메모리 누수 방지: AbortController 사용으로 setTimeout 정리
+- 타입 가드 강화: unknown 타입 처리 로직 개선
+- 테스트 파일 호환성 수정: ERROR_CODES import 및 사용"
+https://www.github.com/0113bernoyoun/claude-auto-worker,3b7b7f1ca199fb4bee4bae83217751af276e6301,2025-08-19T02:26:07+00:00,Human,,681,69,14,False,False,False,False,"feat(cli): implement robust CLI error handling and user feedback (TASK-011)\n\n- Add error types (validation, fs, workflow, config, network, permission, unknown)\n- Implement ErrorHandlerService with colored, contextual output and suggestions\n- Integrate handler into run.command with debug stack traces\n- Add unit tests for ErrorHandlerService (16 passing)\n- Install chalk for terminal styling"
+https://www.github.com/0113bernoyoun/claude-auto-worker,803454078d56f5f86d21448108224422bc631d9a,2025-08-19T02:05:00+00:00,Human,,243,8,6,False,False,False,False,"docs: TASK-010 완료 후 문서 업데이트
+
+- dev-notes/TASK-010-완료-문서.md 생성
+- PROJECT_STATUS.md에 TASK-009, TASK-010 완료 상태 반영
+- DEVELOPMENT_TASKS.md에서 TASK-010 완료 체크
+- README.md 진행상황 업데이트 (10/72 태스크 완료, 14%)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,451c04c0609823ae88f4273ccca173ec9938070f,2025-08-19T01:59:00+00:00,Human,,564,23,11,False,False,False,False,"Merge pull request #4 from 0113bernoyoun/feature/TASK-010-config-system
+
+feat: implement TASK-010 configuration management system"
+https://www.github.com/0113bernoyoun/claude-auto-worker,912e2ecba19a681faae90cc0e7887b7682464985,2025-08-19T01:41:56+00:00,Human,,0,105,1,False,False,False,False,chore: remove temporary PR body file
+https://www.github.com/0113bernoyoun/claude-auto-worker,f3ad4a6c69e291178e842a1cfa5694a63d33b23d,2025-08-19T01:41:03+00:00,Human,,105,22,1,False,False,False,False,docs: add PR body for TASK-010 implementation
+https://www.github.com/0113bernoyoun/claude-auto-worker,c4a9967f6905acaed387610ab0f0471e0e405db2,2025-08-19T01:35:59+00:00,Human,,564,1,10,False,True,False,False,"feat: implement TASK-010 configuration management system
+
+- Add ProjectConfigService with file discovery, env overrides, validation
+- Add config CLI command (show|path|init) with template generation
+- Integrate into CliModule and update help documentation
+- Add Joi validation schema and YAML/JSON parsing support
+- Add comprehensive unit tests for config service and CLI command
+- Fix TypeScript verbatimModuleSyntax build issue"
+https://www.github.com/0113bernoyoun/claude-auto-worker,9b1b0c59626ceae46a19c14eb5d64843e359fe81,2025-08-18T07:39:57+00:00,Human,,135,0,1,False,False,False,False,feat: 한글 문서
+https://www.github.com/0113bernoyoun/claude-auto-worker,0c4d2dbad7d4ac9798a8db6a8b39c131542f3e8f,2025-08-18T07:39:02+00:00,Human,,8,5,5,True,True,False,False,fix(cli): correct boolean flag parsing; add tracked bin/claude-auto-worker entrypoint
+https://www.github.com/0113bernoyoun/claude-auto-worker,348c2f2e5fae9bad41608278abff070aeaad091d,2025-08-18T07:36:24+00:00,Human,,28,2,3,False,False,False,False,docs(post-merge): add TASK-008 dev notes and update status/README to reflect CLI integration
+https://www.github.com/0113bernoyoun/claude-auto-worker,5c5e5e0d351ecc34dad18408e0d2b602b2bb0c82,2025-08-18T07:34:12+00:00,Human,,443,10,11,False,False,False,False,"Merge pull request #3 from 0113bernoyoun/feature/TASK-008-nest-commander
+
+feat(cli): integrate nest-commander and clarify docs update policy (TASK-008)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,cf5c57e0a04a1d0f1c827534f17204af8bcc8fe4,2025-08-18T07:33:18+00:00,Human,,48,0,2,False,False,False,False,chore(pr): add ASCII-based PR/review body files and templates
+https://www.github.com/0113bernoyoun/claude-auto-worker,f2cc3a378da5d0ef05584e08347afadb5fd06e61,2025-08-18T07:29:51+00:00,Human,,35,0,1,False,False,False,False,"docs(rules): add visual style guidelines for PRs, reviews, and docs (emojis, structure, severity, checklists)"
+https://www.github.com/0113bernoyoun/claude-auto-worker,5d4f55d3ec8bb0048e5212ea1ce6545f6fcd1019,2025-08-18T07:25:04+00:00,Human,,0,135,1,False,False,False,False,chore(pr): remove non-ASCII dev-notes file from PR per rules (post-merge docs only)
+https://www.github.com/0113bernoyoun/claude-auto-worker,371644364831f397ccf70037255789b4ca1d48c1,2025-08-18T07:21:37+00:00,Human,,8,0,1,False,False,False,False,chore(rules): add UTF-8/ASCII naming and CLI text handling rules to prevent garbled content
+https://www.github.com/0113bernoyoun/claude-auto-worker,f80cff05f27f444ef0b7a41ad27c455c2895b5ad,2025-08-18T07:11:39+00:00,Human,,487,10,10,False,True,False,False,"feat(cli): integrate nest-commander and CLI commands (TASK-008)\n\n- Add CLI module and commands: run, status, logs, help\n- Add CLI bootstrap and tsconfig.cli.json\n- Update .cursorrules: docs update only on PR merge\n- Update DEVELOPMENT_TASKS for TASK-008/TASK-009 checklist\n- Fix help/version exit handling to avoid false error"
+https://www.github.com/0113bernoyoun/claude-auto-worker,7e8aacdc0597c6fe911e8730c7f1069f59684393,2025-08-18T06:58:50+00:00,Human,,137,8,2,False,False,False,False,"Merge pull request #2 from 0113bernoyoun/docs/readme-progress-2025-08-18
+
+docs: update README with development status and completed tasks"
+https://www.github.com/0113bernoyoun/claude-auto-worker,58d8f766f406518dd7e8f043ab0a38aacd306776,2025-08-18T06:56:53+00:00,Human,,137,8,2,False,False,False,False,docs(README): add development status and completed tasks; chore(.cursorrules): update rules
+https://www.github.com/0113bernoyoun/claude-auto-worker,a59e39076b25b27c96aa63ff512974c16a07c76d,2025-08-18T06:37:11+00:00,Human,,121,24,5,False,False,False,False,"Merge pull request #1 from 0113bernoyoun/feature/TASK-003-dev-tools-config
+
+TASK-003: TypeScript 설정 및 개발 도구 구성"
+https://www.github.com/0113bernoyoun/claude-auto-worker,11a92ce2247b2370ee282564f1f8d27347f0f190,2025-08-18T06:33:07+00:00,Human,,121,24,5,False,False,False,False,feat(TASK-003): TypeScript strict 설정 및 ESLint/Prettier 구성 추가\n\n- tsconfig strict 모드 및 최신 권장 옵션 적용\n- ESLint(.eslintrc.js) 구성 + TS 규칙/Prettier 통합\n- Prettier(.prettierrc) 기본 포맷팅 규칙 추가\n- DEVELOPMENT_TASKS.md: TASK-003 완료 체크\n\nRefs: TASK-003
+https://www.github.com/0113bernoyoun/claude-auto-worker,d84a9e28b44b80b018d9582b22d6f9f73dca2b1e,2025-08-18T06:01:50+00:00,Human,,52,9,5,False,False,False,False,docs: TASK-001/TASK-002 완료 처리 및 문서 갱신 (README/STATUS/TASKS/dev-notes)
+https://www.github.com/0113bernoyoun/claude-auto-worker,58d9de5b4046b4fc6f9f75d563ac3fb3fdc534c3,2025-08-18T05:54:41+00:00,Human,,0,155,1,True,True,False,False,fix: remove unused file
+https://www.github.com/0113bernoyoun/claude-auto-worker,b0870b3b0b9846120e23e235cac17886b2c4894f,2025-08-18T05:51:54+00:00,Human,,165,0,2,False,False,False,False,docs(rules): 머지 후 수동 자동화 절차 명시 (dev-notes/STATUS/README/TASKS 업데이트)
+https://www.github.com/0113bernoyoun/claude-auto-worker,bfa28d24e7a3f47da0c659f4b97d8b05acc8336e,2025-08-18T05:35:24+00:00,Human,,7,0,1,False,False,False,False,"docs: .cursorrules에 Pull Request 워크플로우 규칙 추가
+
+- 새로운 기능/수정 시 새 브랜치 생성 규칙 추가
+- main 브랜치 직접 커밋 금지 규칙 명시
+- PR 리뷰 후 merge 진행 규칙 추가"
+https://www.github.com/0113bernoyoun/claude-auto-worker,4f5794c2d90a8d946fad9747debe14a112bad5e4,2025-08-17T15:19:37+00:00,Human,,17,0,1,False,False,False,False,"docs: .cursorrules에 GitHub CLI 사용 및 Agent 디렉토리 활용 가이드라인 추가
+
+- GitHub CLI 사용 규칙 명시 (gh repo, gh pr, gh issue 등)
+- AI Agent 관련 파일은 agent/ 디렉토리에 배치 규칙 추가
+- 개발 워크플로우 가이드라인 정리"
+https://www.github.com/0113bernoyoun/claude-auto-worker,163402c1665820edac1d5d233e62e9118f57671c,2025-08-17T15:04:13+00:00,Human,,441,87,24,False,False,False,False,"feat: TASK-002 완료 - NestJS 프로젝트 생성 및 기본 설정
+
+- NestJS CLI 설정 (nest-cli.json)
+- 기본 모듈 구조 생성 (AppModule, AppController, AppService)
+- 포트 5849 설정 및 Cursor rules 추가
+- TypeScript 설정 완료
+- 단위 테스트 및 E2E 테스트 작성
+- 모든 테스트 통과 확인"
+https://www.github.com/0113bernoyoun/claude-auto-worker,b23f91a24dc45e93496e0cd6afe19563c62e71b1,2025-08-17T14:29:02+00:00,Human,,5633,0,17,False,False,False,False,Initial commit: Project structure and configuration files

@@ -1,0 +1,125 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1mlm/donstop,a454cd6005ab78a30a98b34e72dc0c41c29c83cb,2026-05-23T13:26:18+00:00,Human,,422,597,9,False,False,False,False,"✨ added mobile haptic feedback and confetti effects
+
+- Added haptic feedback using web-haptics for task interactions.
+- Integrated confetti animation on task completion using canvas-confetti.
+- Refactored Task component to improve tag management and UI interactions.
+- Simplified TaskBar component by removing drag-and-drop functionality.
+- Updated TaskList to use a more streamlined layout.
+- Added new utility function for triggering confetti effects.
+- Updated package dependencies to include canvas-confetti and web-haptics."
+https://www.github.com/1mlm/donstop,6086fb3e289f2d05964640e76c96f965e9d2cb26,2026-05-22T14:16:44+00:00,Human,,510,425,52,False,False,False,False,🚧 Refactoring & restructuring of cpn/ -> features/
+https://www.github.com/1mlm/donstop,c9cb45eb84fe7195bb5ab0d17b71303d7b1faada,2026-05-22T01:39:44+00:00,Human,,44,34,1,False,True,False,False,🔧 Fix missing TooltipProvider in AppTopBar RightControls
+https://www.github.com/1mlm/donstop,c746f04c7bc0dccb6fcf6b39923d9869681be298,2026-05-22T01:36:19+00:00,Human,,129,107,1,False,False,False,False,"🖌️ Tooltips on Tags popover icon buttons (delete, icon picker, add)"
+https://www.github.com/1mlm/donstop,83b8675f5df0654fb7af2d169e87c76764d4647f,2026-05-22T01:31:00+00:00,Human,,263,126,3,False,True,False,False,"🔧 Tooltips on MainBar stop/finish + task ••• btn, fix time format (drop trailing 0s), remove dead parentPath code"
+https://www.github.com/1mlm/donstop,60a3a4ca653940531c743127bacd53fc4992ab07,2026-05-22T01:15:06+00:00,Human,,227,122,2,False,False,False,False,"🖌️ History filter: Select dropdowns for task+type, date range, tooltips on all icon buttons"
+https://www.github.com/1mlm/donstop,b22b0e13877b93aa8fb330c2a870f0ba439784e3,2026-05-22T00:56:19+00:00,Human,,29,11,1,False,False,False,False,"🖌️ DeprecatedDataModal: download backup button, drop amber icon and em dash"
+https://www.github.com/1mlm/donstop,0931835c091078d3a2e3b6c80dbef63fc19d91a9,2026-05-22T00:43:24+00:00,Human,,0,77,1,False,False,False,False,✨ Remove SKILL.md documentation for shadcn component implementation
+https://www.github.com/1mlm/donstop,a1a273637faad5ab7e7524275ab4d9277a2a1627,2026-05-22T00:43:15+00:00,Human,,1,0,1,False,False,False,False,📖 Add emoji for AI-related changes in commit guide
+https://www.github.com/1mlm/donstop,c6314085c6509cf57f37db6c03797da45f78ee7c,2026-05-22T00:27:32+00:00,Human,,1,0,1,False,True,False,False,📖 Fix local environment variable setup for NEXT_PUBLIC_APP_URL
+https://www.github.com/1mlm/donstop,0c2c574ead80a27e49f2e9f70140936b342f6e05,2026-05-22T00:25:09+00:00,Human,,14,0,1,False,False,False,False,📖 Add CONTRIBUTING.md with commit emoji guide
+https://www.github.com/1mlm/donstop,44fb2b667988569a3abf5a40e5e211b3b2018af9,2026-05-21T22:40:37+00:00,Human,,1,107,6,False,False,False,False,"🔧 Remove malikDebug / NEXT_PUBLIC_MALIK_DEBUG entirely
+
+Dev toolbar already handles all debugging needs"
+https://www.github.com/1mlm/donstop,8127d7f69c4e752ceb68bb355f3779c6139fbc06,2026-05-21T22:35:29+00:00,Human,,0,0,1,False,False,False,False,🔧 Add banner image to public assets
+https://www.github.com/1mlm/donstop,524c8d13848668a1767c9d9c606f70c1860163ec,2026-05-21T21:55:50+00:00,Human,,38,66,1,False,False,False,False,"🔧 README: drop badges, rewrite clean and minimal"
+https://www.github.com/1mlm/donstop,3b7fcc10fec77570353ffc0b047817b33a5784d3,2026-05-21T21:01:45+00:00,Human,,6,4,1,False,False,False,False,"🔧 Update README: banner.png header, tags in feature list, drop nesting"
+https://www.github.com/1mlm/donstop,61bf676d6e7307f8e42ed7f6d005ac654e104d38,2026-05-21T20:45:25+00:00,Human,,241,0,4,False,False,False,False,"🔧 Add TagsButton, DeprecatedDataModal, wire into app
+
+- TagsButton: popover with tag list (filter/delete), icon picker grid, create form
+- DeprecatedDataModal: AlertDialog when legacy parentId data detected, reset or keep
+- Wire both into AppTopBar TOP_CONTROLS and page.tsx"
+https://www.github.com/1mlm/donstop,cb50c31b09640c8cab11c688d2d561152561f977,2026-05-21T20:36:54+00:00,Human,,676,1696,14,False,False,False,False,"🔧 Replace task nesting with flat tasks + tags system
+
+- New TagObj type with id/name/icon; TaskObj gets tagIds[], parentId removed
+- Store: tags[], activeTagFilter, createTag/deleteTag/renameTag/assignTag/removeTag actions
+- Legacy parentId detection in persist merge sets needsDataReset flag
+- Date-grouped task list headers (Today, Yesterday, N days ago, Never started)
+- TaskTagChips component on each task row: click to filter, right-click to remove
+- Curated TAG_ICONS map (20 hugeicons) in cpns/tags/tag-icons.ts
+- Flat drag-and-drop: before/after only, inside removed from utils and context
+- Remove parentPath breadcrumb logic from useActiveTaskSummary
+- Rewrite store-move tests for flat API"
+https://www.github.com/1mlm/donstop,18398175b563b79f751b6c128e48ace75deeb970,2026-05-21T19:03:45+00:00,Human,,49,12,3,False,False,False,False,"🔧 Hide finished tasks, date group headers, icon-only big stop/finish buttons"
+https://www.github.com/1mlm/donstop,35dcf91f4054da93d14b91632451fcddeabfa9ed,2026-05-21T18:03:31+00:00,Human,,0,0,2,False,False,False,False,🔧 Update favicon.ico and add icon.png for PWA manifest
+https://www.github.com/1mlm/donstop,ffb9239be887d1136f2044fb871774e01da37747,2026-05-21T18:01:51+00:00,Human,,0,69,2,False,False,False,False,"🔧 Strip canvas favicon, keep favicon.ico + tab title + PWA badge only"
+https://www.github.com/1mlm/donstop,1ab7826345e8305691c24f869a849fed3df431b1,2026-05-21T16:26:55+00:00,Human,,37,23,3,False,False,False,False,"🔧 White squircle favicon, reorder mobile layout, bump breakpoint to lg
+
+- ActiveTaskIndicator: always-on canvas favicon -- white rounded-square bg + dark icon (idle), red bg + white icon (active); no longer falls back to favicon.ico
+- app/page.tsx: mobile layout order is now MainBar -> TaskBar -> TopControls -> AppCredits (timer first, controls last); bump md -> lg breakpoint so 768-1023px uses mobile layout instead of squished desktop
+- AppTopBar: md:flex -> lg:flex to match"
+https://www.github.com/1mlm/donstop,30460cc300c986bafa20e8d02ba311139221f6df,2026-05-21T16:20:47+00:00,Human,,43,8,3,False,False,False,False,"🔧 Dynamic red favicon, real icon for PWA manifest + README logo
+
+- ActiveTaskIndicator: canvas-renders icon.png at 32x32 with source-atop red fill (#ef4444) when task active; falls back to green square SVG if image fails to load; idle state removes dynamic favicon so browser uses app/favicon.ico
+- public/manifest.json: replace placeholder SVG with icon.png (144x144 RGBA)
+- README: add centered icon.png logo above badges"
+https://www.github.com/1mlm/donstop,3cce27c3ab7303cd72c43b47dd9922e02639e0b8,2026-05-21T16:15:42+00:00,Human,,54,4,2,False,True,False,False,"🔧 Dev toolbar close btn, popover blur+rounded, mobile-responsive popovers
+
+- DevToolbar: add X close button in panel header (Cancel01Icon)
+- shadcn/ui/popover.tsx: bg-popover/95 + backdrop-blur-sm + shadow-xl + rounded-xl on all popovers
+- shadcn/ui/popover.tsx: on mobile (<768px) grab the Radix popper wrapper via ref and override floating-ui inline styles to center-modal positioning (fixed, 50%/50%, translate -50/-50, max-h 85dvh)"
+https://www.github.com/1mlm/donstop,f8c1a023bb7f911bde13e093cf9186a90d953e4d,2026-05-21T15:48:59+00:00,Human,,72,85,2,False,True,False,False,"🔧 Fix double DonStop in PWA title, update README
+
+- ActiveTaskIndicator: detect standalone display-mode and drop ' · DonStop' suffix (PWA title bar already shows app name)
+- README: rewrite casual/compact, update AI section (Claude not Copilot), add PWA install, auto-sort, dev toolbar, Ctrl+Enter, fix test count to 35"
+https://www.github.com/1mlm/donstop,915f4887b267ff623e9a18809a9c937bab60d2a3,2026-05-21T15:37:36+00:00,Human,,232,11,22,False,False,False,False,"🔧 Dev toolbar, PWA manifest, badge API, clean up root screenshots
+
+- cpns/dev/DevToolbar.tsx: dev-only floating panel (bottom-right tab) with store stats, populate fake data, add 3 quick tasks, show tour, copy store JSON, reset all data
+- app/page.tsx: dynamic import DevToolbar, dev-only (dead-code-eliminated in prod)
+- cpns/ActiveTaskIndicator.tsx: call navigator.setAppBadge(1)/clearAppBadge() when task active/idle (works when installed as PWA)
+- public/manifest.json + public/icon.svg: PWA manifest enables browser install + badge API
+- app/layout.tsx: wire manifest link + viewport themeColor
+- .gitignore: add screenshot*.png rule
+- .playwright-mcp → temp/playwright-mcp: --output-dir in .mcp.json (takes effect on next MCP restart)
+- Delete 13 stale root screenshot debug files"
+https://www.github.com/1mlm/donstop,24dc729ab99379998f731b7e0e022fa7d96548c8,2026-05-21T15:08:37+00:00,Human,,5,192,12,False,False,False,False,"🔧 Rename *.effects.ts to *.hooks.ts, live-task.ts to task.hooks.ts, delete dead files (RightClickMenu, Note, Separator, barrel SettingsButton)"
+https://www.github.com/1mlm/donstop,0ad64b2a3c64f8bf61ff6467787449a546213380,2026-05-21T15:00:54+00:00,Human,,74,33,26,False,True,False,False,"🔧 Merge components/ into cpns/, remove settings.styles.ts, fix duration edit pre-fill, add filter empty state, add sortByPosition tests"
+https://www.github.com/1mlm/donstop,a8f6aaced5e76045bee20373a1a2ea7351ee209f,2026-05-21T14:34:31+00:00,Human,,21,0,3,False,False,False,False,🔧 Auto-sort tasks by last activated; parent bubbles up when subtask started
+https://www.github.com/1mlm/donstop,58f19b5a7530f26586d96d520bfb86a19320374e,2026-05-21T14:09:47+00:00,Human,,32,4,3,False,True,False,False,🔧 Fix selection leak on filter change; throttle task row timer to 60s
+https://www.github.com/1mlm/donstop,e97971b4bc0d8eeb6aaf88f75bcffa478b293ac0,2026-05-21T14:04:44+00:00,Human,,448,330,3,False,True,False,False,🔧 History filter by task/type; fix hover-only row buttons; running total in task row; remove right-click note
+https://www.github.com/1mlm/donstop,0b0ed359eb23e9e3a3cbc026b2497c5ab88baeb1,2026-05-21T13:41:06+00:00,Human,,267,52,4,False,True,False,False,"🔧 History config mode: cog toggle, selection/delete, per-row note+delete; fix note dialog close bug; empty task state hint"
+https://www.github.com/1mlm/donstop,89a00e8df1675aa2c830581dccb7507006da9098,2026-05-21T13:08:57+00:00,Human,,161,7,6,False,False,False,False,🔧 Add active task favicon/tab title indicator; update AppTopBar layout; add CLAUDE.md
+https://www.github.com/1mlm/donstop,e86cde47478feb36cdf5438a16e25e22ac693c6b,2026-05-21T13:08:52+00:00,Human,,52,50,1,False,True,False,False,"🔧 Fix TrashButton: no popup when empty, only show confirm when tasks exist"
+https://www.github.com/1mlm/donstop,141f140dc4c3985a40b7f937875147cba0ce47a2,2026-05-21T13:08:47+00:00,Human,,424,421,4,False,True,False,False,"🔧 Fix task UI: rounded-full icon buttons, bolder task label, fix 0s+ timer prefix, swap More icon"
+https://www.github.com/1mlm/donstop,0bab494c320af68872eafa13a4ab36d738ba5274,2026-05-21T13:08:22+00:00,Human,,5,0,1,False,False,False,False,🔧 Ignore .mcp.json and .playwright-mcp in git
+https://www.github.com/1mlm/donstop,ce84d27dac45d7d86b3df275b3b74aa78970726b,2026-05-21T13:08:18+00:00,Human,,194,3,6,False,False,False,False,"🔧 Add theme toggle (system/light/dark), white color option, timezone with UTC offset labels"
+https://www.github.com/1mlm/donstop,ece9113ad7de08a5669972b1ed454dc14d88cd18,2026-05-21T13:08:13+00:00,Human,,524,249,4,False,False,False,False,"🔧 Add notes to history activity items: right-click to add, badge shows count, popover lists notes with timestamps"
+https://www.github.com/1mlm/donstop,d4bf818ab4b8bd7b5f23d19b5277d097ffb05e8c,2026-05-21T13:08:00+00:00,Human,,176,69,1,False,False,False,False,"🔧 Redesign history panel: grouped Today/Yesterday/This week/Older, total logs count, date-range clear popover"
+https://www.github.com/1mlm/donstop,0a3f4a1b66e74c00f0f2b973854d0ec7fbd5ca84,2026-05-21T13:07:52+00:00,Human,,61,7,1,False,False,False,False,🔧 Add Stop/Finish buttons + Cmd/Ctrl+Enter shortcut to MainBar
+https://www.github.com/1mlm/donstop,53939bffedfe461789c7d254f5959908b6b7c0b0,2026-05-20T20:48:19+00:00,Human,,117,30,2,False,False,False,False,🔧 ButtonGroup'd both privacy policy & terms n conditions button
+https://www.github.com/1mlm/donstop,23cd60d7594339a7b2f35d278ba27e5a9a6f0334,2026-03-25T02:09:24+00:00,Human,,14,2,1,False,False,False,False,🔧 Add title attribute to CreditLink for improved accessibility and clarity
+https://www.github.com/1mlm/donstop,31e229d5c76622464fab891af1953c27fc1af95e,2026-03-25T02:04:46+00:00,Human,,3,3,1,False,False,False,False,🔧 Update cursor styles in HistoryMenu for consistency and improved UX
+https://www.github.com/1mlm/donstop,73917b316e507b9738167b5ffe4ec48b0151647f,2026-03-25T02:02:28+00:00,Human,,87,39,7,False,False,False,False,🔧 Implement custom cursor functionality; update TrashButton and HistoryMenu for improved accessibility; add arrow icon to SettingsButton; enhance CSS for custom cursor states.
+https://www.github.com/1mlm/donstop,4003bdd4a2e4c485ba8522236b3a717a153d210d,2026-03-25T01:45:49+00:00,Human,,65,25,6,False,False,False,False,🔧 Update contact emails in Privacy Policy and Terms & Conditions; enhance button accessibility in TrashButton and HistoryMenu; add Privacy Policy and Terms & Conditions links in AppTopBar; refactor SettingsButton for cleaner tooltip integration.
+https://www.github.com/1mlm/donstop,1586beba0e9da8c1f5a19bd4b8c27e6cc382520d,2026-03-25T01:30:53+00:00,Human,,501,14,9,False,False,False,False,✨ Biome rewrite
+https://www.github.com/1mlm/donstop,da84e202c906ff4cd7e49f71dde66d79df1017e0,2026-03-12T23:52:57+00:00,Human,,3,1,2,False,False,False,False,🔧 Reorder Top Bar for consistency
+https://www.github.com/1mlm/donstop,f29e963573fc4659a2514d7c5f15786f3b590243,2026-03-12T23:32:54+00:00,Human,,1,6,1,False,True,False,False,🔧 Deployment TS error fix
+https://www.github.com/1mlm/donstop,d3d3ad26a483141e4f27ca9ffe1d794afd83a091,2026-03-12T23:27:18+00:00,Human,,8,2,1,False,False,False,False,🔧 Refactor conditional checks for touch support in Task component
+https://www.github.com/1mlm/donstop,5565cb6c1399f8954d2f4acb37d73b3de747a216,2026-03-12T23:27:00+00:00,Human,,511,172,22,False,False,False,False,✨ Better mobile accessibility
+https://www.github.com/1mlm/donstop,55f52e36f8568066640885aad705f15580bdb7f7,2026-03-12T19:51:17+00:00,Human,,0,0,1,False,False,False,False,🖼️ Add Open Graph image
+https://www.github.com/1mlm/donstop,d628aa7b9c9b486bed2a6e3f348646214cdea176,2026-03-12T19:20:07+00:00,Human,,2,2,1,False,False,False,False,🔧 Update package.json to v1
+https://www.github.com/1mlm/donstop,7dec41e607e7c1f2ab3cf95e34e11c7949cf2b1d,2026-03-12T19:13:16+00:00,Human,,0,24,2,False,False,False,False,🦠 Remove minimum tracked task duration logic from the store model
+https://www.github.com/1mlm/donstop,e19e0d9069d088e579c1753c1720639f5714ce21,2026-03-12T18:33:40+00:00,Human,,54,32,1,False,False,False,False,📝 Update README with recent features + AI section
+https://www.github.com/1mlm/donstop,88ef2812ca870c1beba983752b5b9d3b7d6d7da7,2026-03-12T18:16:00+00:00,Human,,1,1,1,False,False,False,False,Merge branch 'main' of https://github.com/1mlm/todo-app
+https://www.github.com/1mlm/donstop,013c6443c5d9e073596b66e767b1268c418b982c,2026-03-12T18:15:57+00:00,Human,,0,0,1,False,False,False,False,🦠 Deleted demo video from repo
+https://www.github.com/1mlm/donstop,2c4ae3578ff01166c7fef9732f1ce3ad2147ff4c,2026-03-12T18:15:42+00:00,Human,,1,1,1,False,False,False,False,🦠 Change demo video source to GitHub assets link
+https://www.github.com/1mlm/donstop,1f9d77cd1bdac6f1b175fe4a5464403ac69bb23e,2026-03-12T18:14:34+00:00,Human,,1,1,1,False,True,False,False,🦠 Fixed demo video breaking README
+https://www.github.com/1mlm/donstop,584e958818ad019bf9e17709ab554b307056a663,2026-03-12T18:13:42+00:00,Human,,1,1,2,False,False,False,False,✨ Added demo video
+https://www.github.com/1mlm/donstop,0e615a694ce265cde1eb5c83625e8183d46123c0,2026-03-12T17:45:46+00:00,Human,,1942,305,25,False,False,False,False,✨ Enhance calendar sync and task management features
+https://www.github.com/1mlm/donstop,06579f765400efc8ff0a7df4c328ec9162318fe4,2026-03-12T15:29:32+00:00,Human,,1029,765,13,False,False,False,False,✨ Added more history log types + refactoring
+https://www.github.com/1mlm/donstop,f5b5f722e0d08183789eaffc6f58206ff5eec9af,2026-03-12T14:47:21+00:00,Human,,27,7,5,False,False,False,False,✨ Update app name to DonStop and enhance Google Calendar integration
+https://www.github.com/1mlm/donstop,9d93233eb31cd8d12ae3831933fe0d3fd43a9e1b,2026-03-12T14:34:57+00:00,Human,,120,24,3,False,True,False,False,✨ Fixed README GCalendar .env missing section
+https://www.github.com/1mlm/donstop,a7b851eadaa3a7b2659c403549724794fdd5c7ed,2026-03-12T14:06:00+00:00,Human,,543,189,20,False,False,False,False,✨ First version complete
+https://www.github.com/1mlm/donstop,f6af181b24cd479d2cbe16b517206486d6c42221,2026-03-12T12:58:22+00:00,Human,,6971,338,67,False,False,False,False,🚧
+https://www.github.com/1mlm/donstop,eb4c62d9e63b6dc76b27aca17128eeb0fea28134,2026-03-11T04:41:54+00:00,Human,,442,386,9,False,False,False,False,🚧
+https://www.github.com/1mlm/donstop,d0f8d73156f1a86593d99aa55e3574a170e77157,2026-03-10T05:45:07+00:00,Human,,186,47,17,False,False,False,False,🚧
+https://www.github.com/1mlm/donstop,2d0a13d5b476cfc7f8945b9e889f04d9ded69e50,2026-03-09T16:17:22+00:00,Human,,131,38,8,False,False,False,False,🚧
+https://www.github.com/1mlm/donstop,4915f24baf2690c255fd5b596822a56b7aff2d84,2026-03-09T15:36:31+00:00,Human,,44,73,11,False,False,False,False,🚧
+https://www.github.com/1mlm/donstop,7ebd16232137aec972056ae2969aa910d2aa7705,2026-03-06T16:02:19+00:00,Human,,217,32,11,False,False,False,False,v0: general improvements
+https://www.github.com/1mlm/donstop,02debc603604b321715bb81f03fd9feed7019e8f,2026-03-06T14:09:26+00:00,Human,,127,26,8,False,False,False,False,feat: starter fake static page
+https://www.github.com/1mlm/donstop,0c91111f462cdc489c4541741b50bde231a4fbb3,2026-03-05T21:21:35+00:00,Human,,11,6,1,False,False,False,False,feat: context menu
+https://www.github.com/1mlm/donstop,9c0b223b34edfa98bc44d9015e9c35e5a2f65922,2026-03-05T21:21:26+00:00,Human,,17,1,1,False,False,False,False,chore: add skill docs
+https://www.github.com/1mlm/donstop,c2c44deb79b5bf5e29ee5d0e6edb6aae42f3ac00,2026-03-05T21:03:52+00:00,Human,,477,12,4,False,False,False,False,feat: fake context menu functionality
+https://www.github.com/1mlm/donstop,8866fbd0a448abbecb9f43fe40661cbfaada4411,2026-03-05T20:35:02+00:00,Human,,3,3,2,False,False,False,False,chore: changed the package template name
+https://www.github.com/1mlm/donstop,b34a24c22693a459a29c35221feb9b1884bc5518,2026-03-05T20:34:06+00:00,Human,,676,4396,11,False,False,False,False,feat: starter empty page
+https://www.github.com/1mlm/donstop,f8dcb23343186195562112c15dbd2930eb28c7d1,2026-03-05T19:33:19+00:00,Human,,14298,0,35,False,False,False,False,Initial commit

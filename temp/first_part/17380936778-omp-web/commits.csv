@@ -1,0 +1,1266 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/17380936778/omp-web,f09920e04ed4851ad10d86c6fc92d95c2b3485c1,2026-08-04T08:11:16+00:00,Human,,35,4,2,True,True,False,False,"fix: parse OMP api-key credentials stored as {""key"": ...}
+
+OMP stores api_key credentials as {""key"": ""sk-...""} but
+parseRuntimeCredential only recognized apiKey/access/token fields, so the
+provider was treated as unauthenticated and filtered out of the model
+list. Recognize the key field and extend the fallback text scan."
+https://www.github.com/17380936778/omp-web,5674f0608493d1267d71d66f77e8415305f512c8,2026-08-04T08:11:16+00:00,Human,,96,0,2,True,True,False,False,"fix: normalize model cost fields to satisfy SDK models.json schema
+
+Upstream model caches sometimes omit or null cacheWrite (or other cost
+rates), which made the generated omp-web-models.json fail SDK schema
+validation with 'must have required properties cacheWrite'. Fill missing
+rates with 0 and drop non-object costs before writing."
+https://www.github.com/17380936778/omp-web,5fea95a76ed2544bb648efb05a26990ae3e9c098,2026-08-04T06:00:33+00:00,Human,,721,92,6,False,False,False,False,"chore: finish i18n standardization and lint cleanup after v0.8.6 merge
+
+- LanguagePicker now drives upstream useI18n locale (en/zh-CN) instead of
+  the legacy omp-lang useLanguage hook, unifying the i18n system.
+- Convert remaining omp-style 2-arg t() strings to useI18n keyed lookups
+  in ChatInput and related components.
+- Remove unused imports/constants surfaced by lint after the merge.
+- Update package-lock.json for the upgraded pi 0.83 / next 16.2.12 deps."
+https://www.github.com/17380936778/omp-web,025d9e36ce8b32c949e9a50a7558cc7b2eba0e5d,2026-08-04T05:59:27+00:00,Human,,10156,1716,121,False,False,False,False,"Merge upstream pi-web v0.8.6 into omp-web
+
+Merges upstream @agegr/pi-web v0.8.6 (upstream/main dfab585) into omp-web,
+preserving omp-web's identity and custom feature set while adopting
+upstream's improvements:
+
+- Keep omp-web identity: .omp/agent data dir, models.yml persistence,
+  OMP model/CLI sync (omp-models/omp-auth/model-role-filter), ThemePicker,
+  LanguagePicker, StarfieldEmblem, folder picker, Chinese README.
+- Adopt upstream features: i18n (useI18n catalogs), model-scope/catalog,
+  project-trust, web-auth, provider-listing, request-security, atomic-file,
+  resizable panels, PWA manifest, shutdown handling in rpc-manager.
+- i18n strategy: standardized on upstream useI18n where complete; kept
+  omp-web useLanguage for omp-specific custom UI (ModelsConfig picker,
+  ChatInput, Starfield welcome).
+- Keep omp-web's intentional removal of auto-naming (route + UI); adjusted
+  the referenced test accordingly.
+- Upgraded pi SDK packages to 0.83.0, next to 16.2.12, added proper-lockfile.
+
+Typecheck and lint both pass clean."
+https://www.github.com/17380936778/omp-web,2f76cdbb7092fa75be7674ec14e08b99e48052bc,2026-08-01T08:44:15+00:00,Human,,243,207,11,False,True,False,False,feat: direct models.yml persistence and fix slashed model ID resolution
+https://www.github.com/17380936778/omp-web,6041ae7b456cc86ab324fdf9bd7645969f1a9532,2026-08-01T06:03:47+00:00,Human,,0,0,11,False,False,False,False,删除临时数据库文件
+https://www.github.com/17380936778/omp-web,4ffb7809374ccdebb152eb62495c65e65404498b,2026-08-01T04:37:23+00:00,Human,,98,23,3,False,False,False,False,bug修复
+https://www.github.com/17380936778/omp-web,48cc18292c6d56160bc73082012e0bc7692cfdc6,2026-08-01T03:13:01+00:00,Human,,59,46,4,False,False,False,False,web端与cli端provider同步
+https://www.github.com/17380936778/omp-web,ba8ca51a4983015f5899bb6b865f185975d2d108,2026-08-01T02:46:10+00:00,Human,,410,84,17,False,False,False,False,添加尝试获取自定义模型上下文长度功能
+https://www.github.com/17380936778/omp-web,dfab5853b8d2f717df259e7ebc94f49a3c2e43e7,2026-07-31T17:02:44+00:00,Human,,3,3,2,False,False,False,False,Release v0.8.6
+https://www.github.com/17380936778/omp-web,edf4c5d5d1ade7c8c1ec995cb92fe572337378f7,2026-07-31T16:59:36+00:00,Human,,138,8,6,True,True,False,False,fix: dispose agent sessions on shutdown
+https://www.github.com/17380936778/omp-web,98f09d72eb9fa36caf5a7da182d01b885e47031a,2026-07-31T16:28:19+00:00,Human,,25,1,2,True,True,False,False,fix: keep DOCX previews same-origin in Safari
+https://www.github.com/17380936778/omp-web,248aaf464d20f6b76966b6646e743ea0904214d1,2026-07-31T15:35:29+00:00,Human,,99,3,6,False,False,False,False,feat: add Windows drive picker
+https://www.github.com/17380936778/omp-web,0ada6c742896de4b97a9e59bdcb2f4246fb4d101,2026-07-31T15:29:44+00:00,Human,,225,21,8,True,True,False,False,"fix: improve iOS PWA viewport and keyboard layout (#316)
+
+* fix: improve iOS PWA viewport layout
+
+* fix: cover iOS PWA safe-area edge cases
+
+---------
+
+Co-authored-by: Winrunner_20 <Windrunner20@users.noreply.github.com>
+Co-authored-by: Alex Yang <agegcn@gmail.com>"
+https://www.github.com/17380936778/omp-web,caa3bb8c24cada1ad7a9ddc89a3fefef01133d21,2026-07-31T15:28:11+00:00,Human,,17,0,2,False,False,False,False,feat: play sound for extension dialogs
+https://www.github.com/17380936778/omp-web,d63b55a0914d6f19bf2c3109e45c7eaf4dee8968,2026-07-31T14:32:03+00:00,Human,,358,153,5,False,True,False,False,"feat: group dormant skills in skills panel and slash palette (#288)
+
+* feat: group dormant skills in skills panel and slash palette
+
+Skills with disable-model-invocation (dormant) now get their own
+visual treatment:
+
+- Skills panel: within each scope group, dormant skills are tucked
+  into a collapsed-by-default ""Dormant (N)"" subsection; groups
+  without dormant skills render exactly as before
+- Slash palette: the skill group lists active commands first and
+  dormant commands last, dimmed with a small dormant badge. Skill
+  dormancy is lazy-fetched from /api/skills each time the palette
+  opens so toggles in the skills panel are reflected on next open;
+  fetch failures silently fall back to the unannotated palette
+- Skill detail toggle now notes that the change applies to new
+  sessions
+
+Display-layer only; no API or RPC behavior changes.
+
+* fix: harden dormant skill interactions
+
+* fix: stabilize dormant skill toggle layout
+
+---------
+
+Co-authored-by: Hermes Agent <hermes@nousresearch.com>
+Co-authored-by: Alex Yang <agegcn@gmail.com>"
+https://www.github.com/17380936778/omp-web,5179734c393c1c7e6ace270f49f7b778e48d7915,2026-07-31T12:58:03+00:00,Human,,131,34,8,False,False,False,False,perf: reduce agent message overhead
+https://www.github.com/17380936778/omp-web,27935aa27cd3286e1a2fc0b5c924633038d39deb,2026-07-31T12:32:50+00:00,Human,,43,3,1,False,False,False,False,feat: improve plugin package installation
+https://www.github.com/17380936778/omp-web,e932d9792b2c55ba3e27de7f10f703130cbfca3d,2026-07-31T12:27:42+00:00,Human,,93,28,4,True,True,False,False,fix: avoid hanging after API key save
+https://www.github.com/17380936778/omp-web,68223e01ee8d29dfdfb845f4b2c8668f72b45a97,2026-07-31T12:21:29+00:00,Human,,236,35,4,True,True,False,False,fix: retain agent event streams after prompt completion
+https://www.github.com/17380936778/omp-web,101d08e56d03d93e7b396548c397cad811181533,2026-07-31T06:55:04+00:00,Human,,208,2,5,True,True,False,False,fix: persist explicit new-session preferences
+https://www.github.com/17380936778/omp-web,c71edcb2a548fafb3889f9065527e08a8db80d71,2026-07-31T03:07:42+00:00,Human,,1,1,1,True,True,False,False,fix: allow full thinking level options for custom models
+https://www.github.com/17380936778/omp-web,49d0365f2756d891ae1141ff5f57e8fda959387b,2026-07-31T03:04:49+00:00,Human,,44,0,1,True,True,False,False,fix: support custom providers and models from models.json in chat model dropdown
+https://www.github.com/17380936778/omp-web,cbb080df9d1c6c92509c26c7f3b902151e7e0af5,2026-07-30T16:47:57+00:00,Human,,3,3,2,False,False,False,False,Release v0.8.5
+https://www.github.com/17380936778/omp-web,fdc28d54d75d3c330e8f34032a9f8b399ecae21a,2026-07-30T16:45:09+00:00,Human,,158,3,4,False,False,False,False,"docs: add Russian README translation (#313)
+
+* docs: add Russian README translation
+
+Add README.ru.md and link Русский from existing locale language bars.
+
+* docs: improve Russian README translation
+
+---------
+
+Co-authored-by: Alex Yang <agegcn@gmail.com>"
+https://www.github.com/17380936778/omp-web,48e83009f77f450a4c12e40cdfcfd0c5520a384c,2026-07-30T16:23:30+00:00,Human,,151,9,7,False,False,False,False,feat: add optional password authentication
+https://www.github.com/17380936778/omp-web,0b0d04c272422681dbb1843f0b6bd134391c4f15,2026-07-30T16:12:17+00:00,Human,,509,68,13,True,True,True,False,"fix: list dual-auth providers (Anthropic, Copilot, Codex) in the Models panel (#311)
+
+* fix: list dual-auth providers in the Models panel
+
+Anthropic was skipped by /api/auth/all-providers as ""OAuth only"" and by
+/api/auth/providers through a hardcoded EXCLUDED set, so a configured
+Anthropic account showed up in neither provider list even though its
+models were selectable in chat. The same gap hid github-copilot and
+openai-codex whenever they held an API-key credential, and there was no
+way to add, rotate, or remove those keys from the UI.
+
+Replace both id-based skip lists with capability-driven listing in
+lib/provider-listing.ts: a provider is offered for API-key auth when it
+declares auth.apiKey.login, for OAuth when it declares auth.oauth, and
+its configured/loggedIn state now follows the stored credential type so a
+dual-auth provider renders exactly once. Custom models.json providers
+stay excluded (models_json_key and now models_json_command too) because
+the panel already renders them from models.json.
+
+Fixes #309
+
+* fix: keep both provider lists in sync when the auth method changes
+
+Review follow-ups on the dual-auth listing fix:
+
+- Refresh both provider lists after any auth change. OAuth login reloaded only
+  the OAuth list and saving an API key only the API-key list, so a dual-auth
+  provider stayed rendered in its old list until the panel was reopened.
+- Stop the stale row from deleting the new credential. auth.json holds one
+  credential per provider and `logout()` removes whichever it is, so both delete
+  routes now gate on `canRemoveCredential()` and return 409 when the stored
+  credential belongs to the other method. Covers a second tab the refresh above
+  cannot reach.
+- openai-codex is OAuth-only in the pinned SDK — drop it from the dual-auth
+  examples in AGENTS.md and lib/provider-listing.ts, and correct the test stub
+  that claimed otherwise. Which providers declare both is an SDK property that
+  moves between releases; the docs now say so instead of naming a fixed set.
+
+* fix: make credential deletion atomic
+
+---------
+
+Co-authored-by: Peter Shi <peter.shi@zoom.us>
+Co-authored-by: Alex Yang <agegcn@gmail.com>"
+https://www.github.com/17380936778/omp-web,ac81a965fb8b094175f73f98198493faf857608a,2026-07-30T16:06:59+00:00,Human,,75,3,3,False,True,False,False,"Write model configuration atomically (#295)
+
+* Write model configuration atomically
+
+* fix: secure atomic model config writes
+
+---------
+
+Co-authored-by: Alex Yang <agegcn@gmail.com>"
+https://www.github.com/17380936778/omp-web,faccb235d2ddcf0768876912b7962f5bfe3f56e1,2026-07-30T15:51:23+00:00,Human,,586,65,13,True,True,True,False,"fix: resolve `enabledModels` glob patterns for the model selector (#310)
+
+* fix: resolve enabledModels globs for the model selector
+
+The model selector filtered available models by comparing enabledModels
+entries as literal strings, so a pattern like ""my-gateway/*"" matched
+nothing and every model behind it disappeared from Pi Web while pi's TUI
+still listed it.
+
+Delegate scoping to the SDK's resolveModelScopeWithDiagnostics() through
+lib/model-scope.ts so globs, fuzzy patterns, and :thinkingLevel suffixes
+behave exactly like pi's --models flag. Patterns that match nothing are
+now reported as modelScopeWarnings instead of silently shrinking the
+list, and an empty resolution still falls back to all available models.
+
+Fixes #307
+
+* fix: consume model-scope diagnostics and honor thinking-level pins
+
+Review follow-ups on the enabledModels glob fix:
+
+- Carry the `:thinkingLevel` pin through. The resolver returns
+  `{ model, thinkingLevel }` for a pattern like `anthropic/*:high`, but only
+  the model survived, so a new session still started at auto. `/api/models`
+  now returns `thinkingLevelPins` and `useAgentSession` applies the pin of the
+  model a new session starts with — the same rule as pi's buildSessionOptions.
+- Give `modelScopeWarnings` a consumer: `ModelScopeWarningBanner` renders them
+  above the composer, so a pattern that matched nothing is visible instead of
+  silently shrinking the list.
+- Drop the resolver catch-all. It could only fire when `getAvailable()` itself
+  throws, which the route already handles, and it turned a real SDK fault into
+  a silently unfiltered model list. The test that manufactured the throw by
+  breaking an array iterator goes with it.
+- Simplify `resolveVisibleModels`: take `ModelRuntime` and return pi's own
+  `Model` type, removing the generic parameter, the structural runtime type and
+  both `unknown` casts. `getAvailable()` is no longer called on the happy path.
+
+* fix: apply enabled model scope at session startup
+
+---------
+
+Co-authored-by: Peter Shi <peter.shi@zoom.us>
+Co-authored-by: Alex Yang <agegcn@gmail.com>"
+https://www.github.com/17380936778/omp-web,9d1721f2e19faa12776976d870e628f5bfdd5858,2026-07-30T14:33:27+00:00,Human,,607,16,7,False,False,False,False,"feat: add draggable sidebar resize with localStorage persistence (#266)
+
+* feat: add draggable sidebar resize with localStorage persistence
+
+- Add 4px drag handle on sidebar right edge (desktop only)
+- Drag to resize sidebar width between 180px and 480px
+- Double-click handle to reset to default 260px
+- Persist width to localStorage and restore on page load
+- Disable CSS transition during active drag for smooth tracking
+- Use CSS custom property --sidebar-width for dynamic width
+
+* style: shrink sidebar resize handle from 4px to 2px
+
+* feat: add draggable resize for right file panel with localStorage persistence
+
+- Add 2px drag handle on right panel left edge (desktop only)
+- Drag to resize panel width between 300px and 1200px
+- Double-click handle to reset to default 560px
+- Persist width to localStorage and restore on page load
+- Disable CSS transition during active drag for smooth tracking
+- Use CSS custom property --right-panel-width for dynamic width
+
+* Improve resizable panel interactions
+
+---------
+
+Co-authored-by: Alex Yang <agegcn@gmail.com>"
+https://www.github.com/17380936778/omp-web,7672aa04082140de1d70f6003c906fc54d256bbe,2026-07-30T10:53:33+00:00,Human,,4,2,1,False,True,False,False,Fix i18n registry test module loading
+https://www.github.com/17380936778/omp-web,125e55d9233ef20963709d38f293faeba5b6f4f2,2026-07-30T10:51:54+00:00,Human,,138,40,6,False,False,False,False,Reduce SSE usage across browser windows
+https://www.github.com/17380936778/omp-web,e8649db881225589e78760ead82cd6b77ac5e3ea,2026-07-30T06:49:13+00:00,Human,,3,3,5,False,False,False,False,docs: replace README showcase image with docs/Untitled blend-4096x4096.png
+https://www.github.com/17380936778/omp-web,c9b47e4543b11ce61e5c49c6bf02cea80aa975f6,2026-07-30T03:35:08+00:00,Human,,200,198,3,False,False,False,False,Release v0.8.4
+https://www.github.com/17380936778/omp-web,804810e9f3c2a8f6ff3c503bd97d5839c5baf67d,2026-07-29T16:59:38+00:00,Human,,3,3,2,False,False,False,False,Release v0.8.3
+https://www.github.com/17380936778/omp-web,d3627646887908a95890e3f09c5a08fc6b9d8d31,2026-07-29T16:54:10+00:00,Human,,62,0,3,True,True,False,False,fix: allow PWA session export navigation
+https://www.github.com/17380936778/omp-web,d35c61f14d4af9fda165d61d4eef5146372eeddb,2026-07-29T16:35:46+00:00,Human,,10,3,1,True,True,False,False,fix: preserve extension-injected message streaming
+https://www.github.com/17380936778/omp-web,ab0ea587cb5814ae81abd84389d8d16da137c991,2026-07-29T13:36:04+00:00,Human,,72,70,1,True,True,False,False,fix: preserve mermaid preview state
+https://www.github.com/17380936778/omp-web,556e2ec39a7063e38f2424fcf4e12b96428e2a32,2026-07-29T13:09:29+00:00,Human,,157,23,8,True,True,False,False,fix: surface provider and compaction errors
+https://www.github.com/17380936778/omp-web,19e6d25d89fa086c64fbf30dfb34af24a1027735,2026-07-29T12:26:24+00:00,Human,,4,2,2,False,False,False,False,style: lighten extension status bar
+https://www.github.com/17380936778/omp-web,dbd583b3af7afc59f2ecc6a972bcedf05ffcb31c,2026-07-29T12:01:16+00:00,Human,,812,247,3,False,False,False,False,feat: improve chat minimap navigation
+https://www.github.com/17380936778/omp-web,2f11afb14bed3ae60be28df187feb4e5c7e82ea4,2026-07-29T08:03:07+00:00,Human,,39,29,1,True,True,False,False,fix: ensure loadAllSessions scans and merges all session files regardless of line 1 entry type
+https://www.github.com/17380936778/omp-web,266662d56f647b08b7beece4357dd39b6835e92a,2026-07-29T07:52:18+00:00,Human,,0,0,1,False,False,False,False,docs: update screenshot preview in docs
+https://www.github.com/17380936778/omp-web,5818ead34f01a5063f79d22dfac3f3ec3b801fcc,2026-07-29T07:36:41+00:00,Human,,1,40,3,False,False,False,False,docs: simplify quick start to run from source only
+https://www.github.com/17380936778/omp-web,e57ed83f8965e4e7004c46d07aca18a4156643e1,2026-07-29T07:16:07+00:00,Human,,3,3,3,True,True,False,False,fix: add missing console.warn in bin/omp-web.js and move fonts to globals.css
+https://www.github.com/17380936778/omp-web,8bc6fafb802142f2e4749f3fe8f24210f0709b86,2026-07-29T07:11:24+00:00,Human,,2,2,1,False,False,False,False,ci: use npm install instead of npm ci for cross-platform runners
+https://www.github.com/17380936778/omp-web,d8549360081d3657a3a5fdc7c528bbd3c508a42c,2026-07-29T07:09:21+00:00,Human,,1,1,1,False,False,False,False,ci: update node version to 22 in github actions workflow
+https://www.github.com/17380936778/omp-web,8a34490c6f99cdfb5290556ce1d66f9ed0038364,2026-07-29T07:07:35+00:00,Human,,3,5,2,False,False,False,False,chore: update console log labels to omp-web
+https://www.github.com/17380936778/omp-web,170c61f78af1cf2429dec8b47cfb9a3352e3c69b,2026-07-29T07:04:21+00:00,Human,,0,17,1,False,False,False,False,chore: remove local settings from git tracking
+https://www.github.com/17380936778/omp-web,6b3f14c7b6cab828ba45921b48bf0a5a4fa0c902,2026-07-29T07:01:55+00:00,Human,,306,254,4,False,False,False,False,docs: remove Japanese README and set Chinese README as default README.md
+https://www.github.com/17380936778/omp-web,1e9783efd656deaee16233b3321d25fb838461a2,2026-07-29T06:59:46+00:00,Human,,19,12,2,False,False,False,False,docs: highlight omp-web unique features in README files
+https://www.github.com/17380936778/omp-web,ccc51f2885ed73400333d16e3ed41b5c0d8fb85b,2026-07-29T06:53:44+00:00,Human,,19,7,3,True,True,False,False,"fix: bypass SSE routes in proxy, ensure env sync for agent dir, deduplicate model list"
+https://www.github.com/17380936778/omp-web,688fbb6feca5cf955e7e63ca8a44cd1b931bdfbb,2026-07-29T06:43:57+00:00,Human,,120,0,5,False,False,False,False,开源前准备工作
+https://www.github.com/17380936778/omp-web,83b5da1ac0cc8f04afd2edd2e3340ac4baabec88,2026-07-29T06:41:13+00:00,Human,,0,2,2,True,True,False,False,fix: clean unused imports after v0.8.1 merge
+https://www.github.com/17380936778/omp-web,1ed6e5487d25d81f29ec135d8a9ed1eaaa167355,2026-07-29T06:39:45+00:00,Human,,7608,1019,66,False,False,False,False,merge: track upstream pi-web v0.8.1 updates
+https://www.github.com/17380936778/omp-web,0b6e0951d247546073927aa1a063b0a8b0895ec2,2026-07-29T06:35:55+00:00,Human,,8,0,2,False,False,False,False,docs: update acknowledgements in readmes
+https://www.github.com/17380936778/omp-web,2e093f771e9293d7be01e15c34b0d5078704262c,2026-07-29T05:51:54+00:00,Human,,7,5,4,False,False,False,False,更新readme
+https://www.github.com/17380936778/omp-web,68853091f5bf92b113f0676326526d31a317f5e1,2026-07-28T15:21:17+00:00,Human,,273,1,9,False,False,False,False,feat: add PWA support
+https://www.github.com/17380936778/omp-web,894babf4b9bb9d23f622c45d7a1c8f2fc168b472,2026-07-28T14:34:52+00:00,Human,,124,47,4,False,False,False,False,feat: filter model selector options
+https://www.github.com/17380936778/omp-web,c1f0f046541e4004d2de6ef78eec70176e11e514,2026-07-28T14:10:06+00:00,Human,,1402,1,11,False,True,False,False,"feat(models): add pricing presets and upstream model discovery (#256)
+
+* chore: stage PR screenshots
+
+* feat(models): add pricing presets and upstream discovery
+
+* fix(models): address discovery review feedback
+
+* feat(models): simplify discovery and autofill
+
+---------
+
+Co-authored-by: Alex Yang <agegcn@gmail.com>"
+https://www.github.com/17380936778/omp-web,0999006e9eccfb6981f26f1862a7b6dfb278dec3,2026-07-28T13:56:06+00:00,Human,,12,0,2,True,True,False,False,fix: refresh models after session reload
+https://www.github.com/17380936778/omp-web,24ccee08a2384c650a2e42ac06138da4b2cf57d4,2026-07-28T12:22:13+00:00,Human,,44,1,3,False,False,False,False,"feat: add filter to the worktree switcher dropdown (#253)
+
+The worktree switcher now shows a ""Filter worktrees..."" input when a
+project has >= 8 worktrees, mirroring the existing project filter:
+case-insensitive substring match on branch/path, Esc clears and
+closes, with a no-match empty state.
+
+Co-authored-by: Alex Yang <agegcn@gmail.com>"
+https://www.github.com/17380936778/omp-web,b6116d10b45e6e0d83e451d1a72f7acd18fea038,2026-07-27T16:11:26+00:00,Human,,3,3,2,False,False,False,False,Release v0.8.2
+https://www.github.com/17380936778/omp-web,db20f4af8aaa729d47ad8e274f6445e6c9711e63,2026-07-27T16:04:41+00:00,Human,,3005,608,52,False,False,False,False,"Merge remote-tracking branch 'origin/main' into HEAD
+
+# Conflicts:
+#	components/FileExplorer.tsx
+#	components/FileViewer.tsx
+#	components/SessionSidebar.tsx"
+https://www.github.com/17380936778/omp-web,6e0b9d108d153745eb4fc23f17907a6db13e293b,2026-07-27T15:54:18+00:00,Human,,172,59,6,False,False,False,False,feat(explorer): complete quick changes viewer
+https://www.github.com/17380936778/omp-web,dfad27cd03c3f9557b3e8a73714c7da6f890678b,2026-07-27T15:40:09+00:00,Human,,37,8,4,False,True,False,False,"Merge pull request #254 from AyushDubey23/fix/shift-delete-thread
+
+feat: support Shift+click to delete a session without confirmation"
+https://www.github.com/17380936778/omp-web,075b009f031e81f5dae196b90391cbff277a3796,2026-07-27T15:38:43+00:00,Human,,4249,1262,65,False,False,False,False,Merge main and narrow deletion shortcut to Shift+click
+https://www.github.com/17380936778/omp-web,f5ba075c9f325324495a2ec98be74f3dfd28787b,2026-07-27T14:48:46+00:00,Human,,18,3,1,False,False,False,False,Merge branch 'main' of https://github.com/agegr/pi-web
+https://www.github.com/17380936778/omp-web,9f8efa22972f2bb1299cb21948f27e4d9cc09d39,2026-07-27T14:47:28+00:00,Human,,18,3,1,False,True,False,False,"Merge pull request #281 from shani-singh1/fix/268-clear-file-tabs-on-workspace-switch
+
+fix: clear open file tabs when switching to a different project (#268)"
+https://www.github.com/17380936778/omp-web,d67b196b58723fa3fce76a62ae4551a1ee511484,2026-07-27T14:45:59+00:00,Human,,10,3,1,True,True,False,False,fix: preserve file tabs across project worktrees
+https://www.github.com/17380936778/omp-web,8a33ba47eb73e43407bce16857a3eda0fcd0a57c,2026-07-27T14:43:13+00:00,Human,,25,12,3,True,True,False,False,fix: pin extension status to bottom bar
+https://www.github.com/17380936778/omp-web,0ff6ad3c168e68c5bb4ad43c8be0e9c5f096d85e,2026-07-27T14:04:32+00:00,Human,,249,69,13,False,True,False,False,"Merge commit from fork
+
+fix DNS rebinding bypass"
+https://www.github.com/17380936778/omp-web,a192ec99563027dec3573a72ae1247d0102a57e6,2026-07-27T13:47:57+00:00,Human,,8,0,1,True,True,True,False,"fix: clear open file tabs when switching to a different project
+
+Switching workspace updated the session list and the file explorer, but
+the right-hand file viewer kept the tabs from the previous project. File
+tabs are keyed by absolute path, so handleCwdChange left them attached
+after moving to a different project, making it look like the old
+project's files belonged to the new one.
+
+Clear fileTabs/activeFileTabId in handleCwdChange alongside the other
+per-project state, and close the now-empty right panel (mirroring
+handleCloseFileTab). This runs only past the same-project early return,
+so switching between worktrees of one repo still keeps open tabs.
+
+Fixes #268"
+https://www.github.com/17380936778/omp-web,70de53d913b08945194483d676be7eda4d03baf0,2026-07-27T13:46:17+00:00,Human,,808,54,19,False,True,False,False,"Merge remote-tracking branch 'upstream/main' into advisory-fix-1
+
+# Conflicts:
+#	app/api/plugins/route.ts
+#	app/api/skills/install/route.ts"
+https://www.github.com/17380936778/omp-web,04aa6deb38dd36f299d3cac1000e0e8ba6659a25,2026-07-27T13:30:16+00:00,Human,,704,25,15,False,False,False,False,"Merge pull request #280 from agegr/pr/276
+
+Pr/276"
+https://www.github.com/17380936778/omp-web,9716166594b06fc9a9594933e923957165d89748,2026-07-27T13:27:27+00:00,Human,,656,52,14,False,False,False,False,feat: add restricted mode for untrusted projects
+https://www.github.com/17380936778/omp-web,def8fb4a626d0207339ceba2e2dc1e673211f2a6,2026-07-27T13:21:11+00:00,Human,,249,69,13,False,True,False,False,fix DNS rebinding bypass
+https://www.github.com/17380936778/omp-web,658de528b9fa321ca929ca088d348d4cb660892c,2026-07-27T13:14:51+00:00,Human,,104,29,4,True,True,False,False,fix: align extension status bar with pi cli
+https://www.github.com/17380936778/omp-web,5cddc13770a44f133b082e5f38c24bd4ad97d387,2026-07-27T12:44:59+00:00,Human,,77,2,4,True,True,True,False,"fix: gate untrusted project extensions behind project trust
+
+Creating session services for a repository loads and executes its
+project-local extensions: the SDK's resource loader imports every
+enabled .pi/extensions module (running its factory) and the session then
+dispatches session_start handlers. Pi Web called createAgentSessionServices
+without the SDK's project-trust resolver, so merely opening an untrusted
+repository — via POST /api/agent/new or GET /api/models — ran
+repository-controlled code locally, with no trust prompt (#236).
+
+Add projectTrustReloadOptions(), which returns the SDK
+resourceLoaderReloadOptions only when the project has trust-requiring
+resources (hasTrustRequiringProjectResources) and resolves trust from the
+ProjectTrustStore shared with the pi CLI, defaulting to untrusted. The
+loader's pre-trust pass keeps project extensions out until the decision is
+true, so untrusted repositories no longer auto-run their code while
+projects already trusted via the CLI keep working. Wire it into both
+session-creation paths (startRpcSession and the models route).
+
+Pi Web has no in-app trust prompt yet; until it does, a project is trusted
+by trusting it once in the pi CLI. Ordinary projects without .pi
+extensions are unaffected.
+
+Fixes #236"
+https://www.github.com/17380936778/omp-web,ddccd04bcbbd9551c9c0d4617b6bf20f2a82b4c6,2026-07-27T11:35:19+00:00,Human,,8,0,1,False,True,False,False,"Merge pull request #275 from shani-singh1/fix/274-global-skills-allowed-root
+
+fix: allow toggling globally installed skills in PATCH /api/skills (#274)"
+https://www.github.com/17380936778/omp-web,185c7cf6ee215445ad461acb69e7d3eb801a0377,2026-07-27T11:26:58+00:00,Human,,1836,460,27,False,False,False,False,"Merge pull request #251 from xiaojueshi/feat/i18n-en-zh-pr
+
+feat(i18n): add English and Simplified Chinese localization"
+https://www.github.com/17380936778/omp-web,d1622fc59d26fdfca297e63582ee490b3c4f3f80,2026-07-27T11:25:55+00:00,Human,,3048,932,69,False,False,False,False,"Merge remote-tracking branch 'origin/main' into pr/251
+
+# Conflicts:
+#	components/FileExplorer.tsx
+#	components/FileViewer.tsx
+#	components/MarkdownBody.tsx
+#	components/SessionSidebar.tsx"
+https://www.github.com/17380936778/omp-web,7ea863eb143ef40f2a46217e148ea44770e82a82,2026-07-27T11:03:52+00:00,Human,,91,29,6,True,True,False,False,fix(i18n): refine locale detection and language menu
+https://www.github.com/17380936778/omp-web,80d2cade5bbd2f7101ceccad5ce6873fe809eb4b,2026-07-27T08:30:31+00:00,Human,,226,17,4,False,False,False,False,特性：新增独立代码块语法主题选择器，支持 One Dark Pro 主题
+https://www.github.com/17380936778/omp-web,313727a3906a8553b0702dc79517a187d332a9f8,2026-07-27T06:55:46+00:00,Human,,16,8,1,False,False,False,False,Align file explorer status flags
+https://www.github.com/17380936778/omp-web,bd78e86bc87a9a38c5fa783fa06e94dec241d976,2026-07-27T02:11:25+00:00,Human,,37,3,5,False,False,False,False,开源前准备
+https://www.github.com/17380936778/omp-web,4aed2f971181ad27b728a7702f7d6d4e3310e757,2026-07-27T01:40:46+00:00,Human,,57,40,10,False,False,False,False,开源前准备
+https://www.github.com/17380936778/omp-web,58d650e33dfe841c31f6f1d16a8c5d49ac848957,2026-07-26T20:53:16+00:00,Human,,8,0,1,True,True,True,False,"fix: allow toggling globally installed skills in PATCH /api/skills
+
+Globally installed skills (skills add -g) live in ~/.agents/skills and
+are symlinked into the agent's skills directory. PATCH /api/skills
+validates the SKILL.md path with isExistingFilePathAllowed, which
+resolves symlinks via realpath, so the real target lands in
+~/.agents/skills — outside getAgentDir() and every other allowed root —
+and the toggle returned 403 Access denied.
+
+Add ~/.agents/skills (the SDK's canonical global skills location, which
+its trust manager always treats as trusted) to the allow-list for this
+check, guarded by existsSync. Listing and project-scoped installs
+validate the project cwd instead and are unaffected.
+
+Fixes #274"
+https://www.github.com/17380936778/omp-web,9bbe2ba5ffc6b5711af44ea075f35de2f7f5624c,2026-07-26T07:34:45+00:00,Human,,2,0,1,False,False,False,False,docs: add Chinese WeChat group link
+https://www.github.com/17380936778/omp-web,fd274aac0e84c7fea997db3d68f65b539a210f2a,2026-07-26T02:23:13+00:00,Human,,2984,921,66,False,False,False,False,"Merge remote-tracking branch 'origin/main' into fast-view-changes
+
+# Conflicts:
+#	components/AppShell.tsx
+#	components/FileViewer.tsx"
+https://www.github.com/17380936778/omp-web,b4f4576b890de92b1def79a56ad1fb2841ee84c1,2026-07-25T17:30:40+00:00,Human,,3,3,2,False,False,False,False,Release v0.8.1
+https://www.github.com/17380936778/omp-web,ae58c82bae41b2583a3569299d4995f591a13b5c,2026-07-25T17:27:54+00:00,Human,,236,482,4,False,False,False,False,chore: update pi dependencies to 0.82.1
+https://www.github.com/17380936778/omp-web,3bd11ee2aba7a25214918bb66b93c83ae2ef5cfa,2026-07-25T17:11:33+00:00,Human,,49,20,7,True,True,False,False,fix: bind server to loopback by default
+https://www.github.com/17380936778/omp-web,236b1482c309c0f669dea3d9967461f000f3a2dd,2026-07-25T17:00:38+00:00,Human,,88,0,8,True,True,False,False,fix: require Node.js 22.19 or newer
+https://www.github.com/17380936778/omp-web,105c4fc73b8409c4635b2979d15a2292cec3ef8d,2026-07-25T16:35:53+00:00,Human,,2,1,1,False,False,False,False,Show cache write usage in messages
+https://www.github.com/17380936778/omp-web,8215e10fa7c8c331b2046ce5b30effca17d29426,2026-07-25T16:25:36+00:00,Human,,4,1,1,False,True,False,False,"Merge pull request #257 from molicherry/fix/optimistic-session-sidebar
+
+fix: refresh sessions after background completion"
+https://www.github.com/17380936778/omp-web,c910e1f2b871b7667ae4c5567a0e08cecb7da223,2026-07-25T16:21:33+00:00,Human,,23,105,5,True,True,False,False,fix: refresh sessions after background completion
+https://www.github.com/17380936778/omp-web,8b5b9fbde5a74e5c3ad0188e4e873cf750cad895,2026-07-25T15:49:20+00:00,Human,,28,29,2,False,False,False,False,Align directory picker navigation and styling
+https://www.github.com/17380936778/omp-web,413cc2f5449022784aac7afac31a49945621373f,2026-07-25T14:57:07+00:00,Human,,28,4,2,True,True,False,False,"fix: keep model picker visible on model errors
+
+Refs #243"
+https://www.github.com/17380936778/omp-web,3a153724f5bccf7d9b93cccaa069e935868c4449,2026-07-25T14:49:19+00:00,Human,,33,1,2,False,True,False,False,fix LAN API origin validation
+https://www.github.com/17380936778/omp-web,17c6732758222f17c91d3c405a06fc2297a88a49,2026-07-25T14:34:12+00:00,Human,,392,137,8,False,False,False,False,"Merge pull request #247 from sleepinginsummer/feature/directory-picker
+
+feat: add browsable directory picker"
+https://www.github.com/17380936778/omp-web,00444ecba85f39b037b26aacce0de99257132672,2026-07-25T14:29:31+00:00,Human,,13,7,2,False,False,False,False,simplify directory picker path display
+https://www.github.com/17380936778/omp-web,34c27831bc24b8b5c0f93ae4b20b9f6b31057576,2026-07-25T14:16:13+00:00,Human,,79,32,5,False,True,False,False,fix directory picker navigation and layout
+https://www.github.com/17380936778/omp-web,316b54738671ea770b2d3a179767fe6089f28d7e,2026-07-25T14:04:23+00:00,Human,,103,6,7,True,True,False,False,"fix: surface model runtime errors
+
+Refs #243"
+https://www.github.com/17380936778/omp-web,969c05acdaccdda5a80a5c3c48e81384cce39c39,2026-07-25T13:49:11+00:00,Human,,191,4,2,False,False,False,False,"Merge pull request #246 from robinwlive/main
+
+feat: add input history recall"
+https://www.github.com/17380936778/omp-web,a986d03d0cee86152f35fa7d2cd2f71ce732b459,2026-07-25T13:46:50+00:00,Human,,1867,273,50,False,False,False,False,Merge latest main into input history PR
+https://www.github.com/17380936778/omp-web,65d59dc447c776b349d2984b65c0ae6d2691ab01,2026-07-25T13:39:24+00:00,Human,,182,17,2,False,False,False,False,feat: support LaTeX math delimiters
+https://www.github.com/17380936778/omp-web,8ed19ef4957175ef696b343cbde9ee35ba3ca337,2026-07-25T13:32:51+00:00,Human,,20,92,6,False,False,False,False,chore: scope PR to input history menu
+https://www.github.com/17380936778/omp-web,47cc7ef33bdf5c3fcbd40e87de37f39b4e64805f,2026-07-25T09:21:14+00:00,Human,,40,8,1,False,False,False,False,feat: support Shift+Delete to delete thread without confirmation (#245)
+https://www.github.com/17380936778/omp-web,1a91d8d89ba7bfbabef771f7dfe15406eba30883,2026-07-25T09:05:05+00:00,Human,,9,2,2,False,True,False,False,"Merge pull request #237 from kerwin2046/fix/session-model-reload
+
+fix: reload ModelRuntime config before set_model to pick up newly added providers"
+https://www.github.com/17380936778/omp-web,280ebfbd7921a4c1a8b8eb39c569ceab94d56417,2026-07-25T09:03:34+00:00,Human,,1,4,2,True,True,False,False,fix: reload model config on lookup miss
+https://www.github.com/17380936778/omp-web,1c8a3dc8c0847911c81cb3721c0608b03034615a,2026-07-25T08:57:54+00:00,Human,,40,34,3,True,True,False,False,"fix: add KaTeX math rendering support to FileViewer markdown preview
+
+fix: add KaTeX math rendering support to FileViewer markdown preview"
+https://www.github.com/17380936778/omp-web,da3a36ba1a3ea14e0fe4f31d917ae443f9e268d7,2026-07-25T08:56:40+00:00,Human,,1653,237,47,False,False,False,False,"Merge remote-tracking branch 'origin/main' into HEAD
+
+# Conflicts:
+#	components/FileViewer.tsx
+#	components/MarkdownBody.tsx"
+https://www.github.com/17380936778/omp-web,3d7a09734fb0f73c8d3cb33f92d3d9dfd73fd7ea,2026-07-25T08:53:20+00:00,Human,,38,33,3,True,True,False,False,fix: normalize display math in FileViewer
+https://www.github.com/17380936778/omp-web,56877fbf3ebfc69a105bd170204e4b403adb20c4,2026-07-25T08:45:06+00:00,Human,,47,3,4,True,True,False,False,"fix: surface registry-only sessions in sidebar listing
+
+In-memory sessions not yet persisted to .jsonl files (streaming in
+progress) were invisible in the sidebar after navigation away.
+
+- Add getRegistryOnlySessions() to collect sessions from RPC registry
+  that have no backing .jsonl file yet
+- Merge them into the GET /api/sessions response
+- Trigger loadSessions(false) when running session IDs change"
+https://www.github.com/17380936778/omp-web,0bd6ccab8fb27b1e5981b3cd5d90e76cfb921483,2026-07-25T08:45:06+00:00,Human,,60,19,2,True,True,False,False,"fix: show new sessions in sidebar immediately while streaming
+
+New sessions were invisible in the sidebar when the user navigated
+away before streaming completed. Pi writes .jsonl files lazily during
+streaming, so the initial loadSessions() after promoteNewSession finds
+nothing on disk. The agent_end refreshKey bump never arrives because
+ChatWindow unmounts before streaming finishes.
+
+- AppShell: cache newly-created SessionInfo in pendingNewSession state,
+  pass to SessionSidebar for optimistic display
+- SessionSidebar: merge pendingNewSession into filtered session list
+  immediately, with guard preventing clicks until the file exists on
+  disk (avoids blank-chat 404)"
+https://www.github.com/17380936778/omp-web,19f7328812d30f016a1d94514732d654e746c63c,2026-07-25T08:40:34+00:00,Human,,99,55,2,False,False,False,False,重写readme文档
+https://www.github.com/17380936778/omp-web,5c366c5f1a5003c2b78a2b1784ada729519c2696,2026-07-25T08:28:16+00:00,Human,,5,1,1,False,True,False,False,"Merge pull request #228 from shani-singh1/fix/227-unique-new-session-key
+
+fix: use a unique key for the new-session RPC lock (#227)"
+https://www.github.com/17380936778/omp-web,fdaf9924034230e9cd96970f68d131e23b0ff96a,2026-07-25T08:25:11+00:00,Human,,5,1,1,False,True,False,False,"Merge pull request #226 from shani-singh1/fix/214-preserve-input-on-connection-error
+
+fix: preserve chat input when a prompt fails to send (#214)"
+https://www.github.com/17380936778/omp-web,97e80ce21a8040d63d49f835ba3801e7fc6ced58,2026-07-25T08:21:33+00:00,Human,,206,29,5,False,False,False,False,"Merge pull request #219 from opsCar/feat/file-line-mentions
+
+feat: mention selected file lines with Cmd+I"
+https://www.github.com/17380936778/omp-web,1febbb68eebed6cea7b952169dccaf5e1928d829,2026-07-25T08:21:16+00:00,Human,,48445,0,154,False,False,False,False,first commit
+https://www.github.com/17380936778/omp-web,d7b27af3ca89db74b68cd14e30ab511f1b1c23db,2026-07-25T08:20:57+00:00,Human,,92,33,2,False,False,False,False,feat: add visible selected-line mention control
+https://www.github.com/17380936778/omp-web,527602ed202937439c15a9811678328ec5682fd8,2026-07-25T06:42:14+00:00,Human,,466,36,25,False,False,False,False,"Merge pull request #203 from imxyanua/main
+
+Harden local API and filesystem security boundaries"
+https://www.github.com/17380936778/omp-web,23a3695d2d506ce575b31a015942a8aebd70e2c7,2026-07-25T06:41:34+00:00,Human,,1607,530,30,False,False,False,False,Merge origin/main into PR #203
+https://www.github.com/17380936778/omp-web,5c57870b867d4b5006ebbb6aa412d4533079fc95,2026-07-25T06:36:54+00:00,Human,,249,23,7,True,True,False,False,fix: enforce upload and image attachment limits
+https://www.github.com/17380936778/omp-web,2001238dbc106c913bb469a1b43020a20d1b4672,2026-07-25T06:32:54+00:00,Human,,30,0,3,False,False,False,False,"Merge pull request #217 from kongdd/main
+
+support markdown image preview"
+https://www.github.com/17380936778/omp-web,84cd82c3f2f857abaf09ac03d4ca239f0406db01,2026-07-25T06:21:47+00:00,Human,,26,4,1,False,True,False,False,"Merge pull request #205 from zhudatou630/fix/compaction-post-messages-collapse
+
+fix: collapse post-compaction messages when compaction drops the user prompt"
+https://www.github.com/17380936778/omp-web,d5b68599a2a3e47df612e16045559c9e0e0c72ea,2026-07-25T06:20:21+00:00,Human,,142,2,3,False,False,False,False,"Merge pull request #210 from tura-ai-agent/docs/readme-translations
+
+docs: add Japanese README translation"
+https://www.github.com/17380936778/omp-web,3f47c75b6aabfb9e179afd7574bb4aea87955480,2026-07-25T06:06:23+00:00,Human,,252,31,10,True,True,False,False,"fix: harden session title and path handling
+
+Supersedes #199"
+https://www.github.com/17380936778/omp-web,c0d6eeb46ec7d3b5f439003f6890c052563f8496,2026-07-25T05:52:33+00:00,Human,,283,236,4,True,True,False,False,fix: simplify mermaid preview viewer
+https://www.github.com/17380936778/omp-web,90778591dc4488e6c4287fd06cc889f5a8b16f5e,2026-07-25T05:14:24+00:00,Human,,1299,396,16,False,False,False,False,Merge remote-tracking branch 'origin/main' into codex/pr-182-simplify
+https://www.github.com/17380936778/omp-web,1a3abc12921e6ceb05f1722ac76cc2c59509ebee,2026-07-25T03:28:15+00:00,Human,,268,89,5,False,False,False,False,"feat(explorer): add quick changes viewer in explorer toolbar
+
+Add a small changes icon (with count badge) to the left of the upload
+button in the explorer toolbar. Clicking it toggles a list of git-changed
+files in place of the file tree; selecting a file opens it directly in
+diff view.
+
+- FileExplorer: lift changesCollapsed state up, report change count via
+  callback, render the changed-file list inline, and hide the file tree
+  while the changes list is open
+- SessionSidebar: add the toolbar icon with a count badge; extract
+  ToolbarIconButton shared by the changes, upload, and refresh buttons
+- FileViewer/TabBar/AppShell: thread initialDisplayMode (""diff"") through
+  so files opened from the changes list launch in diff view"
+https://www.github.com/17380936778/omp-web,e16ccf0fbaba5732605cdb586d2d6956340a8f7a,2026-07-25T03:06:34+00:00,Human,,166,0,2,False,False,False,False,docs: document i18n usage and extensions
+https://www.github.com/17380936778/omp-web,297e3b69498fefc8999377134d2984166a7c296b,2026-07-25T03:05:13+00:00,Human,,1511,406,22,False,False,False,False,feat: add English and Chinese localization
+https://www.github.com/17380936778/omp-web,d88588094c6d32f6a3961f6986e05738a013f4d1,2026-07-25T02:06:58+00:00,Human,,50,1,5,True,True,False,False,fix: constrain output tracing root on Windows
+https://www.github.com/17380936778/omp-web,2db68daf2b31d45d2bdde2f22889811dd73e456d,2026-07-25T01:51:13+00:00,Human,,339,137,8,False,False,False,False,feat: add browsable directory picker
+https://www.github.com/17380936778/omp-web,f66347f9c8abf40a76dc00dc1ba6957306499513,2026-07-25T01:17:21+00:00,Human,,214,4,3,False,False,False,False,feat: add input history recall
+https://www.github.com/17380936778/omp-web,9ccfc4833095df5715b4a99565c48407e5e92409,2026-07-24T07:43:15+00:00,Human,,12,2,2,True,True,False,False,fix: reload ModelRuntime config before set_model to pick up newly added providers
+https://www.github.com/17380936778/omp-web,ffbd8cad6fd2f5165dba3499517669fb5313f210,2026-07-24T05:47:52+00:00,Human,,2,1,1,True,True,False,False,fix: add KaTeX math rendering support to FileViewer markdown preview
+https://www.github.com/17380936778/omp-web,819f644c8463736c742992799bfd883315eb8c24,2026-07-23T19:40:46+00:00,Human,,5,1,1,True,True,True,False,"fix: use a unique key for new-session RPC lock
+
+startRpcSession coalesces concurrent callers that pass the same key onto
+one shared session (in-flight lock in lib/rpc-manager.ts). The new-session
+route derived that key from Date.now(), which has millisecond resolution,
+so two POST /api/agent/new requests in the same millisecond received the
+same AgentSessionWrapper and sessionId. Two independent chats were then
+merged into a single pi session.
+
+Use randomUUID() so the key is unique per request; the lock now only
+coalesces retries of the same logical request, never two distinct ones.
+
+Fixes #227"
+https://www.github.com/17380936778/omp-web,3fd300700aa86979779f9981e7577ae5299cae7e,2026-07-23T19:38:37+00:00,Human,,5,1,1,True,True,True,False,"fix: preserve chat input when the prompt fails to send
+
+When sending a prompt fails because the event stream cannot be
+connected, useAgentSession already rolls back the optimistic user
+message, but the input box was cleared by ChatInput immediately after
+onSend, so the typed text was lost and had to be retyped after a retry.
+
+Restore the message text into the input on EventStreamConnectionError,
+mirroring the existing shell-command recovery in executeBash.
+insertIfEmpty is used so anything typed in the meantime is not clobbered.
+
+Fixes #214"
+https://www.github.com/17380936778/omp-web,a3810ba3ae1da6f0028651108bc67a5bbb4de127,2026-07-23T08:35:29+00:00,Human,,123,5,4,False,False,False,False,feat: mention selected file lines with Cmd+I
+https://www.github.com/17380936778/omp-web,aa30c782e5ff0d930b2de056a3904bff618263d5,2026-07-23T08:21:03+00:00,Human,,30,0,3,False,False,False,False,support markdown image preview
+https://www.github.com/17380936778/omp-web,0d1d0d1a36dd8a4ead77648ad2fc18e2b1291e55,2026-07-23T04:30:09+00:00,Human,,254,345,4,False,True,False,False,"Merge pull request #212 from 19WAS85/fix/session-title-stream-fn-key
+
+fix: use streamFn key when building session title agent options"
+https://www.github.com/17380936778/omp-web,adc919214bdd073a75369b979943a42de82b93a7,2026-07-23T04:28:36+00:00,Human,,253,344,3,True,True,False,False,fix: pin pi sdk 0.81.1
+https://www.github.com/17380936778/omp-web,5306e8ebd973e60b802433bcd1e966d24a849161,2026-07-23T02:33:40+00:00,Human,,1,1,1,True,True,False,False,"fix: use streamFn key when building session title agent options
+
+AgentOptions expects the key 'streamFn', but buildSessionTitleAgentOptions
+was passing 'streamFunction' (the name of the property on the Agent instance).
+
+The Agent constructor reads runtimeOptions.streamFn and falls back to
+getDefaultStreamFn() when it is undefined. Since getDefaultStreamFn()
+is never set in the pi-web server process, the temporary agent created
+for title generation always threw:
+
+  No default stream function configured. Pass streamFn explicitly
+  or call setDefaultStreamFn().
+
+This caused every POST to /api/sessions/:id/auto-name to return HTTP 500."
+https://www.github.com/17380936778/omp-web,80269f2b31dcb1d8677b8f9c9514e51ef5808180,2026-07-22T21:17:34+00:00,Human,,142,2,3,False,False,False,False,docs: add Japanese README translation
+https://www.github.com/17380936778/omp-web,ff99f93b3cbcf145c40ad2844cf73c45b3a79fdc,2026-07-22T13:26:47+00:00,Human,,3,3,2,False,False,False,False,Release v0.8.0
+https://www.github.com/17380936778/omp-web,142137aaca827c112c91055e3f1f250977b6bf6b,2026-07-22T13:23:15+00:00,Human,,26,4,1,True,True,False,False,"fix: collapse post-compaction messages when compaction drops the user prompt
+
+When compaction fires mid-turn, pi replaces the compacted history (including
+the original user prompt) with a compaction summary and the agent keeps
+producing tool calls and a final answer with no user message left to anchor
+the turn.
+
+ChatWindow's message grouping only treated role===""user"" as a turn anchor,
+so after such a compaction every subsequent tool call and assistant reply
+rendered standalone and never folded into a collapsed ProcessDetailsGroup —
+the whole post-compaction tail stayed expanded even after the run ended.
+
+Treat a compaction summary (role ""custom"", customType ""compaction"") as a
+group anchor too: it renders as the compaction block, the process messages
+after it fold into ProcessDetailsGroup, and the final assistant renders as
+the answer. Live-tail detection now uses the last anchor (user or
+compaction) instead of only the last user message, so a compaction summary
+that sits after the last user message still anchors the streaming segment."
+https://www.github.com/17380936778/omp-web,fcb4b3728acfade18ca018dd230608c28c954f3b,2026-07-22T13:05:38+00:00,Human,,242,2,8,True,True,False,False,fix: honor HTTP proxy environment variables
+https://www.github.com/17380936778/omp-web,9dcd3b9b2ea19aadf92ceea16f51ecd5088b1e6d,2026-07-22T11:58:33+00:00,Human,,9,0,1,False,False,False,False,Merge branch 'codex/file-tab-middle-click'
+https://www.github.com/17380936778/omp-web,26e87220dff814b1b7fa72ced4e6275f7446dfe4,2026-07-22T11:58:26+00:00,Human,,9,0,1,False,False,False,False,feat: close file tabs with middle click
+https://www.github.com/17380936778/omp-web,f191fc1494b2d4c3c017266737037385bb2fd6cd,2026-07-22T11:56:57+00:00,Human,,128,5,4,False,False,False,False,feat: support cwd URL parameter (issue #185)
+https://www.github.com/17380936778/omp-web,0a32acb19394be89f1e4d30081b206ffc9dbd9b3,2026-07-22T09:53:51+00:00,Human,,222,13,19,False,True,False,False,"Harden local API and filesystem security boundaries (#1)
+
+* fix(api): reject cross-origin browser requests
+* fix(security): enforce canonical workspace boundaries
+* fix(ui): bound chat image attachments
+* test(files): use portable temporary paths
+---------
+Co-authored-by: EvoX <evox@evomap.ai>"
+https://www.github.com/17380936778/omp-web,acbe7648d79db4bb774817553dd40008a1ba12a3,2026-07-22T08:08:25+00:00,Human,,5,5,1,False,False,False,False,chore: clarify session title action labels
+https://www.github.com/17380936778/omp-web,c57300e463f5dc93cb622169bd9ea5a91c70a132,2026-07-22T08:06:18+00:00,Human,,662,40,3,False,False,False,False,chore: move bundled packages to dev dependencies
+https://www.github.com/17380936778/omp-web,f2b98787249b324d032bfc70c4c272bad4d25aad,2026-07-22T01:14:00+00:00,Human,,1524,374,26,False,False,False,False,Merge branch 'main' into feat/fileviewer-mermaid
+https://www.github.com/17380936778/omp-web,2903ccd1b85ac028cc9e99d3e5fcbf88ef612175,2026-07-21T16:15:41+00:00,Human,,578,0,8,False,False,False,False,feat: add automatic session naming
+https://www.github.com/17380936778/omp-web,81c4789c717c37d6287602b92c8725133d366b3a,2026-07-21T15:14:29+00:00,Human,,28,44,2,False,False,False,False,chore: upgrade Pi dependencies to 0.81.0
+https://www.github.com/17380936778/omp-web,0571a158266dbc11c7f4af40365ce2a509bddad6,2026-07-21T15:03:41+00:00,Human,,37,37,10,False,False,False,False,Rename Pi Agent Web to Pi Web
+https://www.github.com/17380936778/omp-web,5941e4b6cd36ca373e46463af547c731275db920,2026-07-21T14:54:33+00:00,Human,,885,295,12,False,False,False,False,feat: add git-aware file diff viewer
+https://www.github.com/17380936778/omp-web,6c1fe3a7487935a5272d7b2cb80eac27e770c4a0,2026-07-21T10:52:23+00:00,Human,,225,5,2,False,False,False,False,"feat: add zoom modal for mermaid diagrams
+
+Click a rendered mermaid SVG to open a full-screen zoom modal with:
+
+- Wheel zoom (no upper bound) and drag-to-pan
+
+- Fit-to-screen on open (auto-scale to fill viewport)
+
+- Reset button, Escape / backdrop-click to close
+
+- Body scroll lock and mobile-friendly touch-action"
+https://www.github.com/17380936778/omp-web,7d584ccdcaa619a806b143ad76a95144490d4434,2026-07-21T10:52:23+00:00,Human,,257,134,4,False,False,False,False,"feat: add mermaid rendering to FileViewer markdown preview
+
+Extract MermaidBlock and CodeBlock from MarkdownBody into a shared component. Use them in FileViewer's TextFileViewer markdown preview so mermaid diagrams render the same way as in chat messages.
+
+- MermaidBlock defaults to preview mode (no manual toggle needed)
+
+- Non-mermaid code blocks use CodeBlock for consistent styling
+
+- Streaming messages still fall back to source view via isStreaming
+
+- 5 unit tests covering SSR initial state, streaming, and edge cases"
+https://www.github.com/17380936778/omp-web,04a9adecc3d08c425784bc464d54e7b406c2f3fc,2026-07-21T09:53:54+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.17
+https://www.github.com/17380936778/omp-web,17945f93844b19f887bc10361d0e84af7561ac4f,2026-07-21T09:49:50+00:00,Human,,254,52,9,False,False,False,False,Support headless custom TUI rendering
+https://www.github.com/17380936778/omp-web,a10c19aab98a325022779c1a719aa15e7cb0fccc,2026-07-21T07:28:23+00:00,Human,,540,20,15,False,False,False,False,Merge PR #174: support shell command prefixes
+https://www.github.com/17380936778/omp-web,3ab866215547aaf1b5a72e34a8eef8fef5a87a38,2026-07-21T07:28:17+00:00,Human,,358,137,11,True,True,False,False,fix: stabilize shell command execution
+https://www.github.com/17380936778/omp-web,cedaee8c3e423ade9fd80a1a82331a2444b9dd35,2026-07-21T07:10:36+00:00,Human,,9,4,1,True,True,False,False,fix: move session status to metadata row
+https://www.github.com/17380936778/omp-web,10effd220810dc6426fafb6028bd30178701e5f8,2026-07-17T11:44:48+00:00,Human,,308,9,10,False,False,False,False,"feat: support ! / !! shell command prefix in pi-web UI
+
+Replicate pi CLI's shell prefix capability in the web UI:
+- !command  runs a shell command, output enters LLM context
+- !!command runs a shell command, output stays local (not sent to model)
+
+Implementation (pi-web repo only, no pi CLI changes):
+- lib/types.ts: add BashExecutionMessage to AgentMessage union
+- lib/session-reader.ts, lib/normalize.ts: pass bashExecution through
+- lib/rpc-manager.ts: AgentSessionWrapper gets bashOutputPath allowlist
+  (register + check with session-file fallback); send() dispatches
+  case ""bash"" -> inner.executeBash (registers fullOutputPath server-side)
+  and case ""abort_bash"" -> inner.abortBash; isRunning() reflects bash
+- lib/pi-types.ts: declare executeBash/abortBash/isBashRunning on AgentSessionLike
+- hooks/useAgentSession.ts: handleSend dispatches !/!! to executeBash;
+  bashRunning + pendingBash state; handleAbort sends abort_bash; mutual
+  exclusion with agent runs
+- components/ChatWindow.tsx: wire bashRunning (disables input) + pendingBash
+  placeholder
+- components/ChatInput.tsx: shell-mode visual feedback (border + label)
+- components/MessageView.tsx: BashExecutionView collapsible result block
+  with exit code, context badge, truncated-output expansion
+- app/api/agent/[id]/bash-output/route.ts: controlled endpoint reading
+  truncated full output, guarded by session allowlist + tmpdir/pi-bash-*.log
+  path validation
+
+Verified via Docker-isolated build + 11 end-to-end API smoke tests
+(dispatch, exit codes, abort, truncation, endpoint security: traversal /
+prefix-cousin / cross-session all 403)."
+https://www.github.com/17380936778/omp-web,c23c2e50797c30026239929e99d590a0affc66e0,2026-07-17T01:08:40+00:00,Human,,159,143,12,False,False,False,False,Release v0.7.16
+https://www.github.com/17380936778/omp-web,a577a0a3a7e2775ae180cf9186a301a24b29e227,2026-07-16T12:51:10+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.15
+https://www.github.com/17380936778/omp-web,08b77b2665e98e01936917430be8ce7b481b93f6,2026-07-16T12:22:28+00:00,Human,,730,60,9,False,False,False,False,feat: add file uploads to explorer
+https://www.github.com/17380936778/omp-web,64bb2b6ebf74e1f0098b8c84c1cc5e7e7755e40e,2026-07-16T11:32:51+00:00,Human,,94,2,4,False,False,False,False,"Merge pull request #166 from Kabochar/feat/keyboard-shortcuts
+
+feat: add keyboard shortcuts - Esc to stop agent, Ctrl+Alt+N to new session"
+https://www.github.com/17380936778/omp-web,01ae83acb86dc46fff8d74d029b6ed1846a73c14,2026-07-16T11:31:53+00:00,Human,,2,2,1,True,True,False,False,fix: ignore Escape during IME composition
+https://www.github.com/17380936778/omp-web,d64c2a283f3568fd0d22140138463c0d13165105,2026-07-16T11:10:53+00:00,Human,,1,1,1,False,True,False,False,"Merge pull request #165 from Kabochar/fix/fileviewer-maxwidth
+
+fix: remove hardcoded maxWidth from FileViewer markdown preview"
+https://www.github.com/17380936778/omp-web,2843a01760086db1a7c15fd6dafa08894430f576,2026-07-16T10:47:20+00:00,Human,,6,0,1,False,False,False,False,"Merge pull request #161 from Kabochar/feat/browser-tab-dir-name
+
+feat: update browser tab title with workspace directory name"
+https://www.github.com/17380936778/omp-web,ac9a3ec4acda713c55c3b928835aa7e4a9062c3c,2026-07-16T10:46:43+00:00,Human,,1,1,1,True,True,False,False,fix: show root workspace in browser title
+https://www.github.com/17380936778/omp-web,cb68820d35579a526d8e1be8ed72561a3c4a78e6,2026-07-16T10:21:01+00:00,Human,,1,1,1,True,True,False,False,fix: remove hardcoded maxWidth from FileViewer markdown preview
+https://www.github.com/17380936778/omp-web,d386c1aa14c69a4a4a92ad398cf4040ba9357ea3,2026-07-16T10:20:57+00:00,Human,,94,2,4,False,False,False,False,"feat: add keyboard shortcuts - Esc to stop agent, Ctrl+Alt+N to new session"
+https://www.github.com/17380936778/omp-web,c4b7998df722988a2f71d2abfa10c91ee67d490a,2026-07-16T04:50:09+00:00,Human,,6,0,1,False,False,False,False,feat: update browser tab title with workspace directory name
+https://www.github.com/17380936778/omp-web,8acfdd4a57712102d2068920258215cc8ef29281,2026-07-16T01:29:22+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.14
+https://www.github.com/17380936778/omp-web,bc1315942a775f6db46dcd541faa0733e513346c,2026-07-16T01:28:22+00:00,Human,,5,1,1,False,True,False,False,Fix packaged Windows startup
+https://www.github.com/17380936778/omp-web,5f6e6d30ed6fe56fda6ea8b194d0736a68f06a03,2026-07-15T15:05:43+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.13
+https://www.github.com/17380936778/omp-web,13eab813cd812a07fcc6265e02862d341116afb4,2026-07-15T15:00:46+00:00,Human,,228,52,6,False,False,False,False,"Merge pull request #154 from Kabochar/perf/chat-throttle-and-lazy-load
+
+perf: throttle ChatMinimap DOM measurement, memoize components, and lazy-load historical messages"
+https://www.github.com/17380936778/omp-web,490912741fb97476a646d2b38e2bb784b2f3ba8a,2026-07-15T15:00:09+00:00,Human,,112,94,6,False,True,False,False,fix chat lazy loading regressions
+https://www.github.com/17380936778/omp-web,bec8c2050a773eb9fb91355ea937baa55c5839f8,2026-07-15T14:41:09+00:00,Human,,227,30,8,False,False,False,False,"Merge pull request #152 from Kabochar/perf/cache-models-api
+
+perf: add 60s TTL cache for /api/models to avoid re-initializing SDK services"
+https://www.github.com/17380936778/omp-web,4fc28c293b219b39b7953613b05993275940e3c5,2026-07-15T14:39:52+00:00,Human,,356,55,20,False,False,False,False,"Merge remote-tracking branch 'origin/main' into perf/cache-models-api
+
+# Conflicts:
+#	lib/rpc-manager.ts"
+https://www.github.com/17380936778/omp-web,f87d8e95298cb3d221907ae4633049c9ca34038a,2026-07-15T14:38:42+00:00,Human,,226,45,8,False,True,False,False,fix model cache invalidation and concurrency
+https://www.github.com/17380936778/omp-web,462e87c481bda73ae1d46581b845f90de6b1b546,2026-07-15T14:36:13+00:00,Human,,62,9,4,False,False,False,False,"Merge pull request #151 from Kabochar/perf/cache-list-sessions
+
+perf: add a consistent 30s cache for listAllSessions"
+https://www.github.com/17380936778/omp-web,c6c09fecee8d067ce922d42e44c7cb47ec2e0f7b,2026-07-15T14:33:48+00:00,Human,,42,10,2,False,True,False,False,fix session list cache invalidation
+https://www.github.com/17380936778/omp-web,4f6d60e05e1f3e9d6ec06d6915b8e672f768b1e9,2026-07-15T14:21:45+00:00,Human,,78,19,3,False,False,False,False,"Merge pull request #150 from Kabochar/perf/readdir-with-file-types
+
+perf: use readdirSync withFileTypes to eliminate per-file statSync calls"
+https://www.github.com/17380936778/omp-web,ff10a777f8dffce43345ea72f3091a8cbf9c131c,2026-07-15T14:20:14+00:00,Human,,73,13,3,True,True,False,False,fix: preserve directory listing fallbacks
+https://www.github.com/17380936778/omp-web,4ce7eab35551be1cadff94d7af40fa74cedbaa94,2026-07-15T14:19:26+00:00,Human,,63,9,5,True,True,False,False,fix: open file links from markdown previews
+https://www.github.com/17380936778/omp-web,67a2038152ada3f5f9e8e8316bce3ed8c277a6fb,2026-07-15T14:00:13+00:00,Human,,78,12,5,False,False,False,False,feat: support disabling automatic browser launch
+https://www.github.com/17380936778/omp-web,0fa4c4305fbe2cd72c380110b18d06896ba12c6c,2026-07-15T13:57:21+00:00,Human,,35,5,1,False,False,False,False,feat: support desktop directory picker
+https://www.github.com/17380936778/omp-web,affb0eabcc9bc719bcfe0609f1a53aa5e0c88945,2026-07-15T13:12:20+00:00,Human,,40,1,2,False,True,False,False,"Merge pull request #156 from agegr/codex/pr-148-fixes
+
+Codex/pr 148 fixes"
+https://www.github.com/17380936778/omp-web,81ea5f268367108a68255ad1b3a83f388e3d2446,2026-07-15T13:11:29+00:00,Human,,49,6,2,False,False,False,False,refactor: replace createElement with JSX in markdown anchor renderer
+https://www.github.com/17380936778/omp-web,dc0eb224c16d5284fe4d75387ce11bd03229605a,2026-07-15T10:44:50+00:00,Human,,139,2,2,False,False,False,False,"perf: lazy-load historical messages with IntersectionObserver
+
+Only render the last 50 messages initially. When the user scrolls to the top, load another page while preserving scroll position to avoid viewport jumps. Reduces initial DOM node count from 500+ to ~50, cutting Layout/Paint cost proportionally."
+https://www.github.com/17380936778/omp-web,23efd2766defc2248db47b2d53aa8ade6c5a6be6,2026-07-15T10:44:50+00:00,Human,,77,56,4,False,False,False,False,"perf: throttle ChatMinimap DOM measurement, memoize MessageView, stabilize useAgentSession"
+https://www.github.com/17380936778/omp-web,ec74dd97f309ca226549c4154ebc9600a00782b6,2026-07-15T10:42:11+00:00,Human,,18,2,2,False,False,False,False,"perf: add 60s TTL cache for /api/models to avoid re-initializing SDK services
+
+createAgentSessionServices is expensive (~160ms) and was called on every request, including duplicate calls from the client. Cache is invalidated when models.json is written via PUT /api/models-config."
+https://www.github.com/17380936778/omp-web,d469c68c2fae62d60e10eb75212a6c1ea2de53bb,2026-07-15T10:39:44+00:00,Human,,23,2,3,False,False,False,False,"perf: add 30s TTL cache for listAllSessions
+
+Avoid re-scanning all session files and re-spawning git processes on every page load. Cache is invalidated on session create (agent/new), rename (PATCH sessions/[id]), and delete (DELETE sessions/[id])."
+https://www.github.com/17380936778/omp-web,0883c79b796f81e7d6de5558213a52b81443c776,2026-07-15T10:36:06+00:00,Human,,11,6,1,True,True,False,False,"fix: handle Windows symlink/junction directories in withFileTypes optimization
+
+Dirent.isDirectory() may return false for certain symlinks/junctions on Windows. Fall back to fs.statSync for symlink entries to correctly detect linked directories."
+https://www.github.com/17380936778/omp-web,7878ec4988decb42ad3b23407dff2978b2bbc241,2026-07-15T10:36:05+00:00,Human,,14,20,1,False,False,False,False,"perf: use readdirSync withFileTypes to eliminate per-file statSync calls
+
+Replace the O(n) fs.statSync loop in the file list handler with fs.readdirSync({ withFileTypes: true }). The dirent already carries isDirectory(), removing the need for a separate stat syscall per entry. size and modified are set to placeholders as FileExplorer never renders them in tree view. Reduces /api/files?type=list latency from ~385ms to sub-5ms on typical directories."
+https://www.github.com/17380936778/omp-web,403828c11bfc5a9f06db71859c3e252546ca1c63,2026-07-15T09:07:32+00:00,Human,,3,1,1,False,True,False,False,fix issue #142
+https://www.github.com/17380936778/omp-web,1933d2769285bb3d9944278e2670b3c55b83be7b,2026-07-15T09:02:29+00:00,Human,,47,8,4,False,True,False,False,fix issue #143
+https://www.github.com/17380936778/omp-web,72a7c990a5241ea59466c440b3f9283ded945390,2026-07-15T03:41:25+00:00,Human,,6,10,1,True,True,False,False,fix: open markdown links in new tabs
+https://www.github.com/17380936778/omp-web,036cb7c0c20f0db8304a047462b7ea4cd9986a2c,2026-07-15T01:04:02+00:00,Human,,32,36,3,False,False,False,False,Release v0.7.12
+https://www.github.com/17380936778/omp-web,093bea7d8c5dfc65a03a6a0b702c75d54be6206e,2026-07-14T14:54:55+00:00,Human,,1345,44,10,False,False,False,False,feat: add skill update checking and installation UI
+https://www.github.com/17380936778/omp-web,f231ccfd4bdc611e5d12aa3d4dd47d2769fd6b9f,2026-07-14T13:40:58+00:00,Human,,125,64,4,False,False,False,False,"Merge pull request #144 from agegr/codex/compaction-aware-context
+
+perf: load compaction-aware session context"
+https://www.github.com/17380936778/omp-web,a35a908bf8096681fab044ebaae8af2ad4ccbd59,2026-07-14T13:35:56+00:00,Human,,18,17,1,False,False,False,False,style: align full history icon sizing
+https://www.github.com/17380936778/omp-web,96347f864d518d1f73f38975f313e9007baa8e33,2026-07-14T13:32:01+00:00,Human,,0,57,1,False,False,False,False,refactor: remove redundant export action
+https://www.github.com/17380936778/omp-web,793e80fbcf67ea677c4098588caec566e1b80469,2026-07-14T13:22:29+00:00,Human,,67,4,2,False,False,False,False,feat: open full session history
+https://www.github.com/17380936778/omp-web,85eec973a818daa55cc844db1f3e3aed0313004b,2026-07-14T13:22:20+00:00,Human,,91,37,2,False,False,False,False,perf: load compaction-aware session context
+https://www.github.com/17380936778/omp-web,b3bcb4c58eec1c29704e7dbbad5d6904b36f05d7,2026-07-11T11:49:53+00:00,Human,,4,4,3,False,False,False,False,Release v0.7.11
+https://www.github.com/17380936778/omp-web,56222e18953427279db75aff8f348d7f9b23254f,2026-07-11T11:45:21+00:00,Human,,513,0,1,False,True,False,False,fix issue 132
+https://www.github.com/17380936778/omp-web,3c7a71298fa030f07abbddf4a6f75b8020c07eb9,2026-07-11T11:37:21+00:00,Human,,31,3,2,True,True,False,False,fix: provide theme for extension UI
+https://www.github.com/17380936778/omp-web,41d2f2782b5f53d52320d231c4d488c8d6fe3abf,2026-07-11T11:14:09+00:00,Human,,119,10,5,False,False,False,False,perf: omit tool result images from initial history
+https://www.github.com/17380936778/omp-web,562df8ba61b3a69fa6ddb05cd0297cb40b41d2ae,2026-07-11T10:02:21+00:00,Human,,22,1,2,True,True,False,False,fix: keep empty thinking blocks collapsed
+https://www.github.com/17380936778/omp-web,6f2410a9906681c1614ca3fc8880c0f4d5121b24,2026-07-11T09:59:43+00:00,Human,,154,22,3,False,False,False,False,perf: cache session paths in both directions
+https://www.github.com/17380936778/omp-web,3b91204e8419574f95a4aa5ccac6b363c71d5fda,2026-07-11T09:56:58+00:00,Human,,188,24,13,False,False,False,False,perf: defer historical thinking content
+https://www.github.com/17380936778/omp-web,d7c181fb7e0266588a13dded4db4c877fb772290,2026-07-11T09:49:37+00:00,Human,,57,33,3,False,False,False,False,perf: load agent state after session history
+https://www.github.com/17380936778/omp-web,f707a515c551a07794c35087411482609129754a,2026-07-11T07:26:20+00:00,Human,,13,9,1,False,True,False,False,"Merge pull request #127 from zhudatou630/fix/task-list-nested-layout
+
+fix: render nested content inside task-list-items correctly"
+https://www.github.com/17380936778/omp-web,a75c0f18b858b890f743de4fb79180d64c2c38ae,2026-07-11T07:25:36+00:00,Human,,6,3,1,True,True,False,False,fix: scope task-list checkbox styles
+https://www.github.com/17380936778/omp-web,82f94425e82cec05694b1cfd211842bf592697d5,2026-07-10T01:12:21+00:00,Human,,38,37,7,False,False,False,False,Release v0.7.10
+https://www.github.com/17380936778/omp-web,efcf168d85868aebab963200d803371d7fa6d3bc,2026-07-06T15:22:03+00:00,Human,,7,6,1,True,True,False,False,"fix: render nested content inside task-list-items correctly
+
+Grid layout on .task-list-item breaks when the <li> contains nested
+block content (a nested <ul> or multiple paragraphs). The grid has two
+columns (18px checkbox + 1fr), and with three in-flow children (input,
+text, nested <ul>) grid auto-placement drops the nested <ul> into row 2
+column 1 — the 18px checkbox column — so nested list items wrap
+character-by-character into a tiny vertical strip.
+
+This shows up in compaction summaries, which are model-generated and
+commonly contain - [x] items with nested sub-lists.
+
+Switch to block layout with the checkbox absolutely positioned, which
+keeps nested content in normal block flow."
+https://www.github.com/17380936778/omp-web,7bc788605e6f67ddf41b0f21f3f8cee69ed69827,2026-07-06T15:07:24+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.9
+https://www.github.com/17380936778/omp-web,36e974c2d1c2ec299a20fe842b7c58b30fc9d4c7,2026-07-06T14:54:40+00:00,Human,,61,51,5,False,False,False,False,Move shared API DTO types
+https://www.github.com/17380936778/omp-web,96dde1b8df2163f7e294d36bc5cfa6dc6c586529,2026-07-06T14:53:17+00:00,Human,,261,207,3,False,False,False,False,Extract ANSI panel helpers
+https://www.github.com/17380936778/omp-web,574da8d3836a448d082849012924b3e8f0981a27,2026-07-06T14:50:43+00:00,Human,,181,118,3,False,False,False,False,Extract unified patch parser
+https://www.github.com/17380936778/omp-web,991870a563e7417d3231ffba0b2b869468141b4e,2026-07-06T14:49:14+00:00,Human,,125,84,4,False,False,False,False,Share file type helpers
+https://www.github.com/17380936778/omp-web,90ba027546eb66fda9029475f12f4d75035f47b5,2026-07-06T14:47:27+00:00,Human,,21,57,4,False,False,False,False,Share clipboard copy helper
+https://www.github.com/17380936778/omp-web,f64e39491a8bcae52a002a4ceb81c487a34b4437,2026-07-06T14:44:40+00:00,Human,,27,20,3,False,False,False,False,Break allowed root dependency cycle
+https://www.github.com/17380936778/omp-web,3f6b0c63d44a92de2ec8a5b6ca91960762a3e3ed,2026-07-06T14:43:30+00:00,Human,,18,38,2,False,True,False,False,Fix new session startup path
+https://www.github.com/17380936778/omp-web,e2d7965adc84539e2481e24ab0192cf8a648a4e6,2026-07-06T14:28:21+00:00,Human,,60,16,1,False,True,False,False,"Merge pull request #122 from fallleave001/fix/sse-onerror-clean
+
+fix: prevent SSE event loss in connectEvents onerror handler"
+https://www.github.com/17380936778/omp-web,e368dfcb1a80a916b74af8fed00334ee52c53f18,2026-07-06T14:23:23+00:00,Human,,51,15,1,True,True,False,False,fix: require SSE connection before prompting
+https://www.github.com/17380936778/omp-web,5b7d5f721cba2380fc69a20f9eb074acf538e8ed,2026-07-06T12:21:59+00:00,Human,,349,27,4,False,False,False,False,feat: fold assistant process details
+https://www.github.com/17380936778/omp-web,362fc83da27ccc3d0feb0d77384502877ac4bb5b,2026-07-06T11:51:50+00:00,Human,,11,1,1,False,True,False,False,fix cli browser opener errors
+https://www.github.com/17380936778/omp-web,deff4cb7f4852ffc04a28f419d45470f8085c775,2026-07-06T11:43:56+00:00,Human,,488,60,13,False,False,False,False,"Merge pull request #119 from zhudatou630/codex/linked-file-viewing
+
+feat: open local file links from chat"
+https://www.github.com/17380936778/omp-web,ea9f6119b3c8ee879f4ceab8eccca6eaecda6fbb,2026-07-06T11:43:10+00:00,Human,,495,104,12,False,False,False,False,"Merge remote-tracking branch 'origin/main' into codex/linked-file-viewing
+
+# Conflicts:
+#	components/MessageView.tsx"
+https://www.github.com/17380936778/omp-web,bc536536e5fbf05d0f13f10ce9ba89c6849b8d9b,2026-07-06T11:39:48+00:00,Human,,71,7,7,True,True,False,False,fix: harden linked file access
+https://www.github.com/17380936778/omp-web,2e884ee0bee8a4106f17d1801afee8d93a4bb22a,2026-07-06T11:29:15+00:00,Human,,393,69,6,False,False,False,False,"Merge pull request #125 from agegr/pr-118
+
+Pr 118"
+https://www.github.com/17380936778/omp-web,20c13834c6094d2f8416d0b4ae7f0cc193bd57e1,2026-07-06T11:28:26+00:00,Human,,122,6,2,True,True,False,False,fix: preserve hidden custom messages in session history
+https://www.github.com/17380936778/omp-web,7d6d80acedcaf57801bf7105a1523e2b2b352cd8,2026-07-06T09:59:21+00:00,Human,,92,35,5,False,True,False,False,"Merge pull request #124 from agegr/codex/fix-pr-117-resource-reload
+
+Codex/fix pr 117 resource reload"
+https://www.github.com/17380936778/omp-web,ab613e84c5b20ef1593f45fc1b12eaf5943038e0,2026-07-06T09:57:31+00:00,Human,,55,31,2,True,True,False,False,fix: tighten model resource reload sync
+https://www.github.com/17380936778/omp-web,bc98789c743d4cf2a119b885e81f430fc8cb8360,2026-07-06T09:42:37+00:00,Human,,10,0,1,False,True,False,False,"Merge pull request #116 from zhudatou630/codex/app-shell-cache-fix
+
+fix: prevent stale app shell caching"
+https://www.github.com/17380936778/omp-web,b50de6b605e3745c926c10da3624264c4a770482,2026-07-06T09:41:11+00:00,Human,,10,2,2,True,True,False,False,fix: revalidate app shell html
+https://www.github.com/17380936778/omp-web,97fdc4f58bc603348086b5b329c2ef2dbd21bc02,2026-07-05T11:32:19+00:00,Human,,15,7,1,True,True,False,False,"fix: prevent SSE event loss in connectEvents onerror handler
+
+The old onerror handler unconditionally called settle() + es.close() on
+every error, then manually reconnected after 1s. This created a race:
+
+1. A recoverable network glitch triggers onerror
+2. settle() resolves the Promise immediately -> handleSend proceeds to
+   send the prompt
+3. es.close() kills the SSE connection -> all events emitted during the
+   1s reconnect window (agent_start, message_*, prompt_done, agent_end)
+   are lost
+4. The UI stays stuck in 'waiting for model' until reconcileAgentState
+   (15s polling) recovers
+
+The fix distinguishes between fatal errors (readyState === CLOSED, e.g.
+404/500) where manual reconnect is needed, and recoverable errors
+(CONNECTING) where EventSource auto-reconnects on its own. For
+recoverable errors we no longer settle() or close() - the 1.5s timeout
+in the Promise constructor still ensures handleSend won't hang."
+https://www.github.com/17380936778/omp-web,bfd128c4ba972b3b09f7e24d4ab9035cbb579484,2026-07-04T14:03:56+00:00,Human,,423,59,13,False,False,False,False,feat: open local file links from chat
+https://www.github.com/17380936778/omp-web,e123bc019745cd83643257b5906782c43ca614c1,2026-07-04T14:00:12+00:00,Human,,279,71,5,False,False,False,False,feat: show compaction history in chat
+https://www.github.com/17380936778/omp-web,9c69dfd3b3be4c67de3e25a8c316b653e325e929,2026-07-04T13:58:34+00:00,Human,,44,11,5,True,True,False,False,fix: keep model resources in sync
+https://www.github.com/17380936778/omp-web,7623935e2c6b89c47eed7924a7bc1ee499123613,2026-07-04T13:58:15+00:00,Human,,2,0,1,True,True,False,False,fix: prevent stale app shell caching
+https://www.github.com/17380936778/omp-web,8ff72cfa7fbd231b87e6647fd56afef0fafd29b6,2026-07-04T13:02:29+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.8
+https://www.github.com/17380936778/omp-web,33e789234c3e1415319643b9137c3175e0b1a2a3,2026-07-04T12:59:55+00:00,Human,,645,10,7,False,False,False,False,Add @ file mention autocomplete
+https://www.github.com/17380936778/omp-web,cd75650e9690d851ff73359e619df2f4ad6d7a01,2026-07-04T11:39:02+00:00,Human,,278,27,5,False,False,False,False,Add queued message panel with recall-to-input functionality
+https://www.github.com/17380936778/omp-web,71a666466ad834cef44a5bffa4e8e13f5b539acb,2026-07-04T09:49:15+00:00,Human,,72,22,3,False,False,False,False,docs: expand AGENTS.md with detailed architecture and implementation notes
+https://www.github.com/17380936778/omp-web,b3d2a3ab05b668aa260a2d6d9604cc89d3be5deb,2026-07-04T09:37:13+00:00,Human,,75,0,1,False,False,False,False,Add agent state reconciliation to recover from missed SSE events
+https://www.github.com/17380936778/omp-web,9915203e6dfa984a9b7959c7ed88b3122712a3b5,2026-07-04T03:03:04+00:00,Human,,89,53,3,False,False,False,False,"Merge pull request #113 from agegr/codex/pr112-audio-unlock
+
+Codex/pr112 audio unlock"
+https://www.github.com/17380936778/omp-web,7b0f2031ed647641800569b79ab8b1c5c6108672,2026-07-04T03:01:24+00:00,Human,,54,36,3,True,True,False,False,fix: unlock completion sound on user gesture
+https://www.github.com/17380936778/omp-web,2cb929ef4d72d05de44f8be0e1399ba8beacdcf7,2026-07-03T18:57:05+00:00,Human,,40,22,2,True,True,False,False,"fix: done sound not playing due to handler overwrite and suspended AudioContext
+
+Two fixes for the completion sound:
+- ChatWindow: wrap onAgentEnd callback directly instead of patching
+  handleAgentEventRef, which gets overwritten by useAgentSession on
+  every render. This ensures the sound consistently fires.
+- useAudio: reuse a single AudioContext instance and call resume() if
+  the browser autoplay policy leaves it suspended. Previously a new
+  AudioContext was created on each playback, which starts suspended
+  outside user gestures and produces no sound."
+https://www.github.com/17380936778/omp-web,d8b21e9b8506115cdde819805013fd7ca2ed3c34,2026-07-03T15:05:27+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.7
+https://www.github.com/17380936778/omp-web,5494b806c68f2a700680b122e01c19547ca727f4,2026-07-03T15:04:21+00:00,Human,,5,2,1,False,True,False,False,Fix worktree selector text clipping
+https://www.github.com/17380936778/omp-web,8dab05342d1bacdd0e1b70f10e974060d1e64292,2026-07-03T15:01:15+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.6
+https://www.github.com/17380936778/omp-web,6802793566ccd46f2ace59c3e9aacf256ec62be2,2026-07-03T14:59:54+00:00,Human,,1312,109,11,False,False,False,False,Add git worktree support
+https://www.github.com/17380936778/omp-web,8f70f8d9355b5b6cb5a5ce39ac9fcc8325b7d435,2026-07-03T09:36:47+00:00,Human,,177,0,1,False,False,False,False,docs: add release checklist for npm package and GitHub releases
+https://www.github.com/17380936778/omp-web,47ff178ae99bdad76429e0a82294d30e38a23fea,2026-07-03T09:32:09+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.5
+https://www.github.com/17380936778/omp-web,3440c7dfd7270ae378121ca03d4cddbaa6f4fcef,2026-07-03T09:28:57+00:00,Human,,3,2,1,False,False,False,False,Disable automatic translation for the entire application
+https://www.github.com/17380936778/omp-web,0b12f8e4cb20dbdfdbaece6c4bd5f7207f017582,2026-07-03T09:24:53+00:00,Human,,138,1,1,False,False,False,False,"Merge pull request #110 from agegr/pr/109
+
+Pr/109"
+https://www.github.com/17380936778/omp-web,49dab5832738382d949be945ecc721b14bd8551d,2026-07-03T09:23:15+00:00,Human,,49,15,1,True,True,False,False,fix: harden export html stack overflow patch
+https://www.github.com/17380936778/omp-web,65e95bbf7791c7a3c82a006c548e8aeaca35618e,2026-07-03T09:15:49+00:00,Human,,23,15,2,True,True,False,False,fix: adjust download button styling and positioning in file explorer and viewers
+https://www.github.com/17380936778/omp-web,57c8746ff5181f482b67d01bf3758080347e9660,2026-07-03T09:08:38+00:00,Human,,53,6,3,False,False,False,False,"Merge pull request #107 from fallleave001/feat/file-download
+
+feat: add file download support with download button in explorer and viewer"
+https://www.github.com/17380936778/omp-web,75b6ce16748ac31881244445bc90ed57aea1f303,2026-07-03T08:13:50+00:00,Human,,25,83,3,False,False,False,False,Translate UI strings from Chinese to English
+https://www.github.com/17380936778/omp-web,9eb448b059c43d133d100de7217d7b026aa1eab1,2026-07-03T07:28:22+00:00,Human,,40,208,11,False,False,False,False,refactor: extract tool presets to lib and remove unused files
+https://www.github.com/17380936778/omp-web,580e7d8d3567575aa1062ffff8094472bf7766ad,2026-07-03T05:21:20+00:00,Human,,104,1,1,True,True,False,False,"fix: patch export HTML to avoid stack overflow on deep linear sessions
+
+pi-coding-agent's template.js embeds two recursive functions in the
+exported HTML: sortChildren (node.children.forEach(sortChildren)) and
+markActive (markActive(child)). On a 5527-entry linear session chain
+(no branches), both overflow the call stack, causing a blank page.
+
+We cannot modify template.js (node_modules, overwritten on npm install).
+Instead, patch the generated HTML string before returning it:
+
+- sortChildren  → explicit stack (DFS pre-order)
+- markActive    → two-stack post-order (stack1 for traversal, stack2
+                   for processing children before parent)
+
+Line endings: route.ts is CRLF (Windows), template.js is LF (Unix).
+The helper n(s) normalizes both to LF before matching."
+https://www.github.com/17380936778/omp-web,b779faad5951c37ece417d83cb617ea8dc98fcc1,2026-07-02T14:19:44+00:00,Human,,53,6,3,False,False,False,False,"feat: add file download support with download button in explorer and viewer
+
+- Add ?type=download endpoint returning Content-Disposition: attachment
+- Add download button on hover in file explorer (left panel)
+- Add download button to image/audio/text viewer header bars (right panel)
+- Use <a> tag instead of window.open to avoid popup blocker"
+https://www.github.com/17380936778/omp-web,55dd1abf0d313a3753cf1943d895987db9f3918f,2026-07-02T11:41:59+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.4
+https://www.github.com/17380936778/omp-web,2e46fbebdab512e98fa4df3365219dfdf7ebc089,2026-07-02T11:40:23+00:00,Human,,378,6,2,False,False,False,False,Render edit results as split diffs
+https://www.github.com/17380936778/omp-web,644a85ba69c40051d63fd9605f3c29098dbb5f8d,2026-07-02T11:07:56+00:00,Human,,28,21,1,False,False,False,False,refine session status indicators
+https://www.github.com/17380936778/omp-web,07de95b70966d4b9a2a9764e5b1da32bb39a8b8a,2026-07-02T10:54:11+00:00,Human,,12,2,1,True,True,False,False,fix: finalize running status after non-prompt operations
+https://www.github.com/17380936778/omp-web,10835ba9a793216c993ec5e59021acc57662dc09,2026-07-02T10:52:38+00:00,Human,,15,4,2,True,True,False,False,"fix: avoid running-state races between SSE and sessions fetch
+
+- SSE route subscribes before taking the initial snapshot so no
+  transition is lost in the gap.
+- Client treats the /api/sessions running set as an initial fallback
+  only; once SSE is live it owns the state, so a slow fetch can't
+  overwrite a newer SSE frame."
+https://www.github.com/17380936778/omp-web,1f7e8a705627ac198e320e8f7325e5e07ad5c0f8,2026-07-02T10:52:38+00:00,Human,,282,7,4,False,False,False,False,"feat: show live running status and unread indicators for sessions in sidebar
+
+Push running-session updates over SSE (GET /api/agent/running/events)
+instead of polling, and persist unread markers across browser refreshes."
+https://www.github.com/17380936778/omp-web,7524049ba969abef1b7de44bd77a4dd1d588e841,2026-07-02T09:18:04+00:00,Human,,119,13,3,True,True,False,False,fix: preserve chat drafts across sessions
+https://www.github.com/17380936778/omp-web,2088bcbef2546f87e10bac979b22f6fc7a7ba2c0,2026-07-02T08:56:22+00:00,Human,,573,6,4,False,False,False,False,"Merge pull request #106 from agegr/codex/pr97-extension-lifecycle
+
+Add extension custom UI panel with ANSI terminal rendering"
+https://www.github.com/17380936778/omp-web,11299088b0b37c646cd4eb4d8f1b786d4c6062e6,2026-07-02T08:55:16+00:00,Human,,573,6,4,False,False,False,False,Add extension custom UI panel with ANSI terminal rendering
+https://www.github.com/17380936778/omp-web,e0b14238706124c811a6b0f40e64cf05259f08ee,2026-07-02T07:04:41+00:00,Human,,94,16,2,False,True,False,False,"Merge pull request #104 from agegr/codex/pr97-extension-lifecycle
+
+fix: initialize extensions for rpc sessions"
+https://www.github.com/17380936778/omp-web,e33c3b8400b6bff3f4ce0ab1389051f42b68afa3,2026-07-02T07:03:53+00:00,Human,,94,16,2,True,True,False,False,fix: initialize extensions for rpc sessions
+https://www.github.com/17380936778/omp-web,e019587d1db34a2b7b5c8cc2ced3a045cdd49b26,2026-07-01T15:52:14+00:00,Human,,12,4,3,False,False,False,False,Release v0.7.3
+https://www.github.com/17380936778/omp-web,6956c8c2b8082900852e2886d1e919a7dbb31cc3,2026-07-01T15:47:17+00:00,Human,,96,19,1,False,False,False,False,Refine add plugin UI with examples and improved layout
+https://www.github.com/17380936778/omp-web,9a58a957b04169b5fee83ec9a9f3e4f7c217a944,2026-07-01T15:07:29+00:00,Human,,3,3,2,False,False,False,False,Release v0.7.2
+https://www.github.com/17380936778/omp-web,1fc123c3aed0746f5b8611859362f9a96e03b17f,2026-07-01T15:05:21+00:00,Human,,1337,0,5,False,False,False,False,Add plugins management API and UI
+https://www.github.com/17380936778/omp-web,eec05e3d60d8bc11afb3971a2bef2dfe8e511063,2026-07-01T14:11:23+00:00,Human,,316,63,7,False,False,False,False,"Merge pull request #102 from agegr/pr/93
+
+Pr/93"
+https://www.github.com/17380936778/omp-web,47d59c62f0258734c111f5ca67aa7127e4986366,2026-07-01T14:08:59+00:00,Human,,2,2,1,False,False,False,False,Align mobile controls menu with input
+https://www.github.com/17380936778/omp-web,9fcbc0627fd227d2fa442acec6544c8fddb967c4,2026-07-01T14:06:10+00:00,Human,,71,41,1,False,False,False,False,Refine mobile controls menu
+https://www.github.com/17380936778/omp-web,dd1719157a9568e0c60e7a515abb7244ae6d89be,2026-07-01T13:56:16+00:00,Human,,110,31,1,False,False,False,False,Use expandable mobile input controls
+https://www.github.com/17380936778/omp-web,c34c112eb06b36245b1b4df042a65c0af20e80b7,2026-07-01T13:45:21+00:00,Human,,52,20,1,False,False,False,False,Refine mobile chat input toolbar
+https://www.github.com/17380936778/omp-web,11b0278b5343670480b5a88c8c96cb21dbc3a813,2026-07-01T13:39:19+00:00,Human,,26,3,2,False,False,False,False,Polish mobile sidebar and icon accessibility
+https://www.github.com/17380936778/omp-web,a0461c2a91353f49df21d87c4c2241c5262ac302,2026-07-01T13:20:33+00:00,Human,,1,1,1,False,False,False,False,docs: update lint command
+https://www.github.com/17380936778/omp-web,4d76f4ce24bbba10182ed346fd5fa6bfedbc8423,2026-07-01T01:03:45+00:00,Human,,30,29,3,False,False,False,False,Release v0.7.1
+https://www.github.com/17380936778/omp-web,4534b3bcf5b90337e6df1612b3f6ff160af08a75,2026-06-29T12:10:36+00:00,Human,,13,9,2,False,False,False,False,"Hide chat minimap on mobile
+
+The 36px scroll minimap on the right edge is hover/drag oriented and only
+adds clutter on touch-sized screens. Skip rendering it on mobile and
+reclaim the space it reserved: the floating notice overlay, the
+below-editor widgets, and the chat input no longer pad for the minimap
+when it is absent."
+https://www.github.com/17380936778/omp-web,27fce84f508ddf6b372aca80623a53f5372fdd8e,2026-06-29T11:46:35+00:00,Human,,10,3,1,False,False,False,False,"Close top panel and sidebar mutually on mobile
+
+On narrow viewports the system/branches/session dropdown (z-index 500)
+rendered above the sidebar overlay (z-index 200). Opening the sidebar
+while a top panel was open left the panel stacked on top of the expanded
+sidebar. Make the two mutually exclusive on mobile: opening the sidebar
+closes any active top panel, and opening a top panel closes the sidebar."
+https://www.github.com/17380936778/omp-web,a3d8ffbb94e304a355068fb946a5a32d58f8284f,2026-06-29T09:43:25+00:00,Human,,22,8,2,False,True,False,False,"Make Models and Skills modals fit mobile screens
+
+Both modals had a fixed 860px width and a fixed-width inner side list, which
+overflowed narrow screens. On the mobile breakpoint they now fill the
+viewport (minus a small margin) and stack the side list above the detail
+pane, each with its own scroll area, so every section stays reachable."
+https://www.github.com/17380936778/omp-web,795813c4f667082048ce5c4c68f174fa92338026,2026-06-29T09:42:11+00:00,Human,,11,3,1,False,False,False,False,"Wrap chat input controls and clamp model dropdown on mobile
+
+The bottom controls row now wraps on the mobile breakpoint instead of
+overflowing horizontally, and the model selector dropdown is pinned to the
+viewport with a capped width so long model names can't push it off-screen."
+https://www.github.com/17380936778/omp-web,d238a6f494d0955c5cdb1f80992092b1c44beaff,2026-06-29T09:40:48+00:00,Human,,23,10,2,False,False,False,False,"Fit chat top bar and its popovers to mobile width
+
+On the mobile breakpoint the top bar would overflow: Export/Branches/System
+become icon-only and the session-stats button collapses to a single info
+icon, keeping every action reachable in one row. The shared top-panel
+dropdown is now height-bounded and scrollable, and the session-info panel
+stacks into a single column so it no longer overflows horizontally."
+https://www.github.com/17380936778/omp-web,5c884631968be9d35e53b4b38f3c9c24a240bf1b,2026-06-29T09:38:10+00:00,Human,,15,3,1,False,False,False,False,"Auto-hide sidebar on mobile and close it on selection
+
+On the mobile breakpoint the sidebar is an overlay drawer. Default it to
+hidden on load, and collapse it after the user picks a session, starts a new
+session, or opens a file, so the chat/file content is revealed without an
+extra tap. Desktop behavior is unchanged."
+https://www.github.com/17380936778/omp-web,e67a2e34709646a139f97b1afe856e31ac0081f8,2026-06-29T09:37:10+00:00,Human,,31,0,1,False,False,False,False,"Add useIsMobile hook for responsive breakpoint
+
+SSR-safe matchMedia hook keyed to the 640px mobile breakpoint shared with
+globals.css. Components branch inline styles on it for mobile layout, since
+the codebase styles almost everything inline (CSS media queries alone cannot
+override inline styles)."
+https://www.github.com/17380936778/omp-web,5e21e16a549e3bdc8add33e871f5045938bf2ce9,2026-06-26T16:43:29+00:00,Human,,1,1,1,False,False,False,False,version to 0.7.0
+https://www.github.com/17380936778/omp-web,1dd2b8be7e94e3c60337dc94016d1e1087a5d880,2026-06-26T16:41:03+00:00,Human,,246,91,4,False,False,False,False,refactor: unified notice shelf system
+https://www.github.com/17380936778/omp-web,dddf30effab24dea23aa81b90455b56ca23c09cf,2026-06-26T16:04:06+00:00,Human,,3,1,1,False,False,False,False,refactor: wrap chat content in nested divs to separate padding and max-width constraints
+https://www.github.com/17380936778/omp-web,41c51ecac8b8bfeef778e8c899e3580a96b71b41,2026-06-26T15:58:13+00:00,Human,,42,43,4,False,False,False,False,refactor: update pi-ai and pi-coding-agent dependencies to v0.80.2 and use compat import path
+https://www.github.com/17380936778/omp-web,8f910cccbb368fa5b2abab8c6b5f6833242f8399,2026-06-26T15:53:54+00:00,Human,,13,2,1,False,False,False,False,feat: add minimap width constants and adjust chat input padding to accommodate minimap
+https://www.github.com/17380936778/omp-web,56d3a2dd840a4509816dccc648714ad4c47ebd61,2026-06-26T15:42:57+00:00,Human,,1127,48,9,False,False,False,False,"feat: add extension UI support with dialogs, widgets, status bar, and custom messages"
+https://www.github.com/17380936778/omp-web,104dbd66aaf2887b243c8978091201df5d799378,2026-06-26T15:12:00+00:00,Human,,10,10,1,False,False,False,False,refactor: reduce spacing and padding in markdown elements for more compact layout
+https://www.github.com/17380936778/omp-web,9a574cecb336ee2c9a76064f94466616e01b659c,2026-06-26T14:54:37+00:00,Human,,1,1,1,False,False,False,False,feat: add command hint to message input placeholder
+https://www.github.com/17380936778/omp-web,53d2f9752a397eb567ffe9260b48d10f33153dfd,2026-06-26T14:41:17+00:00,Human,,173,201,4,False,False,False,False,docs: add English README and split Chinese version into separate file
+https://www.github.com/17380936778/omp-web,7248b736ce0329da65c23e3b1131740613e7b8ff,2026-06-26T14:07:46+00:00,Human,,169,85,2,False,False,False,False,"feat: enhance markdown styling with improved typography, tables, task lists, and code blocks"
+https://www.github.com/17380936778/omp-web,b8822c24810b103d06fa0a275bdf862318e52ac2,2026-06-26T13:56:35+00:00,Human,,181,57,1,False,False,False,False,feat: redesign slash command palette with grid layout
+https://www.github.com/17380936778/omp-web,2fcddeee8c952be6a50c6aba36f9fa9e30e5f4c2,2026-06-26T13:49:17+00:00,Human,,1,7,1,False,False,False,False,refactor: extract inline code styles to CSS class markdown-inline-code
+https://www.github.com/17380936778/omp-web,749394eabe6fa8c60855d0c5d872df063fa278c4,2026-06-26T13:48:51+00:00,Human,,9,0,1,False,False,False,False,feat: add inline code styling to markdown with subtle background and border
+https://www.github.com/17380936778/omp-web,4782ea511a8c32563dd7ca3ca39a16d0864c76b4,2026-06-26T13:39:13+00:00,Human,,367,36,6,False,False,False,False,feat: add session info panel with detailed stats and copy functionality
+https://www.github.com/17380936778/omp-web,e658234053efe1725e6b959ce984f62410f0b96b,2026-06-26T13:33:34+00:00,Human,,61,30,1,False,False,False,False,docs: expand README with detailed feature descriptions
+https://www.github.com/17380936778/omp-web,a97e76da972edb6b4560ed5c36e58fe07796d60a,2026-06-26T13:07:19+00:00,Human,,652,65,6,False,False,False,False,"feat: support slash command palette with builtin, extension, prompt, and skill commands"
+https://www.github.com/17380936778/omp-web,7ab757ab917550be7e30402e015e7f971777a1eb,2026-06-26T10:18:38+00:00,Human,,3,3,2,False,False,False,False,version to 0.6.19
+https://www.github.com/17380936778/omp-web,8cb92761276785fc28783c966d1d0bd97d77051e,2026-06-26T09:40:36+00:00,Human,,75,30,1,True,True,False,False,fix: improve pi CLI resolution with fallback to direct module import
+https://www.github.com/17380936778/omp-web,2387fd9384366b41c770553a23fa6be6dad6fdb4,2026-06-24T12:28:22+00:00,Human,,108,69,6,False,True,False,False,fix explorer access for new cwd
+https://www.github.com/17380936778/omp-web,313bdd0636e547c1ea67874d13da2e3913365445,2026-06-24T12:20:41+00:00,Human,,3,3,2,False,False,False,False,version to 0.6.18
+https://www.github.com/17380936778/omp-web,f8b775117f4b21f9d5fd36de15c4ac1f616c7c93,2026-06-24T12:20:09+00:00,Human,,72,63,2,False,False,False,False,chore: upgrade next and eslint-config-next to 16.2.9
+https://www.github.com/17380936778/omp-web,6334daa1f17a1e04012cb7f73e04cc312e724dbf,2026-06-24T12:11:06+00:00,Human,,37,8,2,False,False,False,False,"Merge pull request #88 from agegr/codex-review-pr-83
+
+Codex review pr 83"
+https://www.github.com/17380936778/omp-web,61f88785bc4b3dd93dbc0fb43ef498c8271aef25,2026-06-24T12:09:44+00:00,Human,,27,10,2,True,True,False,False,fix: preserve extension tools across presets
+https://www.github.com/17380936778/omp-web,6c7bc129a3a9a529bd29c15656cc76facd1d83a7,2026-06-24T11:36:05+00:00,Human,,87,36,4,False,True,False,False,"Merge pull request #80 from GodD6366/fix/extension-loaded-models
+
+fix: load extension models in web selector"
+https://www.github.com/17380936778/omp-web,ff5e4d236ce0a41daed2cf88ab55d20f3897b50e,2026-06-24T11:32:56+00:00,Human,,462,114,14,False,True,False,False,merge main into extension model selector fix
+https://www.github.com/17380936778/omp-web,5ae063a1179874d7af298d594e5b87513c85b7aa,2026-06-24T11:15:59+00:00,Human,,60,30,4,True,True,False,False,fix: preserve auto model selection
+https://www.github.com/17380936778/omp-web,ae1300a5ab7aa9d3066e49a50a332e8662ea70e7,2026-06-23T15:33:12+00:00,Human,,3,3,2,False,False,False,False,version to 0.6.17
+https://www.github.com/17380936778/omp-web,8c265c0b0f3b06a4c80ba882d6622267fc3807fe,2026-06-23T15:32:32+00:00,Human,,5,2,1,True,True,False,False,fix: reset suppressCwdBumpRef immediately in handleCwdChange instead of using setTimeout
+https://www.github.com/17380936778/omp-web,f7533265564ad406c7d54b18b5c9f0182352d448,2026-06-23T15:25:24+00:00,Human,,214,84,7,False,False,False,False,feat: display compaction results with token savings and upgrade pi dependencies to v0.79.10
+https://www.github.com/17380936778/omp-web,e974bc6f76ceacae075a8d5f8cbe42ff8510f7b6,2026-06-23T15:04:12+00:00,Human,,72,12,5,True,True,False,False,fix: safely render raw markdown tables
+https://www.github.com/17380936778/omp-web,3bf0d4afb99cf0a7580a2f47b9980a7b0a189a86,2026-06-23T14:39:02+00:00,Human,,112,8,3,False,False,False,False,"Merge pull request #85 from agegr/pr/66
+
+Pr/66"
+https://www.github.com/17380936778/omp-web,477cc992c83712016d10d70dd6d6fb55b685ca66,2026-06-23T14:31:44+00:00,Human,,100,31,3,True,True,False,False,fix: project session tree iteratively
+https://www.github.com/17380936778/omp-web,50f87704ce7c21e4329b6b168745523526a84b48,2026-06-23T14:10:32+00:00,Human,,5,5,1,True,True,False,False,fix: stabilize mobile new-session title layout
+https://www.github.com/17380936778/omp-web,61bfd23a7708c2a2e093159de4d525ba8fd125e2,2026-06-23T13:51:34+00:00,Human,,52,1,1,False,False,False,False,feat: add smart auto-scroll with user intent detection to prevent interrupting manual scrolling during agent responses
+https://www.github.com/17380936778/omp-web,8b3fefdb70d0c08b3cd39ce4a4e44bd89ab9dade,2026-06-17T02:25:28+00:00,AI,Claude_Code,16,4,1,True,True,False,False,"fix: keep extension/package tools available in pi-web sessions
+
+startRpcSession passed a builtin-only allow-list (allCodingToolNames) to
+createAgentSession for non-empty tool presets. In the SDK that sets
+allowedToolNames, and isAllowedTool() filters the tool registry by it, so every
+extension/package-provided tool (pi-subagents' `subagent`, pi-web-access' web
+tools, ...) was dropped from the registry — web sessions exposed only
+read/bash/edit/write while the `pi` CLI kept the extension tools.
+
+Don't restrict the allow-list for non-empty presets (leave allowedToolNames
+undefined so all tools register and extension tools activate); set the active
+set to the requested builtin tools plus all extension tools. ""Off"" (empty
+array) and resume (no toolNames) paths are unchanged.
+
+Addresses the symptom reported in #79.
+
+Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+https://www.github.com/17380936778/omp-web,b66c31260d270039e4ed150edef9b3273a24bab4,2026-06-16T11:40:27+00:00,Human,,31,10,3,True,True,False,False,fix: load extension models in web selector
+https://www.github.com/17380936778/omp-web,a7c5de361a28d1196995bbfbd396717f9bd65297,2026-06-10T12:00:01+00:00,Human,,7,3,3,False,True,False,False,fix markdown list styling with explicit list markers and paragraph spacing
+https://www.github.com/17380936778/omp-web,e53094018ae7fbc83046b5db66f90e498210d3d0,2026-06-09T03:01:26+00:00,Human,,40,28,3,False,False,False,False,chore: upgrade pi-ai and pi-coding-agent dependencies to v0.79.0
+https://www.github.com/17380936778/omp-web,f6cc6853a4c8eb40c9b766c97a9179f3ed8f4217,2026-06-09T01:44:12+00:00,Human,,24,7,1,True,True,False,False,"fix: preserve chain head and tail in compressTree, skip middle iteratively"
+https://www.github.com/17380936778/omp-web,b6e5bb753fe0f5390bab9fed9afc1098041f00a2,2026-06-09T01:26:49+00:00,Human,,8,6,1,True,True,False,False,fix: preserve terminal leaves in compressTree and use iterative chain descent
+https://www.github.com/17380936778/omp-web,cde99d7ae53f5032c8f51c2facd0cc4e6826835c,2026-06-08T14:16:36+00:00,Human,,70,27,3,False,False,False,False,"feat: add provider icons for Ant, Nvidia, OpenCode, Xiaomi, and ZAI. pi = 0.78.1"
+https://www.github.com/17380936778/omp-web,e83e134ef374c85d00bd5e4aa52c9f4935bec57c,2026-06-08T13:55:13+00:00,Human,,3,3,2,False,False,False,False,chore: bump version to 0.6.14
+https://www.github.com/17380936778/omp-web,06fd0208aeb652331be678b7bfe17a5399a1906a,2026-06-08T13:54:37+00:00,Human,,327,261,6,False,False,False,False,feat: add LaTeX math rendering support with KaTeX and refactor markdown rendering into reusable component
+https://www.github.com/17380936778/omp-web,656bdd32da903a5e6ebbcc2fc9f003b5a291f071,2026-06-08T13:12:46+00:00,Human,,152,0,2,False,False,False,False,feat: add session export to HTML with download button
+https://www.github.com/17380936778/omp-web,ab02b5fddb97260a14085de93aa31cdc7a7d4094,2026-06-04T15:20:07+00:00,Human,,3,3,2,False,False,False,False,chore: bump version to 0.6.13
+https://www.github.com/17380936778/omp-web,817f2927042b778c6e4f5fe8be81075a18cd46fe,2026-06-04T15:18:23+00:00,Human,,104,89,3,False,False,False,False,chore: upgrade pi-ai and pi-coding-agent dependencies to v0.78.0
+https://www.github.com/17380936778/omp-web,706fd04e4c199b082511ad7b21ba1a1f63cd2615,2026-06-04T15:07:51+00:00,Human,,23,1,1,False,False,False,False,feat: add IME composition handling with grace period to prevent premature Enter key submission
+https://www.github.com/17380936778/omp-web,d3084ef6b70cd916720c75fe48a98b93726412fa,2026-06-04T15:00:31+00:00,Human,,204,322,4,False,False,False,False,feat: add Mermaid diagram rendering with live preview toggle and theme support
+https://www.github.com/17380936778/omp-web,e9da2391a1039793292a1a29b5b940ed9bb5a680,2026-06-04T14:42:05+00:00,Human,,4,1,1,False,False,False,False,feat: filter out user role messages from agent session message updates and completion handling
+https://www.github.com/17380936778/omp-web,849ea5c51984535f5a4b2350f28d5a74198107b0,2026-06-04T14:00:18+00:00,Human,,98,13,2,False,False,False,False,feat: add workspace path validation with async checking and error feedback
+https://www.github.com/17380936778/omp-web,12b26d449b022b67398c510aad445b1d8703ac4e,2026-06-04T13:32:49+00:00,Human,,584,3,6,False,False,False,False,feat: add PDF and DOCX file preview support with live sync and download functionality
+https://www.github.com/17380936778/omp-web,4b3713f64eeb8ac1f9b423a40c24e21ec9e790a0,2026-06-04T06:23:50+00:00,Human,,18,2,1,True,True,False,False,"fix: compress linear tree chains instead of removing tree field to prevent JSON.stringify stack overflow
+
+Previous attempt removed the `tree` field entirely, which broke BranchNavigator.
+This new approach keeps `tree` but compresses linear chains (single-child nodes
+are collapsed into their parent) before serialization, reducing depth from 2000+
+to the number of branching points — well within V8's ~3000 recursion limit.
+
+Branching points (nodes with >1 children) are preserved as-is, so users with
+branched sessions retain full in-session branch navigation."
+https://www.github.com/17380936778/omp-web,722f7096a36dab68e00afdd4aa6f6698066cc364,2026-05-31T11:00:53+00:00,Human,,494,97,1,False,False,False,False,chore: refresh npm lockfile metadata
+https://www.github.com/17380936778/omp-web,28967e682f4ceda212321b16ccc4bbfbabebc675,2026-05-27T06:10:55+00:00,Human,,22,0,2,False,False,False,False,feat: add MIT license to package.json
+https://www.github.com/17380936778/omp-web,7e4e6c9133d18c307ce97c7ca7012cafa305acad,2026-05-26T17:11:28+00:00,Human,,242,8,4,False,False,False,False,feat: add model connection testing with latency tracking and response validation
+https://www.github.com/17380936778/omp-web,980e9d25024a722a600ae5beac23e71cd06aae65,2026-05-23T13:37:46+00:00,Human,,9,8,3,False,True,False,False,feat: fix model dropdown positioning to anchor above button and respect viewport height
+https://www.github.com/17380936778/omp-web,e89d3ae93265b159add4b2a3767ea81a53eaf7e2,2026-05-23T13:11:18+00:00,Human,,270,18,4,False,False,False,False,feat: add audio file preview support with streaming and range request handling
+https://www.github.com/17380936778/omp-web,63fa4738710489c6256dd4849eeebabfb3766640,2026-05-23T12:24:03+00:00,Human,,4588,5246,5,False,False,False,False,"feat: add OAuth device code flow and selection prompt support with improved token management
+
+- Add device_code phase to OAuth login flow with user code display and verification URI
+- Implement onSelect callback for interactive option selection during OAuth flows
+- Refactor token management to support multiple concurrent client input requests
+- Replace single manual code promise with request factory pattern and active token tracking
+- Add submitSelection handler for processing user selections via"
+https://www.github.com/17380936778/omp-web,8f3de6922200c167ad327cca367bcfeba42a94e7,2026-05-22T12:57:17+00:00,Human,,76,34,6,False,True,False,False,"feat: add cross-platform file path handling with Windows support and path normalization utilities
+
+- Add file path utility functions for Windows/POSIX path handling
+- Implement Windows absolute path detection (drive letters and UNC paths)
+- Add case-insensitive path comparison for Windows file systems
+- Extract path normalization, encoding, and joining logic to lib/file-paths.ts
+- Fix path separator handling for Windows (backslash) vs POSIX (forward slash)
+- Refactor FileExplorer and FileViewer to"
+https://www.github.com/17380936778/omp-web,1165427d157d637a79cf4a1a4d1b346e51b7a267,2026-05-21T14:39:58+00:00,Human,,3,3,2,False,False,False,False,chore: bump version to 0.6.8
+https://www.github.com/17380936778/omp-web,941028e7bd906024c03d4e6991ac15265a6b4c5a,2026-05-21T14:39:41+00:00,Human,,75,8,1,False,False,False,False,"feat: add skills.sh API integration with fallback to CLI search and configurable result limits
+
+- Add skills.sh API as primary search method with npx CLI fallback
+- Implement configurable result limit (1-50, default 50) with validation
+- Add install count formatting (K/M suffixes) and sorting by popularity
+- Extract SEARCH_API_BASE from environment with skills.sh default
+- Parse and transform skills.sh API response to unified result format
+- Apply limit to both API and CLI search results"
+https://www.github.com/17380936778/omp-web,5dade84e0dd123eaf46e20f5030fa2d9d211e408,2026-05-13T07:25:48+00:00,Human,,131,51,7,False,False,False,False,feat: add thinking level mapping UI with custom labels and visual redesign
+https://www.github.com/17380936778/omp-web,ca5a78b7e19e7bfee86a872118d2e5fa721c032f,2026-05-12T15:37:36+00:00,Human,,133,16,5,False,False,False,False,feat: add thinking level filtering based on model capabilities
+https://www.github.com/17380936778/omp-web,542d5647a816778f9cfdaff42cdd9876e6970ee0,2026-05-09T14:21:43+00:00,Human,,114,33,3,False,False,False,False,feat: add password visibility toggle for API key inputs and improve provider picker layout
+https://www.github.com/17380936778/omp-web,b8a835ad576519d453f72726f304c8fb959ae391,2026-05-08T15:07:44+00:00,Human,,1286,300,21,False,False,False,False,"refactor: migrate from @mariozechner/pi-coding-agent to @earendil-works/pi-coding-agent and update compaction event handling
+
+- Update all imports to use @earendil-works/pi-coding-agent package
+- Add support for newer compaction_start/compaction_end events alongside legacy auto_compaction_* events
+- Update package.json to use @earendil-works/pi-coding-agent ^0.74.0
+- Bump version to 0.6.4
+- Update documentation to reflect unified compaction event handling"
+https://www.github.com/17380936778/omp-web,b0163a034b557e6e6b9fbc38cf06176d5cbae07e,2026-05-04T14:53:50+00:00,Human,,173,9,7,False,False,False,False,"Merge pull request #1 from lc-git/feat/darkmode
+
+feat: add dark mode with toggle button and persistent theme preference"
+https://www.github.com/17380936778/omp-web,22f6e0173c9eef6487f76172198fd0e5c5f8de4d,2026-05-04T14:52:39+00:00,Human,,98,30,3,False,False,False,False,feat: add circular wipe animation for theme toggle using View Transitions API
+https://www.github.com/17380936778/omp-web,72126e02c65b8fd1b30345a3adc634fe32fb7098,2026-05-04T14:36:02+00:00,Human,,49,40,5,False,False,False,False,refactor: convert theme state management from useState to useSyncExternalStore and remove isDark prop drilling
+https://www.github.com/17380936778/omp-web,6abb8ed62a2c72303ba54ac85e08a02d3652dd64,2026-05-04T13:17:54+00:00,AI,Claude_Code,109,22,8,False,False,False,False,"feat: add dark mode with toggle button and persistent theme preference
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/17380936778/omp-web,43b04787befae3752c8f64366f8cd7da95c11fba,2026-05-01T05:14:28+00:00,Human,,3,3,2,False,False,False,False,chore: bump version to 0.6.2
+https://www.github.com/17380936778/omp-web,4bdfff8f12786622ad99f98273fe65bbe5cc4454,2026-05-01T05:10:18+00:00,Human,,22,8,1,False,True,False,False,refactor: convert model dropdown to fixed positioning with dynamic height calculation
+https://www.github.com/17380936778/omp-web,e965dfffa8daa3643ce0f2e8b3e54a260440a9c4,2026-05-01T05:05:02+00:00,Human,,8546,1707,5,False,False,False,False,feat: add API key provider management UI with visual picker and provider icons
+https://www.github.com/17380936778/omp-web,8603130eaf4848ec81ebf74e833bc3589ce40c85,2026-05-01T03:36:31+00:00,Human,,191,174,3,False,False,False,False,chore: bump pi-coding-agent to 0.71.0 and remove deprecated auth provider display names
+https://www.github.com/17380936778/omp-web,1959f30aa9a4b4dc23f9878d25b5bf61d043c4e8,2026-04-29T14:56:30+00:00,Human,,107,95,2,False,False,False,False,feat: add duration display for thinking blocks and tool calls with streaming and file-based timing
+https://www.github.com/17380936778/omp-web,7a51aa6715abb26b2be2df1f1826e1ebb28e0387,2026-04-29T06:54:34+00:00,Human,,245,184,4,False,False,False,False,feat: add animated typewriter effect to empty state with version info display
+https://www.github.com/17380936778/omp-web,f7a1d6fe33769c172d4a7327561a8996c9661e97,2026-04-29T06:41:27+00:00,Human,,54,33,3,False,False,False,False,refactor: redesign chat input with floating style and centered empty state layout
+https://www.github.com/17380936778/omp-web,f51f62dea2736cc4d22801167fd467a759ea9e32,2026-04-29T06:12:30+00:00,Human,,10,2,2,False,False,False,False,feat: preserve working directory and reset session state when deleting active session
+https://www.github.com/17380936778/omp-web,bf5eb8022ae29da1902219dd8ae1a9fc8d2e9cae,2026-04-25T14:48:12+00:00,Human,,45,4,3,False,False,False,False,feat: add DeepSeek thinking compatibility toggle in model configuration UI
+https://www.github.com/17380936778/omp-web,b632a3d8ce57a72ee53e23f4fb9509d787c30bd2,2026-04-25T14:20:51+00:00,Human,,0,153,2,False,False,False,False,refactor: remove DeepSeek compatibility shim after upstream pi-coding-agent support
+https://www.github.com/17380936778/omp-web,351292efac23aeccb1d3030d92c6691073943edc,2026-04-25T13:24:21+00:00,Human,,78,102,1,False,False,False,False,refactor: simplify queue mode UI by replacing toggle with separate steer/follow-up buttons
+https://www.github.com/17380936778/omp-web,67151005b00586035b65052e22996c11aa62e386,2026-04-25T12:56:48+00:00,Human,,6,5,1,False,False,False,False,refactor: improve bottom toolbar button styling
+https://www.github.com/17380936778/omp-web,fadd05e58a1cdf23e5f0f837b41512ac9dbbc81d,2026-04-25T12:44:08+00:00,Human,,219,174,5,False,False,False,False,feat: move session stats and context usage from chat input to top bar
+https://www.github.com/17380936778/omp-web,6c3761055c5e1f9686af080f67901f1bd93a31d7,2026-04-25T12:14:18+00:00,Human,,26,5,4,False,False,False,False,feat: add timestamps to assistant messages showing completion time
+https://www.github.com/17380936778/omp-web,33bf5a48dc3e4f3f19d411b34ea56cdd41dc3986,2026-04-25T12:10:04+00:00,Human,,156,2,3,False,False,False,False,feat: add DeepSeek compatibility shim for anthropic-messages thinking levels
+https://www.github.com/17380936778/omp-web,e039402844d96b5834a3d65c9e4f65c3ebb7cfac,2026-04-25T11:53:17+00:00,Human,,128,8,4,False,False,False,False,feat: add thinking level selector to control model reasoning intensity
+https://www.github.com/17380936778/omp-web,00652aa1ee8bd6602f2bf7188b7d6bb61e16be2c,2026-04-25T11:34:05+00:00,Human,,102,63,2,False,False,False,False,chore: upgrade pi-coding-agent to 0.70.2
+https://www.github.com/17380936778/omp-web,fef69cc3ca1148ffd134da199b0ea825e2f28ce5,2026-04-24T15:00:04+00:00,Human,,20,5,4,False,False,False,False,feat: display session cost in chat input stats with dollar sign icon
+https://www.github.com/17380936778/omp-web,6eb2afd7a79fe021d752c1cabc34219291b07f46,2026-04-24T07:02:51+00:00,Human,,633,619,5,False,False,False,False,refactor: upgrade pi-coding-agent to 0.70.0 and adapt to new tool configuration API
+https://www.github.com/17380936778/omp-web,d452123c5a3cbecb8c1efd4568d27281cda48ece,2026-04-24T06:45:56+00:00,Human,,182,3,4,False,False,False,False,feat: add image viewer with live reload support for common image formats
+https://www.github.com/17380936778/omp-web,bd9153441a7c76b95beea169cae7c763864868f5,2026-04-24T06:34:31+00:00,Human,,53,5,4,False,False,False,False,feat: add detailed agent phase indicators showing active tool execution
+https://www.github.com/17380936778/omp-web,87c6de862d3223f99cf3b6965c2ddd65dfdef71b,2026-04-23T07:13:45+00:00,Human,,26,5,5,True,True,False,False,fix: improve mobile viewport handling and right panel behavior
+https://www.github.com/17380936778/omp-web,8b412b8e8d9391357d9edceddc520a08218fe6b7,2026-04-23T07:04:27+00:00,Human,,29,6,2,False,False,False,False,feat: add animated checkmark feedback to ModelsConfig save button
+https://www.github.com/17380936778/omp-web,26b8a4f30e410bcccb5e991f1768ac7a741a2605,2026-04-23T06:56:44+00:00,Human,,9,4,1,True,True,False,False,fix: make API field required for providers and default to openai-completions
+https://www.github.com/17380936778/omp-web,600f8437fcd5e0a5b45def29cc562dbd565ea044,2026-04-23T06:51:17+00:00,Human,,20,5,4,False,True,False,False,feat: auto-open browser on server ready and fix thinking indicator
+https://www.github.com/17380936778/omp-web,a0bcba90771fb6831403e670fa2fc38b7bf55360,2026-04-19T12:57:47+00:00,Human,,72,46,5,False,False,False,False,"chore: localize README to Chinese, improve npx compatibility, and bump version to 0.5.13
+
+- Translate README.md from English to Chinese
+- Add npx quick-start instructions to README
+- Resolve next CLI entry directly to avoid .bin symlink issues when running via npx
+- Spawn next with node directly instead of relying on shell or .bin wrappers
+- Gracefully handle missing @mariozechner/pi-coding-agent package in next.config.ts"
+https://www.github.com/17380936778/omp-web,67b18d87b6dca29dac9758201bfac3c263b53d70,2026-04-18T11:50:55+00:00,Human,,105,115,6,False,False,False,False,"refactor: add allowed-roots cache for file API and extract agent command helper
+
+- Cache allowed roots in /api/files with 5s TTL to avoid re-scanning sessions on every request
+- Sync cache immediately when creating new sessions to prevent 403s on brand-new cwds
+- Extract sendAgentCommand helper to eliminate repeated fetch boilerplate in useAgentSession
+- Remove unused chat tab type and ChatIcon component from TabBar
+- Remove redundant agentRunningRef effect"
+https://www.github.com/17380936778/omp-web,f78dc24e1957271d435bf020e0a10a9e08271afe,2026-04-17T14:44:48+00:00,Human,,3,3,2,False,False,False,False,chore: bump version from 0.5.8 to 0.5.9
+https://www.github.com/17380936778/omp-web,237e10198c97499283e3ba30e738b3b329bf1d3f,2026-04-17T14:29:09+00:00,Human,,664,166,4,False,False,False,False,refactor: extract npx execution utility and improve code formatting in skills components
+https://www.github.com/17380936778/omp-web,6efb1e6fd696c7aecb99197d67e62e9598d763b3,2026-04-17T14:17:22+00:00,Human,,5,1,1,True,True,False,False,fix: handle Windows drive letters in file path resolution to prevent double-path prefix
+https://www.github.com/17380936778/omp-web,e95d2a3f862f04d8563e582dc342eb5a44974245,2026-04-14T12:22:03+00:00,Human,,45,45,2,False,False,False,False,chore: bump version from 0.5.7 to 0.5.8 and update @mariozechner/pi-coding-agent to 0.67.1
+https://www.github.com/17380936778/omp-web,9fcbee5d3f7a18290bc13db4d5e113d169c90fe8,2026-04-13T14:01:21+00:00,Human,,971,829,10,False,False,False,False,"refactor: extract custom hooks for agent session, audio, and drag-drop functionality"
+https://www.github.com/17380936778/omp-web,c658ec1b07fe57ae83377817e1b165cd15ff511d,2026-04-13T06:41:14+00:00,Human,,2,7,1,False,False,False,False,refactor: replace scrollLockedRef with agentRunning state for scroll control
+https://www.github.com/17380936778/omp-web,8bdadc52716610dd18570da9e5ae0e63d3c37c5f,2026-04-11T12:01:44+00:00,Human,,1,1,1,False,False,False,False,refactor: change file mention format from @path to `path` in chat input
+https://www.github.com/17380936778/omp-web,bfa4055d75adfb76c4c47cdafdf806f673423e10,2026-04-11T11:43:36+00:00,Human,,176,28,4,False,False,False,False,feat: add completion sound notification with toggle control
+https://www.github.com/17380936778/omp-web,56cabf6d3fa4546dcdf912b566fe36e22f98721a,2026-04-11T04:59:48+00:00,Human,,509,520,2,False,False,False,False,chore: bump @mariozechner/pi-coding-agent from 0.65.2 to 0.66.1
+https://www.github.com/17380936778/omp-web,50c93f6531b18ddff6c9cf09982770d607eff988,2026-04-07T03:19:14+00:00,Human,,3,3,2,False,False,False,False,chore: bump version from 0.5.5 to 0.5.6
+https://www.github.com/17380936778/omp-web,ec42369922913d2fff17d8203f6e99f5064547fa,2026-04-07T03:18:29+00:00,Human,,92,60,3,False,False,False,False,refactor: improve system prompt and branch navigator empty states
+https://www.github.com/17380936778/omp-web,4e67b8b19dc0d06326a70a49982f2581134afd73,2026-04-06T14:37:34+00:00,Human,,82,67,4,False,False,False,False,refactor: unify top bar dropdowns with single active panel state
+https://www.github.com/17380936778/omp-web,9e3bcacbb45e80f4ff18b0b86bfb0495966d5928,2026-04-06T14:07:17+00:00,Human,,104,112,3,False,True,False,False,feat: add system prompt viewer to top bar with dropdown panel and fixed file panel toggle button
+https://www.github.com/17380936778/omp-web,5dd077b010a3a0350014c88c6476570a472bd222,2026-04-06T13:54:36+00:00,Human,,138,25,3,False,False,False,False,feat: move branch navigator to top bar with inline mode and dynamic positioning
+https://www.github.com/17380936778/omp-web,9c1629cdbee1a6f44c3cf4e24f51f4100cb2117a,2026-04-06T13:38:12+00:00,Human,,21,21,2,False,False,False,False,chore: bump @mariozechner/pi-coding-agent from 0.65.0 to 0.65.2
+https://www.github.com/17380936778/omp-web,dcf4edd53131e801077cc630b99edbfad0b04dcb,2026-04-06T13:32:29+00:00,Human,,6,3,1,False,False,False,False,refactor: propagate refreshKey to TreeNode children for proper refresh behavior
+https://www.github.com/17380936778/omp-web,9f69da84186d60238b6e69c5c19ee8bc417cdf4c,2026-04-06T06:01:25+00:00,Human,,71,4,4,False,False,False,False,feat: add markdown preview mode for file viewer with auto-enable and toggle controls
+https://www.github.com/17380936778/omp-web,a93060024e74a3d57f3e11cce159a2b8e72d11b6,2026-04-05T15:24:49+00:00,Human,,181,115,3,False,False,False,False,"feat: add right panel for file viewer with animated toggle, word wrap, and relative path display
+
+- Move file tabs to a dedicated right panel; chat stays in center column
+- Right panel open/close animates via CSS width transition (same as left sidebar)
+- Add word wrap toggle button in file viewer status bar
+- Switch syntax highlight theme from vscDarkPlus to vs (light theme)
+- Show file path relative to cwd in status bar; full path on hover
+
+Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.github.com>"
+https://www.github.com/17380936778/omp-web,92589200e23bd09084f2915a9bac72db129a3395,2026-04-05T15:06:20+00:00,Human,,557,138,4,False,False,False,False,"feat: enhance file viewer with syntax highlighting, live sync, diff view, and refresh feedback
+
+- Add SSE watch endpoint (?type=watch) using fs.watch for real-time file change detection
+- Rewrite FileViewer with react-syntax-highlighter (vscDarkPlus theme), SSE-based live sync, and Myers diff view
+- Preserve expanded folder state in FileExplorer across refreshes
+- Show green checkmark on refresh buttons for 2s after fetch completes
+
+Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.github.com>"
+https://www.github.com/17380936778/omp-web,abd5b3acba20d40e368a49f907bab82a0611cf23,2026-04-05T12:31:03+00:00,Human,,31,53,4,False,False,False,False,refactor: use SessionManager API directly for session info retrieval and remove buildSessionInfo function
+https://www.github.com/17380936778/omp-web,0823d47a3f227c76ce8019d00cccef98c76642c9,2026-04-05T12:26:58+00:00,Human,,5,6,1,False,False,False,False,refactor: simplify fork operation
+https://www.github.com/17380936778/omp-web,d196963570a33e9ea318727fe4f49783b7368f06,2026-04-05T12:17:10+00:00,Human,,4,15,1,False,False,False,False,refactor: simplify compact operation
+https://www.github.com/17380936778/omp-web,31437b8f4104fd324157d930114b05d6b320eb9d,2026-04-05T11:55:22+00:00,Human,,29,10,4,False,False,False,False,feat: add CLI options for port and hostname configuration and change default port to 30141
+https://www.github.com/17380936778/omp-web,06e549ddc71d73cff8f6eccd1ded564bdaa407ae,2026-04-05T09:30:42+00:00,Human,,90,6,5,False,False,False,False,feat: add system prompt viewer
+https://www.github.com/17380936778/omp-web,4746895b8cde764c4f895d686cd48bdc5ed21c3b,2026-04-05T08:28:02+00:00,Human,,74,20,4,False,False,False,False,feat: add real-time token streaming metrics
+https://www.github.com/17380936778/omp-web,1bdafa9ab4f7f1bf422d9d7f1031d25b722c6ca6,2026-04-05T07:30:12+00:00,Human,,121,30,3,False,False,False,False,feat: add full-window drop zone
+https://www.github.com/17380936778/omp-web,7995ee52a1ebb901c1f23fd455682a9e83c7534b,2026-04-05T06:46:38+00:00,Human,,241,52,9,False,False,False,False,"feat: add image attachment support with drag-and-drop, paste, and file picker"
+https://www.github.com/17380936778/omp-web,2bec12675a9972a71da5ec1e97ecd269cc1af3e0,2026-04-05T06:17:03+00:00,Human,,230,206,3,False,False,False,False,refactor: reimplement fork operation using SessionManager API and update pi-coding-agent to v0.65.0
+https://www.github.com/17380936778/omp-web,77c019891860d87aa0aa5d05b6e214be685a3340,2026-04-03T07:03:19+00:00,Human,,26,8,5,False,False,False,False,feat: add edit-from-here functionality to populate input with message content
+https://www.github.com/17380936778/omp-web,c930597a0c41150cbc570136cab753a97dd7e7a4,2026-04-02T03:42:59+00:00,Human,,64,17,5,False,False,False,False,feat: add onboarding guide and improve directory selection UX
+https://www.github.com/17380936778/omp-web,03f5ea766ccadafad19b7e6e64ff4a0798612a38,2026-04-02T03:25:23+00:00,Human,,2,1,1,False,False,False,False,refactor: move text content check after element reference increment in ChatMinimap
+https://www.github.com/17380936778/omp-web,7dae8d6c330a70be046613140b927328433d622d,2026-03-30T08:44:56+00:00,Human,,66,66,3,False,False,False,False,bump pi-coding-agent to v0.64.0
+https://www.github.com/17380936778/omp-web,475e95a412a98d3b5be31bc8f70feb259212256d,2026-03-28T12:40:56+00:00,Human,,100,13,8,False,False,False,False,feat: add file mention feature
+https://www.github.com/17380936778/omp-web,6b1a7f2f5314f439dcffd10de625b4c4686cd483,2026-03-27T09:32:46+00:00,Human,,22,11,4,False,False,False,False,feat: add spinning animation indicator for running tool calls
+https://www.github.com/17380936778/omp-web,5ad287a4ffe088091c2a5a5817388b189dca9e43,2026-03-27T08:12:04+00:00,Human,,299,141,7,False,False,False,False,feat: add syntax highlighting with line numbers and improve monospace font support for CJK characters
+https://www.github.com/17380936778/omp-web,cd148a26463bfe47d959efbd328544abdbb8b281,2026-03-27T06:35:12+00:00,Human,,26,26,2,False,False,False,False,feat: improve code block detection
+https://www.github.com/17380936778/omp-web,92793ff5fba12753b6f51f87f545fbd15f10298b,2026-03-26T14:20:11+00:00,Human,,6,6,4,False,False,False,False,refactor: update agent identifier from 'universal' to 'pi' and change skills directory path from '.agents' to '.pi/agent'
+https://www.github.com/17380936778/omp-web,c28d8fe645beae7cd80fa7b278b4eede2a7aeabb,2026-03-26T13:06:07+00:00,Human,,59,58,2,False,False,False,False,refactor: unify sidebar implementation
+https://www.github.com/17380936778/omp-web,f13fdb596460208fc3f01fa1442f4506fd7f3de0,2026-03-26T12:55:11+00:00,Human,,48,21,3,False,False,False,False,feat: optimize session restore
+https://www.github.com/17380936778/omp-web,700750f21a788d15b8a9c51ac266325418045aa1,2026-03-26T12:40:03+00:00,Human,,9,0,1,False,False,False,False,feat: add manual login link fallback for OAuth authentication flow
+https://www.github.com/17380936778/omp-web,01d35099d17e20ed15478d6b8740e2e45f6d4643,2026-03-26T12:35:02+00:00,Human,,255,483,10,False,False,False,False,refactor: migrate session and model management to pi-coding-agent library APIs
+https://www.github.com/17380936778/omp-web,fb6c6cd0cfa262db8d199de1fbf6177a0173bf2b,2026-03-26T07:43:53+00:00,Human,,30,5,3,False,False,False,False,feat: add SSE heartbeat and auto-reconnect with retry error messages
+https://www.github.com/17380936778/omp-web,54c3897fc73272d6bd71ef29c7fc717703a2c4b3,2026-03-26T07:02:43+00:00,Human,,546,53,12,False,False,False,False,feat: add OAuth authentication system with provider management and model registry integration
+https://www.github.com/17380936778/omp-web,f6df7745d268d6ed0bb4b44ca79b0cb7d5923d18,2026-03-25T14:51:19+00:00,Human,,5,4,4,False,True,False,False,fix add skill project
+https://www.github.com/17380936778/omp-web,73c9db84a4ea3947116ff14cc3df16c0872938c1,2026-03-25T13:31:21+00:00,Human,,0,6,1,False,False,False,False,docs: remove pre-configured working folder
+https://www.github.com/17380936778/omp-web,1c021f56ceb53a2ba6c27b37c1daebe23542143f,2026-03-25T13:18:52+00:00,Human,,12,2,1,False,False,False,False,feat: display project skill paths
+https://www.github.com/17380936778/omp-web,914e4d2250ac2471e5a0ccf8a7eba84ab4f85e22,2026-03-25T12:47:17+00:00,Human,,610,31,7,False,False,False,False,feat: add copy message buttons and skill installation UI
+https://www.github.com/17380936778/omp-web,d1ea1d19608729d7e6fc0c5bd1dff0fc446f1110,2026-03-25T09:19:02+00:00,Human,,85,21,4,False,False,False,False,feat: add default directory creation API
+https://www.github.com/17380936778/omp-web,18207b84e596386b7a95d13bf54c3590797a3622,2026-03-25T08:40:28+00:00,Human,,389,25,6,False,False,False,False,feat: add Skills configuration panel
+https://www.github.com/17380936778/omp-web,f77a4a125b93da891570401b89e58e44ecaf389c,2026-03-24T14:08:44+00:00,Human,,37,16,5,True,True,False,False,fix: prevent Suspense remount loop when restoring session from URL and handle IME composition in chat input
+https://www.github.com/17380936778/omp-web,ed6bd470190542ff6e741ac75ce37c1ca86395df,2026-03-24T12:07:43+00:00,Human,,3,3,2,False,False,False,False,chore: bump version to 0.3.1
+https://www.github.com/17380936778/omp-web,9cb62a7c69f18eff2de41fc32c62310b3e7cb6ed,2026-03-24T12:05:54+00:00,Human,,160,49,5,False,False,False,False,feat: add responsive mobile layout with collapsible sidebar
+https://www.github.com/17380936778/omp-web,459a11dfd7d6fa28f42a4a0dfd72b821683a7997,2026-03-24T11:40:04+00:00,Human,,54,50,2,False,False,False,False,feat: add Chinese localization for chat input controls and improve initial scroll behavior
+https://www.github.com/17380936778/omp-web,4e58d27d538dcda9d4e58e27f59e1e3a01e36dc0,2026-03-24T11:20:07+00:00,Human,,15,4,1,False,False,False,False,feat: convert BranchNavigator tree panel to overlay dropdown with auto-close removal
+https://www.github.com/17380936778/omp-web,e3f93fb90880d14ca1fce6c5a4e2693a01f5bf50,2026-03-24T11:10:46+00:00,Human,,2,2,2,False,False,False,False,feat: reduce chat content max-width
+https://www.github.com/17380936778/omp-web,e66b93ce6c2f5b8e8ee2f2b5c381ef34e8170f2f,2026-03-24T11:08:50+00:00,Human,,6,7,5,False,False,False,False,feat: increase chat content max-width to 960px and refine tab/panel backgrounds
+https://www.github.com/17380936778/omp-web,c42fdacdf97e06ecfdf17e9e17e1b3c918a25354,2026-03-24T10:55:38+00:00,Human,,84,54,2,False,True,False,False,feat: improve ChatMinimap tooltip positioning with collision detection and layout fixes
+https://www.github.com/17380936778/omp-web,c41cdd59c304835192b28dacf662e5b8c982eb18,2026-03-24T10:39:07+00:00,Human,,39,7,1,False,False,False,False,feat: add scroll lock during streaming with user message top-scroll behavior
+https://www.github.com/17380936778/omp-web,47f35bf334a12c174c628ae5a18709a709adabe0,2026-03-24T09:33:51+00:00,Human,,268,328,5,False,False,False,False,feat: redesign chat input controls with steer/follow-up mode toggle and improved layout
+https://www.github.com/17380936778/omp-web,0e809e4e36e9495c33946637a2c9df27cea99a79,2026-03-24T09:02:28+00:00,Human,,150,11,3,False,False,False,False,feat: add token usage stats and context window tracking to chat interface
+https://www.github.com/17380936778/omp-web,8f0509d97cec3dd6af0947d97833026048247317,2026-03-24T08:39:59+00:00,Human,,91,404,3,False,False,False,False,docs: restructure AGENTS.md with quick start section and concise file map
+https://www.github.com/17380936778/omp-web,d4ea7cf24211a0be2937a96b122b276643a9fee6,2026-03-24T07:23:41+00:00,Human,,11,9,3,True,True,False,False,"fix: add Windows compatibility for npm package CLI launcher
+
+- Use next.cmd instead of next on Windows platform
+- Enable shell option for spawn on Windows
+- Include full .next directory in package files with cache exclusions
+- Add --webpack flag to build script
+- Bump version to 0.2.4"
+https://www.github.com/17380936778/omp-web,47ec67cecbb8861c3f5458f8059a688cdf8e0e50,2026-03-24T06:15:04+00:00,Human,,320,148,6,False,False,False,False,feat: add npm package distribution with global CLI installation
+https://www.github.com/17380936778/omp-web,edf534d0f1aeabf10c0a1f6d69d5b099dc254ad9,2026-03-24T05:23:18+00:00,Human,,1272,2282,7,False,False,False,True,"Revert ""feat: add standalone executable build support with pkg bundler""
+
+This reverts commit e805c40b41b4f2263cadb674ad572c8e27565b42."
+https://www.github.com/17380936778/omp-web,e805c40b41b4f2263cadb674ad572c8e27565b42,2026-03-23T15:42:30+00:00,Human,,2275,1265,7,False,False,False,False,"feat: add standalone executable build support with pkg bundler
+
+- Add build:dist scripts for creating platform-specific executables (macOS, Linux, Windows)
+- Configure Next.js standalone output mode with external packages
+- Downgrade Next.js from 16.2.1 to 14.2.35 for pkg compatibility
+- Add @yao-pkg/pkg for executable bundling
+- Create build-dist.mjs script with multi-step build process:
+  - Patch server.js to remove process.chdir and set default port to 3030
+  - Patch webpack route files to replace"
+https://www.github.com/17380936778/omp-web,04daf1ce1e32b273cccd5edf6212cbbfb5fffad0,2026-03-23T13:47:28+00:00,Human,,91,3,3,False,False,False,False,"feat: add animated scramble effect to sidebar title with version toggle
+
+- Add PiAgentTitle component with click-to-reveal version number
+- Implement useScramble hook for character-by-character scramble animation
+- Toggle between ""Pi Agent Web"" and ""v0.2.0-260323"" on click
+- Auto-revert to title after 3 seconds when showing version
+- Update page title from ""Pi Agent"" to ""Pi Agent Web""
+- Bump package version to 0.2.0"
+https://www.github.com/17380936778/omp-web,051e92212a78958298581109e6ddc3a5d35696aa,2026-03-23T13:32:35+00:00,Human,,193,155,6,False,False,False,False,"feat: replace individual tool toggles with preset-based tool configuration
+
+- Replace ToolPanel's individual tool toggles with three presets: Off, Low (default), High
+- Add tool preset selector to ChatInput with segmented control UI
+- Support tool preset selection for new sessions via toolNames parameter
+- Update ToolPanel to show preset selection with track bar indicator
+- Add getPresetFromTools utility to detect current preset from active tools
+- Define PRESET_NONE, PRESET_DEFAULT, PRESET_FULL"
+https://www.github.com/17380936778/omp-web,96182117a5c624dc5415fda80d4c1839b1387aa7,2026-03-23T11:44:05+00:00,Human,,1,1,2,True,True,False,False,"fix: update pi repository URL and favicon
+
+- Change pi repository link from mariozechner/pi to badlogic/pi-mono
+- Update favicon.ico"
+https://www.github.com/17380936778/omp-web,2bcea2bcc9d657c379f830f401364e7b4d230e7b,2026-03-23T07:33:38+00:00,Human,,608,13,6,False,False,False,False,"feat: add models configuration UI with provider and model management
+
+- Add ModelsConfig component with sidebar for providers/models and detail panel
+- Implement /api/models-config endpoint to read and write models.json
+- Add Models button to sidebar bottom that opens configuration modal
+- Support provider-level settings: baseUrl, apiKey, API type, headers
+- Support model-level settings: id, name, API override, reasoning, input types, context window, max tokens, cost
+- Add provider and model creation"
+https://www.github.com/17380936778/omp-web,c5a030b60f3cf95e31c44f24456ecff8ecbc2c39,2026-03-23T05:55:36+00:00,Human,,106,26,5,False,False,False,False,"feat: add model pre-selection for new sessions with default model support
+
+- Load full model list with provider info from models.json
+- Read default model from pi's settings.json and pre-select it for new sessions
+- Send pre-selected model to agent before first prompt in new sessions
+- Extend /api/models endpoint to return modelList and defaultModel
+- Update ChatInput to use modelList for accurate provider info in dropdown
+- Add newSessionModel state to track model selection before session creation"
+https://www.github.com/17380936778/omp-web,976555c7b5c79e0697844afa12ea30b512c16eb8,2026-03-23T05:33:24+00:00,Human,,2299,947,8,False,False,False,False,"docs: update README with project overview and configuration improvements
+
+- Replace Next.js boilerplate with comprehensive project documentation
+- Add feature list including session browser, live chat, fork, branching, and tool controls
+- Document project structure and session file storage location
+- Upgrade to Tailwind CSS v4 with new @import syntax
+- Update to Next.js 16.2.1 and React 19.2.4
+- Upgrade pi-coding-agent to v0.62.0
+- Modernize ESLint config to use direct imports instead of FlatComp"
+https://www.github.com/17380936778/omp-web,19fb14d3bf802e721a4b33eea11890694f63627f,2026-03-22T14:32:38+00:00,Human,,28,15,1,False,False,False,False,"feat: improve tool call display with longer previews and better text wrapping
+
+- Increase result preview length from 120 to 200 characters
+- Increase tool input preview length from 60 to 120 characters
+- Add minWidth: 0 to flex containers for proper text truncation
+- Change wordBreak from break-word to break-all for consistent wrapping
+- Increase result max height from 300 to 400px
+- Add whiteSpace: pre-wrap to tool input display
+- Refactor PairedResult to use forceExpanded and onToggle props"
+https://www.github.com/17380936778/omp-web,95c7a6553fdcb3f441eed8558d464001b744f65e,2026-03-22T13:42:31+00:00,Human,,17428,0,45,False,False,False,False,feat: pi-web - Next.js web interface for pi coding agent

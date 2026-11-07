@@ -1,0 +1,536 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/2themoom/salvage,641fb4c9af0a8e8c9f0a5418147ba9e4ae88c121,2026-09-27T13:21:12+00:00,Human,,1,1,1,False,False,False,False,"Add arc to the ?scan= deep-link parser
+
+Missed during the earlier Arc migration sweep - the outreach deep-link
+only recognized eth/base, so an Arc scan link silently fell through to
+the plain landing page instead of loading the result."
+https://www.github.com/2themoom/salvage,1dd45023e62f3ac70d0d986090e1e576a777b858,2026-09-19T11:57:25+00:00,AI,Claude_Code,4,1,1,False,False,False,False,"Ignore packaged Chrome extension zip builds
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,32c7331848507ad699f0350cc8687a5d0c087c60,2026-09-19T11:50:37+00:00,AI,Claude_Code,16,20,2,False,True,False,False,"Root-cause fix: getRpcUrl now falls back to each chain's public RPC
+
+ALCHEMY_ARC_RPC (the server-side, non-NEXT_PUBLIC env var) is absent
+from process.env in production, confirmed directly via a live
+diagnostic - only NEXT_PUBLIC_ALCHEMY_ARC_RPC exists. scanner.ts's
+getRpcUrl()/rpc() had no fallback for a missing URL, so isContract and
+its siblings silently failed closed to false/undefined for Arc
+specifically. contracts.ts's getServerPublicClient (viem's http()
+transport) already self-heals by falling back to the chain's own
+default RPC when the URL is undefined, which is why /api/scan appeared
+to work correctly this whole time - it was quietly using Arc's public
+RPC (rpc.mainnet.arc.io), not Alchemy.
+
+getRpcUrl now falls back the same way, using each chain's own default
+RPC (mainnet/base from viem/chains, arc from lib/chains) when the
+Alchemy-specific env var is missing. Also reverts the is-contract
+serialization workaround from a wrong hypothesis now that the real
+cause is fixed, and removes all debug fields from its response.
+
+Still worth setting ALCHEMY_ARC_RPC as its own Production env var in
+Vercel (separate from NEXT_PUBLIC_ALCHEMY_ARC_RPC) for genuine
+Alchemy-backed reliability instead of relying on this fallback.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,060f734fe4c386b0e1301b20900a77fdac0a6750,2026-09-19T11:42:53+00:00,AI,Claude_Code,4,1,1,False,False,False,False,"Debug: compare all Alchemy env var names/definedness
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,c6fc368aa60357055a748eb9cd523d500ec25a70,2026-09-19T11:35:57+00:00,AI,Claude_Code,5,1,1,False,False,False,False,"Debug: expose whether ALCHEMY_ARC_RPC is defined in is-contract's response
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,0e8bab8905f5df4bf376b3eb4aa75a32819f27ee,2026-09-19T11:17:34+00:00,AI,Claude_Code,9,5,1,False,True,False,False,"Serialize is-contract's chain checks to fix a false negative on Arc
+
+Promise.all-ing eth/base/arc's eth_getCode calls deterministically
+returned a false ""not a contract"" for Arc specifically when run on
+Vercel's production network path, for an address independently
+confirmed to have real, verified bytecode there. Not reproducible from
+a local machine, and the identical call made alone (not concurrent)
+already succeeded reliably elsewhere in the codebase (scanContract's
+own isContract check). Serializing removes whatever contention causes
+it, matching the same pattern already used for the Etherscan calls in
+this file's sibling logic.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,add9e0f1d3426930fd0e48fede3eb998e6de9db3,2026-09-19T10:43:21+00:00,AI,Claude_Code,21,35,7,False,True,False,False,"Fix live-breaking debug throw, add Arc detection to extension + API
+
+A debug throw statement from the earlier Etherscan investigation was
+still live in scanContract, breaking every Arc contract scan in
+production (fetchAbi succeeds, then immediately throws). Removed,
+along with the leftover debug-arc2 route.
+
+Also extends /api/is-contract (the endpoint the Chrome extension's
+background worker calls) to check Arc alongside Ethereum and Base, and
+updates the extension's content script and popup to warn on Arc
+contract addresses too. Extension code changes still need a new Chrome
+Web Store submission to reach users; the API change is live immediately.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,66e149a9c0fe1fa44b0d3282edb561b301c2edbc,2026-09-17T15:59:16+00:00,AI,Claude_Code,2,1,2,False,False,False,False,"Debug: throw with exact fetchAbi result inside scanContract for arc
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,1d9c02d0bb60309e79b298ac3d52e507391f623e,2026-09-17T15:55:31+00:00,AI,Claude_Code,17,0,1,False,False,False,False,"Debug: isolate scanContract as the only thing a fresh request does
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,718984ae97f30553d133a7ed7fe83e8025279c2c,2026-09-17T15:47:25+00:00,AI,Claude_Code,5,103,3,False,True,False,False,"Remove temporary Arc verification debug scaffolding
+
+Investigation confirmed the fix itself (routing Arc through Etherscan
+V2) is correct: fetchAbi/scanContract both return isVerified=true when
+called fresh. The live discrepancy on production points to a stale
+build cache serving an old compiled version of /api/scan specifically —
+same category of issue as the earlier NEXT_PUBLIC_ARC_RPC build-cache
+problem this session. Next redeploy should be done without reusing the
+build cache.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,2f8301f92d55c5b3dd76f2562f497cf458b60371,2026-09-17T15:41:06+00:00,AI,Claude_Code,23,1,1,False,False,False,False,"Debug: full replication of scanContract, plus direct call
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,8a978f073bfb02f2ee857c6c8152ca4adbacaf8b,2026-09-17T15:35:51+00:00,AI,Claude_Code,18,3,2,False,False,False,False,"Debug: reproduce scanContract's Promise.all before fetchAbi
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,fccf9625034bc3d3cdb5a7e26ef111cd959706cb,2026-09-17T15:28:36+00:00,AI,Claude_Code,10,0,1,False,False,False,False,"Debug: test fetchAbi called first in a fresh invocation
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,c6aa0567378e9651e41d6e4e64f2f17f1019d01a,2026-09-17T15:24:10+00:00,AI,Claude_Code,11,2,1,False,False,False,False,"Temporary: surface fetchAbi debug result directly in /api/scan response
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,dcebd54bc7d4aa2534047cf90535c33a59818a79,2026-09-17T15:16:33+00:00,AI,Claude_Code,39,0,1,False,False,False,False,"Temporary debug route for Arc Etherscan investigation
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,d11f1f004fed020e4196f9fea10924e4a4b88dee,2026-09-17T15:11:42+00:00,AI,Claude_Code,3,1,1,False,False,False,False,"Debug: log caught errors in etherscanFetch for arc
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,ccd1fd50f5f3fa1577ab328f2d305cbe754cd7f2,2026-09-17T15:05:53+00:00,AI,Claude_Code,1,0,1,False,False,False,False,"Temporary debug logging for Arc Etherscan verification investigation
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,988be19ae9d8cade689b6e500abedd92d443a72c,2026-09-17T14:54:29+00:00,AI,Claude_Code,38,47,16,False,False,False,False,"Route Arc through Etherscan V2, verify contracts, finish ownership migration
+
+Etherscan added Arc mainnet to its unified V2 chainlist within a day of
+launch (chain 5042, arc.etherscan.io) - confirmed live. scanner.ts now
+routes Arc through the same ETHERSCAN_BASE path as ETH/Base instead of
+the fail-closed placeholder from launch day, removing the special case
+entirely. Both SalvageRecoveryRouter and SalvageBatchWrapper are now
+source-verified on arc.etherscan.io and Sourcify, confirmed independently
+via the Etherscan API returning real source for both. Explorer links
+across the app now point to arc.etherscan.io instead of Circle's native
+explorer, matching the Etherscan/Basescan naming pattern.
+
+Also completes the router ownership migration on Arc: transferOwnership
+from the deployer key, acceptOwnership from the SafePal hardware wallet,
+matching ETH/Base. Verified via owner()/pendingOwner() reads before and
+after each step.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,543245d1b0d46368720931e16e02f0acdc56e05f,2026-09-16T15:48:08+00:00,AI,Claude_Code,44,31,7,False,True,False,False,"Reflect live Arc mainnet across README, landing page, and docs
+
+Chain badges, SEO metadata, deployed-contracts tables, and FAQ copy
+across the README, landing page, /docs, /privacy, and /terms all still
+described Arc as testnet-only or ""coming soon."" Updated everywhere to
+Ethereum + Base + Arc now that it's actually live, including the real
+deployed contract addresses and an honest note that Arc contracts aren't
+source-verified anywhere yet (no confirmed mainnet Blockscout API exists).
+
+Also fixed a stale /docs FAQ claiming AccessControl ownership detection
+wasn't built yet — it shipped in v1.7.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,2b200c4634e8392756e24299797f59f33c5ef5b1,2026-09-16T14:50:11+00:00,AI,Claude_Code,823,74,27,False,False,False,False,"Migrate Arc from testnet to mainnet, deploy and verify contracts
+
+Chain ID, RPC, and explorer swapped to Arc mainnet values (chain 5042),
+confirmed directly against Circle's own docs rather than third-party
+sources — one blog had the right chain ID but a wrong RPC URL. Alchemy's
+arc-mainnet RPC/Prices API endpoints confirmed live.
+
+SalvageRecoveryRouter and SalvageBatchWrapper deployed to Arc mainnet;
+both independently verified via direct RPC reads (bytecode, owner(),
+protocolFeeRecipient(), wrapper's router() pointer) before wiring their
+addresses into the app.
+
+Arc's ABI-verification path (scanner.ts) fails closed rather than
+guessing a mainnet Arcscan URL — no confirmed Blockscout-compatible
+mainnet endpoint exists yet, so Arc contract scans honestly report
+""not verified"" until one does.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,437105eee117d4f61ef8434b59e5943e24b744c7,2026-09-10T18:38:20+00:00,AI,Claude_Code,576,50,11,False,False,False,False,"Detect mis-sends to DEX pools/routers, add permissionless skim() recovery
+
+Did I Lose Tokens? now flags transfers sent directly to known Uniswap V2
+pools/routers, not just to a token's own contract. Pools are verified via
+CREATE2 address recomputation against trusted factory bytecode (not name-
+matching), so a permissionless skim() recovery button only ever appears
+for cryptographically confirmed pools, scoped to the victim-flow claim
+panel only.
+
+Verified live on Base: a real direct WETH transfer to the WETH/USDC pool
+is correctly detected end-to-end through /api/victim-scan, with
+recipientKind/dexName/permissionlessRescue all populating from real
+on-chain data.
+
+Updates README and landing page FAQ to describe the new detection +
+recovery path.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,4ddbbeb88719ca54a38292dbe1c5dfd45b50c88b,2026-09-10T01:35:02+00:00,AI,Claude_Code,2,2,1,False,True,False,False,"Fix explorer link showing ""Basescan"" for Arc scan results
+
+ScanResultCard's two explorer-link buttons keyed off chainLabel ===
+'Ethereum' (a different pattern than the chain === 'eth' checks
+elsewhere), so it fell through to ""Basescan"" for every non-Ethereum
+chain including Arc. Missed by the earlier sweep since it searched
+for the chain-value pattern, not the already-computed display-label
+one - caught by the user spotting it live in the UI.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,33ed4a775af3bf99018e40a116c6c4665354a574,2026-09-10T01:26:57+00:00,AI,Claude_Code,4,2,2,False,True,False,False,"Add Arc to the wallet's chain switcher
+
+ChainSwitcher.tsx used its own hardcoded { chainId, name, icon }
+array with numeric chain IDs, not the Chain string-literal type -
+completely different pattern from everywhere else, so it wasn't
+caught by the earlier Chain-type sweep. This is the wallet-network
+switcher (top of the dashboard), separate from the scan-target
+toggle already fixed.
+
+Uses Arc's real official brand icon, pulled directly from arc.io's
+own CDN, not a placeholder. Confirmed rendering and the asset
+actually serving before committing.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,37532bd7d76e6e1eb720304328cc62dc9cd0a74f,2026-09-10T01:19:09+00:00,AI,Claude_Code,6,6,4,False,True,False,False,"Fix hardcoded chain validation arrays blocking Arc requests
+
+Four API routes (/api/scan, /api/victim-scan, /api/claims,
+/api/blacklist-check) had their own literal ['eth', 'base'] checks
+that never got touched by the earlier Chain-type sweep since they
+don't match the Record<Chain,...> or union-type patterns that sweep
+searched for. Missed until testing the actual live scan pipeline
+against Arc caught it immediately - every Arc request was silently
+rejected as ""Invalid chain"" regardless of everything else being
+wired correctly.
+
+Verified live against the real Arc Testnet Router and mock vault
+through the actual /api/scan endpoint after the fix - full pipeline
+now works end to end (Arcscan verification, rescue-function
+detection, triage) exactly as it does for eth/base.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,d6cc2a97d3423b1be9842e10d331675c6a079cf5,2026-09-10T00:58:24+00:00,AI,Claude_Code,1344,48,36,False,False,False,False,"Wire Arc Testnet support across the app
+
+Adds 'arc' as a third chain end to end: scanner.ts now routes ABI/
+verification lookups to Arcscan since Arc isn't in Etherscan's V2
+chainlist (confirmed directly), a custom viem chain definition since
+Arc is too new for viem/chains, wallet config, chain selector UI, and
+explorer/chain-name handling across every chain-aware surface in the
+app (~16 files).
+
+Backed by real verification, not just typechecks: contracts deployed
+to Arc Testnet with production-matching config, verified on Arcscan,
+and a full register -> send -> settle run against real Arc
+infrastructure with every balance independently confirmed on-chain -
+Arc's own docs warn local EVM simulators can't reproduce its actual
+behavior, so this was tested live rather than trusted from Hardhat's
+local network.
+
+Uses testnet values (chain ID, contract addresses) as scaffolding,
+clearly marked, pending Arc's mainnet launch on Sept 16.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/2themoom/salvage,415151b04d42cca12dcd9cab8fe59412b6e3feee,2026-08-23T22:40:50+00:00,Human,,165,4,5,False,False,False,False,"Add AccessControl ownership detection for role-based contracts
+
+The owner panel only recognized plain Ownable contracts before -
+AccessControl has no single owner() to resolve, so nothing appeared
+even for a wallet holding the relevant role. Now the scanner collects
+every role-constant getter it can find in the ABI (DEFAULT_ADMIN_ROLE
+first, falling back to any other _ROLE the contract declares), and a
+new AccessControlOwnerGate checks each one live against the connected
+wallet via hasRole() once it connects. A match renders the exact same
+owner panel an Ownable contract gets - same trust model, same Send
+button, no separate path.
+
+Verified with unit tests covering real ABI edge cases, plus a live
+check against a real 5-role OpenZeppelin TimelockController on
+mainnet. Also updated the README for the Send button feature from
+last session, which never got documented."
+https://www.github.com/2themoom/salvage,939a2cbfc7cbbb5b6b27144bb65a71ca5fb11354,2026-08-22T20:39:26+00:00,Human,,720,8,13,False,True,False,False,"Add in-app rescue execution: a Send button on the owner panel
+
+Fires the same decoded calldata the Copy Raw Calldata button already
+produces directly via sendTransaction, so recovery no longer requires
+leaving Salvage to paste it into Etherscan. Distinguishes a rejected
+send from a broadcast-but-reverted one (checked via receipt status),
+since a call into a contract Salvage doesn't audit can fail either way.
+
+Verified two ways: a mock Hardhat test proving the mechanism (calldata
+built the same way the frontend builds it correctly funds the claim
+receiver and settles with the right split; a non-owner sending the
+same calldata cannot pull the funds), and a live end-to-end run on
+Base mainnet against a verified mock contract - Register, real Send,
+Settle, independently confirmed on-chain.
+
+Also fixed a latent flakiness in the routers expired-signature test
+(compared wall-clock time instead of the chains own clock), and gave
+MockERC20 real Transfer events on mint/transfer - without them, its
+balances are invisible to Alchemy-style indexers that discover ERC-20
+holdings via event logs rather than raw state, which is what blocked
+the live verification until fixed."
+https://www.github.com/2themoom/salvage,c8274118c8c4434a09e2e06e255b7d536bb53a6b,2026-08-22T16:44:05+00:00,Human,,8,0,1,False,False,False,False,"Add 32x32 SVG icon for Etherscan token-update submission
+
+Same brand mark as src/app/icon.svg, just declared at the exact
+dimensions Etherscan's form requires instead of 52x52."
+https://www.github.com/2themoom/salvage,d087c5f2e98861c8fe0aad10b41b892a5dc905d1,2026-08-06T22:29:14+00:00,Human,,3,7,3,False,False,False,False,"Stop tracking build-artifact files that churn on every dev/build run
+
+tsconfig.tsbuildinfo (TS incremental cache) and next-env.d.ts (rewritten
+differently by Next/Turbopack depending on dev vs build) add noise, not
+real changes, to every commit that touches them."
+https://www.github.com/2themoom/salvage,107d0fb50bb0182dd7baee101359a9bd354d6fd2,2026-08-06T22:18:16+00:00,Human,,340,10,9,False,False,False,False,"Add ENS/Basename/Farcaster reverse-lookup for contact discovery
+
+Resolves a scanned contract's owner/deployer, and any wallet searched
+by someone other than its own connected owner, to a human identity —
+turns the outreach template from a dead end into an actual contact
+path. ENS + Farcaster confirmed working live; Basename implemented
+per ENSIP-19 but reverts at the protocol level for every account
+tested right now, documented honestly in the README."
+https://www.github.com/2themoom/salvage,5a667e88de45b83f9c3173831378dc28571fc7d6,2026-07-29T16:01:40+00:00,Human,,0,0,1,False,True,False,False,Fix OG image dot color to match the canonical monochrome sonar mark
+https://www.github.com/2themoom/salvage,a107937773a94c45b6f442960552ca0870edb4ca,2026-07-28T21:23:33+00:00,Human,,4,4,1,False,False,False,False,"Update README for the Chrome Web Store launch
+
+Extension is live now, not pending review - updates the feature
+description, repo layout note, and moves it from In progress to
+Shipped v1.4 in the roadmap."
+https://www.github.com/2themoom/salvage,33a8277b4c253d66373008e394a6a4727b9dcaff,2026-07-28T21:02:46+00:00,Human,,25,7,3,False,False,False,False,"Chip-style link in the warning bubble, center the popup on mobile
+
+Underlined Check it on Salvage link is now a chip matching the rest
+of the app's link style. Also centers the toolbar popup on hosts that
+render it as a full-height panel (e.g. Kiwi Browser) instead of pinning
+it to the top-left. Bumps to v1.0.1 for the Chrome Web Store update."
+https://www.github.com/2themoom/salvage,1ceb040d9a7ea04d44aadeaa773eb40cec7718ee,2026-07-28T05:44:58+00:00,Human,,295,16,8,False,True,False,False,"Block settlement into blacklisted recipients, plus small doc fixes
+
+settle() reverts entirely if any one payout leg is blacklisted by the
+token issuer, permanently stranding funds - checks victim/finder/protocol
+before offering Settle and hides it if blocked. Also documents this in the
+README, adds a FAQ entry, and fixes the stale $220K/10-10-tests figures."
+https://www.github.com/2themoom/salvage,6976e9ba1bb003609ea3cfe05c37348416605f89,2026-07-27T01:20:48+00:00,Human,,18,8,2,False,True,False,False,"Fix finder registration rejecting smart-wallet signatures
+
+Same bug as the mini-app: plain viem verifyMessage() only supports EOAs.
+Any finder connected via a smart contract wallet got a false Invalid
+signature on every registration attempt."
+https://www.github.com/2themoom/salvage,84747cff07e4d404ce12dac21750b81e5d253f91,2026-07-26T02:34:41+00:00,Human,,4,4,2,False,False,False,False,Chip-style links on Privacy and Terms pages
+https://www.github.com/2themoom/salvage,ea2f83d9cb9d7b00a2f6c34366b28f9f9d72db83,2026-07-25T23:38:40+00:00,Human,,183,2,7,False,True,False,False,"Add Terms of Service, rate-limit the receipt route, update roadmap
+
+/api/receipt/[type] was the one image route with no rate limiting - exactly
+what gets hammered by social-preview crawlers once receipts are shared
+publicly. Terms of Service covers no guarantee of recovery, the fixed
+non-negotiable fee schedule, finder priority, and that Salvage never
+custodies funds or controls outcomes - linked from every footer. Roadmap
+gains Mini App batch settlement, AccessControl detection, and
+multisig/timelock-aware triage: a Gnosis Safe as owner now reads as
+needing signer coordination instead of a flat verdict."
+https://www.github.com/2themoom/salvage,aa4e0e478d300c0374b2a43d1cd096c2f83a2742,2026-07-22T23:06:23+00:00,Human,,6,3,1,False,False,False,False,"Require a victim address on GET /api/claims
+
+Without it the endpoint returned the 50 most recent claims across all
+victims, unfiltered — nothing in the app calls it that way, so this
+closes an easy full-registry-scrape path at no cost to real usage."
+https://www.github.com/2themoom/salvage,c33de33a6778dde0d2d6c9a63b1d368924819513,2026-07-22T22:31:30+00:00,Human,,52,40,10,False,False,False,False,"Replace tx/contract reference links and Share triggers with chips
+
+Adds .chip-link (+ settled/on-dark variants) and .chip-btn, applied
+across claim/find cards, /recoveries, /find, and the landing footer's
+Router links, so all these small action/reference elements share one
+consistent pill style instead of plain colored text."
+https://www.github.com/2themoom/salvage,bfba20d5d2af6085d9748da2c087c786ad9a928f,2026-07-22T22:02:05+00:00,Human,,428,3,4,False,False,False,False,"Replace the GitHub-redirect Docs link with a real in-app docs page
+
+Adds /docs covering the recovery flow, fee schedule, every feature,
+security model, deployed contracts, and FAQ. Links (TOC, contract
+addresses, support) use a consistent chip style instead of raw
+underlined text."
+https://www.github.com/2themoom/salvage,d8f85796d6f904b5e0c99e5d2359812e3e021065,2026-07-21T20:01:58+00:00,Human,,211,4,6,False,False,False,False,"Add a recoveries history page with per-item share receipts
+
+salvage_claims lacked a recipient_contract column, so past recoveries
+couldn't show their contract. Added it, populate going forward, and
+degrade gracefully for old rows. New /recoveries mirrors /finds."
+https://www.github.com/2themoom/salvage,378d730bf7b506a661973a31ebb873fc1e3927f6,2026-07-21T16:35:35+00:00,Human,,137,33,5,False,False,False,False,"Replace share-page navigation with an in-place popover
+
+window.open() after an awaited navigator.share() gets silently
+blocked by desktop popup blockers. New popover avoids navigation
+entirely: shows the card, copies the image to clipboard, and offers
+one-click Share on X / Farcaster."
+https://www.github.com/2themoom/salvage,ef7c3f28b12149678d15cb32516119def9defd74,2026-07-21T16:02:50+00:00,Human,,87,3,2,False,True,False,False,"Add a visual receipt preview page, fix desktop share responsiveness
+
+Share pointed at the raw image URL directly -- unpredictable on some
+desktop share targets, no visible feedback either. New /receipt/[type]
+page shows the card, sets it as the OG image, links to the homepage.
+Falls back to opening this page when navigator.share is unavailable."
+https://www.github.com/2themoom/salvage,45965b9dc4ae5a1a1715ebf0456cacf17b2cbe4b,2026-07-21T15:37:56+00:00,Human,,7,1,1,False,False,False,False,"Show the find-registered Share button for pending finds too
+
+The button only checked claimStatus === registered_for_you (the
+on-chain claim state), missing pending -- which is where a find sits
+until an on-chain claim is separately registered. Every row on /finds
+already represents a registered find, so both states should show it."
+https://www.github.com/2themoom/salvage,e50c407bb87f82b7b671e2b8e2de8f3766544273,2026-07-21T15:22:10+00:00,Human,,93,25,1,False,False,False,False,"Surface newly-settled finds to finders on their next visit
+
+Finders are rarely online when their find settles. Welcome-back panel
+now tracks seen findKeys per wallet and highlights new settlements."
+https://www.github.com/2themoom/salvage,6ce1b68aaf90858827e92a9658cf440c4b59741e,2026-07-21T15:21:39+00:00,Human,,292,1,4,False,False,False,False,"Add shareable receipt cards for find registration and settlement
+
+New /api/receipt/[type] route renders a shareable image via next/og --
+find registration and settlement (victim/finder framing differ). Wired
+into FinderFindCard, RecoveryClaimPanel, and OwnerClaimPanel."
+https://www.github.com/2themoom/salvage,974db739dc65ce9eb25d85f31d4a27e799c7a194,2026-07-21T15:21:27+00:00,Human,,102,20,3,False,False,False,False,"Deepen the finder earnings panel: full timeline, earned $, lifetime totals
+
+Only one tx link showed before (dropping the other), no earned $, no
+lifetime totals. All three now shown, computed from data already in memory."
+https://www.github.com/2themoom/salvage,344a0db6b6d582f4fc1360c2762eaa23f20a80b7,2026-07-21T05:35:44+00:00,Human,,25,4,3,False,False,False,False,"Number Recent Activity rows and paginate the finds page
+
+Matches Leaderboard's existing numbering (kept the type emoji too).
+Finds page had no pagination at all -- now capped at 5 per page."
+https://www.github.com/2themoom/salvage,a1509c571742669fa12dd3d23daf356fbc53ecff,2026-07-19T21:51:24+00:00,Human,,41,9,1,False,False,False,False,"Pad gas estimates for batch register/settle transactions
+
+batchRegisterClaims/batchSettle had no explicit gas parameter, relying
+entirely on the wallet's default estimate/buffer. Per-item cost varies
+widely (skipped item vs. full CREATE2 deploy + transfers), so a batch
+where every item hits the expensive path can starve whichever item
+runs last -- observed live on Base, where the 5th of 5 claims in a
+settle batch reverted with out-of-gas while the first 4 succeeded.
+Now estimates gas explicitly and pads it +30%, falling back to the
+wallet default if estimation itself fails."
+https://www.github.com/2themoom/salvage,cebaacb714d7b9c071b9441c519d781d124df972,2026-07-19T20:50:09+00:00,Human,,33,0,1,False,False,False,False,"Add the SalvageRecoveryRouter ownership-transfer script
+
+One-off script used to migrate the router owner role from the deployer
+key to a SafePal hardware wallet on both chains, completed 2026-07-19.
+Kept as a historical record of how the transfer was done, same as
+deployRouter.ts documents the original deployment."
+https://www.github.com/2themoom/salvage,efa6ef0044175398e765dba108e2f2a8badc62a0,2026-07-19T20:47:03+00:00,Human,,22,0,1,False,False,False,False,"Disclose the Chrome extension's behavior in the privacy policy
+
+The policy never mentioned that content.js watches every text field on
+every page for address patterns before sending a match to our own API.
+Needed before Chrome Web Store review, which scrutinizes the
+<all_urls> + host_permissions combination closely."
+https://www.github.com/2themoom/salvage,5ee69b108ae156fbcd40d4ae090e62333e8d9c99,2026-07-19T19:21:35+00:00,Human,,21,4,1,False,False,False,False,"Document the unpacked-load path issue in the extension README
+
+Loading unpacked straight from this repo path caused Chrome to
+intermittently fail fetching the service worker script (status code 3),
+with popup delays from seconds to minutes before being flagged crashed.
+Traced to something blocking Chrome file access to that specific path,
+not the code -- a copy at an unrelated path loaded instantly and stayed
+fast. Doesn't affect published/Web-Store users, only local unpacked dev."
+https://www.github.com/2themoom/salvage,7d680218fc37cc85291f495acd89705bf3ca69f3,2026-07-19T19:21:25+00:00,Human,,13,2,1,False,False,False,False,"Bound the whole checkAddress operation, not just the fetch
+
+A hung chrome.storage.session call wasn't covered by the fetch timeout,
+so it could still hold the message channel open indefinitely and get
+the service worker flagged unresponsive. Race the whole operation
+against a 9s ceiling instead. Also evict stale cache entries on read
+so chrome.storage.session doesn't grow unbounded over a long session."
+https://www.github.com/2themoom/salvage,d6625209fd3c0618cd029053dc6b877e9e47659d,2026-07-19T12:31:37+00:00,Human,,4,1,1,False,False,False,False,"Bound the is-contract fetch with an 8s timeout
+
+The fetch to usesalvage.xyz had no timeout, so a hung request could
+hold the message channel open indefinitely -- symptom matched: the
+popup/content-script warning would sit unresponsive, and the service
+worker was reported as crashed shortly after."
+https://www.github.com/2themoom/salvage,7a61dd6f595b2c49a0e0ac8db9b7e8e5deb2f9ea,2026-07-19T12:31:16+00:00,Human,,29,2,3,False,False,False,False,"Add rate limiting to finder-status, owner-status, and stats endpoints
+
+These were the last three of eleven API routes without Upstash rate
+limiting, left unthrottled while every other route already had it.
+finder-status and owner-status run real per-wallet Supabase queries
+(finder-status loops one per stranded token) with no cost/DoS guard."
+https://www.github.com/2themoom/salvage,118e479a5052509439f5fe24d599c9383a67b333,2026-07-19T12:13:06+00:00,Human,,11,4,1,False,False,False,False,"Harden the background service worker against storage and messaging failures
+
+Wrap the cache read in try/catch so a storage failure falls through to a
+live check instead of hanging, and catch the sendResponse promise so an
+unhandled rejection cant leave the popup stuck on Checking...."
+https://www.github.com/2themoom/salvage,9ca46ca0bd4f1ff1696e6a6bd62e3bede3b7bf2b,2026-07-19T11:59:25+00:00,Human,,10,1,1,False,False,False,False,"Don't flag EIP-7702 delegated EOAs as contracts in isContract()
+
+eth_getCode returns non-empty bytecode for wallets that have an active
+EIP-7702 delegation (Pectra), causing the extension and scanner to
+misreport ordinary user wallets as contracts. Detect the reserved
+0xef0100 delegation designator and treat it as an EOA."
+https://www.github.com/2themoom/salvage,0cd440494f058e7a93c8a44b907bc014ef00d53b,2026-07-17T00:45:15+00:00,Human,,6,0,1,False,False,False,False,Document the Chrome extension in the README with install instructions
+https://www.github.com/2themoom/salvage,9fa9a727d7c50f129547390187ffd40ad807d19f,2026-07-16T22:51:04+00:00,Human,,10,1,2,False,False,False,False,Add keyboard shortcut to the extension and document the wallet-popup coverage gap
+https://www.github.com/2themoom/salvage,42c55ce7e2ffad6946e05e8464796f4a1a15dfaf,2026-07-16T22:22:01+00:00,Human,,387,0,11,False,False,False,False,Add roadmap entries and ship the Chrome extension MVP for pre-send contract warnings
+https://www.github.com/2themoom/salvage,b2fba8e5da81cdc70a472a454f4e2d12f3cfbd5a,2026-07-16T21:19:59+00:00,Human,,2,1,1,False,True,False,False,Fix CORS allow-list still pointing at the retired mini-app domain
+https://www.github.com/2themoom/salvage,2e0216ddb44157b86eb574955495b8994e283088,2026-07-16T07:44:08+00:00,Human,,18,0,2,False,False,False,False,Add rate limiting to the leaderboard and activity endpoints
+https://www.github.com/2themoom/salvage,655260531004087e11812070737cd16744859b3f,2026-07-16T07:18:17+00:00,Human,,2,2,1,False,False,False,False,"Relabel hero preview card as an example, not a live scan"
+https://www.github.com/2themoom/salvage,7cbd3fc568b5598f013195aa6f7e658770af9b19,2026-07-16T07:02:36+00:00,Human,,78,0,2,False,False,False,False,Add FAQ section to the landing page addressing trust objections
+https://www.github.com/2themoom/salvage,7dc53e22db87c424ab1e9b76e95edfcae4de0cf6,2026-07-16T06:44:20+00:00,Human,,1,0,1,False,False,False,False,Add in-app rescue execution to the roadmap
+https://www.github.com/2themoom/salvage,253c9423034163768452a05f6465d0b05ef0af78,2026-07-15T20:51:11+00:00,Human,,6,1,1,False,False,False,False,Show both chains' router contract links in the landing footer
+https://www.github.com/2themoom/salvage,de64cdb682bf3b454ce69a8483cda9fff9ddd6c5,2026-07-15T20:26:06+00:00,Human,,13,11,1,False,True,False,False,Fix stale landing page copy referencing the legacy fee contract and inaccurate 90-day recovery deadline; fix dead footer placeholder links
+https://www.github.com/2themoom/salvage,4257be0a4bc1a4f752c4f6c426563f3e47512efb,2026-07-15T20:13:13+00:00,Human,,134,101,4,False,True,False,False,Replace load-more with true fixed-size paged navigation for Leaderboard and Recent Activity; fill the idle scan state with a How It Works section
+https://www.github.com/2themoom/salvage,b84f348e96533596f403e2ffb1c48054629f9300,2026-07-15T19:37:21+00:00,Human,,42,3,3,False,False,False,False,Add a premium pill-styled BackLink component; add missing Back to Dashboard button on Your Findings
+https://www.github.com/2themoom/salvage,823a4f316525cc71aebd14e6f0a0bc8044256bc2,2026-07-15T19:24:22+00:00,Human,,45,15,2,False,True,False,False,"Give the finder-facing pages a proper dashboard nav shell instead of the bare legal-page layout, fix the find-detail back link to return to Your Findings instead of dead-ending at the dashboard"
+https://www.github.com/2themoom/salvage,d3eaa6605b7036f52eecc9220bffe57c0d87284a,2026-07-15T19:08:41+00:00,Human,,359,173,6,False,False,False,False,Show a finder-findings summary on the dashboard with a dedicated My Findings page; paginate Recent Activity and resize Leaderboard paging to 10
+https://www.github.com/2themoom/salvage,881848397203906b1af8ef16b20a0642240a3613,2026-07-15T09:51:52+00:00,Human,,1774,24,22,False,False,False,False,"Add SalvageBatchWrapper for true single-tx batch register/settle, verified end-to-end against real deployed contracts; add live polling for externally-changed claim/funding state; document in README"
+https://www.github.com/2themoom/salvage,831d15638bad94b9cf3d30e0661d5f5c752f4b5e,2026-07-15T03:16:49+00:00,Human,,22,0,2,False,False,False,False,Add a collapse/show-less control back down once a stranded-token list has been expanded
+https://www.github.com/2themoom/salvage,9803e2d954294b3b89a84e6e5537231921c096b0,2026-07-15T03:05:53+00:00,Human,,55,7,3,False,True,False,False,Fix Recent Activity showing the stranded token instead of the found contract's identity; add incremental show-more for long stranded-token lists
+https://www.github.com/2themoom/salvage,0303f2f465535ab7dd400d057eb21922010b4c16,2026-07-15T02:43:35+00:00,Human,,74,24,6,False,True,False,False,"Fix scanner spam filter dropping real priced tokens; fix finder registration to read as claiming the scanned contract, not tokens found inside it"
+https://www.github.com/2themoom/salvage,0fa5aa34d78bc7f0bc9689ca3606f20a19a8e042,2026-07-14T13:47:29+00:00,Human,,47,16,2,False,False,False,False,Paginate the leaderboard 15 at a time instead of show-all
+https://www.github.com/2themoom/salvage,902fdcb7dc51cbfac821af7a4d0d7334c8458d67,2026-07-14T13:30:39+00:00,Human,,280,126,6,False,False,False,False,"Capture and display the full stranded-token list for a registered find, with per-token claim status and a polished detail page"
+https://www.github.com/2themoom/salvage,59abe6bcb9b16e259aae0d02ad81f4a65058b469,2026-07-14T12:45:54+00:00,Human,,228,43,3,False,False,False,False,Add a dedicated find detail page so finders can check status without triggering a rescan
+https://www.github.com/2themoom/salvage,4c3f70af8e9b1828e948bd2b53d04dc97a5846a6,2026-07-14T09:13:15+00:00,Human,,29,14,1,False,False,False,False,Make finder-find rows in the proactive status panel actionable with a View Contract button
+https://www.github.com/2themoom/salvage,d2b6342ca468320a04507b5dec6b88433dac1884,2026-07-14T07:28:33+00:00,Human,,104,1,4,False,False,False,False,Add a network switcher to the dashboard nav with real Ethereum/Base logos
+https://www.github.com/2themoom/salvage,f1373a9cbc8118346aa89ae7640bcc6f3bd20c5d,2026-07-14T07:03:16+00:00,Human,,515,6,11,False,False,False,False,"Ship UI-orchestrated batch settlement with all-settled confirmation banner, verified end-to-end against real Router with mock tokens; add retry to on-chain claim verification for RPC propagation lag"
+https://www.github.com/2themoom/salvage,2997a2812e1777dc7dfce1ae028e3613d52849d1,2026-07-14T06:07:59+00:00,Human,,134,11,2,False,False,False,False,"Add UI-orchestrated batch register/settle for multi-token stranded contracts, restructure roadmap section"
+https://www.github.com/2themoom/salvage,21fb5931a7b3be1fa761d30236e54943757a5beb,2026-07-13T22:11:03+00:00,Human,,3,3,1,False,False,False,False,Mark legacy SalvageFeeContract as deprecated/unused in the README
+https://www.github.com/2themoom/salvage,11d8f6307dd7ee806a9f0dd9e7c99f323823d8a4,2026-07-13T21:31:44+00:00,Human,,1619,818,5,False,False,False,False,"Upgrade Next.js to 16.2.10, resolving all remaining Next.js security advisories"
+https://www.github.com/2themoom/salvage,3fcda6722539e6c688f77abae22337bd7e205e5c,2026-07-13T20:53:15+00:00,Human,,366,285,2,False,False,False,False,"Bump Next.js to 14.2.35, resolving the critical cache-poisoning/auth-bypass advisory chain"
+https://www.github.com/2themoom/salvage,52f7b0b9598d9be7bf222454973c2f0bf6868faf,2026-07-13T20:28:19+00:00,Human,,198,134,7,False,False,False,False,"Verify claims on-chain before recording them, remove unauthenticated leaderboard write endpoint, add rate limiting to finds/claims"
+https://www.github.com/2themoom/salvage,85432934343888547230936a4a62255ccd9dfc0a,2026-07-13T19:47:20+00:00,Human,,18,7,1,False,False,False,False,"Make disconnect state sticky until explicit reconnect, fixing MetaMask disconnect getting stuck on Requesting Signature"
+https://www.github.com/2themoom/salvage,0b776a80acd2ca4de726e01172528918b8b70849,2026-07-13T19:02:09+00:00,Human,,55,12,4,False,True,False,False,"Use real wallet brand icons, fix disconnect getting stuck on Requesting Signature"
+https://www.github.com/2themoom/salvage,42f2238717b283e93771b813a38a66e0c6ee0513,2026-07-13T18:17:59+00:00,Human,,63,2,3,False,False,False,False,Add WalletConnect connector for mobile browser users without an extension
+https://www.github.com/2themoom/salvage,761ccfd18dfef7afb25b2caa9916375b8bc8e293,2026-07-13T17:48:17+00:00,Human,,53,28,2,False,False,False,False,"Merge leaderboard/activity into tabbed panel, add per-chain stranded totals"
+https://www.github.com/2themoom/salvage,83d8dda2d775588e6ac4c1ad27060b4cb4e1a835,2026-07-13T05:31:50+00:00,Human,,6,1,1,False,False,False,False,Document the finder persona in the proactive status section
+https://www.github.com/2themoom/salvage,be169f5d5bac5560b00edeb3eaa9743b32c076a1,2026-07-13T05:27:23+00:00,Human,,170,18,4,False,True,False,False,Add finder status to the proactive dashboard panel; fix lossTxHash mismatch between off-chain finds and on-chain claims
+https://www.github.com/2themoom/salvage,89c30aea1246ae415904a0693c8560d25ee2dd26,2026-07-13T04:37:46+00:00,Human,,289,0,4,False,False,False,False,Surface owned contracts and pending claims proactively when a wallet connects
+https://www.github.com/2themoom/salvage,bfd33479aa686c34abdfd61afce4ce3bc2e79ea3,2026-07-12T22:29:34+00:00,Human,,179,1,2,False,False,False,False,Add Recent Activity feed to the dashboard
+https://www.github.com/2themoom/salvage,8b460810bf0422d49a03116c045aa667f28023e5,2026-07-12T22:04:11+00:00,Human,,162,9,6,False,False,False,False,Add Upstash-backed rate limiting and expire stale finder registrations after 90 days
+https://www.github.com/2themoom/salvage,db10547a1f313989c33723c0d52540ea5c5aaff8,2026-07-12T20:42:20+00:00,Human,,1,1,1,False,False,False,False,"Update README: fee contract now verified on all four platforms, matching the router"
+https://www.github.com/2themoom/salvage,a64500c05f5280727efcff23aca8e01a026864ec,2026-07-12T19:35:01+00:00,Human,,2,0,1,False,False,False,False,Add Talent Protocol project-ownership verification meta tag
+https://www.github.com/2themoom/salvage,42b25f4076c1c85236f6fcbfd38a6ada50fc3c8a,2026-07-12T19:22:14+00:00,Human,,181,11,5,False,False,False,False,Add decoded rescue-calldata preview to the owner recovery panel
+https://www.github.com/2themoom/salvage,15a1127614116a65868faee4dc56a7937c88517d,2026-07-10T08:02:09+00:00,Human,,73,19,3,False,False,False,False,Add CORS support to /api/finds and /api/claims for the Mini App's client-side requests
+https://www.github.com/2themoom/salvage,8e156897297123bc253656b8e70fd35c735116e5,2026-07-10T03:34:02+00:00,Human,,4,0,1,False,False,False,False,Add Base Dashboard domain-ownership verification meta tag
+https://www.github.com/2themoom/salvage,c1ad40e70ccc283bb1965c7f0ee195ad62598e2c,2026-07-09T19:53:35+00:00,Human,,5,2,1,False,False,False,False,"Update README: owner-gated recovery shipped, precise finder abuse-case caveat"
+https://www.github.com/2themoom/salvage,f9dd97c69ff63ad9bad58329673ba7603dd00410,2026-07-09T19:47:43+00:00,Human,,94,21,6,False,True,False,False,"Add wallet-rejection jiggle feedback, fix dead leaderboard links, redesign dashboard footer"
+https://www.github.com/2themoom/salvage,89808e90abb578e9b91914a7bdfcfec7b290dea8,2026-07-09T19:27:09+00:00,Human,,63,399,7,False,True,False,False,"Fix outreach fee math, add owner deep-link, retire the paid Recovery Guide"
+https://www.github.com/2themoom/salvage,19a4b40aa8d81ee013fb326a155ca8cdedcbd3f3,2026-07-09T18:46:58+00:00,Human,,416,0,5,False,False,False,False,Wire owner-gated on-chain recovery into the Contract Scanner finder flow
+https://www.github.com/2themoom/salvage,7027f7cd5c33648de5aa6dc90b21fd286ce2fa4c,2026-07-09T18:00:40+00:00,Human,,64,23,2,False,False,False,False,Wire registered finder into on-chain claim payout; reject self-registration as finder
+https://www.github.com/2themoom/salvage,b69ab0c4e33fdd864b611027a4b629aebc7e151e,2026-07-09T12:12:27+00:00,Human,,231,1,8,False,False,False,False,"Add privacy policy, sitemap, robots.txt, and Google Search Console verification"
+https://www.github.com/2themoom/salvage,420b099edaabef0afc5bff7554c30e19e74e4c2f,2026-07-09T11:53:45+00:00,Human,,99,55,3,False,False,False,False,Clarify finder-flow and triage caveats in README; replace landing page live-stats with real on-chain proof + honest note
+https://www.github.com/2themoom/salvage,e3a9bf93174aed35475eca0268d06ede732adaa3,2026-07-06T12:06:31+00:00,Human,,36,1,7,False,False,False,False,"Add favicon, apple touch icon, and web app manifest"
+https://www.github.com/2themoom/salvage,c627b6e4d7b34debdbf4fd6335d127a1e9eb8104,2026-07-05T12:31:41+00:00,Human,,96,72,3,False,True,False,False,Fix contract-scan finder registration: gasless signMessage to Supabase instead of reverting on-chain call
+https://www.github.com/2themoom/salvage,6bdcc26992fca9066d4014e6077dda778a8a6962,2026-07-05T12:07:47+00:00,Human,,64,52,2,False,False,False,False,Decouple finder registration from on-chain claim state
+https://www.github.com/2themoom/salvage,4559c66da7b0498b0aefc325b1985990d48d6682,2026-07-05T11:41:10+00:00,Human,,37,1,3,False,False,False,False,Persist finder registration state across scans via findKey lookup
+https://www.github.com/2themoom/salvage,a709eb420964d7b8cdfe9f813d3d57a1295c731d,2026-07-05T05:12:27+00:00,Human,,8,1,1,False,True,False,False,Add Base App Mini App to README; fix typos
+https://www.github.com/2themoom/salvage,a13a7186e0a0c276453b788bf3aac9ec66859933,2026-07-05T04:45:39+00:00,Human,,18,2,1,False,True,False,False,Fix settled claim showing as awaiting deposit in victim report
+https://www.github.com/2themoom/salvage,be98633336ae6e91788df70f22ab66c3afe848d8,2026-07-05T02:31:56+00:00,Human,,64,0,1,False,True,False,False,Fix notify.ts lazy Supabase client init
+https://www.github.com/2themoom/salvage,482a9483c80358f947e9614babde05b902b9b0f5,2026-07-05T02:11:19+00:00,Human,,628,0,3,False,False,False,False,Add victim notification on finder claim registration
+https://www.github.com/2themoom/salvage,4b9f6119b233920b283a128ae1b6260ba6186733,2026-07-05T00:42:53+00:00,Human,,17,4,1,False,False,False,False,Add CORS headers to victim-scan for Mini App
+https://www.github.com/2themoom/salvage,4ce7c89aae0c7363bc8c4cd2f76efe10124949fb,2026-07-04T15:53:11+00:00,Human,,8,8,5,False,False,False,False,chore: point all URLs to usesalvage.xyz custom domain
+https://www.github.com/2themoom/salvage,d87182bbe3dccad8671b02a45c45a349959154ea,2026-07-04T12:34:11+00:00,Human,,1,4,1,True,True,False,False,fix: 429-retry + stablecoin floor + fail-fast pricing — scanner survives throttling (Alchemy PAYG)
+https://www.github.com/2themoom/salvage,cfb53eadf1bddbe558ccbc308c74bb674addf678,2026-07-04T12:18:40+00:00,Human,,5,2,2,False,True,False,False,debug: log discovery failure reason post-retry; fix: Salvage X handle salvage_xyz
+https://www.github.com/2themoom/salvage,d4c759d41c7522d099b6f1f5bd52fca78e2f1136,2026-07-04T11:49:06+00:00,Human,,65,39,1,True,True,False,False,fix: retry 429 rate-limits in token discovery — survives shared-tier throttling
+https://www.github.com/2themoom/salvage,e2f45a8d55beab2cc29ccd09d78ba950352da8ab,2026-07-04T11:34:06+00:00,Human,,7,1,1,False,False,False,False,debug: log discovery response status/error to pin the silent sweep failure
+https://www.github.com/2themoom/salvage,4d45a3ba28e05c98e9e2585e14e126cdcf1aa648,2026-07-04T07:24:29+00:00,Human,,26,12,2,True,True,False,False,"fix: fail-fast pricing with 8s timeout, retry only on 429 — sweep completes instead of timing out"
+https://www.github.com/2themoom/salvage,6f3246b0be47f9fcad4f8cd0a20b5156977bc410,2026-07-04T07:09:41+00:00,Human,,16,2,1,True,True,False,False,fix: stablecoin price floor + pricing-failure diagnostic — scan survives Prices API outage
+https://www.github.com/2themoom/salvage,3a1fa812d68af7db845b32486a3ee0e11bcf1c57,2026-07-04T00:28:59+00:00,Human,,39,10,1,True,True,False,False,"fix: role-aware earnings panel — founders see protocol revenue, users see their own recoveries"
+https://www.github.com/2themoom/salvage,f1e805a608ccb2180b49a62d2bdf6fa3e17a5705,2026-07-04T00:26:06+00:00,Human,,39,30,1,False,False,False,False,"docs: protocol-first framing, live-proof up top, badges header, vision section"
+https://www.github.com/2themoom/salvage,6d4f955a1df9b50cb321ea994cda24c9eb9275a9,2026-07-03T20:43:26+00:00,Human,,0,0,1,True,True,False,False,fix: real PNG OG image
+https://www.github.com/2themoom/salvage,951d65c1e96aabc66b09fea35cde3a557e71226b,2026-07-03T20:18:14+00:00,Human,,21,8,2,False,False,False,False,feat: OG image + updated launch metadata
+https://www.github.com/2themoom/salvage,a4d261c0fc528cd63d21b5bb339ee94df039f1f7,2026-07-03T19:46:03+00:00,Human,,16,13,2,True,True,False,False,"fix: show cents in stats (protocol fees), wire founder + landing recovered stats, functional nav"
+https://www.github.com/2themoom/salvage,f081a0f08bbd817dc3168f2bcd1256d04229cebc,2026-07-03T19:27:32+00:00,Human,,105,7,3,False,False,False,False,feat: recovered stats + settled-claim history in victim report (live from first recovery)
+https://www.github.com/2themoom/salvage,80b0dfac2e2a15a4afa263c29edefefbe2ef9430,2026-07-03T19:04:09+00:00,Human,,28,0,1,False,False,False,False,docs: live settlement proof + recovery flow diagram
+https://www.github.com/2themoom/salvage,fe5d654b05b004402404c2076004465ffc52d567,2026-07-03T18:31:17+00:00,Human,,55,1,2,False,False,False,False,feat: tx links after register/settle + claim status updates; first live settlement complete
+https://www.github.com/2themoom/salvage,31bfbeb6a9e48e522b1a7938d677cd4e2b8bce74,2026-07-03T14:26:28+00:00,Human,,15,6,3,True,True,False,False,fix: seed victim candidate set with known tokens; docs: roadmap + verifiable stranded-value claim
+https://www.github.com/2themoom/salvage,5f94ef56c8f59c52c83c73640336bb93b1a6c0d1,2026-07-03T04:25:00+00:00,Human,,2,1,1,False,False,False,False,test: temp panel gate for live settlement testing (?test=1)
+https://www.github.com/2themoom/salvage,75764f30786e8f9782dfa05a79ec25904e7a09f9,2026-07-03T03:57:57+00:00,Human,,217,20,4,True,True,False,False,"fix: restore victim calldata filter, finder registration flow, landing credit cleanup"
+https://www.github.com/2themoom/salvage,73372fb08b2571e2a82db737872635ba2477e58d,2026-07-03T03:12:28+00:00,Human,,104,0,1,False,False,False,False,"docs: README — product overview, deployed contracts, security model"
+https://www.github.com/2themoom/salvage,4e83d5909e834510bc97f8917dd8c33781c215be,2026-07-02T21:32:29+00:00,Human,,1,0,1,False,False,False,False,"feat: SalvageRecoveryRouter live on ETH mainnet — 0xD9A5...AC25, verified on Etherscan/Blockscout/Sourcify"
+https://www.github.com/2themoom/salvage,f1d6b315f281a4e9a06894bc303e4624c3672efe,2026-07-02T20:42:49+00:00,Human,,975,5,8,False,False,False,False,"feat: on-chain recovery flow — claim signing, receiver deposit, settle, claims registry"
+https://www.github.com/2themoom/salvage,c0380844c5c435e6c6ec4db755ea6b7caeb8614d,2026-07-02T20:22:23+00:00,Human,,1369,16,16,False,False,False,False,"feat: SalvageRecoveryRouter live on Base — 0x2240...aEdf, verified, 10/10 tests"
+https://www.github.com/2themoom/salvage,743cea21c03060f0d1bf09464087b68799966491,2026-07-02T11:22:05+00:00,Human,,148,41,4,False,False,False,False,feat: victim scan + leaderboard upsert + live stats API + pricing 429 resilience
+https://www.github.com/2themoom/salvage,776f7b109074cd287356901bc00b70d4187d72c6,2026-07-02T10:48:01+00:00,Human,,32,1,2,False,False,False,False,feat: scans auto-upsert to leaderboard — live values replace static seed
+https://www.github.com/2themoom/salvage,1bd1471925371208f4863582136e8bfbd215c117,2026-07-02T10:18:19+00:00,Human,,657,22,6,False,False,False,False,feat: victim scan (Did I Lose Tokens?) + guaranteed known-token pass + verified-token filter
+https://www.github.com/2themoom/salvage,a35e3c3ddf4678e30707c13a3e3d899e0b51b224,2026-07-02T04:21:57+00:00,Human,,90,74,2,True,True,False,False,"fix: paginate token balance discovery + price-first sweep pipeline, 60s scan timeout"
+https://www.github.com/2themoom/salvage,0be4f202b7ad3f0bff79da141e86360ea5e3f9ab,2026-07-02T04:11:41+00:00,Human,,16,8,1,True,True,False,False,fix: repeated symbols= params for Alchemy by-symbol pricing + by-address fallback for known tokens
+https://www.github.com/2themoom/salvage,fbc95eb03336d6c01adec2f7f8d9f820fa95db34,2026-07-01T23:59:41+00:00,Human,,9,2,3,True,True,False,False,"fix: kill Next.js data cache on external fetches, force-dynamic scan route, scan diagnostics"
+https://www.github.com/2themoom/salvage,43278d9507e450f7b268e04b6218122648327c10,2026-07-01T23:48:38+00:00,Human,,554,228,5,True,True,False,False,"fix: on-chain name resolution, storage-slot proxy detection, Etherscan backoff, token list collapse"
+https://www.github.com/2themoom/salvage,3db1c6804267ddce895a833462bc3e12e547c2e3,2026-07-01T03:42:03+00:00,Human,,775,146,6,False,False,False,False,"M5: register find on-chain, USDC guide unlock, outreach template generator"
+https://www.github.com/2themoom/salvage,b78b29bcec95d63dcee1f08fc3e4b5b6af27d7f0,2026-07-01T02:59:27+00:00,Human,,603,0,4,False,False,False,False,M4: SalvageFeeContract deployed on ETH mainnet — 0xd21c72FBE27B6Cd26A5DBf49148B7bA0a4CAed27 (same address both chains)
+https://www.github.com/2themoom/salvage,b84bc26e6f5067fe8acba1282cc15c24799f824a,2026-07-01T02:51:59+00:00,Human,,268,28,4,False,False,False,False,M3: live leaderboard from Supabase — merged manual seed + live indexer
+https://www.github.com/2themoom/salvage,69ec929c665d904829f1a50a816410e09237e272,2026-06-30T07:21:27+00:00,Human,,9,1,2,True,True,False,False,fix: exclude contracts-hardhat from Next.js tsconfig build
+https://www.github.com/2themoom/salvage,1b358828d0224c656fe6a88dfc4fb3f47c264f28,2026-06-30T07:17:43+00:00,Human,,5272,38,19,False,False,False,False,M4: SalvageFeeContract deployed on Base mainnet — 0xd21c72FBE27B6Cd26A5DBf49148B7bA0a4CAed27
+https://www.github.com/2themoom/salvage,a67f1ac6fe3e5d87c90df026b782458076cdba03,2026-06-30T06:02:30+00:00,Human,,3,2,3,True,True,False,False,fix: ES2020 target for BigInt + connector import fix for Vercel build
+https://www.github.com/2themoom/salvage,2c78826430139a19508f7a3ee97ee521c0a7e5c9,2026-06-30T05:52:36+00:00,Human,,379,30,7,False,False,False,False,feat: session persistence + sign message ownership verification
+https://www.github.com/2themoom/salvage,0ad68fa3e8541027d5a2a3eabbef6a8459a6c47e,2026-06-30T05:36:36+00:00,Human,,302,19,4,False,False,False,False,M2: real token sweep live —  found on first scan
+https://www.github.com/2themoom/salvage,e9d97e579008f1c560369c2f7c0305d0ade291bf,2026-06-30T04:00:46+00:00,Human,,7,7,1,True,True,False,False,fix: replace mock stats with live placeholders on landing page
+https://www.github.com/2themoom/salvage,d9a64e9585b9504b84939c116774bc97c1ca9e99,2026-06-29T23:45:42+00:00,Human,,14448,0,20,False,False,False,False,"M1: Initial scaffold — landing, dashboard, scan API, triage logic"

@@ -1,0 +1,639 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/51-shenn/sync-field,0ec25ff3d249286236551eefdad698cee5361f36,2026-06-20T23:24:06+00:00,Human,,8,5,1,False,False,False,False,docs: revise README for SyncField project overview
+https://www.github.com/51-shenn/sync-field,90b43c781292063c5a199dfe43af93a6276da830,2026-06-20T22:57:39+00:00,Human,,22,9,2,True,True,False,False,fix(project): delete related tasks and events when deleting project (#37)
+https://www.github.com/51-shenn/sync-field,14a6fa7b18f95244f81d4f9ff9007f8d8dcd2ef1,2026-06-20T22:57:01+00:00,Human,,22,9,2,True,True,False,False,fix(project): delete related tasks and events when deleting project
+https://www.github.com/51-shenn/sync-field,59cc905376b4bea3ce15a19c321ee267c6b3d7ce,2026-06-20T22:44:54+00:00,Human,,1,4,1,False,False,False,False,refactor(kanban): remove recent failure state and display logic (#36)
+https://www.github.com/51-shenn/sync-field,77f4735875e6bec96d33727a92d743b9ffd2015a,2026-06-20T22:44:05+00:00,Human,,1,4,1,False,False,False,False,refactor(kanban): remove recent failure state and display logic
+https://www.github.com/51-shenn/sync-field,fd9f02bb32b21d9473f2582f184f1f98026e6c22,2026-06-20T22:37:56+00:00,Human,,106,18,13,True,True,False,False,fix: kanban error messages (#35)
+https://www.github.com/51-shenn/sync-field,c6383bd34ced9188a1062bf7f291dd4f917cf2bc,2026-06-20T22:37:02+00:00,Human,,5,4,2,True,True,False,False,fix(kanban): delete task references and add dismiss failure button
+https://www.github.com/51-shenn/sync-field,477d8601bb1b4cff85ebe13fe8586e2277088eb3,2026-06-20T22:15:52+00:00,Human,,39,12,7,True,True,False,False,fix(db): rename site_reports.type to report_type and update rpc limit
+https://www.github.com/51-shenn/sync-field,e5fcd1e8c080ef8d4acd7f27e7b5e58494d4aaa3,2026-06-20T21:48:14+00:00,Human,,63,3,5,True,True,False,False,fix: detach task history before deletion
+https://www.github.com/51-shenn/sync-field,ef18c3b828c465a96352117fbea69bcb962cbebc,2026-06-20T21:42:10+00:00,Human,,5,35,1,True,True,False,False,fix: remove header notification control (#34)
+https://www.github.com/51-shenn/sync-field,e196289bb6f2f2352123f6857c533790ed466df2,2026-06-20T21:40:47+00:00,Human,,5,35,1,True,True,False,False,fix: remove header notification control
+https://www.github.com/51-shenn/sync-field,31af4bd0e45acdd1f568ef8a2203f42fc2860b7b,2026-06-20T21:34:58+00:00,Human,,241,12,6,True,True,False,False,fix: kanban board CRUD operations (#33)
+https://www.github.com/51-shenn/sync-field,07d817971d96cb0ba4bb3f2c3ca9e14d4621930b,2026-06-20T21:26:55+00:00,Human,,40,11,2,True,True,False,False,fix: guard kanban CRUD submissions
+https://www.github.com/51-shenn/sync-field,9921f4dd4074adde9ed9f72cafe53a901090534b,2026-06-20T21:16:12+00:00,Human,,201,1,4,True,True,False,False,fix: execute kanban commands in serverless API
+https://www.github.com/51-shenn/sync-field,e36da688b70a1e48a07fc54deeed9f628173b7ba,2026-06-20T21:05:23+00:00,Human,,1,1,1,True,True,False,False,fix: make Kanban create actions visible (#32)
+https://www.github.com/51-shenn/sync-field,f17d1d61275bd44ad12d92ec79364e93921c80d0,2026-06-20T21:00:17+00:00,Human,,1,1,1,True,True,False,False,fix: make kanban create actions visible
+https://www.github.com/51-shenn/sync-field,8dfad903f0a0c4049d344cc0ea95f18fb3b96c88,2026-06-20T18:43:43+00:00,Human,,0,0,0,True,True,False,False,fix: add create button for kanban task boards (#30) (#31)
+https://www.github.com/51-shenn/sync-field,eab601f1ea6dea65e2c1484e43909b33fc1c2b39,2026-06-20T18:18:42+00:00,Human,,542,145,4,True,True,False,False,fix: add create button for kanban task boards (#30)
+https://www.github.com/51-shenn/sync-field,0353e06d6d1085d2ee072547d0801f41af2f635a,2026-06-20T17:58:45+00:00,Human,,265,75,17,False,False,False,False,feat(tasks): add manual lock for tasks in LOCKED state (#29)
+https://www.github.com/51-shenn/sync-field,9154f62369f772d17221032849761ccf15e4cf0a,2026-06-20T17:57:49+00:00,Human,,265,75,17,False,False,False,False,feat(tasks): add manual lock for tasks in LOCKED state
+https://www.github.com/51-shenn/sync-field,a4da94fcebad5118aa566815ebd5ef156a31d79b,2026-06-20T17:05:52+00:00,Human,,542,145,4,False,False,False,False,"feat: improve search, filters, clear filter button, etc;"
+https://www.github.com/51-shenn/sync-field,2fdb6989341f09abce5d4b61892ac9eba88526e7,2026-06-20T15:38:48+00:00,Human,,16131,784,18,False,False,False,False,Calaweh (#27)
+https://www.github.com/51-shenn/sync-field,ce6285a18e4addf9e4e514f8db9010dadab26006,2026-06-20T15:37:24+00:00,Human,,346,200,2,False,False,False,False,merge: origin/main into calaweh — resolve control-centre-view.tsx conflict
+https://www.github.com/51-shenn/sync-field,09aaec6c19212d3494727ad1e3f92fa1fac50979,2026-06-20T15:32:38+00:00,Human,,15632,3,4,True,True,False,False,fix: cast getSupabaseAdmin to any — bypass ungenerated Supabase types blocking Vercel build
+https://www.github.com/51-shenn/sync-field,6be1f2e91efaa0e4c43a30f8d5f132375d42b01f,2026-06-20T15:31:37+00:00,Human,,245,126,1,False,False,False,False,feat: expand SyncField landing page (#28)
+https://www.github.com/51-shenn/sync-field,cd6634c7a7611c1b3079fbbb86018b527a72a624,2026-06-20T15:31:13+00:00,Human,,19039,16024,160,False,False,False,False,Merge branch 'main' into codex/syncfield-frontend
+https://www.github.com/51-shenn/sync-field,a3c072706504476257ff97c6afc182ae2a8c4b29,2026-06-20T15:27:09+00:00,Human,,154,35,1,False,False,False,False,feat: expand SyncField landing page
+https://www.github.com/51-shenn/sync-field,78ae4e9bdf319859851af7992048a40e35d2d20d,2026-06-20T15:25:10+00:00,Human,,5177,2977,71,False,False,False,False,"merge: origin/main into calaweh — resolve conflicts in bot.py, repomix.config, operations-provider, projects-view"
+https://www.github.com/51-shenn/sync-field,def0087825d7bf4434008677980b886e270f2a8b,2026-06-20T15:24:43+00:00,Human,,101,82,2,False,False,False,False,feat: add delete function;
+https://www.github.com/51-shenn/sync-field,dcec43b69936b8511b4b232c74ac464158b1773a,2026-06-20T15:22:10+00:00,Human,,4093,1916,72,False,False,False,False,Nestchao (#26)
+https://www.github.com/51-shenn/sync-field,1d2bfcfdb1b803aa874d7ddf009ab12251bc2cc6,2026-06-20T15:20:55+00:00,Human,,46,47,11,False,True,False,False,"perf: isInitializing split, admin singleton, route auth skip, audit-logs in snapshot
+
+1. OperationsProvider: split isInitializing from loading — pages no longer
+   flash a loading spinner on every navigation. Data persists in context
+   across route changes; only the very first load blocks.
+2. supabase-server: singleton getSupabaseAdmin() — createClient called
+   once instead of per-API-request.
+3. WorkspaceRouteLayout: remove auth.api.getSession() server-side check
+   (RootShell already guards client-side). Cuts 1 DB round-trip on every
+   page navigation across 11 layout files.
+4. Merge audit-logs into RPC snapshot — eliminates separate fetch from
+   use-audit server, saves 1 more HTTP call. activities table is empty
+   so useActivities returns static [].
+
+Also: fix document_type column name in operations-server, fix subtask
+camelCase column handling, remove dead fetchJson + useState/useEffect
+imports from use-data."
+https://www.github.com/51-shenn/sync-field,f98f9c2e065ecf2b028d920064387238302fe4a4,2026-06-20T15:20:20+00:00,Human,,8300,5495,109,False,False,False,False,Refactor project and report types for consistency; update site report server functions and data handling; enhance team member management in use-data hook; improve Supabase client initialization; generate worker data with updated structure; refine D3 org chart type definitions.
+https://www.github.com/51-shenn/sync-field,f7bd34a02e18eb142634a40e643293d3c94e8cff,2026-06-20T15:17:38+00:00,Human,,7211,0,97,False,False,False,False,"feat: add workspace route layout and authentication checks
+
+feat: implement activities server for fetching activity logs
+
+feat: create API authentication utility for session management
+
+feat: add audit server for handling audit logs and creating new entries
+
+feat: define audit log types for structured logging
+
+feat: set up database connection using Prisma with PostgreSQL adapter
+
+feat: define document types for file management
+
+feat: implement documents server for fetching document files
+
+feat: create operations server for managing project operations and tasks
+
+feat: define operations types for structured project management
+
+feat: add project types for project management structure
+
+feat: implement report types for site reporting
+
+feat: create reports server for managing site reports
+
+feat: add site report data utilities for filtering and summarizing reports
+
+feat: set up Supabase client for server-side operations
+
+feat: define team member types for team management
+
+feat: implement data fetching hooks for projects, team members, documents, site reports, audit logs, and activities
+
+feat: add utility functions for class name merging and initials generation
+
+chore: generate worker script for creating mock team members"
+https://www.github.com/51-shenn/sync-field,2a73effd6ce6c13fb1f6cb58c7e928b60166387b,2026-06-20T15:16:34+00:00,Human,,351,48,12,False,True,False,False,"feat: auto-detect worker MC/absence from Telegram and trigger reassignment + PM alert
+
+- Add worker_absence label to LLM prompt with English/Malay/Manglish few-shot examples
+- Wire pipeline auto-trigger: on high-confidence absence detection, resolve technician
+  and call handle_absence() directly or queue via task_commands fallback
+- Add resolve_technician_by_name() for third-party absence reports (e.g. 'Ahmad sakit')
+- handle_absence() now: demotes ACTIVE tasks to READY, runs VRP solver to reassign,
+  sets technician status to on_leave, and alerts project_manager via Telegram
+- Wire DAG dispatcher into bot startup so absence commands execute immediately
+- Add verbose logging to listener, pipeline, dispatcher, and notifier for debugging
+- Fix VRP solver crash when required_skills is None in DB
+- Fix compute_priority crash when deadline is None
+- Add notchifier fallback chat_ids when PostgREST schema cache is stale
+- Add 008_add_leave_until migration and test_mc_flow.py integration test"
+https://www.github.com/51-shenn/sync-field,35046a19d8b7b316870b481ccd04cf7959b181c9,2026-06-20T15:10:26+00:00,Human,,181,219,1,True,True,False,False,"fix: search bar, filters, etc;"
+https://www.github.com/51-shenn/sync-field,1691796aaa4e5a66b062e668187e6d794cc13d45,2026-06-20T15:05:35+00:00,Human,,17894,17529,114,False,False,False,False,Merge branch 'main' of https://github.com/51-Shenn/imagine-hack
+https://www.github.com/51-shenn/sync-field,fa385cfce4c90c589031f01ec0bf6ccd45ef1ef6,2026-06-20T15:00:36+00:00,Human,,126,44,5,False,True,False,False,"perf: replace 10 HTTP queries with 1 PostgreSQL RPC + eliminate mutation double-refresh
+
+- New get_operations_snapshot() PL/pgSQL function (007_performance_rpc.sql):
+  returns all 10 operational tables as a single JSON payload in one DB call.
+  Reduces snapshot endpoint from 10 HTTPS round-trips to 1.
+- operations-server.ts: call sb.rpc() instead of 10 parallel sb.from() queries.
+  Fix document_type column name (was 'type', DB has 'document_type').
+  Fix subtask camelCase column handling (taskId, dueDate, assigneeId).
+  Remove unused assertQueries + rows helpers.
+- operations-provider.tsx: remove refresh() from mutate() and issueCommand().
+  Realtime CDC handles the follow-up refresh — no more double-refetch on
+  every checklist toggle, project edit, or technician assignment.
+- Add 8 descending indexes on created_at columns for sort-heavy tables
+  (site_reports, documents, task_events, alerts, processed_messages, task_commands)
+  plus project_id foreign key indexes on site_reports + documents."
+https://www.github.com/51-shenn/sync-field,d6d0060bbf0e70307fcf73a6e264c0688ae90435,2026-06-20T15:00:25+00:00,Human,,713,222,3,False,False,False,False,"feat: improve search bar, filters;"
+https://www.github.com/51-shenn/sync-field,66b8dca11d20576344b25ffc6dcbdcf8f301cc26,2026-06-20T14:44:37+00:00,Human,,34,18,4,False,False,False,False,"perf: merge reports + documents into cached snapshot — eliminate per-page fetches
+
+- operations-types: add reports + documents fields to OperationsSnapshot
+- operations-server: add site_reports + documents to the 9-way parallel query
+  (now hits the same 5s server cache as all other operational data)
+- operations-provider: extend emptySnapshot
+- use-data.ts: useDocuments/useSiteReports now read from snapshot context
+  instead of firing their own fetch() on every page mount — eliminates
+  2 separate HTTP round-trips per navigation"
+https://www.github.com/51-shenn/sync-field,220a242b7fd343062c35f0246cee5b5b2df8274b,2026-06-20T14:36:04+00:00,Human,,20,3,2,False,False,False,False,"perf: 3-layer snapshot cache — cut page load / click latency
+
+- snapshot route: in-memory 5s cache collapses rapid Realtime re-fetches
+  into a single DB call (8 queries → 1 cached response per 5s window)
+- operations-provider: increase debounce 120ms → 500ms so cascaded CDC
+  events coalesce instead of triggering N individual re-fetches
+- operations-provider: polling fallback 10s → 30s (cache + Realtime
+  make frequent polling unnecessary)"
+https://www.github.com/51-shenn/sync-field,87999bc6a60e8560a1ad333dfc1b7484781a9cf0,2026-06-20T14:27:44+00:00,Human,,2,2,1,True,True,False,False,"fix: pass raw chat ID to bind_telegram instead of entity object
+
+send_message() rejects the entity from get_entity() with
+`Peer was invalid / bots cannot start conversations`.
+Pass the raw int chat ID instead."
+https://www.github.com/51-shenn/sync-field,17582e93ba66e69eb24dabe5b989957c97104124,2026-06-20T14:25:37+00:00,Human,,12,3,1,True,True,False,False,fix: add debug logging to StubNotifier._telegram() to trace silent failures
+https://www.github.com/51-shenn/sync-field,6f4268936c64d91da09801121e7911e99bee35b5,2026-06-20T14:25:26+00:00,Human,,19012,18629,116,False,False,False,False,Calaweh (#25)
+https://www.github.com/51-shenn/sync-field,ade63fa8e2c519f3fbd15e4fa8b1eac50424d31a,2026-06-20T14:22:12+00:00,Human,,2,1,1,False,False,False,False,merge: resolve package.json conflict — keep dotenv dep + prisma generate in build
+https://www.github.com/51-shenn/sync-field,43ac1ef4c4112dc450df4430905d94b7e9399768,2026-06-20T14:12:24+00:00,Human,,18889,18717,109,False,True,False,False,"feat: notification pipeline — clickable bell, dismiss/delete alerts, datetime fixes
+
+- app-shell.tsx: bell badge shows real pending count from useOperations(),
+  clicking opens dropdown with up to 8 pending alerts
+- control-centre-view.tsx: ✕ dismiss (PATCH→resolved) and ✕ delete per alert,
+  alerts separated from failed commands visually
+- new /api/alerts/[id]/route.ts: PATCH + DELETE for alert lifecycle
+- dag_engine.py: parse string deadlines/blocked_since from Supabase before
+  datetime arithmetic (fixes VRP solver crash on absence)
+- /tmp/trigger_absence.py: test script to fire handle_absence() and verify
+  the full pipeline: DAG → notifier → alerts table → Realtime → frontend"
+https://www.github.com/51-shenn/sync-field,3032716344436103fa0ee6af44c52fa21ad70011,2026-06-20T14:06:32+00:00,Human,,1,2,1,False,False,False,False,build: update build script to include prisma generate
+https://www.github.com/51-shenn/sync-field,2ef69ec05beaa695cf6871459f086cde087c2f0b,2026-06-20T13:15:06+00:00,Human,,292,167,13,False,False,False,False,"Merge remote-tracking branch 'origin/main' into calaweh
+
+# Conflicts:
+#	src/components/ui.tsx
+#	src/components/workforce-view.tsx"
+https://www.github.com/51-shenn/sync-field,c51eec2daa9e5a559951ee38722061a4487f1c4c,2026-06-20T13:08:10+00:00,AI,Claude_Code,316,97,17,False,True,False,False,"feat: worker CRUD + org chart, Telegram absence reports, harden DAG-board CRUD
+
+Workforce:
+- worker CRUD via /api/technicians (POST) + /api/technicians/[id] (PATCH/DELETE),
+  provider mutators, and useTeamMembers create/update/delete; fixes the frozen
+  read state and dead Save/Delete buttons in workforce-view
+- org-chart manager hierarchy (""Reports to"" field) with a synthetic root so
+  d3-org-chart renders with multiple manager-less workers; project assignment
+- migration 007: technicians.email / project_ids / manager_id
+
+Telegram absence workflow:
+- new absence_report label + technician_name extraction (prompt/validator),
+  technician roster passed to the LLM, resolve_technician_by_name, and a
+  pipeline branch that calls handle_absence() without needing a task_id
+
+Robustness / bug fixes:
+- ui.tsx: Select/MultiSelect dropdowns clickable inside modal dialogs
+  (pointer-events-auto, z-[60], stop pointerdown closing the dialog)
+- auth route: force-dynamic + nodejs runtime (Turbopack static-path crash)
+- dispatcher: guard assigned_to so only real technicians are written (uuid FK),
+  fixing the 22P02 from dashboard actor ids / ""llm"" fallback
+- command_processor: serialize drains with a lock + _ensure_engine_task to kill
+  the ""Task ... not found"" race; _valid_assignee on create/assign
+- subtasks POST returns 404 when the parent task is gone
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/51-shenn/sync-field,3fd51f93dd892ea01b4de7ad417fe35367dbad94,2026-06-20T12:59:59+00:00,Human,,1,0,1,False,False,False,False,build: add postinstall script for prisma generate
+https://www.github.com/51-shenn/sync-field,cd4d295fe0bf92fb57c3d9dc0602b8b246133ec8,2026-06-20T12:51:45+00:00,Human,,46,34,1,True,True,False,False,fix: workforce org chart;
+https://www.github.com/51-shenn/sync-field,7e02eb5fba522dcfb2414888a9edb870ef1192d5,2026-06-20T12:35:10+00:00,Human,,282,160,11,True,True,False,False,fix: site reporting functions fixes (#24)
+https://www.github.com/51-shenn/sync-field,b9883e52a5b368ed327997cb91556829876a187d,2026-06-20T12:33:27+00:00,Human,,274,158,11,False,False,False,False,feat(reports): add site reporting design spec and api routes
+https://www.github.com/51-shenn/sync-field,9d7b451cea9bd3c40d8ff8a4e9bc03154b7c8dcb,2026-06-20T11:44:07+00:00,Human,,9,3,1,False,False,False,False,docs: update readme with new badges and ai usage section
+https://www.github.com/51-shenn/sync-field,7607f5b4ef35613620a6dd79f359989bc2f8398f,2026-06-20T11:39:39+00:00,Human,,623,790,39,False,False,False,False,Merge remote-tracking branch 'origin/main' into calaweh
+https://www.github.com/51-shenn/sync-field,d21114ccd028b6e1a3738e8f687e0bd6b04b2642,2026-06-20T11:37:06+00:00,Human,,623,790,39,False,False,False,False,Codex/syncfield frontend (#23)
+https://www.github.com/51-shenn/sync-field,faf9fac72b5a1936578ff187cc2971ac113c12a4,2026-06-20T11:34:27+00:00,Human,,616,430,30,False,False,False,False,"feat: add project and report types, implement site report management functions"
+https://www.github.com/51-shenn/sync-field,c5b860b6c329ad889a6e0aac0516094028a44b18,2026-06-20T11:29:56+00:00,Human,,5796,223,92,False,False,False,False,Merge branch 'codex/syncfield-frontend' into calaweh
+https://www.github.com/51-shenn/sync-field,60761b289dd9d5883f62c185c4ed3dd25abc2f20,2026-06-20T11:08:15+00:00,Human,,0,0,0,False,False,False,False,Merge branch 'codex/syncfield-frontend' of https://github.com/51-Shenn/imagine-hack into codex/syncfield-frontend
+https://www.github.com/51-shenn/sync-field,0254286dfa9c50d39e6021004250cd04d08158e2,2026-06-20T10:57:18+00:00,Human,,1323,0,19,False,False,False,False,Calaweh (#22)
+https://www.github.com/51-shenn/sync-field,ef13e03dd9f16e02e0a563f28f0d1e885e93bac5,2026-06-20T10:56:55+00:00,Human,,5796,223,94,False,False,False,False,Codex/syncfield frontend (#21)
+https://www.github.com/51-shenn/sync-field,d293e82c6958cda1def7505f980e925311953073,2026-06-20T10:46:27+00:00,Human,,0,0,0,False,False,False,False,Merge remote-tracking branch 'origin/main' into codex/syncfield-frontend
+https://www.github.com/51-shenn/sync-field,7e0d48777008e0a619e0031adedce1aebe2507ce,2026-06-20T10:40:11+00:00,Human,,7,360,12,False,False,False,False,refactor: remove resource management pages and navigation
+https://www.github.com/51-shenn/sync-field,d352a9a92ac3d6311efd598b70321c55c0b7d70d,2026-06-20T10:33:58+00:00,Human,,15,1,1,False,False,False,False,"feat: update .gitignore to include additional log, test script, GCP keys, and binary document patterns"
+https://www.github.com/51-shenn/sync-field,bdd7a98258e20398a5c900b2ea4e3342564c9373,2026-06-20T10:32:23+00:00,Human,,10653,9013,35,False,False,False,False,Merge remote-tracking branch 'origin/main' into calaweh
+https://www.github.com/51-shenn/sync-field,8a70ac98fd83644dd69b9828a427e12b985c91e6,2026-06-20T10:31:39+00:00,Human,,586,14,2,False,True,False,False,"feat: expand mock data with Site_C workers/jobs and fix chat_id parsing
+
+- Add 17 workers (W046-W062) and 16 jobs (J011-J026) for Site_B and Site_C
+- Add Site_C commercial project with 15 workers
+- Add 5 unavailability events and 5 auto-assignments
+- Fix _resolve_chat_id to handle both int and string chat IDs gracefully"
+https://www.github.com/51-shenn/sync-field,b7cefc1bca3e7083dda5392f87cc97f3e79f108b,2026-06-20T10:26:54+00:00,Human,,10653,9013,35,False,False,False,False,Shen (#20)
+https://www.github.com/51-shenn/sync-field,ce92412488e81f7fac7741efc8840368f0888032,2026-06-20T10:26:09+00:00,Human,,1388,751,41,False,False,False,False,feat: implement project detail view and integrate operations provider
+https://www.github.com/51-shenn/sync-field,ad8d138a1faec0c60f2b0c84d9a2bfdea308aecc,2026-06-20T10:01:18+00:00,Human,,185,2,6,False,False,False,False,"feat: auto-upload Telegram files to Google Drive via OAuth
+
+Add Drive integration to automatically store photos, PDF, DOCX, and PPTX files received in the TEST Telegram group.
+
+New:
+  - backend/integrations/google_drive/__init__.py — OAuth-based uploader
+    (replaces service account approach; uses drive_token.json)
+  - setup_drive_auth.py — one-time device-flow auth script
+
+Modified:
+  - .gitignore — exclude drive_token.json
+  - backend/integrations/telegram/config.py — add GOOGLE_DRIVE_TOKEN_PATH,
+    GOOGLE_DRIVE_ROOT_FOLDER_ID
+  - backend/integrations/telegram/listener.py — upload photos/documents
+    to Drive concurrently with existing OCR + LLM pipeline
+  - backend/requirements.txt — add google-api-python-client, google-auth,
+    google-auth-oauthlib"
+https://www.github.com/51-shenn/sync-field,9dc20109c53db1f2956169ec0f61eb20c321dd23,2026-06-20T09:59:43+00:00,Human,,1323,0,21,True,True,False,False,"fix: remove all .gitkeep placeholder files across project and add workforce test fixture
+
+- Delete 20 .gitkeep files: docs/, backend/api, backend/app, backend/core,
+  backend/domains, backend/events, backend/optimization, backend/workflow,
+  src/app, src/hooks, src/services, src/stores, src/types
+- Add backend/tests/fixtures/workforce_dataset.json: 62 workers, 26 jobs,
+  3 sites, 9 unavailability events — full test fixture for Supabase insertion"
+https://www.github.com/51-shenn/sync-field,f08b06493fcd7338d3c434f21cbd857a06705b74,2026-06-20T09:49:07+00:00,Human,,3585,122,40,False,False,False,False,feat: Enhance FieldOpsDispatcher with Supabase integration and event handling
+https://www.github.com/51-shenn/sync-field,092d6b452e2f09f0189d98e47edaa93ae7105a31,2026-06-20T09:31:34+00:00,Human,,953,55,21,False,False,False,False,Calaweh (#19)
+https://www.github.com/51-shenn/sync-field,1d2ceadf2ddc2cde10bafca5bf14a443b66095f1,2026-06-20T09:29:36+00:00,AI,Claude_Code,212,60,12,True,True,False,False,"fix: wire Telegram→DAG→Supabase loop and harden against live NULL/schema mismatches
+
+Completes the end-to-end pipeline (Telegram message → LLM → dispatcher →
+DAG transition → cascade → VRP reassignment → Supabase persistence) and
+fixes every failure surfaced by running it against real Supabase data,
+which carries columns as present-but-NULL where in-memory fixtures omit
+the key entirely.
+
+Wiring:
+- pipeline: route high-confidence reports to dispatcher (completion/
+  failure/start) instead of a bare state UPDATE; add set_dispatcher()
+- dispatcher: persist via _sync(); add process_start_report; use
+  update_task_state for absence demotion
+- client: make get_supabase_async_client actually async (await create)
+
+Live-data hardening:
+- bot: parse HH:MM:SS shift times (slice to H:M); guard NULL shifts
+- event_bus: realtime>=2.31 API (on_postgres_changes) + payload shape
+  (data.record)
+- dag_engine: include task_name in tasks upsert (NOT NULL); guard NULL
+  deadline and estimated_duration_hours in priority + cascade ETA
+- solver: guard NULL required_skills/van_inventory/duration/shift_end
+
+Schema:
+- migration 004: add task_events.depth column
+
+Tooling:
+- sim_message.py: feed a message through the real pipeline and print the
+  DAG before/after, without needing Telegram
+- repomix: backend-only output config + gitignore the generated dump
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/51-shenn/sync-field,fd19252f3dd2a0ce0cb5796f3024459a56ba96c6,2026-06-20T09:20:59+00:00,Human,,236,46,4,False,False,False,False,feat: add site report filtering and summary
+https://www.github.com/51-shenn/sync-field,c931a0121ada709d56b3f382f95b8283fda7c545,2026-06-20T08:01:14+00:00,Human,,108,5,5,False,False,False,False,feat: add edit project dialog and splash screen component
+https://www.github.com/51-shenn/sync-field,592eb4217afe6bdbb3a189b40c54e1490b7c5e6e,2026-06-20T07:44:12+00:00,Human,,36,19,3,True,True,False,False,"fix: Realtime requires async Supabase client — add get_supabase_async_client()
+
+supabase-py Realtime channel only works with create_async_client(),
+not the sync Client. Added get_supabase_async_client() singleton.
+
+RealtimeEventBusListener now takes async_sb and runs the channel
+subscription in a daemon thread via start_sync() to avoid blocking
+the Telethon event loop.
+
+bot.py updated to create both sync (DB ops) and async (Realtime) clients."
+https://www.github.com/51-shenn/sync-field,ff01e8a82fae44711250b55b5218d48c7d344700,2026-06-20T07:39:30+00:00,Human,,10,10,5,True,True,False,False,"fix: standardize imports to backend.* prefix (5 files, 10 lines)
+
+bot.py, listener.py, pipeline.py, ocr_queue.py, analyzer.py used
+two incompatible import styles: from integrations.* / from llm.*
+(needs PYTHONPATH=backend/) mixed with from backend.* (needs PYTHONPATH=.)
+
+Now all use from backend.integrations.* and from backend.llm.*
+Run with: PYTHONPATH=. python -m backend.integrations.telegram.bot"
+https://www.github.com/51-shenn/sync-field,3238544c07f61c4e763b8bdb4ad5b58f47ec36bd,2026-06-20T07:26:12+00:00,Human,,1,1,1,True,True,False,False,fix(landing-page): update logo link to scroll to top
+https://www.github.com/51-shenn/sync-field,da49c3c2a6f154cf461ab534a3c077c0b1c32401,2026-06-20T07:26:02+00:00,Human,,289,475,5,False,False,False,False,feat(resources): add resource management features and UI improvements
+https://www.github.com/51-shenn/sync-field,74f9417f866c29316e15fc773be6d16504d71a07,2026-06-20T07:16:19+00:00,Human,,109,3,5,False,True,False,False,"feat: close gaps 1/5/6 — template persistence, completion test, graceful teardown
+
+Gap 1: Template persistence
+  - 002_project_templates.sql: new table (name unique, tasks jsonb)
+  - save_template(name, description, guesses): upserts serialized tasks
+  - load_template(name): reconstructs GuessedTask objects from DB
+
+Gap 5: process_completion_report test
+  - test_p1_completion_cascade.py: verifies T03→COMPLETE promotes
+    T04/T05 to READY → VRP assigns Ravi (mounting) + Zul (networking)
+
+Gap 6: Graceful teardown
+  - bot.py: try-finally around run_until_disconnected() → calls
+    realtime_listener.stop() on Ctrl+C
+
+Bug fix: solver.OBJECTIVE_SCALE would produce weight=0 when score
+is 0.00 (all factors zero, tiebreaker rounded away). Added max(1, weight)
+so CP-SAT has non-zero incentive to assign even trivial tasks."
+https://www.github.com/51-shenn/sync-field,2e0d60439ce20c73d496c67269dbc363676b1dd3,2026-06-20T06:47:19+00:00,Human,,1095,234,12,True,True,False,False,fix(project-detail): update team members link and icons
+https://www.github.com/51-shenn/sync-field,39023991366ab0308cc07eaa0bb06e9e32a1e2c8,2026-06-20T06:47:03+00:00,Human,,89,2,4,False,False,False,False,"feat: close P0/P1/P2 gaps — end-to-end loop + mid-window split
+
+P2: delay_from() now splits windows when delay falls mid-window
+    (e.g. single 08:00-18:00 window, delay at 10:00 → split into
+    08:00-10:00 + 11:30-19:30). 3-window test case added.
+
+P1: process_completion_report() added to FieldOpsDispatcher.
+    Marks task COMPLETE, extracts newly-unlocked READY tasks,
+    triggers joint VRP reassignment for idle techs.
+
+P0: process_message() in pipeline.py now writes state transitions
+    directly to tasks table on high-confidence LLM results.
+    The running Event Bus automatically picks up the UPDATE,
+    runs the DAG cascade, and re-solves VRP — closing the
+    end-to-end loop from Telegram message to DAG cascade."
+https://www.github.com/51-shenn/sync-field,78583cc5df5dcd6dbbcda8638a02fb2c3546855a,2026-06-20T06:35:10+00:00,Human,,157,32,5,False,False,False,False,feat(control-centre): add create site report dialog and functionality
+https://www.github.com/51-shenn/sync-field,f70ccafb38ca9dbc7aa3c508f1df8a044c1c0d57,2026-06-20T06:33:10+00:00,Human,,47,47,5,True,True,False,False,fix: merge conflict
+https://www.github.com/51-shenn/sync-field,fabdc297ba456d546d552d3e14481fa0cc79513d,2026-06-20T06:33:07+00:00,Human,,1877,134,41,False,False,False,False,Merge branch 'codex/syncfield-frontend' of https://github.com/51-Shenn/imagine-hack into brian-fe
+https://www.github.com/51-shenn/sync-field,bd57b5ac6a9aa02c1a0c96a0d6fb6ba000cbf173,2026-06-20T05:20:44+00:00,Human,,1377,210,21,False,False,False,False,feat: update team members data and add worker generation script
+https://www.github.com/51-shenn/sync-field,9d8dcf4661dd67acf10702785c7ff5903f72d6f8,2026-06-20T05:13:06+00:00,Human,,649,138,2,False,False,False,False,feat: refine resouce management;
+https://www.github.com/51-shenn/sync-field,fb28d0d32b0985c49ff38c904da37af2d1e1ae78,2026-06-20T05:10:11+00:00,Human,,289,0,1,False,False,False,False,"docs: system architecture diagram — full pipeline, state machine, confidence flow, test coverage
+
+ASCII art diagrams covering:
+- Data sources → Preprocessing → Database → Process Layer → Application
+- Core loop: material missing → cascade → VRP reroute (6 steps)
+- State machine: 7 states + transition matrix
+- Confidence flow: EXACT → ESTIMATED → UNKNOWN degradation
+- Test coverage: 18 test functions across 9 modules"
+https://www.github.com/51-shenn/sync-field,2adca7f5d0287b1313be8c6c24e59e57d6b235ec,2026-06-20T05:08:15+00:00,Human,,2,0,1,True,True,False,False,"fix: remap DB column 'id' to engine field 'task_id' on Supabase load
+
+SyncFieldDAG expects t['task_id'] but Supabase returns 'id' column.
+Remap via t.setdefault('task_id', t.pop('id', None)).
+Verified against live DB — 4 tasks loaded, engine built successfully."
+https://www.github.com/51-shenn/sync-field,107fe91e6a86ccc808fa74ff0da796156ea99039,2026-06-20T04:58:04+00:00,Human,,131,0,1,False,False,False,False,"test: event bus idempotency guard — 4 test cases
+
+- Idempotency: memory == db → skip (loop prevention)
+- External change: memory != db → triggers engine
+- Missing task: silently ignored
+- Null payload: 5 variants all skipped safely"
+https://www.github.com/51-shenn/sync-field,144a549fe43f00526bbecbc617e42129ce042c9f,2026-06-20T04:51:28+00:00,Human,,307,46,6,False,False,False,False,feat: add chart components and update completion chart
+https://www.github.com/51-shenn/sync-field,d2ccc82319c7ebc2db5e47adbaa4c0c577c69af5,2026-06-20T04:33:13+00:00,Human,,114,0,2,False,False,False,False,"feat: bidirectional event bus — Supabase Realtime → DAG Engine
+
+SupabaseEventBus: receives CDC payloads, applies idempotency guard
+(memory_state == db_state → skip), delegates to engine.update_task_state(),
+then sync_to_supabase(). Infinite loop prevention via in-memory comparison.
+
+RealtimeEventBusListener: subscribes to Supabase Realtime WebSocket
+on tasks table UPDATE events, routes to SupabaseEventBus.
+
+No PGMQ — Realtime WebSocket is most cost-efficient (push-based,
+zero polling overhead vs 86K DB calls/day for 1s PGMQ polling).
+
+Wired into bot.py main(): loads tasks/technicians from Supabase,
+initializes DAG engine + dispatcher, starts Realtime listener
+alongside Telethon Telegram client."
+https://www.github.com/51-shenn/sync-field,3b49a6682904ef0d837869b33aa1acca66b5d34a,2026-06-20T04:17:59+00:00,Human,,2671,107,30,False,False,False,False,Merge branch 'main' into nestchao
+https://www.github.com/51-shenn/sync-field,4aa75e3e6d09d3b2b4a959789ef6e73205921005,2026-06-20T04:15:08+00:00,Human,,600,76,1,False,False,False,False,feat: adjust pop up dialog width;
+https://www.github.com/51-shenn/sync-field,774c92088e109b7fb8ecfe1b1e9bd09326976e9a,2026-06-20T04:13:55+00:00,Human,,389,2,14,False,False,False,False,"feat: add Telegram bot approval workflow with HTTP API and notifier interface
+
+- Add Notifier ABC and TelegramNotifier implementation for role-based alerting
+- Add aiohttp HTTP server to the bot for outbound message /send and /send_approval endpoints
+- Add sender.py with send_message and send_approval (inline approve/reject buttons)
+- Handle callback queries in listener: record approvals to Supabase and notify Next.js webhook
+- Add Next.js API proxy routes: /api/telegram/send, /api/telegram/send-approval, /api/telegram/callback
+- Add shift_approvals table creation script and PostgREST schema refresh utility
+- Add graceful shutdown (SIGTERM/SIGINT) to bot main loop
+- Move StubNotifier to extend Notifier ABC
+- Add aiohttp and Supabase/webhook config to environment"
+https://www.github.com/51-shenn/sync-field,5f18596a331cadec3f9b45926b49cb0b54eb2024,2026-06-20T04:09:01+00:00,Human,,2482,98,23,False,False,False,False,"[feat] SyncField DAG Engine v2 — bidirectional cascade, ETA propagation, schedule engine, parser, template guesser (#18)"
+https://www.github.com/51-shenn/sync-field,e48c9180c99bdacac87c228735036390c1191f32,2026-06-20T04:06:27+00:00,Human,,761,63,19,False,False,False,False,"merge: pull origin/main — resolve requirements.txt deletion, add openai dep
+
+origin/main refactored apps/backend/ into backend/integrations/telegram/,
+deleting the old requirements file. Accept deletion, add openai to the new
+backend/requirements.txt. All 18 tests pass."
+https://www.github.com/51-shenn/sync-field,1cf2abfe8f5398fb1f1160d7bd38b6d4d5f92a84,2026-06-20T04:05:33+00:00,Human,,167,38,5,False,False,False,False,feat: add zoom to bottom right of chart;
+https://www.github.com/51-shenn/sync-field,b30f713bff4c9f1e264077535fee4fabc886ed78,2026-06-20T03:59:43+00:00,Human,,1145,63,15,False,False,False,False,feat: add project detail timeline component with editable deadlines
+https://www.github.com/51-shenn/sync-field,5a516521eb9b8a8aaab10fd403d7616b86028d61,2026-06-20T03:57:53+00:00,Human,,114,9,4,False,False,False,False,"feat: implement original and processed messages tables, enhance message processing in Telegram listener"
+https://www.github.com/51-shenn/sync-field,edbe6cd6bcb7b0770e0d6b54015f93344fe742c7,2026-06-20T03:53:18+00:00,Human,,302,0,3,False,False,False,False,"feat: TemplateGuesser — learn dependency patterns from historical projects
+
+Analyzes historical task execution graphs to suggest dependencies
+for new projects with confidence metrics (P(parent|child) across
+projects). Handles cold-start (empty DB), prefix-based ID collision
+avoidance, and confidence-threshold filtering.
+
+- guess_template(): pairwise association counting with project-level
+  deduplication guard
+- instantiate(): name-based guesses → project-prefixed task list
+  with collision-free IDs (e.g. siteB_T01)
+- 3 test cases: cold start, confidence calculation, remap/instantiate"
+https://www.github.com/51-shenn/sync-field,b237c7f0e91b1a1ee57503851b0d983415023516,2026-06-20T03:37:03+00:00,Human,,12,8,1,False,False,False,False,"perf: cache pair scores in solver — halve compute_priority() BFS calls
+
+Replace _score() with _pair_score() that uses class-level constants
+(DISTANCE_PENALTY_WEIGHT, OBJECTIVE_SCALE). Scores computed once per
+eligible pair into pair_scores dict, reused for result extraction
+instead of calling compute_priority() (which does a BFS) twice."
+https://www.github.com/51-shenn/sync-field,a7914c9b808cd3ccbb01a2b0a99b5a07941716c4,2026-06-20T03:28:06+00:00,Human,,19,18,4,False,True,False,False,"refactor: code quality — NECESSARY + SHOULD fixes across 4 files
+
+NECESSARY:
+  - parser.py: bare except -> except Exception as exc (capture error info)
+  - parser.py: remove import re as _re shadowing (3 call sites -> module re)
+  - solver.py: remove unused Union import
+  - test_dag_scenarios.py: remove unused Assignment import
+
+SHOULD:
+  - solver.py: extract _score() to DRY score computation (duplicated in
+    objective + result loops)
+  - dag_engine.py: add Optional type hints (schedules, dirty params)
+  - dag_engine.py: next_available_slot return -> tuple[Optional[datetime], str]
+
+All 15 tests pass."
+https://www.github.com/51-shenn/sync-field,c808ee9c436b7a585f90a943951616051e0956ae,2026-06-20T03:22:04+00:00,Human,,546,185,17,False,False,False,False,feat: swap lucide icons to tabler icons; imrpove workforce filter ux;
+https://www.github.com/51-shenn/sync-field,126096af7374c080e5f10f57a230f9d81db6b0d7,2026-06-20T03:14:41+00:00,Human,,182,78,5,True,True,False,False,"fix: close 2 remaining gaps + remove dead code + update docs
+
+- Add _detect_cycles() DFS at DAG construction — raises ValueError
+  on circular dependencies, replacing silent deadlock
+- Add FAILED re-report guard in handle_task_failure() — returns
+  ALREADY_FAILED action, no exception thrown
+- Remove dead dispatch_decision() from dispatcher.py (called
+  find_best_reassignment on old StubVRPSolver, unreachable)
+- Rewrite SYNC_FIELD_REFERENCE.md: add Schedule Engine, ETA,
+  FailurePolicy, Test Coverage, Known Gaps sections. Fix stale
+  claims about remove_window/delay_from (implemented) and ETA
+  bug (datetime.min, already fixed)
+
+All 15 tests pass. 3 known gaps remain (documented, not crashing):
+  VRP reason strings discarded, frontend 'system' icon, Supabase
+  sync not live-tested."
+https://www.github.com/51-shenn/sync-field,ebdc8245a1029907053341df732ea313f0f1a0d3,2026-06-20T03:05:38+00:00,Human,,455,56,8,False,True,False,False,"feat: improve workforce organization chart query search, collapse behaviour; fix roles filter issue"
+https://www.github.com/51-shenn/sync-field,16ee07b188af6fd7d689cdbbf9af0dbe94086206,2026-06-20T02:59:41+00:00,Human,,97,3,2,False,False,False,False,feat(projects): implement kanban board for task management
+https://www.github.com/51-shenn/sync-field,93a9585cb9ea42640221a91f640a5ea17194ea5e,2026-06-20T02:55:01+00:00,Human,,183,31,20,False,False,False,False,"feat: add landing page, restructure app layout and navigation"
+https://www.github.com/51-shenn/sync-field,7b62c0055314c20f542c5a6d640269ae1310eeb1,2026-06-20T02:50:29+00:00,Human,,559,3,6,False,False,False,False,"test: P0/P1/P2 edge-case coverage — 15 new tests, 5 modules
+
+P0 — core differentiators:
+  - Reverse cascade: COMPLETE→REGRESSED, multi-layer chain + partial parent
+  - Custom FailurePolicy: retry count + escalation role injection verified
+
+P1 — new module exercise:
+  - remove_window() excludes lunch break from slot search
+  - delay_from() shifts afternoon window by 90min
+  - compute_cascade_eta(schedules={...}) with real TechnicianSchedule
+  - VRP: no-skill-match returns empty, no crash
+  - VRP: inventory shortage reason string verified (Tuple[bool,str])
+  - VRP: shift overrun + exact-fit boundary checked
+
+P2 — documented gaps (not pass/fail, exit-code-safe):
+  - 2-node cycle: deadlocks silently, no crash, no detection
+  - FAILED task re-report: handle_task_failure() raises ValueError
+
+Orchestrator updated: 15 test functions across 7 modules, exit(0) only
+when all verified behaviors pass."
+https://www.github.com/51-shenn/sync-field,185ff03233df645794c698d54cb44fa13520f413,2026-06-20T02:34:57+00:00,Human,,898,0,1,False,False,False,False,Merge branch 'main' of https://github.com/51-Shenn/imagine-hack into nestchao
+https://www.github.com/51-shenn/sync-field,7a155e773d8172f536101e07ca9c7acc441bf5e5,2026-06-20T02:31:12+00:00,Human,,430,9,6,True,True,False,False,"fix: cache.set() arity mismatch + cache key misalignment in Tier 3
+
+parser._tier3_llm had two bugs:
+1. cache.set(key, failure_type) called with 2 args — real set() needs
+   3: (key, state, failure_type). Fixed to cache.set(key, task_id, failure_type).
+2. Cache hit read cached.get(""task_id"") but DB stores ""resolved_state"".
+   Fixed to cached.get(""resolved_state"") / cached.get(""resolved_failure_type"").
+3. Removed direct .sb.table(...) call — cache.set() now stores task_id.
+
+Add real-world test suite:
+- fixtures.py: realistic Manglish message log, 3-site task data, incomplete records
+- fake_cache.py: InMemoryResolutionCache matching real interface exactly
+- test_parser_realworld.py: 14-message stress test + isolated cache arity test
+- test_simulation_realworld.py: multi-site E2E with absence + ETA verification
+- run_all_realworld.py: orchestrator with CI-ready exit codes"
+https://www.github.com/51-shenn/sync-field,22c30c3bc9b51bef0035ea35101ffc19246d09c3,2026-06-20T02:30:41+00:00,Human,,83,27,4,False,False,False,False,refactor(app-shell): update sidebar account and remove page title logic
+https://www.github.com/51-shenn/sync-field,42eaa2229f062a18204d39218f1132d45750d562,2026-06-20T02:16:37+00:00,Human,,2,1,1,False,False,False,False,chore: add repomix-changes.* to gitignore
+https://www.github.com/51-shenn/sync-field,d8602c87a4e0768a7bd59f2bf4a09d70d05201fa,2026-06-20T02:14:40+00:00,Human,,23,1,2,True,True,False,False,"fix: all-COMPLETE dep sets resolve to EXACT, not false UNKNOWN
+
+Root cause: COMPLETE deps were skipped via , leaving
+upstream_etas empty when every dep was COMPLETE, tripping the
+ branch and returning UNKNOWN with reason
+""No dependency data"".
+
+Fix: track COMPLETE deps with datetime.min — an ancient timestamp
+that never wins max(), so it contributes EXACT confidence without
+inflating the earliest_start. Adds regression test (Case C)."
+https://www.github.com/51-shenn/sync-field,6ad2a4346e75623c14b135c6012d479745b64cab,2026-06-20T02:12:59+00:00,Human,,211,9,7,False,False,False,False,Merge branch 'codex/syncfield-frontend' of https://github.com/51-Shenn/imagine-hack into brian-fe
+https://www.github.com/51-shenn/sync-field,48cbfe85362334b58b1ba963e199348aa7feafce,2026-06-20T02:12:43+00:00,Human,,434,69,7,False,False,False,False,feat: add organization chart to workforce
+https://www.github.com/51-shenn/sync-field,689152dc123f082545042ad3b886ff76cb273ede,2026-06-20T01:58:35+00:00,Human,,1,1,1,True,True,False,False,"fix: skip COMPLETE deps in cascade ETA — they are not start-time constraints
+
+datetime.now() artificially inflated latest_upstream when deps
+completed hours ago. COMPLETE deps impose no constraint — skip them."
+https://www.github.com/51-shenn/sync-field,31e4e13155ba49f331f0edfa63bb073d9b6a240f,2026-06-20T01:52:17+00:00,Human,,995,70,8,False,False,False,False,"feat: DAG engine improvements — ETA propagation, schedules, parser, policies
+
+- Add compute_cascade_eta() with confidence degradation (EXACT/ESTIMATED/UNKNOWN)
+- Add AvailabilityWindow + TechnicianSchedule for time-aware scheduling
+- Add 3-tier parser (JSON/command → Manglish keywords → LLM fallback)
+- Add handle_absence() to dispatcher
+- Add FailurePolicy dataclass + DEFAULT_POLICIES (data-driven, no hardcoding)
+- Convert FieldOpsDomainRules from @classmethod to instance-based
+- BUG-1: protect ACTIVE/BLOCKED/REGRESSED from auto-lock
+- OPT-1: circuit breaker (MAX_CASCADE_DEPTH=20, depth threading)
+- OPT-5: data completeness (granularity + data_sources_used)
+- Dirty-set in evaluate_graph() — only recheck changed children
+- Batch sync_to_supabase() — 2 calls instead of 2×N
+- triggered_by gets third value 'system' for auto-unlock events
+- Rename idle_tech_ids → displaced_techs
+- is_eligible returns Tuple[bool, str] for debug
+- Add SYNC_FIELD_REFERENCE.md with bug/opt catalog"
+https://www.github.com/51-shenn/sync-field,c50af9828b8bd115f9d1a53c249ce37bff84af9c,2026-06-20T01:27:19+00:00,Human,,1146,174,34,False,False,False,False,feat: add SitesView and WorkforceView components; enhance SettingsView with improved notifications and company settings
+https://www.github.com/51-shenn/sync-field,35e1d31763c9202e86965476be7e1119bed07dd2,2026-06-20T01:20:16+00:00,Human,,225,14,7,False,False,False,False,feat(auth): add authentication and authorization setup
+https://www.github.com/51-shenn/sync-field,9b0799a63347f7b3b65abc988bd2ab7b23df2eee,2026-06-20T01:16:13+00:00,Human,,582,65,15,False,False,False,False,Merge branch 'main' of https://github.com/51-Shenn/imagine-hack into brian-fe
+https://www.github.com/51-shenn/sync-field,de270e5cb593bb1da594aa2c5e57e0198ff6dccc,2026-06-20T01:15:54+00:00,Human,,564,100,19,False,False,False,False,feat: rearrange side bar pages and refine content inside;
+https://www.github.com/51-shenn/sync-field,c59b058a1a6ce1f636e68bc65840a70a4afb70dd,2026-06-20T00:54:59+00:00,Human,,25,0,8,False,False,False,False,"docs: add explanatory comments to all telegram bot modules
+
+- Add module-level doc comments describing each file's purpose
+- Add inline comments for key operations (COM conversion, OCR fallback,
+  queue lifecycle, temp file cleanup, etc.)"
+https://www.github.com/51-shenn/sync-field,3ffaaeb1e02be85b595aacc078060eb69cd7cfda,2026-06-20T00:36:43+00:00,Human,,10,6,1,False,False,False,False,refactor: update LLM client initialization and response generation in analyzer.py
+https://www.github.com/51-shenn/sync-field,56ebe5df1839e4f29369d02a3fbc16bc8d38b38b,2026-06-20T00:36:28+00:00,Human,,217,14,13,False,False,False,False,Merge branch 'main' of https://github.com/51-Shenn/imagine-hack into Boon
+https://www.github.com/51-shenn/sync-field,6ee2f51ae273c143fdab15b53c3fc92184e32af1,2026-06-20T00:22:57+00:00,Human,,13,8,2,False,False,False,False,feat: enhance analysis prompt and llm_analyze function to include chat title and message type
+https://www.github.com/51-shenn/sync-field,2fcf63bcf1867489f3e951e0a314bda82e4829c0,2026-06-20T00:22:49+00:00,Human,,334,20,6,False,False,False,False,Merge branch 'main' of https://github.com/51-Shenn/imagine-hack into Boon
+https://www.github.com/51-shenn/sync-field,068841349e3f50ae95ed11309c6319e4e5661507,2026-06-20T00:22:30+00:00,Human,,217,14,13,False,False,False,False,refactor: restructure bot into backend/integrations/telegram/ (#16)
+https://www.github.com/51-shenn/sync-field,7d55c7879d28143f4ddfc8cf87c41436c2772cca,2026-06-20T00:22:03+00:00,Human,,217,14,13,False,True,False,False,"refactor: restructure bot into backend/integrations/telegram/
+
+- Move apps/backend/{config.py,entry.py,bot/*} to
+  backend/integrations/telegram/ with fixed package imports
+- Rename entry.py -> bot.py, use absolute imports from integrations.telegram
+- Move requirements.txt and downloads/ to backend/
+- Remove old apps/backend/ directory
+- Create integrations/__init__.py and telegram/__init__.py"
+https://www.github.com/51-shenn/sync-field,5f9a736d0010c5affaa8e1005ddbeac7865f8526,2026-06-20T00:19:12+00:00,Human,,334,20,6,False,False,False,False,Nestchao (#15)
+https://www.github.com/51-shenn/sync-field,7b15b9a2fc34c7f145fe9e966cbdc9f453f5ad61,2026-06-19T23:32:16+00:00,Human,,10750,8882,48,False,False,False,False,Merge branch 'main' of https://github.com/51-Shenn/imagine-hack into Boon
+https://www.github.com/51-shenn/sync-field,f52e4275781912ce87d47284c32fd46dac65286d,2026-06-19T23:31:52+00:00,Human,,67,0,4,False,False,False,False,feat: implement LLM analysis and validation logic
+https://www.github.com/51-shenn/sync-field,0380cb612c2ff96ede38ddeac0b16bef5fe75fa3,2026-06-19T23:14:37+00:00,Human,,10572,8978,33,False,False,False,False,feat: build SyncField frontend dashboard
+https://www.github.com/51-shenn/sync-field,7caa7c38bc6042e3cefe5e783d5a281b4a905633,2026-06-19T23:06:17+00:00,Human,,10588,8929,43,False,False,False,False,"Merge branch 'main' of https://github.com/51-Shenn/imagine-hack into nestchao
+
+# Conflicts:
+#	apps/backend/requirements.txt"
+https://www.github.com/51-shenn/sync-field,822b648efdb1c0267bb73e1a9d40bd723617c7c4,2026-06-19T23:05:10+00:00,Human,,334,20,6,False,False,False,False,feat: document OCR pipeline with Google Gemini API
+https://www.github.com/51-shenn/sync-field,239f72fa0152512a96f19ffdbd453cbb02d19f03,2026-06-19T22:35:12+00:00,Human,,81,35,2,False,False,False,False,feat: add syncfield logo
+https://www.github.com/51-shenn/sync-field,34c22e94f39d8f712ff18b6b456d36602edabb98,2026-06-19T20:59:46+00:00,Human,,47,2,3,True,True,False,False,"fix: three bugs from real OR-Tools solver test
+
+Bug 2 (dispatcher.py): blanket assigned_to=None wiped standby techs.
+  Only clear assigned_to for technicians who actually got reassigned.
+
+Bug 3 (solver.py): solver.ObjectiveValue() is the combined model total,
+  not per-assignment. Compute priority - distance_penalty per assignment.
+
+Bug 4 (consequence of Bug 2): '0 staff affected' in Scenario 2 because
+  Haziq's T08 assignment was silently erased in Scenario 1. Resolves
+  automatically with Bug 2 fix."
+https://www.github.com/51-shenn/sync-field,ff1baa35aac6ae71998264a808e3835d0d34bac4,2026-06-19T20:54:56+00:00,Human,,4,1,1,False,False,False,False,chore: add repomix-output.* to gitignore
+https://www.github.com/51-shenn/sync-field,8c4f941b196c4e56f9fadb767a252a8d24221020,2026-06-19T20:46:16+00:00,Human,,1354,182,18,False,False,False,False,"Merge pull request #14 from 51-Shenn/feat/supabase-realtime-wiring
+
+[feat] OR-Tools VRP solver, absence handling, data completeness & infrastructure wiring"
+https://www.github.com/51-shenn/sync-field,b968a6db9d9b7e6d8d9fac7bd79497aeb6f65da9,2026-06-19T20:16:31+00:00,Human,,3,0,2,False,False,False,False,"chore: set up Python venv, add ortools deps, ignore .venv/"
+https://www.github.com/51-shenn/sync-field,229dee5d56be674a2d703055095d5d4111813e3a,2026-06-19T19:54:58+00:00,Human,,227,39,3,False,False,False,False,"feat: replace stub VRP solver with OR-Tools CP-SAT joint solver
+
+- Create VRPSolver with CP-SAT: joint N-tech to M-task assignment
+- Hard constraints: skills, inventory, shift time windows
+- Soft constraints: maximize priority score - travel distance penalty
+- FieldOpsDispatcher.process_failure_report() handles the full
+  decision-to-reroute loop in one batch
+- Test demonstrates 3 idle techs jointly reassigned to Site B tasks
+  with correct skill matching, and one true-negative standby"
+https://www.github.com/51-shenn/sync-field,d9ff8d6d93e0ae0eb97470090077d4ab635e27c8,2026-06-19T19:35:54+00:00,Human,,667,20,5,False,False,False,False,"feat: add npm run-sql-file and run-sql scripts for Supabase CLI
+
+- Add dotenv-cli + supabase to devDependencies
+- run-sql-file: executes a SQL file via supabase db query --linked --file
+- run-sql: executes inline SQL text
+- Initialize and link Supabase CLI to project vjebihxnmapvqdxhpdfy
+- Make 001_initial_schema.sql fully idempotent (IF NOT EXISTS guards)"
+https://www.github.com/51-shenn/sync-field,d4e21142191b08cbad66f3389f1b04b984051026,2026-06-19T19:12:41+00:00,Human,,473,139,12,False,False,False,False,"feat: wire up Supabase schema, Realtime, sync_to_supabase & dispatcher dashboard
+
+Schema:
+- Add migration SQL (projects, sites, tasks, technicians, messages,
+  task_events, alerts, resolution_cache) with text task IDs
+- Enable Realtime publication on tasks, task_events, alerts
+
+Python engine:
+- Add sync_to_supabase() to SyncFieldDAG — writes task state + events
+  one-at-a-time for cascade animation timing
+- Add get_supabase_client() singleton in integrations/
+- Add ResolutionCache with hash-based exact-match LLM caching
+
+Frontend:
+- Add @supabase/supabase-js dependency
+- Add dispatcher dashboard page with Realtime subscription
+  (tasks UPDATE + task_events INSERT)
+- Add NEXT_PUBLIC_* Supabase env vars to AGENTS.md"
+https://www.github.com/51-shenn/sync-field,25cfaf800d1bc640bca7e66be40bc3c7bbc7b9b0,2026-06-19T19:05:11+00:00,Human,,4,0,1,False,False,False,False,"docs: add workflow rule — never push to main, always PR"
+https://www.github.com/51-shenn/sync-field,dc1d363d7388852e25e4d348458d73cbcb6101c4,2026-06-19T19:04:09+00:00,Human,,0,23,1,False,False,False,False,chore: remove CodeRabbitAI config
+https://www.github.com/51-shenn/sync-field,bf6d36c350ddb4461e2063177d6c9aa6d33d6003,2026-06-19T19:02:01+00:00,Human,,84,0,3,False,False,False,False,Merge branch 'calaweh'
+https://www.github.com/51-shenn/sync-field,13d54956173abc94f3dc7f06cdea0bbc6040d517,2026-06-19T19:00:49+00:00,Human,,84,0,3,False,False,False,False,"chore: add Dependabot, CodeQL, and CodeRabbit configs"
+https://www.github.com/51-shenn/sync-field,947820aceb69fbfd597688f03683f5d99128502d,2026-06-19T18:57:49+00:00,Human,,9351,8929,31,False,False,False,False,"Merge pull request #2 from 51-Shenn/calaweh
+
+[feat] DAG engine, domain rules layer, failure taxonomy & dispatcher"
+https://www.github.com/51-shenn/sync-field,2bb7c8e0e93a75fdf371e8d2b825479b9ac7cd25,2026-06-19T18:55:25+00:00,Human,,8880,8880,19,False,False,False,False,chore: resolve AGENTS.md merge conflict in stash pop
+https://www.github.com/51-shenn/sync-field,a99a28d91c3e615d5865a32338904bea03235368,2026-06-19T18:54:31+00:00,Human,,206,1,9,False,False,False,False,Merge remote-tracking branch 'origin/main' into calaweh
+https://www.github.com/51-shenn/sync-field,7833ffd16d79fae2da1dfbcf426cf15cb8d38a5f,2026-06-19T18:51:56+00:00,Human,,48,43,1,False,False,False,False,chore: add __pycache__ and *.pyc to .gitignore
+https://www.github.com/51-shenn/sync-field,fc114ccf53ab7c13fc77f2880fd20c31f66e1d8d,2026-06-19T18:51:38+00:00,Human,,209,0,9,False,False,False,False,"Merge pull request #1 from 51-Shenn/nestchao
+
+Nestchao"
+https://www.github.com/51-shenn/sync-field,27d49ded6f836b33b2783023163408d78f417967,2026-06-19T18:50:56+00:00,Human,,0,0,28,False,False,False,False,Merge branch 'main' of https://github.com/51-Shenn/imagine-hack into nestchao
+https://www.github.com/51-shenn/sync-field,50f9017e32967fbf9a8ab9a432fff7d26a5948f6,2026-06-19T18:50:53+00:00,Human,,421,0,11,False,False,False,False,"feat: relocate DAG engine to backend/workflow, add domain rules & dispatcher
+
+- Move dag_engine.py from root to backend/workflow/dag_engine/
+- Add failure taxonomy (RESOURCE, SITE, TECHNICAL, QUALITY) with
+  category-to-role routing and urgency weights (6th priority factor)
+- Add get_affected_technicians() for downstream staff detection
+- Add FieldOpsDomainRules with retry-then-escalate logic
+- Reset attempt_count and failure_category on task COMPLETE
+- Add StubVRPSolver and StubNotifier
+- Add dispatch_decision() to close detection-to-action loop"
+https://www.github.com/51-shenn/sync-field,c3e734d25835d34a3bb96c82870b40ee9caba319,2026-06-19T18:48:29+00:00,Human,,41,0,5,False,False,False,False,"feat: add Telegram voice-to-English transcription with faster-whisper
+
+- Create transcribe.py with faster-whisper wrapper (small model, task=translate)
+- Handle voice messages in listener.py: download .ogg, transcribe, print English, clean up
+- Rename main.py to entry.py (avoids name collision with bot/ package)
+- Add faster-whisper to requirements.txt
+- Ignore Telethon session journal files in .gitignore"
+https://www.github.com/51-shenn/sync-field,551a605bcb44c5353b5415b207c86e32035aed57,2026-06-19T18:25:36+00:00,Human,,0,0,28,False,False,False,False,feat: add placeholder files for empty folders
+https://www.github.com/51-shenn/sync-field,32a09d80af956a14a5a9f3ba55f9e87c9653bf47,2026-06-19T18:23:42+00:00,Human,,0,0,1,False,False,False,False,Merge branch 'main' of https://github.com/51-Shenn/imagine-hack into nestchao
+https://www.github.com/51-shenn/sync-field,0ad2cf48433a283d958b6523f32e1f254558af34,2026-06-19T18:20:32+00:00,Human,,44,2,7,False,False,False,False,refactor: move Python bot to apps/backend/ and update AGENTS.md
+https://www.github.com/51-shenn/sync-field,6d1edff4e7ee29097e965cd879ae42c0073ab362,2026-06-19T18:15:40+00:00,Human,,0,0,1,False,False,False,False,Merge branch 'repo-structure'
+https://www.github.com/51-shenn/sync-field,887bfd7586fe04703a1cb12205a11f35298d4e4d,2026-06-19T18:14:54+00:00,Human,,0,0,1,False,False,False,False,feat: add repo folder structure for fe and be
+https://www.github.com/51-shenn/sync-field,2ce0a4df5974f7a472195311ca747e885683e3ac,2026-06-19T18:08:59+00:00,Human,,8893,2,26,False,False,False,False,Merge branch '5d6eddf' into nestchao: resolve .gitignore conflict
+https://www.github.com/51-shenn/sync-field,2467552c6e5b30e6d4192b49b752a5f1bedc4976,2026-06-19T18:06:29+00:00,Human,,125,0,7,False,False,False,False,"Add bot message listener with Telethon
+
+- main.py: entrypoint, connects to a Telegram group via bot token
+- bot/history.py: fetch last 50 messages (text + photo download) on startup
+- bot/listener.py: live event listener for new messages with photo support
+- config.py: environment-based configuration via .env
+- requirements.txt: telethon, python-dotenv
+- .gitignore: exclude .env, session files, downloads/"
+https://www.github.com/51-shenn/sync-field,5d6eddf9ce6d7023fe96d6f0f942630ecf40b5d9,2026-06-19T17:56:47+00:00,Human,,8891,1,26,False,False,False,False,feat: initialize next.js project with basic setup and files
+https://www.github.com/51-shenn/sync-field,05d04c999a25473a2048f2cfcc1026c91b4be5f9,2026-06-19T13:23:55+00:00,Human,,1,0,1,False,False,False,False,Initial commit

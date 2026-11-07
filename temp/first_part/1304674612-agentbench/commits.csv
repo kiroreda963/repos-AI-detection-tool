@@ -1,0 +1,640 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1304674612/agentbench,f9950663a42ea337b7bfe46755d9e36c62b966e7,2026-07-17T07:52:22+00:00,Human,,316,618,28,False,False,False,False,"docs: update all documentation and version to v0.5.1
+
+- CHANGELOG: add v0.5.1 entry with 15 completed improvements
+- ROADMAP: rewrite with v0.5.1 as current, v0.5.0/v0.4.0 as released
+- TASKS: mark Phase 0-5 as complete, archive historical task list
+- README: update version badge (0.5.0 → 0.5.1), Python SDK badge
+- ARCHITECTURE: update title and version references (v0.3.0 → v0.5.1)
+- Version bump: package.json, 14 provider packages, sdk-python, vscode-extension
+- Source version strings: report-generator.ts, mcp/index.ts
+- Docs: INDEX.md, article-why-agent-testing.md, examples/index.md
+- Web app: page.tsx, reports/route.ts"
+https://www.github.com/1304674612/agentbench,f28e2c00b5800c4d3dddbe0d16f0afe277506d1d,2026-07-17T07:37:20+00:00,Human,,1544,7,22,False,False,False,False,"feat: statistical analysis, provider tests, worker, coverage, indexes
+
+- Add Mann-Whitney U test, power analysis, Bonferroni correction to experiment-engine
+- Create provider tests for OpenAI, Anthropic, Gemini (constructor, capabilities, adapters)
+- Add BullMQ worker entry point for async run/notification/report processing
+- Supplement LangGraph adapter with StateGraphTrace node-level tracing
+- Add composite DB indexes: runs(projectId, createdAt), scores(runId, evaluator)
+- Configure vitest coverage (v8) for all 15 packages + vitest.workspace.ts
+- Create provider consistency contract test suite for validation"
+https://www.github.com/1304674612/agentbench,f41efc9f2afd00baacaea4ecd93acbdd9d7387ca,2026-07-17T07:22:46+00:00,Human,,1615,341,29,False,True,False,False,"chore: comprehensive code quality improvements
+
+- Fix TOOL_USAGE_PROMPT overlapping score ranges (7-8 vs 8-9)
+- Add test/lint scripts and vitest to all provider packages
+- Add test and test:coverage scripts to root package.json
+- Extract magic numbers to named scoring constants (MAX_SCORE, HYBRID_BLEND, etc.)
+- Eliminate as any cast in deepseek provider; wrap remaining type casts in documented helpers
+- Fix N+1 trace step persistence: use batchCreateTraceSteps instead of per-step insert
+- Split StorageAdapter by domain (ISP): RunStorage, ProjectStorage, DatasetStorage, etc.
+- Runner now depends on narrow RunStorage interface instead of full StorageAdapter
+- Add unit tests for deepseek and groq providers
+- Enhance Groq provider with explicit adaptResponse and countTokens
+- Improve CI: add Node.js 20/22 version matrix, extract PNPM_VERSION env var
+- Generate initial Prisma migration (0001_init, 776 lines SQL)
+- Update ARCHITECTURE.md to match actual flat module structure"
+https://www.github.com/1304674612/agentbench,08768a88b88cbe29234037d9f8f0fa19e6604b12,2026-07-15T08:53:01+00:00,Human,,241,0,1,False,False,False,False,docs: design v0.5.1 rc reliability release
+https://www.github.com/1304674612/agentbench,f0b4c921b4b61ef433a2f420447dc438d4507d46,2026-07-15T06:49:13+00:00,Human,,10,1,1,True,True,False,False,"fix: reduce SessionProvider refetch to prevent auth errors
+
+- SessionProvider now uses refetchOnWindowFocus={false} and refetchInterval={0}
+- Reduces unnecessary session fetches that cause NextAuth 'Failed to fetch' errors
+- JWT sessions don't need polling — refreshed on navigation"
+https://www.github.com/1304674612/agentbench,8e39ec1f664aa1a81ccb0663c41959c5a94b5fb2,2026-07-15T06:34:45+00:00,Human,,0,0,1,False,False,False,False,chore: update dashboard screenshot with v0.5.0 features
+https://www.github.com/1304674612/agentbench,cf37f37fdd184e197deecdbda24f5ef926510046,2026-07-15T06:19:47+00:00,Human,,35700,71,70,False,True,False,False,"chore: add coverage, fix CI workflow, sync Python SDK version
+
+- packages/core: add @vitest/coverage-v8 (66% stmts, 73% funcs)
+- .github/workflows/agentbench-ci.yml: fix package filter (agentbench → @agentbench/cli)
+- sdk-python/agentbench/__init__.py: __version__ 0.1.0 → 0.5.0"
+https://www.github.com/1304674612/agentbench,517997dd0da46654b77e33b852763f6ef5f8e3e6,2026-07-15T06:04:45+00:00,Human,,14,14,8,False,True,False,False,"chore: fix hardcoded version strings in source and docs
+
+Source code:
+- report-generator.ts: v0.1.0 → v0.5.0 (2 locations)
+- mcp/src/index.ts: client version 0.1.0 → 0.5.0
+- apps/web landing page: v0.2.0 → v0.5.0
+- apps/web report route: v0.1.0 → v0.5.0
+
+Docs:
+- FAQ.md: remove obsolete v0.1.0/v0.2.0 references, update all Q&As
+- SECURITY.md: remove alpha-era disclaimer
+- README_CN.md: alpha → v0.5.0 stable
+- github-actions.md: v0.3.0 → v0.5.0
+- INDEX.md: package count 15 → 17"
+https://www.github.com/1304674612/agentbench,2294d083f62cda20a24d8489ff762bdac406c3cb,2026-07-15T06:02:04+00:00,Human,,2,2,2,False,False,False,False,chore: sync article and examples index to v0.5.0
+https://www.github.com/1304674612/agentbench,be569d32a7c976f6c2bec819d637a25d37172994,2026-07-15T06:01:00+00:00,Human,,72,6,4,False,False,False,False,"chore: add v0.4.0/v0.5.0 changelog entries, bump Python SDK, sync docs
+
+- CHANGELOG.md: added v0.4.0 and v0.5.0 release entries with highlights and stats
+- sdk-python/pyproject.toml: 0.1.0 → 0.5.0
+- docs/INDEX.md: v0.3.0 → v0.5.0
+- README.md: Python SDK badge 0.2.0 → 0.5.0"
+https://www.github.com/1304674612/agentbench,4f31a720a35bc74390f6260c4099287ebf63148b,2026-07-15T05:56:56+00:00,Human,,27,27,27,False,False,False,False,"chore: sync all source-level versions to 0.5.0
+
+Updated (32 files):
+- core VERSION constant
+- 8 provider package version strings
+- vscode-extension package.json
+- health API endpoint
+- 14 example package.json files
+- example tools.ts version string
+- FAQ.md version reference
+
+Dist files rebuilt. Tests: 380 passed."
+https://www.github.com/1304674612/agentbench,b3fe34ed3ce3749f480e61fbba822a23eb2131a2,2026-07-15T05:48:34+00:00,Human,,20,20,20,False,False,False,False,"chore: bump all package versions to 0.5.0
+
+- 18 package.json files: 0.3.0 → 0.5.0
+- CLI version string: 0.3.0 → 0.5.0
+- init.ts generated package.json: ^0.3.0 → ^0.5.0"
+https://www.github.com/1304674612/agentbench,55ed77a0c323181bb689ac77125b7cdefdfaa32c,2026-07-15T05:46:00+00:00,Human,,11,9,2,False,True,False,False,"chore: sync README badges, roadmap, and init output with v0.5.0
+
+- Version badges: v0.3.0 → v0.5.0 (header + npm)
+- Test count: 391 → 462
+- Roadmap: add v0.4.0 and v0.5.0 milestones, bump future versions
+- Top nav: add Methodology link
+- init --quick output: fix .ts → .js extension reference"
+https://www.github.com/1304674612/agentbench,313fe62fd6d294db3f0e332e5255ea40c865ccf8,2026-07-11T13:54:49+00:00,Human,,3657,35,14,False,False,False,False,"feat: complete Phase 1-3 roadmap — pyramid, anti-patterns, ecosystem, dashboard, marketplace action
+
+Phase 1 — Ecosystem Embedding:
+- docs/ecosystem/vercel-ai-sdk-integration.md
+- docs/ecosystem/claude-code-custom-agents.md
+- docs/ecosystem/langchain-crewai-integration.md
+- docs/ecosystem/README.md (index)
+
+Phase 2 — Agent Testing Mental Model:
+- docs/agent-testing-pyramid.md (635 lines, 3-layer strategy)
+- docs/agent-testing-anti-patterns.md (812 lines, 8 patterns)
+- apps/web/src/features/runner/failure-guidance.tsx (guided triage for test failures)
+- apps/web/src/features/trends/quality-trends.tsx (SVG chart, 7/14/30d)
+- Dashboard integration: trends on main page, guidance on run detail
+- README.md: added Testing Methodology section + doc links
+
+Phase 3 — Scale:
+- action.yml: GitHub Marketplace composite action (shield branding, PR annotations)
+- .github/workflows/example-agentbench-action.yml: reference workflow
+
+All TypeScript: 0 errors. All builds: pass."
+https://www.github.com/1304674612/agentbench,1e5e521aa70da0bf264743b858bd803148ba1405,2026-07-11T13:21:26+00:00,Human,,8368,5304,282,False,True,False,False,"feat: add --quick mode, fix all TS errors, rewrite Quick Start
+
+--quick mode (agentbench init --quick):
+- Zero-prompt scaffolding: auto-detect keys, skip prompts, force overwrite
+- Auto-generates package.json + runs npm install for @agentbench/core
+- Immediately runs agentbench test after scaffolding
+- Exit code follows test results (0 pass / 1 fail)
+- Forces JS mode for instant runnability (no TS compilation needed)
+- Suppresses all verbose output for clean UX
+
+Test runner fallback:
+- When @agentbench/core not installed, resolves from CLI's node_modules
+- Creates symlink in project so dynamic imports work without npm install
+
+Core API (packages/core/src/agent.ts):
+- createAgent(config): creates agent with .chat() method
+- defineSuite/defineTest: identity functions for type-safe test definitions
+- Mock responses when no API key configured
+
+Dataset:
+- loadCsvDataset() convenience function for CSV dataset loading
+
+Templates:
+- Fixed extensionless relative imports (add .js for ESM compatibility)
+
+TypeScript fixes (all packages: 0 errors):
+- Excluded *.test.ts from main tsconfig in core, config, provider-utils
+- Fixed unused import in CLI benchmark.ts
+- Fixed possibly-undefined in CLI test.ts
+
+README Quick Start:
+- Replaced verbose intro with 2-line install -> green PASS flow
+- Added 5-line first test example
+- Simplified next-steps to 4 bullets
+
+Biome: auto-formatted 278 files"
+https://www.github.com/1304674612/agentbench,37177186b40fe8586cfcfcb72cab6d45dcc6f87d,2026-07-10T08:36:49+00:00,Human,,0,0,1,False,False,False,False,feat: replace screenshot with real dashboard capture
+https://www.github.com/1304674612/agentbench,19d8722871c43734b1ef7015003e6d570ef38b90,2026-07-10T08:35:48+00:00,Human,,4,0,2,False,False,False,False,feat: add dashboard screenshot to README
+https://www.github.com/1304674612/agentbench,c97251189d9c185233dbbe88daed1e35a54cd090,2026-07-10T07:34:14+00:00,Human,,10,4,4,False,False,False,False,"feat: add GPT-5, GPT-5 Mini, GPT-5 Nano, o5 models across provider and web UI"
+https://www.github.com/1304674612/agentbench,939a97cb0293d65d9c47369b0bc1eea16364a424,2026-07-10T07:32:11+00:00,Human,,10,10,2,True,True,False,False,fix: remove version numbers from all model labels — use clean provider names
+https://www.github.com/1304674612/agentbench,351d843fbd9dc70b802a0b256813aa9a2e832637,2026-07-10T07:31:08+00:00,Human,,4,4,2,True,True,False,False,fix: remove version numbers from DeepSeek labels — deepseek-chat always points to latest
+https://www.github.com/1304674612/agentbench,246ebcd83722c21d4971cbf598023efabbbfa567,2026-07-10T07:29:31+00:00,Human,,1,0,1,False,False,False,False,docs: add Web Dashboard Guide link to README
+https://www.github.com/1304674612/agentbench,61d8c128d93713b7714f0553b94ea78d7525f979,2026-07-10T07:27:19+00:00,Human,,4,0,2,False,False,False,False,feat(web): add DeepSeek Chat (V3) and DeepSeek Reasoner (R1) to model options
+https://www.github.com/1304674612/agentbench,3650952cd9533f1effc72cee70ff72a9f81e49c5,2026-07-10T07:25:19+00:00,Human,,156,0,3,False,False,False,False,docs: add Web Dashboard guide + FAQ for new users — explains Dashboard vs CLI workflow
+https://www.github.com/1304674612/agentbench,cf49da563f902d210d36d074d3d4717c619c938c,2026-07-10T07:21:51+00:00,Human,,180,137,1,False,False,False,False,feat(web): compare page — dropdown run selectors instead of manual ID input
+https://www.github.com/1304674612/agentbench,230fabf9f0f87d1ccfd44ad10868e50076462b1b,2026-07-10T07:19:53+00:00,Human,,10,7,1,True,True,False,False,"fix(web): accurate dashboard stats — pass rate excludes pending, shows suites/cases/cost"
+https://www.github.com/1304674612/agentbench,09f837365cd10da59a327aa783eb829a954d11f0,2026-07-10T07:16:11+00:00,Human,,117,0,2,True,True,False,False,fix(web): working Cmd+K search bar — command palette with keyboard navigation
+https://www.github.com/1304674612/agentbench,eea6779e05cd008a05491b0882d1c7065508af4b,2026-07-10T07:14:05+00:00,Human,,118,158,2,True,True,False,False,fix(web): working search bar on /runs page via URL params
+https://www.github.com/1304674612/agentbench,071e8324f0e62646817f3f41c703b281cc59af6a,2026-07-10T07:07:53+00:00,Human,,6,6,2,True,True,False,False,fix(web): replace conditional JSX with CSS visibility to prevent React insertBefore error
+https://www.github.com/1304674612/agentbench,8aa77c2f73ab85abe7d9ec7131b839f8ab3db49e,2026-07-10T07:04:44+00:00,Human,,4,6,1,True,True,False,False,fix(web): React insertBefore error — wrap conditional icons in stable span
+https://www.github.com/1304674612/agentbench,42331ff8484128f8156a07a820ccb7de6ebfc77f,2026-07-10T07:01:51+00:00,Human,,3,10,1,True,True,False,False,"fix(web): expected output field now accepts plain text keywords, not JSON"
+https://www.github.com/1304674612/agentbench,434e6dcc1325060b2c6299d506dcc0c0289e1560,2026-07-10T06:43:29+00:00,Human,,14,27,5,False,False,False,False,docs: use static PNG for star history chart
+https://www.github.com/1304674612/agentbench,d4335a89210880b65faafa887c024f5f0feaa809,2026-07-10T06:41:04+00:00,Human,,8,7,4,True,True,False,False,"fix: move star history to static repo image — no rate limits, no API dependency
+
+## Changes
+- Create assets/star-history.svg — static chart image committed to repo
+- Update README: use raw.githubusercontent.com URL (never rate-limited)
+- Update heading to ⭐ Star History
+- Update GitHub Action to write to assets/ directory
+- Keep star-history.com link for interactive version"
+https://www.github.com/1304674612/agentbench,9fda172b5282aa371c2386a9d8d38a3c2cdc1bcd,2026-07-10T06:39:35+00:00,Human,,4,5,1,False,False,False,False,docs: move star history below community section
+https://www.github.com/1304674612/agentbench,b261bf4b9186fdc300a71286d1ebbeb989acea74,2026-07-10T06:35:39+00:00,Human,,4,9,1,False,True,False,False,docs: fix star history — use official markdown format (GitHub compatible)
+https://www.github.com/1304674612/agentbench,494f27d999d31ee71350242f372812a54a60a941,2026-07-10T06:32:06+00:00,Human,,8,6,1,False,True,False,False,docs: fix star history chart — use api.star-history.com/svg (no token needed)
+https://www.github.com/1304674612/agentbench,147eb3a88e4f7fc8090319ac29ccf50b01ed9373,2026-07-10T06:30:00+00:00,Human,,102,15,4,False,False,False,False,feat: auto-generated star history chart via GitHub Action (daily update)
+https://www.github.com/1304674612/agentbench,8d139fe79134676b3962565c749e3639a7ef6325,2026-07-10T06:27:46+00:00,Human,,4,6,1,False,False,False,False,docs: simplify star history — link to star-history.com (embed requires auth)
+https://www.github.com/1304674612/agentbench,9a40fa086d7b5e7294c22c48f195807ab93454f6,2026-07-10T06:26:31+00:00,Human,,8,2,1,False,False,False,False,"docs: update star-history with sealed_token — dark/light mode, real-time chart"
+https://www.github.com/1304674612/agentbench,76e39370a4be857f699582d4b4dd8b6b5c8accce,2026-07-10T06:25:03+00:00,Human,,32,0,1,False,False,False,False,ci: add daily star chart data collection workflow
+https://www.github.com/1304674612/agentbench,319d39fe9d28ac3d2a7d84db466b991b06a93413,2026-07-10T06:18:08+00:00,Human,,4,6,1,False,False,False,False,docs: move star-history chart to bottom of README
+https://www.github.com/1304674612/agentbench,233b59d3a25a449cf43472d1e3bea99220c14c07,2026-07-10T06:16:14+00:00,Human,,6,0,1,False,False,False,False,docs: add star-history chart to README
+https://www.github.com/1304674612/agentbench,8ec37ecebb8345ee52b53ffb711f0ae8d3f6b7e9,2026-07-10T06:04:22+00:00,Human,,96,66,6,True,True,False,False,"fix(web): synthesize UI fixes — fetch migration, form validation, navigation
+
+Fetch migration (7 files, 19 calls migrated to client-fetch):
+- compare/page.tsx: migrate raw fetch to apiPost with ApiFetchError handling
+- signup/page.tsx: migrate raw fetch to apiPost with structured errors
+- notification-dropdown.tsx: migrate 4 raw fetch calls to apiFetch,
+  replace window.location.href with router.push for client-side nav
+- settings/page.tsx, experiments/new/page.tsx, datasets/page.tsx,
+  tests/new/page.tsx: previously committed apiFetch/apiGet/apiPost migrations
+
+Form validation (3 files):
+- datasets/page.tsx: field-level validation with fieldErrors state —
+  name (2-100 chars), project (required), file (required + extension check),
+  red border + inline error message UI for each field
+- tests/new/page.tsx: inline error display for expected field validation
+- experiments/new/page.tsx: variant-level validation for name, systemPrompt,
+  temperature, maxTokens
+
+Navigation:
+- sidebar.tsx: add isActive() helper using exact match OR startsWith(href+'/')
+  to fix overlapping active-state bug where /settings and /settings/api-keys
+  both lit up simultaneously
+
+Build: pnpm build passes cleanly (36/36 pages, 0 errors)"
+https://www.github.com/1304674612/agentbench,9ce66ec1bd2fc64fd7b575c41d36bddc42c0db33,2026-07-10T05:55:29+00:00,Human,,334,147,4,True,True,False,False,"fix(web): migrate fetch to apiFetch + add form validation (partial — agents still running)
+
+- tests/new: apiGet/apiPost with ApiFetchError handling + field validation
+- experiments/new: apiGet/apiPost with error handling + variant validation
+- datasets: apiGet/apiPost with error handling + import validation
+- 270+ lines improved across 3 files"
+https://www.github.com/1304674612/agentbench,fd99da7fb2754a7015ded49b75040bc464aa0bc0,2026-07-10T05:48:11+00:00,Human,,221,0,12,True,True,False,False,"fix(web): UI improvements — loading states, error boundaries, client fetch utility
+
+## Added
+- 8 loading.tsx files: experiments/new, tests/new, datasets, settings, compare, coverage, snapshots, projects
+- 3 route-level error boundaries with retry + back navigation
+- Shared client-fetch.ts with ApiFetchError, apiGet, apiPost, apiDelete
+
+## Fixed
+- All routes now show loading spinner during navigation (previously blank)
+- Route-level errors now show recovery UI instead of crashing entire page
+- Client fetch utility provides consistent error handling for future use"
+https://www.github.com/1304674612/agentbench,a2546973514833167be61329eeb8920d62d0cfdd,2026-07-10T05:42:56+00:00,Human,,6,1,1,True,True,False,False,"fix: middleware now passes through API key auth to route-level withApiAuth()
+
+- middleware.ts: skip blocking API requests with Authorization: Bearer header
+- This allows API key auth to work correctly with route-level withApiAuth() wrapper
+- E2E verified: register → project → suite → cases → run → view all pass"
+https://www.github.com/1304674612/agentbench,15e960f7e2af61069a7405a27514edd7a387ade1,2026-07-10T05:35:29+00:00,Human,,145,84,3,True,True,False,False,"fix: resolve remaining build errors — withApiAuth type signature, seed.ts schema compliance
+
+- Fix withApiAuth TypeScript overloads for Next.js 15 RouteContext compatibility:
+  Static routes return 1-arg function; dynamic routes return 2-arg function
+  with properly typed params (no |undefined on second arg)
+
+- Fix prisma/seed.ts type errors:
+  - Replace content: null with removed lines (Prisma String? rejects null)
+  - Replace direct projectId filter on TestCase with suite.projectId relation
+  - Move split/labels from DatasetItem columns into metadata JSON field
+  (schema has input/expected/metadata/sortOrder only)
+
+- Update docs/v0.3/CODE_REVIEW.md:
+  - Mark all P0 items as FIXED in summary tables
+  - Add comprehensive fix record section documenting all 6 fix categories
+  - Record build verification (15/15 packages, 0 errors)
+  - Record test results (492 passing across 4 packages)
+
+Build: pnpm build — 15/15 packages, 0 errors
+Tests: 492 passing (38 config + 44 provider-utils + 380 core + 30 web)"
+https://www.github.com/1304674612/agentbench,e4e3d1b30b25b8e06044d8aaf46c2ca7b41ea4d7,2026-07-10T05:26:33+00:00,Human,,2056,630,47,True,True,False,False,"fix: P0+P1 code review fixes — auth, errors, tests, naming
+
+## Fixed (4 of 5 agents complete)
+- 🔒 Auth: 14 API routes now protected with withApiAuth()
+- 🚨 Errors: 18 files, 32 swallowed catches now log + return properly
+- 📛 Naming: 3 class aliases + 4 factory function aliases + 1 type union updated
+- 🧪 Tests: 82 new tests (config: ~15 tests, provider-utils: ~67 tests)
+- 🔄 Dedup: agent still running
+
+## Details
+- webhooks: made secret check mandatory
+- health check: now includes error details in response
+- register: proper error logging + user feedback
+- notifications: error logging added
+- dev.ts: all 4 empty catches now log context
+- All new API routes (datasets, experiments, settings, api-keys) now have auth
+- Provider type union unified across evaluator.ts, run.ts, benchmark.ts"
+https://www.github.com/1304674612/agentbench,0d072b27be7225eddd1bed78204bb6ea2395e874,2026-07-10T04:33:38+00:00,Human,,94,32,1,False,False,False,False,"docs: update code review with workflow agent findings — 11 swallowed errors, 9 unprotected API routes, 15 untested packages"
+https://www.github.com/1304674612/agentbench,99ab2772f01e6b809030e3718213b4c3c744abcc,2026-07-10T04:30:18+00:00,Human,,210,0,1,False,False,False,False,"docs: comprehensive code review report — 8 dimensions, 39,659 lines audited"
+https://www.github.com/1304674612/agentbench,7966464451b5d3e4539bf1db039c041c39ccb745,2026-07-10T04:16:14+00:00,Human,,2772,19,14,False,False,False,False,"feat(web): complete dashboard CRUD — tests/new, experiments/new, datasets, settings, API keys
+
+## New Pages (HTTP 200 verified)
+- /tests/new — Create test suite with dynamic test case builder
+- /experiments/new — Create A/B experiment with variant config cards
+- /datasets — Real dataset management (import modal, list, empty state)
+- /settings — Profile + API Keys + Project Settings tabs
+
+## New API Routes
+- /api/v1/datasets — CRUD with pagination + search
+- /api/v1/datasets/[id]/items — Paginated items
+- /api/v1/datasets/import — CSV/JSON/JSONL file upload with split support
+- /api/v1/datasets/[id]/export — CSV/JSON/JSONL download
+- /api/v1/experiments — List + create with variants
+- /api/v1/settings — GET/PATCH user + project settings
+- /api/v1/api-keys — Generate + list + revoke API keys"
+https://www.github.com/1304674612/agentbench,dcdec8510675b0b31e90fb8fda0f690215c444b0,2026-07-10T03:58:06+00:00,Human,,36,43,12,True,True,False,False,"fix: build errors — remove override keywords, fix export conflicts, fix optional chaining
+
+- packages/openai: fix extra closing brace, remove unused AgentBenchProvider import, rename StreamingChunk -> OpenAIStreamingChunk
+- packages/anthropic: remove unused AgentBenchProvider import
+- packages/gemini: remove unused AgentBenchProvider import
+- packages/groq/deepseek/ollama/azure-openai/openrouter: remove override keywords
+- packages/core: fix duplicate Dataset type exports between types/ and dataset/
+- apps/cli: fix spinner?.text assignment (optional chaining not valid for assignment)
+- Build: 14/15 packages compile successfully (web needs prisma generate)"
+https://www.github.com/1304674612/agentbench,438df4b89ca9a1d298c91ad09edcbcab28fe1cbf,2026-07-10T03:43:16+00:00,Human,,168,4,4,False,True,False,False,"chore: final officialization — article, CI badge, npm rename
+
+- docs/article-why-agent-testing.md — official origin story
+- README: add CI badge + origin story quote + fix npm install command
+- apps/cli: rename package from agentbench to @agentbench/cli (agentbench taken on npm)
+- docs/INDEX.md: add Origin Story section"
+https://www.github.com/1304674612/agentbench,5858ca957ae6b9991daca91ad24ddb8fa7fbeeab,2026-07-10T03:22:02+00:00,Human,,16135,890,31,False,False,False,False,"docs: complete documentation — 40 pages, 22,000+ lines (Diátaxis structure)
+
+## Documentation Architecture
+
+### Tutorials (Getting Started)
+- GETTING_STARTED.md — 5-minute quick start flow (rewritten for v0.3.0)
+- ARCHITECTURE.md — 15-package architecture (updated)
+
+### Core Concepts (6 new pages, 2,722 lines)
+- replay.md — Deterministic/cross-model/batch replay
+- assertions.md — Chainable DSL, 25 matchers across 6 categories
+- evaluation.md — 14 rule evaluators + 8 LLM judges + hybrid
+- coverage.md — 4D model: prompt/workflow/tool/edge
+- snapshots.md — Snapshot testing for non-deterministic agents
+- non-determinism.md — 5-layer defense strategy
+
+### How-To Guides (8 new pages, 5,499 lines)
+- testing-openai-agents.md — OpenAI provider, streaming, o-series
+- testing-anthropic-agents.md — Claude, extended thinking, tool use
+- ci-cd-integration.md — GitHub/GitLab/CircleCI + JUnit
+- github-actions.md — Composite action, PR comments, check runs
+- custom-providers.md — Build providers with OpenAICompatibleProvider
+- custom-judges.md — Custom LLM judge dimensions
+- dataset-management.md — 7-format import/export, versioning
+- migration-guide.md — v0.2.0 → v0.3.0 checklist
+
+### Reference (4 new pages, 3,375 lines)
+- cli.md — All 13 commands with subcommands and flags
+- config.md — Complete agentbench.config.ts reference
+- assertion-dsl.md — All 22 matchers API reference
+- api.md — REST API, 50+ endpoints with curl examples
+
+### Cookbook (5 new pages, 1,985 lines)
+- catching-prompt-regressions.md
+- model-migration-testing.md
+- cost-budget-enforcement.md
+- safety-testing.md
+- agent-ab-testing.md
+
+### Community
+- CONTRIBUTING.md — Dev setup, add provider/judge/example
+- BEST_PRACTICES.md — Testing philosophy, workflow, snapshots
+- examples/index.md — All 14 examples indexed by difficulty
+- FAQ.md — 20+ questions (7 new for v0.3.0)
+- INDEX.md — Diátaxis-structured navigation hub
+- ROADMAP.md — v0.3 → v1.0 plan"
+https://www.github.com/1304674612/agentbench,4b3a5d406d8ad6b15146addce3ea89a85fc0dbfa,2026-07-10T02:57:34+00:00,Human,,28203,799,235,False,False,False,False,"release: v0.3.0 — Developer Experience & Ecosystem
+
+## 🎯 重新定义 AI Agent 测试标准
+
+### 🚀 5 分钟上手
+npm install -g agentbench && agentbench init && agentbench test
+
+### ✨ 核心变更
+
+**DX 重新设计 (最高优先级)**
+- 全新交互式 agentbench init: ASCII Logo + 5步引导 + API Key 自动检测
+- Jest 风格 agentbench test: watch/coverage/replay/json/junit/ci 模式
+- 零配置理念: 智能默认值，渐进式披露
+
+**配置系统 (2 个新 Package)**
+- @agentbench/config: defineConfig()、Jest风格配置解析、Zod 校验、异步配置
+- @agentbench/provider-utils: Provider SDK、OpenAICompatibleProvider 基类、CostCalculator(50+模型)、TokenCounter(tiktoken+启发式)
+
+**Provider 生态 (6 个新 Provider, tsc --noEmit 通过)**
+- @agentbench/gemini: 原生 Google Generative AI API (611行)
+- @agentbench/deepseek: OpenAI 兼容 + reasoning models
+- @agentbench/azure-openai: Azure AD 认证
+- @agentbench/openrouter: 200+ 模型透传
+- @agentbench/groq: 超快推理 (11 个模型)
+- @agentbench/ollama: 本地运行、零成本、自动检测
+
+**14 个官方 Examples (从 3 个扩展)**
+- hello-agent · rag-agent · sql-agent · coding-agent · tool-calling-agent
+- mcp-agent · langgraph-agent · openai-agent-sdk · crewai-agent
+- llamaindex-agent · multi-agent-workflow
+- 每个含 README + agent源码 + 测试套件 + dataset + CI配置
+
+**Dataset 系统**
+- 7种格式导入导出 (CSV/JSON/JSONL/HuggingFace/OpenAI Evals/DeepEval/LangSmith)
+- validate/split(分层抽样)/sample/version/diff · 600+行测试 · CLI 10个子命令
+
+**VS Code 插件 (15文件)**
+- 13条命令 · CodeLens(▶Run·🐛Debug·📊Replay) · TreeView侧边栏
+- StatusBar状态栏 · Diagnostics问题面板 · TraceViewer轨迹可视化
+
+**GitHub 集成**
+- Actions CI/CD · 复合 Action · PR 评论模板(评分表+回归检测+成本追踪)
+
+**Benchmark Marketplace**
+- 完整类型系统 · CLI 7个子命令 · 14个分类
+
+**品牌 & 文档**
+- 全新 README: Jest 类比定位 · 竞品对比 · 14个Example索引
+- CHANGELOG v0.3.0 条目 · ROADMAP v0.3→v1.0
+- 15章节产品设计文档 · 实施状态追踪
+
+### 📊 最终数据
+- 15 packages (+7) · 14 examples (+11) · 13 CLI commands (+2)
+- 8 providers (+6) · 274 TypeScript files · 235 files changed
+- +28,203 / -799 lines"
+https://www.github.com/1304674612/agentbench,b029f6a37d03afe9127bae83a4dcd29355313aeb,2026-07-10T02:16:04+00:00,Human,,8,0,12,False,False,False,False,"chore: add Python .gitignore, remove __pycache__ from tracking"
+https://www.github.com/1304674612/agentbench,40c74f22faebfb6e99b40fb69526bb353fe843d1,2026-07-10T02:14:57+00:00,Human,,21179,1184,182,False,False,False,False,"release: v0.2.0 — Production release with 12 work streams
+
+## P0: Critical Foundations
+- feat(auth): Full NextAuth.js v5 + GitHub/Google OAuth + middleware
+- feat(tests): 342 unit tests across 14 test files (was 51 in 3)
+- feat(streaming): StreamCapture class + OpenAI/Anthropic streaming interceptors
+
+## P1: Ecosystem Expansion
+- feat(langgraph): New @agentbench/langgraph package with real adapter
+- feat(prod): Rate limiting, health check, Zod validation, CORS, error handler
+- feat(examples): 3 example projects (customer-support, code-review, research)
+- feat(python): Full Python SDK — 15 files, 49 tests, PyPI-ready
+
+## P2: Polish & Delivery
+- refactor(cli): 734-line single file → 11 command modules + 4 shared libs
+- refactor(ui): 8 shared UI components + 7 feature components
+- feat(notifications): Email (nodemailer) + in-app notification system
+- feat(seo): Full metadata, OG images, sitemap, robots.txt, PWA manifest
+- feat(publish): All 5 packages build to dist/, Dockerfile, compose.prod, Changesets
+
+## Stats
+- Tests: 51 → 391+
+- Packages: 8 → 9 (+ @agentbench/langgraph)
+- CLI commands: 8 → 11
+- API endpoints: 18 → 20
+- TypeScript files: 100+ → 150+
+- Python SDK: new (49 tests)"
+https://www.github.com/1304674612/agentbench,b475183d60d45487113448fafd0de2f9c3a73189,2026-07-09T14:21:15+00:00,Human,,2,2,2,False,False,False,False,chore: update security contact to zhoujiankai1014@gmail.com
+https://www.github.com/1304674612/agentbench,4afabee60da6861a1618d2a58ed97042f31b3765,2026-07-09T13:59:43+00:00,Human,,241,230,1,False,False,False,False,"docs: official-grade README — professional product homepage style
+
+Visual overhaul:
+- Centered hero banner with SVG shield badge
+- Badges grouped by category (platform vs quality)
+- Quick links nav bar between hero and content
+- Two-column layout for Comparison / Quick Start / Features
+- Collapsible matchers table (details/summary)
+- Ecosystem table with status badges
+- Dual-column project stats table
+- Full project tree with module descriptions
+- Documentation links table (10 docs)
+- Community section with emoji links
+- Professional footer with license and star CTA"
+https://www.github.com/1304674612/agentbench,c2f0bec31c481fd16cf2cc80c41c2c72a3337d6c,2026-07-09T13:56:09+00:00,Human,,438,138,1,False,False,False,False,"feat(web): official product-grade landing page redesign
+
+- Sticky nav with backdrop blur, docs/API/CLI/Release links
+- Hero: gradient text, animated pulse badge, stats bar (5 metrics)
+- Syntax-highlighted code demo (8 assertion examples with colors)
+- CLI section: terminal output + 8-command quick reference panel
+- Ecosystem: 4 SDK package cards
+- Footer: 4-column links (Docs/Community/Project) with proper nav
+- Responsive: mobile-first, hidden elements on small screens"
+https://www.github.com/1304674612/agentbench,eb659107883502b690781b53e14565cb93133bd1,2026-07-09T13:53:35+00:00,Human,,200,0,3,False,False,False,False,"docs: official community docs — CONTRIBUTING, SECURITY, CODE_OF_CONDUCT"
+https://www.github.com/1304674612/agentbench,4cf78267d56759ba420592eb9d4e61643b776435,2026-07-09T13:47:07+00:00,Human,,1385,2,9,False,False,False,False,"docs: wiki-style documentation — 7 new docs, comprehensive reference
+
+📖 Documentation Hub (docs/INDEX.md):
+- Wiki-style table of contents with role-based reading paths
+- Quick navigation by use case
+
+📚 New Documents:
+- GETTING_STARTED.md — step-by-step 10-section tutorial
+- API_REFERENCE.md — complete 18-endpoint reference with examples
+- CLI_REFERENCE.md — 8-command reference with all options
+- SDK_GUIDE.md — @agentbench/openai, anthropic, mcp, adapter usage
+- FAQ.md — 20+ common questions with troubleshooting
+- GLOSSARY.md — A-Z terminology (50+ terms defined)
+- INDEX.md — documentation hub
+
+🔗 Updated READMEs:
+- README.md and README_CN.md now link to docs/INDEX.md
+- All docs cross-reference each other with '→ back to index' links"
+https://www.github.com/1304674612/agentbench,c5a22e7bef4c3d7ba47df1851461c1bc9a8ae84e,2026-07-09T13:35:56+00:00,Human,,376,4,3,False,False,False,False,"docs: Chinese technical documentation (README_CN.md), v0.1.0 tag, updated badges
+
+- README_CN.md: comprehensive Chinese technical manual (features, DSL, CLI, API, architecture, deployment)
+- README.md: updated badges (51/51 tests, v0.1.0 release, 0 TS errors)
+- Landing page: updated status to v0.1.0 Released
+- Git tag v0.1.0 pushed"
+https://www.github.com/1304674612/agentbench,dca9f0c3ac0e13cb57533f12ff29864f6eaa98aa,2026-07-09T13:32:13+00:00,Human,,1912,1,10,False,False,False,False,"feat: testing, auth, and v1.0 release preparation
+
+🧪 TESTS (51/51 passing):
+- Unit tests for json-validator (deepEqual, validateJsonNode, truncate, countOccurrences)
+- Unit tests for token-counter (estimateTokens, costCalculator, model pricing)
+- Unit tests for rule-evaluator (all 14 rule types + aggregate)
+- Integration test suite for 18 API endpoints
+- Vitest config with v8 coverage
+
+🔐 AUTH:
+- Auth module: API key validation, generation, SHA-256 hashing
+- API middleware: withApiAuth() wrapper, checkAuth(), requireWrite/Admin
+- Alpha mode: accepts 'ab-' prefixed keys, anonymous read-only fallback
+- Auth context with scopes (read/write/admin)
+
+📝 v1.0 RELEASE:
+- CHANGELOG.md with full feature listing and stats
+- Version roadmap through v0.1 → v1.0.0"
+https://www.github.com/1304674612/agentbench,fd2f5f1c08055832e2ace28f797ea8161d266ae5,2026-07-09T13:22:47+00:00,Human,,15,12,2,False,False,False,False,"docs: update README & landing page — all 7 phases complete, v0.1.0 ready
+
+- Add TS_Errors=0 and E2E=95% badges
+- Update roadmap: all 7 phases marked complete
+- Landing page: 'All 7 Phases Complete' status badge
+- Add deployment guide link to README"
+https://www.github.com/1304674612/agentbench,284f598ba68417581acaa773a6f3da77bd521f52,2026-07-09T13:22:08+00:00,Human,,4,4,3,True,True,False,False,"fix: resolve production E2E test blockers
+
+- Fix CLI dev script: tsup --watch → tsc --watch --noEmit (tsup had no config)
+- Make Project.ownerId optional in Prisma schema (alpha, no auth system yet)
+- Remove hardcoded ownerId from project creation route
+- Project now passes all E2E CRUD tests (19/20, 95%)
+
+Tested: Project/Suite/TestCase CRUD, Run creation/evaluation, Snapshot,
+Replay, Compare, Reports (4 formats), Coverage, Datasets, Webhooks,
+Edge cases (400/404)"
+https://www.github.com/1304674612/agentbench,f08f5e9f528d40b9976deae22d14fa22d99cbb74,2026-07-09T13:11:31+00:00,Human,,354,322,24,True,True,False,False,"fix: resolve all 37 code review findings from audit
+
+CRITICAL BUGS:
+- Fix tokenCounter.count() → estimateTokens() in openai & anthropic SDKs
+- Fix costCalculator.calculate() signature (positional args, not object) in SDKs
+- Fix evaluate route: case-insensitive trace step type matching (lowercase vs UPPERCASE)
+
+SECURITY:
+- Mark Prisma JSON fields with 'as any' to satisfy strict Prisma 6.x types
+- Add PrismaClient connection logging config
+
+DUPLICATE CODE:
+- Extract validateJsonNode/deepEqual/truncate to shared utils/json-validator.ts
+- Refactor rule-evaluator.ts and output-matchers.ts to import from shared utils
+- Create utils/index.ts barrel export
+
+QUALITY:
+- Complete CLI 'init' command (now generates agentbench.config.ts)
+- Complete CLI 'experiment run/results' commands (API integration)
+- Complete CLI 'config set/get' commands (.env.agentbench persistence)
+- Fix MCP connect() no longer misclassified as LLM call in traces
+- Add error handling to MCP readResource()
+- Add _emitError helper to MCP wrapper
+
+INFRA:
+- Remove obsolete 'version' field from docker-compose.yml
+- Add .env to .gitignore (keep .env.example)
+- Fix Prisma schema: remove uuid_ossp, rename fullTextSearch→fullTextSearchPostgres
+- Fix missing opposite relation fields (Snapshot.run, ExperimentRun.variant, AuditLog.project)
+
+TYPE SAFETY:
+- Fix all 5 pre-existing TS errors (add type annotations)
+- Fix Prisma strict JSON typing across 12+ API routes
+- Final: packages/core 0 errors · apps/web 0 errors"
+https://www.github.com/1304674612/agentbench,8e3a9abc259ea249de69a96599656402782c7c66,2026-07-09T12:37:48+00:00,Human,,500,303,4,False,False,False,False,"feat(web,docs): Phase 7 — Polish & Release (Dashboard, Landing Page, Deployment Guide)
+
+- Dashboard: real-time stats from database (pass rate, avg tokens, cost, latency), pass/fail distribution bars, recent runs feed, quick actions
+- Loading skeleton: animated pulse placeholders for dashboard
+- Landing page: hero section with gradient text, feature grid (6 cards), code demo (assertion DSL), CLI demo (terminal output), CTA, footer
+- Deployment guide: Docker Compose, Vercel one-click, manual setup, env vars reference, scaling strategy, backup commands
+- Root page.tsx serves as the public landing page; dashboard at /dashboard"
+https://www.github.com/1304674612/agentbench,6e7b656721b453ae2729c25a865d20e2b7cb8867,2026-07-09T12:35:30+00:00,Human,,927,0,7,False,False,False,False,"feat(core,web,ci): Phase 6 — Platform Features (Reports, Datasets, CI/CD, Webhooks)
+
+- Reporter Engine: JSON, Markdown, styled HTML, JUnit XML report generation; single-run and batch reports
+- Reports API: GET endpoint with format query (?format=json|markdown|html|junit), file download with Content-Disposition
+- Datasets API: CRUD, CSV/JSON/JSONL import with auto-parsing, train/test/validation split
+- Webhook endpoint: GitHub + GitLab CI + generic CI triggers, secret verification, auto-creates CI-tagged runs
+- GitHub Actions workflow: full CI pipeline (pnpm install → typecheck → migrate → test → report → webhook callback)
+- Reporter module added to @agentbench/core exports"
+https://www.github.com/1304674612/agentbench,585314b631f891267f7f096b731538f22508dc21,2026-07-09T12:31:19+00:00,Human,,1367,0,12,False,False,False,False,"feat(sdk): Phase 5 — SDK Ecosystem (OpenAI, Anthropic, MCP, Generic Adapter)
+
+- @agentbench/openai: Full client wrapper with chat completions, streaming, automatic token counting (tiktoken), cost calculation, step-level tracing
+- @agentbench/anthropic: Claude messages.create wrapper with streaming, system prompt support, tool use interception, cost tracking
+- @agentbench/mcp: MCP client wrapper for tool calls and resource access with full tracing, initialize/list_tools/call_tool/read_resource
+- @agentbench/adapter: Generic adapter base class, factory functions for LangGraph/CrewAI/LlamaIndex, adapter registry for discovery
+- Each SDK: package.json, tsconfig.json, typed exports, zero runtime dependencies beyond @agentbench/core"
+https://www.github.com/1304674612/agentbench,5e7e9ca8781080c289f2b5d8f6173b0ae69c955b,2026-07-09T12:28:40+00:00,Human,,832,1,5,True,True,False,False,"fix: unignore coverage source files — add coverage engine, API route, and dashboard
+
+The .gitignore rule 'coverage/' was ignoring all coverage directories including source code.
+Added exceptions for src/coverage/ and api/**/coverage/ paths."
+https://www.github.com/1304674612/agentbench,2271c9eca8b6d1683bdb9c63de96e224c5787c67,2026-07-09T12:27:26+00:00,Human,,867,13,6,False,False,False,False,"feat(core,web): Phase 4 — Experiments & Coverage engine
+
+- Experiment Engine: config builder, validation, metric extraction, Welch's t-test, bootstrap CI, Cohen's d effect size, variant results aggregation, conclusion generation
+- Coverage Engine: prompt variable coverage, workflow path coverage, tool call coverage, edge case coverage, trend analysis, improvement suggestions
+- API Routes: Experiments CRUD + run (POST), Coverage report per project
+- Web UI: Experiments page (variants preview, status, conclusion badges), Coverage dashboard (overall %, dimension bars, per-project cards, suggestions)"
+https://www.github.com/1304674612/agentbench,32e7cd3ceb5c6a93ed02292fd79168a7b889ae75,2026-07-09T12:21:29+00:00,Human,,2183,42,15,False,False,False,False,"feat(core,web,cli): Phase 3 — Regression & Replay engine
+
+- Snapshot System: SnapshotManager with create/capture/compare/restore, diff detection for prompt, model, tools
+- Replay Engine: deterministic/cross-model/batch replay, config overrides, metrics aggregation, comparison to original
+- Regression Detection: score/token/cost/latency regression flags with configurable thresholds
+- Diff Engine: text diff (hunks + similarity), metric diff (8 metrics), trace diff (step-level path comparison), score diff
+- API Routes: Snapshots CRUD + restore, Compare endpoint, Replay endpoint with batch/cross-model support
+- Web UI: Compare page (side-by-side metrics, scores, trace), Snapshots listing page, Replay button on Run detail
+- CLI: 'agentbench snapshot create/list/restore' with full args, enhanced 'replay' with --mode/--batch-count/--seed"
+https://www.github.com/1304674612/agentbench,3f183e9895707f9b26c41d6a6b17e815398e6b5a,2026-07-09T11:58:50+00:00,Human,,155,200,1,False,False,False,False,"docs: redesign README — clean product-style, badge row, DSL docs, table-driven layout"
+https://www.github.com/1304674612/agentbench,a5ff9ebe96d16cd3dba4db8cc993289c2788063c,2026-07-09T11:55:58+00:00,Human,,268,103,1,False,False,False,False,"docs: beautify README with modern design — badges, feature grid, demo, architecture, roadmap"
+https://www.github.com/1304674612/agentbench,216882aca2626f2892dcbe017354d7d39a87f42c,2026-07-09T11:50:15+00:00,Human,,4049,20,24,False,False,False,False,"feat(core,web,cli): Phase 2 — Evaluation & Assertion engine
+
+- Rule-Based Evaluator: 14 rule types (exact_match, contains, regex, json_schema, tool_called, latency_lt, tokens_lt, cost_lt, etc.)
+- LLM Judge: 8 evaluation dimensions with scoring prompts (correctness, faithfulness, safety, relevance, completeness, reasoning, conciseness, tool_usage)
+- Hybrid Judge: rule_first/llm_first/parallel strategies + Judge Pool with majority/unanimous/weighted voting
+- Assertion Engine: Chained DSL API (expect().tool().tokens().latency().output().score().run())
+- API Routes: Test Suites, Test Cases, Assertions, Evaluators CRUD + Run Evaluate endpoint
+- Web UI: Run detail now shows assertion results; Tests page with suites & cases listing
+- CLI: 'agentbench test' with suite/grep/verbose/json support; 'agentbench evaluate <run-id>' command"
+https://www.github.com/1304674612/agentbench,39d5b4534892f117f4efca50b48d1a146b3b9ea6,2026-07-09T11:22:02+00:00,Human,,878,38,7,False,False,False,False,"feat(web,cli): Phase 1 completion — API routes, Run pages, CLI commands
+
+Web:
+- Prisma client singleton (shared/lib/db.ts)
+- API v1 routes: POST/GET /api/v1/runs, GET/PATCH/DELETE /api/v1/runs/[id]
+- API v1 routes: POST/GET /api/v1/projects
+- Runs list page with real Prisma data (Server Component)
+- Run detail page with timeline, metrics, scores, error banner
+- Zod validation on all API inputs
+
+CLI:
+- agentbench run: creates runs via API with --project, --name, --model, --provider flags
+- agentbench test: fetches recent runs and reports pass/fail
+- agentbench replay: replays a run with optional model override
+- agentbench compare: side-by-side run comparison (table or JSON)
+- agentbench report: generates markdown/JSON reports
+- All commands use real API calls with error handling"
+https://www.github.com/1304674612/agentbench,10619a958b156ccbe774b8a35ce4ea61a0d5dea3,2026-07-09T11:16:46+00:00,Human,,1789,12,16,False,False,False,False,"feat(core): implement Phase 1 core engine
+
+- Storage abstraction layer (adapter interface + MemoryStorageAdapter)
+- Execution Tracer (LLM call interception, tool tracing, trace building)
+- OpenAI SDK interceptor (client wrapping for auto-tracing)
+- Anthropic SDK interceptor (client wrapping for auto-tracing)
+- Agent Runner (execute, timeout, batch, full trace persistence)
+- Token Counter (multi-model estimation) + Cost Calculator (15+ models)
+- Add TestSuite, TestCase, Run, Experiment domain types
+- Module index files with barrel exports
+- tsup config for multi-entry ESM + DTS build
+
+Build: pnpm --filter @agentbench/core build ✅ (ESM + DTS)"
+https://www.github.com/1304674612/agentbench,1d82fcef5e08fb8d2070102202ab2558fc9dc444,2026-07-09T11:09:14+00:00,Human,,10687,0,58,False,False,False,False,"feat: initial project scaffold — AgentBench v0.1.0
+
+- Monorepo setup (pnpm workspaces + Turborepo)
+- @agentbench/core package with full type definitions
+- Next.js 15 Dashboard (App Router, Tailwind v4, dark mode)
+- CLI scaffold (commander.js, all commands stubbed)
+- Prisma schema (20+ tables, PostgreSQL)
+- Docker Compose (PostgreSQL 16 + Redis 7)
+- Shared TypeScript configs
+- Biome linting + formatting
+- GitHub Actions CI workflow
+- Architecture, Schema, Roadmap, and Task documentation
+- README with quick start guide"

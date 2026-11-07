@@ -1,0 +1,218 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/2peppe2/master-picker,ad391a66e0b312966825a41b4e5ffe51ac6123c0,2026-11-03T16:09:45+00:00,Human,,333,317,2,False,True,False,False,Fixes dependabot PRs (#259-#263)
+https://www.github.com/2peppe2/master-picker,447fce91687ac3f2ba93f41b8567b052d8e774c4,2026-10-05T14:09:48+00:00,Human,,1,1,1,False,False,False,False,Make MUN behave like other exam modules (#258)
+https://www.github.com/2peppe2/master-picker,2d4c1f407de19c67ee25d040c02ba952854b9760,2026-10-03T12:39:46+00:00,Human,,306,162,11,False,False,False,False,Add reminder on all devices about registering for courses before 10th of October (#257)
+https://www.github.com/2peppe2/master-picker,837c593b9349d067833347c212e62b4b7fcac375,2026-09-22T21:14:42+00:00,Human,,361,338,2,False,True,False,False,Fixes dependabot PRs (#247-#252) plus the mysql2 vulnerability (#255)
+https://www.github.com/2peppe2/master-picker,5cd90b4cc397586e9b03c9fdd09200bc65ee909a,2026-09-19T17:00:41+00:00,Human,,22,0,2,False,True,False,False,Fix overflow master badge hover state (#254)
+https://www.github.com/2peppe2/master-picker,ce655bf094cee665496f5f965951bd4e19f05d50,2026-08-24T17:47:04+00:00,Human,,111,25,5,False,True,False,False,Fix to unified filter crashing on some widths (#245)
+https://www.github.com/2peppe2/master-picker,7cc0e855243f5aad4444c074322efe0c126a9abb,2026-08-21T10:26:18+00:00,Human,,371,55,5,False,True,False,False,Fix to timeedit schedule not showing all courses in calendar (#243)
+https://www.github.com/2peppe2/master-picker,630d7599e17b94c48f66d5d3481028b5ec7adf7a,2026-08-19T15:51:36+00:00,Human,,16,3,2,False,True,False,False,"Fix high-severity deepmerge-ts stack exhaustion vulnerability (#241)
+
+Fixes GHSA-ggr8-5vv4-36mx / CVE-2026-40345"
+https://www.github.com/2peppe2/master-picker,6e39b0db4b9f41d6eeb6384653103ba344879e49,2026-08-19T15:39:14+00:00,Human,,11364,5744,409,False,True,False,False,"Improve landscape on mobile and tablets further along with a bunch of fixes (#240)
+
+This commit does a lot of code splitting and reorganization of files to make more sense. Furthermore, it fixes landscape for phones to be usable and a bunch of other issues related to phones and tablets."
+https://www.github.com/2peppe2/master-picker,2e09f7be685ee7814fab8b7b4a401723266c82fc,2026-08-16T13:35:19+00:00,Human,,13378,6437,321,False,False,False,False,Add support for mobile and iPad screens (#238)
+https://www.github.com/2peppe2/master-picker,564340f276d88a4a98af26a5cfecc5ab6e79c6b4,2026-08-15T14:50:14+00:00,Human,,741,67,15,False,False,False,False,Add examination type filter and improve filtering overall (#239)
+https://www.github.com/2peppe2/master-picker,ce44ed20ff590bc622ab20285f2ec64b8586d8da,2026-08-15T12:40:11+00:00,Human,,575,4,9,False,False,False,False,"Add timeedit button (#237)
+
+Co-authored-by: Mikael Karlsson <sweplayersuknow@gmail.com>"
+https://www.github.com/2peppe2/master-picker,086a391e86c57693ee81b786e092186d3e408b8b,2026-08-10T17:41:06+00:00,Human,,947,606,10,False,False,False,False,Resolve dependency vulnerabilities and dependabot updates (#236)
+https://www.github.com/2peppe2/master-picker,b747af6f14b8eeb5a158737febddc5bf66255eeb,2026-07-31T20:22:33+00:00,Human,,15,15,15,False,True,False,False,Fix clarity of main fields requirement description (#235)
+https://www.github.com/2peppe2/master-picker,f7f2f895eba28ab4636b5acaa322084622937af6,2026-07-31T17:35:38+00:00,Human,,4,6,1,False,True,False,False,Fix to main fields being counted together towards the requirement (#234)
+https://www.github.com/2peppe2/master-picker,b6b26ec32218e18fa075c5e3170663bc58743d17,2026-04-09T14:51:53+00:00,Human,,3237,12381,14,False,True,False,False,Fix to translation is not available for TDDD53 (#229)
+https://www.github.com/2peppe2/master-picker,87ea1578856d460990910009d0b3b531fb49a184,2026-04-08T20:57:29+00:00,Human,,12,8,4,False,True,False,False,Fix to main fields for it-program (#228)
+https://www.github.com/2peppe2/master-picker,36a0f8f3481a91895021ebcb35d5e195343ffdd3,2026-04-08T13:21:42+00:00,Human,,12,8,4,False,True,False,False,Fix to main fields for d-program (#227)
+https://www.github.com/2peppe2/master-picker,a60c0a8511034a3ae553725af7fadb40b9f93fae,2026-04-04T20:07:26+00:00,Human,,31,10,5,False,True,False,False,Fix some missing translations in wildcard expansion and conflict resolver dialogs (#225)
+https://www.github.com/2peppe2/master-picker,6a71ba96a7a5de180fd511ff700b84e236795e03,2026-04-04T10:01:21+00:00,Human,,3,1,1,False,True,False,False,Fix course name in conflict resolver modal (#224)
+https://www.github.com/2peppe2/master-picker,87dba26acb4d879604269f6a8853265ea0d26e18,2026-04-03T20:58:18+00:00,Human,,167,36,4,False,False,False,False,Show progress for overflown master profiles as well (#222)
+https://www.github.com/2peppe2/master-picker,e33fe988a7928f9b90ab133ffe2bed5d2cfce1d3,2026-04-02T19:46:07+00:00,Human,,51,15,4,False,True,False,False,Fix to weird scroll behaviours and recommended masters overflowing (#220)
+https://www.github.com/2peppe2/master-picker,e34e2aea47c0bdf006285f78249a9ef6bba6d113,2026-04-01T20:38:29+00:00,Human,,1,1,1,False,True,False,False,Fix average score text clipping in Evaliuate tab (#219)
+https://www.github.com/2peppe2/master-picker,2adbadcb6937fa951dcba6388a3763bdced619a1,2026-03-30T19:18:11+00:00,Human,,21,18,1,False,True,False,False,Fix searching for course name not working (#217)
+https://www.github.com/2peppe2/master-picker,8cccd43601b662fe9b7b54960f71f476084bf093,2026-03-28T23:00:49+00:00,Human,,5,6,1,False,False,False,False,Make master badges be aligned with the text of the course card (#215)
+https://www.github.com/2peppe2/master-picker,ff80973dca6b899c4b94690c1fd2f0395b0b0c9d,2026-03-28T22:37:58+00:00,Human,,7,7,2,False,True,False,False,Fix schedule header sizing issue (#214)
+https://www.github.com/2peppe2/master-picker,764d81ce924a8efbb013bd316fca038bf5b59c97,2026-03-28T20:17:59+00:00,Human,,188,71,8,False,False,False,False,Improve back button and add back button on guide and about (#213)
+https://www.github.com/2peppe2/master-picker,77c7ea0dd237146e3b3f474b67642e56c71539e0,2026-03-27T10:11:42+00:00,Human,,1,1,1,False,True,False,False,Fix to mobile warning text alignment (#209)
+https://www.github.com/2peppe2/master-picker,fbc9dccb845f181ece5fb5ba2edf36e7d6d96a4f,2026-03-26T18:44:57+00:00,Human,,91,50,10,False,True,False,False,Fix hydration error when loading in the language (#208)
+https://www.github.com/2peppe2/master-picker,7aaf84957fd72e8cf56fa9a00d95c5434a85b855,2026-03-26T17:56:06+00:00,Human,,3764,1588,128,False,False,False,False,Added swedish translations and made it the default (#206)
+https://www.github.com/2peppe2/master-picker,956459abee25e79f0b9fb3b23908676386143d84,2026-03-20T21:52:13+00:00,Human,,689,425,29,False,True,False,False,Fix statistics to be more accurate with original occasions (#204)
+https://www.github.com/2peppe2/master-picker,6be567136720ec8c52a5e82dfacf2de5be876412,2026-03-19T10:51:35+00:00,Human,,2,0,2,False,True,False,False,Fix to make DIT be handled as TEN in statistics (#201)
+https://www.github.com/2peppe2/master-picker,906cf39037300ff590f25ecbcf4b2f3f6be9a0a7,2026-03-19T10:37:19+00:00,Human,,1167,440,26,False,False,False,False,Improve examination statistics (#195)
+https://www.github.com/2peppe2/master-picker,541cfd31c7c51e03525aabf6fc14100056fea3f5,2026-03-18T15:13:08+00:00,Human,,75,11,4,False,False,False,False,Add main fields to search filter in dashboard (#197)
+https://www.github.com/2peppe2/master-picker,825e12b3abe34beffd9e8a79c54764e3605b2991,2026-03-18T15:05:54+00:00,Human,,70,52,10,False,True,False,False,"Fixes various wildcard block issues (#200)
+
+* Fix to wilcard blocks being created weirdly and wrongful animation when holding course over wildcard block
+
+* Fix to not adding extra block for multi-block course"
+https://www.github.com/2peppe2/master-picker,6606ad9cf8ad36caa73606c1a4635a1e0f8c1f89,2026-03-18T14:45:38+00:00,Human,,3154,1335,142,False,True,False,False,"Fix starting year, crash bug and prefilling of bachelor courses (#192)
+
+Co-authored-by: Petrus Jarl <petrus@jarl.nu>"
+https://www.github.com/2peppe2/master-picker,95aa4f050a3e835ab2ca9a98edfb8f31934e1bdb,2026-03-17T21:03:43+00:00,Human,,80,61,6,False,True,False,False,Fix the card title and description header selection (#199)
+https://www.github.com/2peppe2/master-picker,e967dfd2770ee7e53d94e2f471f33ae380f5f860,2026-03-14T09:48:52+00:00,Human,,29,71,5,False,True,False,False,Fix evaluate score graph and now using package (#193)
+https://www.github.com/2peppe2/master-picker,8e88fed05ef85412025ea58534e403b8f0e5e786,2026-03-12T19:48:37+00:00,Human,,3,3,1,False,True,False,False,Fix filter period start to be from the right start (#191)
+https://www.github.com/2peppe2/master-picker,1bd8c3115a65e875e2881e2ea1a504cfbe1c4532,2026-03-12T18:07:54+00:00,Human,,21,4,2,False,True,False,False,Fix to escape interaction when dragging course and related bugs (#190)
+https://www.github.com/2peppe2/master-picker,d61f4b78593c2d73e5bd204dc8bacacbc39c1db5,2026-03-12T16:46:03+00:00,Human,,2,2,4,False,True,False,False,Fix to disallow dragging of courses in all dialogs (#189)
+https://www.github.com/2peppe2/master-picker,3985f5d03fe212eb6a9070ba5671d0d25192056f,2026-03-12T11:53:09+00:00,Human,,18,3,2,False,True,False,False,Fix to course add bug and filter not showing master thesis (#188)
+https://www.github.com/2peppe2/master-picker,5b280346b954dd3efd71124ac612a787c72ac3ab,2026-03-11T22:20:04+00:00,Human,,4,4,1,False,True,False,False,Fix to search text sizing to be uniform (#185)
+https://www.github.com/2peppe2/master-picker,114bf6c68b0dc7588b4849f342f20cb1b27379f6,2026-03-11T21:55:40+00:00,Human,,25,22,5,False,True,False,False,Fix to various overlay dragging bugs (#184)
+https://www.github.com/2peppe2/master-picker,b4efc69c899ef6a8874f149e4d0f3b12b56bf0df,2026-03-11T21:38:54+00:00,Human,,42,20,2,False,True,False,False,Fix bachelor filtering and scroll to course bug (#183)
+https://www.github.com/2peppe2/master-picker,9ac4e5e2e72ab157e46c4ed76a0d906966776171,2026-03-11T21:02:00+00:00,Human,,56,6,3,False,False,False,False,Add loading indication (#182)
+https://www.github.com/2peppe2/master-picker,2fb501ad82adc0b3ee35a3d1b88b5aa1470d7b85,2026-03-11T20:48:52+00:00,Human,,13788,3125,63,False,True,False,False,"Add main fields and fix UI (#181)
+
+Co-authored-by: BakuPlayz <sweplayersuknow@gmail.com>"
+https://www.github.com/2peppe2/master-picker,41f07c1516c748dfe9e619763180a711f26dfe43,2026-03-11T13:20:56+00:00,Human,,71,9,3,False,False,False,False,Add advanced filter to search (#179)
+https://www.github.com/2peppe2/master-picker,b411f3be34386e9c0e3382016a244ff73f7d3fbf,2026-03-11T11:33:09+00:00,Human,,1602,707,41,False,False,False,False,Began fixing better search and filtering (#176)
+https://www.github.com/2peppe2/master-picker,31507c86e1231c387930e03a6fdbe06beeba1c1c,2026-03-07T19:04:35+00:00,Human,,8,4,1,False,True,False,False,Fix inconsistent dropdown interaction with elective groups in guide (#175)
+https://www.github.com/2peppe2/master-picker,d22623609b139bcdc32cddf3a4a27a95a2b1c0e5,2026-03-06T12:07:53+00:00,Human,,27,1,1,False,False,False,False,Improve build pipeline (#173)
+https://www.github.com/2peppe2/master-picker,5dbe3f70e05106b598743e17599a3722ff726141,2026-03-06T11:46:36+00:00,Human,,93,2,5,False,False,False,False,Add a share button (#166)
+https://www.github.com/2peppe2/master-picker,0e6b466c87f37f1f090835d246f2d1d88efd6e63,2026-03-05T22:48:41+00:00,Human,,25,0,1,False,False,False,False,Add build pipeline to ensure going into prod is building (#170)
+https://www.github.com/2peppe2/master-picker,7bb5855a3265dc8abf3ccfbd67a5892e3704c900,2026-03-05T22:34:15+00:00,Human,,106,88,1,False,True,False,False,Fix to switch of atom from immer to reset (#169)
+https://www.github.com/2peppe2/master-picker,4a8e62e657fc58fa0cf4c2e231d1a05077ce989b,2026-03-05T22:10:33+00:00,Human,,11,4,2,False,True,False,False,Fix to crash when switching between pages (#168)
+https://www.github.com/2peppe2/master-picker,b16018f801af72254fe914278d5a58dbda9e6c25,2026-03-05T21:45:05+00:00,Human,,3,5,2,False,True,False,False,Fix to link not being replaced when courses are added (#167)
+https://www.github.com/2peppe2/master-picker,4ee0ae2bf592240a777914822bc349a20ffdc247,2026-03-04T20:52:48+00:00,Human,,1,1,1,False,True,False,False,Fix landing layout (#165)
+https://www.github.com/2peppe2/master-picker,376423d2888d2547f23fc486eb0113c262f3b129,2026-03-04T08:57:00+00:00,Human,,45,17,7,False,True,False,False,Improved fix to courses being draggable when in course dialog (#160)
+https://www.github.com/2peppe2/master-picker,0d27b68ca3e8fb2eee846debefe781688c159019,2026-03-03T21:59:41+00:00,Human,,5,1,1,False,True,False,False,Fix to courses being draggable when in course dialog (#159)
+https://www.github.com/2peppe2/master-picker,3ce95cb764c0e538b53598e6df1197f4db23f471,2026-02-28T22:12:44+00:00,Human,,1,0,1,False,True,False,False,Fix elective group selection when exiting dialog (#152)
+https://www.github.com/2peppe2/master-picker,7ce91cf0cc11d90bcbecaa941095901d42bb694e,2026-02-28T22:10:38+00:00,Human,,1,5,1,False,True,False,False,"Fix immediate close on click outside course dialog (#155)
+
+Co-authored-by: Krzysztof Kozlowski <kozlowski@krzysztof.se>"
+https://www.github.com/2peppe2/master-picker,3d51c703fed53dc1c2ed88925310cff714fb16e8,2026-02-28T18:10:18+00:00,Human,,13,2,1,False,False,False,False,Add seed command to database step in README (#154)
+https://www.github.com/2peppe2/master-picker,f4ffef8835dda8ca31619ecb6a9ed45509f94eda,2026-02-27T23:09:50+00:00,Human,,6,7,1,False,True,False,False,More fixes to naming clearity within the master requirements (#150)
+https://www.github.com/2peppe2/master-picker,3d8ca982c24029130ddb035dc0df376db7d7936a,2026-02-27T22:46:44+00:00,Human,,1,4,1,False,True,False,False,Fix to make naming of advanced credits in master requirement more clear (#146)
+https://www.github.com/2peppe2/master-picker,e83ae45d3d0bb8d77128309d0579c4bfe4996d15,2026-02-27T22:35:16+00:00,Human,,23,19,2,False,False,False,False,Show bachelor semesters in filter when showBachelorYears is enabled (#144)
+https://www.github.com/2peppe2/master-picker,92005026b32f1f2df8361f40c1b5b6733c6d0c44,2026-02-27T22:02:27+00:00,Human,,196,288,13,False,True,False,False,Fix to dialog glitching height and various speedups (#143)
+https://www.github.com/2peppe2/master-picker,176c80dad199faf3cd2746309a3d5a2524354cbd,2026-02-27T18:26:28+00:00,Human,,4,4,1,False,True,False,False,Fix showSemester in scroll feedback for redepolyment (#141)
+https://www.github.com/2peppe2/master-picker,e85d53823661e55957d357762c51ed118807f156,2026-02-27T18:15:11+00:00,Human,,160,208,19,False,False,False,False,Show courses when semester opened (#140)
+https://www.github.com/2peppe2/master-picker,448a45254b3be87c0c12ed508287df4114e37dd0,2026-02-27T18:14:19+00:00,Human,,1,28,1,False,False,False,False,Improve sorted to not be based on the opened semesters (#139)
+https://www.github.com/2peppe2/master-picker,6f7c145ecd96e52f779a3f3d688d1d2912936926,2026-02-26T22:15:32+00:00,Human,,59,13,3,False,False,False,False,Improve master requirements bar loading skeleton (#138)
+https://www.github.com/2peppe2/master-picker,996fc15273febb87b6a3be55c3d7416eeaee9c60,2026-02-26T11:28:20+00:00,Human,,19,44,3,False,True,False,False,Fix dialog box (#136)
+https://www.github.com/2peppe2/master-picker,f5be0e2547bab872705511bd4397d978b768028d,2026-02-26T10:24:57+00:00,Human,,1,1,1,False,True,False,False,Fix gap when there are only one study type (#135)
+https://www.github.com/2peppe2/master-picker,3bad1ae8da072c0bfc213e002b94b0f1db9a5a35,2026-02-26T08:47:31+00:00,Human,,225,33,4,False,False,False,False,Add evaluate score dialog tab (#134)
+https://www.github.com/2peppe2/master-picker,beb51ef9fae5a44c0cd350ea529843f450d5a5c9,2026-02-25T22:15:20+00:00,Human,,1,1,1,False,False,False,False,Add link to README (#133)
+https://www.github.com/2peppe2/master-picker,a2c72d0dc1846850abaa2d1a90378435019ff5a5,2026-02-25T22:13:30+00:00,Human,,6,1,1,False,True,False,False,Fix elective card bug (#132)
+https://www.github.com/2peppe2/master-picker,50666d69369734589d6d52ee68f5bf2aa7910cb3,2026-02-25T22:08:56+00:00,Human,,9,6,1,False,True,False,False,Fix number to be text instead in the master requirements bar (#131)
+https://www.github.com/2peppe2/master-picker,b8cac49f323ef6f9ddba5b7f9654e4711276ee95,2026-02-25T22:00:37+00:00,Human,,4,1,1,False,False,False,False,Optimize to next image (#129)
+https://www.github.com/2peppe2/master-picker,d76a1c6d50826400a4dad6a2bfd4f92ecc761243,2026-02-25T21:57:23+00:00,Human,,249,1,3,False,False,False,False,Add course statistics link (#110)
+https://www.github.com/2peppe2/master-picker,0674f60274db902a76cfe577cdfaafbdfdb4d544,2026-02-25T21:55:47+00:00,Human,,43,1,3,False,False,False,False,Add Vercel analytics (#128)
+https://www.github.com/2peppe2/master-picker,13205802775c181a6102b874ab327bd9f2213d59,2026-02-25T21:54:35+00:00,Human,,72,26,4,False,False,False,False,Add instructions on how too setup databse for project (#117)
+https://www.github.com/2peppe2/master-picker,1c59550ca50be3346ca5a62aae8275f6d24b5173,2026-02-25T21:53:34+00:00,Human,,0,2,1,False,False,False,False,Hide show only applicable courses (#127)
+https://www.github.com/2peppe2/master-picker,f0d2a7246cc4b621e516f27f5308216b1515a5f6,2026-02-25T21:51:19+00:00,Human,,17,4,5,False,False,False,False,Adds option to hide 'Add to schedule' in course dialogs (#122)
+https://www.github.com/2peppe2/master-picker,dace9e1404e440f076ff229b3111aa9ef2639d55,2026-02-25T21:49:54+00:00,Human,,20,0,2,False,False,False,False,Add mobile warning (#124)
+https://www.github.com/2peppe2/master-picker,64d8b491a97863d96cc5cda7e4b69c8c41b938ec,2026-02-25T21:47:18+00:00,Human,,1217,101,7,False,False,False,False,Add about page (#123)
+https://www.github.com/2peppe2/master-picker,eacce947c9373236329596c4417c4091643ea5dc,2026-02-25T21:46:44+00:00,Human,,4,11,1,False,True,False,False,Small fix to compulsotory confirmed in progress card (#126)
+https://www.github.com/2peppe2/master-picker,413f88f5f61e48d8e7cf5fc584569ed3518d9b5f,2026-02-25T21:39:25+00:00,Human,,99183,463,55,False,True,False,False,"Fix to master requirement credits seem off and more (#125)
+
+Co-authored-by: Petrus Jarl <petrus@jarl.nu>"
+https://www.github.com/2peppe2/master-picker,dd26f5a5ba5d6894d95934b303ab62ecb85fdd7e,2026-02-25T20:17:45+00:00,Human,,1,1,1,False,False,False,False,Improve UX guidePage (#121)
+https://www.github.com/2peppe2/master-picker,39480e68d711ac162ca280567d2e3be1df562497,2026-02-25T17:22:44+00:00,Human,,145,63,5,False,False,False,False,"Improve loading experience for users (#118)
+
+Co-authored-by: Petrus Jarl <petrus@jarl.nu>"
+https://www.github.com/2peppe2/master-picker,6585a14e9c20d26aee3fa303c87a3c3a8e55ba81,2026-02-25T15:00:58+00:00,Human,,2,1,1,False,False,False,False,Separate npm seed from migrate (#116)
+https://www.github.com/2peppe2/master-picker,b86dba509322035accd518a359c790bda7009d3f,2026-02-23T21:22:19+00:00,Human,,400,666,21,False,False,False,False,Update to work with postgres (#112)
+https://www.github.com/2peppe2/master-picker,7353f16579c1e471ab3a1482c9daf258c51f87a5,2026-02-23T20:01:30+00:00,Human,,1,1,1,False,True,False,False,Fix schedule bg color (#109)
+https://www.github.com/2peppe2/master-picker,6e9f9328b1442ee2d0b5255e6097787fac8d75ca,2026-02-23T19:57:03+00:00,Human,,77,4,6,False,True,False,False,Add disclaimer and fix userPreferences (#108)
+https://www.github.com/2peppe2/master-picker,351129a9bb44df815a94b219d49e46b9458f84a5,2026-02-23T12:06:45+00:00,Human,,14,0,2,False,False,False,False,Add license (#107)
+https://www.github.com/2peppe2/master-picker,0035688a9bb8d0eb052dc931a355628da228b055,2026-02-23T11:35:57+00:00,Human,,2,2,1,False,True,False,False,Fix off by one error in sorted semesters (#106)
+https://www.github.com/2peppe2/master-picker,2abf53fd802d47e8569ef7c38883051478ab80ca,2026-02-23T11:18:58+00:00,Human,,24,5,2,False,True,False,False,Fix to wildcard block to be more clear when draggning (#105)
+https://www.github.com/2peppe2/master-picker,1c903d4816c838e65f3fe3c640abf9653f150ad9,2026-02-23T10:57:49+00:00,Human,,85,61,3,False,False,False,False,Made it more clear when dragging courses (#104)
+https://www.github.com/2peppe2/master-picker,208c9f69604253350b0329bc9f661f412a0e1675,2026-02-22T23:20:25+00:00,Human,,57,2,2,False,True,False,False,Fix sorting to sort by master and semester before the course name is considered (#101)
+https://www.github.com/2peppe2/master-picker,44aeced7ad8a460cbfa8c38df0e7d863da0e2a32,2026-02-22T23:17:07+00:00,Human,,84,42,2,False,True,False,False,Fix link to account for wildcard blocks in the params state (#98)
+https://www.github.com/2peppe2/master-picker,1b8c3d7c6180196c65489edef2d1acc4d74bb5ea,2026-02-22T21:26:59+00:00,Human,,3,0,1,False,False,False,False,Patch: schedule prefill only bachelor compulsory courses (#100)
+https://www.github.com/2peppe2/master-picker,a24a04538502e549ec141bf9831694c8107ab2d9,2026-02-22T19:32:52+00:00,Human,,471,114,9,False,False,False,False,Improve master requirement bar to consider resizing (#96)
+https://www.github.com/2peppe2/master-picker,8b999039248c67bc4419440b004da69ba1282714,2026-02-22T15:45:33+00:00,Human,,12007,120,30,False,False,False,False,Add D program (#95)
+https://www.github.com/2peppe2/master-picker,6e7ef6ec7dce51c4f0e7df83fc884ac2198abc59,2026-02-21T21:19:49+00:00,Human,,2925,465,64,False,False,False,False,"Landing and Guide Page (#94)
+
+Co-authored-by: Mikael Karlsson <sweplayersuknow@gmail.com>"
+https://www.github.com/2peppe2/master-picker,9a8420c7922c758f313bca99005a2dcbcf931189,2026-02-21T14:52:01+00:00,Human,,230,10,10,False,False,False,False,Add feature to share courses via link (#89)
+https://www.github.com/2peppe2/master-picker,af798f65f80f5915d3999a63913011cb6736a860,2026-02-21T13:38:40+00:00,Human,,47,37,6,False,True,False,False,Fix to droppable missing some valid drop targets and collisions not showing (#92)
+https://www.github.com/2peppe2/master-picker,c1611b3fa2548d7793ea2fa1a40afedd218eb3a3,2026-02-18T12:19:11+00:00,Human,,2,2,1,False,False,False,False,Move the warning triangle to make it more clear to be connected with semester (#85)
+https://www.github.com/2peppe2/master-picker,f5ba36608fc0c7d79b7c928b827cfcd30e2dc460,2026-02-17T12:12:06+00:00,Human,,13,6,10,False,False,False,False,Add logo (#83)
+https://www.github.com/2peppe2/master-picker,a2f9f70a5604d3b18755215aabfd75060a27a65e,2026-02-17T09:22:07+00:00,Human,,120,39,2,False,False,False,False,Add warning triangle to semester view (#82)
+https://www.github.com/2peppe2/master-picker,9db69ca56c88714440e650eef66a439142f4b761,2026-02-16T12:16:57+00:00,Human,,153,200,8,False,True,False,False,Fix to infinitely being able to add the same course to wildcard blocks (#79)
+https://www.github.com/2peppe2/master-picker,84263833ffaca5646c641d3e9e1194493cec56cc,2026-02-15T16:54:26+00:00,Human,,2,2,2,False,False,False,False,Show only seventh semester and design patch to wildcard blocks on hover (#77)
+https://www.github.com/2peppe2/master-picker,fabbd17ce2fff353884e96e39ce08dcdec63d8bf,2026-02-14T21:42:06+00:00,Human,,0,0,1,False,True,False,False,Fix screenshot to reflect current development more accurately (#80)
+https://www.github.com/2peppe2/master-picker,166c805195863bf5c72c41201860a43045914951,2026-02-13T11:56:24+00:00,Human,,294,76,10,False,False,False,False,Add hide bachelor years feature (#76)
+https://www.github.com/2peppe2/master-picker,be3a97e179e6ba4a6402601bd9c0b22e94faefb8,2026-02-08T21:29:58+00:00,Human,,45,30,4,False,False,False,False,Made top searchbar and master requirements bar sticky (#74)
+https://www.github.com/2peppe2/master-picker,bc21dd7bbbca43690e389a6182084b7dd1c2ed5e,2026-02-04T21:41:03+00:00,Human,,127,24,8,False,False,False,False,Scroll to course when added via button (#65)
+https://www.github.com/2peppe2/master-picker,721d882e8a09f5782b6609183925961ed987bebc,2026-02-04T19:25:25+00:00,Human,,19,12,2,False,False,False,False,Add new feature template for creating issues easier (#64)
+https://www.github.com/2peppe2/master-picker,021cc5f585f2bd124ebc441f8a6eda54d80ef950,2026-02-04T19:13:33+00:00,Human,,250,182,17,False,False,False,False,Add empty spot shows ghost course when dragging course (#63)
+https://www.github.com/2peppe2/master-picker,9b8755725e8832241c232ba91ffc15ec0f3d7344,2026-02-04T17:18:30+00:00,Human,,13,13,11,False,True,False,False,Fix to blocks and dnd view being at wrong place after rebase (#62)
+https://www.github.com/2peppe2/master-picker,447e864f97a81127e9299b3b72cf3a861905e46f,2026-02-04T12:19:35+00:00,Human,,2157,831,46,False,False,False,False,Add wildcard blocks to semesters (#61)
+https://www.github.com/2peppe2/master-picker,50d1f797486afc75a15be56090c79ff6df6bf941,2026-02-04T11:34:54+00:00,Human,,44,1,3,False,False,False,False,Untrack database file in repository (#59)
+https://www.github.com/2peppe2/master-picker,708033ae0daf48f89f929d6591c8a18ad15845d3,2026-02-03T21:06:20+00:00,Human,,0,34,1,False,True,False,False,Fix to faulty migration file that made seed fail (#58)
+https://www.github.com/2peppe2/master-picker,48c4d506c3dd77b6fe96dcb3376796882ba8f120,2026-01-31T12:00:35+00:00,AI,Copilot,39,22,6,False,True,True,False,"Fix credit truncation and examination name truncation (#56)
+
+Fix #51"
+https://www.github.com/2peppe2/master-picker,fff54e62b2edba221f6b34ebf429feb3c45510f8,2026-01-29T17:16:18+00:00,Human,,30,0,1,False,False,False,False,Add bug report manual to easily create issues (#52)
+https://www.github.com/2peppe2/master-picker,335696ac65a7e4941989bda9e810bb69e8aa4ecc,2026-01-24T15:06:10+00:00,Human,,15,15,35,False,False,False,False,Add dashboard page (#45)
+https://www.github.com/2peppe2/master-picker,12a4aaee1de9a8faf4c55a60f0a71a10356a639e,2026-01-22T19:45:02+00:00,Human,,50,26,3,False,False,False,False,Make all occasions of course be highlighted in the semester views (#44)
+https://www.github.com/2peppe2/master-picker,1ae34af249b3e734565009b3dbe479c4e83b875b,2026-01-21T20:45:08+00:00,Human,,29,7,1,False,True,False,False,Fix to filtering period and blocks combination (#41)
+https://www.github.com/2peppe2/master-picker,3295dd06911d7ee94083c28183342542a5789394,2026-01-20T21:10:13+00:00,Bot,dependabot,41,41,2,False,False,False,False,"Bump next from 15.5.6 to 15.5.9 (#23)
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: Petrus Jarl <petrus@jarl.nu>"
+https://www.github.com/2peppe2/master-picker,9319802454f2041fe35a667b5f719819b3f103cf,2026-01-20T20:55:13+00:00,Human,,620,109,9,False,False,False,False,Add warning dialog when replacing courses in schedule (#38)
+https://www.github.com/2peppe2/master-picker,4a30d349cd5f2fd959bdf62034c683dd5ea299cc,2026-01-18T11:17:22+00:00,Human,,96,48,5,False,True,False,False,Fix only include master credits in master requirements bar (#37)
+https://www.github.com/2peppe2/master-picker,13654776f0be0bd63e6f67e9472cf2241061e593,2026-01-17T21:16:33+00:00,Human,,4,1,1,False,False,False,False,Patch dragging in dialog (#36)
+https://www.github.com/2peppe2/master-picker,a24c70e178735d332dee69c6b62224504c66f520,2026-01-17T20:45:56+00:00,Human,,949,573,30,False,False,False,False,"Improve filter performance and collects derived atoms (#35)
+
+Co-authored-by: Petrus Jarl <petrus@jarl.nu>
+Co-authored-by: Mikael Karlsson <sweplayersuknow@gmail.com>"
+https://www.github.com/2peppe2/master-picker,68578912fc83b58f5fe7794fa0d38d5e5e7f34c1,2026-01-16T23:34:12+00:00,Human,,613,1129,15,False,True,False,False,"Fix handling of multi occasions (#32)
+
+* Refactor CourseOccasion model and migrations"
+https://www.github.com/2peppe2/master-picker,cfacaba001a649ddf27dc98d08993195459d644f,2026-01-16T22:27:04+00:00,Human,,2,1,1,False,False,False,False,Add migrate command for easier database migrations with prisma (#30)
+https://www.github.com/2peppe2/master-picker,7ac387618160f52ea522d166d48930700723588f,2026-01-16T18:08:13+00:00,Human,,2973,1305,13,False,False,False,False,Refactors course occasion structure to nest blocks under periods (#29)
+https://www.github.com/2peppe2/master-picker,13f5a38001399ac4afa27f9312e5f9ce1dabc286,2026-01-14T21:35:45+00:00,Human,,5217,98,23,False,False,False,False,Add more information to course dialog (#28)
+https://www.github.com/2peppe2/master-picker,433b0f0182a269b6b7415f3e7680ac823983964a,2026-01-13T21:23:14+00:00,Human,,8003,1103,73,False,False,False,False,"Integrate the Prisma ORM instead of static files  (#27)
+
+Integrate the Prisma ORM instead of static files
+
+Co-authored-by: Petrus Jarl <petrus@jarl.nu>
+Co-authored-by: Mikael Karlsson <sweplayersuknow@gmail.com>"
+https://www.github.com/2peppe2/master-picker,e0df3c98bd263052fb2e6ff163e1e22b786afb19,2026-01-08T12:29:25+00:00,Human,,33,21,3,False,False,False,False,Add master name to master requirements tooltip (#24)
+https://www.github.com/2peppe2/master-picker,4474156dc0738851958b4b84e6dc2812b8994f44,2025-11-01T19:30:27+00:00,Human,,33,9,1,False,False,False,False,Update master requirements (#19)
+https://www.github.com/2peppe2/master-picker,b626351e04f0e9002f5d5ff867e755ec13a3a348,2025-11-01T18:59:47+00:00,Human,,4,7,1,False,False,False,False,"Patch droppable logic to match semester, period and block right (#18)"
+https://www.github.com/2peppe2/master-picker,2f37e5be399fdfe805344b44536164ee169a19b8,2025-11-01T18:52:50+00:00,Human,,282,213,9,False,False,False,False,Make drawer scrollable so courses can be viewed more easily (#16)
+https://www.github.com/2peppe2/master-picker,2abe2b6030c5db3fec89ffc274cbbee030e69137,2025-11-01T18:47:37+00:00,Human,,30,25,6,False,True,False,False,Fix multi-period courses (#17)
+https://www.github.com/2peppe2/master-picker,ac1e417aa0d14c869a11a0e76ccaceb372a831a3,2025-11-01T18:11:50+00:00,Human,,31,6,3,False,False,False,False,Add click block to filter (#15)
+https://www.github.com/2peppe2/master-picker,4ef04d3fd0da671144ba8990a3341ed8d4b5258e,2025-11-01T17:42:21+00:00,Human,,24,32,13,False,True,False,False,Fix small naming and structure (#14)
+https://www.github.com/2peppe2/master-picker,82946d7560470f78a5d14834a65e8c3e2d4e4e73,2025-11-01T09:40:54+00:00,Bot,dependabot,64,4,1,False,False,False,False,"Bump tar from 7.5.1 to 7.5.2 (#11)
+
+Bumps [tar](https://github.com/isaacs/node-tar) from 7.5.1 to 7.5.2.
+- [Release notes](https://github.com/isaacs/node-tar/releases)
+- [Changelog](https://github.com/isaacs/node-tar/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/isaacs/node-tar/compare/v7.5.1...v7.5.2)
+
+---
+updated-dependencies:
+- dependency-name: tar
+  dependency-version: 7.5.2
+  dependency-type: indirect
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>"
+https://www.github.com/2peppe2/master-picker,78b3660196715ec4a51b189bce54a548a28fa733,2025-10-31T22:30:57+00:00,Human,,253,289,20,False,True,False,False,"Search and filters (#9)
+
+* Restructure files
+
+* Fix select
+
+* Restructure atom state logic of filter
+
+* Add filtering of course cards"
+https://www.github.com/2peppe2/master-picker,98f9389f531f4f500763cbd0bc2e0f5454746e0d,2025-10-30T12:21:23+00:00,Human,,2,2,1,False,True,False,False,Fix readme (#3)
+https://www.github.com/2peppe2/master-picker,0bb415c62129f033e54f8ef9d5f3223997343f51,2025-10-30T12:18:17+00:00,Human,,4,1,1,False,True,False,False,Fix color issue with master requirement bar (#2)
+https://www.github.com/2peppe2/master-picker,0cbbe47c02bcc0254075612101ce00f2cd9cb023,2025-10-30T11:59:56+00:00,Human,,696,421,16,False,False,False,False,Add requirementbar for masters (#1)
+https://www.github.com/2peppe2/master-picker,0434ccad22bb5856154930f75f68be16819b6222,2025-10-30T11:50:10+00:00,Human,,506,56,16,False,False,False,False,Add filter pop over
+https://www.github.com/2peppe2/master-picker,4f43b683eb2b35af10c53df6bbbabf251b980810,2025-10-30T10:15:47+00:00,Human,,23,31,1,False,False,False,False,Refactor dragEventHandler
+https://www.github.com/2peppe2/master-picker,eaa25ad39e88959d2452eef0e2292a759b68e3d6,2025-10-30T10:04:52+00:00,Human,,36,22,3,False,False,False,False,Update readme
+https://www.github.com/2peppe2/master-picker,97ee915208e8f8eb71a672ee583a5115127d9990,2025-10-28T10:20:00+00:00,Human,,0,0,0,False,False,False,False,Merge branch 'main' of https://github.com/2peppe2/master-picker
+https://www.github.com/2peppe2/master-picker,79d1ee00aa045f06edcd5ac06602a3a8fef8d2ff,2025-10-28T10:19:25+00:00,Human,,50,67,15,False,False,False,False,Remove unused imports
+https://www.github.com/2peppe2/master-picker,ff82eedb775e3ac3269881def437bd5d39535913,2025-10-28T10:18:39+00:00,Human,,45,57,14,False,False,False,False,Remove unused imports
+https://www.github.com/2peppe2/master-picker,c96fa7f92b3d1c4fca3552250a5060b34d83e8ff,2025-10-25T19:58:45+00:00,Human,,190,35,13,False,False,False,False,Add RequirementBar
+https://www.github.com/2peppe2/master-picker,39939f9885f09e0b223c7c6d86079d134876aad5,2025-10-25T17:57:36+00:00,Human,,167,19,7,False,False,False,False,Redesign CourseCard
+https://www.github.com/2peppe2/master-picker,4074eb3d3abea9fdec397761f7ef1bf39481e68a,2025-10-25T17:11:38+00:00,Human,,1617,254,24,False,False,False,False,Redesign pages
+https://www.github.com/2peppe2/master-picker,21fb16648c7440382ed464d2cef941e0ed0e9265,2025-10-22T21:58:31+00:00,Human,,3106,123,29,False,False,False,False,init commit
+https://www.github.com/2peppe2/master-picker,7697f6f8e98990f2cbb33aff363c211d42709f9a,2025-10-20T10:45:56+00:00,Human,,6439,0,17,False,False,False,False,Initial commit from Create Next App

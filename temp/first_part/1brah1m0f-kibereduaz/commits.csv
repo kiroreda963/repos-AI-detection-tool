@@ -1,0 +1,767 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1brah1m0f/kibereduaz,006a618ec4e49b971c71d0a22b27c9ca8a96344b,2026-10-28T10:50:23+00:00,Human,,722,9,7,False,False,False,False,Localize all local lessons to Azerbaijani and validate multiple-choice task answers
+https://www.github.com/1brah1m0f/kibereduaz,5bb1c42c8355101af2de0d49100641caed342d09,2026-10-27T17:55:43+00:00,Human,,51,15,4,False,False,False,False,Add interactive teacher class rankings and accessible Room management tabs
+https://www.github.com/1brah1m0f/kibereduaz,96476ffcc2f42cfb9135319b6a2cf73b1083fe59,2026-10-27T17:45:11+00:00,Human,,345,2,3,False,False,False,False,"Merge pull request #12 from 1brah1m0f/codex/teacher-class-dashboard
+
+Restore teacher module and Room creation alongside class dashboard"
+https://www.github.com/1brah1m0f/kibereduaz,6d260c0677e7f47f432481850314f00ccb943bb0,2026-10-27T17:44:35+00:00,Human,,345,2,3,False,False,False,False,Preserve teacher module and room authoring with admin approval
+https://www.github.com/1brah1m0f/kibereduaz,46a168e114c64c2eed32c9e93eb03d9753b1b5af,2026-10-27T17:32:40+00:00,Human,,98,315,6,False,False,False,False,"Merge pull request #11 from 1brah1m0f/codex/teacher-class-dashboard
+
+Replace teacher learning UI with class progress and student rankings"
+https://www.github.com/1brah1m0f/kibereduaz,e1bf93a60643a9b8514ff82b60db8bda0e2b612e,2026-10-27T17:31:01+00:00,Human,,98,315,6,False,False,False,False,Focus teacher dashboard on class progress and student rankings
+https://www.github.com/1brah1m0f/kibereduaz,2fdfb7b1f25e190fea2c658768aa63729959e6a1,2026-10-12T15:40:17+00:00,Human,,8061,0,42,False,False,False,False,Restore Supabase room content from Google Drive
+https://www.github.com/1brah1m0f/kibereduaz,f67d4e2327d9e9a6ffc36f7206ec7c694785d1bb,2026-09-17T13:01:09+00:00,Human,,432,49,19,False,True,False,False,"Merge pull request #10 from 1brah1m0f/cursor/security-report-fixes-af1a
+
+Cursor/security report fixes af1a"
+https://www.github.com/1brah1m0f/kibereduaz,ef3c7adfd9da894dba03873da39019838ed51817,2026-09-17T12:57:32+00:00,AI,Cursor,1,1,1,False,False,False,False,"test(csp): match the header key, not the next.config comment
+
+The file documents why it must not send Content-Security-Policy; a
+full-text search treated that comment as a second header.
+
+Co-authored-by: Şıxı <1brah1m0f@users.noreply.github.com>"
+https://www.github.com/1brah1m0f/kibereduaz,d60aeb7e7d59394bfb242663211c22f10eaea6c1,2026-09-17T12:56:25+00:00,AI,Cursor,61,1,2,False,False,False,False,"test(security): lock CSP enforcement and the style-src ADR
+
+FE-1 already sends Content-Security-Policy (not Report-Only) and FE-2
+kept style-src 'unsafe-inline' as a documented accepted risk. Add tests
+so neither regresses, and record the remaining dashboard-only follow-ups
+from the 17 Sep live report.
+
+Co-authored-by: Şıxı <1brah1m0f@users.noreply.github.com>"
+https://www.github.com/1brah1m0f/kibereduaz,969d3f7fe28fd509e3b6e9ccf9fe8fca063c51c8,2026-09-17T12:56:22+00:00,AI,Cursor,3,3,1,False,False,False,False,"docs: stop describing the anon key as safe to paste around
+
+Also drop the README hint that the production database password contains
+an @, which is more than operators need to encode reserved URL characters.
+
+Co-authored-by: Şıxı <1brah1m0f@users.noreply.github.com>"
+https://www.github.com/1brah1m0f/kibereduaz,e745ff05019cfeeb73323f8c8342efd4e9902f6d,2026-09-17T12:55:58+00:00,AI,Cursor,25,13,4,False,False,False,False,"docs(security): stop publishing the anon key and legacy table map
+
+The live Data API leak used the README/example publishable key plus the
+named tourism tables. Replace committed key material with placeholders,
+tell operators to disable the Data API, and keep drop_legacy_tables.sql
+behind a backup/restore drill.
+
+Co-authored-by: Şıxı <1brah1m0f@users.noreply.github.com>"
+https://www.github.com/1brah1m0f/kibereduaz,7abbd4843e47c41b7cf6792005fd1979252740b4,2026-09-17T12:55:40+00:00,AI,Cursor,26,29,2,True,True,False,False,"fix(deps): override multer and deepmerge-ts high advisories
+
+Force multer >=2.3.0 (GHSA-wc9g-mqfw-jrwm, crafted multipart field
+names) and deepmerge-ts >=8 (stack exhaustion) without a NestJS major
+upgrade. npm audit --omit=dev is now clean.
+
+Co-authored-by: Şıxı <1brah1m0f@users.noreply.github.com>"
+https://www.github.com/1brah1m0f/kibereduaz,b6bda2dbfab5b0a502b5be5715494ae62da37806,2026-09-17T12:54:26+00:00,AI,Cursor,64,3,6,True,True,False,False,"fix(api): tighten per-route throttles on flood-prone writes
+
+Keep the global 120/min bucket. Add 10/min on POST /rooms and POST /paths,
+keep answers at 30/min, and cut teacher-role requests to 3/hour so one
+authenticated client cannot spend the shared budget creating junk content
+or burying the admin queue.
+
+Co-authored-by: Şıxı <1brah1m0f@users.noreply.github.com>"
+https://www.github.com/1brah1m0f/kibereduaz,4446b21c730c7c2ca2504b3fb5cb265887582207,2026-09-17T12:53:43+00:00,AI,Cursor,253,0,5,True,True,False,False,"fix(prisma): fail fast on unfinished migrations at boot
+
+Authenticated routes were 500ing because JwtAuthGuard selects
+profiles.deleted_at on every request while /health only runs SELECT 1.
+A half-applied prisma migrate deploy (finished_at IS NULL) or a missing
+account-deletion migration therefore looks healthy and is unusable.
+
+PrismaService now refuses to boot in that state, deploy.mjs re-checks
+after migrate deploy so the Render build fails instead of shipping the
+new code, and the operator SQL lists unfinished rows.
+
+Co-authored-by: Şıxı <1brah1m0f@users.noreply.github.com>"
+https://www.github.com/1brah1m0f/kibereduaz,27032c558d5bd839893959c6d154f82da4e12b46,2026-09-14T15:37:59+00:00,Human,,80,10,4,False,False,False,False,frontend testing
+https://www.github.com/1brah1m0f/kibereduaz,496ebf64f163d3ca124fe1fec1ee2ae969d9f24d,2026-09-12T10:20:49+00:00,AI,Claude_Code,186,1,3,False,True,False,False,"feat(notifications): implement the streak reminder toggle
+
+profiles.notifyStreak (""Seriya xatırlatması"" in profile settings) was
+stored and round-tripped through the API but had no producer - the
+toggle changed a column nothing ever read.
+
+StreakReminderService runs daily at 20:00 UTC and notifies every
+learner who has a streak worth protecting (currentStreak > 0), opted
+in, has not acted yet today, and is not mid-deletion. sendReminders is
+exposed separately from the @Cron handler so it can be driven with a
+fixed `now` in tests. 5 unit tests cover the filter conditions
+individually so a change that stops filtering (e.g. dropping the
+lastActiveDate check) fails a test instead of paging someone at 3am.
+
+notifyLeaderboard has the same shape (stored, never read) but no
+existing copy anywhere specifies what ""notify me"" should mean for a
+leaderboard - unlike the streak, whose semantics are unambiguous. Left
+alone rather than invented; noted in the feature audit for a product
+decision.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,bad759ea654d08bd593ec8edd64b73d4c37a4ff9,2026-09-12T08:33:34+00:00,AI,Claude_Code,99,6,3,False,False,False,False,"feat(notifications): wire the notification center to real events
+
+NotificationsService.create existed and nothing ever called it, so
+/notifications was permanently empty and the ""Yeni bildiriş yoxdur""
+copy on the dashboard was always true regardless of what happened on
+the platform.
+
+- notify(): same as create, but logs a failure instead of throwing.
+  Telling somebody their account was approved is a side effect of the
+  approval, never a precondition for it - a notification failure must
+  not roll back the action it was announcing.
+- announceRoom(): bulk-notifies every STUDENT with notifyNewRooms on
+  (skipping accounts pending deletion) when a room is published.
+- Wired into AdminService: teacher approve/reject notifies the
+  applicant, room publish notifies its author and announces it to
+  learners (fire-and-forget, after the audit write), room reject
+  notifies its author.
+- NotificationsModule is now @Global, matching AuditModule, since
+  sending a notification is a side effect that belongs in modules
+  across the app.
+
+The frontend notification center already renders href/title/body/type
+correctly - it just never had anything to show.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,a08426615a7e4e3bc6e1439d4399aa353275ed69,2026-09-12T08:30:22+00:00,AI,Claude_Code,903,3,5,False,False,False,False,"feat(teacher): room content editor
+
+The biggest hole in the product: a teacher could create a room and then
+never put anything in it. POST /rooms/:id/tasks, PATCH, DELETE and
+GET /rooms/:id/edit all existed on the API and nothing in the frontend
+called any of them, so every room reached learners empty and no room
+could honestly be published.
+
+/teacher/rooms/[id] now edits a room's content:
+
+- Tasks: title, duration, XP, reorder by position, add and delete.
+- Lesson sections per task: optional heading, body, and a bullet list
+  entered one per line.
+- Questions per task: single choice, true/false and short answer.
+  Switching to true/false writes its own option pair; marking a correct
+  option in a single-answer question clears the others, because the
+  server rejects any other shape.
+- Short answers take accepted values one per line, matched
+  case-insensitively server-side.
+
+Client-side validation mirrors RoomsService.createQuestion exactly, so a
+teacher sees ""at least two options"" next to the field instead of a 400
+after pressing save. Saving a task sends it whole, which is what the
+upsert endpoint expects - it replaces questions wholesale so the editor
+can reorder freely.
+
+The room list links to it per row, and the create form now says what
+the next step is rather than implying the room is finished.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,890b88d526a81a42fae3814201e852c94cdcb3b8,2026-09-12T08:24:25+00:00,AI,Claude_Code,63,8,2,True,True,False,False,"fix(catalog): let teachers add modules to published paths
+
+A regression I introduced with the F-02 ownership guard. createModule
+required ownership of the destination path, but curriculum paths are
+generally admin-authored, so in practice a teacher could only ever build
+under a path they had created themselves - the module form in the
+teacher console offers every visible path and each one would have
+answered 403.
+
+Attaching is now governed by the rule RoomsService already applies to
+modules: a published path is public structure and open to
+contributions, an unpublished one is somebody's unreviewed draft and
+stays closed. Re-parenting follows the same rule.
+
+The security property is unchanged - a teacher still cannot inject
+content into an unreviewed draft, and still cannot edit or publish a
+path they do not own.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,ae611ccd9e57c835fdfcc72e75d6b356c3335f57,2026-09-12T08:22:20+00:00,AI,Claude_Code,244,60,9,True,True,False,False,"fix(dashboard): stop a cold backend from looking like a failed login
+
+The dashboard was unreachable in a way that looked exactly like login
+being broken, and it was a redirect loop:
+
+  1. the page called /profiles/me through apiFetchOrNull, which returns
+     null for *any* failure - including a timeout;
+  2. null was read as ""not signed in"", so the page redirected to /login;
+  3. proxy.ts looked at the Supabase cookie, found a perfectly good
+     session, and redirected straight back to /dashboard;
+  4. repeat.
+
+The trigger is the free Render plan: it parks the instance after 15
+minutes and takes tens of seconds to wake, so the first request after a
+quiet spell fails through nobody's fault.
+
+- requireProfile (lib/api/viewer.ts) replaces the null check on the four
+  gated pages. Only a real 401/403 goes to /login; a timeout or a 502
+  while the instance wakes is re-thrown for error.tsx, which explains
+  itself and offers a retry instead of bouncing in circles.
+- Both API clients now bound each attempt at 15s and retry twice, with
+  backoff, on the statuses a proxy returns while something behind it is
+  starting. Reads only: replaying a POST could submit an answer or
+  create a room twice, and 429 is excluded because retrying a rate limit
+  is the opposite of the right response.
+- apiFetchOrNull keeps swallowing everything and is now documented as
+  being for optional panels only, with a note not to use it to decide
+  whether somebody is signed in.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,8845a1b523d8fa7c684d80e837d56ea10bc2f22e,2026-09-12T07:41:18+00:00,AI,Claude_Code,202,1,3,False,True,False,False,"feat(auth): resend the confirmation e-mail
+
+Supabase mails a confirmation link once per sign-up. If it never
+arrives - spam folder, wrong address, an expired link, or the built-in
+SMTP's project-wide hourly cap - there was nothing the visitor could
+do: signing up again with a known address is answered without sending
+anything, deliberately, so the form cannot be used to test which
+addresses are registered.
+
+A resend button now appears in the two places we know the address is
+registered but unconfirmed: after a sign-up that needs confirmation,
+and after a sign-in that fails with ""email not confirmed"". It calls
+auth.resend({ type: ""signup"" }) with emailRedirectTo built from
+getSiteUrl(), and when Supabase answers ""you can only request this
+after N seconds"" it counts N down on the button instead of letting
+people press something guaranteed to fail.
+
+The expired-link message no longer tells people to register again -
+a new link is one sign-in attempt away now.
+
+docs/auth-emails.md explains the three separate reasons a link appears
+to arrive only once, and which of them are dashboard settings: the
+built-in SMTP is capped per project and Supabase calls it test-only, so
+production needs a custom SMTP provider. That part cannot be fixed in
+code.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,ec4600b4e3509e36a78ceeb7176f7cfc8388746d,2026-09-11T22:14:52+00:00,AI,Claude_Code,39,7,4,True,True,False,False,"fix(auth): fall back to Vercel's production domain for the site URL
+
+getSiteUrl threw in production whenever NEXT_PUBLIC_SITE_URL was unset,
+which turns a forgotten dashboard setting into broken sign-up, broken
+e-mail confirmation and a broken password reset. The frontend is not
+running this code yet, so nothing is live-broken - but deploying it as
+written would have done exactly that.
+
+It now falls back to VERCEL_PROJECT_PRODUCTION_URL (and the
+NEXT_PUBLIC_ variant the client bundle sees), which Vercel sets from
+the build system rather than from a request. That keeps the property
+the throw was protecting: the redirect origin is still never derived
+from attacker-controllable input. Explicit configuration still wins,
+and off-platform production still throws rather than guessing.
+
+Set NEXT_PUBLIC_SITE_URL explicitly once there is a custom domain - the
+Vercel variable keeps pointing at the *.vercel.app one.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,433776148c3086aefdd61b8573eb44b8ab473d2c,2026-09-11T21:32:56+00:00,AI,Claude_Code,317,37,12,False,True,False,False,"Merge security/audit-remediation: restore the deploy
+
+Fixes the 12 Sep outage and the ordering problem behind it.
+
+- @nestjs/common realigned with @nestjs/core 11.2.3. My earlier npm
+  audit fix moved core and platform-express but not common, so the
+  build passed and the process died on start.
+- scripts/boot-check.sh boots the compiled app against an unreachable
+  database, so a lockfile that cannot start fails before it is pushed.
+- Migrations now run in the Render build, ahead of the compile, via
+  prisma/deploy.mjs, which baselines the hand-applied schema when the
+  database has no migration history. A failed migration fails the
+  build, which leaves the previous deploy serving traffic.
+- The one migration that can fail on existing data is renumbered to run
+  last, so a duplicate row can no longer block profiles.deleted_at.
+- render.yaml and the README now describe the branch that actually
+  deploys.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,e8e2ad071c502d16fa68f680bf2d338571332f70,2026-09-11T21:32:14+00:00,AI,Claude_Code,7,6,2,False,False,False,False,"docs: point the branch model at the branch that actually deploys
+
+I had written render.yaml and the README around making `main` the one
+long-lived branch. That never happened - PR #9 was merged into
+`backend`, which is the repository default and what Render deploys, so
+the config said one thing and reality did another.
+
+render.yaml now declares `branch: backend`, and the README describes the
+model that exists: `backend` is the deployed branch despite its name,
+work merges into it through a PR, and `main`/`frontend` are stale
+leftovers behind it that can be deleted. Renaming the default branch is
+written up as the separate, deliberate step it would be.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,9e3d1f39ab0f46abe4935af552d608940f35f7c0,2026-09-11T21:31:01+00:00,AI,Claude_Code,129,25,10,True,True,False,False,"fix(deploy): run migrations in the build, and put the risky one last
+
+Two ordering problems, both of which the 12 Sep outage exposed.
+
+Migrations now run in the Render build command, before the compile, and
+are allowed to fail it. A failed build leaves the previous deploy
+serving traffic, so the schema can never end up behind the code that
+reads it - which is precisely what happened when PR #9 merged and the
+new code went looking for profiles.deleted_at.
+
+They were excluded until now because the schema was applied to Supabase
+by hand, so `migrate deploy` would try to replay the init migration and
+hit ""relation already exists"". prisma/deploy.mjs handles that: it
+inspects the database and either baselines the two hand-applied
+migrations and deploys the rest, builds a fresh schema, or just deploys
+what is pending. Idempotent. prisma:baseline also now covers the second
+hand-applied migration, which it had been missing.
+
+20260911000100_answer_attempt_idempotency is renumbered to …000500 so
+it runs LAST. It is the only migration that can fail on existing data
+(duplicate correct attempts block the unique index), and at …000100 it
+sat in front of account_deletion - so a duplicate row would have
+stopped deleted_at from ever being created and left the API down. Last
+means a failure there costs only the F-04 fix.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,b3d37389edfcd9e322ac3a2f74cd6ab1fb87c8aa,2026-09-11T21:21:32+00:00,AI,Claude_Code,83,0,1,False,False,False,False,"docs(prisma): read-only check for which security migrations are applied
+
+The 12 Sep merge deployed code that reads columns the database does not
+have yet. profiles.deleted_at is the dangerous one: JwtAuthGuard loads
+the whole profile row on every authenticated request, so its absence is
+a total API outage rather than one broken feature.
+
+One query, pasteable into the Supabase SQL editor, that reports each of
+the six migration artefacts as OK or MISSING and says what breaks. Also
+reports whether _prisma_migrations exists at all, since the schema was
+applied out of band and `migrate deploy` has never been baselined.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,4622d79dd46d194ec238c1d93255badf7d254b5c,2026-09-11T21:17:37+00:00,AI,Claude_Code,101,9,3,True,True,False,False,"fix(deps): align @nestjs/common with core, and check the app actually boots
+
+My npm audit fix in 1285723 moved @nestjs/core and platform-express
+11.1.29 -> 11.2.3 but left @nestjs/common at 11.1.29. core 11.2 requires
+a decorator that common 11.1 does not ship, so the 12 Sep deploy built
+cleanly and then died on start:
+
+  Cannot find module '@nestjs/common/decorators/http/sse-signal.decorator'
+
+common is now on 11.2.3 with the other two. The @nestjs/* runtime
+packages have to move together.
+
+I never caught it because `nest build` only type-checks and emits - it
+never loads @nestjs/core at runtime, so build, lint and unit tests were
+all green against a lockfile that could not boot. scripts/boot-check.sh
+closes that gap: it starts dist/main.js against an unreachable database
+and fails on a missing module, a DI error or a config rejection, while
+treating ""wired every module, mapped 48 routes, then could not reach the
+database"" as the expected ending. Wired up as `npm run boot:check`.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,4e8b5dfadf6605d1a0529bffd213e2f5990276f1,2026-09-11T21:08:29+00:00,Human,,1159,149,35,False,False,False,False,"Merge pull request #9 from 1brah1m0f/security/audit-remediation
+
+Security/audit remediation"
+https://www.github.com/1brah1m0f/kibereduaz,177ca6aee6db7b5ddc1605902ec31bb3ea2102c1,2026-09-11T21:01:02+00:00,AI,Claude_Code,18,0,2,False,True,False,False,"docs: record the second remediation pass
+
+Nine more fixes found by re-reading what the first pass touched - the
+proxy-IP throttling bug, the slug/tree visibility gaps, the encoded
+open-redirect hole the new tests caught, the CSP nonce, the missing
+password-reset flow, the deletion UI, the purge scheduler and the audit
+log - plus the sixth migration in the deploy order.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,28f002ce8051e6436d25526a267920feae530180,2026-09-11T21:00:07+00:00,AI,Claude_Code,423,62,16,False,False,False,False,"feat(audit): append-only audit log for privileged actions
+
+Closes the P3 ""audit trail"" item from the consolidated audit. Answers
+who did what to whom for every action that changes somebody else's
+access or what learners can see: teacher approve/reject, role change,
+room publish/unpublish/archive/delete, path and module delete, account
+delete request, restore and purge.
+
+- New audit_log table (migration 20260911000400): actor nullable with
+  SET NULL so an admin's own purge keeps their history and the
+  scheduler can write rows; indexed by time, actor and target; RLS on
+  and grants revoked like every other table.
+- AuditService.record never throws - a lost line of history is
+  preferable to blocking the action it was recording - and logs the
+  failure. Actions are a closed union so a typo cannot invent a new
+  category.
+- The actor is now threaded through every admin controller into the
+  service that does the write, which the admin endpoints had never
+  received before.
+- GET /admin/audit lists newest-first with keyset paging.
+- Guard tests take a recording fake; one new test asserts the publish
+  entry names the actor. 18 tests.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,4fed9d6113b1bdbc6c63cbfb80a20e4c90340887,2026-09-11T20:53:12+00:00,AI,Claude_Code,88,19,5,False,False,False,False,"feat(profiles): nightly in-process purge of expired deletions
+
+Picks option 3 from docs/account-deletion.md: @nestjs/schedule runs
+AccountDeletionService.purgeExpired every day at 03:00. No admin token
+has to live in an external cron, and the purge is idempotent so a
+second instance firing the same tick finds nothing due. A tick that
+throws is logged and never takes the process down. The admin endpoint
+stays for running it by hand.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,207419599caa0c5d157b383de97b9c1e4b9f16cd,2026-09-11T20:53:10+00:00,AI,Claude_Code,297,0,4,False,False,False,False,"feat(auth): password reset flow
+
+There was no way to recover a forgotten password at all - the task list
+mentioned resetPasswordForEmail and no call existed.
+
+/forgot-password asks Supabase for a recovery mail with redirectTo
+pinned to NEXT_PUBLIC_SITE_URL (/auth/callback?next=/reset-password).
+The response is the same whether or not the address exists, so the form
+cannot enumerate accounts. /auth/callback exchanges the code exactly as
+for sign-up and lands on /reset-password, where updateUser({ password })
+finishes the job. The login form links to it. /forgot-password is
+public in the proxy; /reset-password requires the recovery session.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,4641e9902578792b7fe46e17fb1a7810b8856a17,2026-09-11T20:53:07+00:00,AI,Claude_Code,147,0,2,False,False,False,False,"feat(profiles): account deletion from the profile page
+
+DELETE /profiles/me existed with no way for a learner to reach it. A
+danger-zone section below the editor asks for a typed confirmation,
+calls the endpoint, signs the browser session out and lands on /login.
+The copy explains the 30-day restore window.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,be2ce743f133757e272b4e7e4ac746a6f313a4e3,2026-09-11T20:53:05+00:00,AI,Claude_Code,108,54,3,True,True,False,False,"fix(security): per-request CSP nonce instead of 'unsafe-inline' scripts
+
+The Report-Only CSP shipped with script-src 'unsafe-inline', which
+neuters the one directive that matters against XSS. The proxy now mints
+a nonce per response, hands it to Next.js through the x-nonce and CSP
+request headers (which is how App Router stamps its own inline
+bootstrap scripts), and sets the same policy on the response. script-src
+is 'self' 'nonce-…' 'strict-dynamic', with 'unsafe-eval' only in
+development for React Refresh.
+
+The static CSP is removed from next.config.ts: two policies are
+intersected by the browser and would have broken the nonced scripts.
+Styles stay on 'unsafe-inline' - Tailwind and framer-motion set style
+attributes that nonces cannot cover, and that is a far smaller surface.
+
+Still Report-Only until the violation log has been reviewed.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,9fee509defc7dce03b16f5d82bdf6fc3cf11b39f,2026-09-11T20:46:44+00:00,AI,Claude_Code,19,0,2,True,True,False,False,"fix(auth): close the percent-encoded gap in safeRelativePath, with tests
+
+Writing the tests found a hole in the F-06 guard: /%5Cevil.com passed,
+because the raw-form checks never saw the backslash and URL resolution
+keeps the escape as-is. The guard now repeats the ""//"" / backslash /
+control-character checks on the decoded form as well, and treats a
+malformed escape as a rejection.
+
+tests/site-url.test.mjs covers getSiteUrl (production throw, dev
+fallback, scheme required, trailing slash) and 17 redirect payloads
+including backslash, protocol-relative, absolute, javascript:, encoded
+and control-character variants.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,4e59c199602026e67da8cdc15fb1ecb123691657,2026-09-11T20:45:36+00:00,AI,Claude_Code,5,1,1,True,True,False,False,"fix(profiles): restrict avatarKey to a short lowercase token
+
+The frontend maps it to a fixed set of avatars, so any other value is
+stored noise at best and a persisted payload at worst. MaxLength(40)
+alone accepted arbitrary text.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,65624d108faf0ecb6b829178d0d3f2c24967b920,2026-09-11T20:45:34+00:00,AI,Claude_Code,45,12,2,True,True,False,False,"fix(security): apply the F-14 visibility rule to slug reads and the tree
+
+The listing was scoped to ""published or my own draft"" but two other
+reads were not, so knowing a slug or reading GET /paths still showed a
+teacher every other teacher's unreviewed draft.
+
+- findBySlug uses the same rule as list(): a draft is reachable only by
+  its author or an admin, otherwise 404.
+- PathsService.tree applies the rule at every level (path, module,
+  room), so the tree cannot leak what the list hides.
+- A teacher can attach a room only to a published module or a draft
+  they authored - not to somebody else's unreviewed draft - on both
+  create and re-parenting update.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,2f6d129c6e986a4987b2980fa7fdf0a8617925b6,2026-09-11T20:45:32+00:00,AI,Claude_Code,9,1,1,True,True,False,False,"fix(security): trust the Render proxy so throttling is per client
+
+Render terminates TLS and forwards the client address in
+X-Forwarded-For, but Express was never told to trust it, so req.ip was
+the proxy's own address for every request. The throttler keyed on that
+put the whole user base into a single bucket: 120 legitimate requests a
+minute from anybody locked everybody out, and every per-route limit
+added so far was ""per deployment"", not ""per client"".
+
+`trust proxy` set to 1 hop, on a properly typed NestExpressApplication.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,fca5fd448d702dd3caf26139dd4c2dad86e1998d,2026-09-11T20:37:35+00:00,Human,,3234,446,48,False,False,False,False,"Merge pull request #8 from 1brah1m0f/security/audit-remediation
+
+Security/audit remediation"
+https://www.github.com/1brah1m0f/kibereduaz,0e7f896ca4eb58c56346994c28635063dfad7ea4,2026-09-11T20:26:11+00:00,AI,Claude_Code,753,3,6,False,False,False,False,"chore: single-main branch model, pin Render to main, file the audits
+
+The repo had three branches that separated nothing: main and backend
+pointed at the same commit, frontend was a stale ancestor, and every
+branch carried the whole monorepo. GitHub's default was backend.
+
+- README documents the model: main is the only long-lived branch, all
+  work merges through a PR, and why that matters here - Render deploys
+  on every commit but never runs migrations, so a direct push can ship
+  code ahead of the columns it reads.
+- render.yaml declares branch: main explicitly instead of following
+  whatever the default branch happens to be.
+- README gains NEXT_PUBLIC_SITE_URL (now required) in the Vercel table,
+  the `*` CORS note, the ordered list of the 2026-09 migrations with the
+  read-only pre-flight, and the legacy-tables note reflects that RLS now
+  covers them.
+- The four audit reports move from the repo root to docs/audits/ as the
+  source material for docs/security-remediation-2026-09.md.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,00dd31335ead95514523c991b6e94f9535598834,2026-09-11T20:04:56+00:00,AI,Claude_Code,180,0,1,False,False,False,False,"docs: security remediation report for the September 2026 audits
+
+Finding-by-finding record of what was confirmed, what was a false
+positive and why, the migration order, the manual dashboard steps, and
+the four items left for a decision.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,b5ac271fd11ae6291ca15178dd335b29d712b3bf,2026-09-11T19:59:37+00:00,AI,Claude_Code,301,11,11,False,False,False,False,"feat(profiles): account deletion with a 30-day restore window
+
+F-09. There was no delete path at all, only sign-out, on a platform
+whose audience is minors.
+
+DELETE /profiles/me marks profiles.deleted_at (new nullable column,
+partial index). JwtAuthGuard refuses a marked profile, so access stops
+at the next request rather than at purge time, and the account leaves
+the leaderboard, the admin user list, the pending-teacher queue and the
+dashboard counts immediately.
+
+POST /admin/profiles/purge-expired hard-deletes accounts past the
+window: Supabase Auth user first, Profile second, so a failed auth call
+retries next run instead of orphaning the auth user. Everything keyed to
+the profile cascades; authored Paths/Modules/Rooms keep existing with
+created_by_id set to null, because deleting a teacher must not take a
+published curriculum with it. That part needs a retention sign-off.
+POST /admin/profiles/:id/restore undoes a request inside the window.
+
+Uses the existing SUPABASE_SECRET_KEY rather than introducing a second
+admin key. No scheduler is baked in; docs/account-deletion.md lays out
+three options and recommends one.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,55213e09112fdee95edaa09ffb4b84c06f3c4e2c,2026-09-11T19:54:49+00:00,AI,Claude_Code,1018,1,5,False,False,False,False,"test(security): ownership-guard tests, smoke script and race repro
+
+The backend had no test framework; follows the frontend's existing
+`tsx --test` convention rather than pulling in a second one.
+
+tests/ownership-guards.test.mjs covers the guards against a stubbed
+Prisma: teacher A vs teacher B's room/path/module/task is 403, admin and
+own-content are 200, a missing row is 404 not 403, a pending teacher is
+refused, a taskId nested under the wrong roomId is 404, a teacher's
+`status: PUBLISHED` is stripped on create and update while an admin's
+survives, and rows with createdById = null are admin-only. 17 tests.
+
+scripts/security-smoke.sh replays the audit PoCs with curl and expects
+403. Read-only by design: the writes target rooms the token does not
+own and the publish attempt sets DRAFT, which the target already is, so
+nothing is damaged even if a check unexpectedly passes.
+
+scripts/reproduce-points-race.sh fires N concurrent correct answers and
+asserts only one was paid; a real concurrency test needs a live
+Postgres, so it is a script rather than a unit test.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,5306be896ca9d0a99aded62241533d3c9d6c956d,2026-09-11T19:51:30+00:00,AI,Claude_Code,84,12,7,True,True,False,False,"fix(security): CORS, error-response, helmet, throttle and PII hardening
+
+F-11: a rejected origin returned callback(new Error(...)), which aborts
+the response at the network layer instead of denying cleanly. Now
+callback(null, false) plus a server-side warn. A bare `*` in
+CORS_ORIGINS no longer matches anything: with credentials enabled it
+would have allowed authenticated calls from any site.
+
+F-12/M-004: P2002 no longer echoes the constraint target (internal
+column names) to the caller, and an untranslated Prisma error returns a
+generic 500 rather than a message that can carry the failing query. The
+detail goes to the log.
+
+M-003: helmet is configured explicitly for a JSON API - default-src
+'none', frame-ancestors 'none', Referrer-Policy no-referrer.
+
+F-13/M-001: per-route @Throttle on answer submission (30/min, the
+short-answer brute-force path), leaderboard reads (30/min) and profile
+updates (20/min). F-05: 5/day on POST /profiles/me/request-teacher.
+
+F-15: the leaderboard falls back to a stable pseudonym derived from the
+profile id instead of the email local-part.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,549101add898fa92bb87058aa4e42dea93a07ed9,2026-09-11T19:48:36+00:00,AI,Claude_Code,97,1,5,True,True,False,False,"fix(security): frontend security headers and Secure session cookies
+
+F-08 and the cookie report.
+
+next.config.ts had no headers() block at all. Adds HSTS, nosniff,
+X-Frame-Options: DENY, Referrer-Policy and Permissions-Policy, plus CSP
+as Content-Security-Policy-Report-Only so the violation log decides when
+it can be enforced. connect-src is derived from the configured Supabase
+and API origins.
+
+Cookies, deliberately narrower than the cookie report recommended:
+- secure: true in production, on all three @supabase/ssr clients.
+- sameSite stays ""lax"", NOT ""strict"". Confirming a sign-up is a
+  cross-site navigation from a mail client; under Strict the PKCE
+  code-verifier would not be sent to /auth/callback and signup would
+  break. The API uses Bearer tokens, so there is no ambient-cookie CSRF
+  surface that Strict would protect.
+- httpOnly is NOT set: lib/api/client.ts reads the access token via
+  getSession() in the browser, so it would break every client-side API
+  call. Documented in cookie-options.ts as an architectural decision.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,4c99d617153e4f682be47af22e8e8b07c7bf8020,2026-09-11T19:46:27+00:00,AI,Claude_Code,155,37,4,True,True,False,False,"fix(auth): pin auth redirects to NEXT_PUBLIC_SITE_URL
+
+Main functional bug plus F-06/F-07.
+
+- New lib/site-url.ts. getSiteUrl() throws in production when
+  NEXT_PUBLIC_SITE_URL is unset rather than falling back to localhost,
+  and falls back only in development.
+- signUp no longer builds emailRedirectTo from window.location.origin,
+  which is what made a confirmation mail link back to whatever host the
+  visitor happened to sign up from.
+- /auth/callback builds its redirect origin from getSiteUrl() instead
+  of the attacker-controllable x-forwarded-host.
+- safeRelativePath replaces the `startsWith(""//"")` prefix check: it
+  resolves the candidate against the site origin and compares origins,
+  so /\evil.com, %5C and %2F%2F variants, absolute URLs and control
+  characters are all rejected. Both the callback and the auth form use
+  it.
+- The single-use PKCE code-verifier cookie is cleared after the
+  exchange; Supabase writes it with a ~1 year Expires.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,1285723a30598c84c507d8501be6b7e5ef6429a2,2026-09-11T19:39:57+00:00,AI,Claude_Code,201,322,4,False,True,False,False,"chore(deps): patch the advisories that have non-breaking fixes
+
+F-03. The reports disagreed on the Next.js major; the lockfile says 16,
+so the critical advisory (16.0.0-16.3.2) applies.
+
+Frontend: next 16.3.0 -> 16.3.4 (the patch is outside the old caret
+range), eslint-config-next pinned to match, npm audit fix for the
+transitive sharp / js-yaml / nanoid highs. Frontend is now at 0
+advisories and builds.
+
+Backend: non-breaking npm audit fix, plus dropping @nestjs/swagger,
+which nothing in src imports. 10 advisories -> 6.
+
+The remaining 6 backend advisories are transitive and npm's only
+""fix"" for each is a semver-MAJOR downgrade (@nestjs/core 11 -> 7.5.5,
+prisma 6.16 -> 6.12), so they are deliberately left alone: multer
+arrives via @nestjs/platform-express and the app has no upload surface,
+and deepmerge-ts is inside the Prisma CLI, not the runtime. They need
+upstream releases, not a downgrade.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,624e923392c68567b26b99fb8c7a5ed9eb3d778c,2026-09-11T19:29:24+00:00,AI,Claude_Code,54,0,1,True,True,False,False,"fix(security): default-deny RLS on legacy and unmanaged public tables
+
+F-10/H-001, partially. The init migration already enables RLS and
+revokes anon/authenticated on all 16 application tables, so the audit's
+""no RLS anywhere in the repo"" is wrong - but the seven leftover tourism
+tables and _prisma_migrations were outside that loop, and the
+publishable key is public by design.
+
+Enables RLS with no policies and revokes grants on those, then sweeps
+any remaining public table that still has RLS off. Guarded with
+to_regclass so it stays replayable after the legacy tables are dropped.
+The backend connects as the owner/postgres role and bypasses RLS, so
+the API is unaffected. Dropping the legacy tables stays a separate,
+operator-run step after a backup.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,2d7d0f54bd38ee1ce63b853e72d6b50b62affede,2026-09-11T19:28:50+00:00,AI,Claude_Code,146,10,4,True,True,False,False,"fix(security): make the points payout idempotent
+
+F-04: the alreadySolved read ran outside the write transaction, so two
+concurrent correct submissions could both see ""not yet solved"" and both
+pay out question.points. The room-completion bonus had the same shape.
+
+- New migration adds two partial unique indexes (raw SQL; Prisma cannot
+  express partial indexes): answer_attempts (profile_id, question_id)
+  WHERE is_correct, and points_ledger (profile_id, room_id) WHERE
+  reason = 'ROOM_COMPLETED'.
+- The insert is now the arbiter. createMany({ skipDuplicates }) compiles
+  to ON CONFLICT DO NOTHING, so the losing request pays nothing and
+  still gets a normal ""already solved"" response instead of a 500 - and
+  no failed statement poisons the surrounding transaction.
+- prisma/manual/find_duplicate_correct_attempts.sql is the read-only
+  pre-flight: index creation fails if duplicates already exist, and
+  nothing is deleted automatically.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,88a157bce746b3e8219e80615df15b694ab18cf0,2026-09-11T19:25:22+00:00,AI,Claude_Code,112,22,4,True,True,False,False,"fix(security): path/module ownership and publish-workflow bypass
+
+F-02 plus the live PoC from the Azerbaijani pentest report: PATCH
+/paths/:id and PATCH /modules/:id never received the caller, and wrote
+dto.status straight through, so any approved teacher could publish a
+DRAFT module without admin review or edit another teacher's curriculum.
+
+- learning_modules gains a nullable created_by_id (new migration); rows
+  that predate it stay admin-only, which is the safe default.
+- assertCanManagePath / assertCanManageModule mirror the rooms guard.
+- createModule requires ownership of the destination path, and
+  re-parenting checks the destination too.
+- withSafeStatus strips `status` for non-admins on both create and
+  update, so the rule rooms already had now covers paths and modules.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,24a34cab59d7b964416709366c3a2ab50f179b3a,2026-09-11T17:07:20+00:00,AI,Claude_Code,133,27,2,True,True,False,False,"fix(security): room ownership guard on every authoring endpoint
+
+F-01/F-14: role checks alone let any approved teacher read and rewrite
+any room in the catalog, including the answer keys served by
+GET /rooms/:id/edit.
+
+- assertCanManageRoom mirrors ClassesService.assertCanManage: admins
+  manage everything, an ACTIVE teacher only rooms they created.
+- Applied to findByIdForAuthor, update, upsertTask and removeTask.
+- Nested :taskId is validated against its parent :id, and the delete is
+  scoped to the room instead of keying on the task id alone.
+- Room listings scope drafts to their author; published rooms stay
+  visible to everyone.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1brah1m0f/kibereduaz,86939bc45e4dd35bcaa4fdfbd63f09547eec5ebd,2026-09-10T15:48:45+00:00,Human,,304,57,10,False,False,False,False,kiberbot activated
+https://www.github.com/1brah1m0f/kibereduaz,a5dea2f33ca91972d7f6c1811771e8575145de6b,2026-09-10T14:51:05+00:00,Human,,162,78,14,False,False,False,False,some ui changes
+https://www.github.com/1brah1m0f/kibereduaz,7efc70d39635ff9cefafabbf81b1143659552fd9,2026-08-31T12:45:47+00:00,Human,,525,232,10,False,False,False,False,new ui components
+https://www.github.com/1brah1m0f/kibereduaz,6581ba6f9a41250125ca1d9f1ec19d1e36c877b3,2026-08-29T15:17:52+00:00,Human,,1514,105,40,False,False,False,False,new chatbot
+https://www.github.com/1brah1m0f/kibereduaz,a8e17b74747aad8dc41cb6a063a94e5567b3c21b,2026-08-29T14:26:44+00:00,Human,,720,110,28,False,False,False,False,new hero section and images
+https://www.github.com/1brah1m0f/kibereduaz,a216d7d0c2f89f2157b26f3f2af742192b12e98a,2026-08-29T13:33:47+00:00,Human,,112,50,12,False,False,False,False,some front changes
+https://www.github.com/1brah1m0f/kibereduaz,0698b8b66a64fd6f0841a37234c23b6b39bca39b,2026-08-24T11:37:03+00:00,Human,,0,175,1,False,False,False,False,s
+https://www.github.com/1brah1m0f/kibereduaz,6e9cb319f18adc95c40ac7f2d6ac5179b6b52a3e,2026-08-24T11:31:14+00:00,Human,,1,0,1,False,False,False,False,11
+https://www.github.com/1brah1m0f/kibereduaz,5a959286d10c3d7f2ad5dbb91c59ad813953551a,2026-08-23T19:24:24+00:00,Human,,1044,1,3,False,False,False,False,chore: prepare onboarding redesign workspace
+https://www.github.com/1brah1m0f/kibereduaz,19610e37abf60e4f5077baca4ab121204b8f8e89,2026-08-23T19:24:11+00:00,Human,,536,713,11,False,False,False,False,feat(web): replace global background with Silk
+https://www.github.com/1brah1m0f/kibereduaz,cea02b923954c82126a97f9a6fabada2c75d5eac,2026-08-23T19:12:55+00:00,Human,,309,0,1,False,False,False,False,docs: define onboarding and landing redesign
+https://www.github.com/1brah1m0f/kibereduaz,24c71fb6185deacb62fed8aa6fa26dd416cd9729,2026-08-20T14:04:51+00:00,Human,,131,11,2,False,False,False,False,h
+https://www.github.com/1brah1m0f/kibereduaz,84b07fec246f0dd1bb43cd2bad57854c68edc692,2026-08-19T19:43:28+00:00,Human,,857,496,9,False,False,False,False,"Add new rooms for Windows PrivEsc, XSS, and Vulnerability Scanning
+
+- Created a comprehensive guide for Windows Privilege Escalation techniques, covering tools like winPEAS, JuicyPotato, and service registry exploitation.
+- Introduced a room on Cross-Site Scripting (XSS), detailing its types, payloads, and defense mechanisms.
+- Added a room focused on Vulnerability Scanning using Nessus and OpenVAS, explaining their operation, CVE/CVSS concepts, and practical scanning workflows."
+https://www.github.com/1brah1m0f/kibereduaz,b58e44adffa88c5cb9b1a8a9adac46da77852248,2026-08-19T19:42:53+00:00,Human,,0,0,37,False,False,False,False,1
+https://www.github.com/1brah1m0f/kibereduaz,577501abeb2c1c237c350a322e60a27e02c80d28,2026-08-19T19:05:35+00:00,Human,,8306,12,42,False,False,False,False,2
+https://www.github.com/1brah1m0f/kibereduaz,ec565cc39255933c6e933264422daea086b1afba,2026-08-19T18:14:20+00:00,Human,,0,0,0,False,False,False,False,"Merge pull request #6 from FirudinManiyev/main
+
+Merge pull request #5 from FirudinManiyev/backend"
+https://www.github.com/1brah1m0f/kibereduaz,f76a391d876e77ba1f923e907cf27d836f2659f9,2026-08-19T18:12:24+00:00,Human,,33,13,4,False,False,False,False,"Merge pull request #5 from FirudinManiyev/backend
+
+Backend"
+https://www.github.com/1brah1m0f/kibereduaz,7747d7d0a07e82dc1a97c058f1c2af05f124557b,2026-08-19T18:11:03+00:00,Human,,0,0,0,False,False,False,False,Merge branch 'main' of https://github.com/FirudinManiyev/KiberEduAz into backend
+https://www.github.com/1brah1m0f/kibereduaz,629b29a371fe2a365a1280b717a9d9b2a30c40a6,2026-08-19T18:08:13+00:00,Human,,33,13,4,False,False,False,False,1
+https://www.github.com/1brah1m0f/kibereduaz,858dbfea49cf13ea71779323e8572666c88895e8,2026-08-19T11:25:39+00:00,Human,,0,0,0,False,False,False,False,"Merge pull request #4 from FirudinManiyev/backend
+
+Merge pull request #3 from FirudinManiyev/main"
+https://www.github.com/1brah1m0f/kibereduaz,4a71a23d02812f72335914b45ff7a6cb78d4764d,2026-08-19T11:24:03+00:00,Human,,5498,221,73,False,False,False,False,"Merge pull request #3 from FirudinManiyev/main
+
+hu"
+https://www.github.com/1brah1m0f/kibereduaz,0402bdbb535558c1b1658346238d526a6730624e,2026-08-19T11:16:35+00:00,Human,,20574,801,169,False,False,False,False,"Merge pull request #2 from FirudinManiyev/frontend
+
+Merge frontend into main"
+https://www.github.com/1brah1m0f/kibereduaz,56d432bb187f22529f6c7ca5053769cae54a379f,2026-08-15T16:31:12+00:00,Human,,82,20,6,False,False,False,False,feat: unify async action feedback
+https://www.github.com/1brah1m0f/kibereduaz,887445e6ef393d7db68dde4cb5c907af6ae2e787,2026-08-15T16:28:09+00:00,Human,,4,15,1,False,False,False,False,refactor: simplify landing hero media
+https://www.github.com/1brah1m0f/kibereduaz,3ae07123e16f235aa562c99b29aee9b9b7a24197,2026-08-15T16:27:30+00:00,Human,,71,0,6,False,False,False,False,feat: add route toasts and scroll restoration
+https://www.github.com/1brah1m0f/kibereduaz,420fb1b01eb2bd909b353929b435358e3f2b196b,2026-08-15T16:26:07+00:00,Human,,43,9,3,False,False,False,False,perf: reduce mobile visual rendering cost
+https://www.github.com/1brah1m0f/kibereduaz,45314398acb0afb91b2228a691dbaaab51f1fd55,2026-08-15T16:25:07+00:00,Human,,17,41,3,False,False,False,False,refactor: simplify FAQ category browsing
+https://www.github.com/1brah1m0f/kibereduaz,54ee816b189628b3b7659c446527099043388fac,2026-08-15T16:22:47+00:00,Human,,301,0,1,False,False,False,False,docs: plan responsive toast refresh
+https://www.github.com/1brah1m0f/kibereduaz,3f11b081b792a944fcc94193bcdca11b1edb5b0f,2026-08-15T16:17:26+00:00,Human,,57,0,1,False,False,False,False,docs: specify responsive toast refresh
+https://www.github.com/1brah1m0f/kibereduaz,3f2d647c6c329cff9b9181e213e98bf03b13ad58,2026-08-15T16:16:36+00:00,Human,,2659,193,48,False,False,False,False,new components added
+https://www.github.com/1brah1m0f/kibereduaz,8d5254671a82abf1943eb2a8bca48b5ecd81aa55,2026-08-15T15:35:38+00:00,Human,,2185,11,20,False,False,False,False,some files added
+https://www.github.com/1brah1m0f/kibereduaz,934a292c4b6cabac4b624e72be55bc3aecc0fff8,2026-08-15T15:32:38+00:00,Human,,147,0,1,False,False,False,False,docs: define frontend content refresh design
+https://www.github.com/1brah1m0f/kibereduaz,fad4280e9f5458aa0571220a293843c996b2563c,2026-08-13T16:28:57+00:00,AI,Cursor,1967,87,31,False,False,False,False,"Add teacher and admin panels with approval workflows.
+
+Teachers self-register into a pending state until an admin approves them, can create modules/rooms and class memberships by email, and rooms stay draft until admin publish.
+
+Co-authored-by: Cursor <cursoragent@cursor.com>"
+https://www.github.com/1brah1m0f/kibereduaz,7710440985768b452331ecf8746277783ed206fa,2026-08-11T18:37:30+00:00,AI,Cursor,2323,938,36,False,False,False,False,"Ship marketing landing and guest dashboard so the public site and auth entry points are live.
+
+EOF
+
+Co-authored-by: Cursor <cursoragent@cursor.com>"
+https://www.github.com/1brah1m0f/kibereduaz,d4f325a00db527918109f99c07e257e67cf87e34,2026-08-11T18:20:24+00:00,AI,Cursor,11331,107,64,False,False,False,False,"Add NestJS backend, Render blueprint, and frontend API/Supabase clients for live deploy.
+
+Co-authored-by: Cursor <cursoragent@cursor.com>"
+https://www.github.com/1brah1m0f/kibereduaz,dbb007d1006d06980a0b3dd865b8a4db2f0787ac,2026-08-11T16:27:13+00:00,Human,,7,0,1,False,False,False,False,`
+https://www.github.com/1brah1m0f/kibereduaz,7c93bebb7e9e52dae0af86e7593731f0b660a8fa,2026-08-10T09:53:26+00:00,Human,,3925,81,37,False,False,False,False,"Merge pull request #1 from FirudinManiyev/frontend
+
+Frontend"
+https://www.github.com/1brah1m0f/kibereduaz,e65f78655fbd72f4d74ff79102078673295aa106,2026-08-10T09:46:19+00:00,Human,,819,7,11,False,False,False,False,new bg and contact page
+https://www.github.com/1brah1m0f/kibereduaz,f71cb15b1a1400e2ca65ef365ea5afe5adb4f62b,2026-08-07T19:30:57+00:00,Human,,1154,578,28,False,False,False,False,feat: new features added
+https://www.github.com/1brah1m0f/kibereduaz,039eebf2df2d764c792bf166079cda6d3153310e,2026-08-07T18:47:28+00:00,Human,,2537,81,17,False,False,False,False,feat: add frontend implementation
+https://www.github.com/1brah1m0f/kibereduaz,d9a6068c34800c06f6918096eac89363d75a4f3c,2026-08-06T13:37:16+00:00,Human,,8891,1,20,False,False,False,False,Convert frontend from submodule to regular folder
+https://www.github.com/1brah1m0f/kibereduaz,a18982a0c3a262b4ff9990edceaff12a8bcafb5d,2026-08-06T13:33:05+00:00,Human,,103,0,4,False,False,False,False,Initial project setup

@@ -1,0 +1,6 @@
+github_url,source_sha,source_date,source_type,source_author_type,target_sha,target_date,target_author_type,days_to_action,day_bucket,link_method
+https://www.github.com/1weiho/next-lens,94c936737e3ba8d26af226016ffb59f57f262e4d,2025-12-18T16:09:18+00:00,fix,Human,,,Unknown,,unresolved,unresolved
+https://www.github.com/1weiho/next-lens,a2ff95f98baa9591ab8e3ad577999e173d585e45,2025-12-17T16:19:30+00:00,fix,Human,0ad339d9eb7bd86e95737907df9bd606bc739e1f,2025-10-07T14:56:24+00:00,Human,71.058,30+,blame
+https://www.github.com/1weiho/next-lens,7ba1e5c89638d0260d2381b59e85f19af9bcdbba,2025-12-14T14:54:26+00:00,fix,Human,6fc7028bceb8f923c7eb0ac871f04731e57d0dfd,2025-12-14T08:10:38+00:00,Human,0.28,0-1,blame
+https://www.github.com/1weiho/next-lens,6fc7028bceb8f923c7eb0ac871f04731e57d0dfd,2025-12-14T08:10:38+00:00,fix,Human,bcf131317c8dfd58d5ab1f680bfb5ef54a88133d,2025-10-07T16:46:24+00:00,Human,67.642,30+,blame
+https://www.github.com/1weiho/next-lens,08177c4dbe0c793e56f7cb0e45a827b6d4f38bc6,2025-11-22T12:39:30+00:00,fix,Human,72efdfcb22c6e655e2251e21d8f74a4a2e4dc284,2025-10-10T13:45:50+00:00,Human,42.954,30+,blame

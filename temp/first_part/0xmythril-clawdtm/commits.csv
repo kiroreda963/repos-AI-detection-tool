@@ -1,0 +1,3936 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xmythril/clawdtm,d92000749e8ccb0a70ec0f927b180b98cdf201b1,2026-08-23T19:24:50+00:00,AI,Claude_Code,260,5,2,True,True,False,False,"fix(sunset): serve archive page on unknown paths via 404.html (#28)
+
+Vercel rewrites don't apply to a no-framework static deploy — deep links like
+/skills/<slug> returned a bare Vercel 404. Ship a 404.html copy instead, which
+Vercel serves for unmatched paths.
+
+Old skill URLs now render the archive notice with a 404 status, which is the
+honest signal: those pages genuinely no longer exist. Verified live on
+clawdtm.com, clawtm.com, and staging.clawdtm.com.
+
+Co-authored-by: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/0xmythril/clawdtm,4c355ac57adbf49a782c45c2a4956539cbc97775,2026-08-23T19:04:42+00:00,AI,Claude_Code,375,40,7,False,False,False,False,"chore: archive ClawdTM — disable crons, add sunset page, deprecation notice (#27)
+
+ClawdTM is being sunset. The Convex paid plan is being cancelled, which takes
+the entire data layer with it — every page reads from Convex, so the app cannot
+run in any form once the deployment is gone.
+
+- Disable all five Convex crons (ClawdHub sync, categorization, GitHub author
+  sync, security scan, commit check). These were the ongoing spend: OpenRouter
+  calls and GitHub API polling every 15 minutes. Left commented out as a record
+  and to make revival straightforward.
+- Add sunset/ — a self-contained static archive page to serve at clawdtm.com,
+  deployed as its own Vercel project so it never rebuilds against the dead
+  Convex deployment.
+- README: archive banner up top, plus a ""Reviving this project"" runbook
+  covering Convex re-provisioning, env vars, and data restore.
+
+Co-authored-by: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/0xmythril/clawdtm,c6d2ae4865b5d2bd333aafe2eb44b732b0a3925a,2026-02-15T18:05:56+00:00,AI,Cursor,500,3,3,False,True,False,False,"feat: Static SKILL.md files for ClawHub + env cleanup (#25)
+
+* feat: Add AI-powered security scanning for skills
+
+- Add securityScanLogs table and security fields to cachedSkills schema
+- Create modular OpenRouter client for AI analysis (easy model switching)
+- Create optional VirusTotal client for scanning external URLs
+- Implement security.ts with AI-based security analysis
+- Add cron jobs for batch scanning (every 15min) and weekly rescan
+- Add security badge to skill cards (green/yellow/red shield icons)
+- Add security section to skill detail page with score, flags, VT link
+- Add /admin/security page with stats and risk-level filtering
+
+Environment vars needed:
+- OPENROUTER_API_KEY (required for scanning)
+- SECURITY_SCAN_MODEL (optional, defaults to gemini-2.0-flash)
+- VIRUSTOTAL_API_KEY (optional, for URL scanning)
+
+* fix: Include security fields in skill list and detail queries
+
+* feat: Add security score slider filter in admin panel
+
+- Add Slider UI component (Radix)
+- Add getSkillsByScoreRange query to filter by score range
+- Add slider filter with presets (0-24, 25-49, 50-69, 70-89, 90-100)
+- Support both risk level and score range filtering modes
+- Remove stats attribution line from skill detail page
+
+* fix: Improve security badge display and add analysis summary
+
+- Hide security badge on unscanned skills (avoid gray question mark clutter)
+- Only show colored badges for scanned skills (green/yellow/red)
+- Add collapsible ""How is this analyzed?"" summary in security section
+- Explains AI analysis methodology and what we check for
+
+* fix: Restore gray question mark badge for unscanned skills
+
+* feat: Add security filter to homepage sidebar
+
+- Add Security section in sidebar with filter options:
+  - Any Security (default)
+  - Safe Only (only safe skills)
+  - Safe + Low Risk (safe and low risk)
+  - All Scanned (any scanned skill)
+- Fix skill cards not showing security badges by including security fields in skill mapping
+- Add securityScore, securityRisk, securityFlags to homepage skill objects
+- Client-side filtering based on selected security level
+
+* fix: Security filter no longer clears skill list
+
+Don't include urlSecurityFilter in filterKey since it's a
+client-side filter that doesn't require data refetch.
+
+* feat: Improve security filter and add author blocking
+
+Security Filter Updates:
+- Change filter options to score-based: Safe (90+), Low Risk (70+), Medium (50+), All Scanned
+- Click to toggle - clicking active filter deselects it
+- Remove ""Any"" options from all filter sections
+
+Sidebar UI Improvements:
+- Add distinctive background color to section headers (bg-muted/50)
+- Show ""(filtered)"" indicator when a filter is active
+- Show tag count when tags are selected
+
+Admin Author Blocking:
+- Add adminHideSkillsByAuthor mutation to hide all skills by author
+- Add getAuthorsWithCounts query for admin panel
+- Add Block by Author section in admin security page
+- Collapsible author list with skill counts and block buttons
+- Audit logging for bulk block operations
+
+* refactor: Simplify sidebar filters UI and improve skill cards
+
+- Remove Categories section, move Security to top followed by Min Rating
+- Tone down section headers with subtle background styling
+- Add dynamic hint text (Click to select / Click again to deselect)
+- Add ""Latest"" sort option to search bar dropdown
+- Make tag badges larger on skill cards
+- Remove verified badges from skill cards (keep security badges)
+
+* feat: Add Authors admin page, improve onboarding & UI polish
+
+- Add separate Authors admin page with search, block/unblock functionality
+- Add adminUnhideSkillsByAuthor mutation for unblocking authors
+- Update onboarding tour to highlight security features and filter tips
+- Update skill detail tabs to use muted grey tones
+
+* fix: Add missing types for unhide_skills_by_author and recent sort
+
+- Add unhide_skills_by_author to AuditAction type in admin.ts
+- Add recent sort option to searchCachedSkills query
+
+* perf: Increase security scan speed and fix light mode cards
+
+- Increase batch size from 10 to 50 skills per scan
+- Run scans every 5 minutes instead of 15 (for initial catchup)
+- Add grey background to skill detail cards in light mode
+
+* fix: Show total skills count when security filter is active
+
+* fix: Show true total skill count from sync status, not query cache
+
+* feat: Auto-block authors with high/critical risk skills
+
+- When security scanner detects a high or critical risk skill, all skills
+  by that author are automatically hidden
+- Added 'system' actor type for automated audit logging
+- Admin authors page now shows auto-blocked status with trigger info
+- Shield icon and tooltip show which skill triggered the block
+
+* feat: Enhanced security scanning with GitHub integration
+
+- Fetch and analyze all skill files from GitHub (not just SKILL.md)
+- Auto-detect GitHub commits and rescan modified skills
+- Add admin view for hidden skills (?admin=true parameter)
+- Add per-skill rescan button in admin panel with feedback
+- Show security status column in admin skills table
+- Add ""protected from X blocked skills"" counter on homepage
+- Improve AI analysis with content truncation for token limits
+- Add getSkillBySlugAdmin query for admin access to hidden skills
+- Track scanning state for better UX feedback
+
+* chore: Remove weekly security rescan (replaced by GitHub commit check)
+
+* fix: Add GitHub token to author sync API request
+
+* fix: Replace slow author enrichment cron with GitHub bulk sync
+
+- Swap clawdhub-author-enrichment (50/6hr via Clawhub API) with
+  github-author-sync (all skills in one shot via GitHub tree)
+- Run author sync every 2hr to match skill sync frequency
+- Fix security scanner getting stuck on unknown-author skills:
+  now does description-only scan instead of skipping forever
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Prioritize known-author skills in scan queue, over-fetch to compensate
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Add GitHub token to all security API calls (was causing 429 rate limits)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Add ""Scan Unscanned"" button to admin security page
+
+- New triggerScanUnscanned mutation: scans only unscanned skills
+  without resetting existing results
+- Shows count of unscanned skills on the button
+- Full rescan button moved to secondary (outline) icon-only button
+- Both buttons share the same progress tracker
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Use DatabaseBackup icon for full rescan button for clarity
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Make full rescan button obvious with destructive style and confirmation dialog
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Auto-hide skills with security score below 50
+
+- recordScanResult now auto-hides skills scoring < 50 with audit log
+- Add hideUnsafeSkills internal mutation for bulk cleanup
+- Ran cleanup: 196 hidden on prod, 206 on dev
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Show security warning on hidden skills via direct link
+
+- getSkillBySlug now returns hidden skills (instead of null) so
+  direct links work but show a warning
+- Red warning banner visible to ALL users on blocked skills:
+  ""This skill has been flagged and blocked by our security scanner""
+- Admin-only detail line shows exact reason and date
+- Skills still hidden from homepage/search listings
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Major UI/UX overhaul, API security gates, and mobile redesign
+
+- Rework headline to dynamic vetted skills count with count-up animation
+- Add initial loading state with logo spinner
+- Redesign mobile bottom nav: contextual Filter/Navigate, logo icon, color-paired sections
+- Restructure mobile filter sheet: Security, Ratings, Tags (removed Categories tabs)
+- Add dismissible advisor CTA banner on mobile with gradient styling
+- Rename ""Learn"" to ""About ClawdTM"" across desktop and mobile
+- Hide ""Safe"" security filter (no 90+ scores), update risk level docs
+- Add API security gate: default hide risky skills, require acknowledge_risk for install
+- Add /api/v1/skills/install endpoint with security blocking
+- Add include_risky param to search API, default minSecurityScore=50
+- Fix admin security dashboard showing 0 for high/critical (was filtering hidden skills)
+- Extract reusable ClawdTM brand component, apply gradient across /learn pages
+- Add /learn section pages: filtering, advisor, reviews, faq, feedback
+- Add advisor skill modal, first-visit modal, feedback system
+- Fix mobile width overflow (min-w-0, overflow-x-hidden)
+- Use 100dvh for proper mobile viewport handling
+- Update OG image with vetted skills messaging
+- Shorten sidebar CTA, update copy throughout
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Remove old MobileNav props from agents page (build error)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Auto-hide skills removed from OpenClaw GitHub registry
+
+Adds detectRemovedSkills mutation that runs every 2h as part of the
+existing GitHub author sync. Compares GitHub tree slugs against DB
+and hides missing skills with reason ""Banned: Removed from OpenClaw
+skills registry"". Includes safety guardrails (20% threshold, truncated
+tree skip, GitHub-sourced skills only).
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Improved admin security dashboard with full visibility
+
+- Show total in DB, visible to users, and hidden/blocked as top-level cards
+- Break down hidden skills by reason (security auto-blocked, registry removal, moderator)
+- Show risk breakdown for ALL skills including hidden (not just visible)
+- Add visible-only risk sub-counts in the Visible card
+- Show hidden badge + reason on individual skills in the list
+- Remove hidden filter from admin queries so admins see everything
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* docs: README + Convex docs; review skill copy CTA on learn/reviews and agent-reviews
+
+- README: vetted skills, security/API, project layout, architecture
+- convex/README: tables, Security section, crons, GitHub sync + removed-skill detection
+- .env.example: Open Router + SECURITY_SCAN_MODEL + GITHUB_TOKEN notes
+- learn/reviews: copy instruction at top with purple styling
+- agent-reviews: prominent Copy & send to your agent button
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* perf: Optimize database bandwidth — cache stats, eliminate full table scans
+
+- getSecurityStats: reads from cached securityStats in clawdhubSyncState instead of collecting all ~5700 skills
+- listSkillsForAdmin: uses indexes (by_hidden, by_featured, by_verified, by_downloads) and search index instead of .collect()
+- getAuthorsWithCounts: reads from cached authorCounts instead of full table scan
+- getSkillsByScoreRange: queries per risk level using by_security_risk index instead of collecting all scored skills
+- getSyncStatus: reads cached totalHidden instead of collecting all hidden skills
+- listHiddenSkills: capped with .take(500) instead of .collect()
+- scanBatch: reduced from 50 to 10 skills per cycle, inlined analyzeSkill to eliminate N extra action invocations, skips unscannable skills
+- updateCachedCounts: now also computes securityStats and authorCounts
+- Scan cron interval increased from 5min to 15min
+- Schema: added totalHidden, securityStats, authorCounts cache fields to clawdhubSyncState
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Add static SKILL.md files for ClawHub publishing
+
+- skills/advisor/SKILL.md — advisor skill doc with production URLs
+- skills/review/SKILL.md — review skill doc with production URLs
+- .env.example — clarify SECURITY_SCAN_MODEL, remove unused OPENROUTER_MODEL
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+---------
+
+Co-authored-by: Cursor <cursoragent@cursor.com>"
+https://www.github.com/0xmythril/clawdtm,925885fe32621172d26796ce7ba55090ae139e29,2026-02-08T18:56:25+00:00,AI,Cursor,390,182,10,False,True,False,False,"perf: Database bandwidth optimization — cached stats, indexed queries, reduced cron frequency (#24)
+
+* feat: Add AI-powered security scanning for skills
+
+- Add securityScanLogs table and security fields to cachedSkills schema
+- Create modular OpenRouter client for AI analysis (easy model switching)
+- Create optional VirusTotal client for scanning external URLs
+- Implement security.ts with AI-based security analysis
+- Add cron jobs for batch scanning (every 15min) and weekly rescan
+- Add security badge to skill cards (green/yellow/red shield icons)
+- Add security section to skill detail page with score, flags, VT link
+- Add /admin/security page with stats and risk-level filtering
+
+Environment vars needed:
+- OPENROUTER_API_KEY (required for scanning)
+- SECURITY_SCAN_MODEL (optional, defaults to gemini-2.0-flash)
+- VIRUSTOTAL_API_KEY (optional, for URL scanning)
+
+* fix: Include security fields in skill list and detail queries
+
+* feat: Add security score slider filter in admin panel
+
+- Add Slider UI component (Radix)
+- Add getSkillsByScoreRange query to filter by score range
+- Add slider filter with presets (0-24, 25-49, 50-69, 70-89, 90-100)
+- Support both risk level and score range filtering modes
+- Remove stats attribution line from skill detail page
+
+* fix: Improve security badge display and add analysis summary
+
+- Hide security badge on unscanned skills (avoid gray question mark clutter)
+- Only show colored badges for scanned skills (green/yellow/red)
+- Add collapsible ""How is this analyzed?"" summary in security section
+- Explains AI analysis methodology and what we check for
+
+* fix: Restore gray question mark badge for unscanned skills
+
+* feat: Add security filter to homepage sidebar
+
+- Add Security section in sidebar with filter options:
+  - Any Security (default)
+  - Safe Only (only safe skills)
+  - Safe + Low Risk (safe and low risk)
+  - All Scanned (any scanned skill)
+- Fix skill cards not showing security badges by including security fields in skill mapping
+- Add securityScore, securityRisk, securityFlags to homepage skill objects
+- Client-side filtering based on selected security level
+
+* fix: Security filter no longer clears skill list
+
+Don't include urlSecurityFilter in filterKey since it's a
+client-side filter that doesn't require data refetch.
+
+* feat: Improve security filter and add author blocking
+
+Security Filter Updates:
+- Change filter options to score-based: Safe (90+), Low Risk (70+), Medium (50+), All Scanned
+- Click to toggle - clicking active filter deselects it
+- Remove ""Any"" options from all filter sections
+
+Sidebar UI Improvements:
+- Add distinctive background color to section headers (bg-muted/50)
+- Show ""(filtered)"" indicator when a filter is active
+- Show tag count when tags are selected
+
+Admin Author Blocking:
+- Add adminHideSkillsByAuthor mutation to hide all skills by author
+- Add getAuthorsWithCounts query for admin panel
+- Add Block by Author section in admin security page
+- Collapsible author list with skill counts and block buttons
+- Audit logging for bulk block operations
+
+* refactor: Simplify sidebar filters UI and improve skill cards
+
+- Remove Categories section, move Security to top followed by Min Rating
+- Tone down section headers with subtle background styling
+- Add dynamic hint text (Click to select / Click again to deselect)
+- Add ""Latest"" sort option to search bar dropdown
+- Make tag badges larger on skill cards
+- Remove verified badges from skill cards (keep security badges)
+
+* feat: Add Authors admin page, improve onboarding & UI polish
+
+- Add separate Authors admin page with search, block/unblock functionality
+- Add adminUnhideSkillsByAuthor mutation for unblocking authors
+- Update onboarding tour to highlight security features and filter tips
+- Update skill detail tabs to use muted grey tones
+
+* fix: Add missing types for unhide_skills_by_author and recent sort
+
+- Add unhide_skills_by_author to AuditAction type in admin.ts
+- Add recent sort option to searchCachedSkills query
+
+* perf: Increase security scan speed and fix light mode cards
+
+- Increase batch size from 10 to 50 skills per scan
+- Run scans every 5 minutes instead of 15 (for initial catchup)
+- Add grey background to skill detail cards in light mode
+
+* fix: Show total skills count when security filter is active
+
+* fix: Show true total skill count from sync status, not query cache
+
+* feat: Auto-block authors with high/critical risk skills
+
+- When security scanner detects a high or critical risk skill, all skills
+  by that author are automatically hidden
+- Added 'system' actor type for automated audit logging
+- Admin authors page now shows auto-blocked status with trigger info
+- Shield icon and tooltip show which skill triggered the block
+
+* feat: Enhanced security scanning with GitHub integration
+
+- Fetch and analyze all skill files from GitHub (not just SKILL.md)
+- Auto-detect GitHub commits and rescan modified skills
+- Add admin view for hidden skills (?admin=true parameter)
+- Add per-skill rescan button in admin panel with feedback
+- Show security status column in admin skills table
+- Add ""protected from X blocked skills"" counter on homepage
+- Improve AI analysis with content truncation for token limits
+- Add getSkillBySlugAdmin query for admin access to hidden skills
+- Track scanning state for better UX feedback
+
+* chore: Remove weekly security rescan (replaced by GitHub commit check)
+
+* fix: Add GitHub token to author sync API request
+
+* fix: Replace slow author enrichment cron with GitHub bulk sync
+
+- Swap clawdhub-author-enrichment (50/6hr via Clawhub API) with
+  github-author-sync (all skills in one shot via GitHub tree)
+- Run author sync every 2hr to match skill sync frequency
+- Fix security scanner getting stuck on unknown-author skills:
+  now does description-only scan instead of skipping forever
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Prioritize known-author skills in scan queue, over-fetch to compensate
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Add GitHub token to all security API calls (was causing 429 rate limits)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Add ""Scan Unscanned"" button to admin security page
+
+- New triggerScanUnscanned mutation: scans only unscanned skills
+  without resetting existing results
+- Shows count of unscanned skills on the button
+- Full rescan button moved to secondary (outline) icon-only button
+- Both buttons share the same progress tracker
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Use DatabaseBackup icon for full rescan button for clarity
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Make full rescan button obvious with destructive style and confirmation dialog
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Auto-hide skills with security score below 50
+
+- recordScanResult now auto-hides skills scoring < 50 with audit log
+- Add hideUnsafeSkills internal mutation for bulk cleanup
+- Ran cleanup: 196 hidden on prod, 206 on dev
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Show security warning on hidden skills via direct link
+
+- getSkillBySlug now returns hidden skills (instead of null) so
+  direct links work but show a warning
+- Red warning banner visible to ALL users on blocked skills:
+  ""This skill has been flagged and blocked by our security scanner""
+- Admin-only detail line shows exact reason and date
+- Skills still hidden from homepage/search listings
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Major UI/UX overhaul, API security gates, and mobile redesign
+
+- Rework headline to dynamic vetted skills count with count-up animation
+- Add initial loading state with logo spinner
+- Redesign mobile bottom nav: contextual Filter/Navigate, logo icon, color-paired sections
+- Restructure mobile filter sheet: Security, Ratings, Tags (removed Categories tabs)
+- Add dismissible advisor CTA banner on mobile with gradient styling
+- Rename ""Learn"" to ""About ClawdTM"" across desktop and mobile
+- Hide ""Safe"" security filter (no 90+ scores), update risk level docs
+- Add API security gate: default hide risky skills, require acknowledge_risk for install
+- Add /api/v1/skills/install endpoint with security blocking
+- Add include_risky param to search API, default minSecurityScore=50
+- Fix admin security dashboard showing 0 for high/critical (was filtering hidden skills)
+- Extract reusable ClawdTM brand component, apply gradient across /learn pages
+- Add /learn section pages: filtering, advisor, reviews, faq, feedback
+- Add advisor skill modal, first-visit modal, feedback system
+- Fix mobile width overflow (min-w-0, overflow-x-hidden)
+- Use 100dvh for proper mobile viewport handling
+- Update OG image with vetted skills messaging
+- Shorten sidebar CTA, update copy throughout
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Remove old MobileNav props from agents page (build error)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Auto-hide skills removed from OpenClaw GitHub registry
+
+Adds detectRemovedSkills mutation that runs every 2h as part of the
+existing GitHub author sync. Compares GitHub tree slugs against DB
+and hides missing skills with reason ""Banned: Removed from OpenClaw
+skills registry"". Includes safety guardrails (20% threshold, truncated
+tree skip, GitHub-sourced skills only).
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Improved admin security dashboard with full visibility
+
+- Show total in DB, visible to users, and hidden/blocked as top-level cards
+- Break down hidden skills by reason (security auto-blocked, registry removal, moderator)
+- Show risk breakdown for ALL skills including hidden (not just visible)
+- Add visible-only risk sub-counts in the Visible card
+- Show hidden badge + reason on individual skills in the list
+- Remove hidden filter from admin queries so admins see everything
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* docs: README + Convex docs; review skill copy CTA on learn/reviews and agent-reviews
+
+- README: vetted skills, security/API, project layout, architecture
+- convex/README: tables, Security section, crons, GitHub sync + removed-skill detection
+- .env.example: Open Router + SECURITY_SCAN_MODEL + GITHUB_TOKEN notes
+- learn/reviews: copy instruction at top with purple styling
+- agent-reviews: prominent Copy & send to your agent button
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* perf: Optimize database bandwidth — cache stats, eliminate full table scans
+
+- getSecurityStats: reads from cached securityStats in clawdhubSyncState instead of collecting all ~5700 skills
+- listSkillsForAdmin: uses indexes (by_hidden, by_featured, by_verified, by_downloads) and search index instead of .collect()
+- getAuthorsWithCounts: reads from cached authorCounts instead of full table scan
+- getSkillsByScoreRange: queries per risk level using by_security_risk index instead of collecting all scored skills
+- getSyncStatus: reads cached totalHidden instead of collecting all hidden skills
+- listHiddenSkills: capped with .take(500) instead of .collect()
+- scanBatch: reduced from 50 to 10 skills per cycle, inlined analyzeSkill to eliminate N extra action invocations, skips unscannable skills
+- updateCachedCounts: now also computes securityStats and authorCounts
+- Scan cron interval increased from 5min to 15min
+- Schema: added totalHidden, securityStats, authorCounts cache fields to clawdhubSyncState
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+---------
+
+Co-authored-by: Cursor <cursoragent@cursor.com>"
+https://www.github.com/0xmythril/clawdtm,d2a29ca927ebd891f368bc4ec96d3254537a313e,2026-02-08T14:53:15+00:00,AI,Cursor,108,20,2,False,True,False,False,"Admin dashboard improvements & registry removal detection (#23)
+
+* feat: Add AI-powered security scanning for skills
+
+- Add securityScanLogs table and security fields to cachedSkills schema
+- Create modular OpenRouter client for AI analysis (easy model switching)
+- Create optional VirusTotal client for scanning external URLs
+- Implement security.ts with AI-based security analysis
+- Add cron jobs for batch scanning (every 15min) and weekly rescan
+- Add security badge to skill cards (green/yellow/red shield icons)
+- Add security section to skill detail page with score, flags, VT link
+- Add /admin/security page with stats and risk-level filtering
+
+Environment vars needed:
+- OPENROUTER_API_KEY (required for scanning)
+- SECURITY_SCAN_MODEL (optional, defaults to gemini-2.0-flash)
+- VIRUSTOTAL_API_KEY (optional, for URL scanning)
+
+* fix: Include security fields in skill list and detail queries
+
+* feat: Add security score slider filter in admin panel
+
+- Add Slider UI component (Radix)
+- Add getSkillsByScoreRange query to filter by score range
+- Add slider filter with presets (0-24, 25-49, 50-69, 70-89, 90-100)
+- Support both risk level and score range filtering modes
+- Remove stats attribution line from skill detail page
+
+* fix: Improve security badge display and add analysis summary
+
+- Hide security badge on unscanned skills (avoid gray question mark clutter)
+- Only show colored badges for scanned skills (green/yellow/red)
+- Add collapsible ""How is this analyzed?"" summary in security section
+- Explains AI analysis methodology and what we check for
+
+* fix: Restore gray question mark badge for unscanned skills
+
+* feat: Add security filter to homepage sidebar
+
+- Add Security section in sidebar with filter options:
+  - Any Security (default)
+  - Safe Only (only safe skills)
+  - Safe + Low Risk (safe and low risk)
+  - All Scanned (any scanned skill)
+- Fix skill cards not showing security badges by including security fields in skill mapping
+- Add securityScore, securityRisk, securityFlags to homepage skill objects
+- Client-side filtering based on selected security level
+
+* fix: Security filter no longer clears skill list
+
+Don't include urlSecurityFilter in filterKey since it's a
+client-side filter that doesn't require data refetch.
+
+* feat: Improve security filter and add author blocking
+
+Security Filter Updates:
+- Change filter options to score-based: Safe (90+), Low Risk (70+), Medium (50+), All Scanned
+- Click to toggle - clicking active filter deselects it
+- Remove ""Any"" options from all filter sections
+
+Sidebar UI Improvements:
+- Add distinctive background color to section headers (bg-muted/50)
+- Show ""(filtered)"" indicator when a filter is active
+- Show tag count when tags are selected
+
+Admin Author Blocking:
+- Add adminHideSkillsByAuthor mutation to hide all skills by author
+- Add getAuthorsWithCounts query for admin panel
+- Add Block by Author section in admin security page
+- Collapsible author list with skill counts and block buttons
+- Audit logging for bulk block operations
+
+* refactor: Simplify sidebar filters UI and improve skill cards
+
+- Remove Categories section, move Security to top followed by Min Rating
+- Tone down section headers with subtle background styling
+- Add dynamic hint text (Click to select / Click again to deselect)
+- Add ""Latest"" sort option to search bar dropdown
+- Make tag badges larger on skill cards
+- Remove verified badges from skill cards (keep security badges)
+
+* feat: Add Authors admin page, improve onboarding & UI polish
+
+- Add separate Authors admin page with search, block/unblock functionality
+- Add adminUnhideSkillsByAuthor mutation for unblocking authors
+- Update onboarding tour to highlight security features and filter tips
+- Update skill detail tabs to use muted grey tones
+
+* fix: Add missing types for unhide_skills_by_author and recent sort
+
+- Add unhide_skills_by_author to AuditAction type in admin.ts
+- Add recent sort option to searchCachedSkills query
+
+* perf: Increase security scan speed and fix light mode cards
+
+- Increase batch size from 10 to 50 skills per scan
+- Run scans every 5 minutes instead of 15 (for initial catchup)
+- Add grey background to skill detail cards in light mode
+
+* fix: Show total skills count when security filter is active
+
+* fix: Show true total skill count from sync status, not query cache
+
+* feat: Auto-block authors with high/critical risk skills
+
+- When security scanner detects a high or critical risk skill, all skills
+  by that author are automatically hidden
+- Added 'system' actor type for automated audit logging
+- Admin authors page now shows auto-blocked status with trigger info
+- Shield icon and tooltip show which skill triggered the block
+
+* feat: Enhanced security scanning with GitHub integration
+
+- Fetch and analyze all skill files from GitHub (not just SKILL.md)
+- Auto-detect GitHub commits and rescan modified skills
+- Add admin view for hidden skills (?admin=true parameter)
+- Add per-skill rescan button in admin panel with feedback
+- Show security status column in admin skills table
+- Add ""protected from X blocked skills"" counter on homepage
+- Improve AI analysis with content truncation for token limits
+- Add getSkillBySlugAdmin query for admin access to hidden skills
+- Track scanning state for better UX feedback
+
+* chore: Remove weekly security rescan (replaced by GitHub commit check)
+
+* fix: Add GitHub token to author sync API request
+
+* fix: Replace slow author enrichment cron with GitHub bulk sync
+
+- Swap clawdhub-author-enrichment (50/6hr via Clawhub API) with
+  github-author-sync (all skills in one shot via GitHub tree)
+- Run author sync every 2hr to match skill sync frequency
+- Fix security scanner getting stuck on unknown-author skills:
+  now does description-only scan instead of skipping forever
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Prioritize known-author skills in scan queue, over-fetch to compensate
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Add GitHub token to all security API calls (was causing 429 rate limits)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Add ""Scan Unscanned"" button to admin security page
+
+- New triggerScanUnscanned mutation: scans only unscanned skills
+  without resetting existing results
+- Shows count of unscanned skills on the button
+- Full rescan button moved to secondary (outline) icon-only button
+- Both buttons share the same progress tracker
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Use DatabaseBackup icon for full rescan button for clarity
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Make full rescan button obvious with destructive style and confirmation dialog
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Auto-hide skills with security score below 50
+
+- recordScanResult now auto-hides skills scoring < 50 with audit log
+- Add hideUnsafeSkills internal mutation for bulk cleanup
+- Ran cleanup: 196 hidden on prod, 206 on dev
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Show security warning on hidden skills via direct link
+
+- getSkillBySlug now returns hidden skills (instead of null) so
+  direct links work but show a warning
+- Red warning banner visible to ALL users on blocked skills:
+  ""This skill has been flagged and blocked by our security scanner""
+- Admin-only detail line shows exact reason and date
+- Skills still hidden from homepage/search listings
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Major UI/UX overhaul, API security gates, and mobile redesign
+
+- Rework headline to dynamic vetted skills count with count-up animation
+- Add initial loading state with logo spinner
+- Redesign mobile bottom nav: contextual Filter/Navigate, logo icon, color-paired sections
+- Restructure mobile filter sheet: Security, Ratings, Tags (removed Categories tabs)
+- Add dismissible advisor CTA banner on mobile with gradient styling
+- Rename ""Learn"" to ""About ClawdTM"" across desktop and mobile
+- Hide ""Safe"" security filter (no 90+ scores), update risk level docs
+- Add API security gate: default hide risky skills, require acknowledge_risk for install
+- Add /api/v1/skills/install endpoint with security blocking
+- Add include_risky param to search API, default minSecurityScore=50
+- Fix admin security dashboard showing 0 for high/critical (was filtering hidden skills)
+- Extract reusable ClawdTM brand component, apply gradient across /learn pages
+- Add /learn section pages: filtering, advisor, reviews, faq, feedback
+- Add advisor skill modal, first-visit modal, feedback system
+- Fix mobile width overflow (min-w-0, overflow-x-hidden)
+- Use 100dvh for proper mobile viewport handling
+- Update OG image with vetted skills messaging
+- Shorten sidebar CTA, update copy throughout
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Remove old MobileNav props from agents page (build error)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Auto-hide skills removed from OpenClaw GitHub registry
+
+Adds detectRemovedSkills mutation that runs every 2h as part of the
+existing GitHub author sync. Compares GitHub tree slugs against DB
+and hides missing skills with reason ""Banned: Removed from OpenClaw
+skills registry"". Includes safety guardrails (20% threshold, truncated
+tree skip, GitHub-sourced skills only).
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Improved admin security dashboard with full visibility
+
+- Show total in DB, visible to users, and hidden/blocked as top-level cards
+- Break down hidden skills by reason (security auto-blocked, registry removal, moderator)
+- Show risk breakdown for ALL skills including hidden (not just visible)
+- Add visible-only risk sub-counts in the Visible card
+- Show hidden badge + reason on individual skills in the list
+- Remove hidden filter from admin queries so admins see everything
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+---------
+
+Co-authored-by: Cursor <cursoragent@cursor.com>"
+https://www.github.com/0xmythril/clawdtm,ff14f55bc8fcb8250f3f5b70101ea5f99f1792ca,2026-02-08T08:36:32+00:00,AI,Cursor,75,0,1,False,True,False,False,"Release: Security scanning, mobile redesign, registry removal detection (#22)
+
+* feat: Add AI-powered security scanning for skills
+
+- Add securityScanLogs table and security fields to cachedSkills schema
+- Create modular OpenRouter client for AI analysis (easy model switching)
+- Create optional VirusTotal client for scanning external URLs
+- Implement security.ts with AI-based security analysis
+- Add cron jobs for batch scanning (every 15min) and weekly rescan
+- Add security badge to skill cards (green/yellow/red shield icons)
+- Add security section to skill detail page with score, flags, VT link
+- Add /admin/security page with stats and risk-level filtering
+
+Environment vars needed:
+- OPENROUTER_API_KEY (required for scanning)
+- SECURITY_SCAN_MODEL (optional, defaults to gemini-2.0-flash)
+- VIRUSTOTAL_API_KEY (optional, for URL scanning)
+
+* fix: Include security fields in skill list and detail queries
+
+* feat: Add security score slider filter in admin panel
+
+- Add Slider UI component (Radix)
+- Add getSkillsByScoreRange query to filter by score range
+- Add slider filter with presets (0-24, 25-49, 50-69, 70-89, 90-100)
+- Support both risk level and score range filtering modes
+- Remove stats attribution line from skill detail page
+
+* fix: Improve security badge display and add analysis summary
+
+- Hide security badge on unscanned skills (avoid gray question mark clutter)
+- Only show colored badges for scanned skills (green/yellow/red)
+- Add collapsible ""How is this analyzed?"" summary in security section
+- Explains AI analysis methodology and what we check for
+
+* fix: Restore gray question mark badge for unscanned skills
+
+* feat: Add security filter to homepage sidebar
+
+- Add Security section in sidebar with filter options:
+  - Any Security (default)
+  - Safe Only (only safe skills)
+  - Safe + Low Risk (safe and low risk)
+  - All Scanned (any scanned skill)
+- Fix skill cards not showing security badges by including security fields in skill mapping
+- Add securityScore, securityRisk, securityFlags to homepage skill objects
+- Client-side filtering based on selected security level
+
+* fix: Security filter no longer clears skill list
+
+Don't include urlSecurityFilter in filterKey since it's a
+client-side filter that doesn't require data refetch.
+
+* feat: Improve security filter and add author blocking
+
+Security Filter Updates:
+- Change filter options to score-based: Safe (90+), Low Risk (70+), Medium (50+), All Scanned
+- Click to toggle - clicking active filter deselects it
+- Remove ""Any"" options from all filter sections
+
+Sidebar UI Improvements:
+- Add distinctive background color to section headers (bg-muted/50)
+- Show ""(filtered)"" indicator when a filter is active
+- Show tag count when tags are selected
+
+Admin Author Blocking:
+- Add adminHideSkillsByAuthor mutation to hide all skills by author
+- Add getAuthorsWithCounts query for admin panel
+- Add Block by Author section in admin security page
+- Collapsible author list with skill counts and block buttons
+- Audit logging for bulk block operations
+
+* refactor: Simplify sidebar filters UI and improve skill cards
+
+- Remove Categories section, move Security to top followed by Min Rating
+- Tone down section headers with subtle background styling
+- Add dynamic hint text (Click to select / Click again to deselect)
+- Add ""Latest"" sort option to search bar dropdown
+- Make tag badges larger on skill cards
+- Remove verified badges from skill cards (keep security badges)
+
+* feat: Add Authors admin page, improve onboarding & UI polish
+
+- Add separate Authors admin page with search, block/unblock functionality
+- Add adminUnhideSkillsByAuthor mutation for unblocking authors
+- Update onboarding tour to highlight security features and filter tips
+- Update skill detail tabs to use muted grey tones
+
+* fix: Add missing types for unhide_skills_by_author and recent sort
+
+- Add unhide_skills_by_author to AuditAction type in admin.ts
+- Add recent sort option to searchCachedSkills query
+
+* perf: Increase security scan speed and fix light mode cards
+
+- Increase batch size from 10 to 50 skills per scan
+- Run scans every 5 minutes instead of 15 (for initial catchup)
+- Add grey background to skill detail cards in light mode
+
+* fix: Show total skills count when security filter is active
+
+* fix: Show true total skill count from sync status, not query cache
+
+* feat: Auto-block authors with high/critical risk skills
+
+- When security scanner detects a high or critical risk skill, all skills
+  by that author are automatically hidden
+- Added 'system' actor type for automated audit logging
+- Admin authors page now shows auto-blocked status with trigger info
+- Shield icon and tooltip show which skill triggered the block
+
+* feat: Enhanced security scanning with GitHub integration
+
+- Fetch and analyze all skill files from GitHub (not just SKILL.md)
+- Auto-detect GitHub commits and rescan modified skills
+- Add admin view for hidden skills (?admin=true parameter)
+- Add per-skill rescan button in admin panel with feedback
+- Show security status column in admin skills table
+- Add ""protected from X blocked skills"" counter on homepage
+- Improve AI analysis with content truncation for token limits
+- Add getSkillBySlugAdmin query for admin access to hidden skills
+- Track scanning state for better UX feedback
+
+* chore: Remove weekly security rescan (replaced by GitHub commit check)
+
+* fix: Add GitHub token to author sync API request
+
+* fix: Replace slow author enrichment cron with GitHub bulk sync
+
+- Swap clawdhub-author-enrichment (50/6hr via Clawhub API) with
+  github-author-sync (all skills in one shot via GitHub tree)
+- Run author sync every 2hr to match skill sync frequency
+- Fix security scanner getting stuck on unknown-author skills:
+  now does description-only scan instead of skipping forever
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Prioritize known-author skills in scan queue, over-fetch to compensate
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Add GitHub token to all security API calls (was causing 429 rate limits)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Add ""Scan Unscanned"" button to admin security page
+
+- New triggerScanUnscanned mutation: scans only unscanned skills
+  without resetting existing results
+- Shows count of unscanned skills on the button
+- Full rescan button moved to secondary (outline) icon-only button
+- Both buttons share the same progress tracker
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Use DatabaseBackup icon for full rescan button for clarity
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Make full rescan button obvious with destructive style and confirmation dialog
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Auto-hide skills with security score below 50
+
+- recordScanResult now auto-hides skills scoring < 50 with audit log
+- Add hideUnsafeSkills internal mutation for bulk cleanup
+- Ran cleanup: 196 hidden on prod, 206 on dev
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Show security warning on hidden skills via direct link
+
+- getSkillBySlug now returns hidden skills (instead of null) so
+  direct links work but show a warning
+- Red warning banner visible to ALL users on blocked skills:
+  ""This skill has been flagged and blocked by our security scanner""
+- Admin-only detail line shows exact reason and date
+- Skills still hidden from homepage/search listings
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Major UI/UX overhaul, API security gates, and mobile redesign
+
+- Rework headline to dynamic vetted skills count with count-up animation
+- Add initial loading state with logo spinner
+- Redesign mobile bottom nav: contextual Filter/Navigate, logo icon, color-paired sections
+- Restructure mobile filter sheet: Security, Ratings, Tags (removed Categories tabs)
+- Add dismissible advisor CTA banner on mobile with gradient styling
+- Rename ""Learn"" to ""About ClawdTM"" across desktop and mobile
+- Hide ""Safe"" security filter (no 90+ scores), update risk level docs
+- Add API security gate: default hide risky skills, require acknowledge_risk for install
+- Add /api/v1/skills/install endpoint with security blocking
+- Add include_risky param to search API, default minSecurityScore=50
+- Fix admin security dashboard showing 0 for high/critical (was filtering hidden skills)
+- Extract reusable ClawdTM brand component, apply gradient across /learn pages
+- Add /learn section pages: filtering, advisor, reviews, faq, feedback
+- Add advisor skill modal, first-visit modal, feedback system
+- Fix mobile width overflow (min-w-0, overflow-x-hidden)
+- Use 100dvh for proper mobile viewport handling
+- Update OG image with vetted skills messaging
+- Shorten sidebar CTA, update copy throughout
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Remove old MobileNav props from agents page (build error)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Auto-hide skills removed from OpenClaw GitHub registry
+
+Adds detectRemovedSkills mutation that runs every 2h as part of the
+existing GitHub author sync. Compares GitHub tree slugs against DB
+and hides missing skills with reason ""Banned: Removed from OpenClaw
+skills registry"". Includes safety guardrails (20% threshold, truncated
+tree skip, GitHub-sourced skills only).
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+---------
+
+Co-authored-by: Cursor <cursoragent@cursor.com>"
+https://www.github.com/0xmythril/clawdtm,5459d990a15ddf24cf6413acda106a2ad425c9d4,2026-02-07T18:33:54+00:00,AI,Cursor,4245,898,42,False,True,False,False,"feat: Major UI/UX overhaul, API security gates, and mobile redesign (#21)
+
+* feat: Add AI-powered security scanning for skills
+
+- Add securityScanLogs table and security fields to cachedSkills schema
+- Create modular OpenRouter client for AI analysis (easy model switching)
+- Create optional VirusTotal client for scanning external URLs
+- Implement security.ts with AI-based security analysis
+- Add cron jobs for batch scanning (every 15min) and weekly rescan
+- Add security badge to skill cards (green/yellow/red shield icons)
+- Add security section to skill detail page with score, flags, VT link
+- Add /admin/security page with stats and risk-level filtering
+
+Environment vars needed:
+- OPENROUTER_API_KEY (required for scanning)
+- SECURITY_SCAN_MODEL (optional, defaults to gemini-2.0-flash)
+- VIRUSTOTAL_API_KEY (optional, for URL scanning)
+
+* fix: Include security fields in skill list and detail queries
+
+* feat: Add security score slider filter in admin panel
+
+- Add Slider UI component (Radix)
+- Add getSkillsByScoreRange query to filter by score range
+- Add slider filter with presets (0-24, 25-49, 50-69, 70-89, 90-100)
+- Support both risk level and score range filtering modes
+- Remove stats attribution line from skill detail page
+
+* fix: Improve security badge display and add analysis summary
+
+- Hide security badge on unscanned skills (avoid gray question mark clutter)
+- Only show colored badges for scanned skills (green/yellow/red)
+- Add collapsible ""How is this analyzed?"" summary in security section
+- Explains AI analysis methodology and what we check for
+
+* fix: Restore gray question mark badge for unscanned skills
+
+* feat: Add security filter to homepage sidebar
+
+- Add Security section in sidebar with filter options:
+  - Any Security (default)
+  - Safe Only (only safe skills)
+  - Safe + Low Risk (safe and low risk)
+  - All Scanned (any scanned skill)
+- Fix skill cards not showing security badges by including security fields in skill mapping
+- Add securityScore, securityRisk, securityFlags to homepage skill objects
+- Client-side filtering based on selected security level
+
+* fix: Security filter no longer clears skill list
+
+Don't include urlSecurityFilter in filterKey since it's a
+client-side filter that doesn't require data refetch.
+
+* feat: Improve security filter and add author blocking
+
+Security Filter Updates:
+- Change filter options to score-based: Safe (90+), Low Risk (70+), Medium (50+), All Scanned
+- Click to toggle - clicking active filter deselects it
+- Remove ""Any"" options from all filter sections
+
+Sidebar UI Improvements:
+- Add distinctive background color to section headers (bg-muted/50)
+- Show ""(filtered)"" indicator when a filter is active
+- Show tag count when tags are selected
+
+Admin Author Blocking:
+- Add adminHideSkillsByAuthor mutation to hide all skills by author
+- Add getAuthorsWithCounts query for admin panel
+- Add Block by Author section in admin security page
+- Collapsible author list with skill counts and block buttons
+- Audit logging for bulk block operations
+
+* refactor: Simplify sidebar filters UI and improve skill cards
+
+- Remove Categories section, move Security to top followed by Min Rating
+- Tone down section headers with subtle background styling
+- Add dynamic hint text (Click to select / Click again to deselect)
+- Add ""Latest"" sort option to search bar dropdown
+- Make tag badges larger on skill cards
+- Remove verified badges from skill cards (keep security badges)
+
+* feat: Add Authors admin page, improve onboarding & UI polish
+
+- Add separate Authors admin page with search, block/unblock functionality
+- Add adminUnhideSkillsByAuthor mutation for unblocking authors
+- Update onboarding tour to highlight security features and filter tips
+- Update skill detail tabs to use muted grey tones
+
+* fix: Add missing types for unhide_skills_by_author and recent sort
+
+- Add unhide_skills_by_author to AuditAction type in admin.ts
+- Add recent sort option to searchCachedSkills query
+
+* perf: Increase security scan speed and fix light mode cards
+
+- Increase batch size from 10 to 50 skills per scan
+- Run scans every 5 minutes instead of 15 (for initial catchup)
+- Add grey background to skill detail cards in light mode
+
+* fix: Show total skills count when security filter is active
+
+* fix: Show true total skill count from sync status, not query cache
+
+* feat: Auto-block authors with high/critical risk skills
+
+- When security scanner detects a high or critical risk skill, all skills
+  by that author are automatically hidden
+- Added 'system' actor type for automated audit logging
+- Admin authors page now shows auto-blocked status with trigger info
+- Shield icon and tooltip show which skill triggered the block
+
+* feat: Enhanced security scanning with GitHub integration
+
+- Fetch and analyze all skill files from GitHub (not just SKILL.md)
+- Auto-detect GitHub commits and rescan modified skills
+- Add admin view for hidden skills (?admin=true parameter)
+- Add per-skill rescan button in admin panel with feedback
+- Show security status column in admin skills table
+- Add ""protected from X blocked skills"" counter on homepage
+- Improve AI analysis with content truncation for token limits
+- Add getSkillBySlugAdmin query for admin access to hidden skills
+- Track scanning state for better UX feedback
+
+* chore: Remove weekly security rescan (replaced by GitHub commit check)
+
+* fix: Add GitHub token to author sync API request
+
+* fix: Replace slow author enrichment cron with GitHub bulk sync
+
+- Swap clawdhub-author-enrichment (50/6hr via Clawhub API) with
+  github-author-sync (all skills in one shot via GitHub tree)
+- Run author sync every 2hr to match skill sync frequency
+- Fix security scanner getting stuck on unknown-author skills:
+  now does description-only scan instead of skipping forever
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Prioritize known-author skills in scan queue, over-fetch to compensate
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Add GitHub token to all security API calls (was causing 429 rate limits)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Add ""Scan Unscanned"" button to admin security page
+
+- New triggerScanUnscanned mutation: scans only unscanned skills
+  without resetting existing results
+- Shows count of unscanned skills on the button
+- Full rescan button moved to secondary (outline) icon-only button
+- Both buttons share the same progress tracker
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Use DatabaseBackup icon for full rescan button for clarity
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Make full rescan button obvious with destructive style and confirmation dialog
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Auto-hide skills with security score below 50
+
+- recordScanResult now auto-hides skills scoring < 50 with audit log
+- Add hideUnsafeSkills internal mutation for bulk cleanup
+- Ran cleanup: 196 hidden on prod, 206 on dev
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Show security warning on hidden skills via direct link
+
+- getSkillBySlug now returns hidden skills (instead of null) so
+  direct links work but show a warning
+- Red warning banner visible to ALL users on blocked skills:
+  ""This skill has been flagged and blocked by our security scanner""
+- Admin-only detail line shows exact reason and date
+- Skills still hidden from homepage/search listings
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Major UI/UX overhaul, API security gates, and mobile redesign
+
+- Rework headline to dynamic vetted skills count with count-up animation
+- Add initial loading state with logo spinner
+- Redesign mobile bottom nav: contextual Filter/Navigate, logo icon, color-paired sections
+- Restructure mobile filter sheet: Security, Ratings, Tags (removed Categories tabs)
+- Add dismissible advisor CTA banner on mobile with gradient styling
+- Rename ""Learn"" to ""About ClawdTM"" across desktop and mobile
+- Hide ""Safe"" security filter (no 90+ scores), update risk level docs
+- Add API security gate: default hide risky skills, require acknowledge_risk for install
+- Add /api/v1/skills/install endpoint with security blocking
+- Add include_risky param to search API, default minSecurityScore=50
+- Fix admin security dashboard showing 0 for high/critical (was filtering hidden skills)
+- Extract reusable ClawdTM brand component, apply gradient across /learn pages
+- Add /learn section pages: filtering, advisor, reviews, faq, feedback
+- Add advisor skill modal, first-visit modal, feedback system
+- Fix mobile width overflow (min-w-0, overflow-x-hidden)
+- Use 100dvh for proper mobile viewport handling
+- Update OG image with vetted skills messaging
+- Shorten sidebar CTA, update copy throughout
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Remove old MobileNav props from agents page (build error)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+---------
+
+Co-authored-by: Cursor <cursoragent@cursor.com>"
+https://www.github.com/0xmythril/clawdtm,438e052c198f16e217408a89b240b1afae5855fb,2026-02-07T13:30:41+00:00,AI,Cursor,252,91,4,False,True,False,False,"Release: Security Scanner Fixes & Admin UX Improvements (#20)
+
+* feat: Add AI-powered security scanning for skills
+
+- Add securityScanLogs table and security fields to cachedSkills schema
+- Create modular OpenRouter client for AI analysis (easy model switching)
+- Create optional VirusTotal client for scanning external URLs
+- Implement security.ts with AI-based security analysis
+- Add cron jobs for batch scanning (every 15min) and weekly rescan
+- Add security badge to skill cards (green/yellow/red shield icons)
+- Add security section to skill detail page with score, flags, VT link
+- Add /admin/security page with stats and risk-level filtering
+
+Environment vars needed:
+- OPENROUTER_API_KEY (required for scanning)
+- SECURITY_SCAN_MODEL (optional, defaults to gemini-2.0-flash)
+- VIRUSTOTAL_API_KEY (optional, for URL scanning)
+
+* fix: Include security fields in skill list and detail queries
+
+* feat: Add security score slider filter in admin panel
+
+- Add Slider UI component (Radix)
+- Add getSkillsByScoreRange query to filter by score range
+- Add slider filter with presets (0-24, 25-49, 50-69, 70-89, 90-100)
+- Support both risk level and score range filtering modes
+- Remove stats attribution line from skill detail page
+
+* fix: Improve security badge display and add analysis summary
+
+- Hide security badge on unscanned skills (avoid gray question mark clutter)
+- Only show colored badges for scanned skills (green/yellow/red)
+- Add collapsible ""How is this analyzed?"" summary in security section
+- Explains AI analysis methodology and what we check for
+
+* fix: Restore gray question mark badge for unscanned skills
+
+* feat: Add security filter to homepage sidebar
+
+- Add Security section in sidebar with filter options:
+  - Any Security (default)
+  - Safe Only (only safe skills)
+  - Safe + Low Risk (safe and low risk)
+  - All Scanned (any scanned skill)
+- Fix skill cards not showing security badges by including security fields in skill mapping
+- Add securityScore, securityRisk, securityFlags to homepage skill objects
+- Client-side filtering based on selected security level
+
+* fix: Security filter no longer clears skill list
+
+Don't include urlSecurityFilter in filterKey since it's a
+client-side filter that doesn't require data refetch.
+
+* feat: Improve security filter and add author blocking
+
+Security Filter Updates:
+- Change filter options to score-based: Safe (90+), Low Risk (70+), Medium (50+), All Scanned
+- Click to toggle - clicking active filter deselects it
+- Remove ""Any"" options from all filter sections
+
+Sidebar UI Improvements:
+- Add distinctive background color to section headers (bg-muted/50)
+- Show ""(filtered)"" indicator when a filter is active
+- Show tag count when tags are selected
+
+Admin Author Blocking:
+- Add adminHideSkillsByAuthor mutation to hide all skills by author
+- Add getAuthorsWithCounts query for admin panel
+- Add Block by Author section in admin security page
+- Collapsible author list with skill counts and block buttons
+- Audit logging for bulk block operations
+
+* refactor: Simplify sidebar filters UI and improve skill cards
+
+- Remove Categories section, move Security to top followed by Min Rating
+- Tone down section headers with subtle background styling
+- Add dynamic hint text (Click to select / Click again to deselect)
+- Add ""Latest"" sort option to search bar dropdown
+- Make tag badges larger on skill cards
+- Remove verified badges from skill cards (keep security badges)
+
+* feat: Add Authors admin page, improve onboarding & UI polish
+
+- Add separate Authors admin page with search, block/unblock functionality
+- Add adminUnhideSkillsByAuthor mutation for unblocking authors
+- Update onboarding tour to highlight security features and filter tips
+- Update skill detail tabs to use muted grey tones
+
+* fix: Add missing types for unhide_skills_by_author and recent sort
+
+- Add unhide_skills_by_author to AuditAction type in admin.ts
+- Add recent sort option to searchCachedSkills query
+
+* perf: Increase security scan speed and fix light mode cards
+
+- Increase batch size from 10 to 50 skills per scan
+- Run scans every 5 minutes instead of 15 (for initial catchup)
+- Add grey background to skill detail cards in light mode
+
+* fix: Show total skills count when security filter is active
+
+* fix: Show true total skill count from sync status, not query cache
+
+* feat: Auto-block authors with high/critical risk skills
+
+- When security scanner detects a high or critical risk skill, all skills
+  by that author are automatically hidden
+- Added 'system' actor type for automated audit logging
+- Admin authors page now shows auto-blocked status with trigger info
+- Shield icon and tooltip show which skill triggered the block
+
+* feat: Enhanced security scanning with GitHub integration
+
+- Fetch and analyze all skill files from GitHub (not just SKILL.md)
+- Auto-detect GitHub commits and rescan modified skills
+- Add admin view for hidden skills (?admin=true parameter)
+- Add per-skill rescan button in admin panel with feedback
+- Show security status column in admin skills table
+- Add ""protected from X blocked skills"" counter on homepage
+- Improve AI analysis with content truncation for token limits
+- Add getSkillBySlugAdmin query for admin access to hidden skills
+- Track scanning state for better UX feedback
+
+* chore: Remove weekly security rescan (replaced by GitHub commit check)
+
+* fix: Add GitHub token to author sync API request
+
+* fix: Replace slow author enrichment cron with GitHub bulk sync
+
+- Swap clawdhub-author-enrichment (50/6hr via Clawhub API) with
+  github-author-sync (all skills in one shot via GitHub tree)
+- Run author sync every 2hr to match skill sync frequency
+- Fix security scanner getting stuck on unknown-author skills:
+  now does description-only scan instead of skipping forever
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Prioritize known-author skills in scan queue, over-fetch to compensate
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Add GitHub token to all security API calls (was causing 429 rate limits)
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* feat: Add ""Scan Unscanned"" button to admin security page
+
+- New triggerScanUnscanned mutation: scans only unscanned skills
+  without resetting existing results
+- Shows count of unscanned skills on the button
+- Full rescan button moved to secondary (outline) icon-only button
+- Both buttons share the same progress tracker
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Use DatabaseBackup icon for full rescan button for clarity
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+* fix: Make full rescan button obvious with destructive style and confirmation dialog
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+---------
+
+Co-authored-by: Cursor <cursoragent@cursor.com>"
+https://www.github.com/0xmythril/clawdtm,ca19cd7b0b39f5c134a319eadd5c0e343f77e315,2026-02-05T20:16:12+00:00,Human,,2139,139,14,False,True,False,False,"Release: Enhanced Security Scanning & GitHub Integration (#19)
+
+* feat: Add AI-powered security scanning for skills
+
+- Add securityScanLogs table and security fields to cachedSkills schema
+- Create modular OpenRouter client for AI analysis (easy model switching)
+- Create optional VirusTotal client for scanning external URLs
+- Implement security.ts with AI-based security analysis
+- Add cron jobs for batch scanning (every 15min) and weekly rescan
+- Add security badge to skill cards (green/yellow/red shield icons)
+- Add security section to skill detail page with score, flags, VT link
+- Add /admin/security page with stats and risk-level filtering
+
+Environment vars needed:
+- OPENROUTER_API_KEY (required for scanning)
+- SECURITY_SCAN_MODEL (optional, defaults to gemini-2.0-flash)
+- VIRUSTOTAL_API_KEY (optional, for URL scanning)
+
+* fix: Include security fields in skill list and detail queries
+
+* feat: Add security score slider filter in admin panel
+
+- Add Slider UI component (Radix)
+- Add getSkillsByScoreRange query to filter by score range
+- Add slider filter with presets (0-24, 25-49, 50-69, 70-89, 90-100)
+- Support both risk level and score range filtering modes
+- Remove stats attribution line from skill detail page
+
+* fix: Improve security badge display and add analysis summary
+
+- Hide security badge on unscanned skills (avoid gray question mark clutter)
+- Only show colored badges for scanned skills (green/yellow/red)
+- Add collapsible ""How is this analyzed?"" summary in security section
+- Explains AI analysis methodology and what we check for
+
+* fix: Restore gray question mark badge for unscanned skills
+
+* feat: Add security filter to homepage sidebar
+
+- Add Security section in sidebar with filter options:
+  - Any Security (default)
+  - Safe Only (only safe skills)
+  - Safe + Low Risk (safe and low risk)
+  - All Scanned (any scanned skill)
+- Fix skill cards not showing security badges by including security fields in skill mapping
+- Add securityScore, securityRisk, securityFlags to homepage skill objects
+- Client-side filtering based on selected security level
+
+* fix: Security filter no longer clears skill list
+
+Don't include urlSecurityFilter in filterKey since it's a
+client-side filter that doesn't require data refetch.
+
+* feat: Improve security filter and add author blocking
+
+Security Filter Updates:
+- Change filter options to score-based: Safe (90+), Low Risk (70+), Medium (50+), All Scanned
+- Click to toggle - clicking active filter deselects it
+- Remove ""Any"" options from all filter sections
+
+Sidebar UI Improvements:
+- Add distinctive background color to section headers (bg-muted/50)
+- Show ""(filtered)"" indicator when a filter is active
+- Show tag count when tags are selected
+
+Admin Author Blocking:
+- Add adminHideSkillsByAuthor mutation to hide all skills by author
+- Add getAuthorsWithCounts query for admin panel
+- Add Block by Author section in admin security page
+- Collapsible author list with skill counts and block buttons
+- Audit logging for bulk block operations
+
+* refactor: Simplify sidebar filters UI and improve skill cards
+
+- Remove Categories section, move Security to top followed by Min Rating
+- Tone down section headers with subtle background styling
+- Add dynamic hint text (Click to select / Click again to deselect)
+- Add ""Latest"" sort option to search bar dropdown
+- Make tag badges larger on skill cards
+- Remove verified badges from skill cards (keep security badges)
+
+* feat: Add Authors admin page, improve onboarding & UI polish
+
+- Add separate Authors admin page with search, block/unblock functionality
+- Add adminUnhideSkillsByAuthor mutation for unblocking authors
+- Update onboarding tour to highlight security features and filter tips
+- Update skill detail tabs to use muted grey tones
+
+* fix: Add missing types for unhide_skills_by_author and recent sort
+
+- Add unhide_skills_by_author to AuditAction type in admin.ts
+- Add recent sort option to searchCachedSkills query
+
+* perf: Increase security scan speed and fix light mode cards
+
+- Increase batch size from 10 to 50 skills per scan
+- Run scans every 5 minutes instead of 15 (for initial catchup)
+- Add grey background to skill detail cards in light mode
+
+* fix: Show total skills count when security filter is active
+
+* fix: Show true total skill count from sync status, not query cache
+
+* feat: Auto-block authors with high/critical risk skills
+
+- When security scanner detects a high or critical risk skill, all skills
+  by that author are automatically hidden
+- Added 'system' actor type for automated audit logging
+- Admin authors page now shows auto-blocked status with trigger info
+- Shield icon and tooltip show which skill triggered the block
+
+* feat: Enhanced security scanning with GitHub integration
+
+- Fetch and analyze all skill files from GitHub (not just SKILL.md)
+- Auto-detect GitHub commits and rescan modified skills
+- Add admin view for hidden skills (?admin=true parameter)
+- Add per-skill rescan button in admin panel with feedback
+- Show security status column in admin skills table
+- Add ""protected from X blocked skills"" counter on homepage
+- Improve AI analysis with content truncation for token limits
+- Add getSkillBySlugAdmin query for admin access to hidden skills
+- Track scanning state for better UX feedback
+
+* chore: Remove weekly security rescan (replaced by GitHub commit check)"
+https://www.github.com/0xmythril/clawdtm,d0e0848409a21896bf67e8fe2a2077d35a3eec53,2026-02-04T04:56:32+00:00,Human,,2,2,1,True,True,False,False,fix: Change 'Claude agent' to 'OpenClaw agent' in onboarding (#18)
+https://www.github.com/0xmythril/clawdtm,5ffb438cd007d7dacfc85a682f3472e0372971c8,2026-02-03T20:09:41+00:00,Human,,2494,128,21,False,True,False,False,"Release: Security Scanning, Author Management & UI Improvements (#15)
+
+* feat: Add AI-powered security scanning for skills
+
+- Add securityScanLogs table and security fields to cachedSkills schema
+- Create modular OpenRouter client for AI analysis (easy model switching)
+- Create optional VirusTotal client for scanning external URLs
+- Implement security.ts with AI-based security analysis
+- Add cron jobs for batch scanning (every 15min) and weekly rescan
+- Add security badge to skill cards (green/yellow/red shield icons)
+- Add security section to skill detail page with score, flags, VT link
+- Add /admin/security page with stats and risk-level filtering
+
+Environment vars needed:
+- OPENROUTER_API_KEY (required for scanning)
+- SECURITY_SCAN_MODEL (optional, defaults to gemini-2.0-flash)
+- VIRUSTOTAL_API_KEY (optional, for URL scanning)
+
+* fix: Include security fields in skill list and detail queries
+
+* feat: Add security score slider filter in admin panel
+
+- Add Slider UI component (Radix)
+- Add getSkillsByScoreRange query to filter by score range
+- Add slider filter with presets (0-24, 25-49, 50-69, 70-89, 90-100)
+- Support both risk level and score range filtering modes
+- Remove stats attribution line from skill detail page
+
+* fix: Improve security badge display and add analysis summary
+
+- Hide security badge on unscanned skills (avoid gray question mark clutter)
+- Only show colored badges for scanned skills (green/yellow/red)
+- Add collapsible ""How is this analyzed?"" summary in security section
+- Explains AI analysis methodology and what we check for
+
+* fix: Restore gray question mark badge for unscanned skills
+
+* feat: Add security filter to homepage sidebar
+
+- Add Security section in sidebar with filter options:
+  - Any Security (default)
+  - Safe Only (only safe skills)
+  - Safe + Low Risk (safe and low risk)
+  - All Scanned (any scanned skill)
+- Fix skill cards not showing security badges by including security fields in skill mapping
+- Add securityScore, securityRisk, securityFlags to homepage skill objects
+- Client-side filtering based on selected security level
+
+* fix: Security filter no longer clears skill list
+
+Don't include urlSecurityFilter in filterKey since it's a
+client-side filter that doesn't require data refetch.
+
+* feat: Improve security filter and add author blocking
+
+Security Filter Updates:
+- Change filter options to score-based: Safe (90+), Low Risk (70+), Medium (50+), All Scanned
+- Click to toggle - clicking active filter deselects it
+- Remove ""Any"" options from all filter sections
+
+Sidebar UI Improvements:
+- Add distinctive background color to section headers (bg-muted/50)
+- Show ""(filtered)"" indicator when a filter is active
+- Show tag count when tags are selected
+
+Admin Author Blocking:
+- Add adminHideSkillsByAuthor mutation to hide all skills by author
+- Add getAuthorsWithCounts query for admin panel
+- Add Block by Author section in admin security page
+- Collapsible author list with skill counts and block buttons
+- Audit logging for bulk block operations
+
+* refactor: Simplify sidebar filters UI and improve skill cards
+
+- Remove Categories section, move Security to top followed by Min Rating
+- Tone down section headers with subtle background styling
+- Add dynamic hint text (Click to select / Click again to deselect)
+- Add ""Latest"" sort option to search bar dropdown
+- Make tag badges larger on skill cards
+- Remove verified badges from skill cards (keep security badges)
+
+* feat: Add Authors admin page, improve onboarding & UI polish
+
+- Add separate Authors admin page with search, block/unblock functionality
+- Add adminUnhideSkillsByAuthor mutation for unblocking authors
+- Update onboarding tour to highlight security features and filter tips
+- Update skill detail tabs to use muted grey tones
+
+* fix: Add missing types for unhide_skills_by_author and recent sort
+
+- Add unhide_skills_by_author to AuditAction type in admin.ts
+- Add recent sort option to searchCachedSkills query
+
+* perf: Increase security scan speed and fix light mode cards
+
+- Increase batch size from 10 to 50 skills per scan
+- Run scans every 5 minutes instead of 15 (for initial catchup)
+- Add grey background to skill detail cards in light mode
+
+* fix: Show total skills count when security filter is active"
+https://www.github.com/0xmythril/clawdtm,1ccdc60083f9d3de7381d7b9945e5075acfa7fc4,2026-02-02T21:05:36+00:00,AI,Cursor,35,2,1,False,True,False,True,"Release: Audit Logging & Moderator API Fixes (#14)
+
+* ci: add GitHub Actions checks
+
+Run lint and build on pull requests to enable branch protection
+status checks for main.
+
+* fix: remove unsupported redirectUrl from Clerk SignInButton
+
+Use supported afterSignInUrl/afterSignUpUrl props to keep auth
+redirects on the current origin without build errors.
+
+* fix: use supported Clerk redirect props
+
+Swap SignInButton redirects to forceRedirectUrl/signUpForceRedirectUrl
+per Clerk v6 types to fix production build.
+
+* chore: fix lint issues for CI
+
+- remove unused imports and variables
+- tighten types in categorization
+- stabilize hooks dependencies
+- drop unused tag helpers
+- use ESM imports in GA4 script
+
+* chore: update Discord invite link
+
+Use the new discord.gg/eTtG4rhbp6 invite in footer and mobile nav.
+
+* chore: move docs link to footer
+
+Remove OpenClaw Docs from sidebar and add it to the footer links.
+
+* feat: add bot voting system with human/AI vote filtering
+
+- Add botAgents table for registered bot agents
+- Add bot voting API routes (register, vote, status)
+- Track separate human/bot vote counts on skills
+- Add My Agents page for managing bot agents
+- Add vote filter toggle (Combined/Human/AI) in sidebar and mobile nav
+- Improve vote button UX with filled arrows and toggle behavior
+- Add public/skill.md and skill.json for bot API documentation
+
+* refactor: move vote filter from sidebar to search bar
+
+- Add vote filter dropdown to SearchBar component
+- Remove vote filter section from Sidebar
+- Keep vote filter in mobile nav for mobile users
+
+* style: make search dropdowns more compact with symbols
+
+- Replace ""Most X"" with symbol prefix (↓ Downloads, ★ Stars, etc.)
+- Use emojis for vote filter (👥 All, 🧑 Human, 🤖 AI)
+- Reduce padding for narrower buttons
+
+* refactor: improve sidebar UX with collapsible layout
+
+- Hide logo when sidebar collapsed, center toggle button
+- Move user section to bottom of sidebar
+- Integrate theme toggle into account row
+- Remove GitHub link from sidebar
+- Add left border indicator for active nav items
+- Rename ""My Agents"" to ""Register your agent""
+- Make Account row toggle Clerk dropdown on click
+
+* style: UI polish - darker light mode bg, cursor-pointer on buttons, modal improvements
+
+- Adjust light mode background to oklch(0.96 0 0)
+- Add cursor-pointer to all buttons globally
+- Add copy command button to install modal
+- Add AI agent tip to getting started modal
+- Add agent voting modal trigger to sidebar/mobile nav
+
+* feat: add skill reviews feature
+
+- Add skillReviews table with rating + text reviews
+- Add review aggregates (count, avg rating) to cachedSkills
+- Create convex/reviews.ts with mutations/queries for human and bot reviews
+- Add HTTP API endpoints for bot reviews (GET/POST/DELETE /api/v1/skills/reviews)
+- Create /skills/[slug] detail page with:
+  - Server component for SEO meta tags
+  - Client component for reviews, voting, and install command
+  - Review form for signed-in users
+  - Filterable review list (combined/human/bot)
+- Add review count and avg rating display to skill cards
+- Make skill names clickable links to detail page
+- Update skill.md documentation with review API endpoints
+- Add reusable StarRating, ReviewForm, ReviewList components
+- Add ThemeToggle component for skill detail page header
+
+* feat: improve review UX - hearts instead of stars, optional text
+
+- Change rating icon from stars to hearts (rose-500) to avoid confusion with ClawdHub's star system
+- Make review text optional (rating-only reviews allowed)
+- Add confirmation modal when submitting without written review
+- Update all rating displays (skill cards, detail page, review list) to use hearts
+
+* feat: replace voting with rating system, add collapsible reviews
+
+- Deprecate voting UI, use lobster rating (🦞) as primary interaction
+- Add QuickRating component with visible container and better empty state
+- Make user's existing review collapsible with edit mode
+- Add display name system for reviewers
+- Consistent dash display for zero values on skill cards
+- Sort by rating instead of votes
+
+* feat: add staging password protection
+
+- Add STAGING_PASSWORD env var to gate access
+- Show maintenance page when password not entered
+- Store auth in httpOnly cookie (30 days)
+- Skip auth for maintenance page and API routes
+
+* feat: add reviewer filter, rating filter, and fix Agent Reviews modal
+
+- Fix Agent Reviews modal: better contrast for SKILL.md code block
+- Add reviewer filter dropdown in search bar (All/Human/AI)
+- Add min rating filter in sidebar and mobile nav (5🦞, 4+, 3+, etc.)
+- Backend: support minRating and reviewerFilter params in queries
+- Use appropriate rating fields (avgRating/avgRatingHuman/avgRatingBot)
+
+* fix: add avgRating and reviewCount to skill card mappings
+
+* fix: update Agent Reviews modal title and sidebar label to 'Let your agent vote!'
+
+* fix: skill.md loading in agent modal + update sidebar label
+
+- Add .md and .json to middleware matcher exclusion so static files are served
+- Update sidebar/mobile label to ""Let your agent vote! (Skill.md)""
+
+* feat: rewrite agent reviews modal with inline guide instead of fetching file
+
+* perf: optimize DB queries and add GitHub author sync
+
+- Add category and votes indexes for faster filtering (50-70% bandwidth reduction)
+- Reduce scan limits from 1500 to 500 docs for filtered queries
+- Add 'votes' sort option and slimmer payloads
+- Add author index and GitHub archive sync for bulk author enrichment
+- Enrichment time reduced from 30+ minutes to ~20 seconds
+- API hardening and simplification
+
+* fix: point skill.md API docs to Convex deployment URL
+
+The API endpoints are served by Convex HTTP router, not Next.js.
+Updated skill.md and skill.json to use NEXT_PUBLIC_CONVEX_URL.
+
+* feat: proxy API through Vercel with Next.js rewrites
+
+- Add rewrite rule to proxy /api/v1/* to Convex HTTP router
+- Update skill.md and skill.json to use site URL for API docs
+- Cleaner URLs for bot developers (clawdtm.com/api/v1/...)
+- Enables future edge rate limiting via Vercel middleware
+
+* fix: use .convex.site for HTTP routes and allow API without staging auth
+
+- Convex HTTP routes are at .convex.site, not .convex.cloud
+- Update rewrite to convert URL correctly
+- Allow /api/v1/*, /api/skill.md, /api/skill.json without staging password
+
+* fix: improve rating UX and add Clawdhub attribution
+
+- Make unrated state clearer with ""Click to rate"" prompt
+- Use dashed border for empty rating state
+- Slightly more visible lobsters when awaiting user input
+- Add ""Skill data from Clawdhub"" note on main skills page
+- Add ""Stats from Clawdhub · Ratings from ClawdTM community"" on detail page
+
+* fix: restore skill.md and skill.json for ClawdHub publishing
+
+* fix: remove redundant static skill files, use API routes instead
+
+- Delete public/skill.md and public/skill.json
+- API routes at /api/skill.md and /api/skill.json generate dynamic content
+- Prevents version drift between static files and code
+
+* feat: integrate onboarding tour into main page
+
+- Import and render OnboardingTour component
+- Pass isFirstCard prop to first skill card for tour targeting
+- Fix syntax error in skill-card.tsx (missing >)
+
+* Revert ""feat: integrate onboarding tour into main page""
+
+This reverts commit 1991fc91b08a79854add431a965015d550a83ef2.
+
+* feat: add URL param to trigger onboarding tour for testing
+
+Add ?tour=1 or ?tour=true to any URL to force the tour to show.
+The param is automatically removed from the URL after triggering.
+
+* feat: add skill.md to repo root for ClawdHub publishing
+
+* fix: improve tour trigger reliability
+
+- Use sessionStorage to persist tour=1 across staging auth redirect
+- Expose window.startTour() for console access
+- Fix missing > in skill-card.tsx
+
+* fix: add OnboardingTour component to page.tsx
+
+The component was created but never imported/rendered on the main page.
+
+* fix: improve tour spotlight styling
+
+- Set spotlight background to transparent
+- Normalize overlay mixBlendMode to prevent opacity issues
+- Add spotlightPadding for better visual appearance
+
+* docs: remove legacy voting section from skill.md files
+
+* docs: change emoji from lobster to robot 🤖
+
+* style: change footer attribution emoji to robot 🤖
+
+* feat: finalize onboarding tour improvements
+
+- Reorder tour steps: cards/rating before filters
+- Add friendly messaging with emojis
+- Fix isFirstCard prop missing from SkillCard
+- Increase delay before tour starts for skill loading
+- Add dataTour prop to list variant rating display
+- Simplify Joyride styling for better spotlight effect
+
+* chore: add .npmrc for legacy peer deps (react-joyride compat)
+
+* Twitter card: fix spacing, vibrant text, clawdtm.com emphasis
+
+* feat: add comprehensive analytics tracking
+
+- Add onboarding tour event tracking (step views, completion, skip)
+- Add bot attribution via source parameter in registration
+- Update skill.md with attribution source codes
+- Add page view tracking with new/returning user detection
+- Add UTM parameter capture and session storage
+- Track review and rating submissions
+
+Source codes for bot attribution:
+- cli, clawdhub, other_bot, x_me, x_owner, friend, search
+
+* fix: add @auth/core dependency for convex-dev/auth
+
+* Onboarding mobile experience (#9)
+
+* feat: add mobile-specific onboarding tour
+
+- Separate tour steps for mobile and desktop layouts
+- Mobile tour targets bottom nav elements (search, filters, settings)
+- Desktop tour targets sidebar elements (logo, categories, signin)
+- Independent completion tracking per device type
+- Added data-tour attributes to mobile-nav elements
+- Stops tour if device type changes mid-tour
+
+Co-authored-by: chamho.hk <chamho.hk@gmail.com>
+
+* feat: add Agent Review button to mobile nav bar
+
+- Added dedicated Agent button to mobile bottom nav
+- Opens Agent Reviews modal directly (same as desktop sidebar)
+- Added corresponding tour step for mobile onboarding
+- Updated settings description since agent review has its own button
+
+Co-authored-by: chamho.hk <chamho.hk@gmail.com>
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+
+* feat: add backfillReviewStats mutation for rating recalculation
+
+* chore: reduce author enrichment frequency to every 6 hours
+
+* feat: add shareable /agent-reviews page for social media
+
+- Dedicated landing page with SEO-optimized meta tags
+- Custom OG image for Twitter/social sharing
+- Hero section with quick-start instructions
+- How it works, capabilities, and why agent reviews matter
+- Canonical URL for SEO: clawdtm.com/agent-reviews
+
+* feat: add ClawdHub skill link and GitHub repo to agent-reviews page
+
+- Link to official ClawdTM skill on ClawdHub
+- GitHub repo link in footer
+- ClawdHub link in footer
+
+* style: align agent-reviews page with skill page header style
+
+- Add sticky header with back button icon + Logo + ThemeToggle
+- Replace robot emoji with Logo (smaller size)
+- Match skill page navigation UX
+
+* refactor: rebrand Clawdhub to Clawhub and update footer links
+
+- Rename all Clawdhub/ClawdHub references to Clawhub
+- Update domain from clawdhub.com to clawhub.ai
+- Update CLI command from clawdhub to clawhub
+- Replace Discord with ""DM for Feedback"" (Twitter @0xmythril)
+- Add GitHub repo and ClawdTM Skill links to footers
+- Make ClawdTM logo bigger in agent-reviews hero (80px)
+- Highlight ""ClawdTM"" in hero title
+
+* copy: change 'Sign In to Vote' to 'Sign In to Review'
+
+* style: lighten background color (0.96 → 0.98 oklch)
+
+* feat: default sort by rating and reorder dropdown
+
+* seo: replace Moltbot references with OpenClaw
+
+- Update metadata key from moltbot to openclaw in skill.md/json
+- Update Twitter OG image text to ""OpenClaw AI agents""
+- Keep consistent OpenClaw branding for SEO
+
+* feat: add humans section to agent-reviews + fix title line height
+
+- Add ""We Haven't Forgotten About the Humans!"" section
+- Fix overlapping text with leading-tight on hero title
+
+* style: reduce padding in agent-reviews Quick Start section
+
+* remove: View API Docs button from agent-reviews CTA
+
+* copy: change 'Sign In' to 'Sign in to review' in sidebar
+
+* fix: resolve lint errors for CI
+
+- Remove unused imports (MessageSquare, cn, Link, Bot, StarRating, internal)
+- Remove unused function extractSlugFromPath
+- Remove unused constant MIN_REVIEW_LENGTH
+- Fix 'any' types with proper Id<> types in http.ts and agents/page.tsx
+- Disable react-hooks/set-state-in-effect rule (common hydration pattern)
+
+* ci: add placeholder env vars and legacy-peer-deps for build
+
+* ci: use real Clerk test publishable key for build
+
+* feat: add 'Reviews' sort option to dropdown
+
+* Remove 'Click to rate' to fix hover flicker on skill cards
+
+* feat: search optimization and human/AI rating breakdown
+
+Search Optimization:
+- Add searchText field with hyphen variants for better FTS matching
+- Add skillSortCache table for pre-computed sorted skill lists
+- Optimize listCachedSkillsWithFilters to use cache for common queries
+- Add regenerateAllSearchText mutation for migration
+
+Human vs AI Rating Display:
+- Show human/bot review breakdown on skill cards: (👤3 · 🤖2)
+- Filter rating display by reviewer type (human/AI/all)
+- Pass reviewerFilter to SkillCard for filtered view
+- Fix skill mappings to include avgRatingHuman, avgRatingBot, humanReviewCount, botReviewCount
+
+Bug Fixes:
+- Bypass cache when reviewerFilter is set (needs human/bot specific ratings)
+- Fix lint errors with proper Id<> type assertions
+
+* fix: show star before count, only show breakdown when filtering
+
+- Move user rating star (★) before the review count
+- When viewing ""all"" reviews, show total count only: (5)
+- When filtering by human/AI, show filtered count with icon: (👤3) or (🤖2)
+- Keep full breakdown in tooltip for context
+
+* fix: always show human/AI breakdown for better context at a glance
+
+* Remove 'Click to rate' to fix hover flicker on skill cards
+
+* UI polish: install command format, review prompt, spacing fixes
+
+- Change install command to `clawhub install <slug>` format
+- Add ClawHub CLI prerequisite note linking to docs.openclaw.ai
+- Prompt users who rated but didn't review to add written feedback
+- Tighten spacing on skill detail Install card
+- Adjust skill card padding for better balance
+- Add explicit twitter:image to layout metadata
+
+* feat: Admin role system and panel
+
+- Add role fields to clerkUsers (user/moderator/admin) and botAgents (agent/moderator/admin)
+- Add isFeatured/isVerified/featuredBy/verifiedBy fields to cachedSkills
+- Create convex/admin.ts with auth helpers and admin mutations
+- Add protected admin panel at /admin with Skills, Users, Bots tabs
+- Add HTTP routes for bot admin access (/api/v1/admin/*)
+- Replace hardcoded FEATURED_SLUGS/VERIFIED_SLUGS with database queries
+- Add Verified category filter with BadgeCheck icon
+- Search now respects category filter (verified skills only when selected)
+- Add forceSetAdmin mutation for emergency admin fixes
+
+* fix: show review count instead of vote count in bot admin panel
+
+* docs: add moderator skill.md and README for mods folder
+
+* feat: Add audit logging for all moderator/admin actions
+
+- Add adminAuditLogs table to schema with indexes
+- Add audit log entries to all admin mutations (human + bot)
+- Add listAuditLogs query for admin panel
+- Add Audit Log tab to /admin with filters and pagination
+- Track actor (human/bot), action, target, and details
+
+* fix: Sync simpleHash functions between admin.ts and botAgents.ts
+
+The hash function in admin.ts didn't match botAgents.ts, causing
+bot API key lookups to fail for moderator actions. Also adds
+fixBotApiKeyHash migration helper for future hash format changes.
+
+---------
+
+Co-authored-by: 0xMythril <0xmythril@users.noreply.github.com>
+Co-authored-by: 0xMythril <0xmythril@gmail.com>
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>"
+https://www.github.com/0xmythril/clawdtm,6eddad205c4516a57abc28573f85965a72e839f8,2026-02-02T20:42:27+00:00,AI,Cursor,3535,39,21,False,True,False,True,"Release: Admin Role System & Panel (#13)
+
+* ci: add GitHub Actions checks
+
+Run lint and build on pull requests to enable branch protection
+status checks for main.
+
+* fix: remove unsupported redirectUrl from Clerk SignInButton
+
+Use supported afterSignInUrl/afterSignUpUrl props to keep auth
+redirects on the current origin without build errors.
+
+* fix: use supported Clerk redirect props
+
+Swap SignInButton redirects to forceRedirectUrl/signUpForceRedirectUrl
+per Clerk v6 types to fix production build.
+
+* chore: fix lint issues for CI
+
+- remove unused imports and variables
+- tighten types in categorization
+- stabilize hooks dependencies
+- drop unused tag helpers
+- use ESM imports in GA4 script
+
+* chore: update Discord invite link
+
+Use the new discord.gg/eTtG4rhbp6 invite in footer and mobile nav.
+
+* chore: move docs link to footer
+
+Remove OpenClaw Docs from sidebar and add it to the footer links.
+
+* feat: add bot voting system with human/AI vote filtering
+
+- Add botAgents table for registered bot agents
+- Add bot voting API routes (register, vote, status)
+- Track separate human/bot vote counts on skills
+- Add My Agents page for managing bot agents
+- Add vote filter toggle (Combined/Human/AI) in sidebar and mobile nav
+- Improve vote button UX with filled arrows and toggle behavior
+- Add public/skill.md and skill.json for bot API documentation
+
+* refactor: move vote filter from sidebar to search bar
+
+- Add vote filter dropdown to SearchBar component
+- Remove vote filter section from Sidebar
+- Keep vote filter in mobile nav for mobile users
+
+* style: make search dropdowns more compact with symbols
+
+- Replace ""Most X"" with symbol prefix (↓ Downloads, ★ Stars, etc.)
+- Use emojis for vote filter (👥 All, 🧑 Human, 🤖 AI)
+- Reduce padding for narrower buttons
+
+* refactor: improve sidebar UX with collapsible layout
+
+- Hide logo when sidebar collapsed, center toggle button
+- Move user section to bottom of sidebar
+- Integrate theme toggle into account row
+- Remove GitHub link from sidebar
+- Add left border indicator for active nav items
+- Rename ""My Agents"" to ""Register your agent""
+- Make Account row toggle Clerk dropdown on click
+
+* style: UI polish - darker light mode bg, cursor-pointer on buttons, modal improvements
+
+- Adjust light mode background to oklch(0.96 0 0)
+- Add cursor-pointer to all buttons globally
+- Add copy command button to install modal
+- Add AI agent tip to getting started modal
+- Add agent voting modal trigger to sidebar/mobile nav
+
+* feat: add skill reviews feature
+
+- Add skillReviews table with rating + text reviews
+- Add review aggregates (count, avg rating) to cachedSkills
+- Create convex/reviews.ts with mutations/queries for human and bot reviews
+- Add HTTP API endpoints for bot reviews (GET/POST/DELETE /api/v1/skills/reviews)
+- Create /skills/[slug] detail page with:
+  - Server component for SEO meta tags
+  - Client component for reviews, voting, and install command
+  - Review form for signed-in users
+  - Filterable review list (combined/human/bot)
+- Add review count and avg rating display to skill cards
+- Make skill names clickable links to detail page
+- Update skill.md documentation with review API endpoints
+- Add reusable StarRating, ReviewForm, ReviewList components
+- Add ThemeToggle component for skill detail page header
+
+* feat: improve review UX - hearts instead of stars, optional text
+
+- Change rating icon from stars to hearts (rose-500) to avoid confusion with ClawdHub's star system
+- Make review text optional (rating-only reviews allowed)
+- Add confirmation modal when submitting without written review
+- Update all rating displays (skill cards, detail page, review list) to use hearts
+
+* feat: replace voting with rating system, add collapsible reviews
+
+- Deprecate voting UI, use lobster rating (🦞) as primary interaction
+- Add QuickRating component with visible container and better empty state
+- Make user's existing review collapsible with edit mode
+- Add display name system for reviewers
+- Consistent dash display for zero values on skill cards
+- Sort by rating instead of votes
+
+* feat: add staging password protection
+
+- Add STAGING_PASSWORD env var to gate access
+- Show maintenance page when password not entered
+- Store auth in httpOnly cookie (30 days)
+- Skip auth for maintenance page and API routes
+
+* feat: add reviewer filter, rating filter, and fix Agent Reviews modal
+
+- Fix Agent Reviews modal: better contrast for SKILL.md code block
+- Add reviewer filter dropdown in search bar (All/Human/AI)
+- Add min rating filter in sidebar and mobile nav (5🦞, 4+, 3+, etc.)
+- Backend: support minRating and reviewerFilter params in queries
+- Use appropriate rating fields (avgRating/avgRatingHuman/avgRatingBot)
+
+* fix: add avgRating and reviewCount to skill card mappings
+
+* fix: update Agent Reviews modal title and sidebar label to 'Let your agent vote!'
+
+* fix: skill.md loading in agent modal + update sidebar label
+
+- Add .md and .json to middleware matcher exclusion so static files are served
+- Update sidebar/mobile label to ""Let your agent vote! (Skill.md)""
+
+* feat: rewrite agent reviews modal with inline guide instead of fetching file
+
+* perf: optimize DB queries and add GitHub author sync
+
+- Add category and votes indexes for faster filtering (50-70% bandwidth reduction)
+- Reduce scan limits from 1500 to 500 docs for filtered queries
+- Add 'votes' sort option and slimmer payloads
+- Add author index and GitHub archive sync for bulk author enrichment
+- Enrichment time reduced from 30+ minutes to ~20 seconds
+- API hardening and simplification
+
+* fix: point skill.md API docs to Convex deployment URL
+
+The API endpoints are served by Convex HTTP router, not Next.js.
+Updated skill.md and skill.json to use NEXT_PUBLIC_CONVEX_URL.
+
+* feat: proxy API through Vercel with Next.js rewrites
+
+- Add rewrite rule to proxy /api/v1/* to Convex HTTP router
+- Update skill.md and skill.json to use site URL for API docs
+- Cleaner URLs for bot developers (clawdtm.com/api/v1/...)
+- Enables future edge rate limiting via Vercel middleware
+
+* fix: use .convex.site for HTTP routes and allow API without staging auth
+
+- Convex HTTP routes are at .convex.site, not .convex.cloud
+- Update rewrite to convert URL correctly
+- Allow /api/v1/*, /api/skill.md, /api/skill.json without staging password
+
+* fix: improve rating UX and add Clawdhub attribution
+
+- Make unrated state clearer with ""Click to rate"" prompt
+- Use dashed border for empty rating state
+- Slightly more visible lobsters when awaiting user input
+- Add ""Skill data from Clawdhub"" note on main skills page
+- Add ""Stats from Clawdhub · Ratings from ClawdTM community"" on detail page
+
+* fix: restore skill.md and skill.json for ClawdHub publishing
+
+* fix: remove redundant static skill files, use API routes instead
+
+- Delete public/skill.md and public/skill.json
+- API routes at /api/skill.md and /api/skill.json generate dynamic content
+- Prevents version drift between static files and code
+
+* feat: integrate onboarding tour into main page
+
+- Import and render OnboardingTour component
+- Pass isFirstCard prop to first skill card for tour targeting
+- Fix syntax error in skill-card.tsx (missing >)
+
+* Revert ""feat: integrate onboarding tour into main page""
+
+This reverts commit 1991fc91b08a79854add431a965015d550a83ef2.
+
+* feat: add URL param to trigger onboarding tour for testing
+
+Add ?tour=1 or ?tour=true to any URL to force the tour to show.
+The param is automatically removed from the URL after triggering.
+
+* feat: add skill.md to repo root for ClawdHub publishing
+
+* fix: improve tour trigger reliability
+
+- Use sessionStorage to persist tour=1 across staging auth redirect
+- Expose window.startTour() for console access
+- Fix missing > in skill-card.tsx
+
+* fix: add OnboardingTour component to page.tsx
+
+The component was created but never imported/rendered on the main page.
+
+* fix: improve tour spotlight styling
+
+- Set spotlight background to transparent
+- Normalize overlay mixBlendMode to prevent opacity issues
+- Add spotlightPadding for better visual appearance
+
+* docs: remove legacy voting section from skill.md files
+
+* docs: change emoji from lobster to robot 🤖
+
+* style: change footer attribution emoji to robot 🤖
+
+* feat: finalize onboarding tour improvements
+
+- Reorder tour steps: cards/rating before filters
+- Add friendly messaging with emojis
+- Fix isFirstCard prop missing from SkillCard
+- Increase delay before tour starts for skill loading
+- Add dataTour prop to list variant rating display
+- Simplify Joyride styling for better spotlight effect
+
+* chore: add .npmrc for legacy peer deps (react-joyride compat)
+
+* Twitter card: fix spacing, vibrant text, clawdtm.com emphasis
+
+* feat: add comprehensive analytics tracking
+
+- Add onboarding tour event tracking (step views, completion, skip)
+- Add bot attribution via source parameter in registration
+- Update skill.md with attribution source codes
+- Add page view tracking with new/returning user detection
+- Add UTM parameter capture and session storage
+- Track review and rating submissions
+
+Source codes for bot attribution:
+- cli, clawdhub, other_bot, x_me, x_owner, friend, search
+
+* fix: add @auth/core dependency for convex-dev/auth
+
+* Onboarding mobile experience (#9)
+
+* feat: add mobile-specific onboarding tour
+
+- Separate tour steps for mobile and desktop layouts
+- Mobile tour targets bottom nav elements (search, filters, settings)
+- Desktop tour targets sidebar elements (logo, categories, signin)
+- Independent completion tracking per device type
+- Added data-tour attributes to mobile-nav elements
+- Stops tour if device type changes mid-tour
+
+Co-authored-by: chamho.hk <chamho.hk@gmail.com>
+
+* feat: add Agent Review button to mobile nav bar
+
+- Added dedicated Agent button to mobile bottom nav
+- Opens Agent Reviews modal directly (same as desktop sidebar)
+- Added corresponding tour step for mobile onboarding
+- Updated settings description since agent review has its own button
+
+Co-authored-by: chamho.hk <chamho.hk@gmail.com>
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+
+* feat: add backfillReviewStats mutation for rating recalculation
+
+* chore: reduce author enrichment frequency to every 6 hours
+
+* feat: add shareable /agent-reviews page for social media
+
+- Dedicated landing page with SEO-optimized meta tags
+- Custom OG image for Twitter/social sharing
+- Hero section with quick-start instructions
+- How it works, capabilities, and why agent reviews matter
+- Canonical URL for SEO: clawdtm.com/agent-reviews
+
+* feat: add ClawdHub skill link and GitHub repo to agent-reviews page
+
+- Link to official ClawdTM skill on ClawdHub
+- GitHub repo link in footer
+- ClawdHub link in footer
+
+* style: align agent-reviews page with skill page header style
+
+- Add sticky header with back button icon + Logo + ThemeToggle
+- Replace robot emoji with Logo (smaller size)
+- Match skill page navigation UX
+
+* refactor: rebrand Clawdhub to Clawhub and update footer links
+
+- Rename all Clawdhub/ClawdHub references to Clawhub
+- Update domain from clawdhub.com to clawhub.ai
+- Update CLI command from clawdhub to clawhub
+- Replace Discord with ""DM for Feedback"" (Twitter @0xmythril)
+- Add GitHub repo and ClawdTM Skill links to footers
+- Make ClawdTM logo bigger in agent-reviews hero (80px)
+- Highlight ""ClawdTM"" in hero title
+
+* copy: change 'Sign In to Vote' to 'Sign In to Review'
+
+* style: lighten background color (0.96 → 0.98 oklch)
+
+* feat: default sort by rating and reorder dropdown
+
+* seo: replace Moltbot references with OpenClaw
+
+- Update metadata key from moltbot to openclaw in skill.md/json
+- Update Twitter OG image text to ""OpenClaw AI agents""
+- Keep consistent OpenClaw branding for SEO
+
+* feat: add humans section to agent-reviews + fix title line height
+
+- Add ""We Haven't Forgotten About the Humans!"" section
+- Fix overlapping text with leading-tight on hero title
+
+* style: reduce padding in agent-reviews Quick Start section
+
+* remove: View API Docs button from agent-reviews CTA
+
+* copy: change 'Sign In' to 'Sign in to review' in sidebar
+
+* fix: resolve lint errors for CI
+
+- Remove unused imports (MessageSquare, cn, Link, Bot, StarRating, internal)
+- Remove unused function extractSlugFromPath
+- Remove unused constant MIN_REVIEW_LENGTH
+- Fix 'any' types with proper Id<> types in http.ts and agents/page.tsx
+- Disable react-hooks/set-state-in-effect rule (common hydration pattern)
+
+* ci: add placeholder env vars and legacy-peer-deps for build
+
+* ci: use real Clerk test publishable key for build
+
+* feat: add 'Reviews' sort option to dropdown
+
+* Remove 'Click to rate' to fix hover flicker on skill cards
+
+* feat: search optimization and human/AI rating breakdown
+
+Search Optimization:
+- Add searchText field with hyphen variants for better FTS matching
+- Add skillSortCache table for pre-computed sorted skill lists
+- Optimize listCachedSkillsWithFilters to use cache for common queries
+- Add regenerateAllSearchText mutation for migration
+
+Human vs AI Rating Display:
+- Show human/bot review breakdown on skill cards: (👤3 · 🤖2)
+- Filter rating display by reviewer type (human/AI/all)
+- Pass reviewerFilter to SkillCard for filtered view
+- Fix skill mappings to include avgRatingHuman, avgRatingBot, humanReviewCount, botReviewCount
+
+Bug Fixes:
+- Bypass cache when reviewerFilter is set (needs human/bot specific ratings)
+- Fix lint errors with proper Id<> type assertions
+
+* fix: show star before count, only show breakdown when filtering
+
+- Move user rating star (★) before the review count
+- When viewing ""all"" reviews, show total count only: (5)
+- When filtering by human/AI, show filtered count with icon: (👤3) or (🤖2)
+- Keep full breakdown in tooltip for context
+
+* fix: always show human/AI breakdown for better context at a glance
+
+* Remove 'Click to rate' to fix hover flicker on skill cards
+
+* UI polish: install command format, review prompt, spacing fixes
+
+- Change install command to `clawhub install <slug>` format
+- Add ClawHub CLI prerequisite note linking to docs.openclaw.ai
+- Prompt users who rated but didn't review to add written feedback
+- Tighten spacing on skill detail Install card
+- Adjust skill card padding for better balance
+- Add explicit twitter:image to layout metadata
+
+* feat: Admin role system and panel
+
+- Add role fields to clerkUsers (user/moderator/admin) and botAgents (agent/moderator/admin)
+- Add isFeatured/isVerified/featuredBy/verifiedBy fields to cachedSkills
+- Create convex/admin.ts with auth helpers and admin mutations
+- Add protected admin panel at /admin with Skills, Users, Bots tabs
+- Add HTTP routes for bot admin access (/api/v1/admin/*)
+- Replace hardcoded FEATURED_SLUGS/VERIFIED_SLUGS with database queries
+- Add Verified category filter with BadgeCheck icon
+- Search now respects category filter (verified skills only when selected)
+- Add forceSetAdmin mutation for emergency admin fixes
+
+* fix: show review count instead of vote count in bot admin panel
+
+* docs: add moderator skill.md and README for mods folder
+
+* feat: Add audit logging for all moderator/admin actions
+
+- Add adminAuditLogs table to schema with indexes
+- Add audit log entries to all admin mutations (human + bot)
+- Add listAuditLogs query for admin panel
+- Add Audit Log tab to /admin with filters and pagination
+- Track actor (human/bot), action, target, and details
+
+---------
+
+Co-authored-by: 0xMythril <0xmythril@users.noreply.github.com>
+Co-authored-by: 0xMythril <0xmythril@gmail.com>
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>"
+https://www.github.com/0xmythril/clawdtm,8fb1a65fbc96ecb232ebc62149fa32f7d563ba44,2026-02-01T17:56:31+00:00,Human,,104,31,6,False,True,False,False,"UI polish: hover fix, install format, review prompts, spacing (#12)
+
+* ci: add GitHub Actions checks
+
+Run lint and build on pull requests to enable branch protection
+status checks for main.
+
+* Remove 'Click to rate' to fix hover flicker on skill cards
+
+* UI polish: install command format, review prompt, spacing fixes
+
+- Change install command to `clawhub install <slug>` format
+- Add ClawHub CLI prerequisite note linking to docs.openclaw.ai
+- Prompt users who rated but didn't review to add written feedback
+- Tighten spacing on skill detail Install card
+- Adjust skill card padding for better balance
+- Add explicit twitter:image to layout metadata"
+https://www.github.com/0xmythril/clawdtm,b20586d9a45f8680c42399e865240e19d4552581,2026-02-01T17:55:31+00:00,AI,Cursor,670,69,7,False,True,False,True,"Release: Search Optimization & Human/AI Rating Display (#11)
+
+* ci: add GitHub Actions checks
+
+Run lint and build on pull requests to enable branch protection
+status checks for main.
+
+* fix: remove unsupported redirectUrl from Clerk SignInButton
+
+Use supported afterSignInUrl/afterSignUpUrl props to keep auth
+redirects on the current origin without build errors.
+
+* fix: use supported Clerk redirect props
+
+Swap SignInButton redirects to forceRedirectUrl/signUpForceRedirectUrl
+per Clerk v6 types to fix production build.
+
+* chore: fix lint issues for CI
+
+- remove unused imports and variables
+- tighten types in categorization
+- stabilize hooks dependencies
+- drop unused tag helpers
+- use ESM imports in GA4 script
+
+* chore: update Discord invite link
+
+Use the new discord.gg/eTtG4rhbp6 invite in footer and mobile nav.
+
+* chore: move docs link to footer
+
+Remove OpenClaw Docs from sidebar and add it to the footer links.
+
+* feat: add bot voting system with human/AI vote filtering
+
+- Add botAgents table for registered bot agents
+- Add bot voting API routes (register, vote, status)
+- Track separate human/bot vote counts on skills
+- Add My Agents page for managing bot agents
+- Add vote filter toggle (Combined/Human/AI) in sidebar and mobile nav
+- Improve vote button UX with filled arrows and toggle behavior
+- Add public/skill.md and skill.json for bot API documentation
+
+* refactor: move vote filter from sidebar to search bar
+
+- Add vote filter dropdown to SearchBar component
+- Remove vote filter section from Sidebar
+- Keep vote filter in mobile nav for mobile users
+
+* style: make search dropdowns more compact with symbols
+
+- Replace ""Most X"" with symbol prefix (↓ Downloads, ★ Stars, etc.)
+- Use emojis for vote filter (👥 All, 🧑 Human, 🤖 AI)
+- Reduce padding for narrower buttons
+
+* refactor: improve sidebar UX with collapsible layout
+
+- Hide logo when sidebar collapsed, center toggle button
+- Move user section to bottom of sidebar
+- Integrate theme toggle into account row
+- Remove GitHub link from sidebar
+- Add left border indicator for active nav items
+- Rename ""My Agents"" to ""Register your agent""
+- Make Account row toggle Clerk dropdown on click
+
+* style: UI polish - darker light mode bg, cursor-pointer on buttons, modal improvements
+
+- Adjust light mode background to oklch(0.96 0 0)
+- Add cursor-pointer to all buttons globally
+- Add copy command button to install modal
+- Add AI agent tip to getting started modal
+- Add agent voting modal trigger to sidebar/mobile nav
+
+* feat: add skill reviews feature
+
+- Add skillReviews table with rating + text reviews
+- Add review aggregates (count, avg rating) to cachedSkills
+- Create convex/reviews.ts with mutations/queries for human and bot reviews
+- Add HTTP API endpoints for bot reviews (GET/POST/DELETE /api/v1/skills/reviews)
+- Create /skills/[slug] detail page with:
+  - Server component for SEO meta tags
+  - Client component for reviews, voting, and install command
+  - Review form for signed-in users
+  - Filterable review list (combined/human/bot)
+- Add review count and avg rating display to skill cards
+- Make skill names clickable links to detail page
+- Update skill.md documentation with review API endpoints
+- Add reusable StarRating, ReviewForm, ReviewList components
+- Add ThemeToggle component for skill detail page header
+
+* feat: improve review UX - hearts instead of stars, optional text
+
+- Change rating icon from stars to hearts (rose-500) to avoid confusion with ClawdHub's star system
+- Make review text optional (rating-only reviews allowed)
+- Add confirmation modal when submitting without written review
+- Update all rating displays (skill cards, detail page, review list) to use hearts
+
+* feat: replace voting with rating system, add collapsible reviews
+
+- Deprecate voting UI, use lobster rating (🦞) as primary interaction
+- Add QuickRating component with visible container and better empty state
+- Make user's existing review collapsible with edit mode
+- Add display name system for reviewers
+- Consistent dash display for zero values on skill cards
+- Sort by rating instead of votes
+
+* feat: add staging password protection
+
+- Add STAGING_PASSWORD env var to gate access
+- Show maintenance page when password not entered
+- Store auth in httpOnly cookie (30 days)
+- Skip auth for maintenance page and API routes
+
+* feat: add reviewer filter, rating filter, and fix Agent Reviews modal
+
+- Fix Agent Reviews modal: better contrast for SKILL.md code block
+- Add reviewer filter dropdown in search bar (All/Human/AI)
+- Add min rating filter in sidebar and mobile nav (5🦞, 4+, 3+, etc.)
+- Backend: support minRating and reviewerFilter params in queries
+- Use appropriate rating fields (avgRating/avgRatingHuman/avgRatingBot)
+
+* fix: add avgRating and reviewCount to skill card mappings
+
+* fix: update Agent Reviews modal title and sidebar label to 'Let your agent vote!'
+
+* fix: skill.md loading in agent modal + update sidebar label
+
+- Add .md and .json to middleware matcher exclusion so static files are served
+- Update sidebar/mobile label to ""Let your agent vote! (Skill.md)""
+
+* feat: rewrite agent reviews modal with inline guide instead of fetching file
+
+* perf: optimize DB queries and add GitHub author sync
+
+- Add category and votes indexes for faster filtering (50-70% bandwidth reduction)
+- Reduce scan limits from 1500 to 500 docs for filtered queries
+- Add 'votes' sort option and slimmer payloads
+- Add author index and GitHub archive sync for bulk author enrichment
+- Enrichment time reduced from 30+ minutes to ~20 seconds
+- API hardening and simplification
+
+* fix: point skill.md API docs to Convex deployment URL
+
+The API endpoints are served by Convex HTTP router, not Next.js.
+Updated skill.md and skill.json to use NEXT_PUBLIC_CONVEX_URL.
+
+* feat: proxy API through Vercel with Next.js rewrites
+
+- Add rewrite rule to proxy /api/v1/* to Convex HTTP router
+- Update skill.md and skill.json to use site URL for API docs
+- Cleaner URLs for bot developers (clawdtm.com/api/v1/...)
+- Enables future edge rate limiting via Vercel middleware
+
+* fix: use .convex.site for HTTP routes and allow API without staging auth
+
+- Convex HTTP routes are at .convex.site, not .convex.cloud
+- Update rewrite to convert URL correctly
+- Allow /api/v1/*, /api/skill.md, /api/skill.json without staging password
+
+* fix: improve rating UX and add Clawdhub attribution
+
+- Make unrated state clearer with ""Click to rate"" prompt
+- Use dashed border for empty rating state
+- Slightly more visible lobsters when awaiting user input
+- Add ""Skill data from Clawdhub"" note on main skills page
+- Add ""Stats from Clawdhub · Ratings from ClawdTM community"" on detail page
+
+* fix: restore skill.md and skill.json for ClawdHub publishing
+
+* fix: remove redundant static skill files, use API routes instead
+
+- Delete public/skill.md and public/skill.json
+- API routes at /api/skill.md and /api/skill.json generate dynamic content
+- Prevents version drift between static files and code
+
+* feat: integrate onboarding tour into main page
+
+- Import and render OnboardingTour component
+- Pass isFirstCard prop to first skill card for tour targeting
+- Fix syntax error in skill-card.tsx (missing >)
+
+* Revert ""feat: integrate onboarding tour into main page""
+
+This reverts commit 1991fc91b08a79854add431a965015d550a83ef2.
+
+* feat: add URL param to trigger onboarding tour for testing
+
+Add ?tour=1 or ?tour=true to any URL to force the tour to show.
+The param is automatically removed from the URL after triggering.
+
+* feat: add skill.md to repo root for ClawdHub publishing
+
+* fix: improve tour trigger reliability
+
+- Use sessionStorage to persist tour=1 across staging auth redirect
+- Expose window.startTour() for console access
+- Fix missing > in skill-card.tsx
+
+* fix: add OnboardingTour component to page.tsx
+
+The component was created but never imported/rendered on the main page.
+
+* fix: improve tour spotlight styling
+
+- Set spotlight background to transparent
+- Normalize overlay mixBlendMode to prevent opacity issues
+- Add spotlightPadding for better visual appearance
+
+* docs: remove legacy voting section from skill.md files
+
+* docs: change emoji from lobster to robot 🤖
+
+* style: change footer attribution emoji to robot 🤖
+
+* feat: finalize onboarding tour improvements
+
+- Reorder tour steps: cards/rating before filters
+- Add friendly messaging with emojis
+- Fix isFirstCard prop missing from SkillCard
+- Increase delay before tour starts for skill loading
+- Add dataTour prop to list variant rating display
+- Simplify Joyride styling for better spotlight effect
+
+* chore: add .npmrc for legacy peer deps (react-joyride compat)
+
+* Twitter card: fix spacing, vibrant text, clawdtm.com emphasis
+
+* feat: add comprehensive analytics tracking
+
+- Add onboarding tour event tracking (step views, completion, skip)
+- Add bot attribution via source parameter in registration
+- Update skill.md with attribution source codes
+- Add page view tracking with new/returning user detection
+- Add UTM parameter capture and session storage
+- Track review and rating submissions
+
+Source codes for bot attribution:
+- cli, clawdhub, other_bot, x_me, x_owner, friend, search
+
+* fix: add @auth/core dependency for convex-dev/auth
+
+* Onboarding mobile experience (#9)
+
+* feat: add mobile-specific onboarding tour
+
+- Separate tour steps for mobile and desktop layouts
+- Mobile tour targets bottom nav elements (search, filters, settings)
+- Desktop tour targets sidebar elements (logo, categories, signin)
+- Independent completion tracking per device type
+- Added data-tour attributes to mobile-nav elements
+- Stops tour if device type changes mid-tour
+
+Co-authored-by: chamho.hk <chamho.hk@gmail.com>
+
+* feat: add Agent Review button to mobile nav bar
+
+- Added dedicated Agent button to mobile bottom nav
+- Opens Agent Reviews modal directly (same as desktop sidebar)
+- Added corresponding tour step for mobile onboarding
+- Updated settings description since agent review has its own button
+
+Co-authored-by: chamho.hk <chamho.hk@gmail.com>
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+
+* feat: add backfillReviewStats mutation for rating recalculation
+
+* chore: reduce author enrichment frequency to every 6 hours
+
+* feat: add shareable /agent-reviews page for social media
+
+- Dedicated landing page with SEO-optimized meta tags
+- Custom OG image for Twitter/social sharing
+- Hero section with quick-start instructions
+- How it works, capabilities, and why agent reviews matter
+- Canonical URL for SEO: clawdtm.com/agent-reviews
+
+* feat: add ClawdHub skill link and GitHub repo to agent-reviews page
+
+- Link to official ClawdTM skill on ClawdHub
+- GitHub repo link in footer
+- ClawdHub link in footer
+
+* style: align agent-reviews page with skill page header style
+
+- Add sticky header with back button icon + Logo + ThemeToggle
+- Replace robot emoji with Logo (smaller size)
+- Match skill page navigation UX
+
+* refactor: rebrand Clawdhub to Clawhub and update footer links
+
+- Rename all Clawdhub/ClawdHub references to Clawhub
+- Update domain from clawdhub.com to clawhub.ai
+- Update CLI command from clawdhub to clawhub
+- Replace Discord with ""DM for Feedback"" (Twitter @0xmythril)
+- Add GitHub repo and ClawdTM Skill links to footers
+- Make ClawdTM logo bigger in agent-reviews hero (80px)
+- Highlight ""ClawdTM"" in hero title
+
+* copy: change 'Sign In to Vote' to 'Sign In to Review'
+
+* style: lighten background color (0.96 → 0.98 oklch)
+
+* feat: default sort by rating and reorder dropdown
+
+* seo: replace Moltbot references with OpenClaw
+
+- Update metadata key from moltbot to openclaw in skill.md/json
+- Update Twitter OG image text to ""OpenClaw AI agents""
+- Keep consistent OpenClaw branding for SEO
+
+* feat: add humans section to agent-reviews + fix title line height
+
+- Add ""We Haven't Forgotten About the Humans!"" section
+- Fix overlapping text with leading-tight on hero title
+
+* style: reduce padding in agent-reviews Quick Start section
+
+* remove: View API Docs button from agent-reviews CTA
+
+* copy: change 'Sign In' to 'Sign in to review' in sidebar
+
+* fix: resolve lint errors for CI
+
+- Remove unused imports (MessageSquare, cn, Link, Bot, StarRating, internal)
+- Remove unused function extractSlugFromPath
+- Remove unused constant MIN_REVIEW_LENGTH
+- Fix 'any' types with proper Id<> types in http.ts and agents/page.tsx
+- Disable react-hooks/set-state-in-effect rule (common hydration pattern)
+
+* ci: add placeholder env vars and legacy-peer-deps for build
+
+* ci: use real Clerk test publishable key for build
+
+* feat: add 'Reviews' sort option to dropdown
+
+* Remove 'Click to rate' to fix hover flicker on skill cards
+
+* feat: search optimization and human/AI rating breakdown
+
+Search Optimization:
+- Add searchText field with hyphen variants for better FTS matching
+- Add skillSortCache table for pre-computed sorted skill lists
+- Optimize listCachedSkillsWithFilters to use cache for common queries
+- Add regenerateAllSearchText mutation for migration
+
+Human vs AI Rating Display:
+- Show human/bot review breakdown on skill cards: (👤3 · 🤖2)
+- Filter rating display by reviewer type (human/AI/all)
+- Pass reviewerFilter to SkillCard for filtered view
+- Fix skill mappings to include avgRatingHuman, avgRatingBot, humanReviewCount, botReviewCount
+
+Bug Fixes:
+- Bypass cache when reviewerFilter is set (needs human/bot specific ratings)
+- Fix lint errors with proper Id<> type assertions
+
+* fix: show star before count, only show breakdown when filtering
+
+- Move user rating star (★) before the review count
+- When viewing ""all"" reviews, show total count only: (5)
+- When filtering by human/AI, show filtered count with icon: (👤3) or (🤖2)
+- Keep full breakdown in tooltip for context
+
+* fix: always show human/AI breakdown for better context at a glance
+
+---------
+
+Co-authored-by: 0xMythril <0xmythril@users.noreply.github.com>
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>"
+https://www.github.com/0xmythril/clawdtm,b8ca5ac291670882fc50839e1807fa7925cd91b2,2026-02-01T11:53:03+00:00,AI,Cursor,1572,141,36,False,True,False,True,"Release: Agent Reviews Page, Analytics, Clawhub Rebrand & UI Polish (#10)
+
+* ci: add GitHub Actions checks
+
+Run lint and build on pull requests to enable branch protection
+status checks for main.
+
+* fix: remove unsupported redirectUrl from Clerk SignInButton
+
+Use supported afterSignInUrl/afterSignUpUrl props to keep auth
+redirects on the current origin without build errors.
+
+* fix: use supported Clerk redirect props
+
+Swap SignInButton redirects to forceRedirectUrl/signUpForceRedirectUrl
+per Clerk v6 types to fix production build.
+
+* chore: fix lint issues for CI
+
+- remove unused imports and variables
+- tighten types in categorization
+- stabilize hooks dependencies
+- drop unused tag helpers
+- use ESM imports in GA4 script
+
+* chore: update Discord invite link
+
+Use the new discord.gg/eTtG4rhbp6 invite in footer and mobile nav.
+
+* chore: move docs link to footer
+
+Remove OpenClaw Docs from sidebar and add it to the footer links.
+
+* feat: add bot voting system with human/AI vote filtering
+
+- Add botAgents table for registered bot agents
+- Add bot voting API routes (register, vote, status)
+- Track separate human/bot vote counts on skills
+- Add My Agents page for managing bot agents
+- Add vote filter toggle (Combined/Human/AI) in sidebar and mobile nav
+- Improve vote button UX with filled arrows and toggle behavior
+- Add public/skill.md and skill.json for bot API documentation
+
+* refactor: move vote filter from sidebar to search bar
+
+- Add vote filter dropdown to SearchBar component
+- Remove vote filter section from Sidebar
+- Keep vote filter in mobile nav for mobile users
+
+* style: make search dropdowns more compact with symbols
+
+- Replace ""Most X"" with symbol prefix (↓ Downloads, ★ Stars, etc.)
+- Use emojis for vote filter (👥 All, 🧑 Human, 🤖 AI)
+- Reduce padding for narrower buttons
+
+* refactor: improve sidebar UX with collapsible layout
+
+- Hide logo when sidebar collapsed, center toggle button
+- Move user section to bottom of sidebar
+- Integrate theme toggle into account row
+- Remove GitHub link from sidebar
+- Add left border indicator for active nav items
+- Rename ""My Agents"" to ""Register your agent""
+- Make Account row toggle Clerk dropdown on click
+
+* style: UI polish - darker light mode bg, cursor-pointer on buttons, modal improvements
+
+- Adjust light mode background to oklch(0.96 0 0)
+- Add cursor-pointer to all buttons globally
+- Add copy command button to install modal
+- Add AI agent tip to getting started modal
+- Add agent voting modal trigger to sidebar/mobile nav
+
+* feat: add skill reviews feature
+
+- Add skillReviews table with rating + text reviews
+- Add review aggregates (count, avg rating) to cachedSkills
+- Create convex/reviews.ts with mutations/queries for human and bot reviews
+- Add HTTP API endpoints for bot reviews (GET/POST/DELETE /api/v1/skills/reviews)
+- Create /skills/[slug] detail page with:
+  - Server component for SEO meta tags
+  - Client component for reviews, voting, and install command
+  - Review form for signed-in users
+  - Filterable review list (combined/human/bot)
+- Add review count and avg rating display to skill cards
+- Make skill names clickable links to detail page
+- Update skill.md documentation with review API endpoints
+- Add reusable StarRating, ReviewForm, ReviewList components
+- Add ThemeToggle component for skill detail page header
+
+* feat: improve review UX - hearts instead of stars, optional text
+
+- Change rating icon from stars to hearts (rose-500) to avoid confusion with ClawdHub's star system
+- Make review text optional (rating-only reviews allowed)
+- Add confirmation modal when submitting without written review
+- Update all rating displays (skill cards, detail page, review list) to use hearts
+
+* feat: replace voting with rating system, add collapsible reviews
+
+- Deprecate voting UI, use lobster rating (🦞) as primary interaction
+- Add QuickRating component with visible container and better empty state
+- Make user's existing review collapsible with edit mode
+- Add display name system for reviewers
+- Consistent dash display for zero values on skill cards
+- Sort by rating instead of votes
+
+* feat: add staging password protection
+
+- Add STAGING_PASSWORD env var to gate access
+- Show maintenance page when password not entered
+- Store auth in httpOnly cookie (30 days)
+- Skip auth for maintenance page and API routes
+
+* feat: add reviewer filter, rating filter, and fix Agent Reviews modal
+
+- Fix Agent Reviews modal: better contrast for SKILL.md code block
+- Add reviewer filter dropdown in search bar (All/Human/AI)
+- Add min rating filter in sidebar and mobile nav (5🦞, 4+, 3+, etc.)
+- Backend: support minRating and reviewerFilter params in queries
+- Use appropriate rating fields (avgRating/avgRatingHuman/avgRatingBot)
+
+* fix: add avgRating and reviewCount to skill card mappings
+
+* fix: update Agent Reviews modal title and sidebar label to 'Let your agent vote!'
+
+* fix: skill.md loading in agent modal + update sidebar label
+
+- Add .md and .json to middleware matcher exclusion so static files are served
+- Update sidebar/mobile label to ""Let your agent vote! (Skill.md)""
+
+* feat: rewrite agent reviews modal with inline guide instead of fetching file
+
+* perf: optimize DB queries and add GitHub author sync
+
+- Add category and votes indexes for faster filtering (50-70% bandwidth reduction)
+- Reduce scan limits from 1500 to 500 docs for filtered queries
+- Add 'votes' sort option and slimmer payloads
+- Add author index and GitHub archive sync for bulk author enrichment
+- Enrichment time reduced from 30+ minutes to ~20 seconds
+- API hardening and simplification
+
+* fix: point skill.md API docs to Convex deployment URL
+
+The API endpoints are served by Convex HTTP router, not Next.js.
+Updated skill.md and skill.json to use NEXT_PUBLIC_CONVEX_URL.
+
+* feat: proxy API through Vercel with Next.js rewrites
+
+- Add rewrite rule to proxy /api/v1/* to Convex HTTP router
+- Update skill.md and skill.json to use site URL for API docs
+- Cleaner URLs for bot developers (clawdtm.com/api/v1/...)
+- Enables future edge rate limiting via Vercel middleware
+
+* fix: use .convex.site for HTTP routes and allow API without staging auth
+
+- Convex HTTP routes are at .convex.site, not .convex.cloud
+- Update rewrite to convert URL correctly
+- Allow /api/v1/*, /api/skill.md, /api/skill.json without staging password
+
+* fix: improve rating UX and add Clawdhub attribution
+
+- Make unrated state clearer with ""Click to rate"" prompt
+- Use dashed border for empty rating state
+- Slightly more visible lobsters when awaiting user input
+- Add ""Skill data from Clawdhub"" note on main skills page
+- Add ""Stats from Clawdhub · Ratings from ClawdTM community"" on detail page
+
+* fix: restore skill.md and skill.json for ClawdHub publishing
+
+* fix: remove redundant static skill files, use API routes instead
+
+- Delete public/skill.md and public/skill.json
+- API routes at /api/skill.md and /api/skill.json generate dynamic content
+- Prevents version drift between static files and code
+
+* feat: integrate onboarding tour into main page
+
+- Import and render OnboardingTour component
+- Pass isFirstCard prop to first skill card for tour targeting
+- Fix syntax error in skill-card.tsx (missing >)
+
+* Revert ""feat: integrate onboarding tour into main page""
+
+This reverts commit 1991fc91b08a79854add431a965015d550a83ef2.
+
+* feat: add URL param to trigger onboarding tour for testing
+
+Add ?tour=1 or ?tour=true to any URL to force the tour to show.
+The param is automatically removed from the URL after triggering.
+
+* feat: add skill.md to repo root for ClawdHub publishing
+
+* fix: improve tour trigger reliability
+
+- Use sessionStorage to persist tour=1 across staging auth redirect
+- Expose window.startTour() for console access
+- Fix missing > in skill-card.tsx
+
+* fix: add OnboardingTour component to page.tsx
+
+The component was created but never imported/rendered on the main page.
+
+* fix: improve tour spotlight styling
+
+- Set spotlight background to transparent
+- Normalize overlay mixBlendMode to prevent opacity issues
+- Add spotlightPadding for better visual appearance
+
+* docs: remove legacy voting section from skill.md files
+
+* docs: change emoji from lobster to robot 🤖
+
+* style: change footer attribution emoji to robot 🤖
+
+* feat: finalize onboarding tour improvements
+
+- Reorder tour steps: cards/rating before filters
+- Add friendly messaging with emojis
+- Fix isFirstCard prop missing from SkillCard
+- Increase delay before tour starts for skill loading
+- Add dataTour prop to list variant rating display
+- Simplify Joyride styling for better spotlight effect
+
+* chore: add .npmrc for legacy peer deps (react-joyride compat)
+
+* Twitter card: fix spacing, vibrant text, clawdtm.com emphasis
+
+* feat: add comprehensive analytics tracking
+
+- Add onboarding tour event tracking (step views, completion, skip)
+- Add bot attribution via source parameter in registration
+- Update skill.md with attribution source codes
+- Add page view tracking with new/returning user detection
+- Add UTM parameter capture and session storage
+- Track review and rating submissions
+
+Source codes for bot attribution:
+- cli, clawdhub, other_bot, x_me, x_owner, friend, search
+
+* fix: add @auth/core dependency for convex-dev/auth
+
+* Onboarding mobile experience (#9)
+
+* feat: add mobile-specific onboarding tour
+
+- Separate tour steps for mobile and desktop layouts
+- Mobile tour targets bottom nav elements (search, filters, settings)
+- Desktop tour targets sidebar elements (logo, categories, signin)
+- Independent completion tracking per device type
+- Added data-tour attributes to mobile-nav elements
+- Stops tour if device type changes mid-tour
+
+Co-authored-by: chamho.hk <chamho.hk@gmail.com>
+
+* feat: add Agent Review button to mobile nav bar
+
+- Added dedicated Agent button to mobile bottom nav
+- Opens Agent Reviews modal directly (same as desktop sidebar)
+- Added corresponding tour step for mobile onboarding
+- Updated settings description since agent review has its own button
+
+Co-authored-by: chamho.hk <chamho.hk@gmail.com>
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+
+* feat: add backfillReviewStats mutation for rating recalculation
+
+* chore: reduce author enrichment frequency to every 6 hours
+
+* feat: add shareable /agent-reviews page for social media
+
+- Dedicated landing page with SEO-optimized meta tags
+- Custom OG image for Twitter/social sharing
+- Hero section with quick-start instructions
+- How it works, capabilities, and why agent reviews matter
+- Canonical URL for SEO: clawdtm.com/agent-reviews
+
+* feat: add ClawdHub skill link and GitHub repo to agent-reviews page
+
+- Link to official ClawdTM skill on ClawdHub
+- GitHub repo link in footer
+- ClawdHub link in footer
+
+* style: align agent-reviews page with skill page header style
+
+- Add sticky header with back button icon + Logo + ThemeToggle
+- Replace robot emoji with Logo (smaller size)
+- Match skill page navigation UX
+
+* refactor: rebrand Clawdhub to Clawhub and update footer links
+
+- Rename all Clawdhub/ClawdHub references to Clawhub
+- Update domain from clawdhub.com to clawhub.ai
+- Update CLI command from clawdhub to clawhub
+- Replace Discord with ""DM for Feedback"" (Twitter @0xmythril)
+- Add GitHub repo and ClawdTM Skill links to footers
+- Make ClawdTM logo bigger in agent-reviews hero (80px)
+- Highlight ""ClawdTM"" in hero title
+
+* copy: change 'Sign In to Vote' to 'Sign In to Review'
+
+* style: lighten background color (0.96 → 0.98 oklch)
+
+* feat: default sort by rating and reorder dropdown
+
+* seo: replace Moltbot references with OpenClaw
+
+- Update metadata key from moltbot to openclaw in skill.md/json
+- Update Twitter OG image text to ""OpenClaw AI agents""
+- Keep consistent OpenClaw branding for SEO
+
+* feat: add humans section to agent-reviews + fix title line height
+
+- Add ""We Haven't Forgotten About the Humans!"" section
+- Fix overlapping text with leading-tight on hero title
+
+* style: reduce padding in agent-reviews Quick Start section
+
+* remove: View API Docs button from agent-reviews CTA
+
+* copy: change 'Sign In' to 'Sign in to review' in sidebar
+
+* fix: resolve lint errors for CI
+
+- Remove unused imports (MessageSquare, cn, Link, Bot, StarRating, internal)
+- Remove unused function extractSlugFromPath
+- Remove unused constant MIN_REVIEW_LENGTH
+- Fix 'any' types with proper Id<> types in http.ts and agents/page.tsx
+- Disable react-hooks/set-state-in-effect rule (common hydration pattern)
+
+* ci: add placeholder env vars and legacy-peer-deps for build
+
+* ci: use real Clerk test publishable key for build
+
+---------
+
+Co-authored-by: 0xMythril <0xmythril@users.noreply.github.com>
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>"
+https://www.github.com/0xmythril/clawdtm,9caae2f9c0f4ae4f3047453a7279311459e413a9,2026-02-01T06:46:33+00:00,Human,,756,132,14,False,True,False,True,"Release: API proxy, rating UX improvements, Clawdhub attribution (#8)
+
+* ci: add GitHub Actions checks
+
+Run lint and build on pull requests to enable branch protection
+status checks for main.
+
+* fix: remove unsupported redirectUrl from Clerk SignInButton
+
+Use supported afterSignInUrl/afterSignUpUrl props to keep auth
+redirects on the current origin without build errors.
+
+* fix: use supported Clerk redirect props
+
+Swap SignInButton redirects to forceRedirectUrl/signUpForceRedirectUrl
+per Clerk v6 types to fix production build.
+
+* chore: fix lint issues for CI
+
+- remove unused imports and variables
+- tighten types in categorization
+- stabilize hooks dependencies
+- drop unused tag helpers
+- use ESM imports in GA4 script
+
+* chore: update Discord invite link
+
+Use the new discord.gg/eTtG4rhbp6 invite in footer and mobile nav.
+
+* chore: move docs link to footer
+
+Remove OpenClaw Docs from sidebar and add it to the footer links.
+
+* feat: add bot voting system with human/AI vote filtering
+
+- Add botAgents table for registered bot agents
+- Add bot voting API routes (register, vote, status)
+- Track separate human/bot vote counts on skills
+- Add My Agents page for managing bot agents
+- Add vote filter toggle (Combined/Human/AI) in sidebar and mobile nav
+- Improve vote button UX with filled arrows and toggle behavior
+- Add public/skill.md and skill.json for bot API documentation
+
+* refactor: move vote filter from sidebar to search bar
+
+- Add vote filter dropdown to SearchBar component
+- Remove vote filter section from Sidebar
+- Keep vote filter in mobile nav for mobile users
+
+* style: make search dropdowns more compact with symbols
+
+- Replace ""Most X"" with symbol prefix (↓ Downloads, ★ Stars, etc.)
+- Use emojis for vote filter (👥 All, 🧑 Human, 🤖 AI)
+- Reduce padding for narrower buttons
+
+* refactor: improve sidebar UX with collapsible layout
+
+- Hide logo when sidebar collapsed, center toggle button
+- Move user section to bottom of sidebar
+- Integrate theme toggle into account row
+- Remove GitHub link from sidebar
+- Add left border indicator for active nav items
+- Rename ""My Agents"" to ""Register your agent""
+- Make Account row toggle Clerk dropdown on click
+
+* style: UI polish - darker light mode bg, cursor-pointer on buttons, modal improvements
+
+- Adjust light mode background to oklch(0.96 0 0)
+- Add cursor-pointer to all buttons globally
+- Add copy command button to install modal
+- Add AI agent tip to getting started modal
+- Add agent voting modal trigger to sidebar/mobile nav
+
+* feat: add skill reviews feature
+
+- Add skillReviews table with rating + text reviews
+- Add review aggregates (count, avg rating) to cachedSkills
+- Create convex/reviews.ts with mutations/queries for human and bot reviews
+- Add HTTP API endpoints for bot reviews (GET/POST/DELETE /api/v1/skills/reviews)
+- Create /skills/[slug] detail page with:
+  - Server component for SEO meta tags
+  - Client component for reviews, voting, and install command
+  - Review form for signed-in users
+  - Filterable review list (combined/human/bot)
+- Add review count and avg rating display to skill cards
+- Make skill names clickable links to detail page
+- Update skill.md documentation with review API endpoints
+- Add reusable StarRating, ReviewForm, ReviewList components
+- Add ThemeToggle component for skill detail page header
+
+* feat: improve review UX - hearts instead of stars, optional text
+
+- Change rating icon from stars to hearts (rose-500) to avoid confusion with ClawdHub's star system
+- Make review text optional (rating-only reviews allowed)
+- Add confirmation modal when submitting without written review
+- Update all rating displays (skill cards, detail page, review list) to use hearts
+
+* feat: replace voting with rating system, add collapsible reviews
+
+- Deprecate voting UI, use lobster rating (🦞) as primary interaction
+- Add QuickRating component with visible container and better empty state
+- Make user's existing review collapsible with edit mode
+- Add display name system for reviewers
+- Consistent dash display for zero values on skill cards
+- Sort by rating instead of votes
+
+* feat: add staging password protection
+
+- Add STAGING_PASSWORD env var to gate access
+- Show maintenance page when password not entered
+- Store auth in httpOnly cookie (30 days)
+- Skip auth for maintenance page and API routes
+
+* feat: add reviewer filter, rating filter, and fix Agent Reviews modal
+
+- Fix Agent Reviews modal: better contrast for SKILL.md code block
+- Add reviewer filter dropdown in search bar (All/Human/AI)
+- Add min rating filter in sidebar and mobile nav (5🦞, 4+, 3+, etc.)
+- Backend: support minRating and reviewerFilter params in queries
+- Use appropriate rating fields (avgRating/avgRatingHuman/avgRatingBot)
+
+* fix: add avgRating and reviewCount to skill card mappings
+
+* fix: update Agent Reviews modal title and sidebar label to 'Let your agent vote!'
+
+* fix: skill.md loading in agent modal + update sidebar label
+
+- Add .md and .json to middleware matcher exclusion so static files are served
+- Update sidebar/mobile label to ""Let your agent vote! (Skill.md)""
+
+* feat: rewrite agent reviews modal with inline guide instead of fetching file
+
+* perf: optimize DB queries and add GitHub author sync
+
+- Add category and votes indexes for faster filtering (50-70% bandwidth reduction)
+- Reduce scan limits from 1500 to 500 docs for filtered queries
+- Add 'votes' sort option and slimmer payloads
+- Add author index and GitHub archive sync for bulk author enrichment
+- Enrichment time reduced from 30+ minutes to ~20 seconds
+- API hardening and simplification
+
+* fix: point skill.md API docs to Convex deployment URL
+
+The API endpoints are served by Convex HTTP router, not Next.js.
+Updated skill.md and skill.json to use NEXT_PUBLIC_CONVEX_URL.
+
+* feat: proxy API through Vercel with Next.js rewrites
+
+- Add rewrite rule to proxy /api/v1/* to Convex HTTP router
+- Update skill.md and skill.json to use site URL for API docs
+- Cleaner URLs for bot developers (clawdtm.com/api/v1/...)
+- Enables future edge rate limiting via Vercel middleware
+
+* fix: use .convex.site for HTTP routes and allow API without staging auth
+
+- Convex HTTP routes are at .convex.site, not .convex.cloud
+- Update rewrite to convert URL correctly
+- Allow /api/v1/*, /api/skill.md, /api/skill.json without staging password
+
+* fix: improve rating UX and add Clawdhub attribution
+
+- Make unrated state clearer with ""Click to rate"" prompt
+- Use dashed border for empty rating state
+- Slightly more visible lobsters when awaiting user input
+- Add ""Skill data from Clawdhub"" note on main skills page
+- Add ""Stats from Clawdhub · Ratings from ClawdTM community"" on detail page
+
+* fix: restore skill.md and skill.json for ClawdHub publishing
+
+* fix: remove redundant static skill files, use API routes instead
+
+- Delete public/skill.md and public/skill.json
+- API routes at /api/skill.md and /api/skill.json generate dynamic content
+- Prevents version drift between static files and code
+
+* feat: integrate onboarding tour into main page
+
+- Import and render OnboardingTour component
+- Pass isFirstCard prop to first skill card for tour targeting
+- Fix syntax error in skill-card.tsx (missing >)
+
+* Revert ""feat: integrate onboarding tour into main page""
+
+This reverts commit 1991fc91b08a79854add431a965015d550a83ef2.
+
+* feat: add URL param to trigger onboarding tour for testing
+
+Add ?tour=1 or ?tour=true to any URL to force the tour to show.
+The param is automatically removed from the URL after triggering.
+
+* feat: add skill.md to repo root for ClawdHub publishing
+
+* fix: improve tour trigger reliability
+
+- Use sessionStorage to persist tour=1 across staging auth redirect
+- Expose window.startTour() for console access
+- Fix missing > in skill-card.tsx
+
+* fix: add OnboardingTour component to page.tsx
+
+The component was created but never imported/rendered on the main page.
+
+* fix: improve tour spotlight styling
+
+- Set spotlight background to transparent
+- Normalize overlay mixBlendMode to prevent opacity issues
+- Add spotlightPadding for better visual appearance
+
+* docs: remove legacy voting section from skill.md files
+
+* docs: change emoji from lobster to robot 🤖
+
+* style: change footer attribution emoji to robot 🤖
+
+* feat: finalize onboarding tour improvements
+
+- Reorder tour steps: cards/rating before filters
+- Add friendly messaging with emojis
+- Fix isFirstCard prop missing from SkillCard
+- Increase delay before tour starts for skill loading
+- Add dataTour prop to list variant rating display
+- Simplify Joyride styling for better spotlight effect
+
+* chore: add .npmrc for legacy peer deps (react-joyride compat)
+
+---------
+
+Co-authored-by: 0xMythril <0xmythril@users.noreply.github.com>"
+https://www.github.com/0xmythril/clawdtm,cc0cead4b51077913b8a70ec9d68b884b9d444c4,2026-01-31T22:50:51+00:00,Human,,26,2,4,False,True,False,False,"Release: Rating system, API proxy, and agent improvements (#7)
+
+* ci: add GitHub Actions checks
+
+Run lint and build on pull requests to enable branch protection
+status checks for main.
+
+* fix: remove unsupported redirectUrl from Clerk SignInButton
+
+Use supported afterSignInUrl/afterSignUpUrl props to keep auth
+redirects on the current origin without build errors.
+
+* fix: use supported Clerk redirect props
+
+Swap SignInButton redirects to forceRedirectUrl/signUpForceRedirectUrl
+per Clerk v6 types to fix production build.
+
+* chore: fix lint issues for CI
+
+- remove unused imports and variables
+- tighten types in categorization
+- stabilize hooks dependencies
+- drop unused tag helpers
+- use ESM imports in GA4 script
+
+* chore: update Discord invite link
+
+Use the new discord.gg/eTtG4rhbp6 invite in footer and mobile nav.
+
+* chore: move docs link to footer
+
+Remove OpenClaw Docs from sidebar and add it to the footer links.
+
+* feat: add bot voting system with human/AI vote filtering
+
+- Add botAgents table for registered bot agents
+- Add bot voting API routes (register, vote, status)
+- Track separate human/bot vote counts on skills
+- Add My Agents page for managing bot agents
+- Add vote filter toggle (Combined/Human/AI) in sidebar and mobile nav
+- Improve vote button UX with filled arrows and toggle behavior
+- Add public/skill.md and skill.json for bot API documentation
+
+* refactor: move vote filter from sidebar to search bar
+
+- Add vote filter dropdown to SearchBar component
+- Remove vote filter section from Sidebar
+- Keep vote filter in mobile nav for mobile users
+
+* style: make search dropdowns more compact with symbols
+
+- Replace ""Most X"" with symbol prefix (↓ Downloads, ★ Stars, etc.)
+- Use emojis for vote filter (👥 All, 🧑 Human, 🤖 AI)
+- Reduce padding for narrower buttons
+
+* refactor: improve sidebar UX with collapsible layout
+
+- Hide logo when sidebar collapsed, center toggle button
+- Move user section to bottom of sidebar
+- Integrate theme toggle into account row
+- Remove GitHub link from sidebar
+- Add left border indicator for active nav items
+- Rename ""My Agents"" to ""Register your agent""
+- Make Account row toggle Clerk dropdown on click
+
+* style: UI polish - darker light mode bg, cursor-pointer on buttons, modal improvements
+
+- Adjust light mode background to oklch(0.96 0 0)
+- Add cursor-pointer to all buttons globally
+- Add copy command button to install modal
+- Add AI agent tip to getting started modal
+- Add agent voting modal trigger to sidebar/mobile nav
+
+* feat: add skill reviews feature
+
+- Add skillReviews table with rating + text reviews
+- Add review aggregates (count, avg rating) to cachedSkills
+- Create convex/reviews.ts with mutations/queries for human and bot reviews
+- Add HTTP API endpoints for bot reviews (GET/POST/DELETE /api/v1/skills/reviews)
+- Create /skills/[slug] detail page with:
+  - Server component for SEO meta tags
+  - Client component for reviews, voting, and install command
+  - Review form for signed-in users
+  - Filterable review list (combined/human/bot)
+- Add review count and avg rating display to skill cards
+- Make skill names clickable links to detail page
+- Update skill.md documentation with review API endpoints
+- Add reusable StarRating, ReviewForm, ReviewList components
+- Add ThemeToggle component for skill detail page header
+
+* feat: improve review UX - hearts instead of stars, optional text
+
+- Change rating icon from stars to hearts (rose-500) to avoid confusion with ClawdHub's star system
+- Make review text optional (rating-only reviews allowed)
+- Add confirmation modal when submitting without written review
+- Update all rating displays (skill cards, detail page, review list) to use hearts
+
+* feat: replace voting with rating system, add collapsible reviews
+
+- Deprecate voting UI, use lobster rating (🦞) as primary interaction
+- Add QuickRating component with visible container and better empty state
+- Make user's existing review collapsible with edit mode
+- Add display name system for reviewers
+- Consistent dash display for zero values on skill cards
+- Sort by rating instead of votes
+
+* feat: add staging password protection
+
+- Add STAGING_PASSWORD env var to gate access
+- Show maintenance page when password not entered
+- Store auth in httpOnly cookie (30 days)
+- Skip auth for maintenance page and API routes
+
+* feat: add reviewer filter, rating filter, and fix Agent Reviews modal
+
+- Fix Agent Reviews modal: better contrast for SKILL.md code block
+- Add reviewer filter dropdown in search bar (All/Human/AI)
+- Add min rating filter in sidebar and mobile nav (5🦞, 4+, 3+, etc.)
+- Backend: support minRating and reviewerFilter params in queries
+- Use appropriate rating fields (avgRating/avgRatingHuman/avgRatingBot)
+
+* fix: add avgRating and reviewCount to skill card mappings
+
+* fix: update Agent Reviews modal title and sidebar label to 'Let your agent vote!'
+
+* fix: skill.md loading in agent modal + update sidebar label
+
+- Add .md and .json to middleware matcher exclusion so static files are served
+- Update sidebar/mobile label to ""Let your agent vote! (Skill.md)""
+
+* feat: rewrite agent reviews modal with inline guide instead of fetching file
+
+* perf: optimize DB queries and add GitHub author sync
+
+- Add category and votes indexes for faster filtering (50-70% bandwidth reduction)
+- Reduce scan limits from 1500 to 500 docs for filtered queries
+- Add 'votes' sort option and slimmer payloads
+- Add author index and GitHub archive sync for bulk author enrichment
+- Enrichment time reduced from 30+ minutes to ~20 seconds
+- API hardening and simplification
+
+* fix: point skill.md API docs to Convex deployment URL
+
+The API endpoints are served by Convex HTTP router, not Next.js.
+Updated skill.md and skill.json to use NEXT_PUBLIC_CONVEX_URL.
+
+* feat: proxy API through Vercel with Next.js rewrites
+
+- Add rewrite rule to proxy /api/v1/* to Convex HTTP router
+- Update skill.md and skill.json to use site URL for API docs
+- Cleaner URLs for bot developers (clawdtm.com/api/v1/...)
+- Enables future edge rate limiting via Vercel middleware
+
+* fix: use .convex.site for HTTP routes and allow API without staging auth
+
+- Convex HTTP routes are at .convex.site, not .convex.cloud
+- Update rewrite to convert URL correctly
+- Allow /api/v1/*, /api/skill.md, /api/skill.json without staging password
+
+---------
+
+Co-authored-by: 0xMythril <0xmythril@users.noreply.github.com>"
+https://www.github.com/0xmythril/clawdtm,834e272a6fdb7ea8187d61f69c0d8ee14218b05e,2026-01-31T22:32:22+00:00,Human,,6589,672,40,False,True,False,False,"Merge staging into main (#6)
+
+* ci: add GitHub Actions checks
+
+Run lint and build on pull requests to enable branch protection
+status checks for main.
+
+* fix: remove unsupported redirectUrl from Clerk SignInButton
+
+Use supported afterSignInUrl/afterSignUpUrl props to keep auth
+redirects on the current origin without build errors.
+
+* fix: use supported Clerk redirect props
+
+Swap SignInButton redirects to forceRedirectUrl/signUpForceRedirectUrl
+per Clerk v6 types to fix production build.
+
+* chore: fix lint issues for CI
+
+- remove unused imports and variables
+- tighten types in categorization
+- stabilize hooks dependencies
+- drop unused tag helpers
+- use ESM imports in GA4 script
+
+* chore: update Discord invite link
+
+Use the new discord.gg/eTtG4rhbp6 invite in footer and mobile nav.
+
+* chore: move docs link to footer
+
+Remove OpenClaw Docs from sidebar and add it to the footer links.
+
+* feat: add bot voting system with human/AI vote filtering
+
+- Add botAgents table for registered bot agents
+- Add bot voting API routes (register, vote, status)
+- Track separate human/bot vote counts on skills
+- Add My Agents page for managing bot agents
+- Add vote filter toggle (Combined/Human/AI) in sidebar and mobile nav
+- Improve vote button UX with filled arrows and toggle behavior
+- Add public/skill.md and skill.json for bot API documentation
+
+* refactor: move vote filter from sidebar to search bar
+
+- Add vote filter dropdown to SearchBar component
+- Remove vote filter section from Sidebar
+- Keep vote filter in mobile nav for mobile users
+
+* style: make search dropdowns more compact with symbols
+
+- Replace ""Most X"" with symbol prefix (↓ Downloads, ★ Stars, etc.)
+- Use emojis for vote filter (👥 All, 🧑 Human, 🤖 AI)
+- Reduce padding for narrower buttons
+
+* refactor: improve sidebar UX with collapsible layout
+
+- Hide logo when sidebar collapsed, center toggle button
+- Move user section to bottom of sidebar
+- Integrate theme toggle into account row
+- Remove GitHub link from sidebar
+- Add left border indicator for active nav items
+- Rename ""My Agents"" to ""Register your agent""
+- Make Account row toggle Clerk dropdown on click
+
+* style: UI polish - darker light mode bg, cursor-pointer on buttons, modal improvements
+
+- Adjust light mode background to oklch(0.96 0 0)
+- Add cursor-pointer to all buttons globally
+- Add copy command button to install modal
+- Add AI agent tip to getting started modal
+- Add agent voting modal trigger to sidebar/mobile nav
+
+* feat: add skill reviews feature
+
+- Add skillReviews table with rating + text reviews
+- Add review aggregates (count, avg rating) to cachedSkills
+- Create convex/reviews.ts with mutations/queries for human and bot reviews
+- Add HTTP API endpoints for bot reviews (GET/POST/DELETE /api/v1/skills/reviews)
+- Create /skills/[slug] detail page with:
+  - Server component for SEO meta tags
+  - Client component for reviews, voting, and install command
+  - Review form for signed-in users
+  - Filterable review list (combined/human/bot)
+- Add review count and avg rating display to skill cards
+- Make skill names clickable links to detail page
+- Update skill.md documentation with review API endpoints
+- Add reusable StarRating, ReviewForm, ReviewList components
+- Add ThemeToggle component for skill detail page header
+
+* feat: improve review UX - hearts instead of stars, optional text
+
+- Change rating icon from stars to hearts (rose-500) to avoid confusion with ClawdHub's star system
+- Make review text optional (rating-only reviews allowed)
+- Add confirmation modal when submitting without written review
+- Update all rating displays (skill cards, detail page, review list) to use hearts
+
+* feat: replace voting with rating system, add collapsible reviews
+
+- Deprecate voting UI, use lobster rating (🦞) as primary interaction
+- Add QuickRating component with visible container and better empty state
+- Make user's existing review collapsible with edit mode
+- Add display name system for reviewers
+- Consistent dash display for zero values on skill cards
+- Sort by rating instead of votes
+
+* feat: add staging password protection
+
+- Add STAGING_PASSWORD env var to gate access
+- Show maintenance page when password not entered
+- Store auth in httpOnly cookie (30 days)
+- Skip auth for maintenance page and API routes
+
+* feat: add reviewer filter, rating filter, and fix Agent Reviews modal
+
+- Fix Agent Reviews modal: better contrast for SKILL.md code block
+- Add reviewer filter dropdown in search bar (All/Human/AI)
+- Add min rating filter in sidebar and mobile nav (5🦞, 4+, 3+, etc.)
+- Backend: support minRating and reviewerFilter params in queries
+- Use appropriate rating fields (avgRating/avgRatingHuman/avgRatingBot)
+
+* fix: add avgRating and reviewCount to skill card mappings
+
+* fix: update Agent Reviews modal title and sidebar label to 'Let your agent vote!'
+
+* fix: skill.md loading in agent modal + update sidebar label
+
+- Add .md and .json to middleware matcher exclusion so static files are served
+- Update sidebar/mobile label to ""Let your agent vote! (Skill.md)""
+
+* feat: rewrite agent reviews modal with inline guide instead of fetching file
+
+* perf: optimize DB queries and add GitHub author sync
+
+- Add category and votes indexes for faster filtering (50-70% bandwidth reduction)
+- Reduce scan limits from 1500 to 500 docs for filtered queries
+- Add 'votes' sort option and slimmer payloads
+- Add author index and GitHub archive sync for bulk author enrichment
+- Enrichment time reduced from 30+ minutes to ~20 seconds
+- API hardening and simplification
+
+---------
+
+Co-authored-by: 0xMythril <0xmythril@users.noreply.github.com>"
+https://www.github.com/0xmythril/clawdtm,3e849d6d8fd4e4169dc10cd74a9452d16b428d50,2026-01-31T09:10:57+00:00,Human,,0,0,0,False,True,False,False,"CI checks, lint fixes, and link updates (#5)
+
+* ci: add GitHub Actions checks
+
+Run lint and build on pull requests to enable branch protection
+status checks for main.
+
+* fix: remove unsupported redirectUrl from Clerk SignInButton
+
+Use supported afterSignInUrl/afterSignUpUrl props to keep auth
+redirects on the current origin without build errors.
+
+* fix: use supported Clerk redirect props
+
+Swap SignInButton redirects to forceRedirectUrl/signUpForceRedirectUrl
+per Clerk v6 types to fix production build.
+
+* chore: fix lint issues for CI
+
+- remove unused imports and variables
+- tighten types in categorization
+- stabilize hooks dependencies
+- drop unused tag helpers
+- use ESM imports in GA4 script
+
+* chore: update Discord invite link
+
+Use the new discord.gg/eTtG4rhbp6 invite in footer and mobile nav.
+
+* chore: move docs link to footer
+
+Remove OpenClaw Docs from sidebar and add it to the footer links."
+https://www.github.com/0xmythril/clawdtm,24408f7fe75a9b7a36c1c41b1ed24e42abf78454,2026-01-31T09:09:26+00:00,Human,,60,71,11,False,True,False,False,"CI checks + Clerk redirect fix (#4)
+
+* ci: add GitHub Actions checks
+
+Run lint and build on pull requests to enable branch protection
+status checks for main.
+
+* fix: remove unsupported redirectUrl from Clerk SignInButton
+
+Use supported afterSignInUrl/afterSignUpUrl props to keep auth
+redirects on the current origin without build errors.
+
+* fix: use supported Clerk redirect props
+
+Swap SignInButton redirects to forceRedirectUrl/signUpForceRedirectUrl
+per Clerk v6 types to fix production build.
+
+* chore: fix lint issues for CI
+
+- remove unused imports and variables
+- tighten types in categorization
+- stabilize hooks dependencies
+- drop unused tag helpers
+- use ESM imports in GA4 script
+
+* chore: update Discord invite link
+
+Use the new discord.gg/eTtG4rhbp6 invite in footer and mobile nav.
+
+* chore: move docs link to footer
+
+Remove OpenClaw Docs from sidebar and add it to the footer links."
+https://www.github.com/0xmythril/clawdtm,4e58f4e2beb0cd89eeff286ba688f0742e788b4d,2026-01-31T07:57:18+00:00,Human,,1396,91,20,False,True,False,False,"Staging - Clerk + Voting System (#3)
+
+* feat: Add Clerk auth and voting system for skills
+
+- Integrate Clerk for user authentication (GitHub/Google OAuth)
+- Add upvote/downvote system with one vote per user per skill
+- Add ""Most Voted"" sort option across listings and search
+- Add vote buttons to skill cards with optimistic UI updates
+- Add Clerk theme provider for light/dark mode support
+- Store votes in Convex with clerkUsers and cachedSkillVotes tables
+- Add Clerk webhook endpoint for user sync
+- Add .env.example with required environment variables
+
+* fix: keep Clerk redirects on current host
+
+Ensure sign-in flows return to the active origin so staging and
+production keep users on the correct domain after auth."
+https://www.github.com/0xmythril/clawdtm,00a3b390c02a341141f1fc50d9c356d2bb433986,2026-01-30T13:04:25+00:00,Human,,49,33,10,False,False,False,False,"Rebrand from Moltbot to OpenClaw
+
+- Update docs links to docs.openclaw.ai
+- Update Discord link to discord.gg/openclaw
+- Update all ""Moltbot"" text to ""OpenClaw""
+- Update ~/.clawdbot/skills to ~/.openclaw/skills
+- Keep strikethrough on ""Clawdbot"" in headline
+- Update README, layout, modals, sidebar, mobile-nav, og/twitter images"
+https://www.github.com/0xmythril/clawdtm,411b9e6fcf9a1a8781498ff65582a300d0f44984,2026-01-30T12:27:15+00:00,Human,,8,7,1,False,False,False,False,"Reduce cron frequency to save bandwidth (sync 2h, categorize 4h, enrich 2h)"
+https://www.github.com/0xmythril/clawdtm,9815f9cb39119a70a3a84bf2d415884540c73cc3,2026-01-30T12:23:35+00:00,Human,,75,69,2,False,False,False,False,"Optimize DB bandwidth: cap queries, use indexes, remove fallbacks
+
+Key changes:
+- listCachedSkillsWithFilters: Use indexed queries for default case,
+  cap filtered queries at 1500 rows instead of full scan
+- searchCachedSkills: Cap at 1500 rows
+- getSyncStatus/getCategories/getTags: Remove expensive fallbacks
+  that did full table scans (rely on cached counts instead)
+- getSkillsNeedingAuthorEnrichment: Cap at 5x limit
+- getUncategorizedSkills: Cap at 3x limit
+
+Impact: ~3.6MB/page view -> ~0.3MB/page view for default case"
+https://www.github.com/0xmythril/clawdtm,21497257acc585dbaac8c1206616c2982280e56f,2026-01-29T18:01:55+00:00,Human,,198,66,2,False,False,False,False,"Update social share cards to use actual logo and match branding
+
+Replace lobster emoji with astronaut logo, add red/orange/yellow gradient
+for ""Clawd"" text matching the site branding, improve stats display with
+glass card styling."
+https://www.github.com/0xmythril/clawdtm,882d0e196cd6435adb9ef3d7712b95efddfab951,2026-01-29T17:14:21+00:00,Human,,2,6,1,True,True,False,False,"Fix: Latest category now shows results (sort-only, no time filter)
+
+Previously filtered to skills updated in last 24h which could return 0
+results if no recent updates. Now just sorts by most recently updated."
+https://www.github.com/0xmythril/clawdtm,d15b99301bd957b49dbaac494bbf785927757089,2026-01-29T17:02:49+00:00,Human,,204,16,4,False,True,False,False,"Add author enrichment, fix stuck sync, add MIT license
+
+- Add background author enrichment from ClawdHub detail endpoint
+- Fix sync getting stuck in 'running' state (reset to idle on pause/error)
+- Add stale lock detection (auto-reset after 30 min)
+- Add resetSyncState mutation for manual unsticking
+- Add MIT license"
+https://www.github.com/0xmythril/clawdtm,3bd568cd5fdaf3c60ff9d5f88ef4d9cb21e28a66,2026-01-29T16:23:54+00:00,Human,,44,1,1,False,False,False,False,"Merge pull request #2 from 0xmythril/cursor/installation-prompt-and-explainer-66d4
+
+Installation prompt and explainer"
+https://www.github.com/0xmythril/clawdtm,2f0f466f7073fd269e19da8d8ef7ed92aa4f243f,2026-01-29T16:19:30+00:00,AI,Cursor,44,1,1,False,False,False,False,"Add bot prompt copy section to install modal
+
+- Added 'Or Ask Your Bot' section with copyable prompt 'Install the [skill-name] skill'
+- Added explainer text about how to use it (DM, chat, etc.)
+- Includes copy button with visual feedback
+
+Co-authored-by: chamho.hk <chamho.hk@gmail.com>"
+https://www.github.com/0xmythril/clawdtm,2ca1c7feb6b964d938c93a52347280179536ed5e,2026-01-29T13:48:27+00:00,Human,,2,2,1,False,False,False,False,"Featured skills: add web-search, remove heartbeat-update"
+https://www.github.com/0xmythril/clawdtm,dd6a59947e127bed757a6756103b697c6526225e,2026-01-29T13:45:02+00:00,Human,,117,110,2,False,False,False,False,Docs: add README and Convex backend docs; credit @0xmythril
+https://www.github.com/0xmythril/clawdtm,2c8a16f10bdd58de6f4fe5055a699decc2edff41,2026-01-29T12:27:09+00:00,Human,,3,31,1,False,True,False,False,Fix crons.ts: remove references to deleted modules
+https://www.github.com/0xmythril/clawdtm,52a5d97091200a35b304daa85dc29c7b04bed7ab,2026-01-29T11:57:31+00:00,Human,,0,0,0,False,False,False,False,Trigger Vercel redeploy
+https://www.github.com/0xmythril/clawdtm,dfe3e5d4048202e293a6972dffc63f8d490494a8,2026-01-29T11:47:51+00:00,Human,,32,3,2,True,True,False,False,Fix: restore Input import for tag search
+https://www.github.com/0xmythril/clawdtm,2f9adee5aea10cbd567c26f938ab7c452f3fa444,2026-01-29T11:25:25+00:00,Human,,58,19,1,False,False,False,False,"Optimize upsertCachedSkill: only write when data changes, skip recent syncs"
+https://www.github.com/0xmythril/clawdtm,e927a03ff54102803ea98d4b553ba0c3489555a1,2026-01-28T18:34:41+00:00,Human,,203,414,5,False,False,False,False,"Update categories to All/Featured/Verified/Latest, replace AI categorization with logic-based rules"
+https://www.github.com/0xmythril/clawdtm,1ea3fd489f41ad9df40e89d0fc65a56c14782d0c,2026-01-28T18:31:27+00:00,Human,,58,116,4,False,True,False,False,"Simplify categories: remove search, limit to 5 fixed categories (All, Featured, Verified, Popular, Productivity)"
+https://www.github.com/0xmythril/clawdtm,47d515dad843a2a44f706e242302c337dc5683e6,2026-01-28T18:26:47+00:00,Human,,0,1,1,False,True,False,False,Fix duplicate useMemo import in sidebar
+https://www.github.com/0xmythril/clawdtm,c83ce59704f5c448095ac083448f9136466a6c59,2026-01-28T18:24:00+00:00,Human,,10,0,1,False,True,False,False,"Auto-refresh cached counts after categorization, fix loading state"
+https://www.github.com/0xmythril/clawdtm,f236b703e7bf7283bac8ce67f2f64b784c7bd73e,2026-01-28T18:22:43+00:00,Human,,140,42,2,False,True,False,False,"Add search/filter for categories and tags, increase limits, fix loading state"
+https://www.github.com/0xmythril/clawdtm,d2c22032698c1f9904b97624eb3274d2d933fe6e,2026-01-28T18:11:51+00:00,Human,,3,3,2,False,False,False,False,Switch to Claude 3.5 Haiku and increase categorization batch to 100/hour
+https://www.github.com/0xmythril/clawdtm,fe57eb0bea3d1f1c4ab37400ba38b6f2f86dc18c,2026-01-28T16:33:32+00:00,Human,,36,0,2,False,True,False,False,Fix write conflicts: add sync lock and reset stuck status
+https://www.github.com/0xmythril/clawdtm,62bd07e30d62b5296bcd07a9a3735e1e8ecc9b93,2026-01-28T16:29:39+00:00,Human,,596,21,6,False,False,False,False,Add Twitter/OG image metadata for social sharing
+https://www.github.com/0xmythril/clawdtm,218896c6d9ae1a3454a73f1c6c7279e70a2b9b1d,2026-01-28T16:22:55+00:00,Human,,204,37,8,False,False,False,False,Add Google Analytics 4 direct integration with event tracking
+https://www.github.com/0xmythril/clawdtm,8ec7cf7c91d735fcb26c97609caa146b5f22e55c,2026-01-28T02:26:22+00:00,Human,,18,3,2,False,False,False,False,"Merge pull request #1 from 0xmythril/cursor/verifier-skills-badge-1ad1
+
+Verifier skills badge"
+https://www.github.com/0xmythril/clawdtm,bfd285f8ac53648b3913943c2c95daf9144fa3d9,2026-01-28T02:25:47+00:00,Human,,5,18,2,True,True,False,False,fix: remove unused isTransitioning state
+https://www.github.com/0xmythril/clawdtm,8ddb2d0c1e97b22ae41d842c23dc9cc77b936e96,2026-01-28T02:23:46+00:00,Human,,18,5,2,False,False,False,False,Add loading state when transitioning sort options
+https://www.github.com/0xmythril/clawdtm,10a56a6050f36d51410caacbc766e6699e93c648,2026-01-28T02:21:05+00:00,Human,,35,7,2,False,False,False,False,"feat: allow sorting search results by downloads/stars/installs
+
+- Add sortBy parameter to searchCachedSkills query
+- Options: relevance (default), downloads, stars, installs
+- Frontend passes current sort selection to search query
+- Search first filters by query match, then sorts by chosen field"
+https://www.github.com/0xmythril/clawdtm,c9c32c8181d28bb04df197ff28ee1b56eaabee95,2026-01-28T02:20:06+00:00,AI,Cursor,18,3,2,False,False,False,False,"Add verified badge for skills - test with gog
+
+Co-authored-by: chamho.hk <chamho.hk@gmail.com>"
+https://www.github.com/0xmythril/clawdtm,7a32dd2976f3740abc680cd4bd2fd8c6676eb5c8,2026-01-28T02:17:09+00:00,Human,,98,8,2,False,False,False,False,"feat: add skill moderation - hide malicious skills
+
+- Add hidden, hiddenReason, hiddenAt fields to cachedSkills schema
+- Add by_hidden index for efficient queries
+- Add hideSkill mutation to mark skills as hidden
+- Add unhideSkill mutation to restore visibility
+- Add listHiddenSkills query to see all hidden skills
+- Filter out hidden skills from:
+  - listCachedSkillsWithFilters
+  - searchCachedSkills
+  - getCategories
+  - getTags
+- Update getSyncStatus to show totalHidden count
+- Hidden 'wed' (What would Elon do) on both dev and prod"
+https://www.github.com/0xmythril/clawdtm,1122707cc5dc10c41ba1338b82fbb62cad4a450c,2026-01-27T21:22:10+00:00,Human,,7,5,1,True,True,False,False,"fix: make sidebar scrollable for long category/tag lists
+
+- Add overflow-hidden to aside container
+- Add min-h-0 to ScrollArea for proper flex shrinking
+- Add flex-shrink-0 to header and footer
+- Wrap content in div with padding inside ScrollArea"
+https://www.github.com/0xmythril/clawdtm,63f2b762dd66d8fb7fca3e86fd5671602a2789d5,2026-01-27T21:04:19+00:00,Human,,2,0,12,False,False,False,False,"feat: update favicon to use lobster logo
+
+- Add icon.png and apple-icon.png to app directory
+- Add favicon.png to public
+- Remove old favicon.ico
+- Next.js App Router auto-detects icon files"
+https://www.github.com/0xmythril/clawdtm,8208339600ae594d75c09988e4cab74b17d86117,2026-01-27T20:51:24+00:00,Human,,14,1,1,False,False,False,False,"feat: add public triggerCategorization action for testing
+
+Allows manual triggering of AI categorization batch via public action"
+https://www.github.com/0xmythril/clawdtm,f675173b393fa2b11b8f651be5e161f03fb5047a,2026-01-27T20:45:38+00:00,Human,,222,9,4,False,True,False,False,"feat: add Getting Started modal + fix install modal mobile overflow
+
+- New GettingStartedModal component explaining how to use ClawdTM
+- Added Getting Started button to sidebar navigation
+- Added Getting Started button to mobile settings
+- Fix install modal overflow on mobile:
+  - Smaller text (text-xs) on mobile
+  - break-all and whitespace-pre-wrap for code blocks
+  - Proper width calc for mobile viewports
+- Fix docs.clawd.bot -> docs.molt.bot in sidebar"
+https://www.github.com/0xmythril/clawdtm,b22c2e7f9ce06e0e71f44753bf50b6f84e2d8b6f,2026-01-27T20:42:33+00:00,Human,,12,14,5,True,True,False,False,"fix: revert Molthub to Clawdhub, add Moltbot Docs link
+
+- Change all Molthub references back to Clawdhub
+- Update all skill links to clawdhub.com/skills/
+- Replace Molthub in mobile settings with 'Moltbot Docs' -> docs.molt.bot
+- Keep Clawdhub in sidebar and footer"
+https://www.github.com/0xmythril/clawdtm,d2afdc784df5e4b33e66b752abecd21ffc0b333b,2026-01-27T20:37:13+00:00,Human,,149,129,1,False,False,False,False,"feat: redesign mobile nav for better usability
+
+- Remove Skills button (always on by default)
+- Keep only: Search, Filter, Settings (3 buttons)
+- Larger touch targets (h-6 icons, h-16 bar, min-w-72px buttons)
+- Filter sheet with tab switcher for Categories/Tags
+- Categories: 2-column grid with large tap targets (p-4 rounded-xl)
+- Tags: larger pills (px-4 py-2.5) for fat finger friendliness
+- Settings: add ExternalLink icons to all outgoing links
+- Add 'External Links' section header for clarity
+- Show filter count badge on Filter button"
+https://www.github.com/0xmythril/clawdtm,bc19e7dbf2cd46630b774b02d29e3760d445cc2f,2026-01-27T20:34:35+00:00,Human,,17,37,1,True,True,False,False,"fix: dark mode hover colors - use gray accent instead of purple
+
+Changed dark mode --accent to subtle gray (0.25 lightness) instead of
+purple, and --accent-foreground to light text. This fixes button hover
+states being unreadable in dark mode. Removed hacky @layer component
+overrides now that CSS variables are correct."
+https://www.github.com/0xmythril/clawdtm,da289ee04ae9b49c35342141febab8f90e752ef3,2026-01-27T20:33:41+00:00,Human,,25,3,1,True,True,False,False,"fix: wrap useSearchParams in Suspense boundary for Next.js build
+
+Split SkillsPage into SkillsContent (uses useSearchParams) wrapped
+in Suspense with SkillsLoading fallback to fix static generation"
+https://www.github.com/0xmythril/clawdtm,33980d1fa902987ab458f5a79536d797e1919200,2026-01-27T20:32:16+00:00,Human,,63,55,1,True,True,False,False,"fix: improve mobile nav sizing and filter layout
+
+- Reduce bottom nav height from h-16 to h-14
+- Use smaller text (10px) for nav labels
+- Replace Button components with styled buttons for categories/tags
+- Use consistent rounded-full pill style with xs text
+- Reduce filter sheet height to 75vh
+- Add better padding and spacing throughout"
+https://www.github.com/0xmythril/clawdtm,9d7b8dd3e5da9fffc05e86edc6875af61fe2c19f,2026-01-27T20:27:41+00:00,Human,,14441,0,51,False,True,False,False,"feat: complete ClawdTM UI redesign
+
+- Sidebar layout with collapsible categories and tags
+- Mobile bottom navigation with sheet drawers
+- Card/List view toggle for skills
+- Sticky search bar with sort options
+- PokemonTM-inspired logo with lobster mascot
+- Dark mode fixes for button hover states
+- Install modal with correct clawdhub install command
+- Rebrand to Moltbot (Clawdbot strikethrough)
+- Moltbot Docs and Molthub links
+- Mobile-optimized layout with inline logo in headline"

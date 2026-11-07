@@ -1,0 +1,192 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xmatt/javelet.dev,0b89d986fdce7354d4f3ca36a41a8b5c05fc1e6b,2025-07-15T13:10:54+00:00,Human,,124,123,2,False,True,False,False,"Merge pull request #50 from 0xMatt/update-dependencies
+
+Update package lock to fix weird vercel build issues"
+https://www.github.com/0xmatt/javelet.dev,cfdb80ab7b642d9c4ee1add66b4e7b62fc9e6089,2025-07-15T13:09:20+00:00,Human,,123,122,2,False,True,False,False,Fix dependencies
+https://www.github.com/0xmatt/javelet.dev,1b26a90ac20e576b2d55453ab01d99fe08010bc0,2025-07-15T13:02:16+00:00,Human,,40,40,1,False,True,False,False,Update package lock to fix weird vercel build issues
+https://www.github.com/0xmatt/javelet.dev,80925a8a89a866a842d89c2f3a72e09431549928,2025-07-14T14:17:14+00:00,Human,,823,302,14,False,False,False,False,"Merge pull request #49 from 0xMatt/apps-and-navigation-updates
+
+Add apps section. Update topheader layout"
+https://www.github.com/0xmatt/javelet.dev,d30b8f7d7b87253f02cff23e5fd229aa81a29033,2025-07-14T14:05:22+00:00,Human,,823,302,14,False,False,False,False,Add apps section. Update topheader layout
+https://www.github.com/0xmatt/javelet.dev,0aaed04c74043ea7c6d96c369f4988bcc013867d,2025-07-11T22:14:31+00:00,Human,,57,28,9,False,True,False,False,"Merge pull request #47 from 0xMatt/tests-and-linting
+
+fix and add some tests. fix duplicate eslint configurations"
+https://www.github.com/0xmatt/javelet.dev,49a4fb94b53ce4f7f3ab16ba33937ba3ea9cc100,2025-07-11T22:07:46+00:00,Human,,5,1,1,False,False,False,False,forgot to add updated slugify class
+https://www.github.com/0xmatt/javelet.dev,b903c3607afa0ffd3a803a8a53975350ce5817c2,2025-07-10T17:48:52+00:00,Human,,21,7,1,False,False,False,False,"Merge pull request #41 from 0xMatt/readme-updates
+
+Update readme"
+https://www.github.com/0xmatt/javelet.dev,c349f6d968116b7748e3282e1088107f321e384d,2025-07-10T17:45:10+00:00,Human,,52,27,8,False,True,False,False,fix and add some tests. fix duplicate eslint configurations
+https://www.github.com/0xmatt/javelet.dev,8a9d7e66bac77ca2e989bee356cdb564153b0f83,2025-07-10T06:58:38+00:00,Human,,23,4,2,False,False,False,False,"Merge pull request #46 from 0xMatt/qodana-test-coverage
+
+Add test coverage to qodana"
+https://www.github.com/0xmatt/javelet.dev,db1054ce9f0c29701f6d4f1173c86009d86255a2,2025-07-10T06:49:12+00:00,Human,,2,5,1,False,True,False,False,Fix qodana action
+https://www.github.com/0xmatt/javelet.dev,47e22a1ece5e4bc57f7ab6797574f4a752649ed5,2025-07-10T06:47:22+00:00,Human,,1,1,1,False,False,False,False,Update upload artifact action version
+https://www.github.com/0xmatt/javelet.dev,b941839c07159f941be4a75092c34e5b01d7ae81,2025-07-10T06:43:38+00:00,Human,,26,4,2,False,False,False,False,Add test coverage to qodana
+https://www.github.com/0xmatt/javelet.dev,c401918331f69dfac309f0c1a7d25805b4271f77,2025-07-10T05:50:45+00:00,Human,,37,0,2,False,False,False,False,"Merge pull request #45 from 0xMatt/qodana-ci-new
+
+Setup qodana CI"
+https://www.github.com/0xmatt/javelet.dev,1912916ede8d0493a9339b3f2ad4c3a6d96ce89c,2025-07-10T04:51:44+00:00,Human,,37,0,2,False,False,False,False,Test signing commits automatically
+https://www.github.com/0xmatt/javelet.dev,4355ffad3bf8f6468ad0795114bb5716c0fd1650,2025-07-10T03:45:40+00:00,Human,,21,7,1,False,False,False,False,Update readme
+https://www.github.com/0xmatt/javelet.dev,88464db29fe625f935c4d4d30368c7489f2ef52b,2025-07-09T22:55:24+00:00,Human,,166,1057,6,False,False,False,False,"Merge pull request #40 from 0xMatt/edit-dependencies
+
+Upgrade nextjs. Remove some unused dependencies"
+https://www.github.com/0xmatt/javelet.dev,431cf0661beb4e3fb37d09992bf88772e259a653,2025-07-09T22:39:02+00:00,Human,,166,1057,6,False,False,False,False,Upgrade nextjs. Remove some unused dependencies
+https://www.github.com/0xmatt/javelet.dev,990bd77dc793d7d772e8958a6525402965dc4f71,2025-07-08T17:43:02+00:00,Human,,709,675,3,False,True,False,False,"Merge pull request #39 from 0xMatt/continue-revert
+
+Try to fix page speed scores"
+https://www.github.com/0xmatt/javelet.dev,1e8956f739053dc02bd7251fd7cd89a70eb5ca79,2025-07-08T17:39:58+00:00,Human,,709,675,3,False,True,False,False,Try to fix page speed scores
+https://www.github.com/0xmatt/javelet.dev,1366ec0ee28b30edef4d7078833881b90aec30c6,2025-07-08T07:33:56+00:00,Human,,30,26,5,False,True,False,False,"Merge pull request #38 from 0xMatt/revert-changes
+
+Try to fix page speed scores"
+https://www.github.com/0xmatt/javelet.dev,689481dc91b512263be301a49e5a92b81c941fd6,2025-07-08T07:28:53+00:00,Human,,30,26,5,False,True,False,False,Try to fix page speed scores
+https://www.github.com/0xmatt/javelet.dev,40794d65e143528a030ce7c690b818a13dc677e8,2025-07-01T15:28:15+00:00,Human,,11,28,1,False,False,False,False,"Merge pull request #37 from 0xMatt/performance-pagescore
+
+Remove layout shift"
+https://www.github.com/0xmatt/javelet.dev,7df52b044f26765076956534bedc7d685965f1ca,2025-07-01T15:26:07+00:00,Human,,0,0,0,False,False,False,False,Merge branch 'master' into performance-pagescore
+https://www.github.com/0xmatt/javelet.dev,f664ef8b0b986e3958fbf1bc0dcc6be9b6cc5110,2025-07-01T15:25:28+00:00,Human,,11,28,1,False,True,False,False,Fix layout shift
+https://www.github.com/0xmatt/javelet.dev,a69e5baea5cc69085a28c7567460d997a4085a7a,2025-07-01T14:56:27+00:00,Human,,366,92,21,False,False,False,False,"Merge pull request #36 from 0xMatt/performance-pagescore
+
+Attempt to improve pagespeed score"
+https://www.github.com/0xmatt/javelet.dev,7233ef5ee4ef28f924e405b78fedd1a1bf82905b,2025-07-01T14:54:15+00:00,Human,,217,2,2,False,False,False,False,"Forgot package, should have done this separately though"
+https://www.github.com/0xmatt/javelet.dev,f2c32f1edff5a66dfd0b8738ad1cd950dfbff72d,2025-07-01T14:52:39+00:00,Human,,149,90,19,False,False,False,False,Attempt to improve pagespeed score
+https://www.github.com/0xmatt/javelet.dev,faf2c7aa95773f6bb61cabdf0745ccbc96ab72ec,2025-07-01T05:02:24+00:00,Human,,50,88,17,False,False,False,False,"Merge pull request #35 from 0xMatt/misc-cleanup
+
+minor patches around the site. general cleanup. nearing 0.1 release"
+https://www.github.com/0xmatt/javelet.dev,bfc6dd3761345be376f3007cc38079d16075fb3a,2025-07-01T05:00:18+00:00,Human,,50,88,17,False,False,False,False,minor patches around the site. general cleanup. nearing 0.1 release
+https://www.github.com/0xmatt/javelet.dev,4861b1f9f610706922b32b9735ed81482403e9bc,2025-07-01T04:45:41+00:00,Human,,21,6,10,False,False,False,False,"Merge pull request #34 from 0xMatt/use-cache-expirement
+
+Make use of 'use cache' on async pages"
+https://www.github.com/0xmatt/javelet.dev,af516453484ce92d480d7772a6512bdce6689fea,2025-07-01T04:40:40+00:00,Human,,21,6,10,False,False,False,False,Make use of 'use cache' on async pages
+https://www.github.com/0xmatt/javelet.dev,02e8783437204319e1e41c3f2bdcbe5f8bf14f4c,2025-07-01T00:55:58+00:00,Human,,180,82,5,False,True,False,False,"Merge pull request #33 from 0xMatt/stat-page-enhancements
+
+Make users online a table. fix github calendar"
+https://www.github.com/0xmatt/javelet.dev,4d67865c5ffed01f236deb1a9281c91124036c31,2025-07-01T00:54:01+00:00,Human,,0,2,1,False,False,False,False,Remove use cache
+https://www.github.com/0xmatt/javelet.dev,2918eeb6e8d5f02a16f20324a452baba9cc61fcd,2025-07-01T00:50:08+00:00,Human,,182,82,5,False,True,False,False,Make users online a table. fix github calendar
+https://www.github.com/0xmatt/javelet.dev,de0d9ac89cc1af1d06c160fd860ea5d7e6690f4d,2025-07-01T00:35:08+00:00,Human,,687,191,15,False,False,False,False,"Merge pull request #32 from 0xMatt/project-module
+
+CRUD for project module. View project page"
+https://www.github.com/0xmatt/javelet.dev,ab35851bcf273cffb12e67506b20c59cfdb838ad,2025-07-01T00:32:20+00:00,Human,,185,0,2,False,False,False,False,add github flavor markdown remark package
+https://www.github.com/0xmatt/javelet.dev,5e3f6e018c585c4dbb4ac7483bdc626b838c7bc8,2025-07-01T00:27:15+00:00,Human,,502,191,13,False,False,False,False,CRUD for project module. View project page
+https://www.github.com/0xmatt/javelet.dev,0d7a7fba1977dfb77fee4951ae25766cd101a136,2025-06-30T23:57:15+00:00,Human,,7,1,1,False,False,False,False,"Merge pull request #31 from 0xMatt/middleware-blacklist-paths
+
+Ensure middleware doesn't run on specific paths"
+https://www.github.com/0xmatt/javelet.dev,27f241b26ec902e89bc56ac1e51a7226622d0bdd,2025-06-30T23:54:42+00:00,Human,,7,1,1,False,False,False,False,Ensure middleware doesn't run on specific paths
+https://www.github.com/0xmatt/javelet.dev,338f872d64e15b2ab9c1260d4d0489fa4d88c8e8,2025-06-29T19:15:24+00:00,Human,,1123,895,28,False,True,False,False,"Merge pull request #29 from 0xMatt/stat-updates
+
+Session improvements/tracking. Users online. Fix stat page layout shifts"
+https://www.github.com/0xmatt/javelet.dev,cb326e4074f636f17a49d7cac8b01e5218ed761d,2025-06-29T19:03:52+00:00,Human,,213,25,12,False,True,False,False,fix build
+https://www.github.com/0xmatt/javelet.dev,b2c70e1e4d4e01d3844011c799593dd3774732c7,2025-06-29T18:47:26+00:00,Human,,601,396,16,False,False,False,False,Merge branch 'master' into stat-updates
+https://www.github.com/0xmatt/javelet.dev,14e0a3fe75be3193efbfe51d29b3dcf327640e4e,2025-06-29T18:46:48+00:00,Human,,604,399,18,False,False,False,False,"Merge pull request #28 from 0xMatt/blog-changes
+
+Blog enhancements, complimenting the completion of the module."
+https://www.github.com/0xmatt/javelet.dev,38ffec8de4bd16416084185b515627247b7791ba,2025-06-29T18:37:23+00:00,Human,,61,70,3,False,True,False,False,fix build issues
+https://www.github.com/0xmatt/javelet.dev,b2386c1c0f9d711fadc41f51ee513deeb7c8a5e5,2025-06-29T18:31:01+00:00,Human,,20,23,1,False,False,False,False,Remove scroll area from users online
+https://www.github.com/0xmatt/javelet.dev,6086924ab41548b05829e3b244bece337781d40d,2025-06-29T18:01:07+00:00,Human,,1,0,1,False,False,False,False,Add expirimental middleware
+https://www.github.com/0xmatt/javelet.dev,cea2c089d7f82155f3c6e5301cdf08fa31b89b5b,2025-06-29T17:59:33+00:00,Human,,1,0,1,False,False,False,False,Add missing scrollarea dep
+https://www.github.com/0xmatt/javelet.dev,9593d4eae698d3978edd89d5425a02e20db3fba2,2025-06-29T17:53:15+00:00,Human,,915,873,17,False,True,False,False,Session improvements/tracking. Users online. Fix stat page layout shifts
+https://www.github.com/0xmatt/javelet.dev,781ac6b835ad98bc22c0edf58623a5d7420760f1,2025-06-29T17:49:54+00:00,Human,,578,365,16,False,False,False,False,Add mobile navigation for blog stories & toc. Improve page layout/module/routing
+https://www.github.com/0xmatt/javelet.dev,9395085b5db172816b1bce6262f9e14854b8af42,2025-06-28T18:47:46+00:00,Human,,105,12,5,False,False,False,False,"Merge pull request #27 from 0xMatt/seo-updates
+
+SEO Updates. Structured Data: profile, organization. Basic metadata"
+https://www.github.com/0xmatt/javelet.dev,ce85fcd91880a8e590cd7621193244e1e4e2e222,2025-06-28T18:45:20+00:00,Human,,1,1,1,False,True,False,False,Fix package.json project name too
+https://www.github.com/0xmatt/javelet.dev,8dd1d68ac1537b452fe2d4b639d35c9202efcaf4,2025-06-28T18:40:30+00:00,Human,,104,11,4,False,False,False,False,"SEO Updates. Structured Data: profile, organization. Basic metadata & og."
+https://www.github.com/0xmatt/javelet.dev,ed49e2cf48769f05aebba8329f56727aafa525ce,2025-06-28T03:52:35+00:00,Human,,137,63,3,False,True,False,False,"Merge pull request #26 from 0xMatt/uses
+
+Fix up /uses so I can add to their repository"
+https://www.github.com/0xmatt/javelet.dev,805d32eb93e24a7c0071c71727f6ad35c613f469,2025-06-28T03:48:54+00:00,Human,,8,5,1,False,True,False,False,Fix linting issues
+https://www.github.com/0xmatt/javelet.dev,c793c0ea1e6f3a31424b325d2c8c2b3120a43cb3,2025-06-28T03:40:15+00:00,Human,,134,63,3,False,True,False,False,Fix up /uses so I can add to their repository
+https://www.github.com/0xmatt/javelet.dev,d2f333585303762866400dfc888f840ecd430eaf,2025-06-28T01:13:57+00:00,Human,,646,158,14,False,False,False,False,"Merge pull request #24 from 0xMatt/blog-updates
+
+Finish working concept of blog system"
+https://www.github.com/0xmatt/javelet.dev,84d675492ce452fc4368a8fb6d1745855667eebf,2025-06-28T00:51:47+00:00,Human,,646,158,14,False,False,False,False,Finish working concept of blog system
+https://www.github.com/0xmatt/javelet.dev,f68d4727036c1e4753ad368d6c996d634856b4ec,2025-06-27T14:34:55+00:00,Human,,58,1,4,False,False,False,False,"Merge pull request #23 from 0xMatt/missing-navigation
+
+Add github link to header and admin menu to sidebar"
+https://www.github.com/0xmatt/javelet.dev,7b5853ff8978ab112723204f3fe7e1458038c090,2025-06-27T14:32:38+00:00,Human,,58,1,4,False,False,False,False,Add github link to header and admin menu to sidebar
+https://www.github.com/0xmatt/javelet.dev,ea187e1f5e67a918a28be4ce58e9af04bb22cb5d,2025-06-27T14:27:19+00:00,Human,,108,18,5,False,False,False,False,"Merge pull request #22 from 0xMatt/documents-testing-configs
+
+Add license, finish readme, update eslint, add test suite"
+https://www.github.com/0xmatt/javelet.dev,320d90c3727ccedd125e7aadfd82a9375fa425d2,2025-06-27T14:23:40+00:00,Human,,108,18,5,False,False,False,False,"Add license, finish readme, update eslint, add test suite"
+https://www.github.com/0xmatt/javelet.dev,6cbd42717b933f10b3cac8c207fca9b195db530c,2025-06-27T14:11:55+00:00,Human,,13988,6037,32,False,False,False,False,"Merge pull request #21 from 0xMatt/admin
+
+Admin pages for managing blog posts and users"
+https://www.github.com/0xmatt/javelet.dev,fffa42b025e7803c1f3f16d3116be8f14264c531,2025-06-27T13:53:47+00:00,Human,,118,45,10,False,False,False,False,Publish and unpublish posts. Ensure blog data doesn't appear anywhere when it's not published
+https://www.github.com/0xmatt/javelet.dev,caf2784282ee5037155258e754f84a7e52dd8c25,2025-06-27T11:49:33+00:00,Human,,295,255,16,False,False,False,False,"Cleanup code, pull in components affected by changes"
+https://www.github.com/0xmatt/javelet.dev,f22e4c5cb9abd446326b7cea08ec7116572b9cb0,2025-06-27T07:53:40+00:00,Human,,102,18,4,False,False,False,False,"Task #5, allow story creation"
+https://www.github.com/0xmatt/javelet.dev,4536cafb8da53a2a4b59db49774d4a097540e4ab,2025-06-27T06:53:26+00:00,Human,,25,8,4,False,True,False,False,Attempt to fix preview build
+https://www.github.com/0xmatt/javelet.dev,5bff91662597d2fad86d842b7f6552edd6f94e74,2025-06-27T06:46:52+00:00,Human,,12549,5726,2,False,True,False,False,Add dependencies which should fix build
+https://www.github.com/0xmatt/javelet.dev,2936ad61605456904b80f70b0614cacddb4a9fb0,2025-06-27T05:19:46+00:00,Human,,39,0,1,False,False,False,False,Merge branch 'master' into admin
+https://www.github.com/0xmatt/javelet.dev,81a1904e95f613ee7501ae65907d8bbb373aee86,2025-06-27T05:19:32+00:00,Human,,921,7,12,False,False,False,False,New admin pages for user and post management
+https://www.github.com/0xmatt/javelet.dev,01bbe0eb0e962480f5e5516b9006f38d17f651a0,2025-06-27T05:13:07+00:00,Human,,39,0,1,False,False,False,False,"Merge pull request #20 from 0xMatt/0xMatt-patch-1
+
+Create dependency-review.yml"
+https://www.github.com/0xmatt/javelet.dev,9c23151a03cfc5fdaf317f76a4ed4f41443d7522,2025-06-27T05:07:27+00:00,Human,,39,0,1,False,False,False,False,Create dependency-review.yml
+https://www.github.com/0xmatt/javelet.dev,20fa7b24d8c1a5bb3655eb5cccdf3863d64df3ed,2025-06-27T05:04:43+00:00,Human,,98,0,1,False,False,False,False,"Merge pull request #19 from 0xMatt/0xMatt-patch-1
+
+Create codeql.yml"
+https://www.github.com/0xmatt/javelet.dev,766d90fc46e05f620af3abd014cfa44366deb3a2,2025-06-27T04:55:16+00:00,Human,,98,0,1,False,False,False,False,Create codeql.yml
+https://www.github.com/0xmatt/javelet.dev,86f21cba70144f0c6e23c1d56db0d9d138467726,2025-06-26T01:57:21+00:00,Human,,3,3,1,False,True,False,False,Fix priorities in sitemap.ts
+https://www.github.com/0xmatt/javelet.dev,51c5766593b160d02797ac0049b47e21ada6a1e5,2025-06-25T23:20:32+00:00,Human,,29,10,1,False,False,False,False,Dynamically add blog posts to sitemap
+https://www.github.com/0xmatt/javelet.dev,06a52bdcabc78a6f4454f32f9626c4433b2dfbf9,2025-06-25T22:43:23+00:00,Human,,112,121,1,False,True,False,False,Fix style issues caused by stylelint
+https://www.github.com/0xmatt/javelet.dev,f6580645e1df85f6354798b81cde3bbf72341c9c,2025-06-25T22:37:26+00:00,Human,,1216,215,33,False,False,False,False,"New pages, colophon and uses. Blog view updates"
+https://www.github.com/0xmatt/javelet.dev,0b981b5c4bccde4ac46dd08ae2cdc812549453de,2025-06-25T20:29:07+00:00,Human,,9,13,1,False,True,False,False,Fix error with missing key on breadcrumb componeont
+https://www.github.com/0xmatt/javelet.dev,18455df9c8999b916ee8361c1843a8f52f9ce382,2025-06-25T18:48:50+00:00,Human,,48,51,3,False,False,False,False,Dynamic sitemap
+https://www.github.com/0xmatt/javelet.dev,e8cdb382bd089ebc840e7130749bd6007a826ab5,2025-06-25T17:36:38+00:00,Human,,35,0,1,False,False,False,False,Better 404 page with text that's actually visible
+https://www.github.com/0xmatt/javelet.dev,4a22d80eb6fa8211d5c3b99fc9d8b4a67cb3c23f,2025-06-24T19:22:20+00:00,Human,,0,100,1,False,False,False,False,Run prettier on src/
+https://www.github.com/0xmatt/javelet.dev,a3d50c0b2aa265390e42f279cf383c50177e6e1f,2025-06-24T19:07:10+00:00,Human,,1888,2006,80,False,False,False,False,Run prettier on src/
+https://www.github.com/0xmatt/javelet.dev,57963c270b32813ee3f78d6944d6ea6406dbfb9f,2025-06-24T18:42:08+00:00,Human,,2,1,1,False,False,False,False,Add prisma generate to postinstall script
+https://www.github.com/0xmatt/javelet.dev,ccba919fdcca9c754ff8242a1553bc5af6f6216d,2025-06-24T18:37:32+00:00,Human,,24,4,2,False,True,False,False,Fix linting issues
+https://www.github.com/0xmatt/javelet.dev,f7a75a0610f83bd774718bf1df50da5693717b6a,2025-06-24T18:32:54+00:00,Human,,4,2,1,False,True,False,False,fix stylesheet warnings
+https://www.github.com/0xmatt/javelet.dev,331d5a98346fb4cd145314eacdb13720f4b4e659,2025-06-24T18:32:23+00:00,Human,,297,12,6,False,False,False,False,New projects module
+https://www.github.com/0xmatt/javelet.dev,a817f3c2c5aa8adfb827c1e9b6fc7bd70afe18e1,2025-06-24T18:31:01+00:00,Human,,290,261,5,False,False,False,False,Prettier stats module
+https://www.github.com/0xmatt/javelet.dev,41f2e8c9c7b056bc5f5abb29a2a80124424b16dd,2025-06-24T18:28:37+00:00,Human,,12821,6580,82,False,False,False,False,"Replace supabase and firebase with prisma and custom session implementation. lots of other misc stuff(yeah, very helpful)"
+https://www.github.com/0xmatt/javelet.dev,1c4da5706afaa9ad09727fff57ebc47fcc9bcc37,2025-06-22T22:52:46+00:00,Human,,2,0,1,False,False,False,False,Attempt to speed up initial page load
+https://www.github.com/0xmatt/javelet.dev,1f2eeb428cbae521dd46a0a0f727cc2b3f09aa26,2025-06-22T22:42:54+00:00,Human,,1,1,1,False,True,False,False,Fix accessibility issue
+https://www.github.com/0xmatt/javelet.dev,ea69ac1a7bc54c6de2f051889afd6c19dc0a88ed,2025-06-22T22:39:48+00:00,Human,,4,0,1,False,False,False,False,be less of an idiot
+https://www.github.com/0xmatt/javelet.dev,57b3e96e638cf1f5d19fd0a8ddcc0a1eae53a5a1,2025-06-22T22:39:19+00:00,Human,,0,12,2,False,True,False,False,attempt to fix robots file causing build error
+https://www.github.com/0xmatt/javelet.dev,725f83ac051f9701237c6074b20befd0eb6ca221,2025-06-22T22:36:58+00:00,Human,,12,0,1,False,True,False,False,attempt to fix robots generator
+https://www.github.com/0xmatt/javelet.dev,7c69b15e97ee7b35970ba7dd91667fdaf1155ec4,2025-06-22T22:33:28+00:00,Human,,0,0,1,False,False,False,False,Add robots generator
+https://www.github.com/0xmatt/javelet.dev,3a5482cf0e3544745970412cc6d78221a33fd3e9,2025-06-22T21:53:36+00:00,Human,,42,0,1,False,False,False,False,Add sitemap
+https://www.github.com/0xmatt/javelet.dev,58205b3cb27de0a60c1c41d0852c32f7cece26d0,2025-06-22T20:39:03+00:00,Human,,14,4,1,False,True,False,False,Fix contact page issue
+https://www.github.com/0xmatt/javelet.dev,886271a6f62ad3fce5236ab4e32b02cdc7d52857,2025-06-22T20:37:06+00:00,Human,,22,15,2,False,False,False,False,Hook up contact links
+https://www.github.com/0xmatt/javelet.dev,b624bbe5b6fcbc4a20e74bbdba69dcd6d25092db,2025-06-22T19:44:32+00:00,Human,,27,5,1,False,False,False,False,Start working on readme
+https://www.github.com/0xmatt/javelet.dev,087d27784cb10afd2f3d8e316d18f0280faf213e,2025-06-22T19:22:22+00:00,Human,,33,15,1,False,False,False,False,New section title design updates. Allow setting _target value on links
+https://www.github.com/0xmatt/javelet.dev,332c5ccaf7e8ed5d9f9de9a556f0978a26659de1,2025-06-22T19:21:43+00:00,Human,,76,26,4,False,False,False,False,"Update wakatime stats, add new progress card"
+https://www.github.com/0xmatt/javelet.dev,aeb9278b696369425694cbe7ddb9a0e3d3851dcf,2025-06-22T19:12:48+00:00,Human,,104,97,1,False,False,False,False,Update theme
+https://www.github.com/0xmatt/javelet.dev,3b43acaa04cfbd1de76fcc37a250b5eb275913e4,2025-06-22T19:12:17+00:00,Human,,0,0,1,False,False,False,False,Add favicon
+https://www.github.com/0xmatt/javelet.dev,b81f60daf750aaeace25a106540b9e4229fd57f6,2025-06-19T03:45:24+00:00,Human,,115,0,3,False,True,True,False,"Add user switcher component to top header, fixes #10"
+https://www.github.com/0xmatt/javelet.dev,4dd9ec7dd50a1eebf75a34fda13c1f03e84e3ca6,2025-06-19T03:45:14+00:00,Human,,72,47,3,False,True,True,False,Add mobile menu for HeaderTop. Fixes #4
+https://www.github.com/0xmatt/javelet.dev,86a5fe14d361506c168866e95aeec81b5fc440bc,2025-06-19T02:22:12+00:00,Human,,1,1,1,False,True,True,False,Larger width for mobile on HeaderTop. fixes #9
+https://www.github.com/0xmatt/javelet.dev,8580d72849fa8479885b148eef04f8f86488f337,2025-06-19T02:13:40+00:00,Human,,13,0,1,False,False,False,False,Add dot pattern to layout
+https://www.github.com/0xmatt/javelet.dev,1760a27c51241dac69ab434a1b3f5ab2ec1ada0d,2025-06-18T23:06:15+00:00,Human,,438,931,23,False,False,False,False,Need to commit more often. Decent chunk of changes
+https://www.github.com/0xmatt/javelet.dev,dd40637c0ff6dd273144fa3c936a40a6ed6dc341,2025-06-17T19:16:08+00:00,Human,,152,82,7,False,False,False,False,"close sidebar on navigate, don't auto focus search. actually use ThemeSelector"
+https://www.github.com/0xmatt/javelet.dev,60281709688e72593e7551ad84536264fc1cc4ac,2025-06-16T02:10:18+00:00,Human,,2,3,1,False,True,False,False,Fix linting issues
+https://www.github.com/0xmatt/javelet.dev,5ee8893d33534536c0fb5dee4cc3db92bdbf0db4,2025-06-16T02:09:44+00:00,Human,,331,38,12,False,True,False,False,Fix logout and populate /stats
+https://www.github.com/0xmatt/javelet.dev,db2dddd6473dd537983fd392a08ebc7beef78cc6,2025-06-15T07:36:20+00:00,Human,,1583,152,25,False,False,False,False,Add supabase authentication. Probably won't keep this
+https://www.github.com/0xmatt/javelet.dev,88b4a8a120276f555f4bc859a2ffe590116d78d8,2025-06-15T07:35:11+00:00,Human,,26,10,2,False,False,False,False,"SEO changes, implement newly added patterns"
+https://www.github.com/0xmatt/javelet.dev,2bee9606a947163b619fecdadef52e45754decda,2025-06-15T07:27:01+00:00,Human,,212,68,9,False,False,False,False,"Blog updates: api, design, view increments"
+https://www.github.com/0xmatt/javelet.dev,22bf6fd780ec0702d0d615a1875a06776f9e987a,2025-06-15T07:11:39+00:00,Human,,22,0,1,False,False,False,False,Add slugify lib
+https://www.github.com/0xmatt/javelet.dev,f5b8f82ac045ef2d311b358f2ecf171d9917de6f,2025-06-15T07:10:52+00:00,Human,,593,0,6,False,False,False,False,Add new ui components: patterns and progress bar
+https://www.github.com/0xmatt/javelet.dev,9e2ead1435d326960fa7cf358a2c27f19cfec757,2025-06-13T19:43:17+00:00,Human,,186,83,18,False,False,False,False,Layout header types. Improve scale animations. Work on blog pages
+https://www.github.com/0xmatt/javelet.dev,abd02bc461d2c1e07d9a90984b09e18c65609903,2025-06-12T23:47:33+00:00,Human,,1,1,1,False,True,False,False,Fix accessibility score
+https://www.github.com/0xmatt/javelet.dev,50e2d1ef08c098500ab282d0f0bd6732e2f71d3b,2025-06-12T23:39:58+00:00,Human,,1,1,1,False,True,False,False,Fix wrapper padding on mobile
+https://www.github.com/0xmatt/javelet.dev,2be5a00ba571487e9a42b9acb2b4e60ffd74056a,2025-06-12T23:31:47+00:00,Human,,663,64,12,False,False,False,False,New patterns for design. Start blog post view
+https://www.github.com/0xmatt/javelet.dev,f21a4cdda229593eb2e1bacab93152d15a9a595e,2025-06-12T21:41:25+00:00,Human,,91,40,6,False,False,False,False,New homepage blog cards. Add route for /blog/[slug]
+https://www.github.com/0xmatt/javelet.dev,9661414d95c939eb15bef17b7da66fdc0b4384bb,2025-06-12T21:40:09+00:00,Human,,47,44,2,False,False,False,False,Add breadcrumbs back
+https://www.github.com/0xmatt/javelet.dev,f908e1385705cd27830c2ccab7c11692def1fb34,2025-06-12T21:38:47+00:00,Human,,41,73,5,False,False,False,False,"Redundancy cleanup: fetcher moved to lib, home stats plcaeholder"
+https://www.github.com/0xmatt/javelet.dev,494c9b55e6cd27349ce158f1135088d82a3ef897,2025-06-12T17:15:21+00:00,Human,,80,66,10,False,False,False,False,Add link prefetching. better separate client/server components
+https://www.github.com/0xmatt/javelet.dev,739937cbaad5e9203b85fffc606b8715fdaf7373,2025-06-12T09:29:04+00:00,Human,,82,2,3,False,False,False,False,Add vercel speed insights and analytics
+https://www.github.com/0xmatt/javelet.dev,e71d6889590c7d5a1ab0d95c2e9802fc7ad865e3,2025-06-12T09:28:31+00:00,Human,,49,21,4,False,True,False,False,Convert async server components to client components to fix build
+https://www.github.com/0xmatt/javelet.dev,d791a4c8433bfde87cb57b905a6a852af0bc7f41,2025-06-12T08:26:07+00:00,Human,,53,27,8,False,True,False,False,Fix linting issues
+https://www.github.com/0xmatt/javelet.dev,685155e7c91f412cc12495a785086fd961951979,2025-06-12T07:12:47+00:00,Human,,674,480,57,False,False,False,False,Migrate to app router. Use NextSEO. APIs for stats
+https://www.github.com/0xmatt/javelet.dev,18904a72ffcd059784e2ff9ca5ed3b44ed92f63a,2025-06-05T07:40:30+00:00,Human,,1,1,1,False,True,False,False,SEO fix: better link description
+https://www.github.com/0xmatt/javelet.dev,a16697976aafda6bde3f5b26da0553ec0db39bc4,2025-06-05T07:39:14+00:00,Human,,1,7,1,False,True,False,False,fix eslint complaints
+https://www.github.com/0xmatt/javelet.dev,dc0364e5dc3628f01b35eb99eaeb9f3c93e7498f,2025-06-05T07:35:57+00:00,Human,,1043,6,5,False,False,False,False,"Add firebase package, a service for it an env example"
+https://www.github.com/0xmatt/javelet.dev,eb02b0e6b850ee3c019d3849474a51b9b6a90521,2025-06-05T04:27:33+00:00,Human,,1418,80,37,False,False,False,False,"Homepage, contact page, breadcrumbs"
+https://www.github.com/0xmatt/javelet.dev,e8db603f757f7ca0e53ec23371a5e9782bac078e,2025-06-03T19:32:50+00:00,Human,,4,3,2,False,True,False,False,Fix eslint issues
+https://www.github.com/0xmatt/javelet.dev,00bffda1e6b8a86fad10c16065af79806bfbac67,2025-06-03T17:50:31+00:00,Human,,2557,206,31,False,False,False,False,initial layout design
+https://www.github.com/0xmatt/javelet.dev,82d208fbb325f576b0ed648c1e6b822a39d48c7e,2025-06-02T17:21:11+00:00,Human,,890,33,12,False,False,False,False,update app/document structure to allow for new theme switching component
+https://www.github.com/0xmatt/javelet.dev,b46ecb20c3f7412fed2293cf868e047b2f768791,2025-06-02T02:36:08+00:00,Human,,726,25,7,False,False,False,False,add shadcn
+https://www.github.com/0xmatt/javelet.dev,9bf521950e5533960dbcc24485959d1bb0fa5bd4,2025-06-02T02:29:46+00:00,Human,,1,1,3,False,False,False,False,Remove app directory
+https://www.github.com/0xmatt/javelet.dev,546bc8ec6939fa8bf4a7becf827793568910c757,2025-06-02T02:20:59+00:00,Human,,189,163,11,False,False,False,False,update project structure
+https://www.github.com/0xmatt/javelet.dev,673b5a71e0760a1a57e6b1096399ad0609dcd066,2025-06-02T00:13:53+00:00,Human,,6458,0,17,False,False,False,False,Initial commit from Create Next App

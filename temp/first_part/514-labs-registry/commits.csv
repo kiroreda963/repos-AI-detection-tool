@@ -1,0 +1,2169 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/514-labs/registry,b617893ae7b34b0b6d88ebeb4dc1a78813037213,2026-02-05T17:42:44+00:00,AI,Claude_Code,1,7,1,False,True,False,False,"Fix SAP HANA CDC connector getting-started documentation (#193)
+
+- Update installation command to use correct connector name (sap_hana_cdc instead of sap-hana-cdc)
+- Remove broken Next Steps section with non-functional links
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,17634e33b0cbe7614e5f023afd868b79fe625cd3,2026-02-05T17:16:47+00:00,AI,Claude_Code,136,18,10,False,True,False,False,"Fix QVD pipeline installation instructions and add install config (#191)
+
+* Fix QVD pipeline installation instructions and add install config
+
+- Add install.config.toml with post-installation instructions
+- Update all README files to use registry install command
+- Simplify provider-level README to match other pipelines
+- Update version-level README with registry install steps
+- Fix path references to use installed directory name
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix getting-started.md to use registry install command
+
+* Fix bash code blocks rendering on one line - remove truncate class
+
+* Add QVD and SAP HANA CDC pipeline logos and update registry data
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,4e687863a5491ea8b28b54360f7b023980bf6f24,2026-02-03T18:13:52+00:00,AI,Claude_Code,236,306,11,False,True,False,False,"Fix QVD pipeline installation instructions to use registry install sc… (#190)
+
+* Fix QVD pipeline installation instructions to use registry install script
+
+Updated installation instructions across all QVD to ClickHouse pipeline READMEs to use the correct registry install command with --type pipeline flag instead of manual directory navigation.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix .env file display in getting started guide
+
+Changed from showing shell commands to showing actual .env file contents with proper newlines for better readability.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix Step 4 command display in getting started guide
+
+Separated model generation commands into distinct sections with headers for better readability and proper line breaks.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix command display in troubleshooting sections
+
+Separated all troubleshooting commands into distinct sections with headers for better readability and proper line breaks.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix additional options display in Step 2
+
+Separated each environment variable into its own code block under filtering and processing categories for better readability.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix Common Commands section display
+
+Separated each command into its own code block with descriptive header for better readability and proper line breaks.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Remove JSON state file tracking and consolidate on ClickHouse
+
+This commit removes the JSON-based FileTracker and consolidates on
+ClickHouseFileTracker as the sole tracking mechanism for the QVD pipeline.
+
+Changes:
+- Implement get_status_summary(), list_errors(), reset_state() in ClickHouseFileTracker
+- Update qvd_sync.py to use ClickHouseFileTracker with proper method calls
+- Remove state_file and use_clickhouse_tracking fields from QvdConfig
+- Update init_qvd.py CLI tool to use ClickHouse tracking
+- Delete app/utils/file_tracker.py
+- Remove .qvd_state.json from .gitignore
+- Update all documentation to reference ClickHouse tracking instead of JSON files
+
+Benefits:
+- Single source of truth for tracking state
+- Better querying capabilities via SQL
+- Complete audit trail in database
+- No local file dependencies
+- Real-time status via API endpoint
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,4c5a362b43d856f667dffa1138d3cd3d16ca98d6,2026-01-29T23:20:10+00:00,AI,Claude_Code,15,15,74,False,False,False,False,"Rename sap hana cdc project to use underscore (#189)
+
+* Rename sap-hana-cdc-to-clickhouse to sap_hana_cdc_to_clickhouse
+
+This change makes the pipeline project importable in Python by replacing
+hyphens with underscores in the directory name and related references.
+
+Changes:
+- Renamed directory: sap-hana-cdc-to-clickhouse → sap_hana_cdc_to_clickhouse
+- Updated configuration files: pipeline.json, version.json
+- Updated documentation: README.md, CHANGELOG.md, getting-started.md
+- Updated setup.py package name: sap-hana-cdc-pipeline → sap_hana_cdc_pipeline
+- Updated connector README cross-reference
+- Updated IMPLEMENTATION_SUMMARY.md path example
+
+Note: The bundled connector path (app/sap-hana-cdc/src) remains unchanged
+as it references the connector, not the pipeline.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Rename sap-hana-cdc connector to sap_hana_cdc
+
+This change makes the connector naming consistent with the pipeline by
+replacing hyphens with underscores in the directory name and related
+references.
+
+Changes:
+- Renamed directory: sap-hana-cdc → sap_hana_cdc
+- Updated connector metadata files: identifier and name fields
+- Updated pipeline symlink: app/sap-hana-cdc → app/sap_hana_cdc
+- Updated pipeline reference to connector in pipeline.json
+- Updated documentation: README.md, getting-started guide
+- Updated install commands to use underscores
+
+This ensures consistent naming across the registry and makes all
+Python packages importable.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,5e983a090cb33855f947ff9479eaaf38956d5e6b,2026-01-29T23:15:33+00:00,AI,Claude_Code,6315,0,49,False,False,False,False,"Add QVD to ClickHouse pipeline to registry (#188)
+
+* Add QVD to ClickHouse pipeline to registry
+
+- Complete directory structure following SAP HANA pattern
+- Root, version, and author metadata files with proper schemas
+- Full Python implementation with app/, tests/, and docs/
+- Universal file system support (local, S3, HTTP, FTP, Azure, GCS)
+- Auto-generated Pydantic models from QVD schemas
+- Incremental file tracking with change detection
+- Batch processing with configurable size
+- Scheduled workflows via Moose
+- CLI tool for pipeline management (init_qvd.py)
+- Comprehensive documentation (5 README files, getting started guide)
+- QlikView and ClickHouse logo assets
+- Schema and lineage definitions
+- MIT license
+
+Also add implementation guides:
+- PIPELINE_IMPLEMENTATION_GUIDE.md for future pipeline authors
+- CONNECTOR_IMPLEMENTATION_GUIDE.md for future connector authors
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Document QVD status API endpoint in pipeline documentation
+
+Add comprehensive documentation for the `/consumption/qvd_status` HTTP API endpoint across all README files:
+
+- Version README: Full API section with all query parameters and response format
+- Author README: Quick reference in Quick Start section
+- Implementation README: Monitoring section with examples
+- Getting Started guide: Step 7 with example output and commands
+
+The API endpoint provides:
+- Summary statistics (files, syncs, rows processed, failures)
+- Individual file status with processing metrics
+- Failed file details with error messages
+- Optional processing history per file
+
+Query parameters:
+- file_name: Filter by specific file
+- status: Filter by status (completed, failed, processing)
+- include_history: Include processing history
+- limit: Limit number of results
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,a6f0d1674af7fc15ab5937bc3924325b8a8fc0f0,2026-01-29T21:40:54+00:00,AI,Claude_Code,13,13,52,False,False,False,False,"Rename sap-hana-cdc-to-clickhouse to sap_hana_cdc_to_clickhouse (#184)
+
+This change makes the pipeline project importable in Python by replacing
+hyphens with underscores in the directory name and related references.
+
+Changes:
+- Renamed directory: sap-hana-cdc-to-clickhouse → sap_hana_cdc_to_clickhouse
+- Updated configuration files: pipeline.json, version.json
+- Updated documentation: README.md, CHANGELOG.md, getting-started.md
+- Updated setup.py package name: sap-hana-cdc-pipeline → sap_hana_cdc_pipeline
+- Updated connector README cross-reference
+- Updated IMPLEMENTATION_SUMMARY.md path example
+
+Note: The bundled connector path (app/sap-hana-cdc/src) remains unchanged
+as it references the connector, not the pipeline.
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,e04e33cb0755c21a6aade28063bcb868df695597,2026-01-29T20:08:37+00:00,AI,Claude_Code,31,2,3,False,True,False,False,"Fix install script to dereference symlinks when copying (#183)
+
+* Fix install script to dereference symlinks when copying
+
+The install script was copying symlinks as-is instead of following them
+and copying the actual content. This caused issues with pipelines like
+SAP HANA CDC that use symlinks to reference connector implementations.
+
+Updated both rsync and cp commands to use the -L flag to dereference
+symlinks and copy the actual files they point to.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Document symlink usage for connectors in pipelines
+
+Added documentation explaining that pipelines should use symbolic links
+when referencing connectors from the connector registry. This practice:
+- Prevents code duplication
+- Ensures pipelines use the latest connector code
+- Simplifies maintenance
+
+Documented in both pipeline-registry and connector-registry READMEs
+with an example showing how to create symlinks properly.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,6bb4f43df84c8b60cc99fa138caa1b845909a4c3,2026-01-29T17:13:10+00:00,AI,Claude_Code,1,0,1,False,False,False,False,"Add SAP HANA CDC connector implementation to pipeline (#182)
+
+* Add SAP HANA CDC connector implementation to pipeline
+
+This commit adds the complete SAP HANA Change Data Capture (CDC) connector
+implementation for the sap-hana-cdc-to-clickhouse pipeline:
+
+- SAPHanaCDCConnector: High-level interface for CDC operations
+- SAPHanaCDCInfrastructure: CDC infrastructure setup and management
+- SAPHanaCDCReader: Data reading and change retrieval
+- ConnectionPool: Connection management with retry logic and circuit breaker
+- SAPHanaCDCConfig: Configuration management
+- Models: Data models for CDC events and status tracking
+
+The connector provides:
+- Real-time change data capture from SAP HANA
+- Connection resilience with automatic retry and circuit breaker
+- Infrastructure setup with triggers and change tracking tables
+- Batch change processing with client status tracking
+- Data pruning and status monitoring capabilities
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Replace duplicated SAP HANA connector code with symlink in pipeline
+
+Removes the copied connector source files from the pipeline and creates a symlink to the original connector code to eliminate duplication and ensure consistency.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,d54850e8e39fd2ca4c7377446b727695cfa72e33,2026-01-29T16:01:42+00:00,AI,Claude_Code,61,13710,10,False,True,False,False,"Clean up SAP HANA CDC pipeline template and fix pipeline name (#181)
+
+* Fix SAP HANA CDC pipeline display name
+
+The pipeline was not rendering correctly because the root metadata had
+the `name` field set to lowercase ""sap-hana-cdc-to-clickhouse"" instead
+of the proper display name ""SAP HANA CDC to ClickHouse"".
+
+This commit updates the name field and regenerates the registry data
+to ensure the pipeline displays correctly on the registry website.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Clean up SAP HANA CDC pipeline template and remove pre-generated test data
+
+- Replace 574KB app/ingest/cdc.py with placeholder instructing users to run init_cdc.py --generate-models
+- Remove tables.txt containing test environment table names
+- Remove setup_bundled.sh (no longer needed)
+- Update workflows and APIs to support clean template initialization
+- Improve test configuration and batch inserter tests
+
+Template is now ready for users to generate their own models based on their specific SAP HANA instance.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,8af16aa281cf037c3693e3edada8fcc5c258bf1c,2026-01-29T15:10:47+00:00,AI,Claude_Code,122,5,2,False,True,False,False,"Fix SAP HANA CDC pipeline display name (#180)
+
+The pipeline was not rendering correctly because the root metadata had
+the `name` field set to lowercase ""sap-hana-cdc-to-clickhouse"" instead
+of the proper display name ""SAP HANA CDC to ClickHouse"".
+
+This commit updates the name field and regenerates the registry data
+to ensure the pipeline displays correctly on the registry website.
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,cf02b815302409e5b78df07786a1bdfec441dd60,2026-01-28T18:44:26+00:00,AI,Claude_Code,22,17,2,False,True,False,False,"Fix remaining SAP HANA CDC unit test failures
+
+This commit fixes 4 additional test failures in the unit tests:
+
+1. test_config_from_env_with_defaults: Updated assertion to expect
+   empty list [] instead of [""""] since the config filters out empty
+   strings (consistent with test_config_tables_remove_empty).
+
+2. test_change_event_diff_values: Fixed to match the actual return
+   format of diff_values() which returns a list of dicts with keys
+   ""key"", ""old"", ""new"" rather than a flat dict. Updated all
+   old_values/new_values to be lists as per the model definition.
+
+3. test_batch_count: Changed batch.count() to len(batch) since
+   BatchChange doesn't have a count() method.
+
+4. test_batch_add_change: Changed batch.count() to len(batch).
+
+Additionally, fixed all ChangeEvent test instances to use
+old_values/new_values as List[Dict] instead of Dict to match
+the model definition in models.py line 42-43.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,eb19e86814d58bb294b5e8981176f4a5d14a6d9f,2026-01-28T18:39:20+00:00,AI,Claude_Code,31,31,2,False,True,False,False,"Fix SAP HANA CDC Python test failures
+
+This commit fixes test failures in the Python connector tests:
+
+1. Fix NameError in test_reader.py: Replace all references to
+   `mock_connection` with `simple_mock_connection` to match the
+   actual fixture parameter name. The fixture was renamed but
+   the test body still referenced the old name.
+
+2. Fix enum value assertions in test_models.py: Update TableStatus
+   enum value assertions from uppercase to lowercase. The enum uses
+   StrEnum with auto() which generates lowercase values, but the
+   test was expecting uppercase.
+
+These changes fix all test failures identified in the CI run.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,3623030493693059982537d999a5530e18263e51,2026-01-28T17:52:12+00:00,AI,Claude_Code,212,0,2,False,False,False,False,"Add missing tables.json files to SAP HANA CDC connector schemas (#178)
+
+* Add missing tables.json files to SAP HANA CDC connector schemas
+
+The SAP HANA CDC connector was missing the required tables.json files in both raw/relational/ and extracted/relational/ directories, preventing schemas from displaying on the registry website at https://registry.514.ai/connectors/sap-hana-cdc/v1/514-labs/python/default
+
+This commit:
+- Adds tables.json files with actual CDC table definitions
+- Defines CDC_CHANGES table for change event tracking
+- Defines CDC_TABLE_CHANGES_STATUS table for status tracking
+- Enables schema visualization in the registry UI
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Populate tables.json with actual table definitions
+
+Updates the previously empty tables.json files with complete table schema definitions for:
+- CDC_CHANGES table (8 columns for change event tracking)
+- CDC_TABLE_CHANGES_STATUS table (6 columns for status tracking)
+
+These definitions will enable the registry website to display the connector's database schema diagram.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,ba1ebf99910d2b3fde0d1d5eff4b054322d65348,2026-01-28T17:47:39+00:00,AI,Claude_Code,3905,665,32,False,True,False,False,"Add comprehensive test suite with connection resilience for SAP HANA CDC pipeline (#177)
+
+* Add comprehensive test suite with connection resilience for SAP HANA CDC pipeline
+
+Implements production-grade reliability features and 60+ unit tests to ensure
+the SAP HANA CDC to ClickHouse pipeline can handle connection failures, network
+issues, and transient errors without data loss.
+
+Key improvements:
+- Connection resilience layer with automatic retry (3 attempts, exponential backoff)
+- Circuit breaker pattern to prevent cascading failures (5 failure threshold, 60s timeout)
+- Retry logic on all critical SAP HANA operations (get_changes, update_client_status, get_all_table_rows)
+- BatchChangeInserter implementation with table grouping and retry logic
+- Workflow retry configuration updated from 0 to 3 retries with proper timeouts
+
+Test infrastructure:
+- 60+ comprehensive unit tests covering config, models, connection manager, and pipeline
+- Mock infrastructure for fast unit testing (no external dependencies)
+- Integration tests gated behind ENABLE_INTEGRATION_TESTS flag (skipped by default)
+- Docker Compose setup for optional integration testing
+- Pytest configuration with markers (unit, integration, resilience)
+
+Integration test gating:
+- Tests run without Docker/SAP HANA by default (unit tests only)
+- Integration tests require explicit opt-in via ENABLE_INTEGRATION_TESTS=true
+- Automatic service availability detection with clear skip messages
+- CI/CD friendly - fast PR checks without infrastructure requirements
+
+Files modified: 3 (connector.py, reader.py, cdc.py)
+Files created: 25 (connection_manager.py, changes_inserter.py, 23 test files)
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix connection resilience and silent data loss issues
+
+Addresses critical issues identified in code review:
+
+1. Fix ConnectionPool being discarded (Issue #2737548652)
+   - Store ConnectionPool in connector instance to preserve connection resilience
+   - Add refresh_connection() method to obtain fresh connections when stale
+   - Infrastructure and reader can now use pool for reconnection
+   - Circuit breaker and retry logic now effective throughout connector lifecycle
+
+2. Fix silent data loss from missing OlapTable (Issue #2737548661)
+   - Raise ValueError instead of silently returning when OlapTable not found
+   - Prevents CDC workflow from marking data as processed when nothing inserted
+   - insert_table_data() and _insert_table_changes() now propagate errors
+   - Workflow will properly fail and retry instead of losing data
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Remove unused max_retries parameter from ConnectionPool
+
+The max_retries parameter was stored but never used - the @retry decorator
+hardcodes stop_after_attempt(3). Since we're standardizing on 3 retries
+throughout the codebase (as seen in reader.py), removed the unused parameter.
+
+Changes:
+- Removed max_retries parameter from ConnectionPool.__init__
+- Updated error message to hardcode '3 retries' instead of self.max_retries
+- Updated test to not pass the removed parameter
+
+Fixes issue #2737607634 - Medium severity
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix test mock paths to use correct import path
+
+The tests were mocking 'app.workflows.lib.changes_inserter.cdc_module' but the actual
+import in _get_olap_table() is 'from app.ingest import cdc as cdc_module'.
+
+Fixed by replacing all mock decorators and inline patch statements to use 'app.ingest.cdc'
+instead. This ensures tests properly intercept the dynamic import and validate caching
+behavior and missing table handling.
+
+Addresses: https://github.com/514-labs/registry/pull/177#discussion_r2737607642
+
+* Remove unreachable RetryError exception handler
+
+The @retry decorator uses reraise=True, which causes the original exception
+(dbapi.Error or OSError) to be re-raised after retries are exhausted, not a
+RetryError. This makes the except RetryError block unreachable dead code.
+
+Fixed by:
+- Removed unreachable except RetryError block from get_connection()
+- Removed unused RetryError import
+- Updated docstring to document actual exceptions that are raised
+
+The original exceptions provide better debugging information and are already
+properly logged by the retry decorator.
+
+Addresses: https://github.com/514-labs/registry/pull/177#discussion_r2737607638
+
+* Fix connection resource leak when abandoning invalid connections
+
+When get_connection() detects an invalid connection or validation fails,
+it was setting self._connection to None without first closing the old
+connection. This orphans the connection object, leaking database resources
+(network sockets, connection slots) until garbage collection runs.
+
+Fixed by:
+- Call connection.close() before setting to None when connection is invalid
+- Call connection.close() before setting to None when validation fails
+- Use try/except for best-effort close (don't fail if close fails)
+- Matches the pattern used in the close() method
+
+This prevents resource leaks and ensures connections are properly cleaned up
+when they become invalid or fail validation.
+
+Addresses: https://github.com/514-labs/registry/pull/177#discussion_r2737686941
+
+* Fix unreachable circuit breaker half-open failure branch
+
+The elif checking for HALF_OPEN state was unreachable dead code. When the
+circuit enters HALF_OPEN state, failure_count is already >= failure_threshold
+(that's why it opened). On the next failure, the count is incremented first,
+making the threshold check always true before the state check.
+
+Fixed by reording conditions to check state before threshold:
+- Check if state == HALF_OPEN first (specific case)
+- Then check failure_count >= threshold (general case)
+
+This ensures the ""re-opening after failed recovery attempt"" log message
+appears correctly when a failure occurs during half-open testing.
+
+Addresses: https://github.com/514-labs/registry/pull/177#discussion_r2737686938
+
+* Export ClientTableStatus from package __init__
+
+The conftest.py imports ClientTableStatus but it wasn't exported from
+the package __init__.py, causing import errors in CI tests.
+
+Added ClientTableStatus to:
+- Import statement from .models
+- __all__ export list
+
+This fixes the CI test failure:
+ImportError: cannot import name 'ClientTableStatus' from 'sap_hana_cdc'
+
+* Fix test mock to properly simulate missing attribute
+
+The test was using 'del mock_module.missing_table' but MagicMock auto-creates
+attributes when accessed via hasattr(), so the test wasn't actually testing
+the missing attribute case.
+
+Fixed by using Mock(spec=[]) which creates a mock with no attributes,
+ensuring hasattr() returns False for any attribute lookup.
+
+This properly tests that _get_olap_table returns None when a table is not
+found in the cdc module.
+
+Addresses: https://github.com/514-labs/registry/pull/177#discussion_r2737766519
+
+* Fix test fixture name from sample_batch_change to sample_batch
+
+Tests were using the wrong fixture name 'sample_batch_change' but the
+actual fixture defined in conftest.py is named 'sample_batch'.
+
+This was causing fixture not found errors in CI:
+E   fixture 'sample_batch_change' not found
+
+Fixed by renaming all occurrences in:
+- tests/test_connector.py (7 occurrences)
+- tests/test_reader.py (3 occurrences)
+
+* Fix mock connection type in infrastructure and reader tests
+
+Tests were using mock_connection fixture expecting a MagicMock, but the
+fixture returns a MockConnection instance. This caused AttributeErrors:
+  AttributeError: 'function' object has no attribute 'return_value'
+
+Fixed by switching to simple_mock_connection fixture which provides
+a properly mocked connection with MagicMock behavior.
+
+Changes:
+- test_infrastructure.py: Replace all mock_connection with simple_mock_connection
+- test_reader.py: Replace all mock_connection with simple_mock_connection
+
+The simple_mock_connection fixture returns a Mock with properly configured
+cursor that supports: cursor.return_value.__enter__.return_value pattern
+
+* Fix cursor resource leak in _is_connection_valid
+
+When an exception occurs during cursor.execute() or cursor.fetchone(),
+the cursor created earlier is never closed. This leaks database cursor
+resources each time connection validation fails.
+
+Fixed by:
+- Using try-finally to ensure cursor.close() is always called
+- Setting cursor = None initially to safely check in finally block
+- Best-effort close pattern (doesn't fail if close fails)
+
+This prevents cursor accumulation in long-running applications where
+_is_connection_valid is called frequently to validate connections.
+
+Addresses: https://github.com/514-labs/registry/pull/177#discussion_r2737766521
+
+* Remove unused patch decorators from retry tests
+
+Tests test_insert_with_retry_success_on_first_attempt and
+test_insert_with_retry_retries_on_failure had @patch decorators that
+injected mock_cdc_module parameters which were never used.
+
+These tests directly create their own mock_table and pass it to
+_insert_with_retry, making the module-level patches unnecessary.
+
+Removed:
+- @patch(""app.ingest.cdc"") decorators
+- mock_cdc_module parameters from method signatures
+
+This reduces test clutter and prevents confusion about which mocks
+are actually relevant to these specific tests.
+
+Addresses: https://github.com/514-labs/registry/pull/177#discussion_r2737766514
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,e14f19e01f180b9bd0cff2529422cea1ac4eb149,2026-01-28T17:46:45+00:00,AI,Claude_Code,16,16,5,False,False,False,False,"Update SAP HANA CDC documentation to use current command flags (#179)
+
+Replace deprecated command-line flags with current recommended flags across all documentation:
+- Replace --init-cdc with --init-all for full initialization (models + triggers)
+- Replace --recreate-moose-models with --generate-models for model generation
+- Keep --recreate-cdc-tables unchanged for reset/recreate scenarios
+
+This ensures documentation aligns with the clearer command names introduced in the init_cdc.py script.
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,fc3d50f5e64b11d30080f48daecfe3838352dbf0,2026-01-28T15:58:29+00:00,AI,Claude_Code,22,3,1,False,False,False,False,"Add Python support to connectors workflow (#176)
+
+Extends the GitHub Actions workflow to discover and test Python implementations in addition to TypeScript. This enables automated testing for the SAP HANA CDC connector tests.
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,1356f1049370fee40c34a8e6d07a860ea0bc0b9c,2026-01-28T15:50:07+00:00,AI,Claude_Code,156,4,6,False,True,False,False,"Add pipeline lineage schemas and timestamp decimal validator (#175)
+
+- Add lineage/schemas structure for pipeline documentation
+- Add schemas/index.json for proper registry rendering
+- Add SapTimestampDecimal validator for SAP timestamp fields
+- Add .gitignore to exclude build artifacts (.moose, __pycache__, venv)
+- Clean up repository by removing tracked build artifacts
+
+This fixes the blank documentation page rendering issue and adds
+proper validation for SAP HANA timestamp fields stored as DECIMAL.
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,5c767a7fa4af134253e230d90b8120868360d44f,2026-01-28T15:43:24+00:00,AI,Claude_Code,2413,0,11,False,True,False,False,"Add comprehensive test suite for SAP HANA CDC connector (#174)
+
+* Add comprehensive test suite for SAP HANA CDC connector
+
+Created a complete test suite with 122 tests covering all modules:
+- test_config.py: 12 tests for configuration management
+- test_models.py: 24 tests for data models and enums
+- test_infrastructure.py: 29 tests for CDC infrastructure
+- test_reader.py: 32 tests for data reader operations
+- test_connector.py: 25 tests for high-level connector API
+
+Test coverage: 94% overall
+- All modules have 87%+ coverage
+- Comprehensive failure scenario testing
+- Mock-based tests requiring no SAP HANA instance
+
+Added pytest configuration and test documentation.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix inconsistent test assertion in UPDATE edge case test
+
+Changed `assert diff is None or diff == []` to `assert diff == []` in
+test_diff_values_update_with_missing_values to be consistent with
+the INSERT and DELETE edge case tests.
+
+The diff_values() method always returns a list (empty or populated),
+never None, so the assertion should only check for an empty list.
+
+This makes the test behavior consistent and removes potential ambiguity
+about expected return values.
+
+Addresses: https://github.com/514-labs/registry/pull/174#discussion_r2737178381
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,aec028cc8738385e0eff4605196b3fbbd2839f66,2026-01-27T22:16:16+00:00,AI,Claude_Code,43,14,1,False,False,False,False,"Add clearer command names to SAP HANA CDC init script (#173)
+
+Introduced more intuitive flags to improve user experience:
+- --init-all: Run both model generation and trigger creation
+- --generate-models: Generate Moose models (replaces --recreate-moose-models)
+- --create-database-triggers: Create CDC infrastructure (replaces --init-cdc)
+
+Old flags are deprecated but still work with warnings for backwards compatibility. Enhanced logging with status indicators and clearer error messages.
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,8876170ecb34f05f880fa7a42a59be319950544c,2026-01-27T17:09:14+00:00,AI,Claude_Code,655,16,13,False,True,False,False,"Fix SAP HANA CDC connector documentation and schema files (#170)
+
+* Fix SAP HANA CDC connector documentation and schema files
+
+- Update installation instructions to use registry install script
+- Add missing extracted schema files (json and relational)
+- Create assets directory with README for connector logo
+- Fix broken schema references in index.json
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* bug fix
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,3992f1db216d83ad191e93bfe337b65176e7209c,2026-01-22T17:06:07+00:00,AI,Claude_Code,444,2,4,False,True,False,False,"Add comprehensive documentation for SAP HANA CDC pipeline (#169)
+
+* Add comprehensive documentation for SAP HANA CDC pipeline
+
+Add missing version-level documentation and enhance provider-level docs to fix ""No docs found for this implementation"" message.
+
+Changes:
+- Create v1/_meta/version.json with release metadata
+- Create v1/_meta/README.md with comprehensive installation and usage guide
+- Enhance v1/514-labs/_meta/README.md with quick start and overview
+
+Documentation now includes:
+- Detailed installation steps
+- Environment variable configuration reference
+- Usage instructions for CDC workflows
+- Troubleshooting guide
+- Manual operation commands
+- Support resources
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Add getting-started.md documentation for pipeline visibility
+
+The documentation wasn't visible because it was in the wrong location.
+Pipeline documentation must be in docs/getting-started.md within the
+implementation directory to be displayed on the registry website.
+
+This file includes:
+- Installation instructions with installer command
+- Environment configuration
+- CDC initialization steps
+- Running and monitoring the pipeline
+- Manual operations
+- Workflow descriptions
+- Troubleshooting guide
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,5ec70957a8044bdf8dc870160a85cdaf42746954,2026-01-22T16:47:21+00:00,AI,Claude_Code,48,0,4,False,True,False,False,"Fix SAP HANA CDC connector metadata structure (#168)
+
+Add missing metadata files at all required hierarchy levels to fix the validate-structure build failure. The validation script expects metadata files at four levels: root, version, provider/author, and language.
+
+Changes:
+- Add root level _meta/connector.json with connector identification
+- Add version level _meta/version.json with v1 release info
+- Add provider level _meta/connector.json with capabilities and source info
+- Add language level _meta/connector.json with implementation list
+
+Fixes the GitHub Actions build failure: https://github.com/514-labs/registry/actions/runs/21183374808/job/60931237727
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,f40fa44e67d80352c2ee28e7173aca20dfa2a30a,2026-01-20T18:46:12+00:00,AI,Claude_Code,181,26,5,False,False,False,False,"Add support for SAP HANA views in CDC pipeline (#166)
+
+Views are now detected and distinguished from tables during introspection.
+View structure is replicated to ClickHouse and data is loaded during initial
+snapshot. CDC triggers are skipped for views since they don't support them,
+while tables continue with normal CDC operation.
+
+Changes:
+- Add object_type field to TableMetadata to distinguish tables from views
+- Add view detection methods in introspection module
+- Filter out views when creating CDC triggers
+- Add logging to indicate when processing views vs tables
+- Update init_cdc.py to include views in introspection
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,39b26adccd640b134937b78017f58b547724154a,2026-01-20T18:10:06+00:00,AI,Copilot,19111,1,75,False,True,False,False,"code to initialize the sap and clichouse with cdc (#115)
+
+* code to initialize the sap and clichouse with cdc
+
+* wip
+
+* copied _meta dir
+
+* updated documentation, removed code for tests
+
+* updated requirements, removed local ref
+
+* added pruning feature
+
+* fixed pr issues
+
+* Update connector-registry/sap-hana-cdc/v1/514-labs/python/default/src/sap_hana_cdc/infrastructure.py
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* removed config
+
+* feat: Add SAP HANA CDC to ClickHouse pipeline with comprehensive data type support
+
+Major Features:
+- SAP HANA CDC connector with real-time change data capture
+- ClickHouse integration with optimized data pipeline
+- Comprehensive SAP HANA data type validation and conversion
+- Memory buffer handling (BLOB, CLOB, VARBINARY) with base64 encoding
+- Decimal precision limiting for ClickHouse compatibility
+- Order-by field protection to maintain data integrity
+- Force nullable fields option for flexible model generation
+
+Key Components:
+- SAP HANA validators for all data types (datetime, numeric, binary, etc.)
+- Data converter with ClickHouse compatibility
+- Moose model generator with SAP HANA support
+- CDC workflow with initial load and change synchronization
+- Comprehensive error handling and logging
+
+Fixes:
+- Memory buffer validation errors
+- Decimal precision overflow errors
+- Primary key field protection
+- Order-by field nullability issues
+
+Technical Details:
+- Custom Pydantic validators for SAP HANA types
+- Automatic data conversion before Pydantic validation
+- Smart decimal rounding to fit ClickHouse limits
+- Base64 encoding for binary data types
+- Comprehensive test coverage and examples
+
+* Added ability to run the api from the command line for easier testing
+
+* fix cdc status api
+
+* Not using the generator for fetching all the table rows to let the client pass the correct offset when fetching from the db
+
+* Passing correct offset when fetching datbaase rows
+
+* bug fix, wrong schema name used for running update query
+
+* Added ability to reset table status only
+
+* ../../../../../../connector-registry/sap-hana-cdc/v1/514-labs/python/default/src/sap_hana_cdc/
+
+* Bug fix in pruning. Added ability to run the workflow from the cli
+
+* Refactor dependencies and fix SQL query bug
+
+- Remove incomplete SQL condition in reader.py
+- Extract moose_lib_extras dependencies to local app/utils
+- Add SAP HANA validators, models, and introspection utilities
+- Add CLI usage documentation for CDC status
+- Make ADDRESSCREATEDONDATETIME field optional
+- Add uv.lock dependency file
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix type issues identified in PR review
+
+- Fix return type hint for _setup_table_cdc (bool instead of None)
+- Fix type mismatch in basic_usage.py example (pass BatchChange instead of ChangeEvent)
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix remaining PR review issues
+
+- Add safety check for diff_values UPDATE operation (check old_values and new_values exist)
+- Fix BatchChange.add_change to use append instead of extend for single ChangeEvent
+- Remove inconsistent return True from sync_changes_task (function signature is -> None)
+- Fix argument name mismatch: table_from_file -> tables_from_file in validation
+- Add int conversion for port environment variable in config.from_env
+- Fix get_max_event_id to convert string event_id to int before comparison
+
+Note: Error handling for getattr in changes_inserter.py was added but not committed
+as the file is in an ignored lib/ directory.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Remove debug print statement from get_changes method
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix return type annotation for diff_values method
+
+Changed from Dict[str, Any] to List[Dict[str, Any]] to match actual return value.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix primary key for CDC_CLIENT_STATUS_TABLE
+
+Remove LAST_PROCESSED_CHANGE_ID from primary key as it's a mutable field
+that changes frequently. Primary key is now (CLIENT_ID, SCHEMA_NAME, TABLE_NAME).
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix CDC query to include newly initialized tables
+
+Changed condition from requiring LAST_PROCESSED_CHANGE_ID > 0 to allow
+LAST_PROCESSED_CHANGE_ID = 0, so newly initialized tables with no processed
+changes are included in the query.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Add connection.commit() after all DML operations
+
+Added explicit commits after INSERT, UPDATE, and DELETE operations in:
+- reader.py: update_client_status()
+- infrastructure.py: initialize_client_status_table(), setup_table_triggers(),
+  set_table_status_active(), reset_cdc_status()
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix trigger REFERENCING clause for INSERT/DELETE operations
+
+Make REFERENCING clause conditional based on trigger type:
+- INSERT: REFERENCING NEW ROW AS new_row
+- DELETE: REFERENCING OLD ROW AS old_row
+- UPDATE: REFERENCING OLD ROW AS old_row, NEW ROW AS new_row
+
+This prevents errors when creating triggers, as INSERT has no OLD ROW
+and DELETE has no NEW ROW.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+* Fix _setup_table_cdc return value to track any trigger creation
+
+Changed from overwriting trigger_created in each loop iteration to
+accumulating whether any trigger was created. This ensures the method
+correctly reports if at least one trigger was successfully created.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/514-labs/registry,98b877032ecc9059745c7c115124e65d966db1cd,2025-12-08T21:13:36+00:00,Human,,524,155,3,False,False,False,False,Merge remote-tracking branch 'origin/main'
+https://www.github.com/514-labs/registry,354c56f46ca5bd239d445fa40ae4c9e1adfc2042,2025-12-08T21:13:22+00:00,Human,,6,108,2,False,True,False,False,potential fix for the compilation issue with migration to nextjs 16
+https://www.github.com/514-labs/registry,1f790e2d3e90b7dd3d9d8c4fa214e84d656bc492,2025-12-07T19:48:39+00:00,Human,,524,155,3,False,False,False,False,updated appropriate version to make sure we're good against the new vuln (#161)
+https://www.github.com/514-labs/registry,093f984fdb56efd21832b8137eb985e4f87e6be4,2025-11-24T21:02:46+00:00,Human,,28,8,1,False,True,False,False,"Fix pipelines not appearing on Vercel by reading from pre-generated JSON (#159)
+
+* Fix pipelines not appearing on Vercel by reading from pre-generated JSON
+
+* bump"
+https://www.github.com/514-labs/registry,14919b3972b57298388541609a4ff23e95d581a9,2025-11-21T20:06:11+00:00,Human,,230,12,6,False,False,False,False,add fields
+https://www.github.com/514-labs/registry,636a000d7f2704d636e208724062d5d6ce1ad785,2025-11-21T19:42:27+00:00,Human,,155,44,7,False,False,False,False,update postinstall
+https://www.github.com/514-labs/registry,aae5c8345dc168a4fd44b572c4071085aa94a5ec,2025-11-21T18:50:21+00:00,AI,Copilot,6671,4511,61,False,True,False,False,"Add Apex Trading connector with v1/v2 API support (#156)
+
+* Initial plan
+
+* Scaffold Apex connector with authentication, pagination, and core resources
+
+Co-authored-by: georgevanderson <4805522+georgevanderson@users.noreply.github.com>
+
+* Add comprehensive documentation and metadata for Apex connector
+
+Co-authored-by: georgevanderson <4805522+georgevanderson@users.noreply.github.com>
+
+* Fix .env.example base URL comment
+
+Co-authored-by: georgevanderson <4805522+georgevanderson@users.noreply.github.com>
+
+* add
+
+* add shipping orders
+
+* fix connector
+
+* add reg docs
+
+---------
+
+Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+Co-authored-by: georgevanderson <4805522+georgevanderson@users.noreply.github.com>
+Co-authored-by: George Anderson <george.anderson@fiveonefour.com>"
+https://www.github.com/514-labs/registry,26ffcc953a195ee9a911a5be068f8bef9c9b9be2,2025-11-14T23:11:20+00:00,Human,,84,1,1,False,False,False,False,"Auto adds copilot agent when using request connector form (#152)
+
+* auto add agent
+
+* add
+
+* add
+
+* cursor comments"
+https://www.github.com/514-labs/registry,d8f827491e74c4fd4480a77cd2e658eec6208c8e,2025-11-05T20:43:59+00:00,Human,,3,3,2,False,False,False,False,update hubspot pipelien
+https://www.github.com/514-labs/registry,75de330d0a4c261112b15ef424313aeea3844715,2025-11-05T00:11:20+00:00,Human,,1,1,1,False,False,False,False,Update connector-implementer.md
+https://www.github.com/514-labs/registry,48610b705ecfc3401e46782348b75ac204953d1a,2025-11-04T23:03:03+00:00,Human,,583,9,4,False,False,False,False,"Scaffold testing gh pilot (#125)
+
+* other branch
+
+* add gh agent"
+https://www.github.com/514-labs/registry,47a50daf491823921d09816697a7e7a1d00e3460,2025-10-28T04:18:18+00:00,Human,,272,14,6,False,False,False,False,anonymize dutchie pipeline (#123)
+https://www.github.com/514-labs/registry,2187d1bd8e9a8a7d7e188849a42608326bca0d5e,2025-10-27T20:27:46+00:00,Human,,72,136,7,False,False,False,False,bump moose for dutchie pipeline (#122)
+https://www.github.com/514-labs/registry,0bb3b134b8ee5edbbc5b482024eb93b65b996bdc,2025-10-23T22:01:29+00:00,Human,,5003,585,89,False,False,False,False,"GA connector (#121)
+
+* connector subagent
+
+* add ga4
+
+* add registry
+
+* add google analytics
+
+* up
+
+* update
+
+* rename for consistency
+
+* add getting started
+
+* change to build time
+
+* change to static
+
+* did this work"
+https://www.github.com/514-labs/registry,a3d9f6bf95a2f8d450739915859a0d6dbd1b5d7a,2025-10-21T18:09:19+00:00,Human,,596,133,5,False,False,False,False,"Expose API  (#120)
+
+* expose api info
+
+* types
+
+* tweak
+
+* force-static
+
+* cache instead"
+https://www.github.com/514-labs/registry,600954d544315a1ee9be7c49fd813a1cb96044c3,2025-10-09T23:35:18+00:00,Human,,817,423,23,False,False,False,False,"Add Meta Ads connector updates (#116)
+
+- Update client and domain implementations
+- Add universal-performance-dashboard example
+- Update basic-usage and streaming-example examples"
+https://www.github.com/514-labs/registry,758f8704713accb6dff0b4ad143db80984278d9b,2025-10-08T17:07:09+00:00,Human,,214,1,5,False,False,False,False,add dutchie lineage
+https://www.github.com/514-labs/registry,d8ba0feb3ee3e44adc83e5ac4138091445a8d6d6,2025-10-06T16:52:59+00:00,Human,,6309,3645,27,False,False,False,False,quality check cmd v0 (#112)
+https://www.github.com/514-labs/registry,a9f8abfa30b9b3ae856293c25aedcc1bd354cdef,2025-10-03T21:58:10+00:00,Human,,3,3,1,False,False,False,False,docs
+https://www.github.com/514-labs/registry,a4e43ee72f58cf1a014db799ef7870fac002f52f,2025-10-03T21:08:50+00:00,Human,,9,4,1,False,False,False,False,docs
+https://www.github.com/514-labs/registry,0c03005558b3d28817d968b08982750cb8f66f02,2025-10-03T19:24:49+00:00,Human,,2,2,2,False,False,False,False,docs
+https://www.github.com/514-labs/registry,d53189392375495f3212204ae53289ad4b5d0d3e,2025-10-03T19:17:46+00:00,Human,,4,4,3,False,False,False,False,docs
+https://www.github.com/514-labs/registry,dc78145b2fbc14690727c724c31650c24b4650c4,2025-10-03T19:14:38+00:00,Human,,46,241,1,False,False,False,False,lock file
+https://www.github.com/514-labs/registry,52d1a420866f29ebd3227aa342d41bca2fd77b83,2025-10-03T19:12:32+00:00,Human,,2,2,1,False,False,False,False,moose version for dutchie pipeline
+https://www.github.com/514-labs/registry,fba0ccea5acfc3ffbd7f8f23fcbdaa7b295d7380,2025-10-03T19:03:48+00:00,Human,,3,3,3,False,True,False,False,fix docs
+https://www.github.com/514-labs/registry,380cea50cfd7c2d6836f08fa039f46748cf8b533,2025-10-03T18:57:00+00:00,Human,,21594,0,82,False,False,False,False,Dutchie pipeline (#110)
+https://www.github.com/514-labs/registry,732be826ec10e237143fc85beb67965eb4b7f258,2025-10-02T00:05:53+00:00,Human,,499,104,15,False,True,False,False,"UI polish updates v2 (#109)
+
+* Mobile responsive improvements
+
+- Pulled latest from main
+- Mobile responsive fixes to avoid poor layouts
+- Single column layouts for all pages
+- Mobile Top navigation added
+- Filter menu panel added
+
+* Fix TypeScript errors in PipelineFilterBar props
+
+* Remove legacy connectors-docs and pipelines-docs folders
+
+* UI polish updates
+
+- Addresses JW's comments
+- Mobile react flow sizing
+- Mobile wrapper padding
+- Tabs list border radius fix
+- Small tweaks"
+https://www.github.com/514-labs/registry,2fb254d6a7ed0c3cd114fe82edd6d4d88cd1daba,2025-10-01T17:21:16+00:00,Human,,96,19,3,False,False,False,False,make flatten transform hook generic (#107)
+https://www.github.com/514-labs/registry,e7f7c91da116bacc59b82966a8dc0ee93438bb80,2025-10-01T00:06:21+00:00,Human,,25,23,9,False,True,False,False,"UI polish updates (#105)
+
+* Sticky navigation and discover page improvements
+
+• Made all left navigation sidebars sticky positioned with proper spacing
+• Updated discover page filter sidebars to remain fixed during scroll
+• Standardized pipeline sidebar logo sizes to match connector styling
+
+* Add sticky nav bar
+
+• Made all sidebar navigation elements sticky positioned
+• Fixed card spacing consistency between connector and pipeline grids"
+https://www.github.com/514-labs/registry,fe8deebebf07d43f670a9e8ba9dc28a79eacee79,2025-09-30T17:52:09+00:00,Human,,880,55,34,False,False,False,False,flatten data model (#106)
+https://www.github.com/514-labs/registry,b9a750709159b7d984669c81948bfbfebae4d89e,2025-09-29T20:20:45+00:00,Human,,89,65,3,False,False,False,False,"Card styling updates (#104)
+
+• Reduced badge display to maximum 2 badges with +count indicator for overflow
+• Standardized card icon sizes to 40x40px (10x10 classes)
+• Increased creator avatar sizes to 32x32px (8x8 classes)
+• Maintained 2-column grid layout for pipeline discovery"
+https://www.github.com/514-labs/registry,61cdc13a53d2e4b6d28df96db1db1c52cd6921ee,2025-09-29T14:55:24+00:00,Human,,245,239,5,False,False,False,False,Update api connector spec & scaffold (#103)
+https://www.github.com/514-labs/registry,8d94327f4d3783a09221758d841144eca09ee5ce,2025-09-26T17:48:33+00:00,Human,,1231,558,46,False,True,False,False,Dutchie fixes (#102)
+https://www.github.com/514-labs/registry,5ff796dd9da5d2ce9cc69ef7b67345fb32b8a8ab,2025-09-23T21:45:01+00:00,Human,,1,6,1,False,False,False,False,test bundle (#101)
+https://www.github.com/514-labs/registry,94fef71e36469dde5cb551a0924b357eb4cd150e,2025-09-23T18:45:49+00:00,Human,,1,1,1,False,True,False,False,Fix install script (#98)
+https://www.github.com/514-labs/registry,a605e5eacdf7a6dcd2f86a0dbe8c849cc93f44f5,2025-09-23T06:23:45+00:00,Human,,1407,706,46,False,True,False,False,"Tim/eng 792 update hero and tab bar (#95)
+
+* fix pipeline home page view
+
+* improved layouts and stuff
+
+* absolute trash implementation of the sidebar pattern
+
+* iteration on hero
+
+* fixed requested connectors not showing up
+
+* fixed old factory references
+
+* discover
+
+* fix build
+
+* fix install location
+
+---------
+
+Co-authored-by: George Anderson <george.anderson@fiveonefour.com>"
+https://www.github.com/514-labs/registry,7c432e34f002796f329e994d97a02e4b3cc98fdf,2025-09-22T23:17:19+00:00,Human,,19677,16883,40,False,False,False,False,use hey-api to generate from openapi (#91)
+https://www.github.com/514-labs/registry,ec1ef0cdc0b4e2203a47dcae028e59ccef5ae3b9,2025-09-22T19:57:36+00:00,Human,,0,0,0,False,False,False,False,renamed top level package (#78)
+https://www.github.com/514-labs/registry,4b685fb4a6e88a8666d49b88a3689ab836fc2b95,2025-09-22T19:44:20+00:00,Human,,302,337,80,False,True,False,False,"Fix VercelIgnore (#90)
+
+* update
+
+* update ignore
+
+* add in schema directory
+
+* different vrrcel ignore
+
+* better
+
+* more ignore
+
+* change next config
+
+* fix vercel
+
+* vercelignore
+
+* more try
+
+* more update
+
+* split out discover
+
+* shrink
+
+* fix icon"
+https://www.github.com/514-labs/registry,fea15eede7478da8218fd4639aa0a8dc32536b64,2025-09-22T16:51:43+00:00,Human,,3274,5,80,False,True,False,False,"Generated Meta-Ads connect from factory (#85)
+
+* add meta-ads connector
+
+* meta-ads pipeline
+
+* pipeline test
+
+* add docks
+
+* add connect json
+
+* delete
+
+* change version
+
+* postinstall
+
+* fix doc
+
+* remove pipeline for the connector PR
+
+* add schemas
+
+* vercle ignore"
+https://www.github.com/514-labs/registry,d32b0f5e8e52f2e61c5dcd364f1ffe3b08e01ffa,2025-09-20T13:55:16+00:00,Human,,14754,0,1,False,False,False,False,"revert openapi json removal, still used in code for now"
+https://www.github.com/514-labs/registry,6365e94fea79d0ed2ef6b240ee235ff9ff147d25,2025-09-19T23:38:53+00:00,Human,,168,14788,9,False,True,False,False,"Fix Dutchie schema format + favicon (#88)
+
+* fix schema format
+* Remove OpenAPI file from schema files directory
+Removing because it wasn't rendering properly on the frontend
+
+* Add Dutchie connector logo
+- Add 48x48 PNG logo for Dutchie connector
+- Logo will display in connector cards on the registry"
+https://www.github.com/514-labs/registry,5c0160ff8cf5a5f308cb6ab29943fb3e9a20d932,2025-09-19T22:04:19+00:00,Human,,1,1,1,False,False,False,False,doc updates
+https://www.github.com/514-labs/registry,809d14cdaf32b98592ab60388522a6cdad54fd27,2025-09-19T21:45:36+00:00,Human,,9,3,1,False,False,False,False,doc updates
+https://www.github.com/514-labs/registry,a76eeeede2938a800ce6b38a2938a4d2337b4a1f,2025-09-19T21:11:58+00:00,Human,,2,5,1,False,False,False,False,doc updates
+https://www.github.com/514-labs/registry,01ad68109a6334eea01bf0cf85f79f7e01bc2e62,2025-09-19T21:05:46+00:00,Human,,2,3,1,False,False,False,False,doc updates
+https://www.github.com/514-labs/registry,c9664688c0561f9e69d1ec197d0e7a40f8541f93,2025-09-19T20:52:14+00:00,Human,,47,0,1,False,False,False,False,doc updates
+https://www.github.com/514-labs/registry,4911a750bfd014651ff6842faf63bd6b8e0b4676,2025-09-19T20:48:08+00:00,Human,,2,3,1,False,False,False,False,Update README.md
+https://www.github.com/514-labs/registry,e1d3947347340376205d4ff252e4e5b9d34bc7cb,2025-09-19T20:46:40+00:00,Human,,1,1,1,False,False,False,False,doc updates
+https://www.github.com/514-labs/registry,eb1bc3eeb68cfb99eb0422dda9a35236c6d5614c,2025-09-19T20:10:39+00:00,Human,,215,28,5,False,False,False,False,Connector postinstall (#87)
+https://www.github.com/514-labs/registry,5b7850d974657de38061b03a93a68a90d338d7a3,2025-09-19T19:47:46+00:00,AI,Claude_Code,141,1,8,False,True,False,False,"Add post-install instructions (Closes PM-419) (#86)
+
+* Add post-install instructions feature to
+  improve user onboarding
+
+  This feature provides clear, context-specific next steps
+  after installing
+  connectors/pipelines, solving the issue where users were
+  left without
+  guidance after installation.
+
+  ## Developer Experience
+  - Add install.config.toml files with post_install_print
+  sections
+  - Use placeholders like {destination_dir}, {connector},
+  {pipeline} for dynamic content
+  - Different templates: connectors focus on docs, pipelines
+  show full setup workflow
+  - Added to scaffolds so new resources automatically include
+   post-install guidance
+
+  ## User Experience
+  - Install script displays formatted instructions after
+  successful installation
+  - Clear visual separation with
+  ================================================== borders
+  - Context-aware: pipelines show 'cd → set env → npm install
+   → npm run dev'
+  - Connectors show 'cd → read README/docs/examples'
+  - Fallback to generic guidance when no custom config exists
+
+  ## Implementation
+  - Enhanced install.sh with parse_toml_value() using awk for
+   multi-line strings
+  - Added install.config.toml to all scaffolds
+  (TypeScript/Python, connector/pipeline)
+  - Created configs for existing resources (HubSpot
+  connector, GA→ClickHouse pipeline)
+  - Placeholder replacement system for personalized
+  instructions
+
+* fix: resolve security vulnerabilities and compatibility issues in install script
+
+- Fix command injection vulnerability by properly escaping variables in sed commands
+- Add separate pipeline_name variable for clarity between connector and pipeline placeholders
+- Remove GNU sed extensions (\b\w/\U&) for macOS compatibility
+- Fix Python package naming to use snake_case instead of incorrect @workspace prefix
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+
+* fix: resolve sed delimiter issue and improve post-install formatting
+
+- Change sed delimiter from / to | to handle forward slashes in package names
+- Improve spacing around separator lines in post-install output
+- Fix issue where @workspace/package-name was breaking sed commands
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+
+* address sed comment
+
+---------
+
+Co-authored-by: Claude <noreply@anthropic.com>
+Co-authored-by: George Anderson <george.anderson@fiveonefour.com>"
+https://www.github.com/514-labs/registry,53aae0df1c78cbbe3ce5f3980423715fe000c4f0,2025-09-19T16:33:00+00:00,Human,,33414,103,84,False,False,False,False,Dutchie connector (#83)
+https://www.github.com/514-labs/registry,b438fc84ad4a3a469ce78abda22d45f2d6558c66,2025-09-18T23:36:08+00:00,Human,,1,9,1,False,False,False,False,Update pull_request_template.md
+https://www.github.com/514-labs/registry,610d63bc351a6cdf89d6fe46adb2f8fa5e8fc200,2025-09-18T22:44:26+00:00,Human,,2,2,1,True,True,False,False,"fix: update install script to use new repository name 'registry' (#81) (Closes PM-417)
+
+Updates REPO_NAME from 'factory' to 'registry' to match the renamed GitHub repository at 514-labs/registry"
+https://www.github.com/514-labs/registry,ba2e8aa4e04004eb2a35780228d3974dcaf520b4,2025-09-18T22:44:02+00:00,Human,,99,43,5,False,False,False,False,"Readme updates (Closes PM-413) (#79)
+
+* moved testing checklist from Readme to PR template
+* amend readme, add license
+* update readme
+* name standardization"
+https://www.github.com/514-labs/registry,aa30d8572f420e17cea91ecbd1cc95654b2d4c53,2025-09-18T22:43:41+00:00,Human,,8,4,1,False,True,False,False,fix filtering on list function (closes PM-415) (#82)
+https://www.github.com/514-labs/registry,a0638d8ebceca5b4112dbded93177d58fcd35934,2025-09-18T17:02:45+00:00,Human,,136,436,14,False,True,False,False,"Url fix (closes ENG-790, ENG-789) (#75)
+
+Fix URL standardization and enhance install script for unified registry (#75)
+
+This PR consolidates the connector and pipeline installation workflow to use a unified installer script and registry URL, replacing separate scripts with a single interface that supports both resource types via a `--type` flag.
+
+## Changes
+
+### Install Script Enhancements
+- Added `--type` flag to support both connectors and pipelines (default: connector)
+- Consolidated registry URLs to use unified `https://registry.514.ai/registry.json`
+- Fixed validation for empty --type arguments (GitHub Copilot feedback)
+- Fixed hardcoded 'connector-registry' URLs to use dynamic `${RESOURCE_TYPE}-registry`
+- Improved REGISTRY_JSON_URL initialization to preserve user overrides
+
+### Documentation Updates
+- Standardized all installation commands to use `https://registry.514.ai/install.sh`
+- Updated all documentation files to include the `--type` flag
+- Added missing 'implementation' parameter to installation commands
+- Fixed README to accurately list all required arguments
+- Updated examples for both connectors and pipelines
+
+### Component Updates
+- Modified TypeScript components to generate correct installation commands
+- Added implementation parameter to dynamic command generation
+
+## Fixes
+- Resolves ENG-790: Generated curl commands pointing to wrong URLs
+- Resolves ENG-789: Pipeline curl commands not working"
+https://www.github.com/514-labs/registry,70da85de9d351fc6b85eb947a36fdf0433b7addf,2025-09-17T23:32:40+00:00,Human,,1,1,1,False,False,False,False,renamed top level package (#76)
+https://www.github.com/514-labs/registry,d354ba2680ceb561956690dbd4f258838a0fbc96,2025-09-10T20:48:01+00:00,Human,,3,3,3,False,False,False,False,Updated documentation on installing hubspot (#58)
+https://www.github.com/514-labs/registry,b41eb827ab341bca52e9f2233897dc79c5f78e90,2025-09-08T03:02:34+00:00,Human,,145,0,3,False,False,False,False,added spec route (#74)
+https://www.github.com/514-labs/registry,f66568ec99cbad29bda68c698271c5012af2e4fe,2025-09-07T22:18:18+00:00,Human,,1114,13,19,False,False,False,False,"added routes (#73)
+
+* added routes
+
+* updated routes and scripts"
+https://www.github.com/514-labs/registry,24721f8a68d7aa00ce484ad289a6a37610fc009d,2025-09-07T17:44:05+00:00,Human,,2369,7387,768,False,False,False,False,"Refactor docs (#72)
+
+* new registry docs app
+
+* removing old apps"
+https://www.github.com/514-labs/registry,2f174a5a1df4c36747c0d4ce125dd7256f0aab9d,2025-09-05T02:18:18+00:00,AI,Cursor,312,53,16,False,False,False,False,"Generate types and validate data from schemas (#68)
+
+* Add schema validation, type generation, and improved HubSpot connector config
+
+Co-authored-by: tim <tim@fiveonefour.com>
+
+* Update .gitignore to include additional generated files and update pnpm-lock.yaml with new dependencies and versions for schema-tools and related packages.
+
+* Enhance error handling in factory CLI to include additional Commander.js error codes for help display. This improves user experience by ensuring graceful exits for help requests.
+
+* Update dependencies in pnpm-lock.yaml and package.json for ajv and ajv-formats. Refactor HubSpotApiConnector initialization logic to improve validation hook handling and clean up code structure.
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+Co-authored-by: cjus <carlos.justiniano@gmail.com>"
+https://www.github.com/514-labs/registry,069fd68b1470196b40c0a76a2c969d932a9ced9b,2025-09-05T01:08:52+00:00,AI,Cursor,923,521,36,False,False,False,False,"Refactor common connector logic into shared library (#67)
+
+* Refactor HubSpot connector to use new @connector-factory/core base class
+
+Co-authored-by: tim <tim@fiveonefour.com>
+
+* Enhance HubSpot API connector with rate limit options and core package updates
+
+- Added rate limit handling to the HubSpotApiConnector by introducing RateLimitOptions in the ApiConnectorBase.
+- Updated the TokenBucketLimiter to improve token management and response handling.
+- Integrated new dependencies in pnpm-lock.yaml and package.json for core and data-api packages.
+- Refactored imports and initialization logic to accommodate new rate limit features and ensure proper error handling.
+
+* Update dependencies and enhance Jest configuration for TypeScript project
+
+- Updated `@types/jest` to version 29.5.14 and `ts-jest` to version 29.1.2 in package.json and pnpm-lock.yaml.
+- Refactored Jest configuration to simplify transform settings and ensure compatibility with TypeScript.
+- Improved token management in `TokenBucketLimiter` to handle cooldown resets more effectively.
+- Cleaned up test files by adding necessary ESLint directives and ensuring proper structure for Jest testing.
+
+* Enhance HubSpot API connector with adaptive rate limiting features
+
+- Introduced `TokenBucketLimiter` to manage rate limiting based on user configuration.
+- Updated `HubSpotApiConnector` to utilize the new limiter, allowing for adaptive rate limit handling.
+- Implemented logic to suspend token refilling during rate limit conditions, improving overall rate limit management.
+- Refactored initialization logic to accommodate the new rate limiting strategy.
+
+* Refactor TokenBucketLimiter to improve token restoration logic
+
+- Updated the token restoration logic in the TokenBucketLimiter to fully restore capacity when the rate limit window has expired, enhancing clarity in cooldown management.
+- Adjusted comments for better understanding of the cooldown and token management process.
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+Co-authored-by: cjus <carlos.justiniano@gmail.com>"
+https://www.github.com/514-labs/registry,407e34184a84a8340334e577b5199464fea3f3fc,2025-09-04T20:32:55+00:00,AI,Cursor,528,0,11,False,True,False,False,"Run local connector tests (#66)
+
+* Add Factory CLI for local connector testing and debugging
+
+Co-authored-by: tim <tim@fiveonefour.com>
+
+* Fix implementation validation in factory CLI to ensure proper format for --implementation option
+
+* Enhance error handling in factory CLI by wrapping implementation logic in try-catch blocks. Improved error messages for invalid options and added error handling for asynchronous command parsing.
+
+* Add environment variable parsing for numeric values in config
+
+- Introduced a new function `parseEnvNumber` to handle parsing and validation of environment variables as numbers, improving error handling for invalid inputs.
+- Updated the configuration loading logic to utilize this new function for `TIMEOUT_MS` and `REQUESTS_PER_SECOND`, enhancing clarity and robustness in configuration management.
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+Co-authored-by: cjus <carlos.justiniano@gmail.com>"
+https://www.github.com/514-labs/registry,e3a8d55a461eeeab664649cedca9b222648989f6,2025-09-04T20:28:52+00:00,Human,,8,1,1,False,False,False,False,updated common spec
+https://www.github.com/514-labs/registry,57a02b5a28b55500f61467d8e396bbf2e1692aff,2025-09-04T18:44:36+00:00,AI,Cursor,412,3,10,False,False,False,False,"Adapt rate limiting using API feedback (#65)
+
+* Implement adaptive rate limiting for HubSpot API connector
+
+Co-authored-by: tim <tim@fiveonefour.com>
+
+* Enhance TokenBucketLimiter with robust timestamp handling for reset delays. Introduced a new method to accurately calculate delays based on epoch and relative timestamps, ensuring proper cooldown management. Added comprehensive unit tests to validate behavior for various timestamp scenarios, including edge cases and invalid values.
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+Co-authored-by: cjus <carlos.justiniano@gmail.com>"
+https://www.github.com/514-labs/registry,078287ec6074f603b9e70128be41fbb783b6a2da,2025-09-04T18:29:05+00:00,Human,,72,15,3,False,False,False,False,"Update package name to @514labs/registry and version to 0.1.1.  (#70)
+
+* Update package name to @514labs/registry and version to 0.1.1. Enhance README with installation instructions and usage examples, including npx support. Improve error handling in CLI to display help after errors.
+
+* Enhance error handling in factory-cli by implementing exitOverride for Commander.js. This allows for graceful handling of specific errors, including help and version displays, while ensuring appropriate exit codes for parsing errors. Improved logging for unexpected errors to aid in debugging."
+https://www.github.com/514-labs/registry,42a06115f9f1733f62e2ff85d16a14e005317a9c,2025-09-04T16:30:28+00:00,Human,,13,6,2,False,False,False,False,Rename factory-cli to registry and update package configuration for public access. Enhance CLI description and add prepublish script for build automation. (#69)
+https://www.github.com/514-labs/registry,b6b12af34550cb37d25bedb74fbcfc0ef74f04ce,2025-09-04T01:00:09+00:00,AI,Cursor,430,158,8,False,False,False,False,"Scaffold new connector and pipeline projects (#64)
+
+* Add factory-cli for scaffolding connectorss and pipelines
+
+Co-authored-by: tim <tim@fiveonefour.com>
+
+* Implement error handling for program execution in factory-cli (#64)
+
+* Wrap program.parseAsync in a try-catch block to handle potential errors gracefully.
+* Log the error to the console and exit the process with a non-zero status code on failure.
+
+* Enhance error handling and validation in factory-cli
+
+* Implemented exitOverride to ensure non-zero exit codes for parsing/validation errors.
+* Refactored main execution flow to handle errors asynchronously and log them appropriately.
+* Updated scaffold function to conditionally set connector and pipeline IDs based on the kind parameter, improving clarity and functionality.
+
+* Add type definitions for prompts and refactor scaffold file
+
+* Introduced a new type `PromptObject` to enhance type safety in the scaffold process.
+* Updated the `applyStructure` function to correctly pass the current path for child nodes.
+* Created type definitions for the 'prompts' module to improve integration and usage within the factory-cli.
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+Co-authored-by: cjus <carlos.justiniano@gmail.com>"
+https://www.github.com/514-labs/registry,43fa3339b513915f9e46953a4cb18e0eb4afac6f,2025-09-04T00:06:04+00:00,AI,Cursor,514,3,15,False,False,False,False,"Create quickstart example and tutorial (#63)
+
+* Add quickstart example with JSONPlaceholder pipeline
+
+Co-authored-by: tim <tim@fiveonefour.com>
+
+* Remove unused post entries from raw and processed data files
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+Co-authored-by: cjus <carlos.justiniano@gmail.com>"
+https://www.github.com/514-labs/registry,62bf385e6e937deffdf03af6643107382959d82a,2025-09-03T23:33:20+00:00,AI,Cursor,3721,3,16,False,False,False,False,"Add built-in logging and metrics hooks (#62)
+
+* Add observability hooks for logging and metrics with built-in support
+
+Co-authored-by: tim <tim@fiveonefour.com>
+
+* Add observability testing documentation and examples
+
+- Introduced a comprehensive documentation file for testing observability features in the HubSpot to ClickHouse pipeline, detailing unit, integration, and project-level tests.
+- Added example scripts demonstrating various observability patterns, including automatic and manual configurations.
+- Implemented integration tests to validate observability features within the data pipeline context, ensuring logging and metrics functionality.
+- Created unit tests for logging and metrics hooks to verify their behavior and configuration options.
+
+This commit enhances the testing framework and provides clear guidance for developers on how to effectively test observability features.
+
+* Refactor observability exports and remove deprecated logging and metrics hooks
+
+- Updated observability exports to reference new files for logging and metrics hooks.
+- Removed obsolete logging-hooks.ts and metrics-hooks.ts files to streamline the codebase.
+
+* Update TypeScript configuration to refine include and exclude patterns
+
+- Changed the ""include"" property to only include files from the ""src"" directory and its subdirectories.
+- Updated the ""exclude"" property to exclude ""examples"" and ""tests"" directories in addition to ""dist"" and ""node_modules"".
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+Co-authored-by: cjus <carlos.justiniano@gmail.com>"
+https://www.github.com/514-labs/registry,8d69485880aa7efc035540f807a5d1a36e018cb6,2025-09-03T22:43:03+00:00,AI,Cursor,293,0,6,False,False,False,False,"Add config validation with Zod for HubSpot connector (#61)
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+Co-authored-by: cjus <carlos.justiniano@gmail.com>"
+https://www.github.com/514-labs/registry,73e0d38276b0661c96d74a238fe6638d122f09d0,2025-09-03T21:24:30+00:00,AI,Cursor,216,40,7,False,False,False,False,"Standardize error handling and messaging (#60)
+
+* Enhance error handling with detailed error codes and improved error context
+
+Co-authored-by: tim <tim@fiveonefour.com>
+
+* Refactor HttpClient error handling to include maximum retry attempts and standardized error codes
+
+- Removed unused Google Analytics connector entries from pnpm-lock.yaml
+- Updated HttpClient to enforce a maximum number of retry attempts before throwing an error
+- Changed error code type to ConnectorErrorCode for better type safety
+
+---------
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>
+Co-authored-by: cjus <carlos.justiniano@gmail.com>"
+https://www.github.com/514-labs/registry,98d0865df430fca60274c86ee724d9df8cccf28f,2025-09-03T21:23:51+00:00,AI,Cursor,26,0,4,False,False,False,False,"Add circuit breaker configuration to connector config types (#59)
+
+Co-authored-by: Cursor Agent <cursoragent@cursor.com>"
+https://www.github.com/514-labs/registry,c5ffd92348d674b9da6677e6aa7822d4fa466b1a,2025-08-31T21:32:38+00:00,Human,,310,125,8,False,True,False,False,fixed scaffold and docs (#57)
+https://www.github.com/514-labs/registry,7c8d977f9255d9f1b508a7839c0a71436b4ade25,2025-08-29T17:27:03+00:00,Human,,28,5,1,False,False,False,False,docs: clarify HubSpot install steps (#56)
+https://www.github.com/514-labs/registry,9c504af5b33986e3c0e7e41eca6aaf3ad5b3c658,2025-08-29T17:17:41+00:00,Human,,22,0,4,False,False,False,False,feat: show connector identifier (#55)
+https://www.github.com/514-labs/registry,e8691b4fb6f2c8cc7e1ba26e9b893cbe6f02e065,2025-08-29T16:12:45+00:00,Human,,0,0,0,False,True,False,False,fixed getting started docs (#54)
+https://www.github.com/514-labs/registry,43b6d3bd83f72c2a76c79118f7280418a0c47b9e,2025-08-28T22:05:26+00:00,Human,,56,4,2,False,True,False,False,fixed getting started docs (#53)
+https://www.github.com/514-labs/registry,967f8d89ee739615860eeaed062522ceee5cab23,2025-08-28T04:05:48+00:00,Human,,88,108,4,False,True,False,False,"updated registry endpoint (#52)
+
+* updated registry endpoint
+
+* fixed build"
+https://www.github.com/514-labs/registry,452407984ac415061cbb8f49472aad9594a9718c,2025-08-26T18:42:41+00:00,Human,,6,6,8,False,False,False,False,updated spec file names (#51)
+https://www.github.com/514-labs/registry,050b0f19d87237c05bb35b2ce564b13902d105fa,2025-08-26T15:23:49+00:00,AI,Copilot,2048,15877,290,False,True,False,False,"Tim/eng 683 polish UI for pipelines and connectors (#49)
+
+* added full view animation
+
+* fixing naming schema for connectors and pipeline
+
+* adding request forms
+
+* added form
+
+* added shared markdown processing
+
+* added shared markdown processing
+
+* added code block
+
+* removing the pre-margin in the codebase
+
+* fix the little gaps
+
+* tweaked pipeline interface
+
+* updated lock files
+
+* added dropdwon to request form
+
+* added install pipeline command
+
+* hanful of polish update
+
+* linter run and new index entry
+
+* Apply suggestion from @Copilot
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* Apply suggestion from @Copilot
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* added connector listing page
+
+* added default icons
+
+* remvoed temps connectors
+
+---------
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>"
+https://www.github.com/514-labs/registry,1596625324aab0cf4a0800d5b7d6bffc62ae6ee2,2025-08-21T19:46:21+00:00,Human,,16,16,1,False,False,False,False,Merge tree doesn't support final (#48)
+https://www.github.com/514-labs/registry,3b592aeed984fd052c32709b0bc6877a7122f2f4,2025-08-21T18:50:17+00:00,Human,,10,1,2,False,False,False,False,"Enhance README and hubspotWorkflow.ts with environment variable requirements (#47)
+
+- Updated README to clarify the need for a HubSpot account and valid token for accessing deals.
+- Added error handling in hubspotWorkflow.ts to check for the presence and validity of the HUBSPOT_TOKEN environment variable, providing user feedback for missing or invalid tokens."
+https://www.github.com/514-labs/registry,2228846d0b7401329ee696a1561bbab9dad80fee,2025-08-21T04:01:01+00:00,Human,,2,3,1,False,False,False,False,"Refactor initial-setup.sh script for improved directory navigation (#46)
+
+- Updated directory change commands for consistency and clarity.
+- Ensured the script navigates correctly to the app/hubspot directory before installing dependencies and building the application."
+https://www.github.com/514-labs/registry,a10903994c2a5d462f9cd08314c0cdb2fd952443,2025-08-21T03:43:46+00:00,Human,,2,0,1,False,False,False,False,"Update initial-setup.sh script to include additional installation steps for HubSpot to ClickHouse pipeline (#45)
+
+- Changed file permissions to make initial-setup.sh executable.
+- Added commands to navigate to the parent directory and install dependencies before building the application."
+https://www.github.com/514-labs/registry,850744c9150e452513e56e213fd94ef55d932151,2025-08-21T03:28:36+00:00,Human,,49,0,2,False,False,False,False,"Add post-install setup options to install.sh and introduce initial-setup.sh script (#44)
+
+- Added RUN_SETUP and SETUP_STRICT variables to control post-install behavior.
+- Implemented run_initial_setup function to execute scripts/initial-setup.sh if RUN_SETUP is enabled.
+- Created initial-setup.sh script for HubSpot to ClickHouse pipeline to handle installation tasks.
+- Updated install.sh to call run_initial_setup after installation steps."
+https://www.github.com/514-labs/registry,dede730fd816f20dcd9a16d0b2b4c7a29f36e44d,2025-08-21T02:50:16+00:00,Human,,398,258,3,False,False,False,False,"initial pipeline installer (#43)
+
+* initial pipeline installer
+
+* Update pnpm-lock.yaml to reflect dependency changes for HubSpot to ClickHouse pipeline
+oject stability."
+https://www.github.com/514-labs/registry,c0bac225123794d35d000cd60ac3a4abc257151c,2025-08-20T23:08:05+00:00,Human,,6595,22,111,False,False,False,False,"Carlos/hubspot pipeline (#41)
+
+* setup
+
+* Implement HubSpot to ClickHouse pipeline with TypeScript configuration and API endpoints
+
+- Added configuration files for Aurora and Moose.
+- Created TypeScript files for data ingestion, including models, transformations, and APIs for HubSpot deals.
+- Updated package.json to include necessary dependencies and scripts for development.
+- Enhanced README with setup instructions and API usage examples.
+- Integrated telemetry and error handling for workflow execution.
+
+* Refactor HubSpot to ClickHouse pipeline with TypeScript updates
+
+- Removed outdated documentation files: configuration.md, getting-started.md, and outputs.md.
+- Introduced new documentation files for configuration and getting started with the updated pipeline.
+- Added a changelog and license files for versioning and legal compliance.
+- Implemented a new pipeline.json for metadata and lineage tracking.
+- Enhanced the TypeScript implementation with new ingestion, transformation, and API functionalities.
+- Updated README and example usage for clarity and completeness.
+
+* Update pnpm-lock.yaml for HubSpot to ClickHouse pipeline
+
+- Updated pipeline version from v2025-07 to v3.
+- Added dotenv dependency with version 16.6.1 to enhance environment variable management.
+
+* Enhance HubSpot to ClickHouse pipeline with TypeScript updates
+
+- Added new TypeScript files for HubSpot API integration, including models, domains, and API contracts for companies, contacts, deals, engagements, and tickets.
+- Implemented base classes for loaders and transformers to streamline data processing.
+- Updated configuration and environment management with new settings and defaults.
+- Enhanced testing suite with integration and unit tests for various components.
+- Removed outdated files and improved documentation for better clarity and usability.
+
+* Update HubSpot to ClickHouse pipeline with new dependencies and documentation improvements
+
+- Added new dependencies in pnpm-lock.yaml for HubSpot integration, including updated versions of moose-lib, dotenv, and typescript.
+- Updated package.json to reflect the new project name and removed unnecessary module type declaration.
+- Enhanced README with installation instructions and environment variable setup for better user guidance.
+- Refactored import paths in hubspotWorkflow.ts for improved module resolution.
+
+* Refactor package.json for HubSpot to ClickHouse pipeline
+
+- Updated build script to remove Docker command for streamlined local development.
+- Changed project name in hubspot package.json for consistency and clarity.
+
+* Remove pre-configuration and installation sections from README for HubSpot to ClickHouse pipeline to streamline documentation."
+https://www.github.com/514-labs/registry,10fb0eafca584bbe51ea3c3d72b1f7fb53d8560b,2025-08-20T04:45:50+00:00,AI,Copilot,1904,88,44,False,True,False,False,"Tim/eng 679 pipeline details page with lineage (#40)
+
+* initial pass at lineage
+
+* fixed broken tabs
+
+* added logos/favicons and cleaned up lineage view
+
+* updated deps
+
+* updated imports
+
+* Update apps/pipelines-docs/src/schema/processing.ts
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* Update pipeline-registry/google-analytics-to-clickhouse/v1/514-labs/typescript/default/src/load/baseLoader.ts
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* Update apps/pipelines-docs/components/pipeline-lineage-diagram.tsx
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* Update pipeline-registry/google-analytics-to-clickhouse/v1/514-labs/typescript/default/scripts/lineage.mjs
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* Update apps/pipelines-docs/src/schema/processing.ts
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* fix stupidity
+
+* fix stupidity
+
+* updated lineage centering
+
+---------
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>"
+https://www.github.com/514-labs/registry,94eb0701c8a1e6c77bc356085e428ffebfb07155,2025-08-19T23:34:17+00:00,Human,,241,32,17,False,True,False,False,"latest logos, next upgrade and exporure of registry for isr (#39)
+
+* latest logos, next upgrade and exporure of registry for isr
+
+* fixed configs"
+https://www.github.com/514-labs/registry,a13b7bb4f8a96dc8b22629ad7d7511c3fbdaf8d4,2025-08-19T16:14:14+00:00,Human,,17,20,4,False,False,False,False,hubspot config updates (#37)
+https://www.github.com/514-labs/registry,b266385d1d0fc314bd8e0c24ad34bfd3133e906e,2025-08-19T04:32:02+00:00,Human,,1173,964,72,False,True,False,False,"Tim/eng 674 pipeline registry processing (#36)
+
+* fix meta
+
+* initial registry processing
+
+* initial home page
+
+* initial dicovery grid
+
+* filtering enabled
+
+* new indexes and reduced duplication
+
+* removed pagefind from history"
+https://www.github.com/514-labs/registry,0dddb6f4a4724f2b4e9a97dc8fa7d371928fcf38,2025-08-19T02:57:15+00:00,Human,,4,4,9,False,False,False,False,"Updating links and icons (#35)
+
+* Update introduction.mdx
+
+added links to intro
+
+* Add files via upload
+
+* Add files via upload
+
+* Mongodb
+
+* mysql
+
+* stripe
+
+* googleanalytics
+
+* datadog
+
+* postgresql
+
+* segment
+
+* shopify
+
+* googleanalytics
+
+* Add files via upload
+
+* shopify
+
+* googleanalytics"
+https://www.github.com/514-labs/registry,a5747663267555e86cc1020c0a69e871aba5f96c,2025-08-19T00:14:44+00:00,Human,,0,0,1,False,False,False,False,Add files via upload
+https://www.github.com/514-labs/registry,97b3dd1a66ef8a5292be2a6042a4b491d6f12725,2025-08-19T00:08:38+00:00,Human,,0,0,1,False,False,False,False,Add files via upload
+https://www.github.com/514-labs/registry,72bf51ab264b76a660e9d32b5cb6111b367cb97b,2025-08-19T00:08:10+00:00,Human,,0,0,1,False,False,False,False,Add files via upload
+https://www.github.com/514-labs/registry,cf55db08fb00098193707d826b31468d4cf3abfd,2025-08-19T00:07:43+00:00,Human,,0,0,1,False,False,False,False,Add files via upload
+https://www.github.com/514-labs/registry,c4283f4dd3fbe8bfe747ac34e65a786bbc19b789,2025-08-19T00:06:19+00:00,Human,,0,0,1,False,False,False,False,Add files via upload
+https://www.github.com/514-labs/registry,8d7bf46b11f68f4247841fb6e5f9fcc0558f83ff,2025-08-19T00:05:51+00:00,Human,,0,0,1,False,False,False,False,Add files via upload
+https://www.github.com/514-labs/registry,5550af09fd05bd04a6697356158e1a75c98a2f6f,2025-08-19T00:05:11+00:00,Human,,0,0,1,False,False,False,False,Add files via upload
+https://www.github.com/514-labs/registry,3e0435338df7c3592d5646f8573ea640e378069c,2025-08-19T00:04:38+00:00,Human,,0,0,1,False,False,False,False,Add files via upload
+https://www.github.com/514-labs/registry,5584292cacae5d8578be037014559672b776953a,2025-08-19T00:04:11+00:00,Human,,0,0,1,False,False,False,False,Add files via upload
+https://www.github.com/514-labs/registry,9ee31d226f098a2be698278fcfe9d8e2fb836cd6,2025-08-19T00:03:01+00:00,Human,,0,0,1,False,False,False,False,Add files via upload
+https://www.github.com/514-labs/registry,29c539e8232d77d8b5c42b3531cf12416486a998,2025-08-18T23:12:03+00:00,Human,,117,0,3,False,False,False,False,tests for deals (#34)
+https://www.github.com/514-labs/registry,cdfa5444a3a812137f2ebd40996ea2c15a07bd10,2025-08-18T16:10:58+00:00,Human,,135,60,26,False,False,False,False,"Carlos/adhere to the new scaffolds and specs (#32)
+
+* Add Shopify connector v2025-07 metadata and documentation
+
+- Created README.md files for the connector and version-level metadata.
+- Added CHANGELOG.md for tracking notable changes.
+- Updated connector.json with author type and API spec URL.
+- Introduced LICENSE file with MIT license.
+- Added .gitignore for Python-related files.
+- Created pyproject.toml for project dependencies and configuration.
+- Added initial documentation for API limits, schemas, and extracted JSON/relational schemas.
+- Removed outdated requirements.txt and setup.py files.
+- Updated __init__.py to dynamically retrieve the version.
+- Added version.json for version-specific metadata.
+
+* Add Shopify connector v2025-07 metadata
+
+- Introduced a new connector.json file for the Shopify connector, specifying its name, author, version, language, and implementations."
+https://www.github.com/514-labs/registry,c2d99177d9e4c3ae96b4a14d5124ada8be96f7cc,2025-08-18T15:38:27+00:00,Human,,200,49,7,False,False,False,False,Update install with implementation folder (#25)
+https://www.github.com/514-labs/registry,85785a989d4b15ef9b291caab094e87a257c34a3,2025-08-18T00:06:47+00:00,Human,,30,1,1,False,False,False,False,add install instructions
+https://www.github.com/514-labs/registry,7cf4c9a26ce49fd1f0370c738ad26a035609e7d7,2025-08-17T23:48:45+00:00,AI,Copilot,1148,2,60,False,True,False,False,"created the pipeline regirstry (#31)
+
+* created the pipeline regirstry
+
+* initial scaffold pass
+
+* initial scaffold docs
+
+* tweaked styles
+
+* fixed depth of scaffold displays
+
+* fixed scaffold issue
+
+* Update pipeline-registry/_scaffold/python.json
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>"
+https://www.github.com/514-labs/registry,06d99f8575130b0e229786cda19e9c3a8057e2b5,2025-08-17T21:03:50+00:00,Human,,7660,182,929,False,False,False,False,"Tim/eng-652-rename-folders (#30)
+
+* connector pass
+
+* indexes and file moves
+
+* repo rename and lockfile update
+
+* moved docs left
+
+* renaming mostly complete"
+https://www.github.com/514-labs/registry,775cdfaa265df8e1980c1f7200edffb9017f4c33,2025-08-17T18:04:34+00:00,AI,Copilot,123,88,20,False,False,False,False,"new hero + combo box for connector details page (#29)
+
+* new hero + combo box for connector details page
+
+* Update apps/components-docs/app/page.tsx
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>"
+https://www.github.com/514-labs/registry,8ad43febccecccccc99eaa42126611729e2ffe12,2025-08-17T17:07:08+00:00,Human,,15,35,7,False,False,False,False,fixing the redirect (#28)
+https://www.github.com/514-labs/registry,dc0679b20d6eafdefad8f72bb981e724cf90e977,2025-08-16T23:43:05+00:00,Human,,6047,2607,161,False,True,False,False,"Tim/eng 643 schemas in connector details page (#24)
+
+* updating scaffold
+
+* fix the readme and add initial apis
+
+* changes in file structure and added schema thing
+
+* adding PAT to global env
+
+* initial schemas and styles
+
+* fixed filters
+
+* schema: only show Files from schemas/files; ignore endpoint types; scaffold: add schemas/files folder and docs, remove type example from index.json
+
+* fix processing
+
+* fix turbo dependencies to see if it fixes seeming build issues
+
+* ficed badges
+
+* added sections to endpoints
+
+* lint improvement
+
+* added codeblock and snippet compoentns
+
+* formatted snippets
+
+* fix endpoint tree spacing
+
+* changed overview title
+
+* new index and better node layouts
+
+* added tool tip to the schema explorer
+
+* tool tip lint
+
+* added navigation to node"
+https://www.github.com/514-labs/registry,eaa28a7bb65d3b4f6f276b61e44771deee37ec58,2025-08-15T13:12:06+00:00,Human,,63,443,8,False,False,False,False,update hubspot docs
+https://www.github.com/514-labs/registry,4d4b68241f2e5bb773647269a7cb752af99f1ef0,2025-08-15T00:02:17+00:00,AI,Copilot,10260,0,57,False,True,False,False,"Carlos/shopify python connector (#4)
+
+* initial documentation to outline approach
+
+* Move doc files into doc folder
+
+* refactoring and connector relocation
+
+* Implement GraphQL transport as the primary method for the Shopify connector, removing REST fallback. Update documentation to reflect new environment variables and configuration. Introduce cursor-based pagination and enhance error handling. Remove legacy REST transport and related components.
+
+* Fix for rate_limiter
+
+* Cleanup and update phase after initial testing
+
+* Refactor GraphQL query to simplify inventory item retrieval and update test logic for variant handling.
+
+* Enhance authentication handling in ShopifyConnector to support invalid credentials. Introduce InvalidAuth class for fallback on authentication failure, allowing connector initialization while logging errors. Update access token validation to permit placeholder tokens for testing. Add method to retrieve HTTP client capabilities for diagnostics.
+
+* Add optional test data generation for customers and orders
+
+Enhance documentation with instructions for populating a development store with test customers and orders using a new helper script. The script utilizes GraphQL and REST to create realistic test data, including handling rate limits and tagging. Update README, getting-started, and testing documentation to reflect these changes.
+
+* Enhance GraphQL queries for customers, inventory, and orders
+
+Refactor the GraphQLTransport class to support detailed customer and inventory queries, including richer fields for orders. Introduce new test scripts for querying subsets of customers and inventory items, ensuring proper handling of GraphQL responses. Update existing tests to align with the new query structure.
+
+* Update Shopify connector to version 0.1.8 and change API version to 2025-07. Enhance documentation and setup scripts, including a new version bump script. Improve error handling in GraphQL transport and clarify transport setup logic. Ensure compatibility with updated API features.
+
+* folder restructuring to match GA folder
+
+* fix page
+
+* update lock
+
+* fix ts config
+
+* removed scaffold from registry list
+
+* remived scaffold from list
+
+* adding versions ot the registry
+
+* fixed some copy
+
+* fixed navs
+
+* wokring connectors search but not all
+
+* working search
+
+* fixed search look
+
+* registry: remove semver constraints; allow arbitrary source version identifiers; update scaffold templates and docs; drop schema requirement in version.json
+
+* fixed landing page language
+
+* use tsx
+
+* Experience tweaks (#9)
+
+* fixed meta and added cards to intro
+
+* search and filtering added
+
+* removed static exports
+
+* new public index
+
+* tweaked header
+
+* adding analytical connector distinction
+
+* adding copy spec button
+
+* added copy pasting
+
+* updated index
+
+* removing python from codeql
+
+* removing supabase migrations stuff
+
+* removed unused route
+
+* added repo URL
+
+* added upvotes and new pipeline page
+
+* Potential fix for code scanning alert no. 3: Incomplete string escaping or encoding
+
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>
+
+* New connector instructions: closes PM-327 (#14)
+
+* update create page
+
+* relative link
+
+* added new connector docs
+
+* New connector instructions (#15)
+
+* update create page
+
+* relative link
+
+* added new connector docs
+
+* restructure connector creation docs
+
+* restructure connector creation docs
+
+* docs: consolidate connector creation instructions (#16)
+
+* update create page
+
+* relative link
+
+* added new connector docs
+
+* restructure connector creation docs
+
+* restructure connector creation docs
+
+* stray nav
+
+* Install script (#10)
+
+* revert connector page (#18)
+
+* fix script name
+
+* Improved page for connector information (#19)
+
+* adding avatar retrieval and guidance on using gh handles
+
+* adding better example to type
+
+* updated index and urls
+
+* update ga author
+
+* updating index
+
+* aded a second implementation for GA dummy connector
+
+* added combo box
+
+* updated react
+
+* updated lock file
+
+* fix comvo box
+
+* added index
+
+* updated details styling
+
+* updated cards and index
+
+* added docs pages to the connector details page
+
+* Potential fix for code scanning alert no. 4: Stored cross-site scripting
+
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>
+
+* Potential fix for code scanning alert no. 5: Stored cross-site scripting
+
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>
+
+* Update registry/google-analytics/v4/tg339/_meta/README.md
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* updated indexes and logos
+
+* consistent pages for discovery
+
+* fixed card spacing
+
+---------
+
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* hubspot ts connector (#8)
+
+---------
+
+Co-authored-by: Tim <tim@polarizedcapital.com>
+Co-authored-by: Jonathan Widjaja <smileforwidjaja@gmail.com>
+Co-authored-by: Tim Delisle <9058816+tg339@users.noreply.github.com>
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>
+Co-authored-by: Johanan Ottensooser <j@ottensooser.com>
+Co-authored-by: Jonathan Widjaja <DatGuyJonathan@users.noreply.github.com>
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>"
+https://www.github.com/514-labs/registry,88a81a00c60657df8ea7f9e7f0cadd64d3d3f3e1,2025-08-14T19:05:36+00:00,Human,,5098,4,88,False,False,False,False,hubspot ts connector (#8)
+https://www.github.com/514-labs/registry,322412fa48c3a1558b30d2cb5f12d6b866274f16,2025-08-14T14:56:26+00:00,AI,Copilot,4003,768,134,False,True,False,False,"Improved page for connector information (#19)
+
+* adding avatar retrieval and guidance on using gh handles
+
+* adding better example to type
+
+* updated index and urls
+
+* update ga author
+
+* updating index
+
+* aded a second implementation for GA dummy connector
+
+* added combo box
+
+* updated react
+
+* updated lock file
+
+* fix comvo box
+
+* added index
+
+* updated details styling
+
+* updated cards and index
+
+* added docs pages to the connector details page
+
+* Potential fix for code scanning alert no. 4: Stored cross-site scripting
+
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>
+
+* Potential fix for code scanning alert no. 5: Stored cross-site scripting
+
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>
+
+* Update registry/google-analytics/v4/tg339/_meta/README.md
+
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+
+* updated indexes and logos
+
+* consistent pages for discovery
+
+* fixed card spacing
+
+---------
+
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>
+Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>"
+https://www.github.com/514-labs/registry,18d2d66e4a9c60cd4f92428e7f845e3443cf363b,2025-08-14T13:03:46+00:00,Human,,5,5,1,False,True,False,False,fix script name
+https://www.github.com/514-labs/registry,9f4fd81be568d2b013a6eafb530e6f2d01063a27,2025-08-13T22:58:09+00:00,Human,,41,18,1,False,False,False,False,revert connector page (#18)
+https://www.github.com/514-labs/registry,2da26173bbd4e1a753aeccc70c911327836d9ee8,2025-08-13T22:13:17+00:00,Human,,836,49,11,False,False,False,False,Install script (#10)
+https://www.github.com/514-labs/registry,43ab3be25a57bb157b8498aa2f464758956de911,2025-08-13T21:02:36+00:00,Human,,0,1,1,False,False,False,False,"docs: consolidate connector creation instructions (#16)
+
+* update create page
+
+* relative link
+
+* added new connector docs
+
+* restructure connector creation docs
+
+* restructure connector creation docs
+
+* stray nav"
+https://www.github.com/514-labs/registry,7e78ae7c54f57522ac28184a8c7ae5894fd2506a,2025-08-13T20:54:56+00:00,Human,,50,5,1,False,False,False,False,"New connector instructions (#15)
+
+* update create page
+
+* relative link
+
+* added new connector docs
+
+* restructure connector creation docs
+
+* restructure connector creation docs"
+https://www.github.com/514-labs/registry,f251b8ccb93442261c1f8fbd5b042d6a83497c6d,2025-08-13T20:17:00+00:00,Human,,70,1,4,False,False,False,False,"New connector instructions: closes PM-327 (#14)
+
+* update create page
+
+* relative link
+
+* added new connector docs"
+https://www.github.com/514-labs/registry,bf70aa6621d2f73bc8e587be1873f667a32d7ba9,2025-08-13T17:46:35+00:00,AI,Copilot,1084,349,83,False,True,False,False,"Experience tweaks (#9)
+
+* fixed meta and added cards to intro
+
+* search and filtering added
+
+* removed static exports
+
+* new public index
+
+* tweaked header
+
+* adding analytical connector distinction
+
+* adding copy spec button
+
+* added copy pasting
+
+* updated index
+
+* removing python from codeql
+
+* removing supabase migrations stuff
+
+* removed unused route
+
+* added repo URL
+
+* added upvotes and new pipeline page
+
+* Potential fix for code scanning alert no. 3: Incomplete string escaping or encoding
+
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Copilot Autofix powered by AI <62310815+github-advanced-security[bot]@users.noreply.github.com>"
+https://www.github.com/514-labs/registry,d88319edff1c7b69fa239642e73deeaceae336e1,2025-08-12T15:31:44+00:00,Human,,310,18,2,False,True,False,False,"Merge pull request #6 from 514-labs/fix-sync-logos-script
+
+use tsx instead of node to run sync-logos.mjs"
+https://www.github.com/514-labs/registry,7365192951162c0b0a7f11b1eb8df1e6c06244b6,2025-08-12T14:53:49+00:00,Human,,310,18,2,False,False,False,False,use tsx
+https://www.github.com/514-labs/registry,c95c0fe35a584122b7a8d1cf49cfe07b315d4760,2025-08-12T04:54:59+00:00,Human,,2132,179,147,False,False,False,False,"Merge pull request #5 from 514-labs/tim/registy-expansion
+
+Tim/registy expansion"
+https://www.github.com/514-labs/registry,3949e375d9d9105135c0d8b887e158a5efd66b20,2025-08-12T04:54:03+00:00,Human,,2,2,1,False,True,False,False,fixed landing page language
+https://www.github.com/514-labs/registry,7cbcc92a8ec5f1711e2dd504ad0495bd3a4c1c8f,2025-08-12T04:47:53+00:00,Human,,160,18,52,False,False,False,False,registry: remove semver constraints; allow arbitrary source version identifiers; update scaffold templates and docs; drop schema requirement in version.json
+https://www.github.com/514-labs/registry,30cc932c3c6f872d6728b4968393818eb4d4ee1e,2025-08-12T04:03:47+00:00,Human,,23,2,1,False,True,False,False,fixed search look
+https://www.github.com/514-labs/registry,08e1d7c897224d73b42ba5bed2cd4e7ecfa3f19e,2025-08-12T00:27:19+00:00,Human,,70,57,27,False,False,False,False,working search
+https://www.github.com/514-labs/registry,b1efa5ed17c05e36d7846a3fd07e23662faafad5,2025-08-12T00:09:44+00:00,Human,,1608,9,45,False,False,False,False,wokring connectors search but not all
+https://www.github.com/514-labs/registry,a5ce708bbcbb58ef413c0fe4238e51655b4ff94c,2025-08-11T23:44:16+00:00,Human,,174,75,5,False,True,False,False,fixed navs
+https://www.github.com/514-labs/registry,c01b70e1d99659f887111071fade856409f3442c,2025-08-11T22:43:08+00:00,Human,,54,14,6,False,True,False,False,fixed some copy
+https://www.github.com/514-labs/registry,aa508748a45851ab0ae91d5ede59e29521369cfd,2025-08-11T22:42:56+00:00,Human,,0,0,31,False,False,False,False,adding versions ot the registry
+https://www.github.com/514-labs/registry,46917b8ec1969074e206d8f10b161cbffbab4a90,2025-08-11T22:13:21+00:00,Human,,74,33,4,False,False,False,False,remived scaffold from list
+https://www.github.com/514-labs/registry,9f52dffb495c79dfa7ae615b15d6a1970606cf5f,2025-08-11T22:13:09+00:00,Human,,0,0,3,False,False,False,False,removed scaffold from registry list
+https://www.github.com/514-labs/registry,5b357d146d793c921caf604686e61ca0a35b88c2,2025-08-11T22:01:32+00:00,Human,,1,3,2,False,True,False,False,fix ts config
+https://www.github.com/514-labs/registry,9705c42c99b4cdccb20c42e433243307603f3f0f,2025-08-11T21:33:04+00:00,Human,,23,4,2,False,True,False,False,"Merge pull request #2 from 514-labs/tim/registry-info
+
+fix page"
+https://www.github.com/514-labs/registry,087653d2e72caf649ddd9435b17b4ee3a693bde5,2025-08-11T21:30:50+00:00,Human,,18,0,1,False,False,False,False,update lock
+https://www.github.com/514-labs/registry,850398265ca5172804e82525641bb7ef83251735,2025-08-11T21:30:00+00:00,Human,,5,4,1,False,True,False,False,fix page
+https://www.github.com/514-labs/registry,f7ea9a5cad05dabe4e4076d0ec4f6c71913a6f35,2025-08-11T20:34:52+00:00,Human,,238,66,9,False,False,False,False,relating app to registry
+https://www.github.com/514-labs/registry,1a7918dbfa8246d364b8e58fb102925fd329dbe7,2025-08-10T16:56:39+00:00,Human,,98,185,33,False,False,False,False,latest iteration on scaffolding
+https://www.github.com/514-labs/registry,58e99100487966e010d2961941f8c83d680399df,2025-08-10T00:04:44+00:00,Human,,418,146,42,False,False,False,False,updated scaffold
+https://www.github.com/514-labs/registry,5c38ed79a0f17df33f33fccce64e67e1e31921df,2025-08-09T05:10:44+00:00,Human,,15,2,3,False,False,False,False,updated meta and favi
+https://www.github.com/514-labs/registry,defd63b5078a68047c9c1f4547faed61b57184b5,2025-08-09T04:49:27+00:00,Human,,142,112,5,False,False,False,False,rough intitial pass at details page
+https://www.github.com/514-labs/registry,2f049964ab0e4d3e2f849fd8d6f47f07a076454f,2025-08-09T04:18:02+00:00,Human,,1,1,1,False,True,False,False,fixed footer
+https://www.github.com/514-labs/registry,4c53174dd6b86c9eb8a6430bbe478e628fb093c0,2025-08-09T04:09:24+00:00,Human,,2,3,1,False,False,False,False,updated link styles
+https://www.github.com/514-labs/registry,1cc840a834674f406bec33da2b21c1a6aa3301a6,2025-08-09T04:04:54+00:00,Human,,6,2,1,False,True,False,False,fixed hero links
+https://www.github.com/514-labs/registry,961c0931ec6d27019e46137dd7a28e80e610c116,2025-08-09T03:57:43+00:00,Human,,3,3,1,False,False,False,False,udpated introduction
+https://www.github.com/514-labs/registry,acb5a5cd07ccc4926ef820c94e611276ae4cb915,2025-08-09T03:55:59+00:00,Human,,35,4,1,False,False,False,False,updated introduction
+https://www.github.com/514-labs/registry,78dd92067deea807483832c4fa753f5ddcd92b6a,2025-08-09T03:04:58+00:00,Human,,64,18,1,False,True,False,False,fixed home page
+https://www.github.com/514-labs/registry,bcd256252db96991292fc6c655720b0dda3e1d0f,2025-08-09T02:49:31+00:00,Human,,504,1,5,False,False,False,False,registry scaffold and example
+https://www.github.com/514-labs/registry,ead6a303eabf924cb354c435515e40ba22640bd3,2025-08-09T02:04:07+00:00,Human,,1,16,2,False,False,False,False,remove card accent color
+https://www.github.com/514-labs/registry,3df3526de5372f6b0e10761de88b2e3f3515520a,2025-08-09T02:00:39+00:00,Human,,1,1,1,False,False,False,False,more subtle gradient
+https://www.github.com/514-labs/registry,c8d9aa522dc8a36722cc89dfbdacceffab3f8c95,2025-08-09T01:44:02+00:00,Human,,163,15,20,False,False,False,False,blur gradient
+https://www.github.com/514-labs/registry,c68c537928a0ac07b0323fe17b627073d5294bd2,2025-08-08T22:39:44+00:00,Human,,7,747,4,False,False,False,False,update package name
+https://www.github.com/514-labs/registry,86742c7ef17d0c1feb6bd91090c317abb2494dac,2025-08-08T17:58:35+00:00,Human,,117,10,2,False,False,False,False,adding create page
+https://www.github.com/514-labs/registry,a1ec043737dc91c0fb6143f3cb46466d6f2d173e,2025-08-08T04:51:53+00:00,Human,,422,28,14,False,False,False,False,initial docs and pages
+https://www.github.com/514-labs/registry,69662cb5d81df23f8c78f1ba254b8067778623c5,2025-08-07T23:51:46+00:00,Human,,2,7,1,False,False,False,False,updatet tabs
+https://www.github.com/514-labs/registry,7c8029f17a5ba29a376daa20049b4ebd3f4cb935,2025-08-07T23:43:16+00:00,Human,,35,21,7,False,True,False,False,fixed styles
+https://www.github.com/514-labs/registry,f534505ae2e69796ad6fae6502dfd5334c31d77a,2025-08-07T23:27:53+00:00,Human,,5652,6595,11,False,False,False,False,updated readme and repo structure
+https://www.github.com/514-labs/registry,5220263a7a02fdcd79e28252248ad31417ffaba8,2025-08-07T23:12:10+00:00,Human,,22789,0,122,False,False,False,False,iniisal commit

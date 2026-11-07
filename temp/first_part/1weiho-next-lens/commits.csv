@@ -1,0 +1,233 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1weiho/next-lens,9341148cffd4ff7c64e3a919b09f8d50909839b4,2026-10-22T03:40:56+00:00,AI,Claude_Code,868,122,16,False,False,False,False,"feat(docs): redesign landing page with full homepage sections (#23)
+
+Replace the single hero with a clean, minimal homepage:
+- Hero with headline, copyable install command and inspector preview
+- Features grid covering route scanning capabilities
+- Tabbed section showcasing CLI, Inspector, MCP and Raycast
+- How it works steps alongside the scan animation
+- Closing call to action and footer
+- Neutral, theme-aware styling for light and dark mode
+
+
+Claude-Session: https://claude.ai/code/session_01D6iEB384Usw3F7Xd2dVaz7
+
+Co-authored-by: Claude <noreply@anthropic.com>"
+https://www.github.com/1weiho/next-lens,02a90713e79fcbbe3072135d9b014ed609946264,2026-01-25T12:08:33+00:00,Human,,55,1,5,False,False,False,False,docs: add raycast extension page (#21)
+https://www.github.com/1weiho/next-lens,ee9032f1fbd6e994015393072a7f1a5b71c93d5d,2025-12-28T15:45:42+00:00,Human,,1,1,1,False,False,False,False,chore: bump next-lens version to v1.2.0
+https://www.github.com/1weiho/next-lens,8314113e874b4b941a4a8c229cf31c4bb892331a,2025-12-28T15:44:54+00:00,Human,,524,64,7,False,False,False,False,"feat: raycast extension (#19)
+
+* feat: raycast extension
+
+* feat: auto-open Raycast extension and add installation hint"
+https://www.github.com/1weiho/next-lens,a732346b78a9f0982733cfbcf9be76ac43d1e84d,2025-12-21T11:44:40+00:00,Human,,1,1,1,False,False,False,False,chore: bump next-lens version to v1.1.0
+https://www.github.com/1weiho/next-lens,047b21cd801b399672254bb58dfa777d14429c1d,2025-12-21T11:43:23+00:00,Human,,8,0,1,False,False,False,False,chore(inspector): navbar add docs link (#18)
+https://www.github.com/1weiho/next-lens,f8a5a6f68a649345f7304eddad3f4a7150e4cf6f,2025-12-21T11:29:39+00:00,Human,,556,95,10,False,False,False,False,"feat: inspector build command (#17)
+
+* feat: inspector build command
+
+* chore: improve inspector build cli ui"
+https://www.github.com/1weiho/next-lens,6e5fb7c6aff6ebd7247b22b3eef37fe204fd751a,2025-12-18T16:11:41+00:00,Human,,1,1,1,False,False,False,False,chore: update turbo build cache config (#16)
+https://www.github.com/1weiho/next-lens,94c936737e3ba8d26af226016ffb59f57f262e4d,2025-12-18T16:09:18+00:00,Human,,51,51,2,True,True,False,False,fix: switch README symlink (#15)
+https://www.github.com/1weiho/next-lens,92f3ad1b4d492ea13b79f1b863546e135d392acc,2025-12-18T15:38:39+00:00,Human,,1,1,1,False,False,False,False,chore: bump next-lens version to v1.0.1
+https://www.github.com/1weiho/next-lens,24754c3b3e694b71d642990d1070a1e62a0f23a4,2025-12-18T15:37:38+00:00,Human,,131,64,5,False,False,False,False,"feat(inspector): highlight search text (#14)
+
+* feat(inspector): highlight search text
+
+* refactor(inspector):  organize components"
+https://www.github.com/1weiho/next-lens,e2bc40ab5e8dacda47c99c511baf96edebd1fc1c,2025-12-17T16:43:43+00:00,Human,,0,0,1,False,False,False,False,docs: update og image
+https://www.github.com/1weiho/next-lens,60b4f5df8dc875a1ab7502bf81817fdaa93d44a2,2025-12-17T16:25:32+00:00,Human,,1431,4106,3,False,False,False,False,chore: add vercel analytics (#13)
+https://www.github.com/1weiho/next-lens,a2ff95f98baa9591ab8e3ad577999e173d585e45,2025-12-17T16:19:30+00:00,Human,,7831,1076,38,False,True,False,False,"docs: fumadocs (#11)
+
+* docs: init fumadocs
+
+* docs: mdx docs
+
+* docs: improve docs
+
+* docs: homepage
+
+* style: prettier formatting
+
+* docs: improve homepage ui
+
+* chore: update prettier ignore
+
+* docs: improve metadata
+
+* docs: change theme to vitepress theme
+
+* docs: improve homepage ui
+
+* chore: og image
+
+* docs: improve docs
+
+* docs: inspector ui dark mode image
+
+* docs: github url
+
+* docs: improve animation example
+
+* fix: add fumadocs .source dir to prettier ignore
+
+* docs: homepage animation"
+https://www.github.com/1weiho/next-lens,058b888edc96e39715d39bc7e17b06f81f372aa9,2025-12-14T16:34:32+00:00,Human,,1,1,1,False,False,False,False,Replace image in README with next-lens-inspector
+https://www.github.com/1weiho/next-lens,7ba1e5c89638d0260d2381b59e85f19af9bcdbba,2025-12-14T14:54:26+00:00,Human,,104,8,2,True,True,False,False,"fix: change the port when it's already in use, instead of immediately throwing an error (#10)"
+https://www.github.com/1weiho/next-lens,beb91ee98cb56afeee270c17aec2ba1e821706a9,2025-12-14T12:18:32+00:00,Human,,104,11,4,False,False,False,False,ci: separate workflows (#9)
+https://www.github.com/1weiho/next-lens,d65099a6a90441dbed180ce29c30d2389c735b7f,2025-12-14T12:12:18+00:00,Human,,1,0,1,False,False,False,False,chore: add package readme symbolic link to root readme (#8)
+https://www.github.com/1weiho/next-lens,1fd050d9fb213fd3753fc1dd103b95d12336d309,2025-12-14T09:03:45+00:00,Human,,1,1,1,False,False,False,False,Update image source in README.md
+https://www.github.com/1weiho/next-lens,a8e6d1e10d2175e3f9d0d1f7e2cdeaa7da9804e7,2025-12-14T08:28:38+00:00,Human,,1,1,1,False,False,False,False,chore: bump next-lens version to 1.0.0
+https://www.github.com/1weiho/next-lens,2be56329bfc36fdac662109f82de2de739ee58ba,2025-12-14T08:27:29+00:00,Human,,19,119,1,False,False,False,False,docs: simplify readme
+https://www.github.com/1weiho/next-lens,ee0bc722e63dcc42f840edd7bc26e9867a537119,2025-12-14T08:19:43+00:00,Human,,1,1,1,False,False,False,False,Update README.md
+https://www.github.com/1weiho/next-lens,6fc7028bceb8f923c7eb0ac871f04731e57d0dfd,2025-12-14T08:10:38+00:00,Human,,8895,1107,104,False,True,False,False,"feat: next-lens inspector (#7)
+
+* feat: inspector server, ui, command
+
+* refactor: monorepo
+
+* chore: update pnpm command
+
+* chore: support vite hmr in dev mode
+
+* docs: update readme for inspector ui
+
+* refactor: update IDE command execution to use execFile with structured command arguments
+
+* feat: launch in editor
+
+* feat: enhance inspector ui
+
+* chore: improve inspector ui
+
+* style: formatting
+
+* chore: tweak inspector ui
+
+* feat: dark mode
+
+* style: prettier formatting
+
+* fix: delete route dialog ui overflow
+
+* feat: add and remove api http method
+
+* style: prettier formatting
+
+* feat: pagination
+
+* refactor: improve path rendering in PageRoutesTable component
+
+* feat: api routes filter
+
+* feat: action add tooltip show action name
+
+* feat: page routes state ui badge hover show path tooltip
+
+* chore: improve data table ui
+
+* fix: build type error
+
+* feat: delete page route feature
+
+* chore: turbo type check command
+
+* feat: icon
+
+* fix: enhance path validation in API router
+
+* feat: sonner toaster
+
+* chore: rename comp name
+
+* feat: enhance inspector start cli ui
+
+* fix: add FileExistsError and handle file existence checks in API routes
+
+* feat: change command from inspector to web
+
+* fix: enhance CORS configuration for development mode in inspector server
+
+* fix: type error
+
+* docs: fix wrong command
+
+* fix: improve path resolution and validation in API router
+
+* chore: ensure NextRequest and NextResponse imports are correctly added in file operations"
+https://www.github.com/1weiho/next-lens,2a92c1898a4841a46ee8cc65303ff7fa326ccf01,2025-11-29T12:30:16+00:00,Human,,21,6,1,False,False,False,False,docs: readme add method option in `api:list` command
+https://www.github.com/1weiho/next-lens,93710159ed89417258d23e39fa887cf5112652d4,2025-11-29T11:57:32+00:00,Human,,1,1,1,False,False,False,False,chore: bump version to v0.1.1
+https://www.github.com/1weiho/next-lens,9acf953d037ee2c5a3b745f38fc1665264314ece,2025-11-29T11:55:57+00:00,Human,,236,11,5,False,False,False,False,feat: add http method filter param to list api command (#6)
+https://www.github.com/1weiho/next-lens,de4d3c46cc83b2268f51bb63365a13a1bb52938d,2025-11-22T12:41:30+00:00,Human,,1,1,1,False,False,False,False,chore: bump version to v0.1.0
+https://www.github.com/1weiho/next-lens,08177c4dbe0c793e56f7cb0e45a827b6d4f38bc6,2025-11-22T12:39:30+00:00,Human,,2415,657,17,False,True,False,False,"feat: next-lens mcp (#5)
+
+* feat: next-lens mcp
+
+* feat(mcp): search params
+
+* chore(mcp): update tools description
+
+* test: add test for libs
+
+* test: fix no pages test
+
+* docs: update readme
+
+* feat(mcp): add api-search and page-search tools"
+https://www.github.com/1weiho/next-lens,4d3fd0c87eafe65f24dd8304f4507b1f2a505209,2025-10-14T10:08:21+00:00,Human,,2268,15,42,False,False,False,False,"test: vitest (#4)
+
+* chore: add vitest dev deps
+
+* test: add mock next app
+
+* test: add api list and page list tests
+
+* test: info command test
+
+* ci: run vitest
+
+* test: match info insights versions to manifest"
+https://www.github.com/1weiho/next-lens,0927622f9ea192aff4b964cc2796aa48b1cf4c7e,2025-10-10T13:49:57+00:00,Human,,1,1,1,False,False,False,False,chore: release v0.0.3
+https://www.github.com/1weiho/next-lens,1fedacccf5102f163c0fed10636e30a8a42ba144,2025-10-10T13:48:48+00:00,Human,,9,9,1,False,False,False,False,docs: update readme
+https://www.github.com/1weiho/next-lens,72efdfcb22c6e655e2251e21d8f74a4a2e4dc284,2025-10-10T13:45:50+00:00,Human,,428,6,3,False,False,False,False,"feat: page list command (#3)
+
+* feat: route list command
+
+* chore: update list command header
+
+* docs: update readme
+
+* feat: state ui add local and inherited type
+
+* chore(route-list): update state ui header
+
+* style: prettier formatting
+
+* chore(api-list): update header
+
+* chore: rename route list to page list
+
+* chore(page-list): rename local to co-located"
+https://www.github.com/1weiho/next-lens,50c78f4bd88b72fa9c848b8235eeca2dd5a0bd30,2025-10-08T21:40:35+00:00,Human,,40,0,1,False,False,False,False,ci: init workflow (#2)
+https://www.github.com/1weiho/next-lens,8cb37a470e33ce41f0a1ace2fee969e802b89e43,2025-10-08T21:36:52+00:00,Human,,1,1,1,False,False,False,False,chore: update about link (#1)
+https://www.github.com/1weiho/next-lens,3bb80c013af91f840da777cb536b561692156444,2025-10-07T18:23:13+00:00,Human,,1,1,1,False,False,False,False,docs: update readme
+https://www.github.com/1weiho/next-lens,f1c0b7288c599f61b371062c1ed92f011ea67864,2025-10-07T17:39:57+00:00,Human,,2,0,1,False,False,False,False,Update README.md
+https://www.github.com/1weiho/next-lens,9e9db56d5b045cee74ac40c643ca69d3a2a65f19,2025-10-07T17:14:21+00:00,Human,,1,1,1,False,False,False,False,chore: bump version to v0.0.2
+https://www.github.com/1weiho/next-lens,1a19c63fc4f06896a44153f5e38a6dd4a5b34e8d,2025-10-07T17:14:04+00:00,Human,,46,61,1,False,False,False,False,refactor: rewrite parsing logic without ts
+https://www.github.com/1weiho/next-lens,5c44916a7455e53eb272588fa4be23d721ecd009,2025-10-07T16:52:23+00:00,Human,,9,2,1,False,False,False,False,docs: update package.json info
+https://www.github.com/1weiho/next-lens,5bd5def7fbb50d30c20943d94d9acd5ac85adc0f,2025-10-07T16:48:18+00:00,Human,,21,0,1,False,False,False,False,Create LICENSE
+https://www.github.com/1weiho/next-lens,bcf131317c8dfd58d5ab1f680bfb5ef54a88133d,2025-10-07T16:46:24+00:00,Human,,77,0,1,False,False,False,False,docs: add readme
+https://www.github.com/1weiho/next-lens,daf6cb20cb103dbc9a4b60245148648e5d0a1fa3,2025-10-07T16:20:58+00:00,Human,,3,1,1,False,False,False,False,feat: craft with love in about command
+https://www.github.com/1weiho/next-lens,9ad8923f54120245d26b301edb6a231cd276e0db,2025-10-07T16:17:24+00:00,Human,,4,4,1,False,False,False,False,feat: unify about color design
+https://www.github.com/1weiho/next-lens,47f93b2d5e599180f06aa6680a51dc46e4f85034,2025-10-07T16:14:11+00:00,Human,,10,2,1,False,False,False,False,feat: unify api list color design
+https://www.github.com/1weiho/next-lens,3d875c0866bc671a8c478752fed269f5bceafc18,2025-10-07T16:06:23+00:00,Human,,275,1,2,False,False,False,False,feat: info command
+https://www.github.com/1weiho/next-lens,0a7901f8dc8f88c5149782ec3365df196473199c,2025-10-07T15:54:19+00:00,Human,,1,1,1,False,False,False,False,chore: set version to 0.0.1
+https://www.github.com/1weiho/next-lens,2171376fb6f8fc6b57a5b637703eb4ed8f9373b8,2025-10-07T14:57:17+00:00,Human,,882,451,6,False,False,False,False,style: prettier formatting
+https://www.github.com/1weiho/next-lens,0ad339d9eb7bd86e95737907df9bd606bc739e1f,2025-10-07T14:56:24+00:00,Human,,19,0,4,False,False,False,False,chore: add prettier
+https://www.github.com/1weiho/next-lens,1e2d77d43cd45f99938a76bb2b235a443f12265b,2025-10-07T14:55:02+00:00,Human,,16,5,1,False,False,False,False,chore: improve about ui
+https://www.github.com/1weiho/next-lens,f7e3a48471d71a5f999c2a96598f18de279df4a8,2025-10-07T14:53:02+00:00,Human,,447,383,6,False,False,False,False,feat: command
+https://www.github.com/1weiho/next-lens,d3a628d6b09b6c47bd5465f9f8b7db680c5d76f6,2025-10-07T14:41:39+00:00,Human,,885,3,3,False,False,False,False,chore: use tsup to build
+https://www.github.com/1weiho/next-lens,2d47f0dc7f29f03d5b968cd71a3a6807e521b791,2025-10-07T14:12:47+00:00,Human,,3,6,1,False,False,False,False,chore: remove id column
+https://www.github.com/1weiho/next-lens,4ccac46439c6c492aaf3810d5411d89d7e3251ab,2025-10-07T14:10:29+00:00,Human,,397,14,3,False,False,False,False,feat: api route list command
+https://www.github.com/1weiho/next-lens,2d36ec4538b74485d9dfbfa7c3751ee966201fa7,2025-10-07T14:00:15+00:00,Human,,417,6,5,False,False,False,False,chore: cli skeleton
+https://www.github.com/1weiho/next-lens,579c4ab00950e9ae66cf322d728c879c4b5e83e1,2025-10-07T13:55:07+00:00,Human,,13,0,1,False,False,False,False,feat: init project

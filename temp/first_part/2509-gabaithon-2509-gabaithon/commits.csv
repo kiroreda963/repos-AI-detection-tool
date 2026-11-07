@@ -1,0 +1,460 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/2509-gabaithon/2509-gabaithon,be96a8bf26f9e4340e2259017f68f906f3370a6a,2025-09-09T07:41:14+00:00,Human,,46,2,1,False,False,False,False,chore: いったんうごく
+https://www.github.com/2509-gabaithon/2509-gabaithon,af516c0871690e345a0fc24175be265c0e15bb8e,2025-09-09T07:19:03+00:00,Human,,174,1,3,False,False,False,False,chore: なんかうごいたがｗ
+https://www.github.com/2509-gabaithon/2509-gabaithon,f3c3b50852a95ede5efb3da9cc84fbdeca0a5588,2025-09-09T06:26:46+00:00,Human,,8,0,1,False,False,False,False,chore: add equipped
+https://www.github.com/2509-gabaithon/2509-gabaithon,7544c59bd180aabcdc6269d7e2306efce55c3f03,2025-09-09T06:25:44+00:00,Human,,8,10,2,True,True,False,False,"fix: パートナー名入力のReactレンダリング警告を修正
+
+- useCallbackでhandleCharacterNameChangeをメモ化
+- useEffectを初回のみ実行に変更し、レンダリング中の状態更新を回避
+- React StrictModeでの警告を解消"
+https://www.github.com/2509-gabaithon/2509-gabaithon,b398a5845c698301293b3811da21fa7b04caa5f4,2025-09-09T06:21:10+00:00,Human,,10,8,1,True,True,False,False,"fix: パートナー名入力時の強制リセット問題を修正
+
+- useEffectの依存配列による副作用を除去
+- useRefを使用した初期化時のみの状態同期に変更
+- 入力中に名前が元に戻される問題を解決"
+https://www.github.com/2509-gabaithon/2509-gabaithon,9f72668a92d5453a93781d3bdb3f789e380b734d,2025-09-09T06:10:10+00:00,Human,,405,90,4,False,False,False,False,chore: ぱーとなーの名前変えなくても次の画面に行けるように
+https://www.github.com/2509-gabaithon/2509-gabaithon,551b8d40dc2276b6431e7221ad266133adfd90ce,2025-09-09T05:49:35+00:00,Human,,4,3,2,False,False,False,False,chore: dynamic import を削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,16a2e73248a89fc2799a09aacaa8d3203f6b3077,2025-09-09T04:44:06+00:00,Human,,41,2,2,False,False,False,False,"Merge pull request #115 from 2509-gabaithon/110-store-profile-to-db
+
+feat: ユーザープロフィールを更新する処理を実装した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,9fa8560cf69d469409f54b60b75a1f5c438f34c7,2025-09-09T04:43:06+00:00,Human,,1113,1154,32,False,False,False,False,Merge branch 'main' into 110-store-profile-to-db
+https://www.github.com/2509-gabaithon/2509-gabaithon,222041f66a6de400b90c2672f59b9a15d4ef61c7,2025-09-09T04:36:00+00:00,Human,,1008,1104,28,False,False,False,False,"Merge pull request #117 from 2509-gabaithon/feat/accessary
+
+Feat/accessary"
+https://www.github.com/2509-gabaithon/2509-gabaithon,2541e115d173676c029670d56e7a90202679e88f,2025-09-09T04:35:24+00:00,Human,,0,0,1,True,True,False,False,fix: 湯桶だけとおすぎ問題
+https://www.github.com/2509-gabaithon/2509-gabaithon,3af63e566ffffd9b15f20cede3de64e47710ee9b,2025-09-09T04:33:46+00:00,Human,,171,977,15,False,False,False,False,"feat: implement real accessory collection display in decoration screen
+
+- Replace mock data with actual user accessory data from database
+- Add real-time accessory equip/unequip functionality
+- Display owned accessory count and images from public/accessaries/
+- Show empty state when user has no accessories with quest guidance
+- Add loading states and error handling for better UX
+- Include equipped indicator on accessory cards"
+https://www.github.com/2509-gabaithon/2509-gabaithon,5a49ebb41ec5c3c25fec6525596ffb99d607482e,2025-09-09T04:32:10+00:00,Human,,3,3,1,False,False,False,False,feat: DBのユーザープロフィールをユーザーが入力した値で更新するようにした
+https://www.github.com/2509-gabaithon/2509-gabaithon,9474dbc33581e731bfb15e3f375d0c6899a58629,2025-09-09T04:23:45+00:00,Human,,38,0,1,False,False,False,False,feat: ユーザープロフィールを更新する処理を実装した
+https://www.github.com/2509-gabaithon/2509-gabaithon,1f789d51947ba7b3a01aa630b5ebfe078bbe4409,2025-09-09T04:23:25+00:00,Human,,19,18,3,False,False,False,False,"Merge pull request #114 from 2509-gabaithon/113-preload-timer-back
+
+タイマーの背景画像をpreloadするように変更"
+https://www.github.com/2509-gabaithon/2509-gabaithon,b7d407bce387cd5e1415166efa8a741c64d83417,2025-09-09T04:22:45+00:00,Human,,86,33,1,False,False,False,False,"Merge pull request #108 from 2509-gabaithon/100-tap-to-select-onsen-repair
+
+ マップで温泉の選択を促すバッチを追加"
+https://www.github.com/2509-gabaithon/2509-gabaithon,736f291e18cc96c60875f9c7ba704f3d7725931b,2025-09-09T04:20:36+00:00,Human,,0,0,1,False,False,False,False,add: assetsにも背景画像を追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,f2de3e09c6014307c17f992a7f33d07d4d57523d,2025-09-09T04:19:36+00:00,Human,,1,0,2,False,False,False,False,feat: equipped
+https://www.github.com/2509-gabaithon/2509-gabaithon,f983877ea5bcaf001bb8e0fb377722b91d8d692c,2025-09-09T04:16:09+00:00,Human,,343,61,10,False,False,False,False,"feat: implement accessory display system for partner characters
+
+- Add equipped column to user_accessary table with unique constraint
+- Add getEquippedAccessary and equipAccessary functions for accessory management
+- Create CharacterWithAccessory component for composite character+accessory display
+- Replace character images in CharacterScreen, HomeScreen, ResultScreen, and CharacterDecoScreen
+- Support fallback to 0.png for missing or no accessories
+- Enable real-time accessory display updates"
+https://www.github.com/2509-gabaithon/2509-gabaithon,854c589bc8e39a2707f15f5fcab5606d17dde1a7,2025-09-09T04:05:29+00:00,Human,,19,18,3,True,True,False,False,fix: タイマーの背景画像をpreloadするように変更
+https://www.github.com/2509-gabaithon/2509-gabaithon,7e8f6be3afa3ee14779e592d21120ec4a361bf02,2025-09-09T03:59:37+00:00,Human,,356,50,8,False,False,False,False,"feat: implement random accessory reward system for quest completion
+
+- Add accessory utility functions (getAllAccessaries, getUserAccessaries, grantAccessaryToUser, selectRandomAccessary, grantRandomAccessary)
+- Add accessory type definitions
+- Integrate accessory reward system into quest completion flow
+- Enhance quest completion notification UI to display accessory rewards
+- Support duplicate checking and random selection with unowned priority"
+https://www.github.com/2509-gabaithon/2509-gabaithon,8a585ce218e7395805d61dbe1a96e1e25030b38b,2025-09-09T03:43:50+00:00,Human,,278,157,4,False,False,False,False,feat: 経験値がdbに保存されるようにした
+https://www.github.com/2509-gabaithon/2509-gabaithon,03589b88d2d8149c9c8532328ef8147011b356b0,2025-09-09T03:42:20+00:00,Human,,641,101,11,False,False,False,False,Merge branch 'main' into 100-tap-to-select-onsen-repair
+https://www.github.com/2509-gabaithon/2509-gabaithon,d865a3a6cfdcb727bd49f6abf63d134d0b380b75,2025-09-09T03:39:47+00:00,Human,,11,16,1,False,False,False,False,"Merge pull request #107 from 2509-gabaithon/27-partner-no-border-repair
+
+キャラクター選択・命名画面の枠を削除"
+https://www.github.com/2509-gabaithon/2509-gabaithon,c6f89f2ac29effd818a2714cba7040a4b1af0bae,2025-09-09T03:38:22+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #104 from 2509-gabaithon/103-fullscreen-map
+
+現在地チェック画面の地図を画面いっぱいに表示するようにした"
+https://www.github.com/2509-gabaithon/2509-gabaithon,270c52baa7e5b542856b6e2fed5e1b00f519a458,2025-09-09T02:44:12+00:00,Human,,628,83,9,False,False,False,False,"Merge pull request #109 from 2509-gabaithon/feat/quest-stamp
+
+クエスト対象の温泉に入った時にクエストをクリアにする実装"
+https://www.github.com/2509-gabaithon/2509-gabaithon,006dd7f05cb0614771ba8f598145e352bb11d2b0,2025-09-09T02:42:54+00:00,Human,,13,0,1,True,True,False,False,fix: quest_onsen のぽりしーを修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,1465c378a4f836cd335aa31f6561e82dff4aae4d,2025-09-09T02:39:52+00:00,Human,,88,35,1,False,False,False,False,add: マップで温泉の選択を促すバッチを追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,6cf11bd994343176e2247be1fef3682bb1c23e17,2025-09-09T02:29:16+00:00,Human,,297,114,5,True,True,False,False,"fix: improve quest completion detection with null checks and detailed logging
+
+- Add null validation for quest_id to prevent PostgreSQL type errors
+- Simplify quest_onsen query to avoid JOIN issues
+- Add comprehensive logging for debugging quest submission flow
+- Fix quest name retrieval by fetching quest details separately
+- Enhance error handling for quest completion detection"
+https://www.github.com/2509-gabaithon/2509-gabaithon,fa76d1071006c028bdacd87f16d21c314a6e48b5,2025-09-09T02:25:10+00:00,Human,,11,16,1,False,False,False,False,remove: キャラクター選択画面の枠を削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,e02ea69daf3d8b4b9e2bf78ab2d1d4778793a20d,2025-09-09T02:02:06+00:00,Human,,17,8,1,True,True,False,False,"fix: update migration to handle existing foreign key constraint
+
+- Add conditional check for existing nyuyoku_log_user_id_fkey constraint
+- Use CREATE INDEX IF NOT EXISTS to avoid duplicate index errors
+- Use DO block for safe constraint addition
+- Successfully applied migration to production database"
+https://www.github.com/2509-gabaithon/2509-gabaithon,be9b59d687079899d959776e30b708e15f491779,2025-09-09T01:56:57+00:00,Human,,29,3,2,False,False,False,False,"refactor: modify nyuyoku_log schema to support multiple logs per user
+
+- Change user_id from primary key to foreign key
+- Add auto-increment id column as new primary key
+- Update TypeScript interfaces to reflect schema changes
+- Add database indexes for better query performance
+- Allow multiple bath log entries per user instead of single record limitation"
+https://www.github.com/2509-gabaithon/2509-gabaithon,921e0f7f6367e6df9db7d844e37aab2949c8a752,2025-09-09T01:53:04+00:00,Human,,1,1,1,True,True,False,False,fix: 地図の高さを画面いっぱいに変更した
+https://www.github.com/2509-gabaithon/2509-gabaithon,353c2ca8c888961e846afb9ee10ef0dc1504f75f,2025-09-09T01:47:17+00:00,Human,,369,55,5,False,False,False,False,"feat: implement quest completion detection and notification
+
+- Add checkAndCompleteQuests function to detect quest completion by place_id
+- Extend insertNyuyokuLog to automatically check quest completion after logging
+- Create QuestCompletionNotification component for quest achievement display
+- Update page.tsx to show quest completion notifications after bath completion
+- Integrate quest submission recording with duplicate prevention
+- Add beautiful notification UI with sparkle effects and quest list navigation"
+https://www.github.com/2509-gabaithon/2509-gabaithon,8e3a49b3911404d9d503351cddde608d9b52000d,2025-09-09T01:28:14+00:00,Human,,498,155,9,False,False,False,False,"Merge pull request #101 from 2509-gabaithon/feat/quest-screen
+
+クエストデータを読み込むようにした"
+https://www.github.com/2509-gabaithon/2509-gabaithon,9fd9c7fc697e2a49608b8c0be6eebce38d1799bc,2025-09-09T01:27:42+00:00,Human,,0,0,3,False,False,False,False,feat: サムネイルを角丸に
+https://www.github.com/2509-gabaithon/2509-gabaithon,51879726b1e9cea2036aaee575625d2c85551fcb,2025-09-09T01:26:58+00:00,Human,,8,8,1,False,False,False,False,"style: update quest thumbnails to square crop with rounded corners
+
+- Change image object-fit from contain to cover for square cropping
+- Increase border radius from rounded-lg to rounded-xl for more rounded corners
+- Add bg-white background for better image contrast
+- Update mask properties to use cover for consistent cropping in effects
+- Add rounded corners to overlay effects for visual consistency"
+https://www.github.com/2509-gabaithon/2509-gabaithon,c648e17c559322501dbb67b3f08d6c20715d9aa8,2025-09-09T01:04:56+00:00,Human,,71,59,9,False,False,False,False,"feat: enhance quest system with location columns and custom images
+
+- Add lat/lng columns to quest table for future location features
+- Update quest images to use public/quests/{id}.png format
+- Change button text from 'スタンプラリーを見る' to '湯けむりクエストを確認'
+- Add image error handling with fallback to default stamp image
+- Update Quest interface to include optional lat/lng properties"
+https://www.github.com/2509-gabaithon/2509-gabaithon,bcc2b2685353bf6d83791753b78624a2cab5b87f,2025-09-09T00:53:27+00:00,Human,,484,153,5,False,False,False,False,feat: クエストデータを持ってくるように修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,476148baec2aaba3892ab0e3731f0f9d44b4051b,2025-09-09T00:22:58+00:00,Human,,1,0,1,False,False,False,False,feat: quest_onsen.name を追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,b49c4fd75ce417e93ce1dad36e0d30dc58e849a5,2025-09-09T00:14:23+00:00,Human,,229,12,8,False,False,False,False,"Merge pull request #99 from 2509-gabaithon/feat/insert-nyuyoku-log
+
+入浴データの記録を実装した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,b2d170a18ef41c1c52e92dd062179980483ac54b,2025-09-08T22:58:32+00:00,Human,,1,0,1,False,False,False,False,feat: onsen_name を追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,8860bd431bf2362ca7215cce3a03a7095f0d8a6b,2025-09-08T22:51:25+00:00,Human,,228,12,7,False,False,False,False,feat: 入浴データ挿入ロジックを書いた
+https://www.github.com/2509-gabaithon/2509-gabaithon,540dab738d08b894149b29d087e37f05e85ac59c,2025-09-08T22:22:57+00:00,Human,,245,1,4,False,False,False,False,chore: ユーザー削除スクリプトを作成
+https://www.github.com/2509-gabaithon/2509-gabaithon,170e21711c47bf4bfc3d382b441e66ad780e6321,2025-09-08T22:01:18+00:00,Human,,19,3,2,False,False,False,False,chore: nyuyoku_log のカラムを更新
+https://www.github.com/2509-gabaithon/2509-gabaithon,2fef7d4fbfb6111214e7467fe6b9f610dde4d9c7,2025-09-08T16:53:47+00:00,Human,,48,74,2,False,False,False,False,"Merge pull request #97 from 2509-gabaithon/95-make-best-timer
+
+タイマー画面のUIを差し替えた"
+https://www.github.com/2509-gabaithon/2509-gabaithon,f056fe5b0f875d62341fa86e75152f15c226df71,2025-09-08T16:46:46+00:00,Human,,48,74,1,False,False,False,False,change: 背景画像に合うように，コンポーネントを再配置した
+https://www.github.com/2509-gabaithon/2509-gabaithon,499afd5d6ccce6fce6a1c9f344aff2428c548a26,2025-09-08T16:43:37+00:00,Human,,0,0,1,False,False,False,False,add: タイマーの背景画像を追加した
+https://www.github.com/2509-gabaithon/2509-gabaithon,26c1d444f8af90422c947da2d67b0b204ca29f38,2025-09-08T16:08:11+00:00,Human,,8,11,1,False,False,False,False,"Merge pull request #90 from 2509-gabaithon/マップ画面の実装
+
+何も選択してない時，「未選択」と表示"
+https://www.github.com/2509-gabaithon/2509-gabaithon,46dc6cba246555cbc789839268ff060860aa20c8,2025-09-08T16:01:30+00:00,Human,,90,0,5,False,False,False,False,"Merge pull request #76 from 2509-gabaithon/30-make-pwa
+
+サイトのPWA化"
+https://www.github.com/2509-gabaithon/2509-gabaithon,25e23c957fe3c3dddfae1d52bc8a81cd66fb0d31,2025-09-08T15:59:03+00:00,Human,,270,168,9,False,False,False,False,Merge branch 'main' into 30-make-pwa
+https://www.github.com/2509-gabaithon/2509-gabaithon,4ad8c159de9934101c766eef42e2c75eaf691da8,2025-09-08T15:51:59+00:00,Human,,0,10,1,False,False,False,False,"Merge pull request #93 from 2509-gabaithon/92-remove-timer-info
+
+タイマー内のレベルと温泉回数を削除"
+https://www.github.com/2509-gabaithon/2509-gabaithon,6c04e8c314ba6243acb4e41a8a465ecbb7ad6561,2025-09-08T15:45:51+00:00,Human,,3,0,1,False,False,False,False,"Merge pull request #94 from 2509-gabaithon/feat/add_count_to_user_partner
+
+chore: user_partner に count を追加した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,26db1c346a3159bde7cd6087071c8f874b51679f,2025-09-08T15:45:25+00:00,Human,,3,0,1,False,False,False,False,chore: user_partner に count を追加した
+https://www.github.com/2509-gabaithon/2509-gabaithon,96805aa23d94041b0e1ea44f23f46d7e796d3b04,2025-09-08T15:38:05+00:00,Human,,0,10,1,False,False,False,False,remove: タイマー内のレベルと温泉回数を削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,11a5346da6aacd77af246349696ff526faa513b9,2025-09-08T15:33:15+00:00,Human,,6,9,1,False,False,False,False,"Merge pull request #82 from 2509-gabaithon/26-change-font
+
+feat: layout.tsxを修正し、タイトル画面含む全体に「Kosugi Maru」フォントを適用"
+https://www.github.com/2509-gabaithon/2509-gabaithon,a7fe098be2e1ea5303cf9f2817a1a70012c90c5b,2025-09-08T15:31:14+00:00,Human,,218,136,4,False,False,False,False,Merge branch 'main' into 26-change-font
+https://www.github.com/2509-gabaithon/2509-gabaithon,bc8531f106c67ba80dde7779e284436d742c508d,2025-09-08T15:30:19+00:00,Human,,1,8,1,False,False,False,False,"Merge pull request #89 from 2509-gabaithon/88-remove-stamina
+
+スタミナを削除した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,afd86da7a1e7339fad23969774c62d3ad76210ec,2025-09-08T15:20:45+00:00,Human,,1,8,1,False,False,False,False,remove: スタミナを削除した
+https://www.github.com/2509-gabaithon/2509-gabaithon,2dff2f9f096fcca93545cc7b5a59e62354cd36af,2025-09-08T15:19:46+00:00,Human,,8,11,1,False,False,False,False,delete console
+https://www.github.com/2509-gabaithon/2509-gabaithon,9214871ee7b7f94fa0dc3fd10609d5bb54b54a2c,2025-09-08T14:53:34+00:00,Human,,217,128,3,False,False,False,False,"Merge pull request #73 from 2509-gabaithon/マップ画面の実装
+
+マップをGoogle mapに置換"
+https://www.github.com/2509-gabaithon/2509-gabaithon,5f1592f5f1e05dec9b96c8edfdf683e1fd6bd85e,2025-09-08T14:39:37+00:00,Human,,89,15,5,False,False,False,False,Merge branch 'main' into 26-change-font
+https://www.github.com/2509-gabaithon/2509-gabaithon,d44cf1d5945372c1f38f570278217ec68804b208,2025-09-08T14:16:31+00:00,Human,,89,15,5,False,False,False,False,xMerge branch 'main' into マップ画面の実装
+https://www.github.com/2509-gabaithon/2509-gabaithon,0db3f19f923eab9b229b0f5a300af6460942d94e,2025-09-08T14:15:01+00:00,Human,,27,0,1,False,False,False,False,"Merge pull request #87 from 2509-gabaithon/feat/profile-initialize
+
+feat: ユーザデータ作成時に初期データを作成するようにした"
+https://www.github.com/2509-gabaithon/2509-gabaithon,5c1db1d460baae972be0391c8d530ca06617955e,2025-09-08T14:12:27+00:00,Human,,1,0,1,False,False,False,False,add setOnsen function
+https://www.github.com/2509-gabaithon/2509-gabaithon,1c8e53899a10cd4f54af5d49f1ac38ec54caed52,2025-09-08T14:03:16+00:00,Human,,27,0,1,False,False,False,False,feat: ユーザデータ作成時に初期データを作成するようにした
+https://www.github.com/2509-gabaithon/2509-gabaithon,e88704295c83f27e11dce63cab1060b6e984e2ce,2025-09-08T14:00:06+00:00,Human,,31,2,5,False,False,False,False,Merge branch 'マップ画面の実装' of github.com:2509-gabaithon/2509-gabaithon into マップ画面の実装
+https://www.github.com/2509-gabaithon/2509-gabaithon,39861be4ee763cfb1f0e3be14c265626e4e3302d,2025-09-08T13:58:13+00:00,Human,,47,18,2,False,False,False,False,入浴した温泉を 保持してapp/page.tsxで参照できるように変更
+https://www.github.com/2509-gabaithon/2509-gabaithon,75c1c69eb37d134b1a8c87d086cfa496de20067f,2025-09-08T13:24:53+00:00,Human,,16,13,2,False,False,False,False,"Merge pull request #80 from 2509-gabaithon/71-modal-close-on-tap
+
+DialogContentにXボタンの表示・非表示を切り替えるオプションを追加"
+https://www.github.com/2509-gabaithon/2509-gabaithon,09212b642b94fec72ac728119b18d54f85aac3df,2025-09-08T13:22:20+00:00,Human,,46,2,2,False,False,False,False,Merge branch 'main' into 71-modal-close-on-tap
+https://www.github.com/2509-gabaithon/2509-gabaithon,6ed6042166a2338afb94441673efeea8da227042,2025-09-08T13:21:00+00:00,Human,,46,2,2,False,False,False,False,Merge branch 'main' into 30-make-pwa
+https://www.github.com/2509-gabaithon/2509-gabaithon,90e661cb11615698bde77c389c5006f05a42643d,2025-09-08T13:20:15+00:00,Human,,46,2,2,False,True,False,False,"Merge pull request #86 from 2509-gabaithon/72-fix-screen-lock
+
+画面の動作をできる限り制限"
+https://www.github.com/2509-gabaithon/2509-gabaithon,9e0544d0be31f9322a38829de06eb1c7446cb6eb,2025-09-08T13:17:39+00:00,Human,,31,2,5,False,True,False,False,Merge branch 'main' into 72-fix-screen-lock
+https://www.github.com/2509-gabaithon/2509-gabaithon,4c83cf8472306f602dc80d0e2904c4ec6dc528fc,2025-09-08T13:17:21+00:00,Human,,1,0,1,False,False,False,False,add: 画像だけ右クリック不可にした
+https://www.github.com/2509-gabaithon/2509-gabaithon,f4b2dfa9cdd44653999cee881c63883545f98d2b,2025-09-08T12:49:00+00:00,Human,,31,2,5,False,False,False,False,Merge branch 'main' into マップ画面の実装
+https://www.github.com/2509-gabaithon/2509-gabaithon,521fd42607017df840bf019badbc6ae34ec58d6b,2025-09-08T12:48:34+00:00,Human,,2609,270,58,False,False,False,False,Merge branch 'main' into 26-change-font
+https://www.github.com/2509-gabaithon/2509-gabaithon,d3378c265939721fd64d6a842996670817d2a116,2025-09-08T12:48:26+00:00,Human,,31,2,5,False,False,False,False,Merge branch 'main' into 71-modal-close-on-tap
+https://www.github.com/2509-gabaithon/2509-gabaithon,2bbe532554874ae4fa9d9374ba9d9726b4baac87,2025-09-08T12:45:00+00:00,Human,,31,2,5,False,False,False,False,Merge branch 'main' into 30-make-pwa
+https://www.github.com/2509-gabaithon/2509-gabaithon,01d4df4dddfdcbc14b3328c7727e61e6ca41494a,2025-09-08T12:39:43+00:00,Human,,10,1,3,False,False,False,False,"Merge pull request #83 from 2509-gabaithon/81-add-window-google
+
+Google Mapの型定義を追加した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,c511b835953fdbf22fe43c51346bad1113b840c5,2025-09-08T12:38:44+00:00,Human,,7,1,1,False,False,False,False,add: メタタグでピンチズームを禁止化
+https://www.github.com/2509-gabaithon/2509-gabaithon,090639106da08a25f9c47bd8eee53953ea664923,2025-09-08T12:37:33+00:00,Human,,5,1,1,False,False,False,False,Merge branch 'main' into 81-add-window-google
+https://www.github.com/2509-gabaithon/2509-gabaithon,97fe8d028a7d8d5925b2d63c2e2416e0edee4dc3,2025-09-08T12:37:27+00:00,Human,,38,1,1,False,False,False,False,add: globals.cssにタップモーションやフォーカスを禁止にするCSSを追記
+https://www.github.com/2509-gabaithon/2509-gabaithon,abdfbe412dc6f862383b5bc17f0fa2f17caf118e,2025-09-08T12:37:14+00:00,Human,,5,1,1,False,False,False,False,"Merge pull request #78 from 2509-gabaithon/75-refactor-timer-logic
+
+タイマーを現在時刻に基づいて計算するようにした"
+https://www.github.com/2509-gabaithon/2509-gabaithon,7291020e0cee24c6fa64edd4cd352651d411662b,2025-09-08T12:35:30+00:00,Human,,16,0,1,False,False,False,False,Merge branch 'main' into 81-add-window-google
+https://www.github.com/2509-gabaithon/2509-gabaithon,5c97ec91f50c86bc1e7770e6482d3342f76c1ec6,2025-09-08T12:35:16+00:00,Human,,16,0,1,False,False,False,False,"Merge pull request #85 from 2509-gabaithon/84-ci-env
+
+ビルド時に環境変数を読み込むようにした"
+https://www.github.com/2509-gabaithon/2509-gabaithon,defe3864de7015b9ed156eecdbd8c520dc14f917,2025-09-08T12:33:42+00:00,Human,,16,0,1,False,False,False,False,ci: 環境変数を読み込むようにした
+https://www.github.com/2509-gabaithon/2509-gabaithon,5d6acdd563c9100d07cddb27bedede91921dd028,2025-09-08T12:03:05+00:00,Human,,7,0,1,False,False,False,False,add: windowにGoogleMapの名前空間を追加した
+https://www.github.com/2509-gabaithon/2509-gabaithon,1bd681048e006e7d10a7847d6e14eaa5a53d6c07,2025-09-08T12:02:25+00:00,Human,,3,1,2,False,False,False,False,chore: GoogleMapの型定義を追加した
+https://www.github.com/2509-gabaithon/2509-gabaithon,b8617028b41a3e08f106cb1b185c68f7805e57d9,2025-09-08T11:18:55+00:00,Human,,16,13,2,False,False,False,False,feat(dialog): DialogContentにXボタンの表示・非表示を切り替えるオプションを追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,5ca996993746ba965ced2690bd1669818f865436,2025-09-08T11:01:23+00:00,Human,,602,112,20,False,False,False,False,Merge branch 'マップ画面の実装' of github.com:2509-gabaithon/2509-gabaithon into マップ画面の実装
+https://www.github.com/2509-gabaithon/2509-gabaithon,57b64f7c2eec33d5502ec0f0f3e4cb6787697e01,2025-09-08T11:00:37+00:00,Human,,515,60,14,False,False,False,False,Merge branch 'main' into マップ画面の実装
+https://www.github.com/2509-gabaithon/2509-gabaithon,b3955b087df1d97118ba8a3c210bee552b2c2ab9,2025-09-08T10:58:35+00:00,Human,,515,59,14,False,False,False,False,Merge branch 'main' into 30-make-pwa
+https://www.github.com/2509-gabaithon/2509-gabaithon,b153160f63ee156891ab5fd2fa6c7f0edf58aa31,2025-09-08T10:58:23+00:00,Human,,589,112,16,False,False,False,False,Merge branch 'main' into 75-refactor-timer-logic
+https://www.github.com/2509-gabaithon/2509-gabaithon,767f4a65e33b495fede3676261a824dfd0e6974a,2025-09-08T10:57:39+00:00,Human,,515,60,14,False,False,False,False,"Merge pull request #79 from 2509-gabaithon/hy_02
+
+認証を実装した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,a19d50644aacd88ca30a89679aec0e3caf52e115,2025-09-08T10:57:24+00:00,Human,,74,52,3,False,False,False,False,Merge branch 'main' into hy_02
+https://www.github.com/2509-gabaithon/2509-gabaithon,d290c8fdf452139ca1342267d78307ce83de4e4e,2025-09-08T10:56:28+00:00,Human,,241,0,10,False,False,False,False,Merge branch 'main' into hy_02
+https://www.github.com/2509-gabaithon/2509-gabaithon,e03c3cc0890aa85926779f373cd7d7ec23ba64e6,2025-09-08T10:56:11+00:00,Human,,87,52,7,False,False,False,False,Merge branch 'main' into マップ画面の実装
+https://www.github.com/2509-gabaithon/2509-gabaithon,3527339d21a9834d386041037ce8e76729316196,2025-09-08T10:56:03+00:00,Human,,87,52,7,False,False,False,False,Merge branch 'main' into 30-make-pwa
+https://www.github.com/2509-gabaithon/2509-gabaithon,814c049de33ceb867bc7dea2087a7322d4bbc495,2025-09-08T10:55:39+00:00,Human,,74,52,3,False,False,False,False,"Merge pull request #64 from 2509-gabaithon/50-result-stamp-hidden
+
+リザルト画面でスタンプがないとき・複数ある時の場合のUIの実装"
+https://www.github.com/2509-gabaithon/2509-gabaithon,a48f19e6af025c7744f025b64d9b2a81209cf6a7,2025-09-08T10:51:53+00:00,Human,,242,1,10,False,False,False,False,Merge branch 'main' into 50-result-stamp-hidden
+https://www.github.com/2509-gabaithon/2509-gabaithon,452b88d6d00bbe1e0d6fd82a074d14a1078ff822,2025-09-08T10:51:35+00:00,Human,,1,1,1,True,True,False,False,fix: スタンプを配列で与えるように修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,9297ca065201e79c9471c81c2b8be8cb2db673a9,2025-09-08T10:49:19+00:00,Human,,16,1,1,False,False,False,False,現在地の画像を動的に変更
+https://www.github.com/2509-gabaithon/2509-gabaithon,1921dff1d3b25e252421c019ee499639be7f7b40,2025-09-08T10:47:29+00:00,Human,,279,53,2,True,True,False,False,fix: なおしました
+https://www.github.com/2509-gabaithon/2509-gabaithon,db366ae708b9324eb9f015efc69e7988e9f07319,2025-09-08T10:43:02+00:00,Human,,5,1,1,False,False,False,False,refactor: タイマーを現在時刻に基づいて計算するようにした
+https://www.github.com/2509-gabaithon/2509-gabaithon,36c4b29d3e50035719613210e395b4d9673fd9ab,2025-09-08T10:26:35+00:00,Human,,3,0,1,False,False,False,False,"Merge pull request #77 from 2509-gabaithon/74-resolve-ts2307
+
+型チェックの画像インポートエラーを解消した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,fc91f4f8ef3c80cad148498a4062f75b0e328091,2025-09-08T10:21:00+00:00,Human,,1,4,1,False,False,False,False,使用しない変数の削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,215a063432f5a763e936be5c39a141996f6b05cd,2025-09-08T10:20:54+00:00,Human,,6,15,1,True,True,False,False,fix: 認証に失敗したらエラーを吐くようにした
+https://www.github.com/2509-gabaithon/2509-gabaithon,e2ff7c1f34ca505c88836dbedcabb00cbd14de4f,2025-09-08T10:19:03+00:00,Human,,1,30,1,False,False,False,False,使用しない変数の削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,24559bc6c711be0015d244ad49c9842d787adc30,2025-09-08T10:17:52+00:00,Human,,3,2,1,False,False,False,False,MAX_ONSEN_DISTANCEのチューニング　温泉が1つしか範囲内に入らないように調整
+https://www.github.com/2509-gabaithon/2509-gabaithon,8136638fe1c695f5ec7ce43269cc85e54067738c,2025-09-08T10:15:38+00:00,Human,,1,1,1,False,False,False,False,chore: user の取得を待つように
+https://www.github.com/2509-gabaithon/2509-gabaithon,737aa2371fdae29ec2b8f9118ad3c71c70f9d3ee,2025-09-08T10:09:51+00:00,Human,,83,18,5,False,False,False,False,chore: ログインできた
+https://www.github.com/2509-gabaithon/2509-gabaithon,73355e56d051ba557e7dac51dd1b7cb70b25acbc,2025-09-08T10:08:39+00:00,Human,,3,0,1,False,False,False,False,ci: 型チェックはビルド後に行う
+https://www.github.com/2509-gabaithon/2509-gabaithon,d0f0f3b1b3cb94e35671b5791a439419e4b306b2,2025-09-08T09:23:11+00:00,Human,,10,0,3,False,False,False,False,"Merge pull request #66 from 2509-gabaithon/40-add-sound-effects
+
+40 add sound effects"
+https://www.github.com/2509-gabaithon/2509-gabaithon,65a9de15cb72c8d8d76399635793ee974703b744,2025-09-08T09:23:01+00:00,Human,,229,1,6,False,False,False,False,Merge branch 'main' into 40-add-sound-effects
+https://www.github.com/2509-gabaithon/2509-gabaithon,73e84fa7ff849806e93cd1a523ea0192f40c98cc,2025-09-08T08:57:02+00:00,Human,,193,118,1,False,False,False,False,マップをGoogle mapに置換
+https://www.github.com/2509-gabaithon/2509-gabaithon,4e20195fc72fb4138ad7a7c594098566a45f1677,2025-09-08T08:54:20+00:00,Human,,1,1,1,True,True,False,False,fix: コンフィグ文を修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,824598419c2c85e94bc4a9ec13ca240784217256,2025-09-08T08:54:20+00:00,Human,,38,0,1,False,False,False,False,add: next.config.jsにセキュリティ設定を追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,25eb98bdbeab4e975b6d1b6416af2fa27f42a6a8,2025-09-08T08:54:20+00:00,Human,,22,0,1,False,False,False,False,add: サービスワーカーファイルを追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,1d634bc7051cfe896c1aba437440f4cb95332ec5,2025-09-08T08:54:20+00:00,Human,,4,1,1,False,False,False,False,add: env.exampleにweb pushの変数を追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,faa9522dcc7b8ebc55894bd1ee40669aebf8928d,2025-09-08T08:52:54+00:00,Human,,153,43,6,False,False,False,False,chore: 認証画面には飛べた
+https://www.github.com/2509-gabaithon/2509-gabaithon,c73e59bc480816ef88f367a18fc29ab7c8d8e751,2025-09-08T08:51:59+00:00,Human,,26,0,1,False,False,False,False,add: app/manifest.ts
+https://www.github.com/2509-gabaithon/2509-gabaithon,b05233b778826d8c4d6a6f68231c22d1f9b0c0d9,2025-09-08T08:51:59+00:00,Human,,0,0,1,False,False,False,False,add: 仮のアプリアイコンを追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,2341beaf97d9f1c72309287364242fa837bac28a,2025-09-08T08:31:50+00:00,Human,,3,5,2,False,False,False,False,chore: プロンプト調整
+https://www.github.com/2509-gabaithon/2509-gabaithon,fa448b1eab89f37719eb16825e4f3952f08186d3,2025-09-08T08:21:18+00:00,Human,,79,14,4,False,False,False,False,Google_login _ID
+https://www.github.com/2509-gabaithon/2509-gabaithon,44f5a6c74192433fe9134d21186751ca84b7516b,2025-09-08T07:48:57+00:00,Human,,6,9,1,False,False,False,False,feat: layout.tsxを修正し、タイトル画面含む全体に「Kosugi Maru」フォントを適用
+https://www.github.com/2509-gabaithon/2509-gabaithon,91340f89d9915791059466c81d46a7130d7870ef,2025-09-08T07:43:42+00:00,Human,,229,1,6,False,False,False,False,"Merge pull request #70 from 2509-gabaithon/マップ画面の実装
+
+マップ画面の実装"
+https://www.github.com/2509-gabaithon/2509-gabaithon,c23adac45404651fe4c42564ddf88730a60b8d88,2025-09-08T07:42:09+00:00,Human,,1,1,1,False,False,False,False,環境変数を使用するように変更
+https://www.github.com/2509-gabaithon/2509-gabaithon,6b1ca307d0e5104b69076e6a56fb407f1e41b2d8,2025-09-08T07:09:41+00:00,Human,,2,1,1,False,False,False,False,add google map api key
+https://www.github.com/2509-gabaithon/2509-gabaithon,ae268f9e690af9b50b552a887ce3060dbb185a09,2025-09-08T06:42:15+00:00,Human,,1718,162,34,False,False,False,False,merge main
+https://www.github.com/2509-gabaithon/2509-gabaithon,20de909c8f7f0d54a50f9552facf5c2dc7f278b5,2025-09-08T06:38:19+00:00,Human,,1729,173,34,False,False,False,False,Merge branch 'main' into 40-add-sound-effects
+https://www.github.com/2509-gabaithon/2509-gabaithon,c59a7cb404064b762e587e92353df713e65d2050,2025-09-08T06:38:05+00:00,Human,,1729,173,34,False,False,False,False,Merge branch 'main' into 50-result-stamp-hidden
+https://www.github.com/2509-gabaithon/2509-gabaithon,e776400e2ab8853e0ebe59230cdf9c5a609cd366,2025-09-08T06:36:36+00:00,Human,,1,1,1,False,True,False,False,fix:build error
+https://www.github.com/2509-gabaithon/2509-gabaithon,200ba11b3bbd612d365d2759840e5545dc653d5c,2025-09-08T06:28:18+00:00,Human,,1729,173,34,True,True,False,False,fix: 鎮火
+https://www.github.com/2509-gabaithon/2509-gabaithon,3fb7bf315fba43304bec674e6b15917484479982,2025-09-08T06:25:11+00:00,Human,,75,35,4,False,False,False,False,Merge branch 'main' into マップ画面の実装
+https://www.github.com/2509-gabaithon/2509-gabaithon,602ee98b1b19feae294524ca6af60fa440d491fa,2025-09-08T06:01:48+00:00,Human,,4,2,1,False,False,False,False,現在地と周辺の温泉の表示
+https://www.github.com/2509-gabaithon/2509-gabaithon,9f33e06fe80be1b35199e3833e1a6d3fd22270cf,2025-09-08T06:01:28+00:00,Human,,2687,50,14,False,False,False,False,Merge branch 'main' into 50-result-stamp-hidden
+https://www.github.com/2509-gabaithon/2509-gabaithon,1636388afbd54b5cf6af21fcbfc54320fd931e09,2025-09-08T06:01:12+00:00,Human,,3105,447,26,False,False,False,False,Merge branch 'main' into 40-add-sound-effects
+https://www.github.com/2509-gabaithon/2509-gabaithon,13fc0e1a07a0a4b04457cb785b47bd270e8cc51d,2025-09-08T05:53:03+00:00,Human,,36,0,1,False,False,False,False,"Merge pull request #69 from 2509-gabaithon/68-make-ci
+
+ビルドチェックできるようにした"
+https://www.github.com/2509-gabaithon/2509-gabaithon,eb7217272799448d2adebe9b45d19d727094c4dc,2025-09-08T05:51:44+00:00,Human,,1,1,1,False,False,False,False,Merge branch 'main' into 68-make-ci
+https://www.github.com/2509-gabaithon/2509-gabaithon,715dc55468acd3cfa9388c6cb7bdfa12beebbee9,2025-09-08T05:50:37+00:00,Human,,226,1,6,False,False,False,False,使用する画面の追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,094154bccd8aeec952f7b8669b4697e53f967748,2025-09-08T05:46:27+00:00,Human,,1,1,1,True,True,False,False,fix: img.src の消火活動
+https://www.github.com/2509-gabaithon/2509-gabaithon,4ecd0260263752ba690da4e76bc16b15f794826e,2025-09-08T05:44:31+00:00,Human,,36,0,1,False,False,False,False,feat: CIを構築した
+https://www.github.com/2509-gabaithon/2509-gabaithon,4bff0c229a3a87a38aaedf4d2453de1f0b38effa,2025-09-08T05:38:25+00:00,Human,,1,1,1,True,True,False,False,fix: src に object わたしてた
+https://www.github.com/2509-gabaithon/2509-gabaithon,1563a13ba7cceb6fbbed114b64e7bc6b8959dba9,2025-09-08T05:16:53+00:00,Human,,37,33,1,False,False,False,False,"Merge pull request #58 from 2509-gabaithon/33-make-spa
+
+メインフローの画面遷移をできるようにした"
+https://www.github.com/2509-gabaithon/2509-gabaithon,0b57006fd92b475b368e1d9be3eadc2df16b9b23,2025-09-08T05:15:22+00:00,Human,,14,5,1,True,True,False,False,fix: character の初期化がうまくいってなかったのでごり押した
+https://www.github.com/2509-gabaithon/2509-gabaithon,0a7b0d1783ed9ad5fe633aa1d6bd54c2f9429428,2025-09-08T05:06:33+00:00,Human,,2612,15,10,False,False,False,False,Merge branch 'main' into 33-make-spa
+https://www.github.com/2509-gabaithon/2509-gabaithon,6927143ce49f075f7a5ea7f1f931f024c914958d,2025-09-08T05:03:17+00:00,Human,,2612,15,10,False,False,False,False,"Merge pull request #65 from 2509-gabaithon/feat/init-supabase
+
+supabase クライアントのセットアップを行った"
+https://www.github.com/2509-gabaithon/2509-gabaithon,5e7b983830c53b28f21eebb21ee2f5029a0a5b7a,2025-09-08T01:15:47+00:00,Human,,3,3,1,True,True,False,False,fix: スタンプ画像のaltを引数から引用
+https://www.github.com/2509-gabaithon/2509-gabaithon,2cf221f63a401dba8e389982b86f6cd08869aaa0,2025-09-08T01:09:07+00:00,Human,,15,5,1,True,True,False,False,fix: モックデータを修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,b72a9b6cf886d077f3f06efdb34792cd224b1460,2025-09-08T01:08:41+00:00,Human,,1,1,1,True,True,False,False,fix: スタンプがない場合の高さを確保
+https://www.github.com/2509-gabaithon/2509-gabaithon,5758f90712530e75b27c27fc4f2ebf15a37e0a99,2025-09-08T01:07:24+00:00,Human,,55,43,1,True,True,False,False,fix: スタンプが複数の場合を想定して構造を変更
+https://www.github.com/2509-gabaithon/2509-gabaithon,851632fb00029746925b1ad0b8398432ee5251df,2025-09-08T00:49:15+00:00,Human,,704,7,3,False,False,False,False,chore: add migration
+https://www.github.com/2509-gabaithon/2509-gabaithon,ed70cf000cdca0167bdf7db78bee6da9ee9ed03d,2025-09-08T00:45:33+00:00,Human,,2,2,1,False,False,False,False,change: 獲得スタンプの引数を配列化
+https://www.github.com/2509-gabaithon/2509-gabaithon,384377750726319f0bb3b2ba4910c04378bc7c87,2025-09-07T23:48:22+00:00,Human,,403,1,2,False,False,False,False,chore: dump types
+https://www.github.com/2509-gabaithon/2509-gabaithon,1d458d42599bda7b1a5d3de8936aad33ca4dd81f,2025-09-07T23:46:23+00:00,Human,,955,8,5,False,False,False,False,chore: export schema
+https://www.github.com/2509-gabaithon/2509-gabaithon,b9a91f6927b6441a4cc975079f30b4edd975ba03,2025-09-07T20:32:03+00:00,Human,,8,1,1,False,False,False,False,chore: supabase cli まわりを追記
+https://www.github.com/2509-gabaithon/2509-gabaithon,65ec3a67094432a97bd847efeee402971bfeeff0,2025-09-07T20:24:21+00:00,Human,,343,0,2,False,False,False,False,chore: init supabase by cli
+https://www.github.com/2509-gabaithon/2509-gabaithon,a6fa633035cb8c1c3df5f1bde61e1073e6544638,2025-09-07T20:17:38+00:00,Human,,12,6,1,False,False,False,False,chore: 環境変数まわりを追記
+https://www.github.com/2509-gabaithon/2509-gabaithon,4a6c58e75f81a6309a1c7227a3aa96a3bd2e5e5d,2025-09-07T20:12:59+00:00,Human,,197,2,3,False,False,False,False,"feat: install @supabase/ssr, init supabase client"
+https://www.github.com/2509-gabaithon/2509-gabaithon,a74db2454b47546ad5ec0813b80d37f741f78b43,2025-09-07T17:14:20+00:00,Human,,2,1,1,True,True,False,False,fix: クエスト完了画面でスタンプが表示されるように修正した
+https://www.github.com/2509-gabaithon/2509-gabaithon,a76a990a6e17c26b0516ef1a92ee1ab518ac09ea,2025-09-07T17:14:20+00:00,Human,,9,14,1,True,True,False,False,fix: 型チェックが通るようにした
+https://www.github.com/2509-gabaithon/2509-gabaithon,9357fcedfbfdaaa18f26cb6837817ae8a8b3957d,2025-09-07T17:14:20+00:00,Human,,12,13,1,True,True,False,False,fix: インポートパスを修正した
+https://www.github.com/2509-gabaithon/2509-gabaithon,ab9af4bc3283703c7807979df40fc3caecd4e94c,2025-09-07T16:34:00+00:00,Human,,3,3,3,False,False,False,False,"Merge pull request #60 from 2509-gabaithon/57-inactivate-any-nav
+
+57 inactivate any nav"
+https://www.github.com/2509-gabaithon/2509-gabaithon,e9efc3ca865bdf9b389a35b42e59f07758a6d630,2025-09-07T16:29:13+00:00,Human,,2,2,2,True,True,False,False,fix: クエスト画面とキャラクターデコレーション画面のナビゲーションをなしにした
+https://www.github.com/2509-gabaithon/2509-gabaithon,bcedea729a73ad74c926c24be29de7f81cb84895,2025-09-07T16:28:04+00:00,Human,,1,1,1,False,False,False,False,feat: アクティブなナビゲーションがない状態を追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,6812f5632de359a74c0d0432b19e5b5dc2115136,2025-09-07T16:10:54+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #59 from 2509-gabaithon/49-change-to-complete-quest
+
+クエスト獲得画面のテキストを書き換えた"
+https://www.github.com/2509-gabaithon/2509-gabaithon,851350987020a5bc60ac326c06fe34efbbb986f2,2025-09-07T16:09:15+00:00,Human,,1,1,1,True,True,False,False,fix: テキストを書き換えた
+https://www.github.com/2509-gabaithon/2509-gabaithon,1dd25f4aada3930f0be82a1fd979142efa426cbe,2025-09-07T13:01:12+00:00,Human,,9,2,2,False,False,False,False,Add: サウンド再生用のユーティリティ関数playSoundを追加し、タイトル画面でクリック音を再生するように実装
+https://www.github.com/2509-gabaithon/2509-gabaithon,c15a19a81668dc6761304a4844cf51d257967dc2,2025-09-07T12:48:18+00:00,Human,,241,180,4,False,True,False,False,"Merge pull request #55 from 2509-gabaithon/24-fix-stamp-rally-screen
+
+クエスト画面を作成した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,8f5a5d4338ee2779e0e2664e7e7ef81fbf69bebc,2025-09-07T12:47:51+00:00,Human,,74,23,2,False,True,False,False,"Merge pull request #53 from 2509-gabaithon/18-fix-character-name-screen
+
+キャラクター選択・命名画面の修正"
+https://www.github.com/2509-gabaithon/2509-gabaithon,f5604a7191f2f9bba48befb3fca7726215b6d434,2025-09-07T12:47:12+00:00,Human,,28,15,2,False,True,False,False,"Merge pull request #54 from 2509-gabaithon/17-fix-user-name-screen
+
+ユーザーネーム入力画面の修正"
+https://www.github.com/2509-gabaithon/2509-gabaithon,9fb37308272375f14bbe2356ea7748926ec0fefd,2025-09-07T12:46:15+00:00,Human,,72,176,2,False,True,False,False,"Merge pull request #56 from 2509-gabaithon/25-fix-character-deco-screen
+
+キャラクターデコレーション画面を作成した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,c2cdca38330ed68f8e9e2377b36dfe2a8cbb805a,2025-09-07T12:35:36+00:00,Human,,0,0,1,False,False,False,False,効果音ファイルをpublic/sounds下へ配置
+https://www.github.com/2509-gabaithon/2509-gabaithon,8a7a26ee92d1268f3b652815d771ae96ea50b12a,2025-09-07T09:17:39+00:00,Human,,1,1,1,False,False,False,False,change: node_modulesを絶対パスで指定するようにした
+https://www.github.com/2509-gabaithon/2509-gabaithon,5e34633e6ffaa1e8b2c80447ecef8c22e7de8eaf,2025-09-07T08:03:37+00:00,Human,,22,1,1,False,False,False,False,add: プレビュー用の画面を作った
+https://www.github.com/2509-gabaithon/2509-gabaithon,efd045e10d30f37f7fe793bcfcb6a04e1c8cdf7e,2025-09-07T08:02:28+00:00,Human,,0,15,1,False,False,False,False,remove: 不要な変数を削除した
+https://www.github.com/2509-gabaithon/2509-gabaithon,b4f03aeb182447703db146451681e2b2fc59d6eb,2025-09-07T07:58:54+00:00,Human,,0,1,1,False,False,False,False,remove: 不要なインポートを削除した
+https://www.github.com/2509-gabaithon/2509-gabaithon,7dabf0668614accea8f649ee16edd1dc08d8d8fb,2025-09-07T07:58:13+00:00,Human,,2,2,1,True,True,False,False,fix: 画像が表示されるように修正した
+https://www.github.com/2509-gabaithon/2509-gabaithon,3d6685f8d2674d379db9ecb534c4cd8c2a2fa8cd,2025-09-07T07:52:38+00:00,Human,,52,161,1,False,False,False,False,change: UI改修後のコードに変更した
+https://www.github.com/2509-gabaithon/2509-gabaithon,a0aa400b2cbe4c6c016af3382a16f82e43c3c029,2025-09-07T07:34:34+00:00,Human,,0,0,1,False,False,False,False,move: プレビュー画面のパスを変更した
+https://www.github.com/2509-gabaithon/2509-gabaithon,5465e0eee193c2bb7c85b51db034043e4b50a3c9,2025-09-07T07:20:47+00:00,Human,,21,1,1,False,False,False,False,add: プレビュー用の画面を作った
+https://www.github.com/2509-gabaithon/2509-gabaithon,112e644d43b873cc33908b540ffea2377c27e6a4,2025-09-07T07:15:23+00:00,Human,,3,3,1,False,False,False,False,change: メソッド名をクエスト画面用に変更した
+https://www.github.com/2509-gabaithon/2509-gabaithon,f1e3bf8d11f6a8b97d66a09533750ddbd1231e20,2025-09-07T07:11:28+00:00,Human,,0,1,1,False,False,False,False,remove: 不要なインポートを削除した
+https://www.github.com/2509-gabaithon/2509-gabaithon,dc506e3ec5272447794139c8f113183d9fc767f0,2025-09-07T07:06:47+00:00,Human,,6,6,1,True,True,False,False,fix: 画像が表示されるように修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,11a6b52e0474709b2f88cc794da27d02611ea438,2025-09-07T07:01:23+00:00,Human,,0,0,1,False,False,False,False,move: ファイル名をクエスト画面に変更
+https://www.github.com/2509-gabaithon/2509-gabaithon,b76789a2d56fb00137245da4a80cdde6f465ac12,2025-09-07T06:56:36+00:00,Human,,115,73,1,False,False,False,False,change: UI改修後のコードに変更した
+https://www.github.com/2509-gabaithon/2509-gabaithon,d25781fdc33e0242b7714ef66fb3ff02cc674065,2025-09-07T05:22:01+00:00,Human,,5,6,2,True,True,False,False,fix: コードの記述を変更（挙動には変化なし）
+https://www.github.com/2509-gabaithon/2509-gabaithon,6fcd7541bef080ad2caae535f7e9beecbd4c28e7,2025-09-07T05:16:08+00:00,Human,,19,16,2,False,False,False,False,change: コード整形
+https://www.github.com/2509-gabaithon/2509-gabaithon,35edd4c67a0f4ec08e5bc1142cdcb2ad0daf5e4b,2025-09-07T05:14:10+00:00,Human,,11,1,1,False,False,False,False,add: 仮置きのデータを設置
+https://www.github.com/2509-gabaithon/2509-gabaithon,b323ba707d3d89e31b22845404b2eff64bd72960,2025-09-07T05:13:43+00:00,Human,,5,5,1,False,False,False,False,rename: initialName → userName
+https://www.github.com/2509-gabaithon/2509-gabaithon,83c9a351712120afc8e28f704ab10fc6ea177459,2025-09-07T04:57:24+00:00,Human,,37,22,2,False,False,False,False,change: コメントアウトとコード整形
+https://www.github.com/2509-gabaithon/2509-gabaithon,3d8b791d1cab40199d967fc6503cdc6324a79b7e,2025-09-07T04:55:14+00:00,Human,,33,1,1,False,False,False,False,add: 仮置きのデータを設置
+https://www.github.com/2509-gabaithon/2509-gabaithon,26cdce252bed01edb471b0c5ea5c112c4d11cc46,2025-09-07T04:52:28+00:00,Human,,12,6,1,False,False,False,False,change: defaultCharacterを初期値としてキャラクターの描くパラメータを引数化
+https://www.github.com/2509-gabaithon/2509-gabaithon,0ba207d4504887edd83f13e15d86324df3474152,2025-09-07T04:34:32+00:00,Human,,1,1,1,True,True,False,False,fix: 画像読み込みの正常化
+https://www.github.com/2509-gabaithon/2509-gabaithon,1da14be3cbf4bbeaca3ee4719aec795d57a61e90,2025-09-07T04:32:30+00:00,Human,,3,4,1,False,False,False,False,remove: 不要なimportの削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,341c5ea8db06c7ac74be5f5fa7a6c93d73bfd4fc,2025-09-06T13:02:37+00:00,Human,,3,0,2,False,False,False,False,feat: タイトル画面タップで効果音を再生するように実装(public下にmp3ファイル配置)
+https://www.github.com/2509-gabaithon/2509-gabaithon,dc24733bd6e5498bf006726e5921087e1946e970,2025-09-06T11:14:24+00:00,Human,,8,1,2,False,False,False,False,chore: add env.example
+https://www.github.com/2509-gabaithon/2509-gabaithon,21ec6e686c31e15f967bfd8dee5a05e2b4b59db1,2025-09-06T11:04:47+00:00,Human,,19,4,2,False,True,False,False,"Merge pull request #32 from 2509-gabaithon/16-fix-title-screen
+
+タイトル画面が動くように修正"
+https://www.github.com/2509-gabaithon/2509-gabaithon,9be297db64944e739cc331636097ec3ffeefff2a,2025-09-06T11:03:29+00:00,Human,,105,43,2,False,True,False,False,"Merge pull request #35 from 2509-gabaithon/20-fix-location-check-screen
+
+マップ画面の修正"
+https://www.github.com/2509-gabaithon/2509-gabaithon,8b8356bf78e94c308d92cbb6f410a8fc8f03a802,2025-09-06T10:59:41+00:00,Human,,46,48,2,False,True,False,False,"Merge pull request #36 from 2509-gabaithon/22-fix-stamp-acquisition-screen
+
+スタンプ獲得画面を修正"
+https://www.github.com/2509-gabaithon/2509-gabaithon,b2461b0493983a7d6087523ed110ffdaca54da28,2025-09-06T10:53:59+00:00,Human,,1,1,1,True,True,False,False,fix: ノイズテクスチャが載っていなかったので，乗せた
+https://www.github.com/2509-gabaithon/2509-gabaithon,402e128317420fe29a9e0d7ceb1f1225dcb3a545,2025-09-06T10:52:53+00:00,Human,,151,120,2,False,True,False,False,"Merge pull request #34 from 2509-gabaithon/23-fix-result-screen
+
+リザルト画面を修正"
+https://www.github.com/2509-gabaithon/2509-gabaithon,882bc2a08b5565c8168c1e1897395088534dc44c,2025-09-06T10:41:04+00:00,Human,,1,1,1,True,True,False,False,fix: ノイズテクスチャが載っていなかったので，乗せた
+https://www.github.com/2509-gabaithon/2509-gabaithon,65ff0d5d40dbd869fab24598921d9cd78c1447d4,2025-09-06T10:40:37+00:00,Human,,2,2,1,True,True,False,False,fix: パートナーの経験値バーが固定値だったので，与えた情報を表示するように修正した
+https://www.github.com/2509-gabaithon/2509-gabaithon,5c9fb5f3649acbab9061f42ff83d794dece8d7fc,2025-09-06T07:59:04+00:00,Human,,16,2,1,False,False,False,False,add: 仮置きデータの追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,ac2f0f354f7ce1c37ab14dd4d6ee7a7902e4c078,2025-09-06T07:57:48+00:00,Human,,24,23,1,True,True,False,False,fix: 獲得スタンプを引数化
+https://www.github.com/2509-gabaithon/2509-gabaithon,e0be66e5244d9a521fa86f75be9071dea33fd04d,2025-09-06T07:54:27+00:00,Human,,6,23,1,False,False,False,False,remove: スタンプ背景の陰影効果を削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,e6f06244b2d835e3f05040d0ded8a0a66f57e8be,2025-09-06T07:53:19+00:00,Human,,0,11,1,True,True,False,False,Fix: 不要なcharacter定義を削除し、タイトル画面を整理しました
+https://www.github.com/2509-gabaithon/2509-gabaithon,91096efc0c6fbb00d65b0b10700618a14bbd0fc7,2025-09-06T07:20:36+00:00,Human,,53,28,1,False,False,False,False,コード整形
+https://www.github.com/2509-gabaithon/2509-gabaithon,421432cf45dc918e8d4e3dc586ff500f55c9fc99,2025-09-06T07:19:47+00:00,Human,,47,9,2,True,True,False,False,fix: キャラクターの画像と名前を引数に修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,f97f8043166cadf791941cca86e15b85d925cb0c,2025-09-06T07:13:52+00:00,Human,,1,1,1,True,True,False,False,fix: ピンの絵文字をlucideで代替
+https://www.github.com/2509-gabaithon/2509-gabaithon,b97b3e83cda900c2d3ebbfab6e8e07e7fdcf59f9,2025-09-06T07:07:48+00:00,Human,,1,1,1,False,False,False,False,remove: 重複しているCSSの削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,821a76646001749fe34db662b9ebfa3897fc53cd,2025-09-06T07:07:19+00:00,Human,,15,16,1,True,True,False,False,fix: 画像読み込みの正常化
+https://www.github.com/2509-gabaithon/2509-gabaithon,37fb4fa75e80220b6c01c628f1b48a5f8dc5a708,2025-09-06T06:44:39+00:00,Human,,5,5,2,False,False,False,False,rename: onNavigateToDecoration→onNavigateToCharacter
+https://www.github.com/2509-gabaithon/2509-gabaithon,61e00d122771bb78f41d0fd780c604ef88a7ee4b,2025-09-06T06:39:48+00:00,Human,,1,1,1,False,False,False,False,コンフリクトの解消
+https://www.github.com/2509-gabaithon/2509-gabaithon,1c2240a513c9c39e83b6f1db85b138fc720ef893,2025-09-06T06:37:01+00:00,Human,,35,30,1,False,False,False,False,コード整形
+https://www.github.com/2509-gabaithon/2509-gabaithon,2ea6b58cf76cc52d3c22ecda710afbcbe7404c58,2025-09-06T06:34:39+00:00,Human,,23,4,2,True,True,False,False,fix: characterにtypeを追加してそれによってキャ画像を表示できるように修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,cc2fff6a8b39206045bdf410808651562bf40e0d,2025-09-06T06:29:07+00:00,Human,,3,4,1,True,True,False,False,fix: スタンプ画像をpage.tsxから引っ張るように修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,054a29d85772971d47c71b20a7dac076b84045e4,2025-09-06T06:28:22+00:00,Human,,28,2,1,True,True,False,False,Fix: タイトル画面にTitleScreenを組み込み、クリック操作で次画面へ遷移可能にしました
+https://www.github.com/2509-gabaithon/2509-gabaithon,4f4e726973090a54d22d08acc6fc3492bf2d5bc5,2025-09-06T06:25:44+00:00,Human,,4,2,1,True,True,False,False,fix: 引数名の修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,c098204574c87d86f420b7acb1e184d6bdb9d0d6,2025-09-06T06:25:22+00:00,Human,,84,85,1,False,False,False,False,rename: onContinue → onNavigateToDecoration
+https://www.github.com/2509-gabaithon/2509-gabaithon,2dbaf87ba1bf5b5e341c4bdd5c23549bab1d0fd3,2025-09-06T06:17:23+00:00,Human,,3,9,1,True,True,False,False,fix: 仮置きデータの修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,25f6db960035b867868ba642607f899182c3da19,2025-09-06T06:13:38+00:00,Human,,0,17,1,False,False,False,False,remove: スタンプ背景の陰影削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,d3af201a14f5e57305731f7566296298c03fc1f7,2025-09-06T06:04:15+00:00,Human,,1,1,1,True,True,False,False,fix: コンソール文を修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,725ad84607a5ed5b9bf7e952417ed1390ad50f37,2025-09-06T06:02:24+00:00,Human,,37,2,1,False,False,False,False,add: page.tsxに仮置きデータを追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,b64bda15830caa99b83580b5eba9fc863231fc78,2025-09-06T06:02:06+00:00,Human,,2,2,1,True,True,False,False,fix: 画像を正常に表示
+https://www.github.com/2509-gabaithon/2509-gabaithon,87838b48cf13e91b02acd5af3c238fd5abde234f,2025-09-06T05:50:44+00:00,Human,,2,7,1,False,False,False,False,remove: 使われていないimportとpropsの削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,f7e28c368de6f49aaa8826bf73f5c87d7dc24a3b,2025-09-06T05:39:14+00:00,Human,,81,92,5,False,True,False,False,Merge remote-tracking branch 'origin/main' into 16-fix-title-screen
+https://www.github.com/2509-gabaithon/2509-gabaithon,3941a4f3489c6dedca9788916f1141d76cb1d900,2025-09-06T04:12:08+00:00,Human,,81,92,5,False,True,False,False,Merge branch 'main' into 16-fix-title-screen
+https://www.github.com/2509-gabaithon/2509-gabaithon,c2befe260d42a5429c180cad3d157187bad612e3,2025-09-06T04:11:27+00:00,Human,,29,5,3,False,True,False,False,"Merge pull request #29 from 2509-gabaithon/21-fix-timer-screen
+
+タイマー画面を動くように修正した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,3505c4cfe506f4dcd48789d52a0e3fc802a1ff01,2025-09-06T04:09:48+00:00,Human,,53,50,3,False,True,False,False,Merge branch 'main' into 21-fix-timer-screen
+https://www.github.com/2509-gabaithon/2509-gabaithon,eee1807e7368756fc41c090d9125cdf53752adfb,2025-09-06T04:06:19+00:00,Human,,53,92,3,False,True,False,False,Merge pull request #31 from 2509-gabaithon/19-fix-home-screen
+https://www.github.com/2509-gabaithon/2509-gabaithon,e1fc34a90ce14c3844b30313ae38599cb9cd31df,2025-09-05T16:16:59+00:00,Human,,34,2,1,False,False,False,False,add: 画面の表示に必要なデータをpage.tsx内に追記
+https://www.github.com/2509-gabaithon/2509-gabaithon,80cfd3d4493fd5b5ac61e3e10989e3e3128df592,2025-09-05T16:14:57+00:00,Human,,0,2,1,False,False,False,False,remove: 使用されていないprops要素を削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,ad6657fb78a90df4abfc386e14a929c8771e95d9,2025-09-05T16:04:59+00:00,Human,,11,36,1,False,False,False,False,コード整形
+https://www.github.com/2509-gabaithon/2509-gabaithon,349e691dd32f605063128d9eee975c1a9c5b7e4a,2025-09-05T16:03:40+00:00,Human,,2,44,1,False,False,False,False,remove: app/global.cssの不要記述の削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,c4bb2246f84eb647566d6acf5a8531de58dcbdf9,2025-09-05T16:01:07+00:00,Human,,1,4,1,False,False,False,False,remove: 使用されていないimportの削除
+https://www.github.com/2509-gabaithon/2509-gabaithon,7f9ea6bd6e3c7d99e01045075bc532823c6907c0,2025-09-05T16:00:20+00:00,Human,,1,1,1,True,True,False,False,fix: 画像が表示されない不具合を解消
+https://www.github.com/2509-gabaithon/2509-gabaithon,669b164d917f9ca013f8ae6e2e44f28afc47f487,2025-09-05T15:59:46+00:00,Human,,5,4,1,True,True,False,False,fix: アイコンをlucideから参照
+https://www.github.com/2509-gabaithon/2509-gabaithon,ec6e6242ad482f7c65faf71b7249427866ee1211,2025-09-05T15:40:30+00:00,Human,,3,3,1,True,True,False,False,fix: 画像が表示されない問題を修正した
+https://www.github.com/2509-gabaithon/2509-gabaithon,09f6e80a922d191b92e69bf09a65f360f380d338,2025-09-05T15:36:27+00:00,Human,,1,43,1,True,True,False,False,fix: スタイルが当たっていなかったので修正した
+https://www.github.com/2509-gabaithon/2509-gabaithon,ecb2026fb26d5f0c0fd5c5e03616a8ada3c383f7,2025-09-05T15:34:31+00:00,Human,,25,1,1,False,False,False,False,add: タイマー画面を確認できるようにした
+https://www.github.com/2509-gabaithon/2509-gabaithon,af50958ad619b74b9758d916cfe6b3ee7ad56880,2025-09-05T15:26:36+00:00,Human,,3,7,2,False,False,False,False,タイトル画面が動くように修正
+https://www.github.com/2509-gabaithon/2509-gabaithon,751acdab119380cf1d44a5a5fe36882e93ffc249,2025-09-05T09:37:02+00:00,Human,,109,0,24,False,False,False,False,"Merge pull request #15 from 2509-gabaithon/13-make-unit-screen
+
+フロントエンドを分業したいため，各画面を個別に確認できるようにした"
+https://www.github.com/2509-gabaithon/2509-gabaithon,73c9dce2189759693a87ff21840b022574016ee1,2025-09-05T09:35:57+00:00,Human,,1,0,1,False,False,False,False,add: Figma Makeへのリンクを追加した
+https://www.github.com/2509-gabaithon/2509-gabaithon,5e7dfbd973cad2506ca5424de9bf1cf3626c3871,2025-09-05T09:24:23+00:00,Human,,50,0,10,False,False,False,False,add: 各画面のページを追加した
+https://www.github.com/2509-gabaithon/2509-gabaithon,8ad133e56883914bc8947949a6189abef0496430,2025-09-05T09:24:23+00:00,Human,,50,0,1,False,False,False,False,add: screen/README.mdに各画面の画像を追加
+https://www.github.com/2509-gabaithon/2509-gabaithon,8ac2ed720391854f8cbd4fda3e5730549ac99a87,2025-09-05T09:24:23+00:00,Human,,0,0,1,False,False,False,False,rename: timer_working_modal → timer_stop
+https://www.github.com/2509-gabaithon/2509-gabaithon,55262d7de0123d99eb9de4cf71546a12efa3443d,2025-09-05T09:24:23+00:00,Human,,0,0,1,False,False,False,False,rename: timer_stopped → timer_start
+https://www.github.com/2509-gabaithon/2509-gabaithon,bbcbdf744b0a4652816b3cc2fd25005a611f3609,2025-09-05T09:24:23+00:00,Human,,8,0,14,False,False,False,False,docs: 各画面のスナップショットを追加した
+https://www.github.com/2509-gabaithon/2509-gabaithon,835f7c5fa7e045a1e0df4282a9df403b8473b2cd,2025-09-05T08:52:07+00:00,Human,,780,58,39,False,True,False,False,"Merge pull request #14 from 2509-gabaithon/fix/iroiro
+
+ライブラリの依存関係を修正した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,a039df5e6ac49ce2fa4af9e99d5e6a93644166ff,2025-09-05T08:41:57+00:00,Human,,19,19,10,False,False,False,False,chore: figma:asset/ へのリソース呼び出しを @/assets/ に変更
+https://www.github.com/2509-gabaithon/2509-gabaithon,f8ed1a1987d55cd64e9ac0d31facea2810e640c8,2025-09-05T08:37:05+00:00,Human,,14,2,2,False,False,False,False,chore: install tailwind-merge
+https://www.github.com/2509-gabaithon/2509-gabaithon,f5fe2d59dffab4f1be00a3d42b0e51d3c30e22ff,2025-09-05T08:36:42+00:00,Human,,105,1,3,True,True,False,False,"fix: install @radix-ui/react-tabs, delete version specifing"
+https://www.github.com/2509-gabaithon/2509-gabaithon,ed2f51248bf74a4dfbb1d45b0f96126aee7cf600,2025-09-05T08:35:58+00:00,Human,,27,1,3,True,True,False,False,"fix: install @radix-ui/react-progress, delete @radix-ui/react-progress version specifing"
+https://www.github.com/2509-gabaithon/2509-gabaithon,2f820f43f91936121b7e67160983a7dcd9b72f4c,2025-09-05T08:35:21+00:00,Human,,17,17,17,True,True,False,False,fix: delete lucide-react version specifing
+https://www.github.com/2509-gabaithon/2509-gabaithon,1de802ab26265e39e722067e0c9bf061f20da3af,2025-09-05T08:34:41+00:00,Human,,442,3,4,True,True,False,False,"fix: install @radix-ui/react-dialog, delete version specifing"
+https://www.github.com/2509-gabaithon/2509-gabaithon,95de930fa95b353d3ca04e1401297147669521dd,2025-09-05T08:33:54+00:00,Human,,30,7,9,True,True,False,False,"fix: install class-variance-authority, delete version specifing"
+https://www.github.com/2509-gabaithon/2509-gabaithon,80fab901ddc5781a08362c7e197a2ab2df039705,2025-09-05T08:33:05+00:00,Human,,6,6,5,True,True,False,False,"fix: install @radix-ui/react-slot, delete version specifing"
+https://www.github.com/2509-gabaithon/2509-gabaithon,93752fce09e71a735582aaba521266905e5e81bc,2025-09-05T08:30:26+00:00,Human,,48,2,2,False,False,False,False,"chore: install lucide-react, @radix-ui/react-slot"
+https://www.github.com/2509-gabaithon/2509-gabaithon,ba7f2cdbd1cf0607ae8281719a78b72f8d1247f2,2025-09-05T08:26:00+00:00,Human,,70,0,2,False,False,False,False,chore: install motion
+https://www.github.com/2509-gabaithon/2509-gabaithon,e7ce55c71bf55cd147a31cb30b435341fd84db4a,2025-09-05T08:24:54+00:00,Human,,2,0,1,False,False,False,False,chore: add use client
+https://www.github.com/2509-gabaithon/2509-gabaithon,ce242ee4709f14511eee2f28131d6ed4740f4fa7,2025-09-05T06:45:17+00:00,Human,,13843,94,78,False,False,False,False,"Merge pull request #12 from 2509-gabaithon/10-copy-from-figma-make
+
+Figma Makeのコードをsrc/ディレクトリ下にコピペしました"
+https://www.github.com/2509-gabaithon/2509-gabaithon,eeaefc9db2f81a69a66656d5ef057ee2e102ed90,2025-09-05T06:13:31+00:00,Human,,331,434,80,False,False,False,False,move: src以下のディレクトリ構造を整理した
+https://www.github.com/2509-gabaithon/2509-gabaithon,329fbb7ecb36842c4af23e075423348d3bb73387,2025-09-05T04:38:19+00:00,Human,,13852,0,79,False,False,False,False,Figma Makeのコードをsrc/ディレクトリ下にコピペしました
+https://www.github.com/2509-gabaithon/2509-gabaithon,9de69e6ba3546b7e3bea9b18d616dff71db7813a,2025-09-05T04:24:18+00:00,Human,,776,5,5,False,False,False,False,"Merge pull request #11 from 2509-gabaithon/9-install-tailwind-css
+
+tailwindcssをプロジェクト内に適用"
+https://www.github.com/2509-gabaithon/2509-gabaithon,eaa77e944d807dc4607739ada55ae105d5b27ec3,2025-09-04T16:32:11+00:00,Human,,1,0,1,False,False,False,False,add: 検証用のモックを設置
+https://www.github.com/2509-gabaithon/2509-gabaithon,c836ba1a68f6564f42a21b793c3e02337da46049,2025-09-04T16:30:58+00:00,Human,,7,0,2,False,False,False,False,add: tailwindcss動作用のコンフィグ設定
+https://www.github.com/2509-gabaithon/2509-gabaithon,6646b197991f815589ce1b6aa0179f8878eec2d5,2025-09-04T16:28:52+00:00,Human,,768,5,2,False,False,False,False,add: install tailwindcss
+https://www.github.com/2509-gabaithon/2509-gabaithon,6439a8f0d65c8ee85dfdc690bed47569515fd38c,2025-09-02T17:35:47+00:00,Human,,1448,0,16,False,False,False,False,"Merge pull request #8 from 2509-gabaithon/7-install-nextjs
+
+プロジェクトをNext.jsで初期化した"
+https://www.github.com/2509-gabaithon/2509-gabaithon,06843af910936e2dfd0169aabb56dec1a4787693,2025-09-02T14:22:11+00:00,Human,,1448,0,16,False,False,False,False,chore: PWAなアプリを作りたいので、Next.jsで初期化した
+https://www.github.com/2509-gabaithon/2509-gabaithon,22c4e58c3d95b021968250fe0baee3f645a6f14e,2025-09-02T13:10:42+00:00,Human,,2,1,1,False,False,False,False,"Merge pull request #1 from 2509-gabaithon/yotu
+
+なまえをかいた"
+https://www.github.com/2509-gabaithon/2509-gabaithon,cd035259907a25e5c032d61b32403b87f102e46a,2025-09-02T13:10:36+00:00,Human,,6,1,1,False,False,False,False,Merge branch 'main' into yotu
+https://www.github.com/2509-gabaithon/2509-gabaithon,7f2b83af1796c45a759879ef5b357b5415fa8f5d,2025-09-02T13:09:58+00:00,Human,,1,0,1,False,False,False,False,"Merge pull request #2 from 2509-gabaithon/ochi
+
+add name ochi"
+https://www.github.com/2509-gabaithon/2509-gabaithon,a5315f010be4e5d7890d8a97aa2c8cedbd6c9ac8,2025-09-02T13:09:50+00:00,Human,,7,1,1,False,False,False,False,Merge branch 'main' into ochi
+https://www.github.com/2509-gabaithon/2509-gabaithon,839fb22c5930ea1f339d2a5cb74df19ad3efc174,2025-09-02T13:09:30+00:00,Human,,1,0,1,False,False,False,False,"Merge pull request #3 from 2509-gabaithon/yuzu01
+
+yuzu"
+https://www.github.com/2509-gabaithon/2509-gabaithon,1e4a2c427685c1f282bc02c3d4dec1f6ecdb2381,2025-09-02T13:09:23+00:00,Human,,6,1,1,False,False,False,False,Merge branch 'main' into yuzu01
+https://www.github.com/2509-gabaithon/2509-gabaithon,fa49a253debf76a395d7be397515a691b3695b81,2025-09-02T13:08:58+00:00,Human,,1,0,1,False,False,False,False,"Merge pull request #5 from 2509-gabaithon/kai
+
+readmeに名前を記入"
+https://www.github.com/2509-gabaithon/2509-gabaithon,60bd6eec5d243cd00de4d9327872e0db529cf45c,2025-09-02T13:08:51+00:00,Human,,3,1,1,False,False,False,False,Merge branch 'main' into kai
+https://www.github.com/2509-gabaithon/2509-gabaithon,98813da125a901a4c82099338dc3d04ba9adfcf3,2025-09-02T13:06:59+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #6 from 2509-gabaithon/nishiyama
+
+名前を書きました"
+https://www.github.com/2509-gabaithon/2509-gabaithon,d4e4726b8e1afdeec8927198b474c7fd3f121f50,2025-09-02T13:06:22+00:00,Human,,2,1,1,False,False,False,False,Merge branch 'main' into nishiyama
+https://www.github.com/2509-gabaithon/2509-gabaithon,0652f4918468d69222b3c7baa26354cb76d782ea,2025-09-02T13:03:38+00:00,Human,,5,1,1,False,False,False,False,"Merge pull request #4 from 2509-gabaithon/salieri256
+
+docs: メンバーを書いた"
+https://www.github.com/2509-gabaithon/2509-gabaithon,78b8e0458efc5b08f2d27e4f2cb7ef334d39b6e8,2025-09-02T12:51:11+00:00,Human,,4,1,1,False,False,False,False,なまえをかいた
+https://www.github.com/2509-gabaithon/2509-gabaithon,bce0122f411f8c993cccd26727852eff37a1cf97,2025-09-02T12:50:16+00:00,Human,,2,1,1,False,False,False,False,yuzu
+https://www.github.com/2509-gabaithon/2509-gabaithon,7a6aa593d00d87622a7318e24cf02347ece266fa,2025-09-02T12:45:06+00:00,Human,,4,1,1,False,False,False,False,名前を書きました
+https://www.github.com/2509-gabaithon/2509-gabaithon,1d58d59bf3796540202376aa063b927488210197,2025-09-02T12:44:12+00:00,Human,,5,1,1,False,False,False,False,docs: メンバーを書いた
+https://www.github.com/2509-gabaithon/2509-gabaithon,23d5131507c8c4f67dc0069b4cbb2f096d0a68cd,2025-09-02T12:43:17+00:00,Human,,4,1,1,False,False,False,False,名前を記入
+https://www.github.com/2509-gabaithon/2509-gabaithon,9b574dd50718a4a90b4da6ab7a84313a0a52d591,2025-09-02T12:43:09+00:00,Human,,2,1,1,False,False,False,False,add name ochi
+https://www.github.com/2509-gabaithon/2509-gabaithon,a67a4b343ae4bd64ed95d2c9a400f94199044473,2025-09-02T12:22:00+00:00,Human,,1,0,1,False,False,False,False,Initial commit

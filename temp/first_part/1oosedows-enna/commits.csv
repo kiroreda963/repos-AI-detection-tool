@@ -1,0 +1,1042 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1oosedows/enna,42765789c6daba7726271e05eee6fa83804ae10b,2026-05-06T21:50:49+00:00,AI,Claude_Code,61,49,1,False,True,False,False,"chore: npm audit fix — resolve uuid and ip-address vulnerabilities
+
+Fixes moderate-severity uuid buffer bounds check and ip-address XSS.
+Remaining postcss vuln is pinned to Next.js internals (requires major
+version bump to v16), and axios vulns are in checkly devDep only.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,84750d5415bdff05ddad6b5b215ff2d9103b38a6,2026-05-06T21:48:43+00:00,Human,,22,22,2,False,False,False,False,"Merge pull request #33 from 1oosedows/dependabot/npm_and_yarn/jsdom-29.1.1
+
+chore(deps-dev): Bump jsdom from 29.0.2 to 29.1.1"
+https://www.github.com/1oosedows/enna,27beaf49a337cc4a5f9e8d24a00dc9ef0690ebb0,2026-05-06T21:48:39+00:00,Human,,76,94,2,False,False,False,False,"Merge pull request #32 from 1oosedows/dependabot/npm_and_yarn/sentry/nextjs-10.51.0
+
+chore(deps): Bump @sentry/nextjs from 10.49.0 to 10.51.0"
+https://www.github.com/1oosedows/enna,7120464f87737f41fb50215e8770124324830f47,2026-05-06T21:48:36+00:00,Human,,137,137,2,False,False,False,False,"Merge pull request #31 from 1oosedows/dependabot/npm_and_yarn/vitest-4.1.5
+
+chore(deps-dev): Bump vitest from 4.1.4 to 4.1.5"
+https://www.github.com/1oosedows/enna,d14761c4a4e02e3c74782502c712174cf1614469,2026-05-06T21:48:29+00:00,Human,,5,5,2,False,False,False,False,"Merge pull request #35 from 1oosedows/dependabot/npm_and_yarn/checkly-7.12.1
+
+chore(deps-dev): Bump checkly from 7.11.0 to 7.12.1"
+https://www.github.com/1oosedows/enna,9238178b26333b944cf2f9185eee6d38f5930701,2026-05-06T21:48:26+00:00,Human,,5,5,2,False,False,False,False,"Merge pull request #34 from 1oosedows/dependabot/npm_and_yarn/postcss-8.5.13
+
+chore(deps-dev): Bump postcss from 8.5.10 to 8.5.13"
+https://www.github.com/1oosedows/enna,34cae5e445cee63d270941e788629176785892fc,2026-05-06T21:47:35+00:00,AI,Claude_Code,742,31,3,False,False,False,False,"feat: week 5 update — 16 new tools (442 total), blog post covering AI pentester wave
+
+New tools: Shannon, HexStrike AI, WorldMonitor, Sniffnet, Infisical,
+Decepticon, DeepAudit, Crucix, ShadowBroker, RedAmon, User-Scanner,
+Device Activity Tracker, Lonkero, Titus, Tirith, DllShimmer.
+
+Key themes: autonomous AI pentesters (Shannon 41k stars), real-time
+GEOINT dashboards, and terminal security for AI agents.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,1a07112afb0af8c9ac545ab1042f5d586478981e,2026-05-01T03:06:39+00:00,Bot,dependabot,5,5,2,False,False,False,False,"chore(deps-dev): Bump checkly from 7.11.0 to 7.12.1
+
+Bumps [checkly](https://github.com/checkly/checkly-cli) from 7.11.0 to 7.12.1.
+- [Release notes](https://github.com/checkly/checkly-cli/releases)
+- [Commits](https://github.com/checkly/checkly-cli/compare/7.11.0...7.12.1)
+
+---
+updated-dependencies:
+- dependency-name: checkly
+  dependency-version: 7.12.1
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1oosedows/enna,cb164edf8ba307826d7bf0293a5630acc21dc8a7,2026-05-01T03:06:29+00:00,Bot,dependabot,5,5,2,False,False,False,False,"chore(deps-dev): Bump postcss from 8.5.10 to 8.5.13
+
+Bumps [postcss](https://github.com/postcss/postcss) from 8.5.10 to 8.5.13.
+- [Release notes](https://github.com/postcss/postcss/releases)
+- [Changelog](https://github.com/postcss/postcss/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/postcss/postcss/compare/8.5.10...8.5.13)
+
+---
+updated-dependencies:
+- dependency-name: postcss
+  dependency-version: 8.5.13
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1oosedows/enna,81b4fb6a0aba135c9d3929a24be17d4a8a8e4018,2026-05-01T03:06:21+00:00,Bot,dependabot,22,22,2,False,False,False,False,"chore(deps-dev): Bump jsdom from 29.0.2 to 29.1.1
+
+Bumps [jsdom](https://github.com/jsdom/jsdom) from 29.0.2 to 29.1.1.
+- [Release notes](https://github.com/jsdom/jsdom/releases)
+- [Commits](https://github.com/jsdom/jsdom/compare/v29.0.2...v29.1.1)
+
+---
+updated-dependencies:
+- dependency-name: jsdom
+  dependency-version: 29.1.1
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1oosedows/enna,67bc316149a09cad4b838fbc188d49be383dbe1e,2026-05-01T03:06:13+00:00,Bot,dependabot,76,94,2,False,False,False,False,"chore(deps): Bump @sentry/nextjs from 10.49.0 to 10.51.0
+
+Bumps [@sentry/nextjs](https://github.com/getsentry/sentry-javascript) from 10.49.0 to 10.51.0.
+- [Release notes](https://github.com/getsentry/sentry-javascript/releases)
+- [Changelog](https://github.com/getsentry/sentry-javascript/blob/develop/CHANGELOG.md)
+- [Commits](https://github.com/getsentry/sentry-javascript/compare/10.49.0...10.51.0)
+
+---
+updated-dependencies:
+- dependency-name: ""@sentry/nextjs""
+  dependency-version: 10.51.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1oosedows/enna,eba833f79a2f0b9ae6d3288bd16fd58901300b00,2026-05-01T03:05:56+00:00,Bot,dependabot,137,137,2,False,False,False,False,"chore(deps-dev): Bump vitest from 4.1.4 to 4.1.5
+
+Bumps [vitest](https://github.com/vitest-dev/vitest/tree/HEAD/packages/vitest) from 4.1.4 to 4.1.5.
+- [Release notes](https://github.com/vitest-dev/vitest/releases)
+- [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.5/packages/vitest)
+
+---
+updated-dependencies:
+- dependency-name: vitest
+  dependency-version: 4.1.5
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1oosedows/enna,0f13710268fe44cedef3e4bfa810717c9dd98616,2026-04-28T01:16:15+00:00,AI,Claude_Code,5,4,2,True,True,False,False,"fix: switch OG image to nodejs runtime to fix Vercel edge size limit, update blog with features
+
+The tool OG image edge function exceeded Vercel's 1MB limit after tools.json
+grew to 770KB with 50 new tools. Switching to nodejs runtime removes the cap.
+Also updated week 4 blog post with the 5 new features section.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,fe3dec824760d75eb544ad2dfe3d2a375d71c913,2026-04-28T00:42:42+00:00,AI,Claude_Code,4698,921,15,False,False,False,False,"feat: week 4 update — 50 new tools, 3 workflows, blog post, and 5 new features
+
+Content:
+- 50 new tools (376 → 426) across 11 categories, all enriched with live GitHub stats
+- 3 new workflows: supply chain security audit, threat hunting with honeypots, AD password audit
+- Week 4 blog post with full writeups and mitmproxy as tool of the week
+
+Features:
+- Cmd+K global search modal with fuzzy matching and keyboard navigation
+- Tool health badges (green/yellow/red dots) on every ToolCard
+- Surprise Me random tool button in hero section
+- /stats dashboard with category charts, language distribution, health overview, top starred
+- /stack shareable tool stack builder with URL-based sharing
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,6319f49cdeca7802b21d565c70a066419dcedaa1,2026-04-27T23:09:43+00:00,AI,Claude_Code,2,2,2,True,True,False,False,"fix: mark DB-dependent API routes as force-dynamic to fix CI build
+
+Next.js was attempting to prerender /api/activity and /api/leaderboard
+at build time, which failed in CI without a DATABASE_URL env var.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,a4efee3490724b44233eb7607cf88897732dc31d,2026-04-20T23:38:22+00:00,AI,Claude_Code,638,232,7,False,True,False,False,"feat: nav dropdown, loading skeletons, rate limiting, 186 new alternative links
+
+Navigation:
+- Consolidate header into clean layout: Tools, Workflows, Library, Blog
+- ""Resources"" dropdown for cheatsheets, chains, kits, install, alternatives,
+  changelog, leaderboard, sponsors
+- Mobile menu with grouped sections
+
+UX polish:
+- Loading skeleton on ""I use this"" button while API fetches
+- Loading skeleton on review section while fetching reviews
+- Smooth transitions on all interactive elements
+
+Backend:
+- Rate limiting on review API (5/min per user)
+- Rate limiting on toolkit API (20/min per user)
+- In-memory rate limiter with auto-reset windows
+
+Data:
+- Added alternatives for all 51 new tools (100 new links)
+- Fixed 86 bidirectional alternative links
+- 376 tools, all validated, all with alternatives where applicable
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,f3bc91a334cab1816238ba295a758edb6d69c967,2026-04-20T22:56:56+00:00,AI,Claude_Code,19,0,1,False,False,False,False,"content: add week 3 blog post — 51 new tools, community features, cheat sheets
+
+Covers: 51 harvested tools (376 total), community reviews/toolkits/leaderboard,
+10 cheat sheets, 6 starter kits, 8 new workflows, 12 tool chains,
+commercial alternatives, install generator, sponsors program.
+
+Tool of the Week: Pwnagotchi
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,38dd28894a53492510f261aef8b65c5e62eb4615,2026-04-20T01:23:13+00:00,AI,Claude_Code,168,217,1,False,False,False,False,"chore: bump autoprefixer, @types/node, eslint-config-next, postcss, @sentry/nextjs, @neondatabase/serverless
+
+Consolidates Dependabot PRs #18, #19, #21, #22, #23, #30 into one update.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,ad72d98e442a1a409e64a72ed53e45bcc668f498,2026-04-18T19:32:08+00:00,AI,Claude_Code,2,0,1,False,False,False,False,"chore: add TypeScript to Dependabot major version ignore list
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,f2dac79fe5e6f62015805190fc414fc7e68af0dd,2026-04-18T14:34:53+00:00,Human,,5,5,2,False,False,False,True,"Revert ""fix: change weekly update day from Monday to Sunday""
+
+This reverts commit 29bd71cb4089cf7490c3a2cfe30ce8d705789dba."
+https://www.github.com/1oosedows/enna,29bd71cb4089cf7490c3a2cfe30ce8d705789dba,2026-04-18T14:34:29+00:00,AI,Claude_Code,5,5,2,True,True,False,False,"fix: change weekly update day from Monday to Sunday
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,0bb43002ccddac12e64b2f8f1464a31399db09cc,2026-04-18T07:05:24+00:00,AI,Claude_Code,5,5,2,False,False,False,False,"chore: update tool counts to 376
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,ca79bbe0d3517d0f7db915ad17ce08d2ebe6643b,2026-04-18T07:03:15+00:00,AI,Claude_Code,2443,528,1,False,False,False,False,"feat: add 51 tools harvested from awesome lists (376 total)
+
+Scraped and cross-referenced 5 major awesome lists:
+- awesome-osint, awesome-pentest, awesome-security,
+  Awesome-Hacking, awesome-ctf
+
+New tools by category:
+- network-recon: SMBMap, ssh-audit, scanless, Raccoon, Yersinia
+- web-scanning: wafw00f, SSLyze, Wapiti, Bearer, Bandit
+- osint-social: NExfil, Snoop, Toutatis, Telegram Nearby Map
+- osint-general: seekr, waybackpy, ExifLooter, pagodo
+- offensive-ops: Pupy, Faraday, Ronin, Amber, RedELK, PHPSploit, PayloadsAllTheThings
+- exploitation: RouterSploit, ROPgadget, one_gadget, RsaCtfTool
+- reverse-engineering: GEF, Triton, Z3, xortool, cwe_checker
+- wireless: Pwnagotchi, airgeddon, Wifiphisher
+- vulnerability: Vuls, Infection Monkey, boofuzz
+- dual-use: yt-dlp, OpenSnitch, CTFd, Vulhub
+- threat-intel: CrowdSec, Snort3
+- forensics: Depix, usbrip
+- container-security: ThreatMapper
+- cloud-recon: Checkov
+- subdomain-enum: Sublist3r
+
+All 51 tools enriched with GitHub stats and longDescriptions.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,00d0469e510a5769dbeb88fbdc3b8c213f54f2e7,2026-04-17T02:59:55+00:00,AI,Claude_Code,902,48,2,False,False,False,False,"feat: 8 new workflows (14 total) + ""used in workflows"" on tool pages
+
+New workflows:
+- Cloud Security Audit (Prowler, ScoutSuite, CloudFox, Stratus)
+- Mobile App Pentest (MobSF, Frida, JADX, APKLeaks)
+- Bug Bounty Recon Pipeline (Subfinder, httpx, Nuclei, ffuf)
+- Malware Analysis (Capa, YARA, Ghidra, ImHex, Volatility)
+- Container & K8s Pentest (Trivy, Falco, CDK, kube-hunter)
+- Phishing Campaign Analysis (dnstwist, EyeWitness, CyberChef)
+- Internal Network Pentest (Nmap, fscan, Responder, Impacket)
+- Binary Reverse Engineering (Ghidra, ImHex, pwndbg, angr)
+
+Tool pages now show ""Used in N Workflows"" section with links
+to each workflow the tool appears in.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,20f63c00e0367a5d333ccbe5d8e36f8dba6cd45d,2026-04-17T02:37:32+00:00,AI,Claude_Code,283,2,3,False,True,False,False,"feat: sponsors page with tiers, arsenal teaser, and funding breakdown
+
+- /sponsors page showing all 4 tiers with features and pricing
+- Arsenal teaser section (Docker stacks, scripts, configs, reports)
+- ""Where your money goes"" breakdown
+- CTA linking to GitHub Sponsors
+- Added Sponsors, RSS, GitHub links to footer
+- Fixed missing changelog URL in sitemap
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,bc59b08606c2b26e158b5cdb3e038e0e217c63fa,2026-04-17T02:30:46+00:00,AI,Claude_Code,19,0,1,False,False,False,False,"chore: add .env.local.example for contributor onboarding
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,fae6e9641b28d379441646de2403ea18b5636e7b,2026-04-17T01:08:31+00:00,AI,Claude_Code,19,0,1,True,True,False,False,"fix: ignore major version bumps in Dependabot
+
+Block major upgrades for Next.js, ESLint, Tailwind, React, and
+@types/node. These require migration work and will be done manually.
+Patch and minor updates still flow through.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,5e2a660d52946bf6f972e50a1316f3027652e62e,2026-04-17T01:07:50+00:00,Human,,5,35,2,False,False,False,False,"Merge pull request #15 from 1oosedows/dependabot/npm_and_yarn/checkly-7.11.0
+
+chore(deps-dev): Bump checkly from 7.7.0 to 7.11.0"
+https://www.github.com/1oosedows/enna,69f4999f3ee6fdabe3614745c385d07cdbb52085,2026-04-17T01:01:37+00:00,AI,Claude_Code,234,70,3,False,False,False,False,"docs: rewrite README with full feature list, awesome list submissions, funding
+
+- Rewrite README with updated stats (325 tools, 19 categories)
+- Add badges for cheat sheets, starter kits, license, website
+- Document all features: search, kits, chains, alternatives, API,
+  reviews, toolkits, badges, Discord, install generator
+- Add AWESOME-SUBMISSIONS.md with copy-paste PR descriptions for
+  7 awesome lists (osint, hacking, security, pentest, ctf, blockchain, nextjs)
+- Add FUNDING.yml for GitHub Sponsors
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,15ac4f57139c60c893c1ad9446fd917cd8496c7c,2026-04-17T00:48:04+00:00,AI,Claude_Code,8,87,11,False,False,False,False,"feat: replace generated icon with custom ENNA radar icon
+
+- New icon: radar rings + network nodes + ENNA text on dark bg
+- Static PNG at public/icon.png (source 2048x2048)
+- Generated sizes: 32x32 (favicon), 180x180 (apple), 192x192, 512x512
+- Replaced dynamic icon.tsx and apple-icon.tsx with static PNGs
+- Updated Header and Footer to use the new icon image
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,1c69f387f86bb608b28a181571addf2efe1e783d,2026-04-16T23:10:09+00:00,AI,Claude_Code,4,1,2,True,True,False,False,"fix: build error from Sentry 500.html + Discord User-Agent header
+
+- Fix Next.js build failure caused by Sentry trying to rename
+  a non-existent 500.html (App Router uses global-error.tsx)
+- Add User-Agent header to Python Discord webhook script
+  (Discord blocks requests without one)
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,e020e9b13e5e92db85c085869b045cc792b7f549,2026-04-16T22:57:56+00:00,AI,Claude_Code,176,0,4,False,False,False,False,"feat: Discord webhook notifications for reviews, toolkit, and new tools
+
+- Discord notification utility (src/lib/discord.ts) with rich embeds
+- Reviews API sends Discord notification on new review
+- Toolkit API sends Discord notification when tool is added
+- scripts/notify-new-tools.py for manual batch notifications
+- Notifications are fire-and-forget (never block the main flow)
+
+Add DISCORD_WEBHOOK_URL to Vercel env vars to enable in production.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,291cdd729136ab6f63d1afab87e961d711952ff7,2026-04-16T22:47:01+00:00,AI,Claude_Code,615,5,11,False,False,False,False,"feat: ""I use this"" button, personal toolkits, activity feed, ENNA icon
+
+Social features:
+- ""I use this"" toggle button on every tool page (shows use count)
+- Personal toolkit at /u/[username] showing saved tools + reviews
+- Activity feed on homepage showing recent reviews and toolkit adds
+- Toolkits table in Neon Postgres with toggle API
+
+Icon/branding:
+- SVG icon at /public/icon.svg (radar + network nodes + EN monogram)
+- Dynamic favicon (32x32) and apple-touch-icon (180x180)
+- Coral-to-sky gradient on dark charcoal background
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,86a2e302f3889fbba4ee49d2fdf66d3e0c9dc57b,2026-04-16T19:58:58+00:00,AI,Claude_Code,1298,2,12,False,False,False,False,"feat: community reviews, ratings, and leaderboard
+
+Backend:
+- Neon Postgres database with users and reviews tables
+- NextAuth v4 with GitHub OAuth for user authentication
+- POST/GET /api/reviews for submitting and fetching reviews
+- GET /api/leaderboard for top contributor rankings
+- Database init script (scripts/init-db.ts)
+
+Frontend:
+- ReviewSection component with star ratings, comments, sign-in
+- SessionProvider wrapper in root layout
+- Review section on every tool detail page
+- /leaderboard page with top reviewers, stats, medals
+- One review per user per tool (upsert on resubmit)
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,cd72428b1880be1204802f15b45c2adace3bf8f7,2026-04-16T19:39:40+00:00,AI,Claude_Code,38,19,1,False,False,False,False,"content: add longDescription to all 19 new tools
+
+Every tool in the index now has a detailed description (325/325).
+Descriptions cover capabilities, use cases, community size, and
+how each tool fits into the broader security toolkit.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,f2a75b248fde526f53a7414214e60e6d7676f29d,2026-04-16T16:19:07+00:00,AI,Claude_Code,442,90,7,False,False,False,False,"feat: tool chains, improved OG images, Docker badges, YouTube tutorials
+
+Tool chains:
+- /chains page with 12 copy-paste command pipelines
+- Covers recon, exploitation, OSINT, containers, wireless, crypto,
+  mobile, cloud, forensics, and phishing workflows
+
+Improved OG images:
+- Per-tool images now show GitHub avatar, star count, fork count
+
+Docker badges:
+- Added dockerImage to 37 tools, shown as badge on tool pages
+
+YouTube tutorials:
+- Added youtubeUrl to 15 key tools with curated video links
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,de59d693582929337cc4a4a35eb5522c2d3e99b4,2026-04-16T16:14:44+00:00,AI,Claude_Code,1572,1,11,False,False,False,False,"feat: cheat sheets, starter kits, embeddable badges, changelog, tool of the week
+
+Cheat sheets:
+- /cheatsheets index + 10 detail pages (nmap, hashcat, sqlmap, ffuf,
+  nuclei, subfinder, metasploit, wireshark, burpsuite, john)
+- 223 total commands across 4-6 sections per tool with copy buttons
+
+Starter kits:
+- /kits index + 6 detail pages (Bug Bounty, SOC Analyst, Crypto
+  Investigator, Red Team, OSINT, Mobile Pentester)
+- Each kit links to install script generator for one-click setup
+
+Embeddable badges:
+- /api/badge/[slug] returns SVG badge with tool name and star count
+- Tool authors can embed in READMEs for backlinks
+
+Changelog:
+- /changelog page with new tools, most active, most starred,
+  language breakdown — all derived from live data
+
+Tool of the Week:
+- New toolOfTheWeek field in blog post data model
+- Rendered as a highlighted card in blog post pages
+- Week 2 features ImHex as the inaugural pick
+
+Also: sitemap entries for all new pages.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,626bdb435f1191d2b1dac1c6f840831b7a8b94b4,2026-04-16T15:43:46+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #8 from 1oosedows/dependabot/github_actions/actions/setup-node-6
+
+chore(deps): Bump actions/setup-node from 4 to 6"
+https://www.github.com/1oosedows/enna,845ec1df5cf9605aa257cbe8cf6786a10831e0b5,2026-04-16T15:43:25+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #7 from 1oosedows/dependabot/github_actions/actions/checkout-6
+
+chore(deps): Bump actions/checkout from 4 to 6"
+https://www.github.com/1oosedows/enna,96f6fb04901374bce9e8e4de0023909613376954,2026-04-16T15:42:51+00:00,Human,,3,126,1,False,False,False,False,"Merge pull request #6 from 1oosedows/dependabot/npm_and_yarn/npm_and_yarn-85af2c71bb
+
+chore(deps-dev): Bump follow-redirects from 1.15.11 to 1.16.0 in the npm_and_yarn group across 1 directory"
+https://www.github.com/1oosedows/enna,e8577f780377a0340f2a40e48e8995536905c72c,2026-04-16T15:38:57+00:00,AI,Claude_Code,816,28,9,False,False,False,False,"feat: fuzzy search, language/platform filters, alternatives pages, install generator
+
+Fuzzy search:
+- Replace substring search with Fuse.js for typo-tolerant ranked results
+- Search results ordered by relevance when query is active
+
+Filters:
+- Add language filter pills (top 8 languages by tool count)
+- Add platform filter pills (linux, macos, windows)
+- Filters persist in URL params and combine with category/sort
+
+Commercial alternatives:
+- /alternatives index page listing 10 commercial tools
+- /alternatives/[slug] detail pages with JSON-LD
+- Covers Maltego, Burp Suite, Cobalt Strike, Nessus, IDA Pro,
+  Chainalysis, Splunk, Acunetix, Cellebrite, Qualys
+
+Install script generator:
+- /install page with tool picker, category filter, search
+- Select tools, pick package manager (brew/apt/pip/go/docker)
+- Generates copy-pasteable bash install script
+
+Also: nav links for Alternatives and Install, sitemap entries.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,d1d5435b786f9f3c0960b71ddfa4df9fa4bb0df9,2026-04-16T15:17:14+00:00,Bot,dependabot,5,158,2,False,False,False,False,"chore(deps-dev): Bump checkly from 7.7.0 to 7.11.0
+
+Bumps [checkly](https://github.com/checkly/checkly-cli) from 7.7.0 to 7.11.0.
+- [Release notes](https://github.com/checkly/checkly-cli/releases)
+- [Commits](https://github.com/checkly/checkly-cli/compare/7.7.0...7.11.0)
+
+---
+updated-dependencies:
+- dependency-name: checkly
+  dependency-version: 7.11.0
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1oosedows/enna,a991ce18a8bdbe7f8d340fb26495aaa4e98a17c0,2026-04-16T15:15:47+00:00,AI,Claude_Code,2804,241,17,False,False,False,False,"feat: testing, error boundary, shared types, JSON-LD, pre-commit hooks
+
+Testing:
+- Add Vitest with jsdom environment (12 tests across 3 files)
+- Tests for formatStars, timeAgo, getCategoryColorScheme, constants
+- Add test step to CI workflow
+
+Code quality:
+- Extract Book, BookEdition, HardwareItem types to shared types/index.ts
+- Remove duplicate interface definitions from 5 page files
+- Add ErrorBoundary component wrapping ToolGrid on homepage
+
+SEO:
+- Add JSON-LD to book detail, gear detail, and workflow detail pages
+- Book (schema.org/Book), Product, HowTo structured data
+
+Pre-commit:
+- Husky + lint-staged for typecheck on .ts/.tsx and data validation
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,a4fed3b6eb858457d62edca0da9e3133fda75628,2026-04-16T15:09:50+00:00,AI,Claude_Code,1184,750,1,False,False,False,False,"chore: refresh GitHub stats for all 300 repos
+
+Zero failures. All tools now have current stars, forks, issues,
+last commit dates, licenses, and avatar URLs.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,1a0113e94114128ebd1c0f6a1108f05c13e2a90a,2026-04-16T06:10:30+00:00,AI,Claude_Code,531,16,2,False,True,False,False,"feat: add 19 new tools (325 total) and update week 2 blog post
+
+New tools across 10 categories:
+- reverse-engineering: ImHex, pwndbg, EMBA
+- network-recon: BBOT, fscan, Sn1per
+- vulnerability: OSV-Scanner, Lynis, afrog
+- osint-general: web-check, dnstwist
+- mobile: MVT, APKLeaks
+- offensive-ops: CALDERA
+- cloud-recon: Stratus Red Team
+- web-scanning: reNgine, reconftw
+- forensics: Timesketch
+- threat-intel: IntelOwl
+
+Also fixes 14 non-bidirectional alternative links and updates
+the week 2 blog post to cover the new additions.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,f7464452e47b9c0047c38575d74b1fb2e67cde50,2026-04-16T06:00:27+00:00,AI,Claude_Code,332,12,13,False,False,False,False,"feat: SEO, UX improvements, and week 2 blog post
+
+SEO:
+- Add JSON-LD structured data to homepage, blog posts, library, workflows
+- Add search analytics tracking via Vercel Analytics custom events
+- Update meta descriptions to reflect actual tool/category counts
+- Make hero section stats dynamic (tool count, categories, languages)
+- Block /api/ routes from crawlers in robots.txt
+- Add /suggest to sitemap
+
+UX:
+- Add /suggest page for community tool submissions (pre-fills GitHub issue)
+- Add ""Suggest"" link to header nav (desktop + mobile)
+- Add cross-links between Library and Gear pages
+- Add tool sorting by stars and recency to ToolGrid
+
+Blog:
+- Add week 2 blog post covering guides, workflows, API, sorting, RSS
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,0fefe111347f3a45830f186c02dcd458a017e7ca,2026-04-16T05:52:31+00:00,Bot,dependabot,1,1,1,False,False,False,False,"chore(deps): Bump actions/setup-node from 4 to 6
+
+Bumps [actions/setup-node](https://github.com/actions/setup-node) from 4 to 6.
+- [Release notes](https://github.com/actions/setup-node/releases)
+- [Commits](https://github.com/actions/setup-node/compare/v4...v6)
+
+---
+updated-dependencies:
+- dependency-name: actions/setup-node
+  dependency-version: '6'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1oosedows/enna,ea8c961789e8833667145a4ed63e1177c10cba64,2026-04-16T05:52:28+00:00,Bot,dependabot,1,1,1,False,False,False,False,"chore(deps): Bump actions/checkout from 4 to 6
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4 to 6.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/v4...v6)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-version: '6'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1oosedows/enna,dd15259b82a8e73494709058b55291c6c60ec10f,2026-04-16T05:51:15+00:00,AI,Claude_Code,479,85,13,False,True,False,False,"feat: API routes, GraphQL enrichment, sorting, RSS, CI, and data validation
+
+Architecture & performance:
+- Add /api/tools and /api/tools/[slug] REST endpoints
+- Add GitHub GraphQL batch enrichment (100 repos/query vs N REST calls)
+- Add tool sorting (A-Z, Stars, Recent) with URL persistence
+- Replace 16 hardcoded redirects with dynamic loop from library.json
+- Extract shared constants (PAGE_SIZE, LAUNCH_TOOL_COUNT)
+- Add /feed.xml RSS route linked in root layout metadata
+- Add GitHub Actions CI (typecheck, data validation, build)
+
+Data & content:
+- Add scripts/validate-data.py (required fields, categories, alternatives)
+- Add scripts/fix-alternatives.py (bidirectional alternative repair)
+- Add npm validate and typecheck scripts
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,6f26e285dbb26b611baa8266d3d60892965d85fd,2026-04-16T05:43:58+00:00,AI,Claude_Code,8,2,1,True,True,False,False,"fix: configure Dependabot for npm and GitHub Actions
+
+Empty package-ecosystem field meant Dependabot was never running.
+Added npm and github-actions ecosystems on monthly cadence.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,d5b9f7df1359e44445b8b66be6028241953aeba1,2026-04-15T22:57:52+00:00,Bot,dependabot,3,126,1,False,False,False,False,"chore(deps-dev): Bump follow-redirects
+
+Bumps the npm_and_yarn group with 1 update in the / directory: [follow-redirects](https://github.com/follow-redirects/follow-redirects).
+
+
+Updates `follow-redirects` from 1.15.11 to 1.16.0
+- [Release notes](https://github.com/follow-redirects/follow-redirects/releases)
+- [Commits](https://github.com/follow-redirects/follow-redirects/compare/v1.15.11...v1.16.0)
+
+---
+updated-dependencies:
+- dependency-name: follow-redirects
+  dependency-version: 1.16.0
+  dependency-type: indirect
+  dependency-group: npm_and_yarn
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1oosedows/enna,095c700237256d89a939ade05f3bd84e3f2a6ee3,2026-04-11T21:57:54+00:00,AI,Claude_Code,2714,15,5,False,False,False,False,"feat: add step-by-step getting started guides for 26 tools
+
+Full installation and usage guides for the top 25 tools by GitHub
+stars plus Nmap: Sherlock, Nuclei, Metasploit, Hashcat, sqlmap,
+Masscan, Trivy, Gitleaks, TruffleHog, Ghidra, CyberChef, x64dbg,
+JADX, dnSpy, ILSpy, Radare2, osquery, Mimikatz, SecLists, Rclone,
+ngrok, APKTool, Bitcoin Core CLI, Geth, and Social Analyzer.
+
+Each guide has 4-7 steps with real commands, expected output,
+and practical tips. Guide button appears on tool detail pages.
+Added missing documentation links for 15 tools.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,67b6429fdbede2d0ad9e06b971617ee5a012d94b,2026-04-11T16:14:36+00:00,AI,Claude_Code,48,45,2,True,True,False,False,"fix: resolve all dependency vulnerabilities
+
+- lodash 4.17.23 -> 4.18.1 via overrides (CVE-2021-23337, CWE-1321)
+- axios updated (SSRF via header injection, GHSA-3p68/GHSA-fvcv)
+- next updated (DoS with Server Components, GHSA-q4gf)
+
+npm audit now reports 0 vulnerabilities.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,7016feb67872957f2c0e7270b624310e482480df,2026-04-09T05:04:15+00:00,AI,Claude_Code,932,0,6,False,False,False,False,"feat: add Workflows section and Recently Added page
+
+Created 6 step-by-step security workflows: OSINT Investigation,
+Web App Pentest, Active Directory Attack Path, Cryptocurrency
+Tracing, Wireless Security Assessment, and Incident Response Triage.
+Each workflow links tools in sequence with practical tips.
+
+Added /recently-added page showing new tools since launch, most
+active tools by GitHub activity, latest blog posts, and recent books.
+
+Workflows added to nav and sitemap.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,6570b2e6754b8648ee36b31d2e08a541c15b61eb,2026-04-09T04:55:58+00:00,AI,Claude_Code,5,5,1,True,True,False,False,"fix: rewrite blog posts with conversational, excitable tone
+
+Replaced dry changelog-style posts with warm, personality-driven
+writing. More readable, more fun, less AI.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,4dfead4b9ea17ad8f23cf6fa14e7a168b92d7917,2026-04-08T15:56:26+00:00,AI,Claude_Code,25,70,2,True,True,False,False,"fix: clean blog posts, wire newsletter to Substack
+
+Removed all backend/technical content from blog posts (robots.txt,
+redirects, em-dashes, cross-linking internals, build details).
+Replaced localStorage newsletter signup with direct Substack link
+to ennaosint.substack.com.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,9aedea6a03b2e0e3b50ba6ac88d215c36f30f881,2026-04-08T15:27:23+00:00,AI,Claude_Code,516,0,6,False,False,False,False,"feat: add blog section with newsletter signup and first two posts
+
+Created /blog with listing page, /blog/[slug] detail pages with
+markdown rendering, prev/next navigation, and newsletter signup
+component. Added launch post (backdated to Mar 30) and first weekly
+update (Apr 7) covering all changes since launch. Blog added to
+nav and sitemap.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,7c726f8e51a5e3f1e84e6eaa8b581c28fc67c9af,2026-04-08T15:07:39+00:00,AI,Claude_Code,79,0,1,True,True,False,False,"fix: add 301 redirects from /library/* to /gear/* for hardware items
+
+All 15 hardware items now permanently redirect from their old
+/library/ URLs to /gear/ so Google doesn't index dead links.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,e18adf484d8609d8b8c0a9c88566130bc64d07d3,2026-04-08T14:59:21+00:00,AI,Claude_Code,5,0,1,True,True,False,False,"fix: block crawlers from indexing font files and static assets
+
+Google was crawling /_next/static/media/*.woff2 font files and
+failing to index them. Added disallow rules for static media,
+JS chunks, and the Sentry monitoring tunnel in robots.txt.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,83d8d70015d5dcd8a6d80364c74d952286c55b47,2026-04-08T00:44:34+00:00,AI,Claude_Code,489,316,6,False,False,False,False,"feat: add dedicated Gear page for hardware items
+
+Split hardware out of Library into its own /gear section with category
+groupings (RF/SDR, Multi-Tools, RFID/NFC, WiFi Adapters, Laptops).
+Library is now books-only. Added Gear to desktop and mobile nav,
+updated sitemap, and created /gear/[slug] detail pages with breadcrumbs.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,c5166b79c30aba7e5df1b13e63413bc6d6f062ee,2026-04-08T00:36:24+00:00,AI,Claude_Code,50,25,1,False,False,False,False,"feat: add avatar images for all 306 tools
+
+Sourced favicon images via Google's faviconV2 API for the 25 tools
+that lacked GitHub avatars (closed-source/commercial tools like
+Maltego, Chainalysis, Nansen, KAPE, etc). All 306 tools now have
+avatarUrl set.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,1b484d637d28621386759e32c4b0610fe03b754b,2026-04-08T00:26:59+00:00,AI,Claude_Code,20,7,1,True,True,False,False,"fix: add cover image URLs for all 45 library books
+
+Added ISBNs and Open Library cover URLs for the 7 books that were
+missing them. All books now have coverImage set.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,274b811d4c0ceb86ce31e4b7f72fbac5021e36be,2026-04-08T00:21:26+00:00,AI,Claude_Code,770,123,11,False,False,False,False,"feat: add 22 books with long descriptions, remove all em-dashes
+
+Added 22 new books from CSV including Hacker Playbook series, Operator's
+Handbook trilogy, Tribe of Hackers series, Sandworm, Dark Wire, Tracers
+in the Dark, and more. All 45 books now have long descriptions. Replaced
+all em-dashes with hyphens across the entire codebase.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,5e29632c8e2e159ff7cf6205aca2d3a8277f19e6,2026-04-08T00:03:32+00:00,AI,Claude_Code,3899,353,5,False,False,False,False,"feat: add 55 new tools, 3 new categories, cross-link all alternatives
+
+Added 3 new categories: Threat Intelligence, Container Security, Reverse Engineering.
+Added 55 tools across both new and existing categories including angr, Zeek, Suricata,
+CyberChef, MISP, OpenCTI, Falco, x64dbg, and more. All tools enriched with GitHub stats.
+672 bidirectional alternative links across 306 total tools.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,f17fe8ee9832138e0c5b6e372a8f737c39890281,2026-04-05T06:27:01+00:00,AI,Claude_Code,179,19,6,False,False,False,False,"feat: add comparison links, recently updated section, category cross-links
+
+- Tool detail pages now show ""Compare X vs Y"" links in alternatives section
+- Homepage shows 8 most recently updated tools above the main grid
+- Dynamic tool count in header badge
+- Category filter shows ""View all"" link to dedicated category page
+- Category pages show related categories at the bottom
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,c286c9aedb17b33f8f79e6535e4222ed28df36f8,2026-04-05T06:14:53+00:00,AI,Claude_Code,3,0,1,False,False,False,False,"perf: skip GitHub API calls when stats are already baked in
+
+Tools with stars already in tools.json now skip the enrichTool API
+call entirely, eliminating 230 unnecessary GitHub API requests during
+Vercel builds and preventing rate limiting.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,3ad914c1d1f44d246a79bc9957019fb851121c42,2026-04-05T06:10:26+00:00,AI,Claude_Code,429,154,10,False,False,False,False,"feat: new color scheme — coral/sky blue dark, blush/periwinkle light
+
+Dark theme: #0D1B24 base, #1E3A4A elevated, #FF5A6E coral brand,
+#8DCAE8 sky blue secondary, #E8A0AD pink, #C4A0B9 dusty mauve.
+Gradient goes coral → sky blue.
+
+Light theme: #EEF8F8 ice base, #F0A0A0 soft coral brand,
+#A8BCD8 periwinkle accent, #3C424C charcoal text.
+
+Updated all hardcoded colors across globals.css, tailwind.config.ts,
+OG images, category-colors, SearchFilter, global-error, and library.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,2d6487a7da6233a0ebc2aea58b6430b0b704c81f,2026-04-05T05:53:20+00:00,AI,Claude_Code,671,0,3,False,False,False,False,"feat: add 16 category landing pages + 85 comparison pages
+
+Category pages at /category/[id] with rich descriptions, tool grids,
+JSON-LD CollectionPage schema, and SEO metadata for all 16 categories.
+
+Comparison pages at /compare/[tool-a]-vs-[tool-b] auto-generated from
+the alternatives field. Side-by-side GitHub stats, descriptions,
+platform support, and tag analysis. 85 unique pairs.
+
+Both page types added to sitemap.xml. Total indexed pages now ~400+.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,20bbf4393130b7678d5f5cfeca8e7d4bf20b8681,2026-04-05T02:19:03+00:00,AI,Claude_Code,3756,226,1,False,True,False,False,"feat: bake GitHub stats into tools.json for reliable rendering
+
+Pre-fetched stars, forks, issues, lastCommit, avatarUrl, topics, and
+license for all 226 tools with valid GitHub repos. Data is now in
+tools.json directly so Vercel builds don't depend on GitHub API calls.
+Fixed 3 broken repo references (Burp Suite, URLScan, HiddenEye, RMS).
+Run enrich-github.py locally to refresh stats.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,fa7f9e6c4e69cb0064a7205ea2aded1ba08a81bb,2026-04-05T02:01:19+00:00,AI,Claude_Code,182,172,3,True,True,False,False,"fix: remove fake GitHub links for 21 closed-source tools
+
+Removed fabricated nicedoc/ GitHub repos from 20 commercial/closed-source
+crypto tools (Arkham, Chainalysis, Nansen, etc.) and incorrect Maltego
+repo. Made github field optional in type definition. All GitHub link
+sections (hero button, sidebar, releases, issues) now conditionally
+render only when a valid github value exists.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,0f538257f62f4d4dd67db626fd82150132a141ba,2026-04-05T01:39:28+00:00,AI,Claude_Code,1067,267,3,False,True,False,False,"feat: add longDescription for all 251 tools + fix OG image generation
+
+Generated rich text descriptions (350-600 chars) for all 194 tools
+that were missing longDescription, matching the existing tone/style.
+Fixed opengraph-image route by removing generateStaticParams that
+conflicted with edge runtime. Added rate-limit logging to GitHub
+enrichment.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,b441f279154badaf671ee16045843514d82fc241,2026-04-03T10:53:23+00:00,AI,Claude_Code,0,17,1,False,False,False,True,"revert: remove Google Tag Manager (not needed for SEO)
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,c1d2de83b2bba701b52316de4a1e769fe7112453,2026-04-03T10:48:18+00:00,AI,Claude_Code,17,0,1,False,False,False,False,"feat: add Google Tag Manager (GTM-N6SRX25F)
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,f494ca4171fd53ae78b4f834aceb79bd285c20da,2026-04-02T17:58:56+00:00,AI,Claude_Code,35,8,3,False,True,False,False,"perf: fix contrast, heading order, paginate tools (30 at a time)
+
+- Dark theme text-muted #6b7280 → #848b98 (WCAG 4.5+ contrast)
+- Added sr-only h2 before tool grid (fixes heading order skip)
+- Tool grid renders 30 cards initially with ""Show more"" button
+  (cuts initial DOM from 251 to 30 cards, reduces TBT)
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,a6decbcba6ebc0f7be4a2edc4281d24c4270a558,2026-04-02T17:30:35+00:00,AI,Claude_Code,30,27,7,False,False,False,False,"perf: self-host font, lazy Sentry replay, next/image for covers
+
+- Replace Google Fonts link with next/font (eliminates render-blocking)
+- Sentry: replaysSessionSampleRate 0, tracesSampleRate 0.1
+- Book covers use next/image for WebP/AVIF + lazy loading
+- Added covers.openlibrary.org to allowed image domains
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,32264103c7b046513f0da874c445d0dec309cc73,2026-04-01T20:12:40+00:00,AI,Claude_Code,303,164,3,False,False,False,False,"feat: hardware detail pages, linked from library listing + sitemap
+
+15 hardware items now have /library/[slug] detail pages with specs,
+purchase button, related hardware, and related tool links.
+Sitemap updated to include hardware URLs.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,a7e105d85c628764373c385fd92f9ef723f1e0dd,2026-04-01T19:43:46+00:00,AI,Claude_Code,129,4,4,False,False,False,False,"feat: mobile nav menu, shareable search URLs, back-to-top button
+
+- Hamburger menu on mobile with slide-down nav panel
+- Search query and category sync to URL params (?q=&category=)
+- Back-to-top button appears after 600px scroll
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,290094c58ad68b187fa64ab6eeec2b9896b4dfe1,2026-04-01T15:07:49+00:00,AI,Claude_Code,5,5,1,True,True,False,False,"fix: light theme surfaces fully desaturated - #C0C0C0 silver base
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,37cce9954ec3bb8714666165ae9c8ad531f94fc3,2026-04-01T15:00:55+00:00,AI,Claude_Code,5,5,1,True,True,False,False,"fix: light theme surfaces to #D5E4D1 - softer mint sage
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,57a7094c37e8e9b4e6a2116c99f7fc87533638e5,2026-04-01T14:52:56+00:00,AI,Claude_Code,5,5,1,True,True,False,False,"fix: desaturate light theme surfaces - base #ADB9AA, muted sage
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,47c90980b6765865b9968a614fbf88f3cd410420,2026-04-01T14:32:25+00:00,AI,Claude_Code,8,5,2,True,True,False,False,"fix: radar rings, scan line, canvas nodes use #3B7F82 in light mode
+
+Added --accent-glow-rgb variable (light: 59,127,130 / dark: 230,57,80).
+Radar ring, scan line, and canvas network graph all theme-aware now.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,224f8f383ae677c569c93a7b166c0cf148bbfd58,2026-04-01T14:25:30+00:00,AI,Claude_Code,42,42,1,True,True,False,False,"fix: light theme surfaces #9EC2BD/#7FBCBE, restore teal-to-green gradients
+
+Sage-teal backgrounds with blue→green gradient on ENNA text and buttons.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,cebf2164b4f5520add9bd08eb48356a7d9d913d2,2026-04-01T14:19:33+00:00,AI,Claude_Code,26,26,1,True,True,False,False,"fix: light theme brand colors to sage-teal #9EC2BD / #7FBCBE
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,2180e9717e4b2ec8841e8d22debd2edf4ca11e30,2026-04-01T14:09:13+00:00,AI,Claude_Code,1,1,1,True,True,False,False,"fix: hero radial gradient uses theme variable instead of hardcoded dark
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,8baed1b7316935b814f4f6b96ae057647abdb57a,2026-04-01T13:50:52+00:00,AI,Claude_Code,28,28,1,False,False,False,False,"feat: light theme uses teal/green palette from swatch
+
+Swaps red/magenta brand colors for teal/cyan/green in light mode.
+Dark mode unchanged.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,deac6a9c1114a272257d70d1c81a0970228cf1ee,2026-04-01T13:30:30+00:00,AI,Claude_Code,1,0,1,False,False,False,False,"chore: add Google Search Console verification file
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,33bde3f192f23262973d164e78eab2a33d9837a5,2026-04-01T13:24:39+00:00,AI,Claude_Code,48,40,1,True,True,False,False,"fix: tone down light theme - cleaner whites, muted brand gradients
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,87a90acb9b0d92d2c98cffba669cb86dc4b07bd0,2026-04-01T13:08:49+00:00,AI,Claude_Code,217,62,5,False,False,False,False,"feat: add light/dark theme toggle
+
+CSS custom properties for theming, ThemeToggle component in header,
+inline script prevents flash of wrong theme on load.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,20f0e6c90ee09f40f09347104fc15f2ea77aff23,2026-03-31T22:58:02+00:00,AI,Claude_Code,102,2,2,False,False,False,False,"feat: add 10 laptops to hardware library
+
+Apple MacBook Pro (2019 i9, 2021 M1, 2022 M2, 2026 M5 Max),
+MacBook Air (2020 M1, 2024 M3), LG Gram Pro, LG Gram Business,
+ASUS Zenbook, ASUS Vivobook. All with Amazon affiliate links.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,ce83b2c6629c8a35d9ce88f18e125a3006c62525,2026-03-31T22:09:07+00:00,AI,Claude_Code,2,1,5,True,True,False,False,"fix: rename Checkly config to mjs and deploy checks
+
+Checkly CLI doesn't support TypeScript configs directly.
+Renamed to .mjs and added checkMatch pattern for API checks.
+4 checks deployed: homepage, sitemap, tool page, library.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,7df46970f4f1d69c255b2d897e3b45d3412ae3ca,2026-03-31T21:55:50+00:00,AI,Claude_Code,6628,259,14,False,False,False,False,"feat: add Sentry error tracking and Checkly uptime monitoring
+
+Sentry (via Vercel integration):
+- Client, server, and edge configs with DSN
+- Instrumentation hooks for Next.js 15
+- Global error boundary with branded error page
+- Session replay (10% sample, 100% on error)
+- Source map upload via build plugin
+- Tunnel route at /monitoring to bypass ad-blockers
+
+Checkly:
+- 4 API checks: homepage, sitemap, tool page (nmap), library
+- 10-minute intervals from US East + EU West
+- Response time assertions (< 3s)
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,597a61b5d6bb2b0c16c8e9ad2bfbdf4764c0d05f,2026-03-31T12:52:37+00:00,AI,Claude_Code,42,0,3,False,False,False,False,"feat: add Vercel Speed Insights
+
+Install @vercel/speed-insights and add SpeedInsights component to root
+layout alongside Analytics. Enable in Vercel dashboard to collect
+Core Web Vitals and performance metrics.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,fa56dd16e28d40b77238700b5b75102c123cb707,2026-03-31T12:43:37+00:00,AI,Claude_Code,48,2,3,False,False,False,False,"feat: add Vercel Web Analytics
+
+Install @vercel/analytics and add Analytics component to root layout.
+Enable Web Analytics in Vercel dashboard to start collecting data.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,8de48c7ef695f3ce5775af348da018d5ae10db35,2026-03-31T12:38:21+00:00,AI,Claude_Code,89,16,4,False,False,False,False,"feat: enhance tool detail pages
+
+- Add copy-to-clipboard button on install commands
+- Pull GitHub description, topics, and homepage from API
+- Fallback to GitHub description when no longDescription set
+- Merge GitHub topics into tags section
+- Add JSON-LD SoftwareApplication schema per tool page
+- Move platforms into details sidebar, reduce card count
+- Auto-populate website from GitHub homepage field
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,c2b54285b9a9851998318b9a5445084fe1b2459f,2026-03-31T12:33:15+00:00,AI,Claude_Code,141,10,7,False,True,False,False,"feat: add sitemap, robots.txt, analytics, JSON-LD, and fix API batching
+
+- Generate sitemap.xml with all 251 tools + 23 books + pages
+- Generate robots.txt pointing to sitemap
+- Add Analytics component (Plausible/Umami via env vars)
+- Add JSON-LD structured data with SearchAction schema
+- Batch GitHub API calls (20 concurrent) to avoid rate limiting
+- Remove vestigial ads.txt from AdSense experiment
+- Update meta description to 250+ tools
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,d15d60be4d66ed364df78fe8e5b0cb4458211e99,2026-03-31T12:23:32+00:00,AI,Claude_Code,682,505,3,True,True,False,False,"fix: upgrade Next.js to 15.5.14 to resolve all vulnerabilities
+
+Fixes 5 Dependabot alerts (2 high, 3 moderate):
+- glob CLI command injection (GHSA-5j98-mcp5-4vw2)
+- Next.js Image Optimizer DoS (GHSA-9g9p-9gw9-jx7f)
+- Next.js HTTP request deserialization DoS (GHSA-h25m-26qc-wcjf)
+- Next.js HTTP request smuggling (GHSA-ggv3-7p47-pfv8)
+- Next.js unbounded image disk cache (GHSA-3x4c-7xq6-9pq8)
+
+Also adds not-found.tsx required by Next.js 15.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,4c46c2df70d98506d157d52d573d161e642efffc,2026-03-31T12:21:19+00:00,AI,Claude_Code,415,5,5,False,False,False,False,"feat: add 41 new tools, bringing total to 251
+
+New tools across 13 categories: hping3, fping, Naabu, shuffleDNS,
+puredns, Findomain, dirsearch, meg, Caido, OpenBullet2, Trivy, Grype,
+Semgrep, DalFox, Retire.js, h8mail, Maryam, sn0int, socialscan,
+Zphisher, SocialFish, HiddenEye, CloudFox, enumerate-iam, CloudSploit,
+Androguard, QARK, RMS, Chainsaw, Hayabusa, oletools, PE-sieve, capa,
+Kerbrute, Ophcrack, Name-That-Hash, SearchSploit, pwntools, Ropper,
+Starkiller, hoaxshell. Updated tool counts in Header, HeroSection,
+OG image, and README.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,bbf7338c4174c1b8a72d939d614a59675a4d88d1,2026-03-31T02:16:35+00:00,AI,Claude_Code,313,20,8,False,False,False,False,"docs: add community guidelines and update README
+
+Add Code of Conduct, Contributing guide, Security policy, issue
+templates (add-tool, bug-report, feature-request), and PR template.
+Update README to reflect current state: 210+ tools, 16 categories,
+library section, Next.js 15, Vercel deployment.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,c3ee7bd31402b039b634644aa288e622d2433dce,2026-03-31T02:04:48+00:00,AI,Claude_Code,328,0,1,False,False,False,False,"docs: add marketing launch plan with copy-paste posts
+
+Reddit (6 subs), Hacker News, Twitter/X, LinkedIn, DEV.to article,
+Product Hunt, GitHub Awesome List PRs, and Discord communities.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,e9712e668d4c671371227d9c5d6a7674f1297419,2026-03-31T02:00:15+00:00,AI,Claude_Code,5,50,1,False,False,False,False,"feat: add Amazon affiliate links for 5 hardware items
+
+Remove hardware without available links (Rubber Ducky, WiFi Pineapple,
+LAN Turtle).
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,18f38dd48088d6616439419cf3796e3259a27498,2026-03-31T01:38:26+00:00,AI,Claude_Code,12,8,2,True,True,False,False,"fix: make params async for Next.js 15 compatibility on Vercel
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,3b4c9634ce470c70e364103480f5b1ea01c0e82a,2026-03-31T01:38:26+00:00,AI,Claude_Code,4,5,1,True,True,False,False,"fix: correct book cover images for 5 books
+
+Use Open Library cover IDs for OSINT Techniques, Extreme Privacy,
+and Mastering Blockchain 4e. Fix RTFM Book 1 ISBN. Remove broken
+cover for FTFM (too new for Open Library).
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,92dd8e0fc2e7bec2e7a1974446fbb76c77c76c9e,2026-03-30T23:56:10+00:00,Human,,11,0,1,False,False,False,False,Change Dependabot update interval from weekly to monthly
+https://www.github.com/1oosedows/enna,5952f68382e358edfd8b828b92d2e757d9b6cd9a,2026-03-30T23:39:16+00:00,AI,Claude_Code,810,140,3,False,False,False,False,"feat: add book detail pages with covers and clickable cards
+
+- Open Library cover images for all 23 books via ISBN
+- Individual book detail pages at /library/[slug]
+- Clickable book cards on library index
+- Related books section on detail pages
+- ISBN display in book details
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,1efcd1aefcc31823353edbed7566783f2d31d868,2026-03-30T23:29:14+00:00,AI,Claude_Code,333,122,2,False,False,False,False,"feat: complete library with 23 books, affiliate links, and format options
+
+- 23 books with Paperback/Hardcover/Kindle format buttons
+- All Amazon affiliate links from spreadsheet
+- Strip AdSense completely
+- Add affiliate URL support to tool cards and detail pages
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,0972053e2a80c718eb8545a64a25692a35b9610d,2026-03-30T20:24:17+00:00,AI,Claude_Code,549,18,8,False,True,False,False,"feat: strip AdSense, add affiliate system and library page
+
+- Remove all Google AdSense integration
+- Add affiliateUrl/affiliateLabel fields to Tool type
+- Show ""Pro"" badge on tool cards with affiliate links
+- Show styled ""Get Pro"" button on tool detail pages
+- Add /library page with 12 books and 8 hardware items
+- Add Library nav link in header, fix GitHub link to repo
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,617fb616b3e687c488de582e2b1d7966b72abb75,2026-03-30T20:10:17+00:00,AI,Claude_Code,14,13,1,False,True,False,False,"feat: use specific AdSense ad slots per placement
+
+Fluid ads (slot 1359808615) for hero/footer/inline placements.
+Fixed 300x800 ads (slot 5698074107) for sidebar on tool pages.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,37555b11f0a384a000702e65f4ac334d74752154,2026-03-30T18:58:03+00:00,AI,Claude_Code,9,0,2,True,True,False,False,"fix: add AdSense verification via metadata export and ads.txt
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,b077dc40c3cb6a0c9a083ddeab6ca3b144364cdf,2026-03-30T18:38:25+00:00,AI,Claude_Code,1,0,1,True,True,False,False,"fix: add Google AdSense verification meta tag
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,9a7932589d324690116b7fa111db408182b2855d,2026-03-30T18:36:25+00:00,AI,Claude_Code,47,8,4,False,False,False,False,"feat: integrate Google AdSense with publisher ID
+
+- Add AdSense script to layout head
+- Add adsense provider to AdSlot component with placement-aware formats
+- Switch all ad slots from custom to adsense
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,4b5c5e7d988913b0346022f3bc91f5ae2b93e4e8,2026-03-30T17:49:59+00:00,AI,Claude_Code,660,6,6,False,False,False,False,"feat: add 34 new tools and 2 categories (Cloud Recon, Mobile Security)
+
+210 tools across 16 categories. New tools span network recon, web/app
+OSINT, social OSINT, wireless/RF, cloud security, crypto tracing,
+mobile security, and forensics.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,d0d129df1a2fe4f8538163d082a9f487e35ab7b2,2026-03-30T17:28:14+00:00,AI,Claude_Code,15,37,1,True,True,False,False,"fix: use Satori-compatible CSS in OG image generation
+
+Remove unsupported properties (inset, filter, backgroundImage, backgroundClip)
+and add required display:flex to text containers.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,0d9b00ae415219ad533be0c4c7d89d01370a8e60,2026-03-30T17:17:29+00:00,AI,Claude_Code,219,6,3,False,False,False,False,"feat: add Open Graph meta tags and dynamic OG image generation
+
+- Rich metadata in layout (title template, keywords, robots, OG, Twitter)
+- Per-tool OG metadata with category and language context
+- Dynamic OG image via Next.js edge runtime with ENNA branding
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,e24fb6dee7ea946956218028c045103ea27e9add,2026-03-30T17:15:09+00:00,AI,Claude_Code,160,0,3,False,False,False,False,"feat: add ad slot component with Carbon, EthicalAds, and custom provider support
+
+Place ad slots on homepage (hero + footer) and tool detail pages (sidebar).
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,d866b0eb5594838dc6b64903d30d32f30ee927f2,2026-03-30T17:08:38+00:00,AI,Claude_Code,326,33,6,False,False,False,False,"feat: category-specific color schemes for dual-use and offensive-ops
+
+- Dual Use: amber/gold theme (cards, tags, badges, detail pages)
+- Offensive Ops: purple/violet theme (cards, tags, badges, detail pages)
+- Standard tools: unchanged crimson/red
+- Category filter badges light up in their respective colors
+- Scan lines, hover glows, and gradients all category-aware
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,33b138880d8e7d3d671485c287bd4c5161e15990,2026-03-30T16:47:35+00:00,AI,Claude_Code,1175,10,5,False,False,False,False,"feat: add dual-use and offensive-ops categories with 38 new tools
+
+New categories:
+- Dual Use (15 tools): ProxyChains, ngrok, Rclone, GTFOBins, LOLBAS,
+  Sysinternals, Empire, Tor, OpenSSH, NetExec, dnscat2, and more
+- Offensive Ops (23 tools): Mythic, Havoc, Rubeus, Certipy, BeEF, SET,
+  ScareCrow, Donut, Pacu, HackRF, pwncat, and more
+
+176 total tools across 14 categories.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,0610a9f0a16a18dc3d7c540a87f69ce50b28b81a,2026-03-30T16:35:30+00:00,AI,Claude_Code,99,0,1,False,False,False,False,"docs: add README
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,2bf66dd57347f9e564d21a7bc0e4147a1ef6ff8e,2026-03-30T16:30:14+00:00,AI,Claude_Code,11510,0,21,False,False,False,False,"feat: initial ENNA build — OSINT & Recon Tool Index
+
+138 curated tools across 12 categories with:
+- Animated network graph hero, glass morphism cards, dark theme
+- Search and filter by category/language/tags
+- Tool detail pages with multi-install commands, use cases, alternatives
+- GitHub API enrichment for live stars/forks/commit stats
+- 42 crypto tracing tools as first-class category
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1oosedows/enna,40b9c41aa3310265ef39ff9eb6352bb132a2398d,2026-03-30T16:24:08+00:00,Human,,21,0,1,False,False,False,False,Initial commit

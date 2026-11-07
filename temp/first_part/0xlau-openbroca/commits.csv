@@ -1,0 +1,724 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xlau/openbroca,38ce853cd44e635cc2a4a219f557de7edc488bde,2026-07-29T15:41:36+00:00,Human,,12,2,1,False,False,False,False,docs: distinguish Openbroca Origin from current product
+https://www.github.com/0xlau/openbroca,838f9d281e0eb349d85ae4b6648ac295da5787c8,2026-06-03T09:05:38+00:00,Human,,3949,8,29,False,False,False,False,"feat(web): GA4 + Search Console and a free browser tools hub (#5)
+
+Env-driven GA4 (@next/third-parties) + GSC verification (Metadata API), no IDs committed.
+
+A /tools hub of 9 free, browser-based linkable assets that double as live demos and feed internal link equity to the homepage/download:
+microphone test, mic record & playback, voice recorder, speech-to-text, text-to-speech, speaking-speed (WPM) test, speech time calculator, background noise test, speaker & headphone test.
+
+Each: interactive widget + unique copy + FAQ, with WebApplication + FAQPage + BreadcrumbList JSON-LD; wired into sitemap, footer, and nav. All client-only Web APIs — audio never leaves the browser; fully static-export compatible."
+https://www.github.com/0xlau/openbroca,99bc81eb6819d47c7a5bbe2956651f56b05e8dde,2026-06-03T06:28:08+00:00,AI,Claude_Code,1247,44,18,False,False,False,False,"feat(web): SEO optimization for the marketing site
+
+Hero & content
+- Rewrite hero H1 to clearly communicate voice dictation
+  (""Speak — and it's typed into any app"") with a keyword kicker
+- Move the ""After keyboards. Before brain interfaces."" brand line
+  (and its glowing icon) into the Philosophy section
+- Keyword-aligned SEO title/description + expanded keywords
+
+Discoverability
+- Dynamic OpenGraph/Twitter image (next/og) — was missing entirely
+- JSON-LD: SoftwareApplication + WebSite + Organization, plus
+  BreadcrumbList on comparison pages
+- New landing pages: /open-source-dictation, /offline-speech-to-text
+- Comparison pages: /vs/wispr-flow, /vs/typeless, /vs/monologue
+- Footer Compare/Guides columns + absolute ""/#"" nav anchors for
+  cross-page internal linking; sitemap covers all routes
+
+Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,61e10ffb288dfa79961e4372ad9f06d8bb9d837e,2026-06-03T05:34:23+00:00,Human,,2814,1,42,False,False,False,False,"chore: add OpenBroca marketing website (apps/web)
+
+Adds the Next.js marketing site under apps/web (deployed on Vercel, openbroca.com) and decouples it from the desktop release pipeline:
+
+- release-please exclude-paths [""apps/web""] + release workflow paths-ignore so website changes never trigger a desktop version bump or packaging build.
+
+Typed as 'chore' so this one-time setup (which also touches turbo.json and the lockfile) does not open a release PR."
+https://www.github.com/0xlau/openbroca,1006574e70e801c803e928dbfea331220e5d21f1,2026-05-20T18:44:40+00:00,Human,,10,3,4,False,False,False,False,chore: release 0.2.2 (#3)
+https://www.github.com/0xlau/openbroca,7894af971eb193748397bf34f47fcb11a28f77ed,2026-05-20T18:43:35+00:00,AI,Claude_Code,49,9,2,True,True,False,False,"fix(release): build single arch per runner and merge mac update manifest
+
+The mac/win targets in electron-builder.yml had `arch:` arrays that the
+matrix CLI flags (`--mac --arm64` / `--mac --x64` / `--win --x64`)
+didn't filter — every macOS runner ended up packaging both arm64 and
+x64, doubling build time and producing per-arch `latest-mac.yml` files
+that fought each other in the upload step.
+
+Removing the YAML arch list lets the matrix flag decide. Because each
+runner now produces an arch-specific `latest-mac.yml` that only lists
+its own files entry, `upload-assets` downloads the artifacts unmerged
+and combines the per-runner `latest-mac.yml` `files:` arrays into a
+single manifest so electron-updater can resolve updates for either
+architecture.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,3e46ac15e7ef2ed900bc5508138cad3d76bfb4dc,2026-05-20T18:11:57+00:00,Human,,10,3,4,False,False,False,False,chore: release 0.2.1 (#2)
+https://www.github.com/0xlau/openbroca,db73e62fb161a61bdedbb944c0f8e49bc4fc33cb,2026-05-20T18:10:34+00:00,AI,Claude_Code,0,0,0,True,True,False,False,"fix(release): produce signed and notarized macOS builds
+
+v0.2.0 shipped unsigned, so macOS would refuse to mount the dmg and
+Archive Utility could not expand the auto-update zip. The signing
+plumbing landed in 43c4839 (ci); this commit exists to trigger a
+release-please patch bump so users get a working build.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,43c4839c66bafb822047c9f9eb686181318acf7b,2026-05-20T17:55:56+00:00,AI,Claude_Code,11,4,2,False,False,False,False,"ci: enable macOS code signing and notarization
+
+Turn on hardened runtime + notarize in electron-builder.yml and feed
+MAC_CSC_LINK / MAC_CSC_KEY_PASSWORD / APPLE_ID /
+APPLE_APP_SPECIFIC_PASSWORD / APPLE_TEAM_ID to the package step on
+macOS runners only. Windows runners get an empty CSC_LINK so the mac
+p12 is not used to sign the exe.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,77d0f12a6671049570b9734e49dd4b615f32cc2a,2026-05-20T17:42:58+00:00,AI,Claude_Code,1,1,1,False,False,False,False,"ci: exclude builder-debug.yml from release assets
+
+The collect step was matching every *.yml in apps/desktop/dist, which
+sweeps in electron-builder's internal builder-debug.yml. Narrow the
+pattern to latest*.yml so only the auto-update manifests ship.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,c1b511899587f8c9312c36b1a2819d9fe9686185,2026-05-20T17:13:06+00:00,AI,Claude_Code,13,4,1,False,True,False,False,"ci: support manual tag dispatch to (re)build and upload assets
+
+Adds a workflow_dispatch tag input. When provided, release-please is
+skipped and build + upload-assets run against the existing tag. This is
+the recovery path for releases that were created without assets (e.g.
+v0.2.0, whose upload-assets job failed before the GH_REPO fix).
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,fd2ef78a9e3f4ddb82eaa4531865e613b33f7f0d,2026-05-20T16:53:13+00:00,AI,Claude_Code,1,0,1,False,False,False,False,"ci: pass GH_REPO to gh release upload step
+
+The upload-assets job does not check out the repo, so gh CLI cannot
+infer owner/repo from a git remote and fails with ""not a git repository"".
+Setting GH_REPO lets gh skip the git lookup.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,6164cba72faaf4953d29e11a8524dbe7bef56e36,2026-05-20T16:36:00+00:00,Human,,207,3,4,False,False,False,False,chore: release 0.2.0 (#1)
+https://www.github.com/0xlau/openbroca,1f3330690d692f7e0eb6e49e4679cc709d857dce,2026-05-17T09:48:16+00:00,Human,,59,11,1,False,False,False,False,feat: update README to enhance project description and clarify functionality
+https://www.github.com/0xlau/openbroca,130ca41420b2225a3d06f67da2830d1625b982da,2026-05-17T06:25:06+00:00,Human,,307,72,2,False,False,False,False,feat: add logo SVG asset for application branding
+https://www.github.com/0xlau/openbroca,4a903094e12239af98a276ff3c5a0ae047f7bde5,2026-05-16T19:45:09+00:00,Human,,27,5,4,False,False,False,False,feat: add support links and integrate feedback functionality in tray and nav footer
+https://www.github.com/0xlau/openbroca,8ad9563d61cb03263482182f510b556c45e9537d,2026-05-16T19:07:22+00:00,Human,,583,12,11,False,False,False,False,feat: implement application update service with UI integration
+https://www.github.com/0xlau/openbroca,13acdcafb83276ef8677b4a04eab0d37caced463,2026-05-16T18:26:26+00:00,Human,,1039,310,32,False,False,False,False,ci: add
+https://www.github.com/0xlau/openbroca,d11b0caec190b4a23cad73f3d2b60c832c1389e7,2026-05-16T12:16:41+00:00,Human,,1112,26,29,False,False,False,False,feat: add OpenAI-compatible LLM providers
+https://www.github.com/0xlau/openbroca,19c264c060be4b8cef2bf2b4fe14034eadd4c514,2026-05-16T11:29:10+00:00,Human,,186,7,5,False,False,False,False,feat: add configuration for MCP servers and update tray template assets
+https://www.github.com/0xlau/openbroca,bf080b7e1bbeaa082809399140943cb77e8501e3,2026-05-04T12:44:20+00:00,AI,Claude_Code,6082,1727,56,False,False,False,False,"feat(desktop): permission auto-detect + 3-step onboarding wizard
+
+Permission auto-detect:
+- macOS gives no event API for TCC changes, so the onboarding window
+  now runs an OnboardingWatcher that polls + listens for focus events
+  and pushes fresh snapshots through 'onboarding:state-changed' IPC.
+  Granting permissions in System Settings updates the UI within ~1.5s
+  without a manual button click.
+- Lifecycle bound to the onboarding window (focus/blur/closed), with
+  diff suppression and serialized ticks.
+
+Onboarding wizard:
+- Replaces the single-page permission onboarding with a 3-step
+  first-run wizard: Permissions, Providers, Shortcuts tutorial.
+- New OnboardingShell with stepper, route-driven nav, and a
+  draggable bar at the top for macOS (titleBarStyle: hiddenInset).
+- ProvidersStep is a curated mini-picker (featured: openai +
+  openrouter for LLM, deepgram + sherpa-onnx for ASR) with a
+  ""Show all"" expand. Reuses the existing ProviderConnectDialog
+  and ProviderSettingsDialog. Auto-actives the first provider
+  connected in each domain. Hydrates the local provider store
+  before activation so OAuth-side writes from the main process
+  are visible (otherwise normalizeProviderSettings drops
+  activeProviders[domain]).
+- ShortcutsStep teaches Quick (double-tap ⌘) then Hold (⌘+Space)
+  with in-window keydown/keyup detection, an animated keycap
+  visualization, and a FloatListening-styled mock floating
+  overlay that walks listening → transcribing → pasted, so the
+  user feels what the app does before opening the main window.
+- Persisted via a single onboarding.completedAt flag. Strict
+  first-run: once set, the wizard never reopens. Permission
+  revocation after completion still re-gates via a
+  'permission-recovery' mode that renders only the standalone
+  permission cards.
+- onboarding-gate replaces permission-gate (resolves a wider
+  snapshot with mode + permissionsOk + hasCompletedOnboarding).
+  Main process subscribes to store.onDidChange('onboarding')
+  for immediate advance when the wizard completes.
+
+Other changes that came along:
+- Drops the openai-codex LLM provider and OAuth implementation;
+  the OAuth infrastructure stays in place but with no registered
+  providers. Featured LLM list is now openai + openrouter.
+- Adds 'onboarding' to the storeRouter allowlist so the renderer
+  can persist completion through tRPC.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,dda6f1630f9503773b02d7326b8edcfd8a8a0af4,2026-05-03T19:21:55+00:00,AI,Claude_Code,20,10,1,True,True,False,False,"fix(ui): make LiveWaveform sizing transform-independent
+
+LiveWaveform measured itself with getBoundingClientRect(), which includes
+ancestor CSS transforms. When mounted inside a framer-motion <motion.div
+layout> parent (e.g. the float listening pill), the FLIP layout animation
+applies a scaleX transform that inflated the measured width. The inflated
+value was written to canvas.style.width as an inline style and persisted
+after the animation completed, leaving the canvas at varying widths.
+
+Switch to transform-independent layout dimensions: entry.contentRect in the
+ResizeObserver callback, and clientWidth/clientHeight in the animate and
+animateProcessing loops.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,7d694b1fec1389e4de9e922a235dcc0f97b9349b,2026-05-03T19:18:54+00:00,AI,Claude_Code,946,0,1,False,False,False,False,"docs: add permission auto-detect implementation plan
+
+Eight tasks covering PermissionWatcher class with TDD coverage,
+preload bridge, main-process wiring, and renderer subscription.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,acb84cf0dfd41ddd42869f5f3c1583bc77f6aa30,2026-05-03T19:15:04+00:00,AI,Claude_Code,197,0,1,False,False,False,False,"docs: add permission auto-detect design
+
+Adds spec for automatic detection of macOS microphone and accessibility
+permission changes while the onboarding window is open, using a
+focus-triggered + slow-poll watcher that pushes snapshots to the
+renderer via IPC.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,df993bca1dff61f2980cda9bc946c7b0526583a5,2026-05-03T18:47:44+00:00,Human,,2,0,1,True,True,False,False,fix(macos): add audio input entitlement to plist for microphone access
+https://www.github.com/0xlau/openbroca,190f505fabfb9453fb6b7e2e9fa49a8122da2ec5,2026-05-03T17:42:56+00:00,Human,,148,6,2,False,False,False,False,feat: implement microphone access probing and enhance permission handling logic
+https://www.github.com/0xlau/openbroca,339fb08c59014e884ee839fe2e68858cc08d567c,2026-05-03T16:19:04+00:00,Human,,21,1,3,False,False,False,False,"feat: add bundling scripts for macOS, Windows, and Linux to package.json and turbo.json"
+https://www.github.com/0xlau/openbroca,42a458ea061efc8924b8b24fbc4c338b8545ef6f,2026-05-03T11:32:24+00:00,Human,,3,3,1,True,True,False,False,fix(desktop): update layout of permission loading messages for improved responsiveness
+https://www.github.com/0xlau/openbroca,a764e1d5c44d7ff2de61f3577509bffd0c545287,2026-05-03T11:29:20+00:00,Human,,43,5,2,True,True,False,False,fix(macos): enhance microphone permission handling and add external settings link
+https://www.github.com/0xlau/openbroca,6e8d8ce6ffecee117cd7e612de6759b5f7e9da03,2026-05-03T11:11:07+00:00,Human,,105,184,7,False,False,False,False,chore: update package dependencies and configurations for improved compatibility
+https://www.github.com/0xlau/openbroca,65e37e0b73fb4eab01109ce558cc2be2e2ad6d1a,2026-05-03T06:32:31+00:00,Human,,34,38,2,True,True,False,False,fix(desktop): update EmptyState and Instructions components for improved layout and styling
+https://www.github.com/0xlau/openbroca,0330cd8ffa146ad845b850cdb227e0f80d108512,2026-05-02T09:13:23+00:00,AI,Claude_Code,1,0,1,False,False,False,False,"build(desktop): pin macOS signing identity to personal Developer ID
+
+Without an explicit identity, electron-builder picks the first matching
+Developer ID Application certificate in the keychain — which on this
+machine is a company cert. Pin to the personal cert (PEIQIANG LIU) so
+both local builds and any CI keychain provisioning land on the right
+publisher for this OSS project.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,72327236309dba3dcd235a1d24d12d47ef60135b,2026-05-02T09:12:57+00:00,AI,Claude_Code,2,2,2,False,False,False,False,"build(desktop): pin electron to exact 39.8.3
+
+electron-builder 26.x cannot resolve electron in pnpm + node-linker=hoisted
+workspaces because direct deps live in the workspace-root node_modules,
+not apps/desktop/node_modules. Without a physical lookup it falls back to
+package.json — which requires an exact version, not a ^range.
+
+Pinning is also good Electron hygiene: major versions can be breaking,
+and security patches should be intentional bumps, not silent caret drift.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,a5e3c582d12ba22feb5e32ccbc8e83ce1a96de86,2026-05-02T06:55:16+00:00,AI,Claude_Code,1,1,1,True,True,False,False,"fix(desktop): set AppUserModelId to match new appId
+
+Aligns Windows taskbar grouping and Mac identity with the
+me.timlau.openbroca appId set in electron-builder.yml.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,cc3e2560f86e384ea9222913efeeaedbd9708f76,2026-05-02T06:54:52+00:00,AI,Claude_Code,4,3,1,False,False,False,False,"build(desktop): point dev-app-update at GitHub provider
+
+Mirrors electron-builder.yml so dev-mode auto-update tests resolve
+against the same source of truth as production releases.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,27e37ec0f1b8b6603029353644645ad944f381bd,2026-05-02T06:54:43+00:00,AI,Claude_Code,38,22,1,False,False,False,False,"build(desktop): configure electron-builder for OSS release
+
+- Real appId (me.timlau.openbroca) and productName (Openbroca).
+- macOS dual-arch DMG (arm64 + x64), hardenedRuntime + notarize:true so
+  electron-builder picks up Apple credentials from env when present and
+  skips signing gracefully when absent.
+- Windows x64 NSIS installer; Linux AppImage + deb.
+- Publish via GitHub provider so electron-updater can read latest-*.yml
+  directly from GitHub Releases.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,cf7917c22f7007cf529041dbac908831a13c2ae0,2026-05-02T06:54:14+00:00,AI,Claude_Code,10,4,1,False,False,False,False,"chore(desktop): update package metadata for OSS release
+
+Rename package to openbroca-desktop, reset version to 0.1.0 (still in
+0.x rapid iteration), set MIT license, declare GitHub repository, and
+correct the author field to a real name + email.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,0f3a1e3c1e8044e7b70263157cea5f35e96c2f43,2026-05-02T06:53:43+00:00,AI,Claude_Code,20,13,5,False,True,False,False,"test: fix pre-existing typecheck errors across test files
+
+- history-audio-protocol.test.ts: cast readFile mock through unknown to
+  satisfy the overloaded typeof readFile signature.
+- history.test.ts: widen createRecord overrides to allow Partial<DebugData>
+  so callers can specify only the fields they care about; the helper
+  already merges with defaultDebug at runtime.
+- dashboard.test.tsx: remove duplicated ShortcutSettings import.
+- float-listening.test.tsx: type override callbacks as () => Promise<void>
+  instead of ReturnType<typeof vi.fn>, and add 'as const' on
+  status literals so the union discriminator is preserved.
+- notify-window-store.test.ts: fix relative path (was off by one '..').
+
+These tests were uncovered by tightening typecheck for the upcoming CI
+pipeline; the assertion logic is unchanged.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,f07a47e1cdffffcf06d06241b78ff168da7ad457,2026-05-02T06:53:36+00:00,AI,Claude_Code,1,2,1,False,False,False,False,"refactor(dashboard): always provide stats fallback to satisfy TS narrowing
+
+The previous shape (stats: HistoryStats | null) required TS to track that
+'stats is non-null when statsState === ready', which it could not infer
+across separate variable declarations. Inlining the EMPTY_STATS fallback
+makes stats unconditionally non-null; the statsState check still controls
+which UI branch renders, so user-facing behavior is preserved. Drop the
+unused CardFooter import surfaced once the upstream null error cleared.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,42f647ab0c6c68b721e7479949667d9848aaa5b5,2026-05-02T06:53:29+00:00,AI,Claude_Code,1,1,1,True,True,False,False,"fix(history): tighten totalTokens type guard
+
+Number.isFinite(undefined) returns false, so the original early-return
+caught undefined at runtime — but TypeScript doesn't recognize
+Number.isFinite as a type guard, leaving totalTokens typed as
+number | undefined for the rest of the loop. Add explicit typeof check
+so TS narrows the type and the subsequent arithmetic is sound.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,c5f2dea085b8c891936b51ae79cca10f1c9918d1,2026-05-02T06:11:03+00:00,AI,Claude_Code,21,0,1,False,False,False,False,"chore: add MIT license
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,3243e1263638ea50e8c2f2f74a28380760771c04,2026-05-02T05:58:48+00:00,AI,Claude_Code,854,0,1,False,False,False,False,"docs: add CI/CD release pipeline implementation plan
+
+Bite-sized 15-task plan implementing the spec at
+docs/superpowers/specs/2026-05-02-cicd-release-pipeline-design.md.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,7f12510a7a7517e2afb5faf5b40797a453e1486a,2026-05-02T05:53:03+00:00,AI,Claude_Code,405,0,1,False,False,False,False,"docs: add CI/CD release pipeline design
+
+Design for an open-source release pipeline using GitHub Actions +
+electron-builder + release-please, producing macOS arm64/x64 DMGs,
+Windows x64 NSIS, and Linux AppImage/deb on each release, with
+electron-updater wired to GitHub Releases.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,4d14f00a14b96810fba5092a37918d020cdac024,2026-05-02T05:22:20+00:00,Human,,188,82,3,False,False,False,False,feat: add motion library for enhanced animations in FloatListening component
+https://www.github.com/0xlau/openbroca,87cab5630f5ac2a15a3779ae2e29ee4183b61bcf,2026-05-02T04:46:49+00:00,Human,,7,2,2,True,True,False,False,fix(floating-window): update floating window sizes to ensure consistent height
+https://www.github.com/0xlau/openbroca,e50ee8d6a58d62250de2b29e288a830ed829787e,2026-05-02T04:31:42+00:00,AI,Claude_Code,165,3,2,True,True,False,False,"fix(history): strip iconDataUrl from persisted records to unblock main thread
+
+Each post-recording pipeline call was performing 6+ synchronous
+electron-store.set('voiceHistory', ...) writes, each one a writeFileSync
+of the entire ~44 MB store. With the user's local store at 249 records
+× ~175 KB each, that meant ~1–1.5 s of main-thread blocking per
+recording — long enough for uiohook-napi's CGEventTap to time out and
+for the cursor + window dragging to freeze, even though the providers
+themselves now run in a utility process.
+
+The bloat was AppIdentity.iconDataUrl (base64 PNG) embedded in
+record.debug.frontmostAppSnapshot and record.debug.delivery.targetAppAt*.
+The renderer never reads those icons from history; only the live
+floating-window UI does, against the listening session's targetApp.
+
+Strip iconDataUrl at the persistence boundary inside HistoryRepository:
+- New writes go through normalizeDebugData / normalizeDeliveryDebug,
+  which now sanitize via stripAppIcon.
+- Existing oversized records are migrated on the next read() — the
+  existing mutated-flag rewrite path picks them up automatically, so
+  the 44 MB store collapses to <1 MB on next access.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,58842f3f6e675df9d23eaf9927e3cb6429b8965e,2026-05-01T20:08:27+00:00,Human,,2,1,1,True,True,False,False,fix(floating-window): ensure window is non-focusable and has rounded corners on macOS
+https://www.github.com/0xlau/openbroca,39afab45574a26b05f1b994c10096e6678eebb5a,2026-05-01T18:20:12+00:00,AI,Claude_Code,1541,0,1,False,False,False,False,"docs: provider utility process implementation plan
+
+Reference plan documenting the architecture, IPC protocol, lifecycle,
+and rollout for moving provider execution out of the Electron main
+process. Implementation in subsequent commits.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,e9e9b108be9f0ebcfec20df8802fc63f91a1c75e,2026-05-01T18:19:34+00:00,AI,Claude_Code,172,110,6,False,False,False,False,"feat(provider-host): wire runtime to remote proxies + boot/shutdown
+
+Swaps in-process descriptor.create() resolution for ProviderHost-backed
+remote proxies in runtime.ts. The post-recording pipeline, tRPC
+routers, and local-model UI now route every ASR/LLM call through the
+utility process — main thread no longer blocks on sherpa-onnx native
+inference, JS resampling, or OpenAI streaming.
+
+Adds ProviderRegistry.getDescriptor for clean descriptor lookup.
+
+Restructures resolveActiveASRSelection so the local-model selectedModelId
+check fails fast BEFORE spawning the remote instance, matching the
+pre-refactor error order and avoiding wasted child-side work.
+
+Starts the host on app.whenReady (after registerLocalASRProviders so
+modelDir is consistent in main and child) and disposes on will-quit.
+
+Updates provider-runtime, providers-router, and permission-gate tests
+to mock the host. Test count: +16 new (9 protocol + 7 dispatcher),
+425 passing total. The 15 pre-existing failures (permission-gate,
+dashboard, prompts) are unchanged.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,92c2d27431de92918ddaafc4117a7eaf6ea4a860,2026-05-01T18:11:32+00:00,AI,Claude_Code,192,0,2,False,False,False,False,"feat(provider-host): RemoteASRProvider and RemoteLLMProvider proxies
+
+Thin proxies that satisfy the existing ASRProvider/LocalASRProvider/
+StreamingASRProvider/LLMProvider contracts and forward every method
+to the provider host. AbortSignals are passed through both as the
+host invoke option (for cancel-on-abort) and as args (for the child
+to inject a real signal into the underlying provider call).
+
+Cloud ASR providers throw ProviderError if model-management methods
+are accidentally called on them.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,47b25353ecb7dcf376a3394fd69a559929ea3ec1,2026-05-01T18:10:37+00:00,AI,Claude_Code,352,0,1,False,False,False,False,"feat(provider-host): main-side ProviderHost (utilityProcess wrapper)
+
+Spawns the utility process from out/main/provider-host.js, performs
+init→ready handshake, and provides a typed RPC surface:
+
+  createInstance(kind, providerId, config) -> instanceId
+  invoke(instanceId, method, args, { signal }) -> Promise<unknown>
+  invokeStream(instanceId, method, args, { signal }) -> AsyncIterable
+  dispose()
+
+AbortSignal is bridged via cancel frames keyed by reqId. Crash
+detection rejects all in-flight calls and streams. Singleton
+accessor (getProviderHost) for use from runtime.ts.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,07984dfed33e462c3004ef9a8293be46e544c2a1,2026-05-01T18:09:18+00:00,AI,Claude_Code,296,0,1,False,False,False,False,"test(provider-host): ChildDispatcher round-trip coverage
+
+Covers: instance creation + reuse by configKey, ProviderError subclass
+serialization, async-iterable streaming end-to-end, AbortSignal slot
+injection, cancel propagation to in-flight signal, and unknown-method
+errors.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,95d9dcb9bbaee09b91c2a3763bd601de57044bef,2026-05-01T18:08:08+00:00,AI,Claude_Code,249,15,6,False,False,False,False,"feat(provider-host): utility process child entry + shared setup
+
+Adds the child-side bootstrap that runs inside an Electron
+utilityProcess: ChildDispatcher (handles create-instance, invoke,
+invoke-stream, cancel, dispose), createChildRegistries, and the
+process.parentPort glue.
+
+Refactors provider registration into apps/desktop/src/main/providers/
+setup.ts so the main-side registries (UI metadata) and the
+utility-process registries (runtime execution) call the same
+registerAllLLM/registerAllASR functions. Adding a new provider remains
+a single-file change.
+
+Wires the child entry into electron-vite as a second rollup input —
+emits out/main/provider-host.js alongside out/main/index.js.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,558ee8cfbd5f9e26474a936057e9fa724b63d5a0,2026-05-01T18:04:37+00:00,AI,Claude_Code,191,0,2,False,False,False,False,"feat(provider-host): wire protocol types and error serialization
+
+Adds the IPC message shapes (ChildRequest/ChildResponse), structured
+error round-tripping that preserves ProviderError/ConfigurationError/
+TranscriptionError class identity, AbortSignal slot sentinel, and a
+stable config key helper. Foundation for moving provider execution
+into a utility process.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xlau/openbroca,44d6ddd19da8faa85013c99db07abe892a93aeaf,2026-05-01T17:12:31+00:00,Human,,321,6,10,False,False,False,False,feat: implement tray manager for microphone selection and audio device management
+https://www.github.com/0xlau/openbroca,60a50086e2e7181dddcf9400837e602af9b79423,2026-05-01T16:29:49+00:00,Human,,0,0,1,False,False,False,False,feat: update desktop application icon
+https://www.github.com/0xlau/openbroca,f877340c28726e31a4e5fef955ede4d8627ad21c,2026-05-01T15:28:42+00:00,Human,,247,4,2,False,False,False,False,feat: enhance shortcut manager with modifier-only gesture handling and confirmation delays
+https://www.github.com/0xlau/openbroca,6b43d9aebb18ffae9b7ec6be6eff9243cbb4edfe,2026-05-01T06:01:45+00:00,Human,,4435,2148,43,False,True,False,False,"feat: provider platform refactor + local ASR model management end-to-end
+
+# Provider platform refactor
+
+- Unify LLM/ASR registries via a shared `ProviderRegistry<TDescriptor, TProvider>`
+  base (register/resolve/get/evict/listDescriptors/disposeAll) — LLM keeps
+  middleware, ASR keeps kind filtering / streaming detection.
+- Make `resolve(id, config)` config-aware: cache key includes a stable hash of
+  the validated config, so changing a config field disposes the old instance
+  and rebuilds with the new one. The desktop runtime no longer needs to call
+  `evict()` manually before every `resolve()`.
+- Compose middleware once at resolve-time instead of rebuilding the chain on
+  every property access; the proxy still binds `this.complete()` self-calls
+  inside `generate()` to the wrapped chain.
+- Drop the legacy function-style `LegacyLLMMiddleware`; converge on the
+  hooks-object form (`{ wrapGenerate?, wrapComplete? }`).
+- `OpenAIResponseShapeError` joins the `ProviderError` hierarchy; the
+  hard-coded `[voice-debug]` console logs come out of the LLM provider.
+- Sherpa-only manifest is split into architectures (recognizer config builder
+  + file discovery) and pure-data manifest entries; catalog grew 2 → 9 popular
+  streaming models without code changes (English mobile/full, multiple
+  Chinese variants, French, Korean, paraformer bilingual + trilingual).
+- Shared utilities: `AsyncPushQueue`, audio helpers (`assertPCMInput`,
+  `normalizeAudioChunks`, `throwIfAborted`), `stableCacheKey`. Deepgram and
+  sherpa-onnx providers reuse them.
+
+# Local ASR model management
+
+- New `LocalASRProvider` lifecycle (no-arg methods that take the modelDir
+  from construction state): `listCatalogModels`, `scanInstalledModels`,
+  `installModel`, `removeInstalledModel`, `resolveModelRuntime`.
+- New `local-model-select` settings primitive — descriptors that declare it
+  get a custom UI panel instead of a generic select.
+- Sherpa-onnx descriptor moves to a `createSherpaOnnxDescriptor({
+  defaultModelDir })` factory so the desktop main can inject
+  `<userData>/asr-models/sherpa-onnx` after `app.whenReady()`. The connect
+  dialog no longer surfaces a model-directory field; advanced users can
+  override it from settings.
+- Real install: streamed download (`https.get().pipe(createWriteStream)`)
+  with archive integrity verification (sha256 when present in the manifest,
+  byte-count fallback against `sizeBytes` otherwise), `tar -xjf` extraction
+  to a `*.staging` path, file validation per architecture, then atomic
+  rename. Cleans up archive + staging on cancel/error.
+- New `providers.localModels.*` tRPC sub-router (getState / select / install
+  subscription / cancelInstall / remove / changeDirectory). One in-flight
+  install per provider, AbortController routed back from renderer
+  cancellation.
+- Runtime tightening: `resolveActiveASRSelection` rejects when a local ASR
+  provider has no installed `selectedModelId`. The pipeline forwards
+  `selectedModelId` from settings as `RecognitionOptions.modelId`.
+- Renderer: single-path connect dialog (catalog + locale-aware Recommended
+  highlight + streamed install progress + cancel), settings panel with
+  installed-model switching / catalog install / remove / Advanced model-dir
+  override. Both panels constrain dialog height to 85vh and scroll their
+  lists internally.
+
+# Streaming recognition correctness fixes
+
+- Recognizer config now uses sherpa-onnx-node's flat endpoint fields
+  (`rule1MinTrailingSilence` etc.) + explicit `decodingMethod: 'greedy_search'`;
+  the previously-nested `endpointConfig` was silently ignored.
+- Append 0.5s of silence before `inputFinished()` so the streaming model
+  flushes; emit a synthetic final segment at end-of-stream when no endpoint
+  fired (covered by a regression test).
+- `sherpa-onnx-node` and its platform-specific siblings move to the main
+  build's external list so Vite stops trying to bundle the native module.
+- Replace the catch-all ""native module not available"" error with the real
+  underlying load failure.
+
+# Dev tooling
+
+- `pnpm --filter @openbroca/providers sherpa:hash <id>` — streams an archive
+  and prints its sha256 so users can upgrade a manifest entry to strict
+  verification.
+- `pnpm --filter @openbroca/providers sherpa:smoke <wav>` — loads a sherpa
+  model with the production recognizer config and a real WAV; for diagnosing
+  recognition issues without spinning up Electron."
+https://www.github.com/0xlau/openbroca,d58323199515e6bac29b0fefdcc8e14129361ccf,2026-04-22T15:50:06+00:00,Human,,1664,24,18,False,False,False,False,feat(desktop): add permission onboarding flow
+https://www.github.com/0xlau/openbroca,9800f47f8adb928e8ea9e466427bf27cdc64a738,2026-04-22T10:50:42+00:00,Human,,1490,0,1,False,False,False,False,docs: add local asr model management plan
+https://www.github.com/0xlau/openbroca,abe2606753d4767855190242f31efb71f00a74be,2026-04-22T10:36:01+00:00,Human,,381,0,1,False,False,False,False,docs: add local ASR model management design
+https://www.github.com/0xlau/openbroca,93f5b8014306da2ff188f564a3da7840db50e4c1,2026-04-22T07:07:24+00:00,Human,,925,0,1,False,False,False,False,docs: add permission onboarding implementation plan
+https://www.github.com/0xlau/openbroca,70394bb0a0f03ae5bedee4f22f80e3d5c7f7045b,2026-04-22T06:15:31+00:00,Human,,322,0,1,False,False,False,False,docs: add desktop permission onboarding design
+https://www.github.com/0xlau/openbroca,62e4e2468cdda2de544fea616842ed5c774003bf,2026-04-22T05:25:18+00:00,Human,,0,6,1,True,True,False,False,fix(dashboard): remove unnecessary LLM token consumption footer
+https://www.github.com/0xlau/openbroca,be4f795fe8f81f4bb611a3962cdfc01e622f9a6b,2026-04-22T05:09:22+00:00,Human,,4081,240,28,False,False,False,False,feat(desktop): add configurable shortcuts and hold capture flow
+https://www.github.com/0xlau/openbroca,3b81b551339c3763ab43b98537ef27bd19c68bad,2026-04-22T03:55:29+00:00,Human,,1658,199,10,False,False,False,False,Add dashboard behavior metrics
+https://www.github.com/0xlau/openbroca,45448f03984a712679a80c07a2dd60df6b604180,2026-04-21T18:40:20+00:00,Human,,90,5,3,False,False,False,False,feat(desktop): add dashboard history filters
+https://www.github.com/0xlau/openbroca,26120760a9a5c39211ac92c44a525149546b4d97,2026-04-21T18:22:55+00:00,Human,,783,55,14,False,False,False,False,feat(desktop): improve openai provider model settings and llm debugging
+https://www.github.com/0xlau/openbroca,b4345850c853467fba9cd722e7a3220ad316fc08,2026-04-21T18:02:56+00:00,Human,,36,29,3,True,True,False,False,fix(desktop): simplify instruction cards layout
+https://www.github.com/0xlau/openbroca,079e760d450c425ab8d4f9fa1e9192b07b0f80e6,2026-04-21T17:03:08+00:00,Human,,19,2,2,True,True,False,False,fix(desktop): use textareas for longer about me fields
+https://www.github.com/0xlau/openbroca,7d96e2eb2c1b0a35ef589377bf14e32a935aff7b,2026-04-21T16:55:41+00:00,Human,,5836,396,40,False,False,False,False,feat(desktop): add target-app instruction delivery
+https://www.github.com/0xlau/openbroca,a5760a812c69c14613885c85279e3b1fe4e3eeda,2026-04-17T15:52:08+00:00,Human,,103,0,1,False,False,False,False,docs: enrich target-app delivery design
+https://www.github.com/0xlau/openbroca,37a00474deb73267cc2888bc30094f495432ffd3,2026-04-17T15:48:14+00:00,Human,,475,0,1,False,False,False,False,docs: add target-app instruction delivery design
+https://www.github.com/0xlau/openbroca,fffc06dc42beabe7f7c904450861e1eecbb48881,2026-04-17T14:54:03+00:00,Human,,1103,3,2,False,False,False,False,feat: remove prompt template label from editor
+https://www.github.com/0xlau/openbroca,708cb444ed5ae3064e678fa67e3c415f002df86b,2026-04-17T14:43:47+00:00,Human,,138,72,8,False,False,False,False,refactor: move elevenlabs shimmering text into ui package
+https://www.github.com/0xlau/openbroca,990055a4f9b008aa7f32fba3a08bcf9f15fbf66f,2026-04-17T13:40:24+00:00,Human,,14,26,3,True,True,False,False,fix: make shimmering text honor text color
+https://www.github.com/0xlau/openbroca,3b04815b5d18078ab1cf03dfb2892a2328f02b4c,2026-04-17T13:17:58+00:00,Human,,4,2,2,True,True,False,False,fix: restore floating thinking text visibility
+https://www.github.com/0xlau/openbroca,0656349a250ad43353e3f0192c032a7f64d7c4e8,2026-04-17T13:09:28+00:00,Human,,1,1,1,True,True,False,False,fix: await post-recording pipeline completion
+https://www.github.com/0xlau/openbroca,0f20b2e2b75f080178acd5568e545f79d672029e,2026-04-17T13:03:54+00:00,Human,,61,7,2,True,True,False,False,fix: keep buffered recordings through stop aborts
+https://www.github.com/0xlau/openbroca,e0d984395ae6d6d354cbc2fe3c027ad8ba47676c,2026-04-17T12:30:37+00:00,Human,,120,2,2,True,True,False,False,fix: honor late cancel after llm completion
+https://www.github.com/0xlau/openbroca,e7ee25df17a2c94a5bea4a9065b783e78587bfd1,2026-04-17T12:17:47+00:00,Human,,32,8,2,True,True,False,False,fix: fit floating processing shell within window
+https://www.github.com/0xlau/openbroca,da450eba5b56b4b47e6028cbd15c189cd8b6afa5,2026-04-17T12:10:15+00:00,Human,,144,30,2,False,False,False,False,feat: show processing shell in floating listening window
+https://www.github.com/0xlau/openbroca,30903e7ef4c5c74c12262f72b9e87cf65bb46eab,2026-04-17T12:02:38+00:00,Human,,20,11,1,True,True,False,False,fix: stabilize shimmering text css test
+https://www.github.com/0xlau/openbroca,d336725582ec6ea8c21b25b738bb8e64ce1acdbf,2026-04-17T11:55:43+00:00,Human,,23,0,2,True,True,False,False,fix: restore static fallback for shimmering text
+https://www.github.com/0xlau/openbroca,450791e9785b4923baa3e023dad1f63f4ad76501,2026-04-17T11:50:07+00:00,Human,,6,0,1,True,True,False,False,fix: respect reduced motion in shimmering text
+https://www.github.com/0xlau/openbroca,5f0c2fddda6d60af3786618adde7b2663d61cbc8,2026-04-17T11:46:07+00:00,Human,,27,16,2,True,True,False,False,fix: harden shared shimmering text
+https://www.github.com/0xlau/openbroca,87066bc28db1d27b60720c8cbb5112c9ceb10e5d,2026-04-17T11:38:05+00:00,Human,,67,0,4,False,False,False,False,feat: add shared shimmering text component
+https://www.github.com/0xlau/openbroca,5953a7352475c9747eff80eb588676499409cab3,2026-04-17T11:13:23+00:00,Human,,93,9,4,True,True,False,False,fix: harden floating session orchestration
+https://www.github.com/0xlau/openbroca,3fbbcef18df237b286f91829f086da1bbed2ed8b,2026-04-17T11:01:43+00:00,Human,,389,41,9,False,False,False,False,feat: orchestrate floating window from session state
+https://www.github.com/0xlau/openbroca,e7a669a050700a6cfed6003e608d4740e61f0981,2026-04-17T10:50:35+00:00,Human,,194,31,2,True,True,False,False,fix: harden post-recording pipeline cancellation
+https://www.github.com/0xlau/openbroca,32575ae54ea9a74484257dd9ef0d6f4e6a2445be,2026-04-17T10:38:11+00:00,Human,,243,7,2,False,False,False,False,feat: make post-recording pipeline cancellable
+https://www.github.com/0xlau/openbroca,34485394bf6d3c8c2ffec887f844f2f93d7fcd5d,2026-04-17T10:30:09+00:00,Human,,114,0,2,True,True,False,False,fix: harden listening session processing cleanup
+https://www.github.com/0xlau/openbroca,6a480a6ebd89dec1b8acd392abfafd3c56258099,2026-04-17T10:22:09+00:00,Human,,245,31,3,False,False,False,False,feat: keep listening sessions alive through processing
+https://www.github.com/0xlau/openbroca,5b7ca358016ed86edb1fbe6ae3dc7241371bf3b3,2026-04-17T09:12:05+00:00,Human,,519,0,1,False,False,False,False,docs: add floating processing state design
+https://www.github.com/0xlau/openbroca,adfa5a9862dc70c13d32c1ae6f8d338c94b5b561,2026-04-17T08:13:44+00:00,Human,,2196,98,20,False,False,False,False,"feat(desktop): add float listening target app detection
+
+- detect target app from focused editable input with frontmost fallback\n- bridge target app state into the floating listening UI\n- render the target app icon inside the waveform capsule\n- harden polling, adapter heuristics, and related tests\n- re-export defaultAboutMeSettings for the about-me page"
+https://www.github.com/0xlau/openbroca,1c645a5383e009241213929ee256f7b65fdbbcbd,2026-04-17T08:04:35+00:00,Human,,20,256,6,False,False,False,False,refactor(prompts): remove unused placeholder logic and update template references
+https://www.github.com/0xlau/openbroca,11c1e324bcf4b0faf1a3117e8e9f8caaee2a1b06,2026-04-17T07:14:52+00:00,Human,,102,11,4,False,True,False,False,fix desktop prompt template whitespace fallback and save-failure rollback
+https://www.github.com/0xlau/openbroca,a8c33b057187bdbc734ab32cbfadf64d72aea1c9,2026-04-17T07:01:41+00:00,Human,,82,20,3,True,True,False,False,fix(desktop): restore default cleanup prompt template guardrails
+https://www.github.com/0xlau/openbroca,ce81c2952ee08b4a5e4363204c59d8f759cea294,2026-04-17T06:54:00+00:00,Human,,338,228,6,False,False,False,False,feat(desktop): resolve cleanup prompt templates at runtime
+https://www.github.com/0xlau/openbroca,51d89194fdcee0ffe2e1aed514834157ee4cda9a,2026-04-17T06:39:39+00:00,Human,,137,23,2,True,True,False,False,fix(desktop): harden prompts editor save and sync reliability
+https://www.github.com/0xlau/openbroca,201782e389509f8f038fdc6a60f51b0abe264583,2026-04-17T06:29:29+00:00,Human,,423,3,5,False,False,False,False,feat(desktop): add prompts settings route and editor page
+https://www.github.com/0xlau/openbroca,897253b4469c81ee35f0d5459ec63cc39b2efd63,2026-04-17T06:18:16+00:00,Human,,88,5,2,True,True,False,False,fix(desktop): clean up store watch abort listeners
+https://www.github.com/0xlau/openbroca,8feab3c78eea9ef50a595387aa15828c7da88b7b,2026-04-17T05:38:59+00:00,Human,,215,0,7,False,False,False,False,feat(desktop): add prompt template store core and normalization
+https://www.github.com/0xlau/openbroca,ed11ef4bd44f980a65c143e249295fc6b7ef21d4,2026-04-17T05:19:41+00:00,Human,,812,0,1,False,False,False,False,docs: add prompts template editor plan
+https://www.github.com/0xlau/openbroca,568dac4264bae32143c8a4060ac0073e5da2d0f5,2026-04-17T05:12:58+00:00,Human,,517,0,1,False,False,False,False,docs: add prompts template editor design
+https://www.github.com/0xlau/openbroca,2f85851160079ca240f929bd17f96230fea91b14,2026-04-17T01:25:15+00:00,Human,,111,8,3,False,False,False,False,test(desktop): cover normalized cleanup prompt getter wiring
+https://www.github.com/0xlau/openbroca,1a9b4eff94a959e26eeed82d8bf27578b4763895,2026-04-17T01:16:29+00:00,Human,,169,8,3,False,False,False,False,feat(desktop): wire cleanup prompt builder into pipeline
+https://www.github.com/0xlau/openbroca,6d730d868b4b6525d95c53bc05e123d0c2186752,2026-04-17T01:11:36+00:00,Human,,49,1,2,True,True,False,False,fix: normalize unicode line separators in cleanup prompt
+https://www.github.com/0xlau/openbroca,7a70954d961a113b57e95a1dd5b3863d49314788,2026-04-17T01:07:20+00:00,Human,,102,10,2,True,True,False,False,fix: sanitize cleanup prompt dynamic blocks
+https://www.github.com/0xlau/openbroca,5e4b99885b07e5e45825718b3d971516d5a1e0c6,2026-04-17T00:59:05+00:00,Human,,259,0,2,False,False,False,False,feat: add dictation cleanup prompt builder
+https://www.github.com/0xlau/openbroca,1249c6ead1590f29075109bba4bfd40f00ff2bdd,2026-04-17T00:52:35+00:00,Human,,68,9,4,True,True,False,False,fix: polish dictionary normalization and store hydrate tests
+https://www.github.com/0xlau/openbroca,1cce4617eeecbc3cc2cbbef373f25f51416ca639,2026-04-17T00:44:20+00:00,Human,,182,6,5,True,True,False,False,fix: normalize hydrated store settings
+https://www.github.com/0xlau/openbroca,0ef9087203cfc853d10f5dfe78d7758bf6cbc1dd,2026-04-16T19:22:53+00:00,Human,,109,16,4,True,True,False,False,fix: harden settings normalization follow-up
+https://www.github.com/0xlau/openbroca,7f793a498e6127dd4a08ff4ea1182e16e06a67a6,2026-04-16T19:21:38+00:00,Human,,264,0,1,False,False,False,False,docs: add float listening target app design
+https://www.github.com/0xlau/openbroca,0cede32f9defb1e4cb2cec4d943b3e735159eb1c,2026-04-16T16:36:00+00:00,Human,,155,30,6,False,False,False,False,refactor: normalize about me and dictionary settings
+https://www.github.com/0xlau/openbroca,8c8dcde32f54bb72b58fea5be8c7169c2ada09f0,2026-04-16T16:27:03+00:00,Human,,636,0,1,False,False,False,False,docs: add typeless prompt composition plan
+https://www.github.com/0xlau/openbroca,68b7e82013fbddcae1755ac90be905f4996cfc7f,2026-04-16T16:15:22+00:00,Human,,386,0,1,False,False,False,False,docs: add typeless prompt composition design
+https://www.github.com/0xlau/openbroca,138d0d8a5d8ed5374a416e23773bae33036f6da5,2026-04-16T15:56:03+00:00,Human,,1,1,1,True,True,False,False,fix: un-comment hide method in hideFloating to properly hide the floating window
+https://www.github.com/0xlau/openbroca,a012d22871e281c3c2883bd41198d3bf367b71ae,2026-04-16T15:41:28+00:00,Human,,326,13,5,False,False,False,False,feat: add meaningful text validation and update pipeline error handling
+https://www.github.com/0xlau/openbroca,d04a6d79b2c17957e050bad4cd7969ae8449b59b,2026-04-16T15:31:03+00:00,Human,,98,22,4,False,False,False,False,feat: add waveform bar calculation functions and integrate into LiveWaveform component
+https://www.github.com/0xlau/openbroca,b29696f32f4f6b1772c93b1337f9ad82a9308031,2026-04-16T14:48:54+00:00,Human,,1443,11,9,False,False,False,False,"feat: implement provider-defined settings architecture and migration
+
+- Introduced a new provider-defined settings implementation plan to replace the existing LLM-only model-settings flow.
+- Added shared provider settings contracts and migrated desktop persistence to use `providerSettings`.
+- Implemented main-process setup-status resolution and router APIs for provider readiness.
+- Updated real providers to declare settings items and readiness checks.
+- Replaced the renderer model dialog with a unified settings dialog for better user experience.
+- Refactored runtime and pipeline code to read active provider settings directly.
+- Conducted full regression tests and cleaned up dead references to ensure stability."
+https://www.github.com/0xlau/openbroca,b51ec73a3c25e269cc0f15c600c3dc2ea28b5d79,2026-04-06T18:50:14+00:00,Human,,45,6,3,False,False,False,False,test: cover provider-defined settings end to end
+https://www.github.com/0xlau/openbroca,e7972e514814262dcd3bd47be0b524556beea42f,2026-04-06T18:33:45+00:00,Human,,69,25,3,True,True,False,False,fix: validate asr settings via provider schema
+https://www.github.com/0xlau/openbroca,017f265b39339516be97cf2ecc9e1f188d368c09,2026-04-06T18:22:16+00:00,Human,,148,51,5,False,False,False,False,refactor: resolve runtime config from provider settings
+https://www.github.com/0xlau/openbroca,8ff1998df1bd4c9ef2ff5a3e9a69f3c73054f180,2026-04-06T18:08:20+00:00,Human,,34,0,2,True,True,False,False,fix: restore inline provider setup guidance
+https://www.github.com/0xlau/openbroca,66113ed8cb86da8c7e8b3f5fcbf6d55b71a784e0,2026-04-06T18:02:38+00:00,Human,,134,42,3,True,True,False,False,fix: tighten provider setup gating in renderer
+https://www.github.com/0xlau/openbroca,c0d48de0e8c27e23b6537722450b77f20ae72c5d,2026-04-06T17:53:30+00:00,Human,,495,403,7,False,False,False,False,feat: unify provider settings in the renderer
+https://www.github.com/0xlau/openbroca,ea680fee99c8f8e5f4448e1c92b01d6a24c0dc9b,2026-04-06T17:40:15+00:00,Human,,5,1,2,True,True,False,False,fix: restrict deepgram language setting to supported options
+https://www.github.com/0xlau/openbroca,b5fb4f3b9006c2cc4ff83ff02026f7109232a5ea,2026-04-06T17:33:24+00:00,Human,,5,1,1,False,False,False,False,test: assert deepgram language options
+https://www.github.com/0xlau/openbroca,7345f4f842bab7b13f05a2fb5aa9a94341d1327c,2026-04-06T17:30:11+00:00,Human,,66,9,4,False,False,False,False,test: strengthen provider descriptor settings coverage
+https://www.github.com/0xlau/openbroca,da78e0331e27ee30c60fde3644265617d99b5e32,2026-04-06T17:24:28+00:00,Human,,242,4,8,False,False,False,False,feat: add provider settings metadata to real descriptors
+https://www.github.com/0xlau/openbroca,0f711ac644c50c61c27da7c41aa21c8501002be2,2026-04-06T17:14:48+00:00,Human,,118,0,1,False,False,False,False,test: cover default provider setup status branches
+https://www.github.com/0xlau/openbroca,fd9efbf352503852c294104ca89d2487735b5293,2026-04-06T17:09:36+00:00,Human,,169,3,2,True,True,False,False,fix: mark missing provider setup status as invalid
+https://www.github.com/0xlau/openbroca,17f6e507123e865124765f5b34bf8bba447ee2b1,2026-04-06T17:00:41+00:00,Human,,245,4,4,False,False,False,False,feat: add provider setup status queries
+https://www.github.com/0xlau/openbroca,c47ee536d4bd2f7f3c58c53aac7827d5b50096f6,2026-04-06T16:48:46+00:00,Human,,47,0,2,True,True,False,False,fix: prefer providerSettings over legacy providerModels
+https://www.github.com/0xlau/openbroca,62b569fe2ddfdbd856d29742467f251cb35af226,2026-04-06T16:31:33+00:00,Human,,110,126,4,True,True,False,False,fix: migrate renderer provider page to provider settings
+https://www.github.com/0xlau/openbroca,b48747653dac032614a11ac935e5789bf1de64cb,2026-04-06T16:18:22+00:00,Human,,132,24,5,True,True,False,False,fix: deep-merge provider settings and read active model from settings
+https://www.github.com/0xlau/openbroca,f6cac962e42838fd8dd31f67926893a7324a8a11,2026-04-06T16:08:35+00:00,Human,,171,186,5,False,False,False,False,refactor: migrate provider state to provider settings
+https://www.github.com/0xlau/openbroca,9dd42c08bdc16c80871c465a902abb79cd865229,2026-04-06T15:55:58+00:00,Human,,51,22,2,False,False,False,False,test: tighten settings metadata verifications
+https://www.github.com/0xlau/openbroca,088dbd2f96451508d844889197d4f83364e66b3a,2026-04-06T15:46:44+00:00,Human,,23,21,3,True,True,False,False,fix: align provider settings metadata tests
+https://www.github.com/0xlau/openbroca,32392806bee8c22446eb3402b59884a999b0f246,2026-04-06T15:36:52+00:00,Human,,41,12,2,False,False,False,False,test: cover descriptor settings metadata
+https://www.github.com/0xlau/openbroca,6cbb44adb73013ddc67ca2426a5e7fca12e5c8fc,2026-04-06T15:32:34+00:00,Human,,175,2,8,False,False,False,False,refactor: add shared provider settings contract
+https://www.github.com/0xlau/openbroca,db83ff25c17007befa4da546647a8ea04d0b24b3,2026-04-06T15:14:16+00:00,Human,,430,0,1,False,False,False,False,docs: add provider-defined settings design
+https://www.github.com/0xlau/openbroca,7da6c1c6987a4a2a5a366f0c9b4278f5400a2aa6,2026-04-06T12:49:06+00:00,Human,,2,12,4,False,False,False,False,feat(nav): remove 'Skills' page and update navigation items
+https://www.github.com/0xlau/openbroca,3a636f0a5eb9a28b23f2030ccef28154e2d60121,2026-04-06T12:47:35+00:00,Human,,5051,88,14,False,False,False,False,refactor: Refactor code structure for improved readability and maintainability
+https://www.github.com/0xlau/openbroca,16eff8878ac87f660eb150324baa33a5b53d86ca,2026-04-05T05:13:09+00:00,Human,,39,16,2,False,False,False,False,feat(instructions): update instruction editor layout to group auto enter switch and send key select
+https://www.github.com/0xlau/openbroca,1ff01b7d288aba9a6a5481d0797967afe6134ba1,2026-04-05T04:49:42+00:00,Human,,8,8,2,False,False,False,False,feat(instructions): update activation app picker to use Empty component for no apps selected state
+https://www.github.com/0xlau/openbroca,a926a26276b403080eb97758c75f6c64b9b808fb,2026-04-04T18:16:30+00:00,Human,,263,157,5,False,False,False,False,feat(instructions): enhance activation app picker with keyboard navigation and improved popover handling
+https://www.github.com/0xlau/openbroca,791b7d5c71dd073b87c2ef297e55fa0771b1deba,2026-04-04T17:10:59+00:00,Human,,3433,0,4,False,False,False,False,feat(instructions): implement activation row toggle and popover selection
+https://www.github.com/0xlau/openbroca,72b5a6fff1300a21e8adb4a05bab2e88ee27d9ba,2026-04-04T17:04:52+00:00,Human,,23,19,2,False,False,False,False,feat(instructions): transfer activation apps between rules
+https://www.github.com/0xlau/openbroca,f893c36dce9f857427c71b981de83f4fd97194af,2026-04-04T17:04:52+00:00,Human,,250,130,4,False,False,False,False,feat(instructions): toggle activation app rows
+https://www.github.com/0xlau/openbroca,ed1586c28d846801b81a194fc9f4079d8ebf7229,2026-04-04T17:04:52+00:00,Human,,28,21,2,True,True,False,False,fix(instructions): move picker scrolling into inner container
+https://www.github.com/0xlau/openbroca,7f69ad2b254b331162b94020ff21de875d05c442,2026-04-04T17:04:52+00:00,Human,,85,84,3,True,True,False,False,fix(instructions): bind picker popover trigger to select apps button
+https://www.github.com/0xlau/openbroca,a728d409a123e17460812414966683943f9c5caa,2026-04-04T17:04:52+00:00,Human,,79,287,4,False,False,False,False,refactor(instructions): simplify activation app picker
+https://www.github.com/0xlau/openbroca,33541d57a10773207854b163af56a9decd4be854,2026-04-04T17:04:52+00:00,Human,,160,2,3,True,True,False,False,fix(desktop): prefer mac bundle icons for app identity
+https://www.github.com/0xlau/openbroca,4e98b262488933c2b767f5add71b05cdd68d7310,2026-04-04T17:04:52+00:00,Human,,22,9,3,True,True,False,False,fix(instructions): show auto enter mode labels and align store tests
+https://www.github.com/0xlau/openbroca,28cd4714693d5118bd9e2e9fd5149a606fea9e8f,2026-04-04T17:04:51+00:00,Human,,114,45,3,False,False,False,False,feat(instructions): add auto enter send key mode
+https://www.github.com/0xlau/openbroca,526a9baff5e73ee03076bebe27a12e760ebe2a5b,2026-04-04T17:04:51+00:00,Human,,30,4,2,True,True,False,False,fix(instructions): reset picker search and cover row select
+https://www.github.com/0xlau/openbroca,5bb38caef6140095d88e40775a16b5f85a6dd22d,2026-04-04T17:04:51+00:00,Human,,235,68,3,False,False,False,False,feat(instructions): use popover app selection
+https://www.github.com/0xlau/openbroca,5691f44e1b0fe65e75a15719b79baaa4980afd54,2026-04-04T17:04:51+00:00,Human,,41,14,5,True,True,False,False,fix(instructions): bridge auto enter mode compatibility
+https://www.github.com/0xlau/openbroca,3dbf8ea2ec9431b4d9fec4bfe97e3adeb325fa49,2026-04-04T17:04:51+00:00,Human,,31,28,5,True,True,False,False,fix(instructions): align matcher runtime with auto enter mode
+https://www.github.com/0xlau/openbroca,748e71d094fc1f354c25069513b5893261732393,2026-04-04T17:04:51+00:00,Human,,238,35,6,False,False,False,False,feat(instructions): add auto enter modes
+https://www.github.com/0xlau/openbroca,21d21b4d83a6f5687f40637dc85c61b299f0bf91,2026-04-04T17:04:51+00:00,Human,,173,165,2,True,True,False,False,fix(desktop): constrain instructions dialogs and app identity bundling
+https://www.github.com/0xlau/openbroca,f3cab0ed644ef05f388b771549a8903ac9954ad4,2026-04-04T17:04:51+00:00,Human,,11,13,4,True,True,False,False,fix(desktop): isolate app-identity runtime exports
+https://www.github.com/0xlau/openbroca,9467b4d9da2e9c3d7a1505f682d95106f90af8e2,2026-04-04T17:04:50+00:00,Human,,235,9,8,True,True,False,False,fix(desktop): snapshot app identity for instruction matching
+https://www.github.com/0xlau/openbroca,450c87c0d1cf0910d1f1b1db9f5f7afc2aa11213,2026-04-04T17:04:50+00:00,Human,,186,0,1,False,False,False,False,test(desktop): cover auto-enter negative paths
+https://www.github.com/0xlau/openbroca,a39b214af1859bf30c11766285458a23270c34b0,2026-04-04T17:04:50+00:00,Human,,320,26,5,False,False,False,False,feat(desktop): apply matched instructions at runtime
+https://www.github.com/0xlau/openbroca,2d9c0a98a3db1ef3bacb0c1b2ca47d4d290036d0,2026-04-04T17:04:50+00:00,Human,,62,5,2,True,True,False,False,fix(desktop): rollback instructions ui on persist failure
+https://www.github.com/0xlau/openbroca,ae0829c7158296a3480064aba5f569813fa806eb,2026-04-04T17:04:50+00:00,Human,,142,34,5,True,True,False,False,fix(desktop): harden instructions persistence and picker disable state
+https://www.github.com/0xlau/openbroca,de434e145c46e2ea3c37d243831ceb167a8753e8,2026-04-04T17:04:50+00:00,Human,,1190,0,7,False,False,False,False,feat(desktop): add instructions page
+https://www.github.com/0xlau/openbroca,7c09e5c38a7f9956d2bb3e71f48ca273380c07a3,2026-04-04T17:04:50+00:00,Human,,5,5,1,False,False,False,False,test(desktop): exercise app identity namespace
+https://www.github.com/0xlau/openbroca,62ed1211dd10794f239214858711ee992fea4be6,2026-04-04T17:04:49+00:00,Human,,65,1,3,False,False,False,False,feat(desktop): expose app identity catalog
+https://www.github.com/0xlau/openbroca,120293d4c14065413d5d4305768586a030dbb3d0,2026-04-04T17:04:49+00:00,Human,,115,1,2,True,True,False,False,fix(store-router): normalize instructions before persistence
+https://www.github.com/0xlau/openbroca,1bd2e0532c89ef0202729c983c4f2ef508604563,2026-04-04T17:04:49+00:00,Human,,314,4,3,True,True,False,False,fix(instructions): normalize writes in persisted store
+https://www.github.com/0xlau/openbroca,fe209381372d0706f36b3ccb29331901241cd4ab,2026-04-04T17:04:49+00:00,Human,,348,1,10,False,False,False,False,feat(instructions): add persisted instruction schema
+https://www.github.com/0xlau/openbroca,295e7fffb7bf6e300aa9b8f7c6e3132333a02272,2026-04-04T17:04:49+00:00,Human,,44,27,2,True,True,False,False,fix(app-identity): suppress unmatched windows start entries
+https://www.github.com/0xlau/openbroca,3eb9800b2a9094d22deb64342879f460abefd2fc,2026-04-04T17:04:49+00:00,Human,,243,26,5,True,True,False,False,fix(app-identity): align windows ids and harden icon lookup
+https://www.github.com/0xlau/openbroca,2ddaa215bea33aff60023fa0c4f18bc6cc7664b9,2026-04-04T17:04:49+00:00,Human,,84,2,3,True,True,False,False,fix(app-identity): merge mac running apps and lock desktop link
+https://www.github.com/0xlau/openbroca,befd71e2cb1d065668d79c04e34c9942f81c48a5,2026-04-04T17:04:48+00:00,Human,,259,3,9,False,False,False,False,feat(app-identity): add discovery service
+https://www.github.com/0xlau/openbroca,f75fdec677539ce63c5325f55f87e54ab5a897ff,2026-04-04T17:04:48+00:00,Human,,62,6,3,True,True,False,False,fix(app-identity): stabilize dedupe behavior
+https://www.github.com/0xlau/openbroca,dd36088dfd52af93c8102a1a2e5f8c3ba2b625f8,2026-04-04T17:04:48+00:00,Human,,1,0,1,True,True,False,False,fix(app-identity): add desktop dependency
+https://www.github.com/0xlau/openbroca,c9fe3f71175c4b665d5c7ed7c90526d9a2447cf9,2026-04-04T17:04:48+00:00,Human,,542,0,10,False,False,False,False,feat(app-identity): add shared identity package
+https://www.github.com/0xlau/openbroca,c32aa52e01d9acdf80f1c504929d6d20c8bbce62,2026-04-04T15:32:42+00:00,Human,,5,4,1,False,False,False,False,docs(spec): clarify activation app row toggles
+https://www.github.com/0xlau/openbroca,acd63244e77756d620b90ef275e9a9315eee0cb7,2026-04-04T14:21:38+00:00,Human,,16,2,1,False,False,False,False,docs(spec): refine activation app transfer interaction
+https://www.github.com/0xlau/openbroca,9dbfc74b57e3ae22c5e77e6ebe750bd15978d84c,2026-04-04T13:06:54+00:00,Human,,10,18,1,False,False,False,False,docs(spec): simplify activation app selection
+https://www.github.com/0xlau/openbroca,0d0f33e133db733fa64f444d9aa57e7af6944894,2026-04-04T05:29:39+00:00,Human,,45,13,1,False,False,False,False,docs(spec): refine instructions app selection and auto enter
+https://www.github.com/0xlau/openbroca,75b5e8e6f3d2bf8fe9e6f63341c8386613133a8d,2026-04-04T04:01:31+00:00,Human,,47,1,2,False,False,False,False,feat(renderer): enable openrouter model selection
+https://www.github.com/0xlau/openbroca,1bd4bbf908737f09a9ef8e0f4f6990b030774fc8,2026-04-04T04:01:30+00:00,Human,,13,7,2,False,False,False,False,test(desktop): assert openrouter registry wiring
+https://www.github.com/0xlau/openbroca,bf525528bde10e537a1dd99ea6698e928bb38d75,2026-04-04T04:01:30+00:00,Human,,163,0,3,False,False,False,False,feat(desktop): register openrouter provider
+https://www.github.com/0xlau/openbroca,c825706997f74a6ec81b6bb59208c29a0a41ecae,2026-04-04T04:01:30+00:00,Human,,67,4,2,True,True,False,False,fix(providers): handle openrouter structured content
+https://www.github.com/0xlau/openbroca,54f9c03bbbbf65c6e535791227e1eeb523f35923,2026-04-04T04:01:30+00:00,Human,,324,34,3,False,False,False,False,feat(providers): implement openrouter llm provider
+https://www.github.com/0xlau/openbroca,d64d128494ca58c0628cc16fb46569912db77e9b,2026-04-04T04:01:30+00:00,Human,,7,3,1,True,True,False,False,fix(providers): type-safe openrouter test
+https://www.github.com/0xlau/openbroca,434c82155cf0d6e97515a7c20ef22f4d35ee72f2,2026-04-04T04:01:30+00:00,Human,,30,2,3,True,True,False,False,fix(providers): tighten openrouter descriptor
+https://www.github.com/0xlau/openbroca,55993b17ce55200e3261258678090ec2f3e806a0,2026-04-04T04:01:29+00:00,Human,,136,0,5,False,False,False,False,feat(providers): add openrouter descriptor
+https://www.github.com/0xlau/openbroca,a51d55652590eae70aa62aa65570253453fb95a4,2026-04-04T04:01:29+00:00,Human,,855,0,1,False,False,False,False,docs(plan): add openrouter implementation plan
+https://www.github.com/0xlau/openbroca,d6d48786e80837428884121f2ef119947a5afc44,2026-04-04T04:01:29+00:00,Human,,493,0,1,False,False,False,False,docs(spec): add managed local model provider design
+https://www.github.com/0xlau/openbroca,0af2c214209bb9b874c549400acd8f8cb8ccc395,2026-04-04T04:01:29+00:00,Human,,342,0,1,False,False,False,False,docs(spec): add openrouter provider design
+https://www.github.com/0xlau/openbroca,5e43444406729c555a4b1a17024ca9b2c62e882e,2026-04-03T15:08:32+00:00,Human,,11,2,1,False,False,False,False,docs(spec): refine instructions page layout
+https://www.github.com/0xlau/openbroca,63a90791dd510738e565048e8c1fc5098e5c7fa4,2026-04-03T15:03:15+00:00,Human,,1,1,1,False,False,False,False,docs(spec): allow empty custom instructions
+https://www.github.com/0xlau/openbroca,97802e57bdabdbed7351a35b60cb56cedaf1bf4d,2026-04-03T14:53:22+00:00,Human,,406,0,1,False,False,False,False,docs(spec): add instructions and app identity design
+https://www.github.com/0xlau/openbroca,c2530e6a2d52bd1d3f6c0abe46a76bb0b45b17cd,2026-04-02T18:05:25+00:00,Human,,3104,161,18,False,False,False,False,feat(providers): add llm model selection flow
+https://www.github.com/0xlau/openbroca,da4c67e3983e6c1bb24081b5970a6d3cb5690a9e,2026-04-02T17:49:23+00:00,Human,,4,1,1,False,False,False,False,test(dashboard): align debug dialog mocks
+https://www.github.com/0xlau/openbroca,78cc0ebacf3d33834f06d5ac9d6bcad2765bb041,2026-04-02T17:47:36+00:00,Human,,365,217,6,False,False,False,False,feat(debug): add debug dialogs for history item inspection and replace history detail panel
+https://www.github.com/0xlau/openbroca,db152bfe5af6d3ec13919d602554c6fc9f8dc2b8,2026-04-02T16:17:03+00:00,Human,,3171,139,22,False,False,False,False,feat(asr): migrate to recognize-first provider contract
+https://www.github.com/0xlau/openbroca,4e60f89e665f8bc8045e4029526b85fc2d9f0184,2026-04-02T11:33:53+00:00,Human,,2450,164,28,False,False,False,False,feat(desktop): add voice history audio pipeline
+https://www.github.com/0xlau/openbroca,01c4c9466d5f7ead379ba36fa7ebd54b3d572072,2026-04-02T06:22:10+00:00,Human,,967,13,6,False,False,False,False,feat(providers): implement structured provider settings and active provider selection
+https://www.github.com/0xlau/openbroca,a76b6dabfd4b7e7b5ddb3f50fa8440bcb7aa3d32,2026-04-02T03:29:01+00:00,Human,,42,2,2,True,True,False,False,fix(providers): avoid no-op active provider store writes
+https://www.github.com/0xlau/openbroca,5194d51e49272db05990faa1b785837542493dbf,2026-04-02T03:19:51+00:00,Human,,221,67,6,False,False,False,False,feat(providers): persist active provider selections
+https://www.github.com/0xlau/openbroca,5a915d6adeecb3c04c837ab562c9f279141133d3,2026-04-02T03:12:17+00:00,Human,,90,33,2,True,True,False,False,fix(providers): use atomic active provider updates
+https://www.github.com/0xlau/openbroca,d8b74213c734dfb47b3001cebea669b7ff1a70dc,2026-04-02T03:01:23+00:00,Human,,307,21,5,False,False,False,False,feat(providers): add active provider selection controls
+https://www.github.com/0xlau/openbroca,1d88985e31077d3c11ecd6c93f8ca6dedeabab47,2026-04-02T02:53:17+00:00,Human,,0,1,1,False,False,False,False,test(dictionary): remove stale usage count assertion
+https://www.github.com/0xlau/openbroca,02cfd6be6663f8d11fc7e85e4cf5cf9b11c6481b,2026-04-01T18:12:59+00:00,Human,,259,159,2,False,False,False,False,test(providers): restore real page flow coverage with structured store
+https://www.github.com/0xlau/openbroca,71b6a7febe9e45cbc943dde6ee45862522d1088e,2026-04-01T18:04:07+00:00,Human,,201,248,2,False,False,False,False,test(providers): align page tests with structured store contract
+https://www.github.com/0xlau/openbroca,59b7650077fc1501da13f29f98cce371fdff7381,2026-04-01T17:53:54+00:00,Human,,203,29,4,True,True,False,False,fix(providers): make structured settings updates safe
+https://www.github.com/0xlau/openbroca,8a9423d33304e3f650be58f73cfbf0995c428daa,2026-04-01T17:42:29+00:00,Human,,184,8,4,False,False,False,False,refactor(providers): normalize structured provider settings
+https://www.github.com/0xlau/openbroca,d2706b5e10c53af7fb18d752bbd428c2de18acee,2026-04-01T17:16:36+00:00,Human,,413,0,1,False,False,False,False,docs: add provider activation design spec
+https://www.github.com/0xlau/openbroca,215b359593c7ea0ff87a9a84d70be953575109a4,2026-03-30T17:47:18+00:00,Human,,194,34,3,False,False,False,False,feat(dictionary): add replacement entries
+https://www.github.com/0xlau/openbroca,24f941128b14b24eba14eee6e7f51b0c9ec095da,2026-03-30T17:20:40+00:00,Human,,2,2,1,True,True,False,False,fix: update main window dimensions to 1280x720
+https://www.github.com/0xlau/openbroca,7584a34f038c97545022fa395dce137aa5225f6d,2026-03-30T17:09:37+00:00,Human,,102,25,2,True,True,False,False,fix: show provider helper text in connect tooltip
+https://www.github.com/0xlau/openbroca,8427521936aa35d69f48606430ca9987f8b93f8d,2026-03-30T15:16:35+00:00,Human,,297,119,10,False,False,False,False,"feat: add tests for AboutMe, Dashboard, Dictionary, MainRoot, and Providers components; enhance layout constraints"
+https://www.github.com/0xlau/openbroca,f6dbf78a97ef2d8847724bc95c88617eafedb5f5,2026-03-30T14:31:41+00:00,Human,,1,1,1,True,True,False,False,fix: update OpenAI Codex description to remove configuration note
+https://www.github.com/0xlau/openbroca,f384b48daa2821ddb0b81aef12f9b3464b533b7f,2026-03-30T14:31:41+00:00,Human,,921,39,14,False,False,False,False,feat: implement OpenAI Codex provider with OAuth support and runtime configuration
+https://www.github.com/0xlau/openbroca,1cd72b618a9881b57f70cfe9709ab9cf4e8ccf82,2026-03-30T14:31:41+00:00,Human,,2640,137,46,False,False,False,False,feat: implement OpenAI Codex OAuth provider with secure storage and connection options
+https://www.github.com/0xlau/openbroca,64d0d88ce50cd750fdab30f0c3312dd1f8d0d992,2026-03-29T15:23:35+00:00,Human,,183,2,4,False,False,False,False,feat(llm): add non-streaming openai generation
+https://www.github.com/0xlau/openbroca,1dac83693947ace33407b061f20249d5ae09f79b,2026-03-29T15:23:35+00:00,Human,,410,59,6,False,False,False,False,refactor(llm): add generate contract primitives
+https://www.github.com/0xlau/openbroca,14edd3fff0764ca6018a975349b21dd2af4fec32,2026-03-29T15:23:34+00:00,Human,,6,0,1,False,False,False,False,docs: clarify llm non-streaming design
+https://www.github.com/0xlau/openbroca,78ac1a969fa0efc768c2cebbecf7a494b50f6658,2026-03-29T15:23:34+00:00,Human,,308,0,1,False,False,False,False,docs: add llm non-streaming interface design
+https://www.github.com/0xlau/openbroca,325fe8361fd08b549414135bc0573effd4b24a0d,2026-03-28T16:15:24+00:00,Human,,3,3,1,True,True,False,False,fix: improve layout of dictionary components for better responsiveness
+https://www.github.com/0xlau/openbroca,6ac88fe1a421fec54c10c59bf1242a185b30c8bc,2026-03-28T16:15:24+00:00,Human,,497,1,6,False,False,False,False,"feat: implement dictionary management with create, update, and delete functionality"
+https://www.github.com/0xlau/openbroca,95b025678ff7cefa5005bba8105003585b354938,2026-03-28T10:01:07+00:00,Human,,370,3,8,False,False,False,False,feat(desktop): add persisted about me settings form
+https://www.github.com/0xlau/openbroca,0953d7acf8dab96a2f53025dc4784e58479e7f51,2026-03-28T09:06:50+00:00,Human,,11,0,1,False,False,False,False,feat: add environment configuration file for project setup
+https://www.github.com/0xlau/openbroca,6f799ca8cbab65ef05f9b0f4f414501a95630bd6,2026-03-28T07:15:24+00:00,Human,,1,1,1,True,True,False,False,fix: correct import path for NavSettings component in AppSidebar
+https://www.github.com/0xlau/openbroca,ab66ae6007a85a125c9c4cef66d97c379584746c,2026-03-28T07:15:04+00:00,Human,,5,10,2,False,False,False,False,feat: add NavSettings component and update AppSidebar to include it
+https://www.github.com/0xlau/openbroca,d5b683a4976203e588dc241c40ad36614d8ba35c,2026-03-28T07:11:28+00:00,Human,,54,8,2,False,False,False,False,feat: implement audio chunk handling and save captured audio on stop
+https://www.github.com/0xlau/openbroca,c0fa8ec49595fda8377e9a9d18b691003cac5958,2026-03-27T18:45:34+00:00,Human,,1296,34,18,False,False,False,False,feat(desktop): add listening session state bridge
+https://www.github.com/0xlau/openbroca,f87317e9ba3aa711d57423192be38cb60f5f69a7,2026-03-27T17:05:19+00:00,Human,,527,3,5,False,False,False,False,feat: implement listening session state management and integrate with floating waveform
+https://www.github.com/0xlau/openbroca,613bfa19e665c43bf68605130d6b6cec3f40587e,2026-03-27T16:58:09+00:00,Human,,1,0,1,False,False,False,False,chore: ignore local worktrees directory
+https://www.github.com/0xlau/openbroca,18f0a2c7b7dc334e8c96ee7a2b3187015d7d714e,2026-03-27T16:46:53+00:00,Human,,228,0,1,False,False,False,False,docs: add listening session state design spec
+https://www.github.com/0xlau/openbroca,94a5f9133e9c1117cd19d9eb2fc7c0b6986d1492,2026-03-27T15:57:10+00:00,Human,,177,21,8,False,False,False,False,refactor: enhance microphone handling and normalize device names
+https://www.github.com/0xlau/openbroca,6f1c4cda9d56fa8986bb69f1af699ea5df9dbe9b,2026-03-25T02:43:24+00:00,Human,,538,0,1,False,False,False,False,refactor: implement providers package consolidation plan
+https://www.github.com/0xlau/openbroca,d091143f4a22f7ccd1536929388f4be1d05ba475,2026-03-24T17:58:06+00:00,Human,,24,1110,24,False,False,False,False,refactor: consolidate core into providers package
+https://www.github.com/0xlau/openbroca,8571ec02e0ce57d63319b1b0c5fba452d32ed368,2026-03-24T17:53:30+00:00,Human,,64,81,17,False,False,False,False,refactor: move asr providers and icons into domain layout
+https://www.github.com/0xlau/openbroca,abeafe62552b33a2a5e32d8070afdfac444772d3,2026-03-24T17:50:32+00:00,Human,,10,9,4,False,False,False,False,refactor: move openai provider under llm domain
+https://www.github.com/0xlau/openbroca,8dc62f41e5ad1b509c74e6c058e2219522252ffd,2026-03-24T17:48:54+00:00,Human,,325,0,4,False,False,False,False,refactor: move asr contracts and registry into providers
+https://www.github.com/0xlau/openbroca,dcfdb619a5f4930d24ee0f4a22638cc9df27bfd4,2026-03-24T17:47:28+00:00,Human,,511,0,5,False,False,False,False,refactor: move llm contracts and registry into providers
+https://www.github.com/0xlau/openbroca,cf48ccfbe4bb888c49729891dc71d0e91a0583f7,2026-03-24T17:45:03+00:00,Human,,100,6,7,False,False,False,False,refactor: move shared provider foundation into providers package
+https://www.github.com/0xlau/openbroca,96dca096bf1bdecab3705bd593cf450dc33a7158,2026-03-24T17:26:22+00:00,Human,,395,0,1,False,False,False,False,docs: add providers consolidation design
+https://www.github.com/0xlau/openbroca,71beda19f382e796a34f7c6c7ae73860b587bbaa,2026-03-24T16:35:21+00:00,Human,,715,41,19,False,False,False,False,feat: add microphone
+https://www.github.com/0xlau/openbroca,2535b647b2ba208d528a3a0481b57f6e765275c2,2026-03-23T16:32:03+00:00,Human,,6,2,1,False,False,False,False,feat: add loading state to microphone refresh button
+https://www.github.com/0xlau/openbroca,5495f972f3b98ecacdf83c48c646d2118f3a19a0,2026-03-22T18:09:42+00:00,Human,,85,18,5,False,False,False,False,feat: implement microphone selection dropdown and state management
+https://www.github.com/0xlau/openbroca,16e715a9871114f482abfbd96e74b77b852577ba,2026-03-22T16:05:41+00:00,Human,,1,1,1,True,True,False,False,fix: set LiveWaveform active state to false for correct rendering
+https://www.github.com/0xlau/openbroca,ae6edcddd3c368d536424b5f86c23dfa9a717cf1,2026-03-22T13:36:28+00:00,Human,,37,12,5,False,False,False,False,feat: enhance floating window positioning and styling for improved user experience
+https://www.github.com/0xlau/openbroca,3d580889aa9c9b8fdb000df964fb4149860e719f,2026-03-22T13:02:46+00:00,Human,,37,5,3,False,False,False,False,feat: update floating window dimensions and enhance FloatListening component layout
+https://www.github.com/0xlau/openbroca,aa26303153c1285c53c9b13a65b213853021b418,2026-03-22T12:22:57+00:00,Human,,401,73,21,False,False,False,False,feat: implement window management and shortcuts functionality
+https://www.github.com/0xlau/openbroca,4891f62b973a660c4ed4d81d9c4ba11389f5724e,2026-03-22T10:38:07+00:00,Human,,1,6,1,False,False,False,False,refactor: remove Settings item from NavFooter component
+https://www.github.com/0xlau/openbroca,9e2354c449ec646d6b5cf9a7673dad18b2fac640,2026-03-22T10:35:47+00:00,Human,,504,0,2,False,False,False,False,feat: add LiveWaveform component for audio visualization
+https://www.github.com/0xlau/openbroca,c758a2726e47b83212ab5965961b43e70fe68d36,2026-03-22T09:51:01+00:00,Human,,345,18,9,False,False,False,False,feat: add window control functionality and improve title bar for Windows
+https://www.github.com/0xlau/openbroca,56bc0f6c8135b9e9603a05a0494821e3c8c77b36,2026-03-22T09:32:49+00:00,Human,,23,116,2,False,False,False,False,refactor: remove coming soon providers and simplify provider management
+https://www.github.com/0xlau/openbroca,f3cc541f6e36664ec1f361ea93d463a995d1a176,2026-03-22T09:32:43+00:00,Human,,576,198,26,False,False,False,False,feat(sherpa-onnx): add icon and update ASR provider descriptor
+https://www.github.com/0xlau/openbroca,53b1a37262e574d33928186afa645d05bb2ee2e5,2026-03-22T08:18:56+00:00,Human,,439,132,26,False,False,False,False,feat: add coming soon providers and icons for LLM and ASR
+https://www.github.com/0xlau/openbroca,0b46a9d09ff263f8a2e10b62b299ad393d5c6f94,2026-03-22T07:16:03+00:00,Human,,369,35,17,False,False,False,False,feat: implement persistent state management with zustand and electron-store
+https://www.github.com/0xlau/openbroca,454c30118b39c3a3d75f3802a0b73b2ab084ab05,2026-03-22T06:10:21+00:00,Human,,391,12,17,False,False,False,False,feat: integrate TRPC for remote procedure calls and add related context and IPC handlers
+https://www.github.com/0xlau/openbroca,4f27d1e0f420b2cf3221a46c0c24bfe1086e679e,2026-03-22T04:56:55+00:00,Human,,1,1,1,False,False,False,False,feat: update main window width to 1080 for improved layout
+https://www.github.com/0xlau/openbroca,859d353ed99ef7735e3e19a4bef9f324587b8c80,2026-03-22T04:55:32+00:00,Human,,2371,4,34,False,False,False,False,feat: add provider spec
+https://www.github.com/0xlau/openbroca,4c742ce2b61d46d329eb567987e7e3fc1cb0437a,2026-03-21T19:37:21+00:00,Human,,102,2,10,False,False,False,False,feat: add shared TypeScript configuration packages and update project structure
+https://www.github.com/0xlau/openbroca,a387e29aba3860e65e8a580633870b1dd2f92d73,2026-03-21T19:24:33+00:00,Human,,0,35,1,True,True,False,False,fix: remove outdated dashboard design specification document
+https://www.github.com/0xlau/openbroca,a85cc4d182aa7cbb71827b9e36cee2c4e9f0baef,2026-03-21T16:01:10+00:00,Human,,397,214,76,False,False,False,False,"feat: add new UI components including Skeleton, Slider, Toaster, Spinner, Switch, Table, Tabs, Textarea, Toggle Group, Toggle, Tooltip, and Typography elements"
+https://www.github.com/0xlau/openbroca,4846fc1cf0e41fb338f99d5802dfbc37b6d1bcdd,2026-03-21T15:42:58+00:00,Human,,722,556,115,False,False,False,False,chore: add pnpm workspace configuration and turbo.json for task management
+https://www.github.com/0xlau/openbroca,787bb914992e6a1f09912863fd828dc1a08fa163,2026-03-21T15:13:12+00:00,Human,,2,0,1,True,True,False,False,fix: update .gitignore to include .agents and skills-lock.json
+https://www.github.com/0xlau/openbroca,93fff0ae108404b3e75871a12d5a0651a9fa0169,2026-03-21T14:02:22+00:00,Human,,44,0,1,False,False,False,False,feat: add CLAUDE.md for project guidance and command reference
+https://www.github.com/0xlau/openbroca,fe1b907a8981016cd7571b38eb8497c90f39c725,2026-03-21T14:00:20+00:00,Human,,1,1,1,True,True,False,False,fix: update HistoryRow component to align items centrally
+https://www.github.com/0xlau/openbroca,f3928a0bb974bb3f7c116951c291b88e678a08fe,2026-03-21T13:15:56+00:00,Human,,45,6,4,False,False,False,False,feat: add Instrument Serif font and update Dashboard typography
+https://www.github.com/0xlau/openbroca,48bae8e7c3d504549cc4360299eda3466b5f2bb3,2026-03-21T11:19:25+00:00,Human,,201,3,4,False,False,False,False,feat: implement Dashboard page with token usage chart and dictation history
+https://www.github.com/0xlau/openbroca,b8ab69d3417f51eb091503d54833d6126aa7197e,2026-03-21T10:49:40+00:00,Human,,1,1,1,True,True,False,False,fix: update description for Providers section to specify ASR and LLM Providers
+https://www.github.com/0xlau/openbroca,7b42cbd313158edbdd93d06380a92fc118005225,2026-03-21T10:40:14+00:00,Human,,9,9,4,False,False,False,False,feat: replace Models page with Brocas page and update navigation
+https://www.github.com/0xlau/openbroca,98a56101a0b0a6c89f1962d9c8495e96c66c6290,2026-03-21T10:13:13+00:00,Human,,53,22,11,False,False,False,False,feat: add icon
+https://www.github.com/0xlau/openbroca,53f2536114f0cd62517e7be8394fc71a196825e9,2026-03-21T09:33:32+00:00,Human,,310,36,6,False,False,False,False,feat: add typography components and implement Providers page with ASR and LLM provider sections
+https://www.github.com/0xlau/openbroca,f54fb3b780f0084fe047d91ff335887836899307,2026-03-20T16:02:31+00:00,Human,,45,7,4,False,False,False,False,feat: add configuration files for shadcn MCP servers and update dependency version
+https://www.github.com/0xlau/openbroca,4e0fb26e1e24fbd0db781db185d011fbbf05cc42,2026-03-18T17:20:13+00:00,Human,,2,6,2,True,True,False,False,fix: simplify Dashboard component and add overflow-hidden class to SidebarInset
+https://www.github.com/0xlau/openbroca,7396fc9cc3971be82d894819d3fc1d30f1686657,2026-03-18T16:54:39+00:00,Human,,74,74,14,False,False,False,False,"feat: implement sidebar navigation links and add new pages for About Me, Dictionary, Models, Providers, and Skills"
+https://www.github.com/0xlau/openbroca,74b5f81a5a28dacfedcd27ffed7b7a19a0ba071e,2026-03-18T16:24:57+00:00,Human,,53,9,6,False,False,False,False,feat: integrate react-router for navigation and add Dashboard and Root components
+https://www.github.com/0xlau/openbroca,f0b0cdf8126a1a8746dfd4a151527b7a628844b6,2026-03-18T15:58:25+00:00,Human,,1,0,1,True,True,False,False,fix: add missing node-linker configuration to .npmrc
+https://www.github.com/0xlau/openbroca,20d88ac1348f980a2cc529599f9cae0ca64038a5,2026-03-18T15:06:47+00:00,Human,,59,19,4,False,False,False,False,feat: add NavServer and NavFooter components to enhance sidebar navigation
+https://www.github.com/0xlau/openbroca,1e0f921b31ebedb945d41b79082c80686527d15c,2026-03-17T17:49:39+00:00,Human,,194,2745,20,False,False,False,False,refactor: restructure navigation components and remove unused files
+https://www.github.com/0xlau/openbroca,d9be81a1f932cab3c4a7bcbc97ec4177995bc93b,2026-03-16T16:52:52+00:00,Human,,3317,56,20,False,False,False,False,feat: add navigation components and user interface enhancements
+https://www.github.com/0xlau/openbroca,a0c62402a6c71e4c8a99112192b03cd56f79f21b,2026-03-15T19:49:06+00:00,Human,,6518,1,57,False,False,False,False,feat: add components
+https://www.github.com/0xlau/openbroca,d07f6b482761d759709b8453ecfa785c7edf6262,2026-03-15T19:47:00+00:00,Human,,2076,328,7,False,False,False,False,feat: add Button component and integrate into App
+https://www.github.com/0xlau/openbroca,4141aa11b62d98ae886ba211ec00a00c7b755785,2026-03-15T19:36:17+00:00,Human,,2584,334,15,False,False,False,False,feat: add shadcn
+https://www.github.com/0xlau/openbroca,88396b8bc9a99a9664e4f91fa14a231a6b6dfbba,2026-03-15T19:18:18+00:00,Human,,6678,0,35,False,False,False,False,feat: init

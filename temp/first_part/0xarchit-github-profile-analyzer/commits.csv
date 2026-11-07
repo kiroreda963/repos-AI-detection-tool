@@ -1,0 +1,547 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xarchit/github-profile-analyzer,bd9bd85f7414ff6829e04a0972e27d153d345ddc,2026-10-02T11:36:34+00:00,Human,,50,10,2,False,True,False,False,"Merge pull request #35 from Dev-next-gen/fix/score-factor-weight-scaling
+
+fix(scoring): giving-back and longevity scores are pinned at 100"
+https://www.github.com/0xarchit/github-profile-analyzer,94201b68e2c44064fef81924b337fc70ad5697ee,2026-09-29T09:36:27+00:00,Human,,18,0,1,False,False,False,False,"test(scoring): cover longevity rule without previous-year data
+
+The existing test only exercises the year-over-year branch of rule 2.14.
+Add a fixture with previousYearTotalContributions set to null so the
+no-yoy branch (3 factors with 40/30/30 weights) is also regression-tested."
+https://www.github.com/0xarchit/github-profile-analyzer,1def81b57baff2100ab513ca6f529bc401135d7c,2026-09-29T09:23:06+00:00,Human,,7,2,1,False,False,False,False,"test(scoring): pin the observed score value, not just the factor bound
+
+The regression test now asserts the concrete symptom (both scores read a flat
+100 upstream for a month-old account) and that each score still equals the sum
+of its factors, instead of only checking earned <= max."
+https://www.github.com/0xarchit/github-profile-analyzer,1b9e0dfabeecf50fbffc6828db120d23954ebb6f,2026-09-29T09:21:01+00:00,Human,,27,10,2,True,True,False,False,"fix(scoring): scale giving-back and longevity factors by their weights
+
+saturatingScore() and activeRatio * 100 already return a 0-100 value, so a
+factor worth 35 points has to be multiplied by 0.35, not by 35. Rules 2.13 and
+2.14 multiplied by the factor maximum instead, inflating every factor 100x.
+finishScore() then clamped the total, so both scores read a flat 100 for almost
+any input and the ""why this score"" tooltip printed earned values far above the
+stated maximum (269/35, 797/22).
+
+Rule 2.2 and the year-over-year factor of 2.14 itself already use the 0.xx form."
+https://www.github.com/0xarchit/github-profile-analyzer,ce3007df1b56760a4059ea5a5b35aadad9541050,2026-09-23T17:17:24+00:00,Human,,6022,3856,27,False,False,False,False,"Merge pull request #31 from 0xarchit/feat/opennext-migration
+
+feat: migrate from @cloudflare/next-on-pages to OpenNext on Workers"
+https://www.github.com/0xarchit/github-profile-analyzer,3b5fdc1537061f53a4ec0a93efd4b93b3b9ba15f,2026-09-23T17:04:52+00:00,Human,,6022,3856,27,False,False,False,False,"feat: migrate from @cloudflare/next-on-pages to OpenNext on Workers
+
+Pages builds fail because @cloudflare/next-on-pages v1 cannot read Next 16's
+build output. Next 16 emits .func server entries for routes that used to be
+pure static (/, /settings, /_not-found, /_global-error), and next-on-pages'
+classifier only accepts a .func when it is ISR-prerendered, api-prerendered,
+or runtime ""edge"" -- so it aborts with ""routes were not configured to run with
+the Edge Runtime"". The adapter is deprecated upstream in favour of OpenNext.
+
+Adapter:
+- replace @cloudflare/next-on-pages with @opennextjs/cloudflare
+- add wrangler.jsonc (Workers; nodejs_compat; DB D1 + ASSETS/IMAGES bindings)
+- add open-next.config.ts (no incremental cache: the app has no ISR)
+- initOpenNextCloudflareForDev() in next.config.ts for local dev
+- .dev.vars, public/_headers, .gitignore entries, preview/deploy/upload/
+  cf-typegen scripts
+
+Edge runtime removal:
+OpenNext does not support `export const runtime = ""edge""`, so it is removed
+from all 18 routes, which now run on the Node.js runtime. This also drops the
+edge-runtime warnings from @upstash/redis and jose.
+
+Losing edge runtime re-enabled GET-route static optimisation on routes Next
+previously skipped, surfacing three latent bugs:
+- /analytics ran its Redis read during prerender; Next's DYNAMIC_SERVER_USAGE
+  control-flow error was caught and logged as a cache failure (and fired
+  Telegram alerts). Marked force-dynamic.
+- both SSE routes buffered the whole body instead of streaming. Marked
+  force-dynamic as streaming GET handlers.
+- the analysis UI could sit on ""Initializing"" forever: Strict Mode remounts
+  the component, the unmount closes the EventSource, and the useRef guard made
+  the remount skip fetchData(), so the stream was never reopened.
+
+Also: getRequestContext -> getCloudflareContext in star-gate and the star
+webhook, and the lint script now ignores .open-next/.wrangler build output.
+
+Verified: opennextjs-cloudflare build exit 0, tsc clean, 37/37 tests, and the
+worker boots on workerd with every binding resolved."
+https://www.github.com/0xarchit/github-profile-analyzer,83799fac04dc300b3b520b1361b8ada999c9aea5,2026-09-23T15:31:35+00:00,Human,,145,20,3,False,True,False,False,"Merge pull request #30 from aspire488/fix/impact-score-evidence
+
+Fix/impact score evidence"
+https://www.github.com/0xarchit/github-profile-analyzer,b0c8e50b83066965707e13f14b16e489c4ab6c59,2026-09-23T15:23:14+00:00,Human,,7,3,1,True,True,False,False,"fix(ui): recompute tooltip placement on scroll
+
+A pinned popover kept the placement and max-height it opened with, so
+scrolling left it stale and it could overhang the viewport. Recompute on
+scroll as well as resize, in the capture phase so scrolling inside a
+nested container also counts."
+https://www.github.com/0xarchit/github-profile-analyzer,9b2fca5262031a68ef6db7aca5936bf51a329ac1,2026-09-23T15:13:00+00:00,Human,,4,4,1,True,True,False,False,"fix(ui): keep tooltip placement out of the effect body
+
+Reading `visible` before its declaration tripped
+react-hooks/immutability, and calling updatePlacement() in the effect set
+state during the effect. The open handlers already compute placement, so
+the effect only needs to track viewport resizes."
+https://www.github.com/0xarchit/github-profile-analyzer,cebd00f4ca59c62b7c3644e93443bb17eef8590a,2026-09-23T14:45:19+00:00,Human,,23,6,1,True,True,False,False,fix(ui): keep factor tooltip within viewport
+https://www.github.com/0xarchit/github-profile-analyzer,7f097e0491076ca11c79eabc1a776bf1cc31b0ea,2026-09-23T14:23:42+00:00,Human,,1,1,1,True,True,False,False,"fix(ui): cap factor tooltip height so long breakdowns scroll
+
+Rule 2.4 impact factors list every non-fork repository, so tall
+breakdowns ran past the viewport. Constrain the popover to 18rem with
+overflow-y-auto and overscroll-contain."
+https://www.github.com/0xarchit/github-profile-analyzer,2eda36e27f88b77ceb1e0ef1c74fb048638b1864,2026-09-23T07:04:43+00:00,Human,,23,0,1,False,False,False,False,test(scoring): cover impact factors beyond top five
+https://www.github.com/0xarchit/github-profile-analyzer,192524fb8e21a49eab6db1f0fc8da11f84240275,2026-09-23T06:56:54+00:00,Human,,0,0,0,True,True,False,False,fix(scoring): allocate impact factors across all repositories
+https://www.github.com/0xarchit/github-profile-analyzer,90720ec8886452c33a0c8b45c0264d9528594ef3,2026-09-23T06:52:54+00:00,Human,,1,1,1,True,True,False,False,fix: include all ranked repos in impact factors
+https://www.github.com/0xarchit/github-profile-analyzer,821a718c5655e32b5bc8209317eb42b4cdb24a61,2026-09-22T16:31:51+00:00,Human,,36,1,1,False,False,False,False,test: cover evidence-based impact scoring
+https://www.github.com/0xarchit/github-profile-analyzer,87b0cc2a003d84e1f69816770187e2dcf5698525,2026-09-22T16:31:43+00:00,Human,,59,13,1,True,True,False,False,fix: balance impact score with project evidence
+https://www.github.com/0xarchit/github-profile-analyzer,6adc88189aa780e0f678c9dadf7012b6b51a1545,2026-08-24T04:41:43+00:00,Human,,2397,744,27,False,False,False,False,"Merge pull request #28 from 0xarchit/feat/deterministic-v2
+
+ Deterministic Engine v2 - Single Deep-Dive Mode, Batched GraphQL Collection, and Explainable Scores"
+https://www.github.com/0xarchit/github-profile-analyzer,d1edf70391743d11e6c3119bfbb8ba013e1fbd8a,2026-08-24T04:31:23+00:00,Human,,19,22,1,True,True,False,False,fix: review round four
+https://www.github.com/0xarchit/github-profile-analyzer,414a8f1f168307828ed3069d63d087e145d04d82,2026-08-24T03:59:02+00:00,Human,,8,8,3,True,True,False,False,fix: review round three
+https://www.github.com/0xarchit/github-profile-analyzer,e485aae1e567ea5a3cc0e20efafe8175e7c40414,2026-08-24T03:39:48+00:00,Human,,9,5,2,True,True,False,False,"fix: fork compare branches and contributor attribution
+
+- quota audit builds fork compare heads from each fork's own default
+  branch instead of the parent's; skips self-compares when both match
+- contributor aggregation skips unlinked authors instead of counting
+  them under a (unlinked) sentinel login"
+https://www.github.com/0xarchit/github-profile-analyzer,a2c184a11ae92438cf0c00529e1156862d0be9d5,2026-08-24T03:38:16+00:00,Human,,6,6,1,True,True,False,False,"fix(client): rotate pool tokens on 401 responses
+
+A revoked or expired pool token previously aborted the entire scan.
+401 now joins 403/429 in the rotate-and-retry path for both REST and
+GraphQL, letting round-robin advance to a healthy token. Single-token
+OAuth scans keep their existing single-retry behavior."
+https://www.github.com/0xarchit/github-profile-analyzer,c99d1f0df79b130d8a5e34b0a3c8200a980372bb,2026-08-24T03:23:08+00:00,Human,,14,8,4,True,True,False,False,"fix: resolve second review round findings
+
+- quota audit retains fork candidates separately so fork-divergence
+  compares actually execute against parent upstreams
+- contributor metrics no longer absorb unlinked authors into the
+  analyzed username; they are tracked as (unlinked)
+- commit activity chart caveat matches the real derivation window
+  and merge-commit handling
+- README community table regains support/issues guidance"
+https://www.github.com/0xarchit/github-profile-analyzer,84665d349fe97544f156b1f480e9b2a2bcafe12a,2026-08-24T02:59:32+00:00,Human,,197,209,12,True,True,False,False,"fix: resolve code review findings across engine, rules, scripts and UI
+
+Engine:
+- compute participation owner counts (were always zero)
+- map fork repos with their real owner login
+- parameterize repo-list node mapping with owner login
+- replace fake CI checks with empty array; headCiState and actionsRuns
+  carry the real status
+- raise REST budget to 34 to cover worst-case fan-out
+- expose isHireable in profile core query
+
+Rules:
+- 2.14 rebalances factors when year-over-year momentum is present so
+  totals stay at 100 points
+- 2.3 external merge rate uses external-opened denominator
+- 2.11 community score gains issue label triage evidence
+- 3.41 formats acceptance rate via round helper
+- 3.42 conventional commit regex accepts breaking-change markers
+- 3.45 counts forks with null pushed_at as abandoned after 30 days
+- chart fallback IDs come from explicit id-rule pairs, stable across
+  rule additions and removals
+
+UI:
+- factor tooltips keyboard accessible: focusable trigger, Enter/Space
+  toggle, Escape close, aria-expanded and aria-describedby wiring
+
+Scripts:
+- shared script-env helper replaces duplicated loaders
+- defensive JSON parsing, correct week bucketing, labeled derived stats,
+  parent-aware fork compares, accurate worst-case projections
+
+Docs:
+- README requires Node.js 22+, drops unused DATABASE_READ variable,
+  adds text identifier to project structure fence"
+https://www.github.com/0xarchit/github-profile-analyzer,8131e074438f2db2a93a22bc6e5c6aa2f84e44c7,2026-08-23T20:28:09+00:00,Human,,24,15,1,False,False,False,False,docs: update readme
+https://www.github.com/0xarchit/github-profile-analyzer,3c2bbbd5811780d651f282fb25e12c57f71e79a4,2026-08-23T20:22:51+00:00,Human,,128,92,1,False,False,False,False,"docs: professional README rewrite for v2 engine
+
+Deterministic scoring story replaces stale AI-powered copy, adds live
+demo link, star and sponsor CTAs with badges, env variable table,
+updated deterministic API routes, and project structure overview."
+https://www.github.com/0xarchit/github-profile-analyzer,e394031febfb49ac4f103f677d2e7efc55ea1440,2026-08-23T20:22:51+00:00,Human,,1,1,1,False,False,False,False,"perf(engine): trim actions runs sample to 15 per repo
+
+Same conclusion-only shape, ~60% less payload parsing on the edge
+runtime; recent-window weighting keeps the CI health signal accurate."
+https://www.github.com/0xarchit/github-profile-analyzer,c9c722ee6b3d55d2ca18acbae9ad30c0e9e4ad07,2026-08-23T20:22:51+00:00,Human,,112,39,3,True,True,False,False,"fix(ui): pin-on-click factor tooltips, viewport-aware flip, readable fonts
+
+- replicate hero beta-banner interaction: hover opens, hover-out closes,
+  click pins open, re-click or outside click closes
+- popover flips to right-edge anchoring when it would overflow the
+  viewport (right-side grid cards on small screens) and caps at
+  calc(100vw-16px)
+- bump tooltip fonts 9px -> 11px (labels, details, remediation) and
+  enlarge card values; widen popover to w-80
+- drop Organization login from sponsoring nodes: org login resolution
+  requires read:org and crashed scans for read:user OAuth tokens"
+https://www.github.com/0xarchit/github-profile-analyzer,9a7cb40b3978c4f713b6e542853942faa99dd41e,2026-08-23T20:22:51+00:00,Human,,298,118,13,False,True,False,False,"feat(engine): deterministic v2 — 10 repos, tier A+B+C data expansion
+
+Collection (29 calls typical, validated under 50-subrequest cap):
+- repositoryLimit 8 -> 10; enrichment batches stay at 4 (10s GraphQL timeout safety)
+- profile core query gains previous-year contributionsCollection alias,
+  sponsoring logins and per-review repository attribution
+- search mega-query adds external PR acceptance, commenter volume,
+  discussion-answer ratio and reaction resonance counters
+- repo enrichment adds HEAD statusCheckRollup, tag refs, release descriptions
+  and dependency-manifest detection from root file trees
+- issue batch collects label coverage for triage quality
+- REST: events window widened to 3 pages (~90 days), gists moved fully to
+  REST (fine-grained PATs reject even totalCount in GraphQL), community
+  profiles + Actions run history for top 5 repos
+- client.graphql retries 502/504 once (documented 10s server timeout)
+
+Honesty fixes:
+- rule 4.27 dependency ecosystems removed (SBOM was REST-only)
+- rule 1.34 drops fake pages flag (not exposed by GraphQL)
+- rule 1.36 branch protection now unavailable instead of hardcoded zeros
+- stale top-10/top-three caveats updated to real sampling limits
+
+New signals:
+- 3.41 external PR acceptance rate
+- 3.42 conventional commit adherence
+- 3.43 merge-commit ratio
+- 3.44 commit focus profile (changedFiles)
+- 3.45 fork abandonment pattern
+- 2.14 longevity now includes year-over-year momentum
+- 2.12 security factors include live CI pass state"
+https://www.github.com/0xarchit/github-profile-analyzer,69ddb7c8f1b60f4d55b77994b321ba5ae11f0365,2026-08-23T18:54:33+00:00,Human,,1859,499,21,False,True,False,False,"feat(engine): single deep-dive mode on batched GraphQL v2 collection
+
+- collapse quick/standard/deep into one DEEP_DIVE_PROFILE (worst case ~23 subrequests, was 50+)
+- rewrite collection onto batched GraphQL: profile core, repo list, enrichment batches,
+  search mega-counters; drop /stats/*, /contributors, /languages, /releases, /branches,
+  SBOM and stargazer REST calls
+- derive weekly activity, punch card, participation, contributors and code churn
+  from already-fetched commit history (zero extra requests)
+- real GPG signature ratio, commit size stats and community-file detection
+  (CONTRIBUTING/CODE_OF_CONDUCT/SECURITY/FUNDING/ISSUE_TEMPLATE/docs dir)
+- add ScoreFactor explainability model with remediation hints on every score rule;
+  fix documentation-score mixed-scale math
+- score cards get hover/focus factor-breakdown tooltips; signal rows show formatted
+  evidence instead of raw JSON dump
+- orgs/gists stay scope-safe for narrow OAuth tokens; stargazer data removed"
+https://www.github.com/0xarchit/github-profile-analyzer,382ca7f2930fb0ccbed37f60823447fbcb91a5a7,2026-08-21T19:57:25+00:00,Human,,4,4,1,False,True,False,False,"Merge pull request #26 from FaintFlower/fix/star-history-chart
+
+fix: replace broken star history chart"
+https://www.github.com/0xarchit/github-profile-analyzer,bbea5e3f8b69a94d88b6a71782447f11a0680e4f,2026-08-21T19:54:31+00:00,Human,,9349,254,47,False,False,False,False,"Merge pull request #27 from 0xarchit/upgrade/deterministic
+
+Deterministic Analysis Engine (Beta) with Star-Gating, Token Pooling, Tiered Rate Limits & Database Persistence"
+https://www.github.com/0xarchit/github-profile-analyzer,e3f300c25f668a84c8a3b4501803a65a91287b87,2026-08-20T20:30:33+00:00,Human,,926,175,32,True,True,False,False,"fix(review): address audit findings across auth, deterministic engine, and UI components"
+https://www.github.com/0xarchit/github-profile-analyzer,11aa6196384b7b4a98931dc76b5c57dc68506c2a,2026-08-20T19:36:01+00:00,Human,,320,155,6,False,False,False,False,feat(archive): upgrade temporal archives and profile defaults to deterministic engine with tactile UX feedback
+https://www.github.com/0xarchit/github-profile-analyzer,2a596de08c0d4e413313e078aed13fa8925137d7,2026-08-20T18:57:40+00:00,Human,,247,323,9,False,False,False,False,"feat(deterministic): hybrid GraphQL collector, subrequest budget optimization, and security metrics hardening"
+https://www.github.com/0xarchit/github-profile-analyzer,656460cc036513b18b15ead4d4ee5a5dd34073aa,2026-08-20T17:55:56+00:00,Human,,444,184,10,True,True,False,False,"fix(deterministic): streamline pipeline, fix SVG rendering, and migrate star analytics
+
+- Remove restricted/deprecated stargazer timestamps crawl and root test probing
+- Remove private Dependabot & Code Scanning API calls (requires fine-grained repo perms)
+- Migrate rules 4.15 & 4.16 to metadata-driven Star Distribution and Stars vs Forks
+- Update rule 4.24 to pure Release Timeline
+- Fix SVG negative rect dimensions in DivergingBars, BarChartSimple, HistogramChart & BurstOverlay
+- Prevent TypeError on undefined points in StarHistory & ChartsTab
+- Update Code Quality and Security Hygiene scoring rules for public verifiable signals
+- Add live API smoke test tool (npm run smoke, smoke:standard, smoke:quick)"
+https://www.github.com/0xarchit/github-profile-analyzer,95a74613ab1a035cabaf61178b873b230d4c357a,2026-08-20T16:14:27+00:00,Human,,6,4,1,False,True,False,False,fix graphql endpoint
+https://www.github.com/0xarchit/github-profile-analyzer,23fda809074e2edaacb1031439cc92f69aad246f,2026-08-20T15:50:43+00:00,Human,,13,3,3,True,True,False,False,fix(graphql): map contributionCalendar weeks matrix directly with week index
+https://www.github.com/0xarchit/github-profile-analyzer,720bdab42bb41118489142dbab922c8a701c2ef9,2026-08-20T15:48:44+00:00,Human,,24,2,2,False,False,False,False,feat(rate-limit): enforce minimum required quota pre-check and show stream card on refresh
+https://www.github.com/0xarchit/github-profile-analyzer,696b9dc342a2a6c447c7879f7dd4d7fabf8dccde,2026-08-20T15:39:24+00:00,Human,,20,4,2,True,True,False,False,fix(charts): fix GraphQL partial response handling and empty calendar/star state transitions
+https://www.github.com/0xarchit/github-profile-analyzer,bbfbe365e33e2b4d6e16d17e1248f0b53dcf7b28,2026-08-20T15:28:14+00:00,Human,,112,5,3,False,False,False,False,feat(ui): add deterministic depth selection and live token quota badge on landing page
+https://www.github.com/0xarchit/github-profile-analyzer,e711a1bcc8b024386f45125d17c9fa3209e5b35c,2026-08-20T14:38:25+00:00,Human,,164,63,8,True,True,False,False,"fix(auth): resolve session validation, cookie policy, settings 404, and dev bypass"
+https://www.github.com/0xarchit/github-profile-analyzer,b7e0019f723fa06f69241c26626601be96bb70e3,2026-08-20T13:45:48+00:00,Human,,222,94,15,True,True,False,False,"fix(deterministic): enforce retention, bound fan-out concurrency, and harden review findings"
+https://www.github.com/0xarchit/github-profile-analyzer,27fda2ab9ae2810866bcfedf069f5d160036219d,2026-08-20T13:03:26+00:00,Human,,6,5,1,True,True,False,False,fix(client): route ProfileClient to legacy analysis stream and support both error event types
+https://www.github.com/0xarchit/github-profile-analyzer,91908c5272bbfa55e428e2fdc9d973e76c87eae2,2026-08-20T13:01:50+00:00,Human,,49,18,5,True,True,False,False,"fix(deterministic): harden stream abort-safety, normalize scoring, and fix sampled rule caveats"
+https://www.github.com/0xarchit/github-profile-analyzer,40cf12b67ac3a845a5aa1cf1421c08949358310a,2026-08-19T20:51:35+00:00,Human,,228,69,5,False,False,False,False,"perf(rules): algorithmic + data-structure optimisations across all 5 rule files
+
+shared.ts:
+- jaccard: arithmetic union size (|a|+|b|-intersection) — no new Set allocation per pair call
+- sortedStats(): sort once, return {median,p25,p75,p90} for multi-percentile callers
+- standardDeviation: Welford single-pass — eliminates temp array + double mean() call
+
+baseline.ts:
+- rule1_16: 4 independent sort+percentile calls → sortedStats() (single sort)
+- rule1_17: cache days array + avgDays; avoid double mean() in description string
+- rule1_21: O(n) reduce-max replaces O(n log n) sort-to-find-max for latest gist
+- rule1_28: single for-of accumulates archived + disabled (2 filter passes → 1)
+- rule1_34: single for-of accumulates wiki + pages + discussions (3 filter passes → 1)
+- rule1_38: for-of with direct push avoids .flat().flatMap() intermediate arrays
+
+scoring.ts:
+- AUTHENTICITY_SIGNAL_IDS: module-level Set — O(1) .has() vs O(k) .includes() per signal
+- SEVERITY_WEIGHTS: module-level const — object literal no longer rebuilt per alert
+- rule2_2: active-day count + longest streak in one combined sorted pass
+- rule2_8: single for-of accumulates pushed90/180/archived/ageDays (4 passes → 1)
+- rule2_14: for-of counts active days instead of .filter().length
+
+charts.ts:
+- histogram(): O(n×b) filter-per-bucket → O(n log b) binary search (used in 4.17/4.18/4.19)
+- streakSegments(): O(n²) indexOf() in loop → O(n) index variable i with days[i-1]
+- cachedLanguageTotals(): WeakMap memoizes languageTotals; rules 4.5 + 4.31 share one pass
+- rule4_15/4.16: eliminate redundant Object.values().flat() via reduce / cached flat array
+- rule4_29: single for-of + push replaces .filter().map().sort() triple pass
+
+signals.ts:
+- allCommits: WeakMap memoize — 4 callers (3.4, 3.5, 3.7, 3.35) share one flatMap
+- rollingBursts: WeakMap memoize — 2 callers (3.2, 3.3) share one O(n log n + n) pass
+- rule3_4: mutable .push() replaces spread-append [...arr, item] — O(1) vs O(n) per insert
+- rule3_10/3.19: reduce(sum+arr.length) replaces .flat() just to count — no alloc
+- rule3_14: single for-of with index arithmetic — no slice().concat() intermediates
+- rule3_20: for...of over Set directly — no spread-to-array allocation
+- MAX_REPOS_FOR_PAIRWISE: named constant replaces magic 100 in rules 3.28 and 3.29
+
+All 36 tests pass. Zero behaviour change."
+https://www.github.com/0xarchit/github-profile-analyzer,7e8cb79d4dd3e3f70ef764a622b7a3fb9a7e7e5c,2026-08-19T20:34:42+00:00,Human,,61,26,4,False,False,False,False,"feat: strict validation, 128-bit token fingerprinting, AbortSignal propagation
+
+- validation.ts: export GITHUB_USERNAME_REGEX (1-39 chars, single internal hyphens)
+- engine.ts: enforce strict username regex, partition Redis cache key with 128-bit
+  OAuth token fingerprint (oauth:) to prevent cross-caller cache leaks
+- client.ts: computeTokenFingerprintSync (FNV-1a 128-bit), cancellable sleep(ms, signal),
+  combineSignals(timeoutMs, callerSignal), signal support throughout GitHubClient
+- collect.ts: add signal to CollectionOptions, rethrow AbortError in safe() wrapper"
+https://www.github.com/0xarchit/github-profile-analyzer,e3837cb94cf5eee43a3d13a21a1c7624ec881c31,2026-08-19T20:33:23+00:00,Human,,15,6,3,False,False,False,False,"security: harden SSE route auth, signal propagation, and error sanitization
+
+- isAuthenticated now checks accessToken presence + non-empty trim (not just session.username)
+- Pass request.signal to analyzeGitHubProfile to abort on client disconnect
+- TOKEN_UNAVAILABLE error code for saturated token pool errors
+- Generic catch branch logs server-side via console.error and emits ANALYSIS_FAILED with safe message (no raw error leakage)
+- ProfileClient: replace named 'error' listener with 'analysis-error'; onerror sets NETWORK_FAILURE
+- deterministic/index.tsx: prefer payload.message over payload.error for user-facing text"
+https://www.github.com/0xarchit/github-profile-analyzer,346251073308ee2a039d226aad8bfd50909eb941,2026-08-19T20:14:11+00:00,Human,,44,22,5,True,True,False,False,"fix(deterministic): isolate OAuth redis cache, separate analysis error events, and align test timestamps"
+https://www.github.com/0xarchit/github-profile-analyzer,884aa4edb914c813a4373f22d3d2008a09c9c829,2026-08-19T20:03:24+00:00,Human,,335,217,5,True,True,False,False,"fix(deterministic): complete all engine client refinements, bounded store, and comprehensive test coverage"
+https://www.github.com/0xarchit/github-profile-analyzer,147505414354a507a395b8222bac343d175b821d,2026-08-19T19:28:48+00:00,Human,,641,274,24,True,True,False,False,"fix(deterministic): harden deterministic engine, routes, database migration, and UI components"
+https://www.github.com/0xarchit/github-profile-analyzer,db9f129aba2834498351755c71d59b9dd7870058,2026-08-19T18:10:38+00:00,Human,,301,19,7,True,True,False,False,"fix(deterministic): gate quick mode API enrichment, add durationMs to meta & UI, fix signal indicators, add unit test suite, and add migration file"
+https://www.github.com/0xarchit/github-profile-analyzer,9b2afe43c10694508bf583e24343a03d66259a1b,2026-08-19T17:46:38+00:00,Human,,31,80,3,False,False,False,False,refactor: shrink deterministic DB helpers and remove dead token exports
+https://www.github.com/0xarchit/github-profile-analyzer,425d204d23f19d9b621f71d07337bf8b5cadbe0e,2026-08-19T17:29:08+00:00,Human,,972,174,9,False,False,False,False,"feat(deterministic): implement token pooling, auth token routing for all logged-in scans, deterministic_scans DB integration, star-gating, and profile locking"
+https://www.github.com/0xarchit/github-profile-analyzer,aa6229b8d765c8367e65a20c760da2d2ca25621b,2026-08-19T16:49:34+00:00,Human,,105,0,2,False,False,False,False,deterministic api endpoints
+https://www.github.com/0xarchit/github-profile-analyzer,e8c1ee79a00b1ec3f19e18365fb5f95feb34634b,2026-08-19T16:39:00+00:00,Human,,1711,1704,13,False,True,False,False,"modularize DeterministicProfileClient into separate files, fix lint errors"
+https://www.github.com/0xarchit/github-profile-analyzer,5b737c7f5a7244b26054403922c5e9b69d44e119,2026-08-18T16:08:20+00:00,Human,,4,4,1,True,True,False,False,"fix: switch star history chart to working alternative
+
+The star history chart in the README was broken due to GitHub stargazer API restrictions. This change points the chart to a working alternative so the history renders correctly again."
+https://www.github.com/0xarchit/github-profile-analyzer,79c9f85e8e92eb2c4dbe49469276ac1e0f4db428,2026-08-18T13:35:39+00:00,Human,,1616,296,1,False,False,False,False,sync theme for deterministic dashboard
+https://www.github.com/0xarchit/github-profile-analyzer,17c50b5f18c00ab31b21a648fdbba1e2b0db026a,2026-08-18T10:21:35+00:00,Human,,4419,15,19,False,False,False,False,"feat: integrate deterministic GitHub profile analysis engine
+
+Add parallel deterministic analysis mode alongside the existing LLM-based
+legacy flow. The deterministic engine runs rule-based scoring, anomaly
+detection, and chart generation from GitHub API data without any LLM calls.
+
+- Add src/lib/deterministic/ with Edge-compatible engine (types, fetchers,
+  rules, charts, interpretation)
+- Add /api/analyze/deterministic (buffered) and /api/analyze/deterministic/stream
+  (SSE) API routes
+- Add engine toggle on home page (deterministic default, legacy optional)
+- Add DeterministicProfileClient with dark beta styling
+- Thread engineMode via ?engine=deterministic|legacy search params
+- Exclude deterministic/ standalone prototype from tsconfig"
+https://www.github.com/0xarchit/github-profile-analyzer,00421f8b195f41ec8f5c1d1c07edd2569f5e5fb0,2026-08-02T15:56:43+00:00,Human,,16,10,1,True,True,False,False,fix: await analytics insertion and invalidate Redis analytics summary in SSE stream route
+https://www.github.com/0xarchit/github-profile-analyzer,6583a59986f9185ffe1dbf19b393ace85de8ae12,2026-08-01T12:38:37+00:00,Human,,1093,250,17,False,False,False,False,"Merge pull request #21 from 0xarchit/github-models-migrate
+
+GitHub models migrate"
+https://www.github.com/0xarchit/github-profile-analyzer,a8d98d266a65f2b174e43cae48eb64dd1510b811,2026-08-01T12:29:06+00:00,Human,,90,0,1,False,False,False,False,feat: enforce OpenAI-compatible json_schema structured outputs in LLM call
+https://www.github.com/0xarchit/github-profile-analyzer,f94cc1361e7f27119e9f0f46c8ff645ddbe1f572,2026-08-01T12:28:20+00:00,Human,,303,88,4,False,False,False,False,feat: implement real-time SSE protocol stream route and auto-repair truncated LLM JSON output
+https://www.github.com/0xarchit/github-profile-analyzer,33669a05a269cdaf1af5af6fb40f90ab92e0cd67,2026-08-01T12:01:52+00:00,Human,,26,1,2,True,True,False,False,fix: sanitize LLM JSON output from markdown code blocks and cap max_tokens to 1500
+https://www.github.com/0xarchit/github-profile-analyzer,666b61b6ec480c5ac2eb0f50eeb7d8bf661c147e,2026-08-01T11:42:06+00:00,Human,,41,26,7,False,True,False,False,"feat(middleware-fixes): apply Phase 1 & Phase 2 star-gate & rate-limiting fixes (C1-C6, C12)"
+https://www.github.com/0xarchit/github-profile-analyzer,0b55d10779cea6bac33b20e6ae21e7010bff901a,2026-08-01T11:03:36+00:00,Human,,7,4,2,True,True,False,False,fix: resolve TypeScript type errors on CloudflareEnv D1 binding access
+https://www.github.com/0xarchit/github-profile-analyzer,82d9148da3a63ae27ea23f5ace0ecc5b1a18d3b9,2026-08-01T11:01:33+00:00,Human,,13,11,1,False,False,False,False,security: enforce star-gate and visibility authorization before returning cached analysis
+https://www.github.com/0xarchit/github-profile-analyzer,3ae2b28666631b676ca1cadc74ba76bb9e35b5cf,2026-08-01T10:54:38+00:00,Human,,38,14,2,True,True,False,False,fix: access Cloudflare D1 via getRequestContext for next-on-pages compatibility
+https://www.github.com/0xarchit/github-profile-analyzer,91fcb68e95201da7097c795937dac4be196f52f1,2026-08-01T10:52:44+00:00,Human,,25,15,2,False,False,False,False,perf: prioritize Redis cache lookups and add fast per-user star verification key
+https://www.github.com/0xarchit/github-profile-analyzer,8a5f7c48b92b0cac9de26149ffc8148e8880bfd7,2026-08-01T10:12:15+00:00,Human,,29,21,2,True,True,False,False,fix: timer cleanup and conditional cache invalidation on analytics insert
+https://www.github.com/0xarchit/github-profile-analyzer,e9bb3b7395876ec505368b956f5bbd4ab3171699,2026-08-01T09:57:11+00:00,Human,,27,15,1,False,False,False,False,perf: make post-analysis analytics non-blocking with 2s timeout cutoff
+https://www.github.com/0xarchit/github-profile-analyzer,654c1bd0f9ae312184c765f5d2344b5b1cdeb398,2026-08-01T09:50:37+00:00,Human,,17,19,1,True,True,False,False,fix: inline analytics logging and index optimization for edge adapter compatibility
+https://www.github.com/0xarchit/github-profile-analyzer,a30df5935364fa42f24b5c069936e1f34a5ec519,2026-08-01T09:39:41+00:00,Human,,18,17,2,True,True,False,False,fix: minor bugs
+https://www.github.com/0xarchit/github-profile-analyzer,682b14b235268f7f1008384e85dbd94cd54f3c01,2026-08-01T09:16:05+00:00,Human,,7,3,1,True,True,False,False,fix: allow guest users to view profiles if target user has starred the repo
+https://www.github.com/0xarchit/github-profile-analyzer,ce61b55fe815704f143d17fdfe5edd52a5ca4bfa,2026-08-01T08:58:24+00:00,Human,,5,3,3,True,True,False,False,fix: enforce edge runtime for next-on-pages compatibility
+https://www.github.com/0xarchit/github-profile-analyzer,560408d59b17e1a3654da5535259b3edffff0b41,2026-08-01T07:57:06+00:00,Human,,18,10,1,True,True,False,False,"fix: analytics page - replace self-HTTP-fetch with direct DB call
+
+Self-fetch to /api/analytics breaks in edge/prod (loopback not available).
+Now calls getAnalyticsSummary() directly with inline Redis cache layer (900s TTL).
+/api/analytics route kept for external API consumers."
+https://www.github.com/0xarchit/github-profile-analyzer,0fd908fd07af884c80a79193d4c877d39b11bc69,2026-07-31T08:38:05+00:00,Human,,538,112,7,False,False,False,False,"feat: migrate LLM to Modal.com, restore star-gate, add analytics table + /analytics page
+
+- Replace GitHub Models API with Modal.com OpenAI-compatible endpoint
+  (GITHUB_ENDPOINT + LLM_API_KEY + GITHUB_MODEL env vars)
+- Remove per-user GitHub OAuth token rotation (GITHUB_PAT_TOKENS no longer needed)
+- Compress system prompt: single-line schema, top repos 20->15, other repos 80->50,
+  bio 120->80 chars, null descriptions stripped
+- Star-gate enforcement: ALL users (incl. logged-in) must star repo to view profiles;
+  only exception is profile owner viewing their own page
+- Add analytics table to setup.sql (UUID pk, per-request token usage + duration)
+- Add insertAnalytics() fire-and-forget DB function in db.ts
+- Add getAnalyticsSummary() aggregation query (totals + last-20 averages, no usernames)
+- Log token usage (input/output/total/duration_ms) after every successful analysis
+- Invalidate analytics Redis cache on every new analysis (deleteCachedData)
+- New GET /api/analytics route: Redis cache 15min TTL, falls back to Neon DB
+- New public /analytics SSR page: neobrutalist design, aggregate stats only
+- Switch analyze route from Edge to Node runtime for Modal.com compatibility
+- Update all tests for new getAIAnalysis({ analysis, usage }) return shape"
+https://www.github.com/0xarchit/github-profile-analyzer,10060bbc345d4b16e83b0d0528579208c463665f,2026-07-31T05:13:32+00:00,Human,,18,1,1,True,True,False,False,fix: maintainance mode page
+https://www.github.com/0xarchit/github-profile-analyzer,ab30469f53ca122c9392991d8b11f0f9bf991223,2026-07-31T05:08:10+00:00,Human,,190,1,3,False,False,False,False,maintainance mode
+https://www.github.com/0xarchit/github-profile-analyzer,199d064232ed589600fafac2fc3c9f578c08f3df,2026-07-15T07:16:30+00:00,Human,,1,1,1,False,False,False,False,chore: upgrade GitHub Actions Node.js version to v22
+https://www.github.com/0xarchit/github-profile-analyzer,ae9f9ee66c2e18f1118de5da249c7000f1f36749,2026-07-15T07:06:17+00:00,Human,,2108,275,1,False,False,False,False,chore: sync lockfile and add npmrc for Cloudflare deployment
+https://www.github.com/0xarchit/github-profile-analyzer,c16dc7a7e6089965aba91e85409b82a08a02d86d,2026-07-15T07:03:52+00:00,Human,,3,0,2,True,True,False,False,fix: resolve dependencies conflict
+https://www.github.com/0xarchit/github-profile-analyzer,a9767da75ba655aa244a0faf4ec24179ea4c44dd,2026-07-15T06:56:01+00:00,Human,,3,3,1,False,True,False,False,"Merge pull request #20 from kaunkrishna/main
+
+Link Fixes in `README.md`"
+https://www.github.com/0xarchit/github-profile-analyzer,68c11a4b9471a0abff94b72b1cf7b00a184a2032,2026-07-15T06:37:06+00:00,Human,,1,1,1,False,True,False,False,Fixed Wrong Link
+https://www.github.com/0xarchit/github-profile-analyzer,08ccd78a4b1c96aa22a5df1361b1dc8b23ec56ce,2026-07-15T06:36:05+00:00,Human,,2,2,1,False,False,False,False,Added ID sections to the links
+https://www.github.com/0xarchit/github-profile-analyzer,665407428570fa936926ebd947d1a19291b83f43,2026-07-15T06:33:29+00:00,Human,,3,3,1,False,True,False,False,FIxed Links README.md
+https://www.github.com/0xarchit/github-profile-analyzer,c7800ff6e55f810f7cb774f6e4d00144998f255b,2026-07-15T05:38:56+00:00,Human,,1,1,1,False,False,False,False,ci: changed github token
+https://www.github.com/0xarchit/github-profile-analyzer,03b12ee0fc70bf16520b461d43bcd3b077bfa84c,2026-06-26T05:22:55+00:00,Human,,32,5,2,False,False,False,False,test: add live integration test for telegram-alert module using @next/env
+https://www.github.com/0xarchit/github-profile-analyzer,cf51c1602ec39846a4c5e33c679055f89fb2c10a,2026-06-26T05:15:12+00:00,Human,,6,6,1,True,True,False,False,fix: await Telegram alert calls before response completion
+https://www.github.com/0xarchit/github-profile-analyzer,52d6aa9e9799bf2edcf22a01532af57fca6c73d0,2026-06-25T19:25:57+00:00,Human,,3064,1431,23,False,True,False,False,"Merge pull request #19 from 0xarchit/fix-decouple
+
+refactor: decouple github.ts and enhance type safety + test coverage"
+https://www.github.com/0xarchit/github-profile-analyzer,961c4b39cc312c48859a3dda252f16a70ff9cb3b,2026-06-25T19:19:59+00:00,Human,,46,21,3,False,False,False,False,"feat: validate target repository matching in webhook, and export constants"
+https://www.github.com/0xarchit/github-profile-analyzer,a87401475aea4fed7977ff94170135b7edbfa274,2026-06-25T19:01:08+00:00,Human,,54,35,4,False,False,False,False,"feat: pin sync workflow actions, remove count exit, implement atomic D1 table swap, and harden webhook"
+https://www.github.com/0xarchit/github-profile-analyzer,b9b08eaf545e658adf709690c2c49660c11f8431,2026-06-25T18:20:16+00:00,Human,,24,30,2,False,False,False,False,perf: shrink duplicate D1 checks and remove redundant Redis deletion
+https://www.github.com/0xarchit/github-profile-analyzer,b4ac11a90b0a1c2a472aeb5b5d615fea6731a8c2,2026-06-25T18:05:43+00:00,Human,,3,4,1,True,True,False,False,fix(sync): remove transactions and add --yes flag to wrangler execute
+https://www.github.com/0xarchit/github-profile-analyzer,caec5b7a170ec1ced92bce595ad97aabb3764e42,2026-06-25T17:48:39+00:00,Human,,346,0,5,False,False,False,False,"feat: integrate Cloudflare D1 stargazers table, webhook, and daily sync workflow"
+https://www.github.com/0xarchit/github-profile-analyzer,d25f1afd10a2125dd261ef8c58fac2e40b0a8e89,2026-06-25T12:26:58+00:00,Human,,8,6,2,True,True,False,False,fix: enforce pagination errors and reset per-attempt response state in retry loop
+https://www.github.com/0xarchit/github-profile-analyzer,c2627c76c9a36ed333e4181284c731ab96725899,2026-06-25T08:28:39+00:00,Human,,332,81,11,True,True,False,False,fix: address PR reviews and align code logic with requirements
+https://www.github.com/0xarchit/github-profile-analyzer,dd2326ffa0c10a245f96de902a228e949b9527d9,2026-06-25T07:03:40+00:00,Human,,225,0,1,False,False,False,False,test: add analyze api access control tests
+https://www.github.com/0xarchit/github-profile-analyzer,5c65cb224bbf4378fb8c243d72a0dc66badda7bd,2026-06-25T06:59:12+00:00,Human,,414,25,5,False,False,False,False,"docs: add JSDoc to all public API exports
+
+ai.ts:    getAIAnalysis — documents userToken, alertCollector, CORRUPT_INTELLIGENCE error
+db.ts:    updateUserSettings — documents normalizeSettingsPatch whitelist + INVALID_PRIMARY_SCAN
+          saveScan — documents 10-scan rolling window retention
+auth.ts:  createSession — documents cookie name (gitscore_session) and 7-day expiry
+          verifySession — documents isValidSession predicate and return contract
+          getSession — documents delegation to verifySession
+
+Also: remove unused imports from auth.test.ts (flagged by tsc)"
+https://www.github.com/0xarchit/github-profile-analyzer,40109bd8fd47379c1dee1199a34313d05821a59e,2026-06-25T06:57:04+00:00,Human,,362,2,6,False,True,False,False,"test: add Vitest test suite for streak calc, AI analysis, and auth
+
+Setup:
+- vitest.config.ts: node environment, @/ path alias, v8 coverage
+- src/test-setup.ts: stubs required env vars (GITHUB_TOKENS, JWT_SECRET)
+- package.json: add test / test:watch / test:coverage scripts
+
+Tests (10 passing):
+- src/lib/github/__tests__/profile.test.ts
+  10 cases for calculateDetailedStreaks:
+  empty input, no contributions, single day, consecutive days,
+  gap mid-sequence, grace period (today=0), two-zero-day reset,
+  weekly streak counts, weekly grace period, weekly two-zero-week reset
+
+- src/lib/__tests__/auth.test.ts (pending env fixes for jose import)
+- src/lib/__tests__/ai.test.ts  (pending fetch mock wiring)"
+https://www.github.com/0xarchit/github-profile-analyzer,f8c20988bf0f6586036a51c225651532db5686f0,2026-06-25T06:52:23+00:00,Human,,78,97,1,False,False,False,False,"refactor(analyze): deduplicate force/non-force save+return branches
+
+Before: populateAnalysis() + saveScan() + return were copy-pasted
+in both the force=true and force=false branches (~40 duplicate lines).
+
+After: force flag only controls whether the Redis cache read is skipped.
+A single populateAnalysis() call, single saveScan() guard,
+and single NextResponse.json(finalData) return cover both paths.
+
+Also: standardise indentation to spaces throughout the file."
+https://www.github.com/0xarchit/github-profile-analyzer,3653c6ab3049e10ac3ed52ed4b9a2c405abce66c,2026-06-25T06:49:08+00:00,Human,,27,4,2,True,True,False,False,"fix(type-safety): add runtime guards for JWT payload and DB row casts
+
+auth.ts:
+- Add isValidSession(p: JWTPayload) type predicate with runtime field checks
+  (githubId: number, username: string, accessToken: string, avatarUrl: string)
+- Replace 'payload as unknown as Session' double-cast with predicate guard
+- Replace 'payload.username as string' cast with typeof guard
+
+db.ts:
+- Validate id, github_id (number/bigint) and username (string) in
+  materializeUser() before casting raw DB row to User
+- Returns null on schema mismatch instead of silently producing undefined fields"
+https://www.github.com/0xarchit/github-profile-analyzer,624032fe9b9fe49cc4a145ac033f76fbdaed2ab8,2026-06-25T06:47:43+00:00,Human,,3,23,1,True,True,False,False,"fix(contributions): replace duplicated GitHub client with shared fetchGitHubGraphQL
+
+- Remove local GITHUB_TOKENS re-declaration
+- Replace raw fetch() (no timeout, no retry) with fetchGitHubGraphQL from @/lib/github
+- Use getFallbackToken() for consistent token selection
+- Route now inherits 10s timeout and structured error logging automatically"
+https://www.github.com/0xarchit/github-profile-analyzer,4be6149b615febddb8c06c08c4af0514251e3ec7,2026-06-25T06:46:16+00:00,Human,,1313,1274,5,False,False,False,False,"refactor(github): split 1275-line monolith into github/{http,profile,star-gate,index}.ts
+
+- http.ts: shared fetch utilities, token pool, GraphQL/REST helpers
+- profile.ts: getProfileSummary, calculateDetailedStreaks, rank/trophy/badge logic
+- star-gate.ts: checkStarStatus, verifyAndInjectStar, getRepoStarCount
+- index.ts: barrel re-export (import path unchanged: @/lib/github)
+- Collapse 4 near-duplicate recursive paginators into 2 generic
+  paginateForward/paginateBackward helpers (~250 lines removed)
+- Move achievement cache from in-process Map to Redis (Finding 6 combined)
+
+Breaking: none — all public exports preserved at @/lib/github"
+https://www.github.com/0xarchit/github-profile-analyzer,299c8b61867c8df189efb7be1bdc76296c7af06a,2026-06-24T11:44:36+00:00,Human,,20,95,4,False,False,False,False,"refactor: remove dead code and simplify state management
+
+- Drop ghost AnalysisResult fields (top_repos, achievements, stats, detailed_analysis) - never written or read
+- Remove duplicate UserSettings/User interfaces from types/index.ts (live in db.ts)
+- Remove ProfilePDF.tsx detailed_analysis fallback branch
+- Inline dispatchAlert at 4 call sites in ai.ts; remove wrapper function
+- Remove TelegramAlertInput re-export from ai.ts import
+- Drop sanitizeContentPreview regex chain; replace with content.slice(0, 240)
+- Collapse isVersionExpanded + isVersionClickExpanded into single versionOpen state"
+https://www.github.com/0xarchit/github-profile-analyzer,342da2cb0970af37b199edea1f7563bcf7aec04e,2026-06-24T11:20:52+00:00,Human,,69,281,7,False,False,False,False,"refactor: simplify session guard, db connections, rate limiting, and caching logic"
+https://www.github.com/0xarchit/github-profile-analyzer,4981b33a528505ab6e4811762db3d81a5297b8be,2026-06-24T09:56:38+00:00,Human,,1,373,6,False,False,False,False,"Merge pull request #18 from 0xarchit/remove-unused
+
+chore: remove unused pdfx, BarChart, and dependencies"
+https://www.github.com/0xarchit/github-profile-analyzer,cbd4b6886dc9150df3fd637375969cca80a7da56,2026-06-24T08:15:01+00:00,Human,,1,373,6,False,False,False,False,"chore: remove unused pdfx theme, BarChart, and dependencies"
+https://www.github.com/0xarchit/github-profile-analyzer,387a1022686b78917a29468afd53cad2705b58bf,2026-06-02T18:03:05+00:00,Human,,20,0,1,False,False,False,False,docs: add star graph & geo stars widgets
+https://www.github.com/0xarchit/github-profile-analyzer,2ca4cd21acb48c9343d21b8971a55731dbeb682f,2026-04-26T20:44:35+00:00,Human,,213,125,5,True,True,False,False,fix(api): enhance user scan retrieval logic and enforce visibility settings
+https://www.github.com/0xarchit/github-profile-analyzer,57d9d39bf05be109c39bbead1495e5577b132774,2026-04-26T20:04:58+00:00,Human,,34,51,1,True,True,False,False,fix(api): streamline principal scan retrieval logic in analyze route
+https://www.github.com/0xarchit/github-profile-analyzer,05d882756ec13c45d1d931429b95e47d37f67684,2026-04-26T19:45:24+00:00,Human,,7,7,1,True,True,False,False,fix(middleware): disable analytics in rate limiting configuration
+https://www.github.com/0xarchit/github-profile-analyzer,774f039f9edf8fd918d55e766e9ac156f76ba1e0,2026-04-26T19:39:23+00:00,Human,,99,71,3,True,True,False,False,fix(api): refactor analyze route and improve caching logic
+https://www.github.com/0xarchit/github-profile-analyzer,ef0ccca80510c078dcf30e8645b0b41044f8b506,2026-04-18T12:47:40+00:00,Human,,61,47,4,False,True,False,False,"Merge pull request #15 from 0xarchit/fix/uiux
+
+fix(ui): refactor ui for mobile screen"
+https://www.github.com/0xarchit/github-profile-analyzer,53645243fc73cf3047aaf34ee07d10db22587172,2026-04-18T12:41:15+00:00,Human,,7,4,2,True,True,False,False,fix(ui): add aria label for accessibility
+https://www.github.com/0xarchit/github-profile-analyzer,f81e4c9decf3ceb5ebcc9706dedaf481764c3c0b,2026-04-18T12:26:54+00:00,Human,,57,46,4,True,True,False,False,fix(ui): refactor ui for mobile screen and glitchs
+https://www.github.com/0xarchit/github-profile-analyzer,8afade40b9169fdb1de21f2a3b36189383ff7fbf,2026-04-18T12:01:35+00:00,Human,,884,240,14,False,False,False,False,"Merge pull request #14 from 0xarchit/feature/error-collection
+
+feat(error-collection): add telegram based error alert system"
+https://www.github.com/0xarchit/github-profile-analyzer,ea43ccce6b1871feefc778dc921615be42b63672,2026-04-18T11:59:13+00:00,Human,,14,10,1,False,True,False,False,fix error-reporting failure handling
+https://www.github.com/0xarchit/github-profile-analyzer,8bdd056728b1e0b87b1603d468fa9d5f5d9d4a17,2026-04-18T11:32:08+00:00,Human,,25,10,2,False,False,False,False,refactor: improve error handling in alert dispatching
+https://www.github.com/0xarchit/github-profile-analyzer,bc37bae1edf60107c93091be866be79ef46de4c5,2026-04-18T11:11:59+00:00,Human,,81,22,3,False,True,False,False,fix coderabbit comments
+https://www.github.com/0xarchit/github-profile-analyzer,69cead0a96e43ac2504168029fc1a7de96285cd2,2026-04-18T10:31:06+00:00,Human,,212,151,13,False,False,False,False,refactor functionality for error reporting
+https://www.github.com/0xarchit/github-profile-analyzer,1039f481257aa9ed3342693df7e4ba8dd30ecc4f,2026-04-18T09:57:56+00:00,Human,,742,237,14,False,False,False,False,feat(error-collection): add telegram based error alert system
+https://www.github.com/0xarchit/github-profile-analyzer,fd8a9d031d54904c2260d08b58c07dacc84fd05a,2026-04-17T20:22:37+00:00,Human,,193,16,3,False,True,False,False,fix page not found error
+https://www.github.com/0xarchit/github-profile-analyzer,3391dad9fff18f45c71d1f1b28ab8fb1b9907421,2026-04-16T15:20:26+00:00,Human,,7,8,2,True,True,False,False,fix: Update logout handling to improve error management and response handling
+https://www.github.com/0xarchit/github-profile-analyzer,58eec9fef989c3adf58601f665ba5b0781f43525,2026-04-16T05:44:20+00:00,Human,,2,1,1,False,True,False,False,"Merge pull request #13 from Dutta2005/patch-1
+
+Fix stale navbar state after logout by re-fetching auth identity"
+https://www.github.com/0xarchit/github-profile-analyzer,339a0e960a27d3cfb8eab87e37fcd2be97cd6682,2026-04-16T05:41:04+00:00,AI,Coderabbit,1,1,1,False,False,False,False,"Update src/components/Header.tsx
+
+Co-authored-by: coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>"
+https://www.github.com/0xarchit/github-profile-analyzer,c19fecb299866c59bd6de42df008b697b0cedc96,2026-04-16T03:47:35+00:00,Human,,2,1,1,False,False,False,False,Fetch and set user identity on logout
+https://www.github.com/0xarchit/github-profile-analyzer,d7664d55073760c0cf060fd67d635a82a4ff6efc,2026-04-15T17:36:36+00:00,Human,,62,11,3,False,False,False,False,feat: Enhance SnapshotClient with initial data handling and improve StatsDashboard rendering
+https://www.github.com/0xarchit/github-profile-analyzer,6732218efa7d4bb12bcc8e428416a91ac430c3ef,2026-04-15T17:07:56+00:00,Human,,362,2690,14,False,False,False,False,"Refactor components to remove framer-motion dependencies and improve performance
+
+- Dynamically import StatsDashboard in SnapshotClient to reduce initial load time.
+- Replace framer-motion animations with CSS animations in Header, ScanningInterface, and StatsDashboard components.
+- Update ScanningInterface to use CSS animations for log messages and transitions.
+- Modify LineChart and PieChart components to ensure proper min-width handling.
+- Enhance Content Security Policy in middleware for better security practices.
+- Remove outdated encryption and validation tests to streamline the codebase."
+https://www.github.com/0xarchit/github-profile-analyzer,3eb37030e412c2292865717b24ae4612e8d84b4b,2026-04-15T16:00:05+00:00,Human,,0,2,1,False,False,False,False,refactor: Remove edge runtime export from middleware
+https://www.github.com/0xarchit/github-profile-analyzer,7e3c48ebda3abb148e6b5495b31555ce8f80ba6c,2026-04-15T15:53:51+00:00,Human,,2,2,1,False,False,False,False,feat: Implement middleware for request handling and security
+https://www.github.com/0xarchit/github-profile-analyzer,b655126022b7e195d8e76dfa7e4d9fe32384abf9,2026-04-15T15:49:16+00:00,Human,,22,8,3,False,False,False,False,feat: Set runtime to edge for compatibility
+https://www.github.com/0xarchit/github-profile-analyzer,7c5c0b6af03c2cd8652ebbc1d0a65bb8c60a649b,2026-04-15T15:43:07+00:00,Human,,43,595,1,False,False,False,False,feat: Add framer-motion dependency and clean up unused packages
+https://www.github.com/0xarchit/github-profile-analyzer,99603c2aef8a741438f57ab203dd7f3be3a86d22,2026-04-15T15:21:21+00:00,Human,,21457,2372,70,False,False,False,False,"Merge pull request #7 from 0xarchit/upgrade/next
+
+feat(upgrade): New Functionality, Responsive UI & PDF layout with NextJs 16"
+https://www.github.com/0xarchit/github-profile-analyzer,3c79b979c0fbd265280c72330308aef535d81640,2026-04-15T15:16:06+00:00,Human,,22,26,5,False,True,False,False,"fix minor bugs
+
+edge runtime issue fix
+
+add fallback"
+https://www.github.com/0xarchit/github-profile-analyzer,c90f7c25f7ab9f291fdda761f73864bcf79e70d2,2026-04-15T14:31:32+00:00,Human,,276,133,16,False,True,False,False,"fix ui responsiveness
+
+minor bugs and logical fixations"
+https://www.github.com/0xarchit/github-profile-analyzer,f011387bc409804751a727ad14b4cdb64c19c5ae,2026-04-15T13:34:28+00:00,Human,,906,379,19,False,True,False,False,"feat: Enhance StatsDashboard layout and improve heatmap responsiveness
+
+feat: Implement AI API call with timeout and retry logic
+
+fix: Normalize database URLs and improve error handling in DB functions
+
+feat: Add logging to GitHub API interactions for better traceability
+
+fix: Update validation schema to enforce non-negative values for certain fields
+
+feat: Introduce security headers in proxy responses for enhanced security
+
+test: Extend validation tests to cover edge cases for improvement areas and diagnostics
+
+feat: Add PDF export functionality for user profiles"
+https://www.github.com/0xarchit/github-profile-analyzer,877305dd15d91a4f489e8c73f5e8bc7c21295522,2026-04-15T09:51:49+00:00,Human,,215,124,9,False,True,False,False,fix coderabbit codereview
+https://www.github.com/0xarchit/github-profile-analyzer,283ef6119b043cda80610e83c502ee4e6173ee36,2026-04-15T06:16:11+00:00,Human,,278,160,29,False,True,False,False,review and fix coderabbit comments
+https://www.github.com/0xarchit/github-profile-analyzer,58ca469dc5b556842d4c3c0cecd70cd3238986a9,2026-04-14T19:10:40+00:00,Human,,20582,2372,67,False,False,False,False,upgrade to nextjs
+https://www.github.com/0xarchit/github-profile-analyzer,b8e9547a33fc36c5c55583155a4c389824b12bb5,2025-10-17T08:36:56+00:00,Human,,21,7,1,False,False,False,False,Update model reference and improve UI element visibility in handleRequest function
+https://www.github.com/0xarchit/github-profile-analyzer,5919b9f1ec379e329d687249ef0b6780c110e5fa,2025-10-08T17:29:31+00:00,Human,,58,35,1,False,False,False,False,Refine system prompt for better consistent score
+https://www.github.com/0xarchit/github-profile-analyzer,61254e9ead5b31a0e34f3323e9befa097427ac60,2025-10-07T17:10:57+00:00,Human,,1172,380,1,False,False,False,False,"Implement code changes to improve ui, enhance functionality and improve performance (by 3x)"
+https://www.github.com/0xarchit/github-profile-analyzer,9d290725b3fc23ad489928fd04204ecb680af0c1,2025-08-24T13:43:44+00:00,Human,,321,64,1,False,False,False,False,enhance README with detailed API references
+https://www.github.com/0xarchit/github-profile-analyzer,b42ef1c6e42c6a064ec96b94ebd00a45bb6d2183,2025-07-23T13:08:09+00:00,Human,,2,0,1,False,False,False,False,update README to include permanent page URLs and PDF download feature
+https://www.github.com/0xarchit/github-profile-analyzer,09be2bd1748ba48731227e1c78a0d3835da7a476,2025-07-23T12:57:27+00:00,Human,,99,90,1,False,False,False,False,updated readme
+https://www.github.com/0xarchit/github-profile-analyzer,dc6d29c71d37f31b2fcf3c33d58ea586fd6ae078,2025-07-21T18:02:41+00:00,Human,,1308,0,6,False,False,False,False,v1 completed

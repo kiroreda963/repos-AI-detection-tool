@@ -1,0 +1,227 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0x94t3z/poidh-sentinel,4faa25635ca542cdfa2763fd9cb5bcda22746876,2026-05-03T16:41:22+00:00,Human,,4,0,1,False,False,False,False,chore: add talentapp project verification meta tag
+https://www.github.com/0x94t3z/poidh-sentinel,dffdef6a2461c6cf988dfc6fffa8fbcf1acf56db,2026-05-02T16:44:02+00:00,Human,,72,8,3,False,False,False,False,feat(rpc): add fallback RPC pools and document env vars
+https://www.github.com/0x94t3z/poidh-sentinel,e27acfdbc2800377877d3bbea3ecb26c642d8448,2026-05-02T16:43:17+00:00,Human,,30,0,1,True,True,False,False,fix(webhook): auto-thank contribution broadcasts
+https://www.github.com/0x94t3z/poidh-sentinel,081dbf4789437bc9b02b54bb4785800c8a377810,2026-04-21T01:45:49+00:00,Human,,32,52,2,True,True,False,False,fix(ui): sort cancelled bounties by real cancel activity
+https://www.github.com/0x94t3z/poidh-sentinel,d95b436ff004fb88d9f82f13f82a248536216dc9,2026-04-20T17:15:32+00:00,Human,,52,2,1,False,False,False,False,feat(ui): add new-24h filter for cancelled bounties
+https://www.github.com/0x94t3z/poidh-sentinel,6cfbba96416f94b0e9a4e3a4c52ba45b66c1cd82,2026-04-20T17:06:20+00:00,Human,,26,2,2,True,True,False,False,fix(deposits): seed wallet baseline to avoid counting old funds as new
+https://www.github.com/0x94t3z/poidh-sentinel,00aa41c925b38841c578bbb2d91fa87b3e0fd1e9,2026-04-20T16:46:41+00:00,Human,,27,0,1,False,False,False,False,docs: add OLD/NEW database URL migration guide
+https://www.github.com/0x94t3z/poidh-sentinel,ffb1a1041b2a236ebd3f17c0a1efb5aa66061915,2026-04-20T16:37:52+00:00,Human,,218,1,3,False,False,False,False,chore(db): add OLD_DATABASE_URL -> NEW_DATABASE_URL migration script
+https://www.github.com/0x94t3z/poidh-sentinel,833e5bc63a51df8b868ba25e6add41ce1776166f,2026-04-20T16:03:09+00:00,Human,,217,0,1,False,False,False,False,feat(admin): add authenticated batch cancel+refund route
+https://www.github.com/0x94t3z/poidh-sentinel,55992cf40b1cd229c864659bc949a4c749a34cd2,2026-04-20T08:12:45+00:00,Human,,101,4,3,False,False,False,False,Improve follow-up topic continuity
+https://www.github.com/0x94t3z/poidh-sentinel,5e28caa16610ef0c0b3e52a1c5ef3e5ae9f2ec69,2026-04-20T07:55:19+00:00,Human,,65,5,1,False,True,False,False,Fix historical closed-thread pot recovery
+https://www.github.com/0x94t3z/poidh-sentinel,616e6cb149ca9231287c4445dec9f443119cecfc,2026-04-20T07:48:11+00:00,Human,,10,16,1,False,True,False,False,Fix closed-thread final pot lookup
+https://www.github.com/0x94t3z/poidh-sentinel,c7efcdb21011ee8fe2391d98a78c17c1622489df,2026-04-20T07:36:50+00:00,Human,,5,5,1,False,False,False,False,Clarify winner announcement vote totals
+https://www.github.com/0x94t3z/poidh-sentinel,6b906cdbc6e3d913f6ef82245a6d209931eb27b6,2026-04-20T07:27:34+00:00,Human,,75,22,1,False,True,False,False,Fix closed-thread pot replies
+https://www.github.com/0x94t3z/poidh-sentinel,f024dddc58a3d1c22769e1b2d1ea84baf355ba3f,2026-04-20T07:17:24+00:00,Human,,18,16,2,False,False,False,False,Polish bounty announcement copy
+https://www.github.com/0x94t3z/poidh-sentinel,cdbe2bab64fe0938d56a03d7ea15566681786028,2026-04-20T07:10:00+00:00,Human,,116,7,3,False,False,False,False,Improve AI test diagnostics and flow recovery
+https://www.github.com/0x94t3z/poidh-sentinel,b92c7bdae6079a7d593df38883ddcaeb12b03ce5,2026-04-20T07:08:55+00:00,Human,,62,12,2,False,True,False,False,Fix resolved vote winner announcements
+https://www.github.com/0x94t3z/poidh-sentinel,f95d4bf062d2a9bbcf7d1a4eddeb8317963407e6,2026-04-18T20:44:57+00:00,Human,,22,1,1,False,True,False,False,Fix bounty idea intent detection
+https://www.github.com/0x94t3z/poidh-sentinel,89e22ddd79f8f832505f3c9bee6a6cf8b5cdae5e,2026-04-18T20:36:32+00:00,Human,,2,1,1,False,False,False,False,Stop retrying terminal refund states
+https://www.github.com/0x94t3z/poidh-sentinel,7ea69e069067938fe50c0ccdad7571069d6e2eb7,2026-04-18T20:17:08+00:00,Human,,59,0,2,False,False,False,False,Decode and stop terminal refund retries
+https://www.github.com/0x94t3z/poidh-sentinel,2e657b50c776a846a6c4a1ec4fdedc9d8eb13f11,2026-04-18T06:23:02+00:00,Human,,4,1,1,False,False,False,False,Ignore local security notes and transcripts
+https://www.github.com/0x94t3z/poidh-sentinel,867f7cd7e2705775232d6604d5cab873452dab83,2026-04-18T06:22:05+00:00,Human,,32,3,2,False,False,False,False,Document flow states and polish vote copy
+https://www.github.com/0x94t3z/poidh-sentinel,0e1e5e801d92f1dc55a3ef07f7ee486372502ccf,2026-04-18T05:49:03+00:00,Human,,84,31,1,False,False,False,False,Post vote correction for active mismatches
+https://www.github.com/0x94t3z/poidh-sentinel,68ef8473666e13636d11b8d8cc411adfe603fd52,2026-04-18T05:42:18+00:00,Human,,33,32,1,False,False,False,False,Skip wrong nominee backfill on vote recovery
+https://www.github.com/0x94t3z/poidh-sentinel,551750ed761e188060328f7cc580464fd77d9186,2026-04-18T05:36:19+00:00,Human,,1,1,1,False,False,False,False,Polish vote correction reply wording
+https://www.github.com/0x94t3z/poidh-sentinel,aa9cbfa0477c3840b2fd0cff7581f03ae012120a,2026-04-18T05:29:04+00:00,Human,,77,1,4,False,False,False,False,Automate wrong nominee vote correction
+https://www.github.com/0x94t3z/poidh-sentinel,9b8d40a4e8c2c80f6b6db652bcfcdbd9758bcc2b,2026-04-18T05:23:40+00:00,Human,,101,6,2,False,False,False,False,Hydrate active open-bounty vote recovery
+https://www.github.com/0x94t3z/poidh-sentinel,9251870e92afe82eddcd70df7c7de29b21a12c16,2026-04-18T04:57:22+00:00,Human,,8,1,1,False,False,False,False,Backfill missing vote nomination replies
+https://www.github.com/0x94t3z/poidh-sentinel,caba288efaa1aa516223e156049b11fee07dd814,2026-04-18T04:48:58+00:00,Human,,44,1,1,False,False,False,False,Recover and backfill live open-bounty votes
+https://www.github.com/0x94t3z/poidh-sentinel,07f3ab05bff765f8fca5b6c32df44e7bff88fe66,2026-04-18T04:43:59+00:00,Human,,46,11,1,False,False,False,False,Recover live vote state from on-chain tracker
+https://www.github.com/0x94t3z/poidh-sentinel,9c3c26f0fa3c29440e380ec30a43f03a7b61a611,2026-04-18T04:34:17+00:00,Human,,3,3,1,False,False,False,False,Prefer earliest claim on tied winner scores
+https://www.github.com/0x94t3z/poidh-sentinel,9502d5c1e3ef30fbd9d65bd62edba92db41ee1f6,2026-04-18T04:24:32+00:00,Human,,157,0,1,False,False,False,False,Add single-bounty debug endpoint
+https://www.github.com/0x94t3z/poidh-sentinel,a1bd2a2cb6a3a6499ee34ddc13e2c21f20b1d040,2026-04-18T04:15:55+00:00,Human,,12,1,3,False,False,False,False,Improve bounty evaluation visibility
+https://www.github.com/0x94t3z/poidh-sentinel,de1368a684aef152f4bbfe53309b42891a093185,2026-04-18T04:00:35+00:00,Human,,98,37,2,False,False,False,False,Stabilize automated bounty finalization
+https://www.github.com/0x94t3z/poidh-sentinel,6fd382df5957625b668de105f2f54a2179e776ba,2026-04-18T03:42:04+00:00,Human,,10,0,1,False,False,False,False,Log bounty loop catch failures
+https://www.github.com/0x94t3z/poidh-sentinel,7cedf3e568f056e09591faf495799965b5248c94,2026-04-17T12:56:23+00:00,Human,,78,4,2,False,False,False,False,Add bounty loop resolution debug events
+https://www.github.com/0x94t3z/poidh-sentinel,ece5cd1df5ee5aeb13dad856b25a3ba448ab39e3,2026-04-13T06:05:35+00:00,Human,,91,28,2,False,False,False,False,Align open-bounty announcements and include vote details
+https://www.github.com/0x94t3z/poidh-sentinel,47980e59ddbf20eb79d8abef983c551e387a18e6,2026-04-13T05:25:04+00:00,Human,,174,2,2,False,False,False,False,Backfill missing winner announcements without duplicate posts
+https://www.github.com/0x94t3z/poidh-sentinel,73f909dfa59c690667a5a0b654d91ce1777403be,2026-04-13T05:09:21+00:00,Human,,19,7,1,False,True,False,False,Fix bounty tab ordering to show latest closed items first
+https://www.github.com/0x94t3z/poidh-sentinel,a767d5000f1762ca4a402aa0b14ec15e0757be12,2026-04-13T04:38:20+00:00,Human,,31,1,3,False,False,False,False,Speed up cancel refund retries and add immediate on-chain retry
+https://www.github.com/0x94t3z/poidh-sentinel,4ac90e08a12abf337d265f12a5a939195361e576,2026-04-13T04:22:11+00:00,Human,,22,16,2,False,False,False,False,Improve cancel refund UX and retry state handling
+https://www.github.com/0x94t3z/poidh-sentinel,563e2b91be10a33e4a256661be12d8d29225442c,2026-04-13T03:49:34+00:00,Human,,82,53,5,False,False,False,False,Harden cancel refund retries and align conversation/docs
+https://www.github.com/0x94t3z/poidh-sentinel,11df1f64c1a73820efdc40e2f919319401999cc4,2026-04-13T03:25:51+00:00,Human,,60,23,3,False,False,False,False,Harden automated cancel/refund recovery for closed bounties
+https://www.github.com/0x94t3z/poidh-sentinel,934287c67dfd78287770aa7c63e75d4f7d194338,2026-04-13T02:58:32+00:00,Human,,105,8,3,False,False,False,False,Automate refund retry after cancel pending state
+https://www.github.com/0x94t3z/poidh-sentinel,2ae522efa11ea031812e16e50841023d79decbc9,2026-04-13T02:26:30+00:00,Human,,37,10,1,False,False,False,False,Harden cancel flow with open/solo fallback retry
+https://www.github.com/0x94t3z/poidh-sentinel,9296515d9dd2c255c25cdc1b9ef891aa40a55cd5,2026-04-13T02:07:13+00:00,Human,,47,5,3,False,False,False,False,Ensure tx references use explorer links and embeds
+https://www.github.com/0x94t3z/poidh-sentinel,d3af340d69d3f5b71b341e0428aa5558f1d64015,2026-04-13T02:00:39+00:00,Human,,17,1,1,False,False,False,False,Auto-embed first URL in bot replies and casts
+https://www.github.com/0x94t3z/poidh-sentinel,f319abc626b9a65307103b989c72f5696ade7e12,2026-04-13T01:44:24+00:00,Human,,5,0,1,False,False,False,False,Allow refund keywords to enter cancel/refund retry flow
+https://www.github.com/0x94t3z/poidh-sentinel,48a65e46c49a1ab5e5d599fa01b4d1759016a4a7,2026-04-13T01:37:20+00:00,Human,,30,2,1,False,False,False,False,Harden cancel refund retry path and persist refund tx state
+https://www.github.com/0x94t3z/poidh-sentinel,494fa6c5807cf47582aebe5aa60277cd5041aa4a,2026-04-13T01:31:52+00:00,Human,,19,1,1,False,False,False,False,Handle refund retry when pending withdrawals are already zero
+https://www.github.com/0x94t3z/poidh-sentinel,ed31099672848a372f5638866f1177a951e04d35,2026-04-13T01:17:23+00:00,Human,,28,1,2,False,True,False,False,Fix idea-intent routing and tighten conversation recovery
+https://www.github.com/0x94t3z/poidh-sentinel,a8e04b8f949e4cd0260ea7fce72759a874a8a3f8,2026-04-13T00:33:36+00:00,Human,,37,1,2,False,False,False,False,Allow explicit new-bounty intent inside thread replies
+https://www.github.com/0x94t3z/poidh-sentinel,28c898a8e882b563bacacad3b56432d54b3ba926,2026-04-13T00:28:09+00:00,Human,,27,0,1,False,False,False,False,Improve ambiguous in-thread idea prompts with explicit clarification
+https://www.github.com/0x94t3z/poidh-sentinel,8eb24d5133c36cc367e6de6c76535124512ab8c4,2026-04-13T00:14:46+00:00,Human,,42,6,2,False,False,False,False,Improve winner issuer fallback and winner mention display
+https://www.github.com/0x94t3z/poidh-sentinel,8660b37fad52136a139f5bc8e9ac294e55e8985a,2026-04-13T00:12:44+00:00,Human,,25,9,1,False,False,False,False,Add compact contributor mention fallback for winner posts
+https://www.github.com/0x94t3z/poidh-sentinel,609077003bd93cd358be6523abeb5711f6138454,2026-04-13T00:03:28+00:00,Human,,40,60,1,False,False,False,False,Enforce explicit cancel confirmation before execution
+https://www.github.com/0x94t3z/poidh-sentinel,4765beadcfaaece1f870484d5e8ccdc1ba28025d,2026-04-12T15:07:55+00:00,Human,,275,30,3,False,False,False,False,Ensure unique bounty ideas and harden cancel refund recovery
+https://www.github.com/0x94t3z/poidh-sentinel,b6cd10769075edd5aa2def2ef3dc4f7553169b07,2026-04-12T14:36:30+00:00,Human,,11,4,1,False,False,False,False,Ensure cancel flow always withdraws pending funds after refund step
+https://www.github.com/0x94t3z/poidh-sentinel,6ae90a97e4bb75c1a42ffcd0ecc8b9814b39bb3b,2026-04-12T14:32:43+00:00,Human,,22,1,1,False,False,False,False,Prioritize direct creator refund transfer in cancel flow
+https://www.github.com/0x94t3z/poidh-sentinel,cfb2270a7db57ee54bc28ca98bc0291bbe3189c7,2026-04-12T14:22:48+00:00,Human,,11,1,1,False,False,False,False,Guard withdrawTo to exact refund matches in cancel flow
+https://www.github.com/0x94t3z/poidh-sentinel,2bac3e7a57ec5b3af7c2e41597db40e1e2e48487,2026-04-12T14:20:09+00:00,Human,,64,32,2,False,False,False,False,Improve recovered bounty naming and harden cancel refund payout path
+https://www.github.com/0x94t3z/poidh-sentinel,57d599b285fe514c2bfdcdb7e8648bf6ec7fac42,2026-04-12T14:08:23+00:00,Human,,54,5,1,False,False,False,False,Recover lost create-flow state on yes replies to bot proposals
+https://www.github.com/0x94t3z/poidh-sentinel,f09999e55b89f8d8e67e4ec0053b95bee77d0eb9,2026-04-12T14:02:40+00:00,Human,,12,5,2,False,True,False,False,Fix confirmation flow to avoid yes misclassified as rejection
+https://www.github.com/0x94t3z/poidh-sentinel,436920db76caa82ca6efabb1467473fa0fa3b20f,2026-04-12T13:51:45+00:00,Human,,1,1,1,False,True,False,False,Fix claim refund tx hash typing for viem receipt wait
+https://www.github.com/0x94t3z/poidh-sentinel,4dd7bd92fa5e625a9c1845531c3e56e20bd19852,2026-04-12T13:48:42+00:00,Human,,1,1,1,False,True,False,False,Fix bounties route type narrowing in on-chain closed check
+https://www.github.com/0x94t3z/poidh-sentinel,9db841cd3b506e87226f8f2b0033a2900229d0df,2026-04-12T13:44:23+00:00,Human,,44,23,1,False,False,False,False,Make open-bounty cancel refund flow resilient to claim step reverts
+https://www.github.com/0x94t3z/poidh-sentinel,ba13ca60c413e217068cfdda29567d503ebf7fc2,2026-04-12T13:40:27+00:00,Human,,52,4,2,False,False,False,False,Harden cancel-state reporting and prevent stale bounty status
+https://www.github.com/0x94t3z/poidh-sentinel,cbf59a86c13d03f3e94a5619285f407ef71ae914,2026-04-12T13:25:35+00:00,Human,,1,1,1,False,False,False,False,Clarify cron trigger behavior for Vercel Hobby vs Pro
+https://www.github.com/0x94t3z/poidh-sentinel,5cd38a04d4da93776ab785b45a37de09d6868431,2026-04-12T13:22:50+00:00,Human,,28,15,1,False,True,False,False,Fix cancel path selection for open vs solo bounties
+https://www.github.com/0x94t3z/poidh-sentinel,2a606bb85931bb958e574bec895db11736917958,2026-04-12T12:52:29+00:00,Human,,56,7,1,False,False,False,False,Add bounty status tabs in dashboard card
+https://www.github.com/0x94t3z/poidh-sentinel,52f6af1c23f3221441f11a8fe7c1ca34ce7570fe,2026-04-12T12:27:40+00:00,Human,,4,0,1,False,False,False,False,Align submission evaluation with explicit bounty requirements
+https://www.github.com/0x94t3z/poidh-sentinel,fdb385b7f0d69c0ffddb57a68e0dfa5085e32f24,2026-04-12T12:01:35+00:00,Human,,32,0,1,False,False,False,False,Add share image API route for Farcaster metadata
+https://www.github.com/0x94t3z/poidh-sentinel,587a383c0f9c2bead52b882cc685697ee0dd5137,2026-04-12T11:50:37+00:00,Human,,68,109,4,False,False,False,False,Improve activity feed readability and full-history clarity
+https://www.github.com/0x94t3z/poidh-sentinel,5dacf0a53d12b34f46ba7f65c53a3d313d5630be,2026-04-12T11:29:13+00:00,Human,,21,4,1,False,False,False,False,Allow explicit bounty creation intent in bot-reply threads
+https://www.github.com/0x94t3z/poidh-sentinel,785f6cf255443259a74611c2967b0974c5d680f1,2026-04-12T11:28:08+00:00,Human,,86,10,2,False,False,False,False,Enhance mini app activity feed with chat/system filters
+https://www.github.com/0x94t3z/poidh-sentinel,83dba0ac3c5f36798e2e8e191ba85d85d623c480,2026-04-12T11:14:05+00:00,Human,,101,9,2,False,True,False,False,Fix cancel confirmation parsing and mini-app bounty fallback
+https://www.github.com/0x94t3z/poidh-sentinel,05f2be626b936b762fc6d436ce34fe6104204f00,2026-04-10T06:18:24+00:00,Human,,3,3,1,False,True,False,False,Fix Drizzle table extras typing for bot_log index
+https://www.github.com/0x94t3z/poidh-sentinel,310287878f28d3b5ffa3eff4913c700016ff2ddb,2026-04-10T06:05:48+00:00,Human,,2423,9256,2,False,False,False,False,Remove unused wallet deps and update drizzle-kit
+https://www.github.com/0x94t3z/poidh-sentinel,11c54fdae976348e36609e1cf7590978d5c79d24,2026-04-10T04:54:51+00:00,Human,,28,9,2,False,False,False,False,Update Vercel cron docs and Hobby-safe config
+https://www.github.com/0x94t3z/poidh-sentinel,56f7b298009072de24b4e7528f9d0f602048b680,2026-04-10T04:39:28+00:00,Human,,35,1,3,False,False,False,False,Add pause redirect flow for inactive deployments
+https://www.github.com/0x94t3z/poidh-sentinel,6add33c103bfa0ea5013d0a58ae9b51acfe61f02,2026-04-10T04:30:29+00:00,Human,,23,1,4,False,False,False,False,Add BOT_ENABLED kill switch for webhook and cron
+https://www.github.com/0x94t3z/poidh-sentinel,d49eb180eb93ffdadcd0ac9b3da02a9455e4341b,2026-04-10T04:13:27+00:00,Human,,38,19,2,False,False,False,False,Sync README env docs with current template and runtime behavior
+https://www.github.com/0x94t3z/poidh-sentinel,d78f85ef5b9c8f4fc224fdc7e80d9e09fdb0f40d,2026-04-10T03:42:38+00:00,Human,,18,5,2,False,False,False,False,Fail closed in production when webhook/cron secrets are missing
+https://www.github.com/0x94t3z/poidh-sentinel,c5bf341fb2c831303439944b099e556233f9b18c,2026-04-10T03:34:02+00:00,Human,,98,45,8,False,False,False,False,"Harden bounty flow state, parsing, and cron reliability"
+https://www.github.com/0x94t3z/poidh-sentinel,8268c8df59aa504f48c44462a8174ea78e16183a,2026-04-10T02:56:38+00:00,Human,,5,1216,10,False,False,False,False,Clean SDK docs artifacts and align README npm usage
+https://www.github.com/0x94t3z/poidh-sentinel,eaf68db3f76e06b4b4bac76df67537ebb30646c2,2026-04-10T02:49:12+00:00,Human,,13,10,1,False,False,False,False,Tune evaluator thresholds and fail-safe fallback
+https://www.github.com/0x94t3z/poidh-sentinel,b5a2854e819d133dcaa92ea7a9460e15a33ccd93,2026-04-10T02:18:06+00:00,Human,,992,240,13,False,False,False,False,Refine bounty evaluation flow and align env docs
+https://www.github.com/0x94t3z/poidh-sentinel,9522e5f93119219e193be7d8d34db7c7453bee55,2026-04-09T18:38:24+00:00,Human,,196,78,7,False,False,False,False,Update bot routes and contract flow alignment
+https://www.github.com/0x94t3z/poidh-sentinel,3f0645e67c42b50c0c1f5a4343c839595975cd0e,2026-04-09T18:34:34+00:00,Human,,29,28,1,False,False,False,False,Sync agent intent and response polish
+https://www.github.com/0x94t3z/poidh-sentinel,88d019bbc8db6b0eb6f17ef2a7267a77eaab2e8d,2026-04-09T17:51:23+00:00,Human,,494,171,13,False,False,False,False,Align cancel-flow messaging and docs with current bot behavior
+https://www.github.com/0x94t3z/poidh-sentinel,6f65783181d2192f29bacc149b2a23cd0ade5b2d,2026-04-09T17:07:12+00:00,Human,,69,22,1,False,False,False,False,Refine bounty intent detection with LLM classifier
+https://www.github.com/0x94t3z/poidh-sentinel,da047ffceb73cb84401b6bd5e4a43130d1623cf8,2026-04-09T10:32:16+00:00,Human,,812,373,16,False,False,False,False,sync: refresh autonomous bounty flow and docs
+https://www.github.com/0x94t3z/poidh-sentinel,4a2e3edef6da0815fb0723e949ec903e5c243ea6,2026-04-09T02:54:37+00:00,Human,,439,68,20,False,False,False,False,"sync: update bot routes, admin auth, and dashboard flow"
+https://www.github.com/0x94t3z/poidh-sentinel,781263f94cca840a97306733d4c82b47940b403a,2026-04-09T00:49:59+00:00,Human,,970,123,15,False,False,False,False,sync: pull latest Farcaster Studio updates and align npm docs
+https://www.github.com/0x94t3z/poidh-sentinel,48fa0936cc1c5cf08b544f1389c9d37f193bee27,2026-04-08T09:48:43+00:00,Human,,505,60,4,False,False,False,False,sync: apply latest Farcaster Studio bot updates
+https://www.github.com/0x94t3z/poidh-sentinel,dde1ffd36dd7db83322a7785c60f1b2901b4f3d3,2026-04-08T06:01:42+00:00,Human,,12,7,1,False,True,False,False,Fix deposit attribution with unique matching amounts
+https://www.github.com/0x94t3z/poidh-sentinel,32b5271a5b7a6e21e74013f7a2b0237d76de6f22,2026-04-08T04:22:35+00:00,Human,,40,21,5,True,True,False,False,fix: prevent bounty-loop spam and resolve TS build errors
+https://www.github.com/0x94t3z/poidh-sentinel,83044c579ed25f0e6e56be2a967f21bc00f19e9c,2026-04-07T16:22:00+00:00,Human,,1,0,1,False,False,False,False,docs: clarify exact bountyId pot lookup
+https://www.github.com/0x94t3z/poidh-sentinel,31d109e2753406d415a008c1b8aa502814825ca7,2026-04-07T15:42:15+00:00,Human,,12,1,3,True,True,False,False,fix: use thread bountyId for pot answers
+https://www.github.com/0x94t3z/poidh-sentinel,d10b5b3db44c3d2abca2cc345c2ee4a417874341,2026-04-07T14:25:02+00:00,Human,,303,36556,148,False,False,False,False,chore: prune unused sdk modules and refresh docs
+https://www.github.com/0x94t3z/poidh-sentinel,32820a386af4490c39be3aa0d83fc5799ab6a140,2026-04-07T13:48:25+00:00,Human,,0,0,1,False,False,False,False,chore: update app favicon asset
+https://www.github.com/0x94t3z/poidh-sentinel,7af768a4e5bafbcdc55e454820b49c843588cf05,2026-04-07T13:46:30+00:00,Human,,165,288,1,False,False,False,False,docs: align README with current nextjs bot architecture
+https://www.github.com/0x94t3z/poidh-sentinel,0b7d67b5c95d9391b4963e42fe1166b6a7853a56,2026-04-07T13:35:11+00:00,Human,,60415,7059,278,False,False,False,False,feat: migrate poidh-sentinel to nextjs mini app stack
+https://www.github.com/0x94t3z/poidh-sentinel,da1a7f351c285c8b3aa01d81870a3ec6e9b5560c,2026-04-06T13:09:28+00:00,Human,,484,141,6,False,False,False,False,Align assistant prompt with Studio flow
+https://www.github.com/0x94t3z/poidh-sentinel,0130e6f0066324f8ceb8b8030d95895dc40937ac,2026-04-06T00:45:08+00:00,Human,,96,12,3,False,False,False,False,Use OpenRouter for bot mention replies
+https://www.github.com/0x94t3z/poidh-sentinel,9fa5912b8992fdedfa60a4f97a59991441617f99,2026-04-06T00:40:56+00:00,Human,,19,0,1,False,False,False,False,Document live webhook mention setup
+https://www.github.com/0x94t3z/poidh-sentinel,5ff5f3954b849dfc08963ab56b1c18b4f24431ee,2026-04-06T00:39:38+00:00,Human,,461,8,7,False,False,False,False,Tighten bot mention replies and self-guard
+https://www.github.com/0x94t3z/poidh-sentinel,7e0f13216fbb21b85ef8a3643ef67cc8cafd46cc,2026-04-05T22:55:05+00:00,Human,,144,13,6,False,False,False,False,Add scheduled one-shot flow for free-tier automation
+https://www.github.com/0x94t3z/poidh-sentinel,b50c3d90547ab0fc60444b4270e516de78fe5285,2026-04-05T22:22:18+00:00,Human,,34,26,6,False,False,False,False,Update bounty 84 production artifacts
+https://www.github.com/0x94t3z/poidh-sentinel,d1c5dc8234734af8eb8053768d36a9f56b838bcf,2026-04-05T22:20:43+00:00,Human,,151,11,4,False,False,False,False,Sync relay follow-ups with production reason and sanitize replies
+https://www.github.com/0x94t3z/poidh-sentinel,76c7e2f71304900f0556a3a35a88ce3ae80b8c6c,2026-04-05T21:40:47+00:00,Human,,4,4,3,False,False,False,False,Default bounty mode to open and align docs
+https://www.github.com/0x94t3z/poidh-sentinel,eecee9a4fdd23e5dd16bcd8de0a82e80a6588947,2026-04-05T16:49:18+00:00,Human,,30,5,4,False,False,False,False,Stop duplicate Farcaster posts per bounty
+https://www.github.com/0x94t3z/poidh-sentinel,05b37714e55c44c5521568bed541a32a6774063d,2026-04-05T16:38:27+00:00,Human,,31,25,8,False,False,False,False,Tighten OCR-only AI gate and refresh bounty 84 artifacts
+https://www.github.com/0x94t3z/poidh-sentinel,e77ccf9bb8815226a5a2751c7b9841645878a37a,2026-04-05T16:22:57+00:00,Human,,20,19,1,False,False,False,False,Refresh proof sample for bounty 84
+https://www.github.com/0x94t3z/poidh-sentinel,e8fec7ded6ff123610580c06396062e9b895fde3,2026-04-05T16:20:19+00:00,Human,,6,6,5,False,False,False,False,Switch shared default model to openrouter free
+https://www.github.com/0x94t3z/poidh-sentinel,a4a5592d15d68fccd5eb4e9552708ba8ced6c614,2026-04-05T16:18:54+00:00,Human,,2,1,1,False,False,False,False,Update README for open bounty mode and AI summary wording
+https://www.github.com/0x94t3z/poidh-sentinel,054dd4c5f40d8f6e46816ba0d14c8845cb4af890,2026-04-05T16:18:15+00:00,Human,,131,328,19,False,False,False,False,Keep only bounty 84 artifacts and clarify AI summary logs
+https://www.github.com/0x94t3z/poidh-sentinel,13a7e6d1613d4e7dd426bff28ee39259a71601dd,2026-04-05T14:00:32+00:00,Human,,23,9,7,False,False,False,False,Use qwen3.6-plus free defaults and harden AI image fallback
+https://www.github.com/0x94t3z/poidh-sentinel,28bad12573036aa1b303db808e3fafeddad34535,2026-04-05T13:42:34+00:00,Human,,9,9,6,False,False,False,False,Switch default AI model to gpt-oss free and OCR-first defaults
+https://www.github.com/0x94t3z/poidh-sentinel,f17499ea1ff68da11a8a3f2b371f00f21d87030a,2026-04-05T13:39:33+00:00,Human,,89,3,1,False,False,False,False,Stabilize AI verdict parsing with repair and cache
+https://www.github.com/0x94t3z/poidh-sentinel,3cade3087c6f22e94e486e886ba71cf059f14319,2026-04-05T13:23:09+00:00,Human,,183,8,7,False,False,False,False,Add OCR-first claim evaluation with AI fallback
+https://www.github.com/0x94t3z/poidh-sentinel,4231b71512d0cc754d60b055ba1afa3af27661cc,2026-04-05T13:01:51+00:00,Human,,96,32,2,False,False,False,False,Require concrete AI evidence before strict override
+https://www.github.com/0x94t3z/poidh-sentinel,c973bdebba4c059e6fad5725e19a905a4b230abb,2026-04-05T12:47:18+00:00,Human,,0,1,1,False,False,False,False,Stop posting decisions before finalization
+https://www.github.com/0x94t3z/poidh-sentinel,2fa17fe901f6f1cbf1494ef31c92b324c34d1bdd,2026-04-05T12:43:27+00:00,Human,,208,6,10,False,False,False,False,Add vision summaries to production proof reports
+https://www.github.com/0x94t3z/poidh-sentinel,f41a417c215a9466a00386bffda63ca7b56e178c,2026-04-05T12:13:12+00:00,Human,,19,0,1,False,False,False,False,Log all evaluated claims in watcher
+https://www.github.com/0x94t3z/poidh-sentinel,1d2d18111f4a796e6d3c7f25e1134aa3e5e46d0f,2026-04-05T12:03:19+00:00,Human,,24,1,1,False,False,False,False,Infer verdicts from natural language AI replies
+https://www.github.com/0x94t3z/poidh-sentinel,b68004d9238b6582ab2263e00c6fbb0fefc50a9d,2026-04-05T11:58:00+00:00,Human,,7,7,6,False,True,False,False,Fix free vision model id
+https://www.github.com/0x94t3z/poidh-sentinel,7abada13b40b56b204f2f1dbecb9d1fe99af037c,2026-04-05T11:54:39+00:00,Human,,7,7,6,False,False,False,False,Switch shared OpenRouter model to free vision model
+https://www.github.com/0x94t3z/poidh-sentinel,6fe63b2fd58ae4a6e6282018cbb3e1ff1975be10,2026-04-05T11:38:36+00:00,Human,,3,3,3,False,False,False,False,Default auto-finalize to off
+https://www.github.com/0x94t3z/poidh-sentinel,da5ce63ad91f0cd1d5d82c3e99d243d15aef9fa1,2026-04-05T11:30:05+00:00,Human,,76,7,4,False,False,False,False,Fallback to deterministic scoring when AI is unavailable
+https://www.github.com/0x94t3z/poidh-sentinel,fae96a66508ca313118cf20de06d0edb3b85bb36,2026-04-05T11:25:46+00:00,Human,,63,5,1,False,False,False,False,Tolerate looser OpenRouter AI responses
+https://www.github.com/0x94t3z/poidh-sentinel,18dc0a9034d24995f2e4beafb9dc0a180b213f39,2026-04-05T06:14:52+00:00,Human,,37,15,1,False,False,False,False,Align proof sample with production and relay artifact flow
+https://www.github.com/0x94t3z/poidh-sentinel,b092968a64f76412c97062706e45c97bcfeb2a55,2026-04-05T06:12:51+00:00,Human,,281,250,16,False,False,False,False,Replace proof bundle with bounty 83 artifacts
+https://www.github.com/0x94t3z/poidh-sentinel,97a5f3a6f972b1855b43d5c39d2b30a6b4b4472b,2026-04-05T06:11:34+00:00,Human,,2,2,2,False,False,False,False,Set default first claim cooldown to one hour
+https://www.github.com/0x94t3z/poidh-sentinel,1618b72b6622cc8f6f8d0582108a9195507022e3,2026-04-05T06:05:20+00:00,Human,,58,36,5,False,False,False,False,Switch default bounty to handwritten note task
+https://www.github.com/0x94t3z/poidh-sentinel,cf6d2de6e436addd1b9a50aa1c839d252e5b3168,2026-04-05T05:45:25+00:00,Human,,17,8,1,False,False,False,False,Prefer message previews over cast hashes in relay logs
+https://www.github.com/0x94t3z/poidh-sentinel,0df5b23081012983341bc595c8355d8934bf8500,2026-04-05T05:41:43+00:00,Human,,3,4,1,False,False,False,False,Post detail replies as sibling thread replies
+https://www.github.com/0x94t3z/poidh-sentinel,c5505b9032517d3f1e23a238479d783c6af7c1a7,2026-04-05T05:31:57+00:00,Human,,1,0,1,False,False,False,False,Clarify optional DECISION_WEBHOOK_URL behavior
+https://www.github.com/0x94t3z/poidh-sentinel,d103904bc42de9d0f8e5d3485f47deb9c6ced0d0,2026-04-05T05:27:10+00:00,Human,,18,9,1,False,False,False,False,Handle relay post failures without crashing watcher
+https://www.github.com/0x94t3z/poidh-sentinel,fd34f8630e19dc47cb1c1ea599c738bc2ef0f67a,2026-04-05T05:23:15+00:00,Human,,44,0,2,False,False,False,False,Treat accepted claims as final-valid in evaluation gates
+https://www.github.com/0x94t3z/poidh-sentinel,1d821c6d12d78e83de20f946ea27f7afc8b0ccd2,2026-04-05T05:12:51+00:00,Human,,108,67,1,False,False,False,False,Retry AI evaluation with text-only fallback
+https://www.github.com/0x94t3z/poidh-sentinel,0074368c6dea3d59ae73624cf7538f4fc86756c6,2026-04-05T05:05:44+00:00,Human,,119,19,4,False,False,False,False,Gate finalization on eligible claims with clearer invalid-claim logs
+https://www.github.com/0x94t3z/poidh-sentinel,53d66447005939d3e4baa66557617ae051c03a4a,2026-04-05T04:52:52+00:00,Human,,16,2,1,False,False,False,False,Print bounty config during create-new-bounty
+https://www.github.com/0x94t3z/poidh-sentinel,b8d17551e321f45ba91391952350d2f30a73a5a4,2026-04-05T04:44:30+00:00,Human,,5,5,4,False,False,False,False,Rename shared AI model env to OPENROUTER_MODEL
+https://www.github.com/0x94t3z/poidh-sentinel,028394060c34179558e6d07d578967cb756de027,2026-04-05T04:42:01+00:00,Human,,3,5,3,False,False,False,False,Use one shared OpenRouter model for all AI features
+https://www.github.com/0x94t3z/poidh-sentinel,0de71283e7003ea14c15fa4c0d807e32d717d788,2026-04-05T04:31:59+00:00,Human,,0,1,1,False,False,False,False,Clean .env.example spacing
+https://www.github.com/0x94t3z/poidh-sentinel,5b9970cc7db25733ee72de776a9c3b7f76f5e167,2026-04-05T04:29:52+00:00,Human,,13,1,1,False,False,False,False,Document free-first stack and webhook caveats
+https://www.github.com/0x94t3z/poidh-sentinel,ba72b2e03d06e1da883ff7d01ce15950350b5d5c,2026-04-05T04:27:18+00:00,Human,,231,28,6,False,False,False,False,Enable AI image and link inspection for winner evaluation
+https://www.github.com/0x94t3z/poidh-sentinel,d9578696066164cf2b588e5107e831ede24d948e,2026-04-05T04:16:42+00:00,Human,,298,7,7,False,False,False,False,Add AI-backed winner evaluation modes
+https://www.github.com/0x94t3z/poidh-sentinel,329a1048ed3a5c911c24b276d611daab4c9afdf7,2026-04-05T04:12:16+00:00,Human,,160,3,5,False,False,False,False,Enforce strict task evidence before winner finalization
+https://www.github.com/0x94t3z/poidh-sentinel,254c9d76e31beee02b59a138dc9ea2fa29d79045,2026-04-05T03:36:32+00:00,Human,,3,2,2,False,False,False,False,Set safer bounty defaults in template
+https://www.github.com/0x94t3z/poidh-sentinel,30ea5e353dfac5d77f3d1550905c1ca687fb69aa,2026-04-05T03:32:43+00:00,Human,,6,6,3,False,False,False,False,Switch bounty defaults to a time-based task
+https://www.github.com/0x94t3z/poidh-sentinel,72e73a197d224e96cb9318c70c87ab00382341b4,2026-04-05T03:22:13+00:00,Human,,6,6,3,False,False,False,False,Switch default bounty prompt to a new red task
+https://www.github.com/0x94t3z/poidh-sentinel,63682ef137a89a9761a5acfb9da6cb8a40075cda,2026-04-05T03:18:46+00:00,Human,,252,68,10,False,False,False,False,Add submission artifacts and remove claim pack
+https://www.github.com/0x94t3z/poidh-sentinel,036a795fbbde46dcbf12793c564e0d634e293b1f,2026-04-05T03:16:12+00:00,Human,,14,0,1,False,False,False,False,Add plain-language submission draft to claim pack
+https://www.github.com/0x94t3z/poidh-sentinel,c9f99d6454b7b97d169eda1a24aedc547686e623,2026-04-05T03:00:30+00:00,Human,,31,128,6,False,False,False,False,Switch runtime env usage to new naming scheme
+https://www.github.com/0x94t3z/poidh-sentinel,e19420a624c1a24a4e7101374b9115fe198d085f,2026-04-05T02:56:29+00:00,Human,,0,6,1,False,False,False,False,Remove legacy env names from README
+https://www.github.com/0x94t3z/poidh-sentinel,5853dd445e1c9b126e4be2bd1c21b7c54ca5391f,2026-04-05T02:40:01+00:00,Human,,121,60,9,False,False,False,False,Introduce readable env names with legacy aliases
+https://www.github.com/0x94t3z/poidh-sentinel,a792e6958ed2de1f05734e3e5b83bf6909861368,2026-04-05T02:34:15+00:00,Human,,95,44,6,False,False,False,False,Rename finalize env vars with backward-compatible aliases
+https://www.github.com/0x94t3z/poidh-sentinel,a4c9ac22f0c26bf50a9fb5e6f0d558de908cac9e,2026-04-05T02:17:44+00:00,Human,,183,9,4,False,False,False,False,Deprioritize duplicate evidence and prefer earliest tie winner
+https://www.github.com/0x94t3z/poidh-sentinel,f24d40cd8414a4e9743ffdf4ca595634cbbbad81,2026-04-05T02:09:59+00:00,Human,,2,28,1,False,False,False,False,Trim README commands to the three active flows
+https://www.github.com/0x94t3z/poidh-sentinel,9ccfb8d04acc7622baac465c2afae2a0f467fdbf,2026-04-05T02:06:05+00:00,Human,,5,0,1,False,False,False,False,Add create-new-bounty startup banner
+https://www.github.com/0x94t3z/poidh-sentinel,c2e7d46ed1da47e1f04dae27e15d22d0189fce38,2026-04-05T02:05:12+00:00,Human,,4,4,2,False,False,False,False,Rename create-only command to create-new-bounty
+https://www.github.com/0x94t3z/poidh-sentinel,390c22709c793bc2bd4b40af11f0c6ba76760a1d,2026-04-05T02:04:15+00:00,Human,,12,0,1,False,False,False,False,Add watch-bounty startup banner
+https://www.github.com/0x94t3z/poidh-sentinel,960f4aecb34a384aba056ca882f91b5fdcc7bf2c,2026-04-05T02:02:25+00:00,Human,,13,0,1,False,False,False,False,Print requirements flow banner in CLI
+https://www.github.com/0x94t3z/poidh-sentinel,ee5695e180e233edb7b5dcfb7b924dfc81a6b244,2026-04-05T02:00:36+00:00,Human,,4,0,2,False,False,False,False,Document claim-count waiting behavior
+https://www.github.com/0x94t3z/poidh-sentinel,847c60a6c444728a0bd24868381ead9a4b38cc7b,2026-04-05T01:49:24+00:00,Human,,22,23,4,False,False,False,False,Use short per-bounty artifact filenames
+https://www.github.com/0x94t3z/poidh-sentinel,30b7245040698633fcfdb7e655ae10a164951cbd,2026-04-05T01:46:20+00:00,Human,,62,26,4,False,False,False,False,Store artifacts under per-bounty folders
+https://www.github.com/0x94t3z/poidh-sentinel,d703f51ade28799fcca69f7e5c5ff05494a60ace,2026-04-05T01:38:16+00:00,Human,,2,9,3,False,False,False,False,Remove duplicate command aliases and keep requirements-first CLI
+https://www.github.com/0x94t3z/poidh-sentinel,5f47f1eda836a4ff65f8156cc02e4b660a9d1b69,2026-04-04T23:25:49+00:00,Human,,14,28,3,False,False,False,False,Deduplicate CLI commands around requirements flow
+https://www.github.com/0x94t3z/poidh-sentinel,aa670b69a54805a7ce7eec605bc149b67464da96,2026-04-04T23:21:12+00:00,Human,,20,35,2,False,False,False,False,Make create-bounty follow requirements flow by default
+https://www.github.com/0x94t3z/poidh-sentinel,22044101baa3e2f3949edd75beef7f340baf5ebe,2026-04-04T23:09:36+00:00,Human,,67,5,4,False,False,False,False,Align autonomous flow and CLI with requirements
+https://www.github.com/0x94t3z/poidh-sentinel,cb4c3d9ee87de52d100f28730c79f523ffd4a1a6,2026-04-04T23:06:47+00:00,Human,,84,24,5,False,False,False,False,Make social flow Farcaster-only with detailed decision threads
+https://www.github.com/0x94t3z/poidh-sentinel,fd1a39df850f476877e981aaabbfeae2b89dbe38,2026-04-04T22:56:56+00:00,Human,,5,3,2,False,False,False,False,Clarify Farcaster-only free posting path
+https://www.github.com/0x94t3z/poidh-sentinel,ec7c51d044ca67f3b244f898d9c71c3f6bef794e,2026-04-04T22:54:42+00:00,Human,,31,9,4,False,False,False,False,Clarify Poidh timing and free relay mode
+https://www.github.com/0x94t3z/poidh-sentinel,654585592ade46c544ab89f678b8d437e5779e9a,2026-04-04T22:39:10+00:00,Human,,23,7,3,False,False,False,False,Shorten replies and ignore self-authored webhook casts
+https://www.github.com/0x94t3z/poidh-sentinel,fed443d7189278dd005fdae6858e85221a6a5b92,2026-04-04T22:34:38+00:00,Human,,28,7,2,False,False,False,False,Persist decision keys across restarts
+https://www.github.com/0x94t3z/poidh-sentinel,891595bf5adebacb84c4e763fddb29b23dd4a9ce,2026-04-04T22:28:56+00:00,Human,,1,0,1,False,False,False,False,Announce webhook reply tracking on relay startup
+https://www.github.com/0x94t3z/poidh-sentinel,66a6151cfc17adfeb51038466d46b60679b36978,2026-04-04T22:27:41+00:00,Human,,12,4,1,False,False,False,False,Log webhook bounty thread matches
+https://www.github.com/0x94t3z/poidh-sentinel,53e18b4d00b3c7d69795562adc90f4ef9b50ec16,2026-04-04T22:20:49+00:00,Human,,9,4,1,False,False,False,False,Tighten Farcaster copy polish
+https://www.github.com/0x94t3z/poidh-sentinel,b29f34445faf966c3cefc0f837f268a627c0dcbb,2026-04-04T22:18:50+00:00,Human,,17,0,1,False,False,False,False,Log Farcaster decision and reply posts
+https://www.github.com/0x94t3z/poidh-sentinel,0baf3f2b1e82c7fa04a77d3675ecc052ab1e4039,2026-04-04T22:04:15+00:00,Human,,4,0,2,False,False,False,False,Document supported Poidh chains
+https://www.github.com/0x94t3z/poidh-sentinel,518e076dfad0446af7331925b91a534a476fceaa,2026-04-04T22:00:24+00:00,Human,,4,1,3,False,False,False,False,Document declared and chain bounty amounts
+https://www.github.com/0x94t3z/poidh-sentinel,c4441901f931b81f81de4d53679a2b994df7e411,2026-04-04T21:58:08+00:00,Human,,31,3,3,False,False,False,False,Show declared and chain bounty amounts in artifacts
+https://www.github.com/0x94t3z/poidh-sentinel,7f4e8bf843d895d5954c2a8394a2f3fb7082077c,2026-04-04T21:49:03+00:00,Human,,26,0,1,False,False,False,False,Make social fetch failures readable
+https://www.github.com/0x94t3z/poidh-sentinel,c358d7ea789885abdb964dc21c65ba05337878c8,2026-04-04T21:41:11+00:00,Human,,2,1,1,False,True,False,False,Fix relay test typing
+https://www.github.com/0x94t3z/poidh-sentinel,b693263bf8f38a3124058aef65422ee22af5e610,2026-04-04T21:39:37+00:00,Human,,1,0,1,False,True,False,False,Fix test tsconfig root dir
+https://www.github.com/0x94t3z/poidh-sentinel,51f7ab4abddb4737c6c7c8ccfd8516c8b4e88fac,2026-04-04T21:38:48+00:00,Human,,8,0,2,False,False,False,False,Add explicit Node typings for editor support
+https://www.github.com/0x94t3z/poidh-sentinel,adfc4d5bc5aaae5159a905e9c8540fa963d4fa24,2026-04-04T21:37:03+00:00,Human,,208,3,2,False,False,False,False,Test relay state and artifact helpers
+https://www.github.com/0x94t3z/poidh-sentinel,ea4e7d49ab77fa05a2b78eb09a51862f1c04a0a3,2026-04-04T21:32:55+00:00,Human,,95,4,4,False,False,False,False,Add tests for bounty validation and scoring
+https://www.github.com/0x94t3z/poidh-sentinel,e91a5b7d57444c3e6ad05bddee00c3c8c9d51221,2026-04-04T21:29:04+00:00,Human,,777,743,9,False,False,False,False,Split bot and relay into focused runtime modules
+https://www.github.com/0x94t3z/poidh-sentinel,f7c02dc80b657306574e3ab3b0eea4985655c2ee,2026-04-04T21:24:16+00:00,Human,,49,55,14,False,False,False,False,Group core modules into reusable folders
+https://www.github.com/0x94t3z/poidh-sentinel,fc662e0c69230c725aae285f3957175edf150f01,2026-04-04T21:17:08+00:00,Human,,63,58,3,False,False,False,False,Restore the original README tone
+https://www.github.com/0x94t3z/poidh-sentinel,33453893f6a9580be3ea66e54ed4dce0ef347461,2026-04-04T20:34:00+00:00,Human,,43,0,4,False,False,False,False,Add auto-accept safeguards for claim count and delay
+https://www.github.com/0x94t3z/poidh-sentinel,c5f0cbc2f143963b371d105a0b7800b858c246dc,2026-04-04T20:12:00+00:00,Human,,1,7,1,False,False,False,False,Polish claim pack caveats
+https://www.github.com/0x94t3z/poidh-sentinel,7cc1d215af581fd9be7a6afe42e9552a9792a4ce,2026-04-04T19:50:00+00:00,Human,,1,8,1,False,False,False,False,Polish claim pack summary
+https://www.github.com/0x94t3z/poidh-sentinel,52ae944debbdede8dd5ce81b2d14816fed2bc2f1,2026-04-04T19:28:00+00:00,Human,,1,8,1,False,False,False,False,Polish social transparency docs
+https://www.github.com/0x94t3z/poidh-sentinel,ab310793f710f689904dc41c76aef0f789232651,2026-04-04T19:06:00+00:00,Human,,71,0,3,False,False,False,False,Reject digital-only bounty prompts
+https://www.github.com/0x94t3z/poidh-sentinel,a2513ef9c47c6f4f455c19323cec54a55bf53335,2026-04-04T18:44:00+00:00,Human,,123,15,5,False,False,False,False,Default Farcaster copy polishing to OpenRouter
+https://www.github.com/0x94t3z/poidh-sentinel,cbb3c555821c944b126eb66ac1acef5fb65983dd,2026-04-04T18:22:00+00:00,Human,,44,23,2,False,False,False,False,Improve Farcaster decision post formatting
+https://www.github.com/0x94t3z/poidh-sentinel,0a9e74abdf5a4d40f2e602f3fc76e4b6a20c456b,2026-04-04T18:00:00+00:00,Human,,7,6,2,False,False,False,False,Clarify webhook access requirements in docs
+https://www.github.com/0x94t3z/poidh-sentinel,4a9b5d17cb29cffca6e719cf35ada5c48b8c4dae,2026-04-04T17:38:00+00:00,Human,,176,18,4,False,False,False,False,Add native Neynar webhook follow-up listener
+https://www.github.com/0x94t3z/poidh-sentinel,ac264c3bc99a194012caac5333d30f82dab6a7a0,2026-04-04T17:16:00+00:00,Human,,257,5,4,False,False,False,False,Add Farcaster follow-up reply webhook
+https://www.github.com/0x94t3z/poidh-sentinel,b0b7e24de9eba6258aef374058ebd9284b9c30d7,2026-04-04T16:54:00+00:00,Human,,71,164,8,False,False,False,False,Switch relay back to Farcaster signer mode
+https://www.github.com/0x94t3z/poidh-sentinel,24062ede6739ba5ac26cc8284a1dbbc23c7fca9e,2026-04-04T16:32:00+00:00,Human,,7,7,2,False,False,False,False,Clarify social posting requires platform access or credits
+https://www.github.com/0x94t3z/poidh-sentinel,8050631319df2c36a0e37ddef8a334f9b213d4d5,2026-04-04T16:10:00+00:00,Human,,19,5,1,False,False,False,False,Record X relay failures without aborting the run
+https://www.github.com/0x94t3z/poidh-sentinel,46042c9230b7457871944951b4cc6c44218a9c4c,2026-04-04T15:48:00+00:00,Human,,16,16,8,False,False,False,False,Brand project as Poidh Sentinel
+https://www.github.com/0x94t3z/poidh-sentinel,df83a4ce7579b0acb3318b69d79b82f2d18ccfe4,2026-04-04T15:26:00+00:00,Human,,176,29,5,False,False,False,False,Switch social relay to X posting
+https://www.github.com/0x94t3z/poidh-sentinel,d1226ec607f4d21a00c77a1bd33961384cd1f784,2026-04-04T15:04:00+00:00,Human,,7,1,1,False,False,False,False,Serialize bigint values in social webhook payloads
+https://www.github.com/0x94t3z/poidh-sentinel,ffa909056bc47495fbacda14c5359bfa2ead8dbd,2026-04-04T14:42:00+00:00,Human,,204,3,6,False,False,False,False,Add local relay service for social posting
+https://www.github.com/0x94t3z/poidh-sentinel,e22819823fe2d8230c631516df4c6226700f0139,2026-04-04T14:20:00+00:00,Human,,1,29,2,False,False,False,False,Use single .env.example template and remove production duplicate
+https://www.github.com/0x94t3z/poidh-sentinel,04d4e7dd30de8a656df4e0dc12358d0d00b2eabf,2026-04-04T13:58:00+00:00,Human,,94,25,6,False,False,False,False,Add Farcaster auto-post path and follow-up answer payloads
+https://www.github.com/0x94t3z/poidh-sentinel,0bdfca697705652eeaf0557ba61cafbf782da853,2026-04-04T13:36:00+00:00,Human,,123,573,9,False,False,False,False,Remove demo flow references and keep production-only setup
+https://www.github.com/0x94t3z/poidh-sentinel,f8c652a16d4c9c5676cee492d83e5703c5194449,2026-04-04T13:14:00+00:00,Human,,44,10,5,False,False,False,False,Add relay targets to social payload
+https://www.github.com/0x94t3z/poidh-sentinel,3439ef9a3687c64bec5cfbcc4f416be511e38e25,2026-04-04T12:52:00+00:00,Human,,17,10,4,False,False,False,False,Align public proof wording
+https://www.github.com/0x94t3z/poidh-sentinel,40be98e5559cca9caf88787c196d5914c0083999,2026-04-04T12:30:00+00:00,Human,,8,3,3,False,False,False,False,Rename production proof artifact prefix
+https://www.github.com/0x94t3z/poidh-sentinel,f0a1373cc98c16fa4bce92c8d90e74af30f4e69d,2026-04-04T12:08:00+00:00,Human,,76,1,5,False,False,False,False,Add sample proof artifact and docs
+https://www.github.com/0x94t3z/poidh-sentinel,b142bd7e504f1e85c3ea135676e9857afa2cf584,2026-04-04T11:46:00+00:00,Human,,859,192,10,False,False,False,False,Add restart-safe bounty state and artifact split
+https://www.github.com/0x94t3z/poidh-sentinel,3afac75a3e350ba9ad5fc5c7940e2d33a1674968,2026-04-04T11:24:00+00:00,Human,,224,8,5,False,False,False,False,Add Pinata claim proof upload flow
+https://www.github.com/0x94t3z/poidh-sentinel,972d8b39edc2733efd2e560609b91752347cbc94,2026-04-04T11:02:00+00:00,Human,,34,1,3,False,False,False,False,Wrap direct proof images in claim metadata
+https://www.github.com/0x94t3z/poidh-sentinel,cd17cccedd74e72c5d888e74ded8847ceee45a52,2026-04-04T10:40:00+00:00,Human,,30,10,5,False,True,False,False,Fix live demo pagination and env loading
+https://www.github.com/0x94t3z/poidh-sentinel,bc514299b7ddc8476ad3d026914b1d330d05c510,2026-04-04T10:18:00+00:00,Human,,9,4,5,False,False,False,False,Rename claimant wallet env var
+https://www.github.com/0x94t3z/poidh-sentinel,e5dc77a46f544e795180514fd733c46b9c7b9811,2026-04-04T09:56:00+00:00,Human,,69,3,4,False,False,False,False,Add bounty 216 claim pack
+https://www.github.com/0x94t3z/poidh-sentinel,ccdf83744592323775793ed4114187569bde6eb1,2026-04-04T09:34:00+00:00,Human,,189,6,6,False,False,False,False,Add demo cycle and claimant wallet support
+https://www.github.com/0x94t3z/poidh-sentinel,c9d2089e05ebd2d5214210348091c1299ea6c07b,2026-04-04T09:12:00+00:00,Human,,802,6,4,False,True,False,False,Fix poidh bot TypeScript build
+https://www.github.com/0x94t3z/poidh-sentinel,7f5fb0ed37da56798f37c28fe6c4a3495ce66049,2026-04-04T08:50:00+00:00,Human,,1288,0,14,False,False,False,False,Add poidh bounty bot scaffold

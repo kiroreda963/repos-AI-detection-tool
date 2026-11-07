@@ -1,0 +1,1920 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xuser64bit/mizu,2c34bcca79f320dca6cfc224142e58818acedb3e,2026-11-02T19:15:17+00:00,Human,,1543,762,21,False,False,False,False,"docs: reorganize project and package guidance
+
+- Add contributor, architecture, and getting-started guides with practical workflows
+- Refresh product, design, publishing, and package docs; consolidate workshop checks
+- Clarify component catalog details and example audio setup"
+https://www.github.com/0xuser64bit/mizu,e04276c4bb45763b7c92db1d571cf0f7a93e022c,2026-10-23T13:05:02+00:00,Human,,16,2,2,False,False,False,False,"chore(release): 0.3.0
+
+Bump mizu-ui to 0.3.0 and date the changelog's Unreleased section
+2026-10-23. It is a minor release: Drawer, Popover, OneTimeCode,
+DateRangeField, Dock and LinkProvider are new, Nav, Accordion,
+SectionTag, CodeBlock and CommandPalette take new props, and every
+export and entry point of 0.2.1 remains.
+
+PUBLISHING.md asks pre-1.0 minor releases for migration notes, so the
+section gains them: GhostWord's inline default size, Marquee's item
+gap, the line height .mizu-root now sets, Tabs opening on their first
+tab, and the registry items renamed to kebab case."
+https://www.github.com/0xuser64bit/mizu,92a2926620d593fb1d1b28cbdc8ec96f2b57ee4a,2026-10-23T11:35:33+00:00,Human,,1,6,1,True,True,False,False,"fix(blocks): stop naming each showcase like the block inside it
+
+Each showcase section was a region named by its heading, and the
+installable block inside carries the same name, so landmarks listed
+""Workspace settings"" twice. The block keeps the name; the showcase is
+layout with a heading."
+https://www.github.com/0xuser64bit/mizu,b7a7c25d29ee8351229e046bcce342b3c019825f,2026-10-23T11:34:35+00:00,Human,,62,1,2,False,False,False,False,"feat(site): suggest the closest components on a 404
+
+A miss under /components is usually a mistyped or borrowed name. The
+not-found page now names up to three close matches from the search
+index (sheet finds Drawer, kanban finds Board) and offers the collection
+beside the way back to the archive."
+https://www.github.com/0xuser64bit/mizu,19b186d2fd6d3c7d8cca01718654abd0321bafa5,2026-10-23T11:34:35+00:00,Human,,63,1,2,False,False,False,False,"feat(site): find components by the names people already use
+
+Developers arriving from other libraries search for a sheet, a sonner or
+an input-otp. Give the search index a short list of those names per
+component and match them in ⌘K without showing them."
+https://www.github.com/0xuser64bit/mizu,40b0acdacf35ec3508402b1d633a2716b5a5eaeb,2026-10-23T08:29:28+00:00,Human,,16,4,5,False,False,False,False,"feat(command-palette): match hidden keywords
+
+People search by the names they already know. Let a command carry
+keywords that match without being displayed."
+https://www.github.com/0xuser64bit/mizu,19162e9787714d6fdf2045d7d32133f9eed6cb58,2026-10-23T08:28:11+00:00,Human,,14,4,6,True,True,False,False,"fix(skeleton): put the loading label in the live region's text
+
+Like Spinner, Skeleton named its status region but gave it no text, so
+its label was rarely announced. Add the label as visually hidden text and
+scope the bar styles to the decorative spans."
+https://www.github.com/0xuser64bit/mizu,3b8487f30514f59a542eb5f683618c6d4ad45946,2026-10-23T08:27:25+00:00,Human,,10,2,1,True,True,False,False,"fix(lab): send visitors to the collection, not the workshop
+
+The lab closed with ""More instruments are in the workshop"", but the
+workshop is now the theme builder and playground. Say that most of these
+ship in mizu-ui and link the collection, filtered to its instruments."
+https://www.github.com/0xuser64bit/mizu,0adb0dc4dd6d7bd0505971c268c6bcb8e60ad2bc,2026-10-23T08:25:09+00:00,Human,,4,1,2,True,True,False,False,"fix(site): tint the browser chrome with the chosen theme
+
+theme-color stayed the dark ink after switching to light, so mobile
+browsers kept a black status bar over a paper page. Set it from the
+stored theme on load and whenever the theme switches."
+https://www.github.com/0xuser64bit/mizu,c53670aefa017bed8132fc5a98c8ce49506a60e5,2026-10-23T08:25:09+00:00,Human,,4,3,2,True,True,False,False,"fix(cursor): draw the ring from theme tokens
+
+The custom cursor's ring was set in the dark theme's paper at 35%, so on
+a light page it was cream on cream and vanished, now that every page can
+switch theme. Color it from --mizu-paper and --mizu-accent in CSS, and
+leave Motion to animate only its size."
+https://www.github.com/0xuser64bit/mizu,ce0bd7f840b0940f53d8a5a83d0caab54dfdf54f,2026-10-23T08:24:07+00:00,Human,,15,1,2,False,False,False,False,"docs: record the co-founder pass decisions and new conventions
+
+Note the new systems and site features in PRODUCT.md as Claude's
+delegated choices, and add the drawer, popover, link and bar-action
+conventions to DESIGN.md."
+https://www.github.com/0xuser64bit/mizu,13b17821e93761bdba2bef689423ec3fbad49b2f,2026-10-23T08:23:37+00:00,Human,,772,20,25,False,False,False,False,"docs(catalog): document Drawer, Popover and OneTimeCode
+
+Give the three new systems catalog entries with working examples, props,
+accessibility and motion notes, so they get pages, live demos, Markdown
+and registry items (drawer, popover, one-time-code). The inventory now
+counts 131 systems; the guide reads its count from the catalog instead
+of a typed number."
+https://www.github.com/0xuser64bit/mizu,d06e4f6bf0a1b418bd558194d883de64401d35a6,2026-10-23T08:23:19+00:00,Human,,269,1,6,False,False,False,False,"feat(one-time-code): take a sign-in code one digit to a cell
+
+Draw the code as cells over a single native input with
+autocomplete=one-time-code and a numeric keyboard, so SMS and email
+autofill, paste and screen readers work as they do anywhere. It keeps
+digits only, which lets codes pasted with spaces or dashes through, and
+calls onComplete at full length. The cells shrink to fit a 320px phone."
+https://www.github.com/0xuser64bit/mizu,790f925431daab1e55d67c596cd916a8b2bd1288,2026-10-23T08:23:11+00:00,Human,,181,2,6,False,False,False,False,"feat(popover): open a small panel beside its button
+
+Settings and column pickers need a panel that stays with its button and
+gets out of the way. Popover uses the native Popover API, so Escape and
+clicking away close it and return focus to the button, and positions
+itself below or above the button, flipping when there is no room and
+following it as the page scrolls."
+https://www.github.com/0xuser64bit/mizu,0772dc00b9ac0f63e13946fad90da9627622979f,2026-10-23T08:23:01+00:00,Human,,110,0,6,False,False,False,False,"feat(drawer): slide a dialog in from an edge
+
+Filters, details and quick edits want a panel at the side of the work,
+not a box in the middle of it. Drawer is Dialog with a side (right, left
+or bottom) and a slide from that edge, so it keeps the native modal's
+focus containment, Escape, inert page and scroll lock. Side drawers
+leave 48px of the page on a phone to tap away."
+https://www.github.com/0xuser64bit/mizu,f6a3c0637c66a41436658ac570e5bf55c1617260,2026-10-23T08:14:27+00:00,Human,,10,4,6,True,True,False,False,"fix(spinner): put the loading label in the live region's text
+
+The status span carried its label only as aria-label, but live regions
+announce content, so a spinner appearing often said nothing. Add the
+label as visually hidden text and scope the spin to the diamond."
+https://www.github.com/0xuser64bit/mizu,c59a5a550227c2d9dc5cf32662eb7b86cb16b991,2026-10-23T08:13:49+00:00,Human,,61,11,4,False,False,False,False,"feat(docs): keep collection filters in the URL; forgive plurals
+
+The collection's search and family lived in memory, so a filtered view
+couldn't be shared and was lost on Back. Read and write them as ?q= and
+?family= with replaceState. Both the collection and the sidebar filter
+now match every word in any order and accept plurals, so ""charts"" finds
+BarChart and the sidebar no longer wants a phrase verbatim."
+https://www.github.com/0xuser64bit/mizu,c65275962c4d9a39e725e609e48147950ee5a7ff,2026-10-23T08:12:47+00:00,Human,,61,0,3,False,False,False,False,"feat(docs): copy any component page as Markdown
+
+Every component already had a Markdown twin at /components/<slug>.md for
+agents, but no page pointed to it. Add a quiet row under the tagline that
+copies it (through a promised ClipboardItem, so Safari keeps the user
+gesture) or opens it."
+https://www.github.com/0xuser64bit/mizu,641f84abf835828bcd28edc052572ac454ed253b,2026-10-23T08:11:25+00:00,Human,,137,12,7,False,False,False,False,"feat(site): search everything with ⌘K, and switch themes anywhere
+
+Add a search action to the bar that opens Mizu's CommandPalette over
+every page and component (Ctrl K off Apple devices). The component index
+is a static JSON route fetched on first intent, so pages carry no extra
+weight. The theme switch moves from the docs sidebar and workshop header
+into the bar, where every page has it, and the bar falls back to the
+Menu button below 1024px so the links and actions fit."
+https://www.github.com/0xuser64bit/mizu,3634c3ac4dbeb27a073b9b703794717642d77d82,2026-10-23T08:11:24+00:00,Human,,5,0,3,True,True,False,False,"fix(command-palette): hold the field still while results narrow
+
+The palette was centred like any dialog, so each keystroke that
+shortened the list moved the input. Anchor it near the top of the
+window."
+https://www.github.com/0xuser64bit/mizu,6dfe5838088b1a8a0523189ba8fa93b1a27cb0bb,2026-10-23T08:11:24+00:00,Human,,183,124,6,False,False,False,False,"feat(nav): keep an actions slot in the bar at every width
+
+Nav had nowhere for controls such as search or a theme switch, and the
+menu overlay only lists links. Add actions, grouped with the links and
+the Menu button at the right so they stay together whether the chapter
+label is showing or not."
+https://www.github.com/0xuser64bit/mizu,499454cb12255a34ae894210ae76f840b4eb5707,2026-10-23T08:08:23+00:00,Human,,65,23,4,True,True,False,False,"fix(command-palette): match each word and open fresh
+
+The query was matched as one phrase, so ""range date"" missed
+DateRangeField, and a query typed before closing came back on reopening.
+Require every word anywhere in the label or description, and clear the
+query whenever the palette closes."
+https://www.github.com/0xuser64bit/mizu,d6a36eda70c6bc148b07ba308818c35b9c61d391,2026-10-23T08:06:15+00:00,Human,,17,2,2,False,False,False,False,"feat(site): navigate the primary nav without reloading the page
+
+The nav and every ButtonLink did full document loads while the rest of
+the site used client navigation. Provide next/link to Mizu's links, and
+mark the root so route changes scroll to the top instantly while
+in-page anchors keep their smooth scroll."
+https://www.github.com/0xuser64bit/mizu,51a8ca16569d8957fd4a7192ce7e76e23aaeddae,2026-10-23T08:06:15+00:00,Human,,275,24,17,False,False,False,False,"feat(link-provider): route Mizu's links through the app's router
+
+Nav, Breadcrumbs, SideNav, BottomNav and ButtonLink rendered bare
+anchors, so in a routed app every click reloaded the document. Add
+LinkProvider, which hands them the app's link component through context
+(anchors remain the default), ship it as a registry item, and document
+it for Next.js and React Router."
+https://www.github.com/0xuser64bit/mizu,086c412d588ba94a01de7c4731f68dcf1e1dacb5,2026-10-23T08:03:01+00:00,Human,,105,35,5,False,False,False,False,"feat(accordion): open items from state and set the heading level
+
+Accordion kept its open set private, so nothing could start open or be
+driven from outside, and every title was an h3 whatever the page. Add
+value, defaultValue and onValueChange in the shape the other systems
+use, and a level prop for the headings."
+https://www.github.com/0xuser64bit/mizu,2168687fa317cf234768d2e188fdbe955548104a,2026-10-23T08:02:21+00:00,Human,,8,5,1,True,True,False,False,"fix(footer): send Back to top to the page, focus included
+
+The button forced a smooth scroll even under reduced motion, and left
+keyboard focus at the foot of the page, so the next Tab stayed there.
+Make it a link to #main: the page's scroll-behavior decides the motion,
+and the browser moves the focus starting point to the top. It also
+takes a 44px target."
+https://www.github.com/0xuser64bit/mizu,8460c911180cba7276e14f3d80c213a6077a57db,2026-10-23T08:01:24+00:00,Human,,6,6,2,True,True,False,False,"fix(docs): give small docs links a 44px target
+
+The previous/next links were 17px tall, ""Open full source"" and the
+sidebar's collection link 20px, and the source disclosure's summary
+20px. Make them 44px tall without moving the layout."
+https://www.github.com/0xuser64bit/mizu,8205c3a8c58cfa0881477fe5ff5d9f53a682d819,2026-10-23T08:00:23+00:00,Human,,1,1,1,True,True,False,False,"fix(home): list all four examples beside the examples link
+
+The note under the signature systems still named three examples after
+the audio workbench became the fourth."
+https://www.github.com/0xuser64bit/mizu,cb1642456cacb7bc4056641f377d23becff92d50,2026-10-23T08:00:15+00:00,Human,,12,21,10,True,True,False,False,"fix(site): let buttons be called what they say
+
+Six ButtonLinks passed a label that replaced their visible text for
+assistive technology: ""Enter the lab"" was announced as ""The lab"", and
+""Back to the archive"" as ""Home"", so speech-input users couldn't say
+what they saw (WCAG 2.5.3). Drop those labels, stop modelling the prop on
+a link with text in the Button usage, and say when it is for. The docs
+theme toggle likewise showed ""Dark"" but was named ""Switch to light
+theme""; its name now starts with the visible word."
+https://www.github.com/0xuser64bit/mizu,9efefaa3932e9751738493e9b83a8b427090ee53,2026-10-23T07:59:41+00:00,Human,,34,8,3,True,True,False,False,"fix(nav): keep the chapter clear of the links; size the targets
+
+The chapter label was absolutely centred on the window, so seven links
+ran under it from 1360 to 1600px. Make it a flexible middle cell that
+truncates instead. Give Menu and Close 44px square targets (they were
+36x17), give links a 44px-tall hit area, and pad overlay numbers so the
+tenth reads 10."
+https://www.github.com/0xuser64bit/mizu,c7246479e51ef846c1f3d981df63809bbaf9f0d2,2026-10-23T07:58:11+00:00,Human,,32,24,2,True,True,False,False,"fix(home): make each selected piece a real disclosure button
+
+The rows were articles with role=button, which flattens their heading
+and isn't a valid role for article. Put a button inside each heading,
+stretched over the row, with aria-expanded and aria-controls. Lay the
+rows on one grid at every width so phones stop wrapping the meta and
+arrow differently per row, set the year in the readable faint ink (it
+was at 60%, 2.6:1), use the warm white of filled buttons for text on the
+hover fill, and replace the hint with one that holds on touch and links
+to the lab rather than the workshop."
+https://www.github.com/0xuser64bit/mizu,1835796b66129a87d38349c5033b46aaef39bf61,2026-10-23T07:56:27+00:00,Human,,6,1,1,True,True,False,False,"fix(split-flap demo): let the keyboard scroll the departures board
+
+On a phone the board scrolls sideways, but nothing in it can take focus,
+so keyboard users couldn't reach the columns past the edge. Make the
+scroller a named, focusable region."
+https://www.github.com/0xuser64bit/mizu,16ec6d46a3aec419a0ffb639f41f807160adce30,2026-10-23T07:56:20+00:00,Human,,13,1,2,True,True,False,False,"fix(examples/nav): give the isolated nav a skip target and a title
+
+The skip link pointed at #main, which this page lacked, and the tab
+showed the site's default title. Name the main element and give the page
+its own title; it stays out of the index."
+https://www.github.com/0xuser64bit/mizu,a2a49d050120974d86e94e86b6bc074a3beb236c,2026-10-23T07:55:55+00:00,Human,,1,1,1,True,True,False,False,"fix(design-review): stop naming the contact sheet twice
+
+The wrapping section and the Gallery inside it were both regions named
+""All submissions"". The Gallery's region is the one that matters; the
+section is layout."
+https://www.github.com/0xuser64bit/mizu,ec0e3b9bd7b18a78a0a68b8914ded6ba47a1ac23,2026-10-23T07:55:43+00:00,Human,,3,2,3,True,True,False,False,"fix(examples): keep component headings under a section heading
+
+Signature systems title themselves with h3, and on the example pages
+they sat straight under the h1. Give each example a visually hidden h2
+for its working area, and set the Plane demo's cluster titles as h3
+under the page's h2 instead of h4."
+https://www.github.com/0xuser64bit/mizu,565bb866be5f62a3f30674582eeb7d1d224ddc60,2026-10-23T07:52:10+00:00,Human,,1,1,1,True,True,False,False,"fix(home): give the manifesto a heading
+
+The manifesto's principles were h3s under the page's h1 with nothing in
+between. Its section tag now renders as the h2."
+https://www.github.com/0xuser64bit/mizu,3ee3315497b3f1e768117019aeb5d9ea8b253a5b,2026-10-23T07:52:10+00:00,Human,,26,5,7,False,False,False,False,"feat(section-tag): let a tag be its section's heading
+
+SectionTag always rendered a paragraph, so a section titled only by its
+tag had no heading and the outline jumped a level. Add an as prop for
+h2-h4, keep the paragraph default, and pin the weight so a heading looks
+the same."
+https://www.github.com/0xuser64bit/mizu,1eadab3777f9ccb7680ae5122e7a9c186787d66f,2026-10-23T07:51:36+00:00,Human,,18,5,4,True,True,False,False,"fix(wave-text): give screen readers the text, not an ignored label
+
+The letters are aria-hidden and the word sat in aria-label on a span,
+which assistive technology ignores on generic elements, so a span
+WaveText was silent. Render the text in a visually hidden span instead."
+https://www.github.com/0xuser64bit/mizu,bd317aeb3f7c8731e4b4e746e912571c413e9a07,2026-10-23T07:51:03+00:00,Human,,30,24,3,True,True,False,False,"fix(docs): label code regions and make guide snippets copyable
+
+Component pages now name their usage, install and import blocks, and the
+getting-started guide renders its sixteen snippets with CodeBlock, so
+each has a copy action and a distinct name instead of sixteen regions
+called ""Code example""."
+https://www.github.com/0xuser64bit/mizu,a74dcba38b38fa855eee5dddd26bdf04309687c4,2026-10-23T07:51:03+00:00,Human,,29,3,5,False,False,False,False,"feat(code-block): let each block name its region
+
+Every CodeBlock was a region named after its language, so a page with
+several listed identical landmarks. Add an optional label, falling back
+to the filename and then the language, and document it."
+https://www.github.com/0xuser64bit/mizu,222a00dc7b43ca98d803838d5d99150f1db5316a,2026-10-23T07:48:16+00:00,Human,,5,2,3,True,True,False,False,"fix(treemap): keep nested preview labels legible on hot blocks
+
+Nested labels used the faint ink, which falls to 2.8-3.1:1 once heat
+tints a block toward the accent. Mix them from paper at 78% instead,
+above 4.5:1 on every heat in both themes."
+https://www.github.com/0xuser64bit/mizu,25f0d74a01d7fe29c2b700c490ef14ee02641dea,2026-10-23T07:48:16+00:00,Human,,24,6,3,True,True,False,False,"fix(chronicle): fade unselected marks, not their labels
+
+A selection set every other event to 0.42 opacity, labels included,
+leaving 12px text at 3.2-3.7:1 against the lanes. Fade only the marks and
+turn the labels muted, which keeps the focus and passes 4.5:1."
+https://www.github.com/0xuser64bit/mizu,519325931c372e50fe5b3d2ddb817996e5afffaf,2026-10-23T07:46:21+00:00,Human,,145,22,6,True,True,False,False,"fix(toast): hold a toast while it is hovered or focused
+
+Auto-dismissal ran regardless of attention, so a toast could disappear
+mid-read or while its dismiss button had focus (WCAG 2.2.1). Hold the
+timer on pointer enter and focus, restart it on leave and blur, and draw
+the dismiss cross as an SVG instead of the × glyph."
+https://www.github.com/0xuser64bit/mizu,1ca7c58663f2c512158c36aba949485e58385479,2026-10-23T07:44:50+00:00,Human,,21,0,4,True,True,False,False,"fix(slider): announce the formatted value
+
+With a format function the readout showed ""40%"" while assistive
+technology announced the raw number. Pass the formatted text as
+aria-valuetext."
+https://www.github.com/0xuser64bit/mizu,feffd211fe203b2a8a5ff336954f0ed515c3fd90,2026-10-23T07:44:38+00:00,Human,,33,8,6,True,True,False,False,"fix(copy-button): name it by its label, not the copied text
+
+The default aria-label was ""Copy <text>"", so a code block's button was
+announced with the entire snippet. Let the visible label name it, fall
+back to ""Copy"" when there is none, and extend the 17px-tall hit area
+with an invisible margin."
+https://www.github.com/0xuser64bit/mizu,4d9f57acf30b9d4af61daa09752f5be8e91857e7,2026-10-23T07:43:59+00:00,Human,,42,12,4,True,True,False,False,"fix(combobox): scroll the active option into view
+
+The option list scrolls past 280px, but arrow keys moved the highlight
+without scrolling, so it left the visible list. Scroll the next option to
+the nearest edge as CommandPalette already does."
+https://www.github.com/0xuser64bit/mizu,6725416f9b4d072ec24f260426dc9cf918a7f3d5,2026-10-23T07:43:38+00:00,Human,,51,0,4,True,True,False,False,"fix(tabs): select the first tab when none is chosen
+
+Without a defaultValue no trigger was selected, so no panel rendered and
+every trigger had tabindex -1, leaving the tablist out of the tab order.
+TabsList now selects the first enabled tab whenever the value matches
+none of its triggers."
+https://www.github.com/0xuser64bit/mizu,13b6d45fbd0fb382759dd93099ae992a0cc4dbe3,2026-10-23T07:43:02+00:00,Human,,6,2,4,True,True,False,False,"fix(password-field): name the toggle by its action alone
+
+The button changed its label between Show and Hide and also flipped
+aria-pressed, so it announced ""Hide password, pressed"". Keep the action
+label, drop the pressed state."
+https://www.github.com/0xuser64bit/mizu,ec25a21a81d75d2a6b353b594badc2905493e24a,2026-10-23T07:42:52+00:00,Human,,37,2,6,True,True,False,False,"fix(search-field): keep focus in the field after clearing
+
+The Clear button unmounts once the value is empty, so focus fell to the
+body. Focus the input after clearing, and hide WebKit's own cancel button
+so the field offers one clear action, not two."
+https://www.github.com/0xuser64bit/mizu,f2747e45831d024b04221c383ac217bba58ba9a8,2026-10-23T07:42:27+00:00,Human,,70,6,4,True,True,False,False,"fix(number-field): let a number be typed through the range
+
+NumberField clamped every keystroke, so with min 10 typing 50 stopped at
+10 after the 5, and clearing the field restored the old value. Keep the
+typed text as a draft, report it once it is a number in range, and settle
+it into range on blur or Enter."
+https://www.github.com/0xuser64bit/mizu,616ed1215976c214c8fd6dbfbe8c7f1340728dc5,2026-10-21T16:52:31+00:00,Human,,222,99,11,True,True,False,False,"fix(range-selector): put both handles on one shared scale
+
+Each handle's native bounds follow the other handle, so the From slider's
+track ran from min to the end value and the To slider's from the start
+value to max. One number sat at different places on the two rows: on the
+audio workbench a 0:17.3 start sat two thirds along its track and the
+0:25.7 end a quarter along its own, so the end handle appeared left of the
+start, and the page drew a separate ruler to show the real selection.
+
+Each input now spans only the stretch of a shared scale it can reach,
+placed with CSS custom properties, so both thumbs land where their values
+fall and the selected window is drawn on both rows. The native min and
+max, and so what assistive technology announces, are unchanged, and the
+handles still cannot cross. The handles take Slider's hairline and
+diamond, and the audio workbench drops its stand-in ruler."
+https://www.github.com/0xuser64bit/mizu,bbb4068bb3e6d3a494b8a29d81e03605debff99c,2026-10-21T16:37:47+00:00,Human,,25,11,5,False,True,False,False,"docs: record the workshop QA pass and the bench page pattern
+
+- WORKSHOP-TESTING: the browser pass now exists (1440, 820 and 375 px, both
+  themes); Dock's pane keys are directional; block commands use the origin
+  being browsed.
+- README shows the deployed block install URL, with the local one as the
+  alternative.
+- CHANGELOG notes the Nav overlay fix, the one change to a released component.
+- DESIGN.md records the bench page pattern so new benches start from it.
+- The workshop brief reflects that the branch is now meant to land and push."
+https://www.github.com/0xuser64bit/mizu,fae2285434d5689193af7a7c5f9a0e109a765c4d,2026-10-21T16:37:47+00:00,Human,,23,2,3,True,True,False,False,"fix(nav): keep seven links reachable at every width
+
+Adding Workshop made the primary links 714px wide, so between 768px and
+about 850px they ran into the wordmark and past the right edge. The site
+now switches to the menu below 900px.
+
+The menu overlay could not scroll: seven 44px links are taller than many
+phones, so Standpoint and Hire fell off the bottom of a 667px screen, and
+Components was clipped at the right edge on narrow phones. The overlay now
+scrolls with its close bar pinned, and link type steps down from 44px to
+fit widths under 463px."
+https://www.github.com/0xuser64bit/mizu,2f262b5008158c5b9f57133013e6f6a6d7902614,2026-10-21T16:37:47+00:00,Human,,31,0,3,False,False,False,False,"feat(workshop): give the workshop and blocks their own share cards
+
+Every other section has an Open Graph card in the house style; the
+workshop pages and /blocks fell back to the generic site image. The
+workshop card covers the theme and playground benches too. The footer
+index now lists the Workshop, matching the site navigation."
+https://www.github.com/0xuser64bit/mizu,0d75402feebc9273945cecf9a461b4c791e5861a,2026-10-21T16:37:47+00:00,Human,,18,4,4,True,True,False,False,"fix(forms): give DateRangeField presets a group and its actions room
+
+The presets row carried a name on a plain div, which assistive technology
+ignores; it is now a labelled group. Preset chips take the bright hairline
+the rest of the library's chips and ghost controls use, instead of a line
+barely darker than the page, and Clear and Reset sit 20px apart rather
+than reading as one underlined phrase."
+https://www.github.com/0xuser64bit/mizu,ed280ed1025b55d9a09fd9aa6991082b626a246c,2026-10-21T16:37:47+00:00,Human,,38,19,6,True,True,False,False,"fix(dock): move tabs toward the pressed arrow
+
+Alt + Shift with either arrow sent the focused tab to the other pane, so
+Alt + Shift + → in the second pane moved the tab left. A move now happens
+only when the arrow points at the other pane (→ from the first, ← from the
+second), and the keymap says so.
+
+The panel action row is a labelled group, since a name on a plain div is
+not announced. The demo leaves a gap above Reset layout instead of butting
+it against the dock, and its panels read as heading and note, like the
+SplitPane demo."
+https://www.github.com/0xuser64bit/mizu,70c419181dd522deb6cf24556ff58b0c2a8a19fa,2026-10-21T16:37:47+00:00,Human,,10,4,2,True,True,False,False,"fix(audio): keep the workbench readouts and divider honest
+
+- The recording line said 00:51 while the player said 0:50; it now reads
+  the duration from the bundled data in the transcript's clock format.
+- The split handle sat in a pane aligned to the start, so its column was
+  a 120px stub hanging between the transcript and the notes. It now runs
+  the full height with its grip beside the panel headings.
+- The playing passage is marked with the house selection bar instead of a
+  vermilion wash."
+https://www.github.com/0xuser64bit/mizu,ad6c373107486833ea9eec2a0033ff8b583415c8,2026-10-21T16:37:47+00:00,Human,,9,9,2,True,True,False,False,"fix(examples): number the audio workbench EX-04 everywhere
+
+The index numbers its cards by position, and the audio workbench was
+inserted third, so the index called it EX-03 (and automation EX-04) while
+both pages said the opposite. It now comes last, matching EX-04 on its
+page, lists its systems in the page's order, and the examples description
+and share card name all four workflows."
+https://www.github.com/0xuser64bit/mizu,8563e9ea07ad45b6769504c71acf6e81343ebd6f,2026-10-21T16:37:47+00:00,Human,,159,143,6,True,True,False,False,"fix(blocks): show file names as written and frame each block like a demo
+
+- File names were Mizu ghost buttons, so the mono uppercase caption turned
+  Readme.md into README.MD and the text sat on the button's left border.
+  They are now plain selection buttons in the table's own type.
+- Each block sits in a frame like the component demos: the install command
+  and its copy action share the top bar, and the live block fills the stage
+  beneath, instead of a floating code box with a copy link under it.
+- The jump links move into the header as the examples' chips, removing the
+  extra rule and the empty band above the first block.
+- ""Inspect registry source"" becomes a labelled Registry JSON link that
+  says it opens a new tab.
+- Save and Discard stretch to one height; the ghost button's border made
+  them differ by 2px.
+- Showcase styles leave blocks.css, so installed blocks no longer copy the
+  site's page layout into a project.
+- The page title no longer reads ""Blocks — Mizu compositions — Mizu""."
+https://www.github.com/0xuser64bit/mizu,7fcda83e609f51e52dd3691b74dbc099e21c7b71,2026-10-21T16:37:47+00:00,Human,,70,18,5,True,True,False,False,"fix(playground): write the JSX a person would write
+
+Copied examples wrapped every string in an expression and listed every
+default, so a button read
+<Button variant=""solid"" size=""md"" ...>{""Keep the good work""}</Button>.
+Plain text and attributes are now written as plain JSX, falling back to a
+quoted expression only for characters JSX can't carry, and default props
+are left out.
+
+On component pages the inline controls now belong to that component: no
+picker for the other four, no install note, and the bench keeps its two
+columns instead of stacking the controls above the preview."
+https://www.github.com/0xuser64bit/mizu,cc4db8119104fcee3eabe86d739bee351682f2ad,2026-10-21T16:37:46+00:00,Human,,42,37,5,True,True,False,False,"fix(workshop): tidy the theme and playground benches
+
+- One copy action per export: the code block already copies, so the extra
+  Copy CSS and Copy JSX buttons that sat above it are gone.
+- Sliders in the control columns stack their track under the label, so the
+  Corners and Initial value tracks span the column instead of ~50px.
+- Reset links align with the fields; Narrow preview centres on its select.
+- The preview's review list no longer draws a second rule under the tabs,
+  and preview buttons keep their own width.
+- Badge and Alert readouts no longer promise actions they don't have."
+https://www.github.com/0xuser64bit/mizu,ae6d7276e3dc98ae977599fcbb1de849b5c49f66,2026-10-21T16:17:44+00:00,Human,,54,23,4,True,True,False,False,"fix(workshop): set the index on fixed tracks with the house selection bar
+
+Each index row sized its columns to its own action label, so the
+descriptions started at a different x on every row. Rows now share fixed
+tracks like the rate rows on /work: the 2px vermilion bar grows down the
+left edge on hover or focus, and the action caption is a muted mono label
+with an arrow instead of vermilion text, which is reserved for state.
+Bench names follow the site's sentence case, and the workshop pages get
+descriptive titles like the rest of the site."
+https://www.github.com/0xuser64bit/mizu,e8360ead0f95b4c6f495117a065aae0cd2fae2ee,2026-10-21T16:16:18+00:00,Human,,38,71,2,True,True,False,False,"fix(workshop): hold every bench to the examples container and header
+
+The workshop shell centred itself with auto margins inside the flex body,
+so each page shrank to its own content: the index, theme bench and
+playground rendered at different widths, switching playground components
+moved the whole page, and on phones the theme bench grew past the viewport
+and was clipped. The shell now uses the examples container and header, and
+its local navigation is the kicker line, with the current bench in accent."
+https://www.github.com/0xuser64bit/mizu,d9bbe9087309c943138ceaa978eca880e29db289,2026-10-21T15:30:52+00:00,Human,,10,2,3,True,True,False,False,fix(playground): preserve typed field content in copied examples
+https://www.github.com/0xuser64bit/mizu,d18ef3588010e00f3998d9e118bf6175c6ab20df,2026-10-21T15:29:55+00:00,Human,,174,15,13,False,False,False,False,docs: connect workshop discovery and document testing and compatibility
+https://www.github.com/0xuser64bit/mizu,4ce74a8b3995f02e4e4d8dcf79341825ccab3fb6,2026-10-21T15:29:55+00:00,Human,,3341,5,32,False,False,False,False,feat(registry): ship installable blocks and catalog the new systems
+https://www.github.com/0xuser64bit/mizu,2306ac84db81eb1d64c76153f0d36f0b9c24ebab,2026-10-21T15:28:03+00:00,Human,,551,0,6,False,False,False,False,feat(docs): add interactive prop playground with executable JSX export
+https://www.github.com/0xuser64bit/mizu,d1a48b98c03732b0a83ac506b6bf64f7c797235c,2026-10-21T15:24:08+00:00,Human,,2064,0,8,False,False,False,False,feat(examples): add audio review workbench with real sample and excerpt notes
+https://www.github.com/0xuser64bit/mizu,b52a041fda281483c00a8182af4049b8d53a55dd,2026-10-21T15:24:08+00:00,Human,,1092,0,7,False,False,False,False,feat(workshop): add live theme builder with contrast checks and CSS export
+https://www.github.com/0xuser64bit/mizu,b6729edbbdb683b3bf3ce7716a8b6eff7a7046a8,2026-10-21T15:22:50+00:00,Human,,901,0,5,False,False,False,False,feat(layout): add state-preserving dock workspace
+https://www.github.com/0xuser64bit/mizu,5ac4a17624a38616b8d0b2b3b7bc9e84c1ce61df,2026-10-21T13:19:26+00:00,Human,,536,0,5,False,False,False,False,feat(forms): add accessible native date range field
+https://www.github.com/0xuser64bit/mizu,ec5837e361507c014fe0dadcc1df563498d4a6e6,2026-10-21T13:17:42+00:00,Human,,44,0,1,False,False,False,False,docs: define Mizu workshop implementation contract
+https://www.github.com/0xuser64bit/mizu,fe7d557675826c701a8e15917a3076d2e4db98ce,2026-10-21T10:17:52+00:00,Human,,45,309,88,False,False,False,False,"chore: remove redundant site, test and usage comments"
+https://www.github.com/0xuser64bit/mizu,c15d655831f43c52741aec60607f52e7cd12939c,2026-10-21T10:16:59+00:00,Human,,34,817,141,False,False,False,False,chore: prune package commentary and regenerate registry sources
+https://www.github.com/0xuser64bit/mizu,1ebf1fc413205511d69ebee7393bec15203fd847,2026-10-21T10:10:55+00:00,Human,,11,97,19,False,False,False,False,chore: remove redundant tooling comments and generated headers
+https://www.github.com/0xuser64bit/mizu,37be426555503455b9a03c0e002d99318db10a44,2026-10-13T15:27:42+00:00,Human,,96,2,3,False,False,False,False,"feat(work): count where briefs stop, and land home links on their rate
+
+Analytics now gets the brief's funnel: brief_prefill when a rate row primes
+it, brief_start on the visitor's first answer, brief_answer once per
+question with its step, then brief_sent with the commission, budget and
+timeline chosen, or brief_failed with the reason shown. A prefill never
+counts as a start. Only question ids and choice values are sent, never
+what someone typed; a test holds both.
+
+Each rate row has an id, rate-<commission>, and a scroll margin, so the
+home page's links land on their row under the nav."
+https://www.github.com/0xuser64bit/mizu,248531ce248db26786c15044d09f9b650d485e63,2026-10-13T15:27:42+00:00,Human,,78,0,2,False,False,False,False,"feat(home): close the archive with what it costs to have it made
+
+The home page reached /work only through ""Hire"" in the nav and the footer.
+A fifth section, after the lab, says it plainly: everything on the site was
+made by one person, who makes the same work for your product. Beside it,
+the four commissions with their floors and weeks, read from the same
+constant as /work, each linking to its row there, and a way to start a
+brief."
+https://www.github.com/0xuser64bit/mizu,df63c87e800aefeabd6d1a18ebdae6cb2e6edba3,2026-10-13T15:27:42+00:00,Human,,350,1,15,False,False,False,False,"feat(share): give every page its own link-preview card
+
+Every link shared from the site showed the home page's image. Each section
+now draws its own 1200×630 card at build time, in the site's own type and
+material: the wordmark, a mono label, the page's heading with its serif
+accent word where the page has one, one line in the page's words, and its
+address. Each of the 127 component pages gets its name and the first
+clause of its tagline, with the full tagline as alt text. The home page
+keeps its designed preview.
+
+The layout no longer pins twitter:image to the home preview, so Next copies
+each page's own og:image into it.
+
+Satori reads neither woff2 nor variable axes, so src/lib/og carries static
+cuts: Archivo at the site's display width (118) and weight (900) and at 400,
+with Instrument Serif italic and JetBrains Mono, all under the OFL."
+https://www.github.com/0xuser64bit/mizu,e84ec12c305fa04319c32ae59d0435c687d3f925,2026-10-13T10:03:21+00:00,Human,,18,5,4,True,True,False,False,"fix(work): send briefs from a verified domain given alone
+
+CONTACT_FROM set to just the verified domain made every send fail: Resend
+needs an address in from, so each brief came back ""didn't send"". A value
+without an @ now sends as Mizu Studio <briefs@that-domain>; an address is
+used as given, and nothing still falls back to Resend's test sender."
+https://www.github.com/0xuser64bit/mizu,857453779e58981e60d28aa9a8fe9c2030d01260,2026-10-13T10:00:42+00:00,Human,,128,44,2,False,False,False,False,"docs(design): record the /work patterns; refresh the sidecar
+
+DESIGN.md gains ""Site surfaces"": the drafting surface, the dimension-line
+note, the step ruler, the rate row and the working-surface frame, with
+where they live.
+
+.impeccable/design.json predated the rewrite of DESIGN.md. Its colors now
+carry their values from core.css (the frontmatter they pointed at is gone),
+its shadow entry matches the one-soft-shadow rule, Reveal and the nav
+chapter breakpoint match the code, the five patterns have snippets, and the
+rules and do's and don'ts are DESIGN.md's own words."
+https://www.github.com/0xuser64bit/mizu,68e235c2515eff4e458d42328059385cf26c7246,2026-10-13T10:00:42+00:00,Human,,19,2,3,True,True,False,False,"fix(work): keep the proof board beside its list; flip the readout
+
+On desktop the proof list runs about 750px past the board, which left the
+right column empty. The board now sticks under the nav while the list
+passes, as the brief's copy does, and sits in the flow on narrow screens.
+
+The direction contract has the readout flip: each deploy the playhead
+crosses now drops into the readout like a split-flap card. CSS only, and
+off under reduced motion."
+https://www.github.com/0xuser64bit/mizu,801ca001202861f0a063e58a5e96992e9c59e711,2026-10-13T10:00:42+00:00,Human,,2,2,1,True,True,False,False,"fix(studio): speak as one person
+
+The close said ""by people who care about the difference"" and a principle
+said ""We design the machine"", while /work says Mizu Studio is one person.
+They now read ""by one person who cares about the difference"" and ""Design
+the machine, not the screenshot."""
+https://www.github.com/0xuser64bit/mizu,2e34211df30281bcb9dc17f7463f00c0e890dade,2026-10-13T10:00:42+00:00,Human,,10,12,2,False,False,False,False,"refactor(annotator): name the open thread's subject once
+
+The thread popover read (draft ?? active)! three times in its props, and
+jsx-ast-utils can't resolve a non-null assertion, so every lint run printed
+""TSNonNullExpression could not be resolved"". It is now one popover value,
+narrowed by the condition that renders it. No behavior change."
+https://www.github.com/0xuser64bit/mizu,51491c110d34f7c07b712115ed4df9bf1af30d5f,2026-10-13T10:00:42+00:00,Human,,93,18,10,True,True,False,False,"fix(motion): hydrate reduced-motion components without a mismatch
+
+useReducedMotion read the visitor's setting on the first render, which the
+server can't know. Under reduced motion every component that renders
+differently for it (Reveal, MaskLine, Chronicle and others) produced markup
+that didn't match the server's, on 11 of the site's 137 pages, and React
+keeps the server's attributes when they differ.
+
+The hook now uses useSyncExternalStore: ""no preference"" while hydrating,
+then a re-render with the setting, and it follows changes to it. Reveal's
+start and end no longer depend on the setting, only its timing, so nothing
+is left offset when the setting arrives after mount. The site's Hero, Index,
+Cursor and the /work stage use the package hook instead of motion's.
+
+A crawl of every sitemap page now finds no hydration errors with reduced
+motion on or off."
+https://www.github.com/0xuser64bit/mizu,8a9a416a136fc67d342f1b1e9ce874e70ef0aa4a,2026-10-13T09:44:29+00:00,Human,,1,2,2,True,True,False,False,"fix(work): keep the loading sweep a hairline
+
+The sweep across the skeleton had a zero-offset accent ring that thickened
+it into a glow. Loading is a hairline. Also note why the brief's frame is
+Frame's classes on a div: Frame renders a figure, and a form isn't one."
+https://www.github.com/0xuser64bit/mizu,8a0f2458f63bb7517a13bc3526b11e550c409662,2026-10-13T09:44:29+00:00,Human,,76,62,3,True,True,False,False,"fix(work): let the proof be handled, not read
+
+The proof board was a split-flap turning through system names, which still
+only named the work. Now it shows three archive pieces working together: a
+Knob and a Fader, and a SplitFlap board that settles on what they were set
+to when they let go. You can drag them, use the arrow keys or double-click
+to reset, and each one links to its page. The board sits at the top of the
+section, beside the heading.
+
+The Interview's question count is gone on /work. Its progress rule already
+counts, and vermilion stays with action."
+https://www.github.com/0xuser64bit/mizu,0c221c4a07adbe70c4ab372bdd2aa22a1a408816,2026-10-13T09:44:29+00:00,Human,,307,96,8,True,True,False,False,"fix(work): act on the finish review
+
+- Proof shows the archive working instead of only naming it: a bracketed
+  split-flap board turns through the 22 signature systems, each a link
+  away. It turns only on screen, and only by hand under reduced motion.
+  The page passes just the names, so the catalog stays on the server.
+- The sketch's notes are dimension lines with end ticks across each box,
+  an annotated drawing rather than labelled rectangles.
+- The step headings each carry one serif accent word. The ""01 / 05""
+  counters are gone: the stage's ruler and its Fig. label already carry the
+  sequence, and vermilion goes back to action and selection, which includes
+  the Interview's question count.
+- The k floor moves into the first-person line, and the brief is signed.
+- The rate card's columns are fixed tracks, so every row lines up.
+- The brief sits in the stage's bracket frame, and its choices use the
+  card's width.
+- The chart's data runs to 24:00 to match its axis.
+- The surface brief records why the headline is ""Have it made.""."
+https://www.github.com/0xuser64bit/mizu,e8d7977d710a38b4e0b8087c4c58fa2730c9e89c,2026-10-13T09:44:29+00:00,Human,,23,5,5,False,False,False,False,"docs(work): set up the commission inbox; polish the brief's words
+
+The README names the environment variables the brief needs and what happens
+without them. The brief's messages use typographic apostrophes like the
+rest of the page, and its confirmation sits at body weight under the bold
+""It's in."""
+https://www.github.com/0xuser64bit/mizu,927764797bcf796d9cea25da8ea96f8b80c465d8,2026-10-13T09:44:29+00:00,Human,,5,2,1,True,True,False,False,"fix(studio): square ""not a template shop"" with taking commissions
+
+""Nothing here is a starting point for someone else's idea"" reads as a
+refusal of client work now that Mizu takes commissions. The line now says
+what a commission is: made for you, not filled in from a kit. The
+manifesto's close offers /work beside the way back to the archive."
+https://www.github.com/0xuser64bit/mizu,f3b501272eb38ce5682f01d8218b71a337a93c93,2026-10-13T09:44:29+00:00,Human,,10,0,3,False,False,False,False,"feat(nav): link /work as Hire from the nav and the footer
+
+Hire is short enough to fit a sixth link. The nav's chapter label sits at
+the center of the page, and with six links it would run into them below
+1360px (measured with Commission, the longest chapter), so the site hides it
+there. It already overlapped the links between 1024px and about 1230px."
+https://www.github.com/0xuser64bit/mizu,4a1485e6bf80018f02bc305b03c534ecd4ca609b,2026-10-13T09:44:29+00:00,Human,,627,0,4,False,False,False,False,"feat(work): add the proof, the rates and the brief
+
+- Proof: ""Judge the work, not a logo wall."" points at the three examples and
+  every system in the archive. No client work is claimed.
+- Rates: the four commissions on a rate card, cheapest first, each with its
+  weeks, what's included and its floor. The whole row is the target of its
+  ""Brief this"" button, which pre-selects that commission in the brief and
+  moves focus to it. A line below names the work outside what's on offer.
+- Brief: Mizu's own Interview asks seven questions and sends them through
+  the server action. A failure keeps the answers, gives the reason, and
+  offers NEXT_PUBLIC_CONTACT_EMAIL when it's set.
+
+The page closes with the home footer."
+https://www.github.com/0xuser64bit/mizu,572ba74d06d420a2410f482ae70251a02aa7d614,2026-10-13T09:44:29+00:00,Human,,30,0,4,True,True,False,False,"fix(interview): leave the page's focus alone on mount
+
+Interview focused its first answer as soon as it mounted. Embedded below the
+fold, that meant the arrow keys and space bar the visitor used to scroll
+changed answers in a form they hadn't reached yet. Focus now moves with the
+questions only once focus has been inside the interview. Each question reads
+that once when it appears, so clicking a choice doesn't pull focus back to
+the first one."
+https://www.github.com/0xuser64bit/mizu,f45432c77c077730281c2981be31144dfc233a63,2026-10-13T09:44:29+00:00,Human,,1448,23,6,False,False,False,False,"feat(work): open /work with one component built in five stages
+
+The page opens on ""Have it made."" beside a bracketed stage. As the steps
+scroll past, one deploy timeline goes from a pencil sketch on a drafting
+grid, to its surface, to its four states (loading, empty, error, ready), to
+motion, and then to the handoff of its code. Every stage is the same DOM
+under a different data-stage, so CSS transitions do the building.
+
+At the motion stage the playhead is a real slider. You can drag it or use
+the arrow keys, Home and End, and Space plays or pauses it. Per-frame values
+are written to the DOM: the played line is clipped from --p, and each deploy
+diamond seals once the playhead passes it. The selection bar follows the
+latest deploy. Autoplay stops off screen and waits for an explicit Play
+under reduced motion. On a phone the stage sticks under the nav and the
+steps switch lower on the screen, below it.
+
+Commissions are listed cheapest first so the floor reads first."
+https://www.github.com/0xuser64bit/mizu,f6b0fc3b3858249063159025071b49f5519fd78d,2026-10-13T09:44:29+00:00,Human,,204,0,3,False,False,False,False,"feat(work): send commission briefs to the inbox through Resend
+
+A server action checks the brief again (the page's checks are for the
+visitor, these are for the inbox) and posts it to Resend's API as plain
+text, with reply-to set to the sender. It returns a reason instead of
+throwing, since production redacts thrown messages. Without a key it logs
+the brief in development and says the inbox isn't connected in production.
+
+Env: RESEND_API_KEY, CONTACT_TO, and optionally CONTACT_FROM."
+https://www.github.com/0xuser64bit/mizu,81b2ff39a7066e32c2cd397f9a20058fb3b0bfa4,2026-10-13T09:44:29+00:00,Human,,104,0,2,False,False,False,False,"docs: record the product and the /work direction for design work
+
+PRODUCT.md holds what is true about Mizu and the new commission side: one
+person, no client work to show yet, four commissions with price floors.
+The surface brief records the direction chosen for /work."
+https://www.github.com/0xuser64bit/mizu,ef873869e6e8edb7fe5efffdd2b4b6c6f22a4c63,2026-10-03T15:42:05+00:00,Human,,6,0,3,False,False,False,False,"Merge pull request #1 from 0xuser64bit/vercel/install-vercel-web-analytics-upc19a
+
+Install Vercel Web Analytics"
+https://www.github.com/0xuser64bit/mizu,0db54c99cd21b36cf2649ae9f48436c0bb707977,2026-10-03T14:46:05+00:00,Human,,6,0,3,False,False,False,False,"Install Vercel Web Analytics
+
+Implemented Vercel Web Analytics for the Mizu project.
+
+## Changes Made
+
+### 1. Installed @vercel/analytics Package
+- Added `@vercel/analytics` version 2.0.1 to dependencies using Bun package manager
+- Updated package.json with the new dependency
+- Updated bun.lock to lock the new dependency version
+
+### 2. Configured Analytics in Root Layout
+- Modified `src/app/layout.tsx` to integrate Vercel Web Analytics
+- Added import: `import { Analytics } from ""@vercel/analytics/next""`
+- Added `<Analytics />` component at the end of the body, after existing analytics (GoogleAnalytics)
+- Placement ensures analytics tracking is initialized after the main content
+
+### Implementation Details
+- Followed the official Vercel Analytics quickstart documentation (https://vercel.com/docs/analytics/quickstart)
+- Used the Next.js App Router specific configuration as recommended in the docs
+- Preserved all existing code structure and imports
+- The Analytics component is placed alongside the existing GoogleAnalytics component for consistent tracking setup
+
+### Files Modified
+1. `package.json` - Added @vercel/analytics dependency
+2. `bun.lock` - Updated lock file with new dependency resolution
+3. `src/app/layout.tsx` - Added Analytics import and component
+
+### Verification
+- Build completed successfully with no TypeScript errors
+- All 399 pages generated without issues
+- The Analytics component will automatically track page views once deployed to Vercel
+
+### Next Steps (for deployment)
+1. Deploy to Vercel using `vercel deploy`
+2. Enable Web Analytics in the Vercel dashboard for the project
+3. Verify tracking by checking the browser's Network tab for requests to `/<unique-path>/view`
+
+Co-authored-by: Vercel <vercel[bot]@users.noreply.github.com>"
+https://www.github.com/0xuser64bit/mizu,accef543f6e03d26058cc1dc04aa5b54ee243996,2026-10-01T18:48:15+00:00,Human,,1,1,1,True,True,False,False,"fix(studio): drop the tracking claim from ""What Mizu is not""
+
+The ""A growth surface"" row said ""No tracking, no funnels, no engagement
+tricks"" while every page loads Google Analytics. Remove the claim, as in the
+footer, and keep the rest of the line."
+https://www.github.com/0xuser64bit/mizu,39d8c8772a0712fea74ab5b2359f56758a52dbb5,2026-10-01T18:48:15+00:00,Human,,0,2,2,False,False,False,False,"chore(public): remove the unused field SVGs
+
+field.svg and field-light.svg (28 KB each) have no reference left in the
+repository or the built site. The usage examples that pointed at /images/field.svg
+switched to a data URI earlier (see the changelog), and the hero draws on a canvas."
+https://www.github.com/0xuser64bit/mizu,cf401578685637352b29b55cecc87762d52efb39,2026-10-01T18:39:45+00:00,Human,,231,56,9,False,False,False,False,"perf(home): start the first screen's entrance in CSS, not after hydration
+
+Reveal and MaskLine render hidden (opacity 0, translateY(112%)) and animate
+only once the JavaScript has run. On a throttled phone (4x CPU, 1.6 Mbps) the
+hero was blank until about 2.4 s, then the paragraph waited out a 0.95 s delay
+and a 0.95 s fade: Chrome measured the largest paint at 4.3 s on the home page
+and 2.8 s on /lab and /studio, which wait the same way. On desktop the home
+page measured 2.3 s.
+
+- Rise and RiseMask do for what is on screen at load what Reveal and MaskLine
+  do, from CSS with the same easing, so it starts at first paint. Everything
+  below the fold keeps Reveal. Under reduced motion there is no animation,
+  where Reveal left the first screen 32px low.
+- The largest text of each first screen (the hero paragraph, the /lab heading,
+  the /studio statement) rises without fading. Chrome counts text that fades in
+  only once something repaints it afterwards, which here was a font arriving:
+  the same page measured 2.1 s or 2.7 s depending on when.
+- Showing text earlier exposed a reflow: /studio shifted by 0.12 when the serif
+  and mono faces arrived after its paragraph. They are preloaded now (the URLs
+  the stylesheet resolves to, so they are not fetched twice). Archivo is not:
+  at 88 KB it delayed first paint more than it saved.
+- A test renders the hero as a server does and fails if anything on it is
+  hidden until the client runs.
+
+Measured the same way, median of 5, before and after: LCP 4.30 s to 1.42 s
+(home), 2.80 s to 1.39 s (/lab), 2.29 s to 1.41 s (/studio) on a throttled
+phone; 2.30 s to 0.25 s, 1.44 s to 0.24 s and 0.37 s to 0.25 s on desktop. CLS
+stays at or under 0.032 and the docs pages do not move."
+https://www.github.com/0xuser64bit/mizu,a6250231a0396de7f9629cd31d0c3985d7ef77dc,2026-10-01T18:39:36+00:00,Human,,51,14,5,False,False,False,False,"feat(docs): add llms-full.txt, every component's documentation in one file
+
+llms.txt and the per-component Markdown suit an agent that fetches what it
+needs. Tools that index a site in one request (an editor's docs feature, an
+assistant told ""read this URL"") want a single file, and the catalog already
+renders every page: 189 KB, about 48k tokens, 127 components.
+
+- /llms-full.txt is the project summary, then each component's Markdown. It is
+  noindex, being a copy of the pages the search results should be.
+- llms.txt links it under Optional, as the convention has it. The summary both
+  files open with moves into markdown.ts so they share it."
+https://www.github.com/0xuser64bit/mizu,66e75cc644edc49d79a269dec9f43d32b1b5aa53,2026-10-01T18:39:27+00:00,Human,,1,1,1,True,True,False,False,"fix(home): drop the tracking claim from the footer
+
+The footer said ""no tracking, no cookies"" while every page loads Google
+Analytics. Remove the claim rather than reword it; ""Independent"" stays."
+https://www.github.com/0xuser64bit/mizu,7066ceffaabbc3c563e8f18ad177a6197348e97f,2026-10-01T17:39:07+00:00,Human,,36,8,4,False,False,False,False,"docs: link the documentation site from the package and the readmes
+
+npm's page for mizu-ui sent people to the GitHub readme as its homepage, and
+neither readme mentioned the hosted documentation, so the two places someone
+meets the package never pointed at the pages that document it.
+
+- package.json: `homepage` is the documentation site; the description names
+  the kinds of system; keywords add react-components, component-library,
+  typescript, accessibility, dark-mode, shadcn, timeline, charts and forms.
+  They ship with the next release; the version is untouched.
+- Both readmes link the site and its llms.txt.
+- Changelog entries for the package metadata and the docs site."
+https://www.github.com/0xuser64bit/mizu,51550beab439cac03569b7913e5089f3e9a1a90a,2026-10-01T17:39:02+00:00,Human,,42,2,4,False,False,False,False,"feat(home): say in the page's text that Mizu is a React component library
+
+The home page was all manifesto: read as text it never mentioned React, npm,
+mizu-ui or the component collection, and /studio listed ""A component library""
+under ""What Mizu is not"", which an answer engine could quote as fact.
+
+- Manifesto, the section that answers ""what Mizu is"", adds a short paragraph:
+  it ships as mizu-ui, a React component library on npm, with the system and
+  family counts read from the catalog, and links to the collection and to
+  getting started.
+- The signature section gets a ""Browse all N systems"" button beside its
+  examples one, and the footer links Components, Examples, GitHub and npm.
+- /studio now says Mizu is not ""just a component library"", which keeps its
+  point (components are the output, not the input) without denying the package."
+https://www.github.com/0xuser64bit/mizu,02c47f3f39f16cbe79e8002ef44ee28263dc254c,2026-10-01T17:38:55+00:00,Human,,133,1,6,False,False,False,False,"feat(docs): serve llms.txt and each component's documentation as Markdown
+
+A component page is 90 KB of HTML around a few KB of documentation, most of it
+a 126-link sidebar, so an agent that fetches one spends its context on
+navigation. Serve the documentation itself:
+
+- /components/<slug>.md: the page's description, usage code, shadcn command,
+  props, keyboard map, accessibility and motion notes, generated from the
+  catalog. Served through a rewrite to /components/<slug>/md, with
+  `X-Robots-Tag: noindex` so the page stays the result.
+- /llms.txt (llmstxt.org): what Mizu is, how to install and use it, and a link
+  and tagline for every component, read from the catalog and package.json so
+  it cannot drift from them.
+- Each component page links its Markdown as <link rel=""alternate"">.
+- A test holds every component to a title and description of its own, a
+  listing in llms.txt and Markdown with balanced code fences."
+https://www.github.com/0xuser64bit/mizu,40134b7b117c7e438c95283c34ba76890f139a40,2026-10-01T17:38:36+00:00,Human,,249,37,22,False,True,False,False,"feat(seo): give every page its own title, description, canonical and preview
+
+Every route inherited the home page's title, description and link preview,
+/lab and /studio shared its <title>, and there was no canonical URL, sitemap,
+robots.txt or structured data. The home page never said Mizu is a React
+component library.
+
+- One canonical origin (src/lib/site.ts) for metadataBase, the sitemap and
+  structured-data ids; it falls back to the production host, not localhost.
+- A title template, a description that says what Mizu is, and an Open Graph
+  block without title or description, so each page's own flow into its link
+  previews. Every page sets a self-referencing canonical.
+- Component pages are titled ""Button React component"" and described from their
+  tagline; /lab, /studio and getting-started finally have metadata.
+- sitemap.ts (the 9 fixed pages plus all 127 component pages, no invented
+  lastmod), robots.ts, and a test that fails when a page is neither in the
+  sitemap nor deliberately left out.
+- JSON-LD: WebSite and SoftwareSourceCode on the home page, SoftwareSourceCode
+  for each component. `X-Robots-Tag: noindex` on /api/source and on the
+  /examples/nav iframe fixture.
+- Navigator no longer overwrites document.title after navigating: the four
+  titles it hard-coded predate per-route titles and disagreed with them."
+https://www.github.com/0xuser64bit/mizu,6ff6fa0cd01d0e4dd42c57ce42dbb1916c8f694e,2026-09-30T17:13:16+00:00,Human,,65,16,4,True,True,False,False,"fix(trend-chart): keep the last axis label inside the chart
+
+Axis labels read right of their tick. When the data ends on a tick, as
+the docs example does on its last day, that label ran past the chart's
+right edge and across its border (""MON 7""), since the plot keeps 12px
+on the right and its svg lets marks overflow. A label that would cross
+the edge now ends at its tick instead.
+
+In the example at 1024px, ""Mon 7"" now spans 941-974px inside a card
+ending at 992px; at 390px every label stays inside too."
+https://www.github.com/0xuser64bit/mizu,fa6593d5dc20ff579ba765ee2f071909236ad824,2026-09-30T17:13:15+00:00,Human,,66,2,6,True,True,False,False,"fix(icons): draw icons as blocks; keep Stat's arrow beside its change
+
+Tailwind's preflight makes every svg a block. In a Tailwind app, the
+docs included, that put Stat's trend arrow on a line of its own above
+the change it marks. Without Tailwind, the same svgs are inline: they
+sit on the text baseline, so DataTable's sort arrows rode above their
+headers and ReorderList's grip and move controls sat off center.
+
+Mizu's icons (ArrowIcon, GripIcon, CompareIcon) now declare the block
+display the docs drew them with, still overridable through `style`, and
+Stat's change line is a flex row that keeps the arrow beside its text.
+
+With the border-box and font fixes before this, at least 112 of the 126
+examples match pixel for pixel between a plain Vite app and a Tailwind
+Next.js app, from 94. Nine of the rest differ only in headings and
+paragraphs the examples bring, which follow the page's reset; four keep
+every element's box and differ in rendering alone."
+https://www.github.com/0xuser64bit/mizu,d8050db76a23fa9e9ee49d8202b33dc7ec189b77,2026-09-30T17:13:14+00:00,Human,,59,0,5,True,True,False,False,"fix(content): set CodeBlock and DataInspector code in Mizu's mono
+
+Browsers give <code> their own monospace and Tailwind's preflight gives
+it the app's, so it never inherits. CodeBlock's code rendered in Geist
+Mono in a new Next.js app, and in the browser's default monospace
+without Tailwind, inside a pre set in JetBrains Mono; DataInspector's
+values did the same. Both now inherit their container's font.
+
+A test finds every code, kbd, samp and pre a component renders without
+a class of its own and requires a font rule for it under one of the
+Mizu classes around it. Without this fix it names exactly these two."
+https://www.github.com/0xuser64bit/mizu,eea5d9ae63def787099e3de7e2346e6bf9618226,2026-09-30T17:13:13+00:00,Human,,238,8,50,True,True,False,False,"fix(styles): size unclassed elements by their border box
+
+`:where([class*=""mizu-""])` makes Mizu's classed elements border-box, but
+elements a component styles through its parent's class, such as the span
+in `.mizu-segmented span`, stayed content-box unless the page's reset
+said otherwise. Tailwind's preflight does; a plain app does not. There,
+SegmentedControl's 44px options measured 60px, as did BottomNav, SideNav
+and AnchorNav links, ActionMenu and MultiSelect summaries, Checklist
+rows, Interview choices, TagInput's field, Outliner's text and AppShell's
+panes, and small bordered marks drew 2px wider. Toast's panel, 100% wide
+plus 18px of padding each side, ran off both edges of a phone.
+
+Each rule that sizes and pads or borders such an element now makes it
+border-box, as do Chronicle's lane labels, whose height is inline, and
+Toast's panel. Two tests hold the rule: one over the stylesheets, keyed
+by the nearest Mizu class and tag across rules, and one over inline
+styles on unclassed elements.
+
+Pasting all 126 examples into a Vite app without Tailwind and a Next.js
+app with it, 94 matched pixel for pixel before; 107 do now."
+https://www.github.com/0xuser64bit/mizu,a51784897334683bac48e63c55f7edb558b1309a,2026-09-30T17:13:12+00:00,Human,,18,7,2,False,False,False,False,"docs(changelog): record 0.2.0 and 0.2.1 as the releases npm has
+
+The changelog called 0.2.0 ""prepared, not published"" and credited it
+with the Signature family and 126 systems. npm has 0.2.0 (2026-09-27)
+and 0.2.1 (2026-09-28), and their tarballs differ: 0.2.0 ships 104
+systems across 13 families and no mizu-ui/signature; 0.2.1 adds the
+Signature family, a region role on CodeBlock's scrollable code and
+merged CopyButton styles. The changelog now has a section for each.
+
+PUBLISHING.md said 0.2.0 was prepared. It now says package.json keeps
+the last published version until a release bumps it, and the publish
+steps include setting the version and dating the Unreleased section."
+https://www.github.com/0xuser64bit/mizu,45f5e6408d8b93536f47261a61f82cf671c0473d,2026-09-30T17:13:11+00:00,Human,,237,24,5,False,False,False,False,"docs: set up without Tailwind, update copied components, customize
+
+`init` needs Tailwind but `add` does not, and the docs said the CLI
+needed it. Getting started and both READMEs now give the components.json
+to write in a Vite or other non-Tailwind app, say how `add` treats files
+that exist (it asks before replacing one that differs from the registry,
+even with --yes) and give the --overwrite command that re-adds everything
+installed.
+
+Customizing leads with tokens. An override on `:root, [data-theme]`
+reaches both themes and nested theme wrappers, where `:root` alone stops
+at the first data-theme. A token set on one component carries its hover
+with it, while a background set on `.mizu-btn.brand` loses to Mizu's
+hover rule. Other properties take a second class or Tailwind's `!`; with
+the npm package and Tailwind v4, importing styles.css into the components
+layer lets plain utilities win. next-themes needs
+attribute={[""class"", ""data-theme""]}.
+
+Each recipe was checked in Next.js apps, one installed with the shadcn
+CLI and one with this branch's npm tarball, by reading computed styles in
+Chromium, including in the light theme and on hover. The guide's inline
+links get an underline so the new changelog link reads as one."
+https://www.github.com/0xuser64bit/mizu,86ebc9cbd7b2680aa05dd153849826f14af94ffc,2026-09-30T17:13:10+00:00,Human,,169,103,16,False,False,False,False,"docs(examples): make every example render as its preview when pasted
+
+Pasted into a fresh app, several usage examples looked broken even though
+the components worked. Six pointed at the docs site's
+/images/field.svg, a 404 anywhere else, so ImageFigure, AspectRatio,
+Parallax, ImageCompare, Gallery and Annotator showed broken images or
+overlapping alt text. Button's four buttons touched, reading as two.
+RippleSurface's hero had no height, so the surface was a sliver behind
+16px text. Tilt put text straight under Frame's corner marks. MaskLine's
+headline inherited 16px. SplitFlap's row pushed its button off a phone.
+Toast, PageWipe and Magnetic used a bare <button>, and Progress,
+SaveIndicator and AsyncBoundary a raw range input or <select>, which a
+Tailwind app renders as plain text.
+
+The image examples draw a stand-in diamond field from a data URI, in ink
+and paper like the docs' art, with a note to use your own; the audio
+examples keep their path but name it as a file your app serves. The
+layouts get a gap, a height, padding, a size or wrapping, and the
+controls are Mizu's Button and SegmentedControl, which the page's add
+command now installs alongside. Progress shows a determinate and an
+indeterminate bar and no longer needs state, so it renders on the server.
+
+Checked by pasting each changed example into its own page of the
+shadcn-installed Next.js app: all render as their previews, with no
+broken images."
+https://www.github.com/0xuser64bit/mizu,c741dac284b12c4bf14379706be405b1df83570b,2026-09-30T17:13:09+00:00,Human,,79,11,4,False,False,False,False,"feat(docs): one add command and paste-ready imports for each example
+
+A component page told shadcn users to add its own item, then showed the
+item's import line. But 16 examples also use another item: Dialog and
+CommandPalette open with Button, Parallax moves an ImageFigure, AsyncForm
+holds a TextField, Presence composes Stack, Button and Alert. Pasted
+after the page's command, each failed to compile on its missing import,
+and every example's `from ""mizu-ui""` line had to be rewritten by hand
+into one import per item.
+
+The page now resolves each name the example imports to the registry item
+that exports it, the page's own item first. The add command lists them
+all, a sentence names the extra ones, and the import block gives the
+example's own names from each item's path, ready to replace its mizu-ui
+line. A test holds every example's imports to items that export them."
+https://www.github.com/0xuser64bit/mizu,dd97f123ece7463b9826c32dea3c34ed407f19e1,2026-09-30T17:13:08+00:00,Human,,61,0,4,True,True,False,False,"fix(waveform): read audio that settled before the component mounted
+
+Waveform learned about its audio only from the element's events. React
+creates host elements before it commits, detached in a concurrent render,
+and server HTML starts loading media before hydration, so an audio file
+that failed or loaded quickly fired its error or loadedmetadata before
+any handler existed. The browser held error code 4 while the component
+showed a flat, playable-looking track instead of its failure state, in
+the client-rendered Vite app and the server-rendered Next.js one alike,
+and a quick load could leave the duration unknown.
+
+After mounting, and whenever the source changes, it reads where the
+element stands: an error sets the failure state, and metadata sets the
+duration and playback rate as onLoadedMetadata would. Later events still
+arrive through the handlers.
+
+Checked in both apps: the example's missing file now shows the failure
+message over the track, with Play disabled, and axe finds no violations
+there. A test covers audio that failed and audio that loaded before
+mounting."
+https://www.github.com/0xuser64bit/mizu,f2efa8130cce9da69ace88d96c2b78d9242bde68,2026-09-30T17:13:07+00:00,Human,,61,35,9,True,True,False,False,"fix(a11y): hide FileDropzone's file input and move Waveform's retry out of its slider
+
+An axe pass over every usage example, in both themes, found two
+problems in Mizu's own markup.
+
+FileDropzone kept its file input visually hidden but in the
+accessibility tree, beside the button that opens it: screen readers met
+a second, unlabeled file control (a critical ""label"" violation, in
+TransferQueue too). Only the button operates the input and it carries no
+name, so it is now aria-hidden; its tabindex of -1 already keeps it out
+of the focus order.
+
+Waveform rendered its failure message, with a Try again button, inside
+the element with role=""slider"". A slider's children are presentational,
+so assistive technology could lose the button (""nested-interactive"").
+The message is now the slider's sibling in the stage and covers the
+same box as before.
+
+axe reports no violations on FileDropzone or TransferQueue, and a test
+holds the failed Waveform's message outside its slider."
+https://www.github.com/0xuser64bit/mizu,16aba4cad00629c3681d8e6d9966f3180c75c436,2026-09-30T17:13:06+00:00,Human,,31,0,3,True,True,False,False,"fix(prose): give lists their markers
+
+Prose is the long-form surface, but it never set a list style. It took
+whatever the page provided: Tailwind's preflight strips list markers and
+indentation, so on the docs site and in every Tailwind app a Prose list
+was a run of unmarked lines indistinguishable from short paragraphs,
+while a plain app showed the browser's bullets and 40px indent. Its
+6px li padding was already there for a marker that never came.
+
+Unordered lists now use discs and ordered lists numbers, in the faint
+tone, with a 1.4em hanging indent, in any app. Headings take the
+surrounding weight, as they did in every Tailwind app, instead of the
+browser's bold elsewhere."
+https://www.github.com/0xuser64bit/mizu,aef9b3a04da331e8d47e0c04da222a45a7c57af0,2026-09-30T17:13:05+00:00,Human,,69,5,26,True,True,False,False,"fix(styles): look the same with or without a CSS reset
+
+Mizu's components were drawn inside the docs site, where Tailwind's
+preflight sets the page's line height to 1.5 and strips browser styles
+from headings, links, lists, paragraphs and native controls. They leaned
+on that: rendered in a plain React app beside the same examples in a
+Tailwind app, 124 of 126 components differed. Navigation links were
+underlined, Accordion titles took the browser's bold 1.17em h3, native
+checkboxes, radios and ranges sat on their default margins, Mizu's own
+buttons kept 1px 6px of padding, and paragraphs kept their 1em margins.
+
+.mizu-root now sets the line height the components were drawn at, the
+control normalization in base.css removes native controls' default
+margins, and each component rule states what its element needs: no
+underline on AnchorNav, SideNav, BottomNav, Breadcrumbs and the skip
+link; the surrounding weight on Accordion's heading and the
+EmptyState, ErrorState and DataInspector titles; no padding on Mizu's
+own buttons; block display for AspectRatio media and progress bars; no
+margin on field-label paragraphs, control readouts and ImageCompare's
+failure state.
+
+Measured by comparing the computed styles of every element each usage
+example renders in both apps: differing element properties drop from
+880 to 94, all but those Prose's lists need in content the examples
+bring themselves, bare h1s, paragraphs and native buttons. In a Tailwind
+app nothing changes."
+https://www.github.com/0xuser64bit/mizu,d2d3d07c3de4f87d581c892e61b347d3971a0e55,2026-09-30T17:13:04+00:00,Human,,96,4,6,True,True,False,False,"fix(media): show failures of images that break before hydration
+
+ImageCompare, Avatar and ImageFigure switch to a failure state from
+their images' onError. A server-rendered image starts loading as soon as
+the HTML arrives, before React attaches that handler, so a fast failure
+is never reported: in a Next.js app ImageCompare with a missing image
+showed both broken images and their alt text piled over each other
+instead of ""Comparison image unavailable"", and an Avatar showed a broken
+icon instead of its initials. The client-rendered Vite app, where React
+attaches first, showed the failure states, which is how it went unseen.
+ImageFigure only escaped by lazy-loading by default.
+
+Each image now checks itself when its ref attaches: complete with no
+natural width and a rejected decode() means it failed. The decode check
+keeps unsized SVGs, which report no natural width in some browsers but
+decode, from being treated as broken. Images still loading report
+through onError as before.
+
+Checked in the shadcn-installed Next.js app: ImageCompare with the
+example's missing images now shows its failure state and disables the
+slider. A test simulates an image that failed before hydration."
+https://www.github.com/0xuser64bit/mizu,fd745f4d8b1abdb4fe6efa89b330d23a8addeeb0,2026-09-30T17:13:03+00:00,Human,,20,6,5,True,True,False,False,"fix(log-stream): keep the columns apart on narrow screens
+
+Below 560px LogStream drops its source column and narrows the grid to
+8ch for the time and 4ch for the level. The time is twelve characters
+(09:30:04.200) and ERROR needs five plus its tracking, and neither cell
+clips, so on a phone each column ran into the next: ""09:30:04.WARN"",
+""ERRORStep migrate failed"".
+
+A row now renders the milliseconds in their own span. The narrow layout
+hides them, leaving HH:MM:SS to fill its 8ch exactly, and gives the
+level 5ch. Wide layouts keep the full stamp, the open line's detail
+still shows milliseconds, and <time> keeps the full ISO instant.
+
+Checked at 390px in the shadcn-installed app: every cell's text now ends
+before the next cell starts, where each overlapped before."
+https://www.github.com/0xuser64bit/mizu,0f83203f0da52e21e714ba7fecf2a6ac43bbbbbf,2026-09-30T17:13:02+00:00,Human,,66,19,9,True,True,False,False,"fix(ghost-word): render the oversized word by default
+
+GhostWord is documented as an oversized outlined word, but it set no
+size, weight or face of its own and inherited the surrounding text: the
+usage example drew a faint 16px outline. The docs demo and the home
+footer only looked right because they sized it with Tailwind classes and
+a styled parent, which a copied example doesn't bring.
+
+.mizu-ghost now sets the display face, Archivo at weight 900 and 118%
+width with a line height of 1, and a new size prop sets the font size,
+clamp(4rem, 12vw, 9rem) by default, inline like Mark's size. `inherit`
+takes the surrounding text's size, and style still overrides it. The
+footer passes its own clamp and the demo keeps only its tracking; both
+render as before."
+https://www.github.com/0xuser64bit/mizu,d443323eb7ba3aff4f98a59717b1f342a4c8f424,2026-09-30T17:13:01+00:00,Human,,26,4,7,True,True,False,False,"fix(marquee): space the items apart
+
+Marquee laid its children out in a flex row with no gap and put its
+diamond once, after the last child. Every multi-item ticker, the usage
+example included, ran its items together: ""SurfacesMotion ◆"". The docs
+demo and the home ticker hid it with Tailwind padding on each item, which
+a copied example doesn't have.
+
+The row now keeps one rhythm, --mizu-marquee-gap (56px), between items,
+around the diamond and, as trailing padding, into the next copy of the
+row, so the -50% loop stays seamless. It is the rhythm the padded items
+produced, so the docs and home tickers drop their padding and look the
+same. Under reduced motion the single wrapped row keeps the gap between
+items and loses the trailing padding."
+https://www.github.com/0xuser64bit/mizu,0669accb062c547f18cbcc5905117c6bebbca26d,2026-09-30T17:13:00+00:00,Human,,12,2,3,True,True,False,False,"fix(error-state): line the explanation up under its title
+
+ErrorState's paragraph shared EmptyState's rule, including `margin: 12px
+auto 0` with a 44ch cap. Auto margins center that box, which is right
+under EmptyState's centered title but not in ErrorState's left-aligned
+panel: at any width past 44ch the explanation floated in the middle
+while the title and Try again sat at the left edge.
+
+The shared rule keeps the spacing and measure; only .mizu-empty-body
+centers itself."
+https://www.github.com/0xuser64bit/mizu,23f0bbd0a94dde62dc88aa41a658c9ea280bc805,2026-09-30T17:12:59+00:00,Human,,73,4,4,True,True,False,False,"fix(chronicle): let each event's tone reach its marker
+
+Chronicle gave .mizu-chronicle-event and .mizu-chronicle-detail a
+--mizu-tone default of their own. As bare class rules they tie with the
+shared [data-tone=""success""] mapping, and the later one wins: styles.css
+imports signature.css, which holds the mappings, before chronicle.css,
+so on the docs site and in any npm install every event rendered in the
+default. The incident example's accent deploy, green rollback, amber page
+and red latency span all came out as paper diamonds and grey bars. In a
+registry install the result depended on the bundler: Next.js emitted the
+same paper, Vite the intended tones.
+
+The defaults now apply only without a tone, as Board's and Treemap's
+already did. A test reads the package source for every element that
+carries data-tone and fails if a bare rule for one of its classes sets
+--mizu-tone or --mizu-status-color; Chronicle's two were the only ones.
+
+Checked in the shadcn-installed Next.js app: the usage example now shows
+an accent deploy, a green rollback, an amber page and a danger-tinted
+latency span."
+https://www.github.com/0xuser64bit/mizu,1a6d40088092206cf93e30dcbe30c7497d7c7fc2,2026-09-30T17:12:58+00:00,Human,,83,46,9,True,True,False,False,"fix(wave-text): follow theme switches instead of freezing the mount colors
+
+Each letter's color came from a Motion transform returning
+`color-mix(in srgb, var(--mizu-accent) …, var(--mizu-paper))`. Motion
+resolves var() in values it computes, so the letters were written as
+the mount theme's hex: switch a page to light and every letter stayed
+#f4f0e8 on the #f4f0e8 surface, gone. The usage example made it worse
+by hard-coding the dark theme's colors.
+
+Motion now writes a single number per letter, --mizu-wave from 0 at
+rest to 1 under the pointer, beside the lift and scale it already
+drove. CSS mixes the color from it, between --mizu-wave-from and
+--mizu-wave-to, which default to the theme's paper and accent on
+.mizu-wave-text and are set inline only when colorFrom or colorTo is
+passed. Reduced motion writes nothing and rests on the paper.
+
+Checked in the shadcn-installed app: after a switch to light the
+letters are #16130f and warm to the light accent under the pointer,
+where they stayed invisible before. The example sets a display size
+and follows the theme."
+https://www.github.com/0xuser64bit/mizu,6db14a8321f557afb5c08f773ac07c74d345b670,2026-09-30T17:12:57+00:00,Human,,111,82,9,False,False,False,False,"refactor(button): style Button and ButtonLink with classes, not inline styles
+
+Button set its layout, type, tracking, case, cursor, transition,
+padding and disabled opacity in an inline style object, so no class
+could restyle it: in a shadcn-installed app, `.brand-btn { padding: 8px
+12px; letter-spacing: 0 }` changed nothing but the background. Only
+`style` could, and hover or focus rules could never reach those
+properties.
+
+The face moves into .mizu-btn, with .mizu-btn--md and .mizu-btn--sm for
+the sizes, disabled opacity on :disabled and full strength while
+aria-busy. The arrow's flex-shrink and Spinner's display move to their
+classes too. `style` still overrides everything, now as the only inline
+style.
+
+Rendering is unchanged: across every variant, size and state of Button
+and ButtonLink in both themes, computed styles and geometry match the
+previous version, except that ButtonLink lists opacity among its
+transitions, which a link never changes. In the same app, the class
+above now sets the padding and tracking."
+https://www.github.com/0xuser64bit/mizu,0f3d1c0057db3ae8297100c48b99b504dc003a0c,2026-09-30T17:12:56+00:00,Human,,37,7,7,True,True,False,False,"fix(button): keep the loading diamond visible on filled buttons
+
+A loading Button replaced its arrow with Spinner's default accent
+diamond. On the solid variant that is accent on accent fill: faint in
+the dark theme, and invisible in the light one, where --mizu-accent and
+--mizu-accent-fill are the same #a72c0a. A loading button there showed a
+bare label with no sign of progress.
+
+Spinner takes tone=""current"" for the surrounding text color, and
+Button's spinner uses it, so the diamond is the label's warm white on
+solid, paper on ghost and ink on inverse, legible in both themes."
+https://www.github.com/0xuser64bit/mizu,0b5d2b056651aaab98c76bb22552759afa1caee4,2026-09-30T17:12:55+00:00,Human,,185,158,4,True,True,False,False,"fix(styles): let your own CSS override Mizu's tokens in any load order
+
+Mizu's tokens were unlayered rules on :root and [data-theme]. A registry
+item's base.css loads after the app's global stylesheet, so in a fresh
+Next.js app an override written where shadcn users write theirs,
+`:root { --mizu-accent-fill: #2763c4 }` in globals.css, was silently
+reset, and so was one on the element that carries data-theme=""light"".
+It only held when the override happened to load later.
+
+The token blocks now sit in `@layer theme`, the lowest layer. Any
+unlayered rule beats them wherever it loads, and with Tailwind v4 they
+join its own theme layer, below preflight and utilities, where a
+`@layer base` override also wins. Tailwind v3 passes the layer through
+untouched, and nothing but tokens moves: component rules stay unlayered,
+so v3's unlayered preflight still can't undo them. The status colors
+move up beside the other color tokens, one block per theme.
+
+Checked in the shadcn-installed app: both overrides in globals.css now
+apply (#2763c4 on :root, #6b2bd9 beside data-theme=""light""), where the
+defaults won before; the docs site compiles the tokens into Tailwind's
+theme layer and builds unchanged. A test holds every token in the layer."
+https://www.github.com/0xuser64bit/mizu,3d6491e553b340cebfc70d67351feafba434e394,2026-09-30T17:12:54+00:00,Human,,191,51,6,True,True,False,False,"fix(docs): start browser examples with ""use client""
+
+Pasted into a fresh Next.js App Router page, as the catalog pages invite,
+49 of the 126 usage examples broke: 37 failed to compile because they
+call a hook (useState, useToast, useHistory) and 12 failed to render
+because they hand a function to a component (DataTable's render,
+AsyncButton's action, Treemap's format). The site never saw it: the
+compiled demos live in one ""use client"" module.
+
+examples:sync now derives the directive from each example's code and
+writes it into usage.json. An example needs the browser when it calls a
+hook or when a value it hands to JSX is, or holds, a function; helpers
+it only calls, like Chronicle's date builder or a callback to
+Array.from, stay on the server, so Mark, Stat and the other static
+examples remain Server Components. Component pages say why the
+directive is there and that other React setups ignore it.
+
+Checked against a real app: every example pasted verbatim into its own
+page of a create-next-app project with the shadcn-installed components
+builds and prerenders, where 49 failed before. The analyzer flags
+exactly those 49, and a test holds usage.json to it."
+https://www.github.com/0xuser64bit/mizu,a52b537a728eb40891b44438d39705e2349705a0,2026-09-30T10:38:06+00:00,Human,,934,606,77,False,False,False,False,"refactor: move components' static inline styles into mizu-* classes
+
+Accordion, Tabs, Mark, Badge, Frame, Rule, SectionTag, CopyButton,
+WaveText, MaskLine, Magnetic, PageWipe, Tilt and CountUp styled
+themselves with inline style objects, so consumers could not restyle
+them without !important, hover and focus rules could not reach them
+(Accordion's title transitions a color that never changes), and the
+registry shipped them no stylesheet. Their faces move into core.css:
+tones as modifier classes (mizu-badge--accent), state through the
+attributes the components already set (aria-expanded, aria-selected)
+and data-copied. Sizes from props, Motion values and MaskLine's
+reduced-motion will-change stay inline, and so does the caller's style,
+which now overrides the defaults: Badge, Frame, Rule, SectionTag,
+MaskLine and Magnetic used to drop conflicting properties. Each rule
+ships once, in its module's stylesheet (Mark.css, which Badge, Rule,
+SectionTag and CopyButton import); only Reveal, Presence and
+MotionPreferences, which have no static styles, still bring base.css
+alone.
+
+Rendering is unchanged. Frame's brackets keep the frame's text color:
+the inline shorthand always reset their accent border-color. PageWipe's
+label loses a static opacity that Motion's keyframes always overwrote.
+The newly classed elements are border-box like the rest of Mizu, so
+Frame's corners are 9px without a global reset too, and disabled tabs
+and copy buttons take the shared not-allowed cursor. The annotator
+demo's page rule drops to zero specificity so it no longer resizes the
+SectionTag inside it.
+
+Checked against the parent commit on every docs page and the 404, dark
+and light: computed styles and geometry of every element, open
+accordion, switched tabs, copied button, reduced motion and a wipe
+mid-sweep are identical, and the component pages screenshot
+byte-identical above their install sentences, the only text that
+changes."
+https://www.github.com/0xuser64bit/mizu,17114eec72da1381341c226298729a753e8f99d4,2026-09-30T08:36:35+00:00,Human,,1489,3656,137,True,True,False,False,"fix(registry): ship each CSS rule once, in the module that owns it
+
+Module stylesheets took every rule whose classes appeared anywhere in the
+module's import closure, so shared pieces repeated: .mizu-sr-only sat in
+29 files, .mizu-field-hint in 24, Button's and Dialog's rules in every
+module that renders them; 1,945 selector copies for 1,350 selectors.
+Beyond bytes, a later file's copy of a base rule undid earlier overrides:
+with command-palette imported before dialog, a Next build gave the
+palette Dialog's 36px 32px 32px padding, and trend-chart's copy of
+.mizu-sig-scan cleared Chronicle's loading fill.
+
+Each selector now ships once, in the stylesheet of its owner: the lowest
+module that renders all of its classes and that every item needing it
+imports. Barrels import base.css, then the shared stylesheets the item
+renders, then every stylesheet in its closure, dependencies first, so an
+override still loads after what it overrides. A selector list splits
+only when no one module owns all of it. Classes unrelated modules render
+(the field chrome, the data table, text-button, slider input) get one
+stylesheet each under shared/, imported only by the items that render
+them; putting them in base.css instead cost every item 4 KB.
+.mizu-sr-only and .mizu-field-hint move to core.css's utilities, so
+base.css carries them.
+
+All registry CSS: 232.6 KB in 66 files becomes 171.0 KB in 70. Checked
+every equal-specificity pair against the package order through the real
+barrels: none that can share an element reverses; four from split
+selector lists lose their guarantee only if a Checkbox nests in a
+SegmentedControl or an InlineEdit in HistoryControls. Checked with
+shadcn 4.21 (preset init, all 127 items) and a Next 16.3 production
+build: each rule appears once, and the palette padding and loading fill
+hold."
+https://www.github.com/0xuser64bit/mizu,cae6873e489fce5c9eeb6436f9bd5857a393aab8,2026-09-29T15:58:58+00:00,Human,,20,2,4,False,False,False,False,Move non-color CSS tokens to :root outside theme blocks
+https://www.github.com/0xuser64bit/mizu,2ef33845a7602095aa9475abfe13c56d771eb064,2026-09-29T15:36:09+00:00,Human,,756,586,33,True,True,False,False,"fix: keep pure helpers out of client modules; say what add copies
+
+A constant exported from a ""use client"" module reaches server code as a
+client reference, not a value: the reviewer's TICKER.map is not a
+function. Mizu modelled the pattern itself. FLAP_CHARACTERS, flapPath,
+justifyRows, tidyFlow, squarify and moveCard were declared in client
+modules, and the package root exported describeQuery and matchesQuery
+through QueryBuilder's. They move verbatim into plain sibling modules
+(flap, justify, flow, squarify, cards), following query.ts and
+outline.ts. Each component re-exports its helpers, which is the item API
+the registry reads. The signature index exports them straight from the
+plain modules, and explicit exports win over the components' export *.
+The public names are unchanged.
+
+Checked by prerendering a Server Component that calls the helpers, with
+shadcn 4.21 and a production Next build. With the previous registry it
+fails on ""c.FLAP_CHARACTERS.split is not a function""; with the packed
+previous package, on ""Attempted to call justifyRows() from the server"".
+Both now render real values. Tarball consumer checks pass on React 18
+and 19.
+
+Two tests hold the rule. Every public non-component value must reach
+the root without passing a client module. Module names must stay
+distinct without extensions in any case, because gallery.ts beside
+Gallery.tsx would collide in dist on macOS and Windows.
+
+Docs now say exactly what `add` copies: base.css and the source
+module's stylesheet, or base.css alone for the fifteen inline-styled
+components such as Accordion. Every component page states which case
+applies. Getting started and the README explain keeping server-read data
+out of ""use client"" modules."
+https://www.github.com/0xuser64bit/mizu,ae4d8d175b8790071f69122f5e9ca60aafa18c00,2026-09-29T12:33:47+00:00,Human,,437,262,137,False,False,False,False,"feat(registry): let static components render as Server Components
+
+The generator wrote ""use client"" at the top of every item's file, so
+Mark, Rule, Badge, Kbd, Stat, Timeline and every other static primitive
+became a client reference: no server rendering, all their code in the
+browser. The file gave no hint whether the component is interactive.
+
+Item files now carry no directive; each source module keeps its own. 22
+items (the ui primitives, content/Typography, data/Records, layout and
+GhostWord) render on the server. Everything interactive stays a Client
+Component through its source, and pure helpers keep their plain values.
+Checked with shadcn 4.21 and a production Next build of a Server
+Component page using Mark, Badge, Stat, Timeline, CodeBlock and Button:
+its client-reference manifest lists only Button and CopyButton, the copy
+control inside CodeBlock.
+
+Every item's `meta.client` in registry.json, and each component page,
+says which kind it is, read from the source directive.
+
+The blanket directive had hidden that ui/Slider.tsx lacked its own
+despite an input change handler, so Slider now declares ""use client"".
+A catalog test holds every module without the directive to no hooks,
+event handlers or context, and it fails on the old Slider."
+https://www.github.com/0xuser64bit/mizu,91791a3b5f6fd3f4225036979698393ce7a33b1d,2026-09-29T12:31:07+00:00,Human,,155,59,21,False,True,False,False,"feat(docs): make every import path its component's name
+
+The reviewer guessed data-inspector for DataInspector, as the rule for
+most components suggests, but eight older slugs broke it: copybutton,
+countup, ghostword, maskline, pagewipe, ripplesurface, softtype and
+wavetext. Those pages, registry items and import paths are now
+copy-button, count-up, ghost-word, mask-line, page-wipe, ripple-surface,
+soft-type and wave-text, and the old page URLs redirect with a 308.
+define()'s kebab rule is now exported as slugOf, and a catalog test holds
+every slug to it, so a hand-written slug can't drift again.
+
+Each component page now shows the exact import line, read from the
+registry file `add` installs, and names the components that share its
+source module with links, so the grouping in source/ shows where people
+copy commands. Getting started and the README state the rule.
+
+Also fixes a missing space on getting started (""mizu-root""for the
+default theme) in the paragraph this edits."
+https://www.github.com/0xuser64bit/mizu,ced2ece28bf7a853a2d444870b105b06c85add7b,2026-09-29T12:28:03+00:00,Human,,377,128,129,False,False,False,False,"feat(registry): name each item's exports instead of export *
+
+Every item's file did `export * from ""./source/<module>""`, so installing
+knob also offered Fader and XYPad, tree-view offered DataInspector,
+ActivityFeed and DiffView, and internals leaked (Dialog's lockScroll,
+Preferences' useReducedMotion).
+
+The generator now reads the package's public API with the TypeScript
+checker, resolving each name to the module that declares it, and gives
+each item its share of it. When the module serves one item, that is all
+of the module's public exports. When items share a module, it is the
+item's own component plus the public types its declaration mentions,
+following the module's local helpers and types (knob: Knob and
+ControlTaper; task-progress: TaskProgress and TaskStep; chronicle adds
+Interval and SignatureTone from internal). Statements are grouped by
+declaring module, so QueryBuilder's pure helpers come from ./query and
+never pass through a client module. Generation throws when a shared
+module's public value or type belongs to no item.
+
+Every barrel value is public, and every public value is in a barrel,
+except the motion easings and useCanvasLoop, which no barrel exposed
+before. Typecheck compiles all 127 barrels against the mirrored source.
+In a shadcn-installed app, `import { Fader } from "".../knob""` is now
+TS2305."
+https://www.github.com/0xuser64bit/mizu,71cd1266bf643b656c033fd77a97b4a315255191,2026-09-29T12:24:23+00:00,Human,,367,8057,227,True,True,False,False,"fix(registry): ship one stylesheet per source module
+
+Styles were generated per item from the item's source closure, so every
+item sharing a module got a byte-identical copy: the 11 status/Feedback
+items (alert, progress, meter, skeleton, status…) each shipped the same
+3.5 KB file, and 11 more module groups did the same (forms/Fields ×8,
+content/Typography ×6, navigation/Navigation ×6…). Installing several
+items put several identical files in the repo, and the bundler, seeing
+different paths, bundled each one.
+
+The stylesheet is now keyed on the source module and written beside it,
+source/status/Feedback.css, and every item's barrel imports that one file.
+Class collection takes the union of the module's catalog examples, so no
+item loses a rule. 116 items get byte-identical styles and 12 gain only
+.mizu-field-hint. Checked with shadcn 4.21 and a production Next build:
+alert, progress and meter now install one Feedback.css, and the CSS
+bundle holds a single .mizu-alert rule.
+
+112 per-item files become 64 module files; all registry CSS goes from
+386 KB to 233 KB."
+https://www.github.com/0xuser64bit/mizu,fcfe71edbe2023a86a2e3fd23c5f7f589af17b32,2026-09-29T12:22:36+00:00,Human,,79,11,6,False,False,False,False,"feat(registry): add a Mizu preset for shadcn init
+
+Getting started told people to run bare `npx shadcn@latest init`. In an
+existing project that installs shadcn's default style: it rewrites
+globals.css (new imports, OKLCH neutral tokens replacing the project's,
+its body rule removed), rewrites the root layout with Geist, adds base-ui,
+lucide-react and cva, and records base-nova, neutral and lucide in
+components.json. None of that is used by Mizu. `shadcn add` in a project
+with no components.json offers the same setup.
+
+`npx shadcn@latest init 0xuser64bit/mizu/preset` resolves a registry:base
+item instead. Its config sets the stone base color (shadcn's warm neutral,
+for any shadcn/ui added later). `extends: ""none""` skips shadcn's style,
+and the item sets no CSS, so the CLI never opens the global CSS file. It
+adds Mizu's tokens and font files. Checked with shadcn 4.21 on a Next 16 +
+Tailwind v4 app with its own :root tokens: globals.css and the layout stay
+byte-identical, and a later `add` works as before.
+
+Getting started, the README and every component page now use the preset."
+https://www.github.com/0xuser64bit/mizu,992e851425157ccae6e0bf1a4c2854b09b3c9766,2026-09-29T12:19:26+00:00,Human,,199,19,12,True,True,False,False,"fix(fonts): let next/font faces reach Mizu and load Archivo's width axis
+
+With next/font, a face registers under a hashed family, not ""Archivo
+Variable"", so --mizu-font-display silently fell back to system sans.
+The font tokens now read --font-archivo, --font-instrument-serif and
+--font-jetbrains-mono before the fontsource families: name the next/font
+variables and they apply, set on <html> or <body>, with nothing to
+override. The tokens leave the theme blocks, so a nested data-theme no
+longer resets them.
+
+fonts.css imported the weight-only Archivo, so SoftType's width modes,
+font-stretch and the wide/narrow utilities rendered at normal width
+(401px at wdth 62, 100 and 125; now 281, 401 and 519). It now loads
+wdth.css, and Instrument Serif's real italic for Specimen.
+
+The registry gains a `fonts` item with the same file and fontsource
+dependencies, and a CLI note. Getting started, both READMEs and every
+component page now say how to load the fonts, by either route."
+https://www.github.com/0xuser64bit/mizu,8c0d495a85777d022d4ca70151919378cc252ada,2026-09-28T17:22:26+00:00,Human,,14,0,2,False,False,False,False,add: mize preview iamge
+https://www.github.com/0xuser64bit/mizu,276f3c2d9cd9d08c4a81aa54715b2d0c4fe36615,2026-09-28T14:45:58+00:00,Human,,1,1,1,False,False,False,False,Mizu 2.0.1
+https://www.github.com/0xuser64bit/mizu,5ecf425c629618d48cd3a94677ae040ad9f8d4c8,2026-09-28T14:44:16+00:00,Human,,6773,7531,175,True,True,False,False,"fix(registry): ship complete item styles, add motion-preferences, fix Dialog and CopyButton"
+https://www.github.com/0xuser64bit/mizu,df4add6e3472bc5a7383409bd6b31a9eefe3d1dd,2026-09-28T12:29:27+00:00,Human,,43928,19,347,False,False,False,False,feat(registry): offer all 126 components as single installs
+https://www.github.com/0xuser64bit/mizu,c9dc8dae48954bb04bd0a295c794b38128a3d91e,2026-09-28T12:24:11+00:00,Human,,35,0,2,False,False,False,False,feat(registry): pilot SelectField single-item install
+https://www.github.com/0xuser64bit/mizu,8e3f8699ad56db5295216c0f9f52a1d2cd7f722c,2026-09-28T12:05:06+00:00,Human,,1,0,1,False,False,False,False,Align preview theme select with toolbar controls
+https://www.github.com/0xuser64bit/mizu,b79fd706f57a6c9806a0bc2406136ee150c6e4e7,2026-09-28T11:51:09+00:00,Human,,40,4,4,False,False,False,False,Style select option menus across Mizu
+https://www.github.com/0xuser64bit/mizu,776baadc68a7038c908eae1df73e4b8b3927bdf4,2026-09-28T11:47:27+00:00,Human,,16,9,4,False,False,False,False,Preserve component sidebar across page navigation
+https://www.github.com/0xuser64bit/mizu,35cd0dff9e4487529696c258cf64e754224de7e4,2026-09-28T10:48:06+00:00,Human,,50,39,3,False,False,False,False,"Keep narrow showcases inside their stage
+
+A sweep of every component page at the 320px preview found three
+showcases wider than the stage, now that the stage clips instead of
+scrolling. Showcase columns may shrink below their content, the
+departures board scrolls within its own frame, and Gallery's
+pre-measurement layout keeps each photo's proportions without ever
+growing wider than the grid."
+https://www.github.com/0xuser64bit/mizu,d654188e3345c95cb2193407e7bc3164cbe2d390,2026-09-28T10:48:06+00:00,Human,,14,2,2,False,False,False,False,"Show the XYPad showcase on its page, and guard showcase slugs
+
+The XYPad page's slug is ""xypad"", but its showcase was registered as
+""xy-pad"", so the page quietly fell back to the plain usage demo. A
+catalog test now fails whenever a showcase key names no real page."
+https://www.github.com/0xuser64bit/mizu,9c489dae7b59acab63a0014067113306bd75ec09,2026-09-28T10:42:25+00:00,Human,,76,17,6,False,True,False,False,"Document the signature family and the composed examples
+
+Counts move to 126 systems across 14 families everywhere they appear.
+The package README gains a mizu-ui/signature row and an honest note on
+what the signature systems leave to you (fetching, saving, uploads,
+CORS for audio, fixed log rows, photo sizes, log tapers). DESIGN.md now
+describes the stylesheet manifest, a shadow rule that matches the lifted
+surfaces actually in use, arrowless action buttons and the signature
+contract, markers, motion vocabulary and performance habits. The
+changelog records the family and the examples."
+https://www.github.com/0xuser64bit/mizu,9bba1d0f07a160ab0e72b8313219f6c068f95b5c,2026-09-28T10:42:25+00:00,Human,,77,1,3,False,False,False,False,"Feature the signature systems on the home page
+
+A new ""Signature systems"" section indexes all twenty-two systems in
+their collection order, each a link to its page with the first clause of
+its tagline, and points to the composed examples. The lab section
+becomes 04."
+https://www.github.com/0xuser64bit/mizu,afdf8f185f634fac17155d4b609f0d8b1c49a509,2026-09-28T10:39:06+00:00,Human,,1290,88,14,False,False,False,False,"Add composed examples: incident review, design review, automation
+
+Three whole workflows, each sharing one state across several signature
+systems, under a new Examples section in the site navigation:
+
+- Incident review: Chronicle, two TrendCharts and LogStream share one
+  moment and one zoom window; the focus panel reads the time on a
+  SplitFlap and lists what was happening. The charts are derived from
+  the same invented service's logs, now a shared harbour module.
+- Design review: annotate the submission in front of you, fling it to a
+  decision with TriageDeck, and rearrange the results on a Board whose
+  cards open in the Gallery viewer.
+- Automation builder: a FlowGraph whose condition is a QueryBuilder; the
+  description, the count and every row's route update as you edit, and
+  a dry run lights the path a booking takes.
+
+Action buttons that neither navigate nor leave the page no longer carry
+the outbound arrow."
+https://www.github.com/0xuser64bit/mizu,d7266d233d2947cb2dc7f4a3a616d43938d3975d,2026-09-28T10:39:06+00:00,Human,,8,3,1,False,False,False,False,"Let LogStream bring a line chosen elsewhere into view
+
+When `selected` changes from outside, such as a synchronised timeline,
+the chosen line scrolls into view, and the tail stops pulling the view
+to the newest line while one is open."
+https://www.github.com/0xuser64bit/mizu,ac93191822dbd13ce486038008d4218838484960,2026-09-28T10:26:56+00:00,Human,,1773,3,13,False,False,False,False,"Add Knob, Fader and XYPad, controls for instruments rather than forms
+
+Each drawn control stands on native range inputs, so keyboards, screen
+readers and forms work without extra wiring (a named control submits its
+real value, even on a log taper). Knobs drag vertically and faders by
+their cap, with Shift for fine adjustment, a tenth of the range on
+Shift-arrows and Page keys, and double-click or Backspace to return
+home. Log tapers spread ratios evenly for frequencies and times. Values
+spring to discrete changes and follow the hand directly while dragging.
+
+Faders take a live level, as a number or a motion value for re-render
+free metering, with instant attack, steady release and a held peak. The
+XY pad springs its puck to a press, trails a comet while dragging, and
+exposes each axis as its own slider with 2-D arrows from either.
+
+The showcase plays a real WebAudio voice whose meters and scope read the
+audio graph, and grades a plate with a form that exports its settings."
+https://www.github.com/0xuser64bit/mizu,421bc74c2fd47a9344abe8cb15d4994d9c97ed3f,2026-09-28T06:34:59+00:00,Human,,1282,2,12,False,False,False,False,"Add LogStream, a live tail you can stop, search and read
+
+Only the lines in view are rendered, so a bounded window of thousands of
+lines scrolls freely. The tail follows new lines until you scroll away;
+then a count of missed lines springs up and is announced at most every
+five seconds, and positions are tracked by line id so trimming the
+window never skews it. Levels filter with live counts, search highlights
+matches and steps through them, and a stacked overview strip shows
+volume and trouble over time and jumps to any moment. A chosen line
+opens whole with its fields in DescriptionList, and `selected` can be
+controlled to sync with a chart or timeline."
+https://www.github.com/0xuser64bit/mizu,e938d4025ae5998ff82c84bace75d6a3ec2cefe8,2026-09-28T06:28:26+00:00,Human,,1266,2,13,False,False,False,False,"Add ColumnBrowser, Miller columns that load as you walk them
+
+Choosing an item opens its contents in the next column until a leaf
+opens in a preview. Children can arrive lazily through loadChildren:
+loading columns sweep a hairline over skeleton rows, results are kept,
+and failures reuse ErrorState with a retry. Arrows walk within and
+across columns with one tab stop for the whole browser, typing jumps to
+a name, and focus follows moves into columns that have only just
+rendered. Below 520px of container width the columns become a stack
+that pushes and pops, with a back button that names its destination.
+
+The showcase browses an invented project (with a folder that fails
+once) and an organisation composed from Avatar, Badge and
+DescriptionList."
+https://www.github.com/0xuser64bit/mizu,79596ee157716faf05fa0e1a6485e38ec2d3a2a2,2026-09-28T06:21:51+00:00,Human,,622,2,13,False,False,False,False,"Add SplitFlap, a display where every character falls into place
+
+Each cell falls forward through its drum like the real mechanism: the top
+leaf folds down and darkens while the next character lands with a small
+overshoot, and neighbouring cells start a beat apart so a change ripples
+down the line. Flips are Web Animations written straight to the DOM, so a
+whole board flipping costs no React renders. Long journeys skip ahead to
+the last dozen flaps, and reduced motion shows the value at once.
+
+Assistive technology reads the value as text beside the hidden cells;
+live displays announce each settled value once. The showcase runs an
+invented departures board, a message board and a flip clock."
+https://www.github.com/0xuser64bit/mizu,5922ddee32a3497a8874eb8221a296ea991fb98a,2026-09-28T06:17:09+00:00,Human,,850,4,13,False,False,False,False,"Add Folio and Sidenote, long-form reading with notes in the margin
+
+Sidenotes sit in the margin level with their mark (their static position
+does the aligning) and step down just far enough to clear each other,
+gliding when the text reflows. Below 880px of container width they fold
+into the text and unfold beneath their line. A contents rail built from
+the headings follows the reader, marks the section in view, fills with
+progress and counts down the reading time; choosing a section moves
+focus there.
+
+The docs preview stage now clips horizontally instead of scrolling, so
+sticky parts of a demo follow the page."
+https://www.github.com/0xuser64bit/mizu,1a947d8ededb535b325c06802bbd0d6a9afa34ab,2026-09-28T06:05:38+00:00,Human,,1719,7,14,False,False,False,False,"Add Gallery, photos that open from where they sit
+
+A justified grid (rows fill the width at the height nearest a target,
+bounded so a panorama never crushes its neighbours) whose photos fly out
+of their tile into a native modal viewer and back into the tile of
+whichever photo you close on. Swipe or arrow keys travel, pulling down
+dismisses as the backdrop thins, and pinch, Ctrl-scroll or double-tap
+zoom around the point under your fingers with bounded panning.
+
+Dialog's scroll lock is now a shared lockScroll() so both modals stack
+correctly. The showcase draws its landscape plates in the browser, so the
+docs need no network images."
+https://www.github.com/0xuser64bit/mizu,84812d84dc0ce1fdbe5231358dc78e9a1e2750f5,2026-09-28T05:44:38+00:00,Human,,890,8,15,False,False,False,False,"Add TriageDeck, decisions at the speed of a gesture
+
+The top card follows the hand and tilts with it; decision stamps fade
+in past a threshold, and release offset or velocity flings it off
+toward left, right or up with a spring carrying that velocity. The
+stack steps forward in depth, and undo flies the card back from the
+side it left by. Arrow keys and labelled buttons make the same
+decisions; tallies count them, every decision announces what happened
+and what comes next, and Backspace undoes. Reduced motion decides
+without flight or tilt.
+
+The shared seal keyframes move into signature.css so no component's
+stylesheet depends on another's."
+https://www.github.com/0xuser64bit/mizu,c8e8035e58fa6af0d4ec3258f10be655cba38eba,2026-09-28T05:40:53+00:00,Human,,946,4,12,False,False,False,False,"Add TransferQueue, uploads you can watch and steer
+
+A concurrency-limited runner around your own transfer function: files
+arrive through the existing FileDropzone (or the add() handle), each
+receives an AbortSignal and an onProgress callback, and progress is
+batched to one update per frame. Speed is smoothed, time left is
+estimated per file and overall, and a Sparkline traces throughput.
+Pause aborts (resume restarts unless your function continues from an
+offset), failures keep their reason with a retry, and cancel aborts
+and removes. Hairlines change colour with state and a check diamond
+pops on completion.
+
+The usage example reads files locally in chunks, so the live render
+does real work without sending anything anywhere."
+https://www.github.com/0xuser64bit/mizu,b9b81e00d3d1a6dc3f9e64381550d1f12a68ff01,2026-09-28T05:37:05+00:00,Human,,1313,3,12,False,False,False,False,"Add Interview, a conversational one-question-at-a-time form
+
+Questions rise in going forward and settle back going back, each with
+its own labelled form and focus. Choices answer with letter keys and a
+single choice confirms with a double blink before moving on; yes/no
+takes Y and N, scores take digits, long answers take Ctrl+Enter.
+Required answers, email shape, numeric bounds and custom validators
+reject with a linked alert and one shake. next(answers) branches, the
+review lists every answer with an edit jump, and onSubmit is followed
+honestly: loading, a retry that keeps everything, then completion."
+https://www.github.com/0xuser64bit/mizu,a93d3ef539f6c3c197a58dd6f27906be9b080264,2026-09-28T05:32:40+00:00,Human,,872,2,13,False,False,False,False,"Add Tour, a spotlight that travels between real elements
+
+A native modal dialog draws a veil with a spotlight hole framed by
+accent corner brackets. The target is measured every frame while the
+tour is open, so scrolling, resizing and reflow never detach it; after
+a step change the spotlight pursues the element even while it scrolls
+into view. The card takes the preferred side if it fits, otherwise the
+roomiest, points with a diamond notch, docks as a bottom sheet on
+phones and centres with an explanation when a step's element is
+missing. Steps are announced, arrows move between them, focus stays on
+the primary action and returns to the trigger; onFinish only fires when
+the last step is completed."
+https://www.github.com/0xuser64bit/mizu,d935cfea8b897333f0e1a45002c73493dba7aff5,2026-09-28T05:27:28+00:00,Human,,169,82,8,False,False,False,False,"Give the signature editors one data and editing contract
+
+Board and FlowGraph now accept controlled data or uncontrolled
+defaults (cards / defaultCards, nodes / defaultNodes, edges /
+defaultEdges) like Outliner, QueryBuilder and Annotator, and switch
+editing off with an explicit readOnly instead of inferring it from a
+missing callback. Annotator is editable whenever an author is given.
+Usage examples drop their useState boilerplate accordingly."
+https://www.github.com/0xuser64bit/mizu,e1abb05d28bfd2a1d4468dbf597bb75b44cf1d10,2026-09-28T05:24:53+00:00,Human,,1435,2,13,False,False,False,False,"Add Annotator, review pins and threads on any surface
+
+Wrap an image, a page or a live composition to review it: comment mode
+(C) drops a numbered diamond pin where you click, or at the centre with
+Enter, and Alt+arrows move it while you write. Threads unfold beside
+their pin and rise from pins low on the work; they carry replies,
+resolve and reopen, and return focus to their pin on Escape. Pins drag
+or nudge with arrow keys and store rounded fractional positions. The
+list beside the work offers every thread without the surface and
+collapses beneath it on narrow screens. Read-only when no author is
+given."
+https://www.github.com/0xuser64bit/mizu,88a0d637a800bca70a6fd6b2c4900610d7d6865b,2026-09-27T21:03:14+00:00,Human,,1430,2,13,False,False,False,False,"Add QueryBuilder, conditions that read as a sentence
+
+Fields declare a type and receive fitting operators and inputs: text,
+numbers with units and ranges, dates and ""in the last N days"", selects
+as chips (or the existing MultiSelect for long lists) and booleans.
+Groups nest to a limit and switch between all and any through the
+existing SegmentedControl; the and/or joins roll over like a counter.
+Incomplete conditions are described and ignored rather than emptying
+results. describeQuery gives the plain-language reading shown in serif
+beneath the editor, and matchesQuery evaluates records for local
+filtering — the showcase filters accounts through DataTable live."
+https://www.github.com/0xuser64bit/mizu,2d3a8c2306497d5f4dc0b26731b43bf8f8926000,2026-09-27T20:58:39+00:00,Human,,1235,3,13,False,False,False,False,"Add Outliner, a keyboard-first outline you can zoom into
+
+Enter splits at the caret (a new first child under an open parent),
+Tab and Shift+Tab restructure with descendants, outdenting follows the
+parent's whole subtree so later siblings stay put, Alt+arrows move a
+branch, modifier chords mark lines done or fold them, and Backspace at
+the start merges upward. Every operation is a pure function over flat
+rows rebuilt into a tree, with its own tests.
+
+Diamond bullets show folded and done states, hairline guides sit under
+ancestor bullets and the active thread is traced in accent. Focusing
+into an item turns its text into the page title through a shared
+layout transition, with a location trail back out."
+https://www.github.com/0xuser64bit/mizu,24528818995f56952de0f2a8548101bdb9f7c713,2026-09-27T20:52:48+00:00,Human,,1202,2,12,False,False,False,False,"Add Board, a kanban with lift-and-carry dragging
+
+Cards lift into a tilted ghost that shares its layout id with the list
+slot, so a drop flies the card from the hand into place while the
+column parts to make room; carried near an edge, the board scrolls.
+Mouse drags start anywhere on a card, touch drags from a grip so the
+page still scrolls. Columns show counts, advisory limits in words, fold
+into a vertical strip and can offer an add action.
+
+The keyboard path picks up with Space, carries with arrows across
+positions and columns, drops with Space and restores with Escape, with
+assertive announcements at each step; focus follows the card when it
+remounts in another column. moveCard is exported for custom commands."
+https://www.github.com/0xuser64bit/mizu,9bee2b273ce5237cb0f5d1373c9c1a88fad3e427,2026-09-27T20:45:29+00:00,Human,,13,11,1,False,False,False,False,Hoist Treemap's layout helper so its memo lists real dependencies
+https://www.github.com/0xuser64bit/mizu,46d488e4467f29700c86acadf2fac49c5f3e6953,2026-09-27T20:44:24+00:00,Human,,1204,2,12,False,False,False,False,"Add Treemap, a hierarchy by size you enter like a place
+
+Squarified blocks sized by value (the exported squarify is reusable),
+with nested previews of the next level, tone stripes and optional heat.
+Opening a block is a camera move: the entering level is laid out for the
+stage and squeezed into the block, so the flight lands exactly on the
+final arrangement while neighbours fly outward; only geometry animates,
+so text never distorts. Returning plays the path in reverse.
+
+Arrow keys travel to the nearest block in each direction, Enter opens
+or chooses, Backspace returns, openings are announced and focus lands on
+the largest block inside. A readout reports value and shares instead of
+floating tooltips."
+https://www.github.com/0xuser64bit/mizu,1e96fed302031152d0c88e420989e6e8115f207b,2026-09-27T20:39:35+00:00,Human,,2840,37,20,False,True,False,False,"Add Plane, an infinite canvas, and FlowGraph, a node editor on it
+
+Plane is a zoomable surface: drag with inertia, pinch or Ctrl-scroll at
+the pointer, a zoom-adaptive grid, a minimap and a camera handle (fit,
+zoomBy, flyTo, toWorld). Plain scrolling pans only once the canvas is
+active, so embedded canvases never trap the page. Tabbing to an item
+flies the camera to it; long flights pull back before settling in.
+Content can adapt to scale through --mizu-plane-zoom and data-scale.
+
+FlowGraph wires nodes on a Plane: fixed port metrics keep edges exact
+without measurement, outputs snap magnetically to the nearest input,
+and Enter on an output then an input wires from the keyboard. Callers
+validate connections; loops and duplicates are refused as alerts.
+Running nodes scan and send flowing dashes down their wires, selection
+brackets snap in, far zoom counter-scales titles, and Tidy (or the
+exported tidyFlow) animates the graph into layered order.
+
+Signature internals now name refs with a Ref suffix so the React
+Compiler preserves their memoisation."
+https://www.github.com/0xuser64bit/mizu,3f88738419cc9a3f1218e78ebbdb25da44aea989,2026-09-27T20:28:00+00:00,Human,,68,64,8,False,False,False,False,"Share one interval and tone vocabulary across the time systems
+
+TrendChart's visible window is now range / defaultRange / onRangeChange,
+matching Chronicle, and both use the exported Interval and
+SignatureTone types, so linked views pass values without adapters.
+Waveform bars now rise from silence rather than printing left to right,
+leaving the left-to-right sweep to the systems that are about time."
+https://www.github.com/0xuser64bit/mizu,99bd435e4b23a2ca23453099d9b53caa93c17826,2026-09-27T20:26:44+00:00,Human,,1175,3,13,False,False,False,False,"Add Waveform, an audio scrubber you can see
+
+A waveform slider over a native audio element: supplied peaks or peaks
+decoded from the source (with a gentle gamma so quiet passages read),
+pointer scrubbing with a hover preview, markers mirrored in a chapter
+list with durations, speed and skip controls, a play glyph that morphs
+to pause, and a handle with play, pause and seek for external controls
+such as transcripts. Decoding, flat and failed sources each have a state.
+
+The showcase composes a 48-second pentatonic piece offline with Web
+Audio, so it plays real audio without shipping a file."
+https://www.github.com/0xuser64bit/mizu,334ed4e7773ab7135bb074ed83e978c5e33aab43,2026-09-27T20:20:58+00:00,Human,,1777,53,17,False,True,False,False,"Add TrendChart, a measuring instrument for values over time
+
+A live legend reads every series at the crosshair, so no tooltip covers
+the data. Dragging (or Shift + arrows) measures a period and reports
+each series' change, percentage and peak; Enter or ""Zoom to period""
+glides there. Annotations, threshold lines, null gaps, a table view and
+controlled cursor/domain props let several charts read and zoom as one.
+Dense series keep each pixel column's extremes, so 20,000 readings stay
+responsive without losing peaks.
+
+Shared fixes found while building it: time axes fall back to a finer
+step rather than leave one label, the value axis keeps the tick step it
+chose, and controlled state no longer writes the uncontrolled fallback,
+so switching modes or data cannot resurrect a stale range."
+https://www.github.com/0xuser64bit/mizu,75dd193bb777837c39b75d473ec8e11be0b20eb9,2026-09-27T20:07:23+00:00,Human,,2678,24,25,False,False,False,False,"Add the Signature family and Chronicle, a zoomable event timeline
+
+Signature is a new family for large composed systems, exported from
+mizu-ui/signature with CSS kept beside each component. Shared internals
+cover controllable state, element measurement, announcements, tweens and
+calendar-aware time scales.
+
+Chronicle lays events out in lanes on a pannable, zoomable axis: instants
+and spans, a playhead slider that can drive other views, an overview
+brush, selection details, pinch and inertia, and full keyboard travel
+across lanes. Labels reserve room at the fit-all scale and hide by
+look-ahead when zoomed out, so they never overprint.
+
+Docs gain a Signature section: numbered pages with a wide showcase, the
+usage example rendered live beside its code, and a keyboard map."
+https://www.github.com/0xuser64bit/mizu,e3a93c47a52f840bc7417ab2300a12e14d8abc22,2026-09-27T19:52:52+00:00,Human,,2460,2447,8,False,True,False,False,"Make the stylesheet a manifest and fix audit findings
+
+styles.css now imports src/core.css, so larger systems can keep their
+CSS beside their source while consumers still import one file. The
+tarball check asserts the imported rules reach a real Vite build.
+
+Merge the duplicated button hover rules (one used a dark-only rgba
+border), keep DataTable sort indicators inline with their header, and
+derive each page's Motion requirement from its actual imports: Tabs,
+Accordion, Toast and others previously claimed native React and CSS."
+https://www.github.com/0xuser64bit/mizu,8aeed39c7933c95cca48358efd52ed853c916f20,2026-09-27T19:13:51+00:00,Human,,10,0,3,False,False,False,False,Add Google Analytics via @next/third-parties
+https://www.github.com/0xuser64bit/mizu,b3f0425fe28c9692881a436b83a9ab6bfa8e565e,2026-09-27T17:04:20+00:00,Human,,2,1,1,False,False,False,False,"Clip pre-intersection entrance transforms at the page level
+
+Reveal holds x/y transforms until whileInView fires, so full-width rows with
+horizontal entrances expanded document scroll overflow before intersecting
+(+36px on / at 390px, +20px on /studio at 755px). overflow-x: clip on html
+and body contains it without creating a scroll container, preserving sticky
+positioning. Verified against the production build at 1440/755/390px."
+https://www.github.com/0xuser64bit/mizu,76857bc0b0ac33e7ad58bfdae6f96f2239419649,2026-09-27T17:04:20+00:00,Human,,234,1926,31,False,True,False,False,"Consolidate documentation into a production-quality set
+
+Remove obsolete agent briefs, resolved planning history and release-candidate
+evidence: PRODUCT.md, CLAUDE.md, docs/AUDIT.md, docs/VERIFICATION.md,
+docs/FINISH-REVIEW.md, machine sweep JSON and evidence screenshots.
+Rewrite README as the authoritative entry point with a repository layout map;
+condense DESIGN.md to working conventions grounded in styles.css; inline the
+pre-release browser matrix into PUBLISHING.md. Fix the inventory generator to
+emit plain system names instead of localhost links and regenerate. Drop five
+unreferenced default Next.js SVGs."
+https://www.github.com/0xuser64bit/mizu,f7d95b6328e2ab1d7d5f4e6c5b5923a41d1a7777,2026-09-27T14:20:18+00:00,Human,,1,1,1,False,False,False,False,Generate Next route types before checking a fresh checkout
+https://www.github.com/0xuser64bit/mizu,b764a4a57a5390dd1621adaab86f61ff5d3de9bf,2026-09-27T14:13:23+00:00,Human,,10,2,1,False,False,False,False,Check npm authentication and package ownership before publishing
+https://www.github.com/0xuser64bit/mizu,e3644f9006ab65c17c2299f956a51208b065e6ea,2026-09-27T14:05:47+00:00,Human,,39,37,16,False,False,False,False,Use the standard npm install command throughout consumer documentation
+https://www.github.com/0xuser64bit/mizu,88d31cb1d61fb5b488cb36a3daaa958ed201f6ba,2026-09-27T13:34:34+00:00,Human,,1018,24,3,False,False,False,False,"Capture implemented themes, typography and motion in the design reference"
+https://www.github.com/0xuser64bit/mizu,7efa3b98338e6f21fbc3de1806f33828f5c001b1,2026-09-27T13:26:07+00:00,Human,,1585,173,21,False,False,False,False,"Record release candidate adoption, measured verification and finish review"
+https://www.github.com/0xuser64bit/mizu,1ad962adb9c3a321255ff0a039dcd77886386ace,2026-09-27T13:24:11+00:00,Human,,120,48,9,False,False,False,False,"Clarify candidate installation, illustrative data and semantic docs"
+https://www.github.com/0xuser64bit/mizu,35be9905def08626e96c27a2dcdc057a433728bf,2026-09-27T10:26:42+00:00,Human,,731,133,7,False,False,False,False,Validate packed React consumers with a real recoverable workshop
+https://www.github.com/0xuser64bit/mizu,2adb3babd8550004d7183d1d0c8b01dbdcdf571f,2026-09-27T10:26:20+00:00,Human,,2,2,1,False,False,False,False,Keep skip links fully hidden inside padded app shells
+https://www.github.com/0xuser64bit/mizu,4231195ed58c08b91585fb7c9cb1e8d7865c7259,2026-09-27T10:10:18+00:00,Human,,1045,93,23,False,False,False,False,Compile copied usage and document every system with reproducible inventory
+https://www.github.com/0xuser64bit/mizu,7ea785b5d9f439fc77e08846634b49cacb949a81,2026-09-27T10:05:16+00:00,Human,,861,387,51,False,False,False,False,"Unify motion preferences, bounded effects and accessible theme rendering"
+https://www.github.com/0xuser64bit/mizu,541f45b1f4b29160fa6376ec66541734c45f5b79,2026-09-27T10:04:15+00:00,Human,,2099,359,1,False,False,False,False,Format the shared stylesheet for readable inspection
+https://www.github.com/0xuser64bit/mizu,97cbb1ebc3fcafae4c72c321a47e2fd2c080644b,2026-09-27T09:47:32+00:00,Human,,8561,1290,104,False,False,False,False,Format inspectable source and examples consistently with Prettier
+https://www.github.com/0xuser64bit/mizu,ac218e85c82d60dcb7586465a646474622f87ad9,2026-09-27T09:26:47+00:00,Human,,217,1,18,False,False,False,False,"Add searchable selection, direct editing, comparison and bounded history"
+https://www.github.com/0xuser64bit/mizu,2856cf8b69721495b8b7f362c379d1aacffe26aa,2026-09-27T09:26:47+00:00,Human,,278,1,20,False,False,False,False,Compose accessible content and responsive working layouts
+https://www.github.com/0xuser64bit/mizu,741548aabb2fa267e89f6be7028838f4ebbc9a05,2026-09-27T09:26:46+00:00,Human,,505,1,19,False,False,False,False,Add sortable data inspection and keyboard-driven navigation
+https://www.github.com/0xuser64bit/mizu,26e6f3adbb4c8ab860fc24e39e6f81c649f633be,2026-09-27T09:00:11+00:00,Human,,581,225,23,False,False,False,False,"Make documentation searchable with lazy, compiled examples and inspectable source"
+https://www.github.com/0xuser64bit/mizu,d751360fec5354c5512db73295e8189ddf9a9022,2026-09-27T09:00:11+00:00,Human,,455,1,13,False,False,False,False,Add labelled forms and promise-driven feedback systems
+https://www.github.com/0xuser64bit/mizu,2c04e58973d406c3a831d194a778b78206622992,2026-09-27T08:59:55+00:00,Human,,81,59,22,False,False,False,False,Let TypeScript rewrite source extensions for native ESM and Turbopack
+https://www.github.com/0xuser64bit/mizu,1856680f0176c4a707833a230a97cc902449c334,2026-09-27T08:42:48+00:00,Human,,177,79,30,False,False,False,False,"Ship resolvable ESM, optional font styles and an isolated tarball check"
+https://www.github.com/0xuser64bit/mizu,ffe8081559f25727e81451845e47270564e0246c,2026-09-27T08:41:53+00:00,Human,,532,815,22,False,False,False,False,"Repair modality, accessible controls and motion lifecycles"
+https://www.github.com/0xuser64bit/mizu,df39f3646c5001a9d966e3842c82d44094898cf3,2026-09-27T08:15:01+00:00,Human,,2,1,2,False,True,False,False,Fix DialogClose positioning: anchor to panel with position:relative; bump mizu-ui to 0.1.2
+https://www.github.com/0xuser64bit/mizu,594a8a7a846ae1c463ef4eca5d9a16dd4590dff0,2026-09-26T23:45:45+00:00,Human,,2,2,2,False,False,False,False,Suppress html hydration warning from pre-paint theme script; bump mizu-ui to 0.1.1
+https://www.github.com/0xuser64bit/mizu,a14a7501810e2dbc2c2f0c4ad9613199db9aa900,2026-09-26T23:39:17+00:00,Human,,93,5,5,False,True,False,False,"Add 404 page, PageWipe busy-resolve, Dialog onOpenChange ref fix, new a11y tests"
+https://www.github.com/0xuser64bit/mizu,7b196835eb10d7321c6495c5abd7b4dcfdd190c5,2026-09-26T23:36:28+00:00,Human,,7,21,7,False,True,False,False,"Clean up docs demos and small inconsistencies
+
+- Primitives demo uses the real Rule component instead of hand-rolled markup
+- Remove invalid role=text from WaveText, dead tab stop on Pinfield,
+  no-op ternary in Slider
+- Fix indentation glitches in components index and type demos"
+https://www.github.com/0xuser64bit/mizu,3d2d1afab7a94b911b4db2fbe2c68f948ce53814,2026-09-26T23:33:05+00:00,Human,,31,4,3,False,False,False,False,Route hero and invite CTAs through the page wipe; preserve per-page titles after navigation
+https://www.github.com/0xuser64bit/mizu,bbbc7b89981883aa7031847702243e77afe85383,2026-09-26T23:31:11+00:00,Human,,15,5,4,False,True,False,False,"Harden Dialog focus trap, Nav focus restore and aria-current, fix CopyButton/Spectrum copy feedback"
+https://www.github.com/0xuser64bit/mizu,032e2a05923c0dd595c3c042fb18d8f48dc31dd5,2026-09-26T23:28:30+00:00,Human,,111,58,10,False,False,False,False,"Honor reduced motion across the library; harden test env
+
+- MaskLine, Reveal, Magnetic, Accordion, Tabs, Toast, Dialog now guard
+  on useReducedMotion and render final state instantly under reduce
+- Tabs: per-instance layoutId (multiple TabGroups no longer share an
+  underline) and arrow-key/Home/End navigation per WAI-ARIA
+- Tests: disable happy-dom WAAPI so motion uses its rAF driver,
+  eliminating unhandled AbortError artifacts; drop the
+  dangerouslyIgnoreUnhandledErrors escape hatch
+- ThemeToggle: lint-clean init from pre-paint DOM attribute"
+https://www.github.com/0xuser64bit/mizu,6f9c4798253ab74d25678e35a0758b69eb2b972d,2026-09-26T23:11:09+00:00,Human,,13,11,2,False,True,False,False,"Fix theme toggle hydration mismatch: pre-paint bootstrap script, effect-based sync"
+https://www.github.com/0xuser64bit/mizu,eb5e6e472b53cf84d751c1611d76f499811df86a,2026-09-26T23:10:17+00:00,Human,,7,0,1,False,True,False,False,Fix home ticker: add missing marquee keyframes and animate-marquee token
+https://www.github.com/0xuser64bit/mizu,8d6f08587da3ba9d7404275a4e45697d0b5ecced,2026-09-26T22:54:14+00:00,Human,,1,1,1,False,True,False,False,Fix scope note in publishing guide
+https://www.github.com/0xuser64bit/mizu,106e98634323763a51a859c75868ee9944be9499,2026-09-26T22:53:42+00:00,Human,,44,44,11,False,False,False,False,Rename package to mizu-ui (available on npm; @mizu/ui is taken)
+https://www.github.com/0xuser64bit/mizu,ada24f37d499488b9d700952bc7aec45870cd220,2026-09-26T22:45:06+00:00,Human,,65,7,4,False,True,False,False,"Fix Vercel build: exclude consumer example from root typecheck
+
+- examples/consumer has its own dependency tree; root tsconfig no longer
+  includes it (verified standalone: tsc + vite build pass)
+- Remove playwright devDependency (browser verification complete)
+- Add PUBLISHING.md: semver flow, pack dry-run, publish, post-publish
+  verification from a scratch directory"
+https://www.github.com/0xuser64bit/mizu,f710261f33e7699f6191ed8e9ffb6e62cd4ef2c2,2026-09-26T22:22:29+00:00,Human,,1,31,20,False,False,False,False,Ignore consumer build output
+https://www.github.com/0xuser64bit/mizu,7720337f33095e8278b633b119b97dc90401f143,2026-09-26T22:22:13+00:00,Human,,41,34,4,False,False,False,False,"Docs: link component pages with next/link; site README
+
+Final audit pass — all checks green:
+- lint clean, tsc clean, 34/34 tests, production build (21 component pages)
+- browser-verified: nav wipe transitions, dialog focus trap + escape,
+  accordion/tabs keyboard, mobile menu, toasts, theme toggle,
+  pinfield/signal canvas interaction, reduced motion"
+https://www.github.com/0xuser64bit/mizu,3cd1c0833f992426c54745f9faa6d5cc3bd73dea,2026-09-26T22:19:53+00:00,Human,,123,105,16,False,True,False,False,"Fix Nav responsive states, hydration mismatch, and light theme tokens
+
+- Browser testing caught desktop nav links hardcoded display:none —
+  replaced with media-query-driven classes in styles.css
+- Nav active state hydrated inconsistently (window.location on server)
+  — added SiteNav wrapper using next/navigation usePathname
+- gap/transition style serialization mismatch — explicit longhand props
+- Light theme had ink/paper values swapped — ground is always --mizu-ink,
+  text is always --mizu-paper, only values change per theme
+- Nav header background now uses color-mix with the ground token"
+https://www.github.com/0xuser64bit/mizu,de383c40dd50764d2d2858c63b74018f65cb051d,2026-09-26T21:36:11+00:00,Human,,1,1093739,3975,False,False,False,False,Ignore node_modules in examples
+https://www.github.com/0xuser64bit/mizu,966118e8e8ac5d8643b07dfd92ae2cf0fa7e66e7,2026-09-26T21:36:01+00:00,Human,,204,39122,189,False,False,False,False,Consumer installs package directory via prepare script; ignore tarballs
+https://www.github.com/0xuser64bit/mizu,aa8f15edcd49a8c5de008467ec04f140da12ae44,2026-09-26T21:35:09+00:00,Human,,1133238,10,4005,False,False,False,False,"Add style props to all components; add consumer verification app
+
+- Consumer typecheck caught a real API gap: RippleSurface, WaveText,
+  GhostWord and others lacked style props — now consistent across the library
+- examples/consumer: fresh Vite+React app installing the packed tarball
+- Verified: install, typecheck, production build (fonts + CSS bundled),
+  dev server transforms"
+https://www.github.com/0xuser64bit/mizu,501adb86647311ba06a6ab4bde73ed23f6b7d360,2026-09-26T21:27:11+00:00,Human,,720,5,9,False,False,False,False,"Test suite: 34 behavior tests across foundation, motion, composites
+
+- happy-dom environment with mutable matchMedia singleton
+  (motion caches the MediaQueryList, so tests mutate instead of replace)
+- Clipboard/act/timer semantics handled for CopyButton, Toast, CountUp, PageWipe
+- Covers: Button, primitives, MaskLine, Reveal, Magnetic, Marquee,
+  PageWipe, Accordion, Tabs, Dialog, CountUp, CopyButton, Toast, Specimen,
+  WaveText, GhostWord, Slider, Tooltip"
+https://www.github.com/0xuser64bit/mizu,0029d29930585f11ac924ffa00fa2ab332abe8ba,2026-09-26T20:54:00+00:00,Human,,1713,0,13,False,False,False,False,"Docs site: /components with live playgrounds for all 21 entries
+
+- Registry-driven doc pages: usage snippets, props tables, a11y + motion notes
+- Every page ships a real interactive demo of the component
+- Install section with copy-to-clipboard setup
+- Floating theme toggle (dark/light) demonstrating the token system"
+https://www.github.com/0xuser64bit/mizu,a6e4b3ed21b874a1505fe6cd4ef8abefbc67dba1,2026-09-26T20:45:20+00:00,Human,,101,1048,26,False,False,False,False,"Site consumes @mizu/ui package
+
+- Tokens, fonts and components now sourced from packages/mizu
+- Home/lab/studio pages render package Nav with chapter tracking
+- Navigator uses package PageWipe for transitions
+- Removed site-local duplicates (ui/, lab instruments, Thread, lib/)"
+https://www.github.com/0xuser64bit/mizu,5c4e24c76103811190997427088911ee2e588e39,2026-09-26T20:39:47+00:00,Human,,102,0,1,False,False,False,False,"Add @mizu/ui README with install, theming and API overview"
+https://www.github.com/0xuser64bit/mizu,9e39035f0ddf95beb4dc446deece5342a5ec0ed2,2026-09-26T20:39:14+00:00,Human,,756,0,5,False,False,False,False,"Composites: Accordion, Tabs, Dialog, Nav
+
+- Accordion: context-driven, single/multiple, diamond marker morphs on state
+- Tabs: controlled/uncontrolled, sliding underline via layout animation
+- Dialog: portal, focus trap, Escape, scroll lock, expo entrance
+- Nav: thread header with scroll progress, chapter tracking, mobile overlay"
+https://www.github.com/0xuser64bit/mizu,5aede8372154574999e7449f86169fdadb422c82,2026-09-26T20:36:25+00:00,Human,,264,0,4,False,False,False,False,"Feedback: CountUp, CopyButton, Toast system
+
+- CountUp: eased number animation with tabular numerals, reduced-motion instant
+- CopyButton: clipboard with execCommand fallback, check-morph confirmation
+- Toast: provider + imperative toast() with tones, aria-live viewport"
+https://www.github.com/0xuser64bit/mizu,d64d5c484f9dc835ac025136cca6ffaed050e017,2026-09-26T20:34:58+00:00,Human,,373,0,4,False,False,False,False,"Lab instruments: Pinfield, Signal, RippleSurface
+
+Canvas instruments with DPR handling, IntersectionObserver pausing,
+and reduced-motion static frames:
+- Pinfield: pulse-propagating dot grid
+- Signal: draggable waveform phase scrubber
+- RippleSurface: ambient click-reactive ripple field"
+https://www.github.com/0xuser64bit/mizu,a04edd2267f5f4d20268d12747042e72b4c8f567,2026-09-26T20:33:15+00:00,Human,,449,0,7,False,False,False,False,"Type systems: Specimen, SoftType, WaveText, GhostWord
+
+- Specimen: live type tester with controlled/uncontrolled props
+- SoftType: canvas variable-font engine (weight/width oscillation)
+- WaveText: per-letter pointer-reactive kinetic text
+- GhostWord: oversized outlined display word, fills on hover"
+https://www.github.com/0xuser64bit/mizu,52afe668693f7de8cd8cfba698cd84dc272f3b09,2026-09-26T20:29:44+00:00,Human,,6,516,66,False,True,False,False,Fix Button style typing; ignore package dist output
+https://www.github.com/0xuser64bit/mizu,9a8cc9577ce8e4d319a93447cf3a45e801ab6e28,2026-09-26T20:29:19+00:00,Human,,387,2,31,False,False,False,False,"Button and ButtonLink: solid/ghost/inverse variants, loading state, arrow micro-motion"
+https://www.github.com/0xuser64bit/mizu,c2dc265c047170cd5b6adfd8eafe1d32b0cf4fb2,2026-09-26T20:28:10+00:00,Human,,277,0,6,False,False,False,False,"Motion primitives: MaskLine, Reveal, Magnetic, Marquee, PageWipe
+
+- MaskLine: masked line-wipe text reveal (Mizu signature)
+- Reveal: scroll-triggered entrance with direction/distance control
+- Magnetic: spring-follow pointer wrapper
+- Marquee: seamless infinite ticker, pauses on hover, reduced-motion static
+- PageWipe: full-screen page transition with imperative wipe() API
+  that resolves at the sweep midpoint for navigation handoff"
+https://www.github.com/0xuser64bit/mizu,f35e0568ec2f41efb2431d75d04b061a52fd12e6,2026-09-26T20:26:11+00:00,Human,,909,0,56,False,False,False,False,"Foundation: @mizu/ui package skeleton with tokens and primitives
+
+- packages/mizu: ESM package with tsc build, exports map, styles.css entry
+- Design tokens as CSS custom properties (dark default, [data-theme=""light""] override)
+- Self-hosted fonts via fontsource (Archivo Variable, Instrument Serif, JetBrains Mono)
+- Primitives: Mark (signature diamond), SectionTag, Rule, Badge, Spinner, Frame, Slider, Tooltip"
+https://www.github.com/0xuser64bit/mizu,fa1b8a391974079669d535ab678645086de103f0,2026-09-26T18:37:33+00:00,Human,,922,6956,2,False,False,False,False,npm to bun
+https://www.github.com/0xuser64bit/mizu,3a1293f16aad9386e353fdd2e584db2ad32179dc,2026-09-26T18:23:23+00:00,Human,,2331,98,34,False,False,False,False,"Design and build the Mizu digital identity
+
+Creative direction: warm ink ground, vermillion signal accent, and a
+single thread motif that runs from the interactive hero field into the
+navigation chrome, page transitions, and editorial details.
+
+- Homepage: cursor-reactive hero field that collapses into the nav
+  thread on scroll, discipline ticker, manifesto, selected works with
+  live canvas previews, lab invitation on a ripple surface, colophon
+  footer with live clock
+- Lab: four live instruments (Signal, Specimen, Spectrum, Pinfield)
+- Standpoint: editorial manifesto page
+- Shell: wipe page transitions, spring cursor with context labels,
+  scroll-thread with chapter tracking, grain overlay, mobile menu
+- Foundations: Tailwind v4 design tokens, Archivo/Instrument Serif/
+  JetBrains Mono, reduced-motion and keyboard support throughout"
+https://www.github.com/0xuser64bit/mizu,df57ef41e51560cab93f9e7b37e751e6e02a511e,2026-09-26T17:43:17+00:00,Human,,7203,0,19,False,False,False,False,Initial commit from Create Next App

@@ -1,0 +1,326 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xmrw/solana-dapp-ui-ux,59fa25a725bd7201879b11a65701deec9c745abe,2026-07-06T22:00:20+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-200) (#237)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d1e97b8868787a5be0f9043837b3b1f3f3650178,2026-07-06T22:00:11+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-199) (#236)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,1b31790e6adb79e28500f0f39e29a7f2656795d3,2026-07-06T22:00:01+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-198) (#235)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,e57154bd4d695ee666f62c838d5479ef448d0c10,2026-07-06T21:59:52+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-197) (#234)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,9c6e570a4f17772096d6f6adf26497879420cd39,2026-07-06T21:59:43+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-196) (#233)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,e5e8a2ecea696d917da17afcdd95c18da1ab5a63,2026-07-06T21:59:34+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-195) (#232)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,aa979296f6ec0f169798cd213fc399ccce52ea7a,2026-07-06T21:59:25+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-194) (#231)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,12771b533afbba8b6b7edf99ff356ca12cc08e9f,2026-07-06T21:59:17+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-193) (#230)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,86d6b1215ac13a26c83e630c667e84bfff7ba9b0,2026-07-06T21:59:08+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-192) (#229)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,e7f0e2a913736fb494fa68da2cbe71e6ff48d0d4,2026-07-06T21:59:00+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-191) (#228)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,4b4e4b3b0c81adca3620539a1a45b44cb84a73ac,2026-07-06T21:58:51+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-190) (#227)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,1af4140cd0653e04075a293ee416d416b291e891,2026-07-06T21:58:42+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-189) (#226)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,15560c8b5a5c994c07c74022937155c403ebbb8b,2026-07-06T21:58:33+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-188) (#225)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,fda723c35e57eaac6fa73f6c8d58732191bdf39f,2026-07-06T21:58:24+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-187) (#224)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,5a8a9fd5aac5df3418b0599e02ce524dd27cf6c4,2026-07-06T21:58:16+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-186) (#223)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,729884e499aed8c1d8bec689c86e810e5e368471,2026-07-06T21:58:07+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-185) (#222)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,60e71461e025e4f51894ae8c5972f7ba9372ede4,2026-07-06T21:57:58+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-184) (#221)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,52aa493303941d40836bbaeb984f6f650bb0bc85,2026-07-06T21:57:50+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-183) (#220)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a027a3e8ab4143f3517c459288077981525b9465,2026-07-06T21:57:41+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-182) (#219)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,67dd1267fb5edeb822d602e0a6ca02c6c9d44ea6,2026-07-06T21:57:32+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-181) (#218)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b7132aa0b85685d10a734188aafbaa2bf4a686aa,2026-07-06T21:57:21+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-180) (#217)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,091573b1b1bce07aab98b69e832695720ac03ab9,2026-07-06T21:57:12+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-179) (#216)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,abf7ac3a5d7578145b83f8a40d3dc45bb2f03f1a,2026-07-06T21:57:03+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-178) (#215)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b7f36b8523ffd64a285e5c02859a0a371b899eac,2026-07-06T21:56:55+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-177) (#214)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,568da974f0a0461064992c6854b5cc338cdb7d8c,2026-07-06T21:56:46+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-176) (#213)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,ee96ab7623b360f15d54385bed3c9f60da179ec0,2026-07-06T21:56:37+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-175) (#212)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,eae248a970ed88855b6a022977cd2df8a7ebf37f,2026-07-06T21:56:29+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-174) (#211)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,f5c66344b220485c0a7fb8b6806c4c2f100b8141,2026-07-06T21:56:20+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-173) (#210)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a31d1f7c03e4c86026433dea4d12d5d6f9dc619e,2026-07-06T21:56:11+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-172) (#209)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,28f0fa58d39ca3058192555d822394981f95a97d,2026-07-06T21:56:02+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-171) (#208)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,0489a07ebaa9017189c477b1655c2ba8061ee0cb,2026-07-06T21:55:53+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-170) (#207)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,324d6ec39d4657d79e8ff47176ad3b0af201cebd,2026-07-06T21:55:44+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-169) (#206)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,63c45c6aa7aa6830be79c6e6bc37082f274cf4e6,2026-07-06T21:55:35+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-168) (#205)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,264656c38c70bfec5605aadb3f36477afc8bdde2,2026-07-06T21:55:26+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-167) (#204)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,05468d540be0c50ebe3b6d62cf3a505b93f6d2ba,2026-07-06T21:55:18+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-166) (#203)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,14e9c481775e0bc237e240915feed36b458e833d,2026-07-06T21:55:08+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-165) (#202)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d55fb8a87be4c86eaa2e88aeb2637d2ccbcb90ae,2026-07-06T21:54:58+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-164) (#201)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,293a8742eca9b4b49349ae606a356122994ba749,2026-07-06T21:54:50+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-163) (#200)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,743c3c18adfea2daa2b3d58078fec242523ffe5f,2026-07-06T21:54:41+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-162) (#199)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,72da5a5bb7bd3ee61da18cbb9e273a8c813a6158,2026-07-06T21:54:32+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-161) (#198)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,ed8e026ab101c9df5ff2cb379c7176d003037e01,2026-07-06T21:54:23+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-160) (#197)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,197be53b0ab62b1939869b1e338d8e819654a505,2026-07-06T21:54:14+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-159) (#196)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,78d6d131d038d5f90a177ef993ef8d39c24e12dd,2026-07-06T21:54:05+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-158) (#195)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b698bf53d718ad6c0f05d8bc5a56295bec0f3319,2026-07-06T21:53:56+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-157) (#194)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d62d195aabf9540a505900f5a61f2a697361fd2b,2026-07-06T21:53:47+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-156) (#193)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,8b09e2ca0356bc865c839009841ab12604b1504a,2026-07-06T21:53:38+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-155) (#192)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,f9303a7115c66cd5f592bf0ffdcaae68b3812e58,2026-07-06T21:53:29+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-154) (#191)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,f2d77a921093f70d84c4dee3e79dbbb3c4ca6b90,2026-07-06T21:53:20+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-153) (#190)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,51fc1df1d1bcb106c496f1ae4f09345a5107feb1,2026-07-06T21:53:11+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-152) (#189)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,4d89da0091f2b555e11250b8d65ff11571ac9d63,2026-07-06T21:53:02+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-151) (#188)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,e3e8da5cb161eb3ab7bda41e6f54f771fe27d0f4,2026-07-06T21:52:53+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-150) (#187)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,2e3735121ff7341a5d3b28443a1b0b214bb89356,2026-07-06T21:52:44+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-149) (#186)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,879de4bbbb1174408067ee83e90756ad429ff2cd,2026-07-06T21:52:35+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-148) (#185)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,82c0b0b97a5e17f53bc453fdc7ff15700795ec18,2026-07-06T21:52:27+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-147) (#184)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,7d49613aa3f734a28bb55e1379ec55f5e23af036,2026-07-06T21:52:18+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-146) (#183)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,092d554b58a4f24a6e6709b7aad16275ca168020,2026-07-06T21:52:09+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-145) (#182)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,be2def1c4666f853acc90d9074066f6c8ae172ae,2026-07-06T21:52:00+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-144) (#181)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,77b889c50516d82ebef73d3fd8c468017c700de4,2026-07-06T21:51:51+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-143) (#180)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,abab4fd74cf852db9b70c1d6d34b4d0f5a23baea,2026-07-06T21:51:42+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-142) (#179)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,ef20edc15bef9b1ca6d3ad6a7ea24795a5b0c043,2026-07-06T21:51:33+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-141) (#178)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,00ad030d0c8333d41945ce80238b86d612397b36,2026-07-06T21:51:24+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-140) (#177)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,819afde1da4abedca6b6e79709d624fea56ef326,2026-07-06T21:51:15+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-139) (#176)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,56a2591a91bcc6356fe03920c21ed397025a79e0,2026-07-06T21:51:05+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-138) (#175)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,0c6b34a5aafcd9efb714bb1f42a90f8997fab2ee,2026-07-06T21:50:56+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-137) (#174)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,cf2ed5bc320887ca38433ff28c5dfd8aafabd0c7,2026-07-06T21:50:47+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-136) (#173)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,cb3dd2d7f6df103246f38e1201efba7b1de51a5d,2026-07-06T21:50:38+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-135) (#172)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,7b591bc824b7e995c66a076c4fe4d449a1c2359c,2026-07-06T21:50:30+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-134) (#171)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,4511ca226249dc3593d6ef56ff27cdba273503b7,2026-07-06T21:50:20+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-133) (#170)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,fddc27d791a896380df7154bca64ae0e1476772b,2026-07-06T21:50:11+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-132) (#169)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,bd76c9ed411dd1a346c6659a73ea0ae328a37982,2026-07-06T21:50:02+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-131) (#168)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,17e707a83d910a884253ecac85ddb122a69ad135,2026-07-06T21:49:52+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-130) (#167)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,1d97b2ec92eb31e0f51fe96d4c2217d2327e932a,2026-07-06T21:49:43+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-129) (#166)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a96ddc0878e0ec0facb356f82a31472bacef5f67,2026-07-06T21:49:33+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-128) (#165)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,8d0933217e059f79ec955eb05186a166612691b7,2026-07-06T21:49:24+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-127) (#164)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,aa1cf4a1d8757bdbb6fad014802798adfc2d12ec,2026-07-06T21:49:15+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-126) (#163)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,6db5a847517d726f37bdf014b3b37bb56f597210,2026-07-06T21:49:06+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-125) (#162)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,2c9181ee777abd3151fc6436f2269f631c529ba6,2026-07-06T21:48:56+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-124) (#161)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d2b54b112386d3674edc2b4e5fdbb04e012ea59d,2026-07-06T21:48:48+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-123) (#160)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b8022392bda318ed948b94147d8cbddeadfde9ae,2026-07-06T21:48:39+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-122) (#159)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,1bbaa67e9eecdcee4c64565210014097538be0b4,2026-07-06T21:48:29+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-121) (#158)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,4a2c75662b483debb1e247129bfe295c9287ebfe,2026-07-06T21:48:20+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-120) (#157)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,690330094d776cd998ee7cdc84a7a035eacb9eba,2026-07-06T21:48:11+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-119) (#156)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,5ab34f8536b6b57e2b237f6417ee9b38b60bd938,2026-07-06T21:48:01+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-118) (#155)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,dd2274e303a81b1bed8f4c33d917ec6a997d574a,2026-07-06T21:47:52+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-117) (#154)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,7b825e36934f90237c0056e5d7d56a777111f3ac,2026-07-06T21:47:43+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-116) (#153)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,733379c6e11e3d9ffb4925cfbe98f93847800fc9,2026-07-06T21:47:34+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-115) (#152)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d9f986ae45ef04a68a7f38c9d46af59be0e9e018,2026-07-06T21:47:25+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-114) (#151)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,e3d8e6dd344e74f6f02946fd22a20838805c95a5,2026-07-06T21:47:16+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-113) (#150)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,ec116f064a0fee59d9a4c68c2cbe27c53d57d022,2026-07-06T21:47:07+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-112) (#149)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,0148843711275f7fa47c80d59738a3429e6c5759,2026-07-06T21:46:58+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-111) (#148)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,187d516bfd1ef14306474397a851aff8df41e8df,2026-07-06T21:46:49+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-110) (#147)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,5af40f4c140965c2a8623995291f9cca8625d7f7,2026-07-06T21:46:39+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-109) (#146)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a5d82376e1c0b2f8b1bf805623d27ad451f09a9f,2026-07-06T21:46:30+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-108) (#145)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,74cb6deb2f87d1e4f744784d6d4a2ca339dabf51,2026-07-06T21:46:21+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-107) (#144)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,9cb0e51f8f5d438964daa55fd595b0f39399edcf,2026-07-06T21:46:11+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-106) (#143)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,6c813603cb7fdfa97bb8c5a87a6148e8bf5adbb8,2026-07-06T21:46:01+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-105) (#142)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,17444321a8220d56033af4ef367e02db36389b80,2026-07-06T21:45:51+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-104) (#141)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,ee4034d313a7f9b36bdd466f737844affe721c8b,2026-07-06T21:45:42+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-103) (#140)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,da4ded4297265d4744af47c97a7ca021b90d0a48,2026-07-06T21:45:33+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-102) (#139)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b1c963f0b49a17d1de3fa3f08ff4f51176a9a9ac,2026-07-06T21:45:24+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-101) (#138)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,ae58596f9f1043ae350834093146ddd8861665b1,2026-07-06T21:45:14+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-100) (#137)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,43ff2ac1577e38cec76f3562079a49fad0aff753,2026-07-06T21:45:04+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-99) (#136)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,7a0a3a0f09893ca5ab6f243cf0a868de2e75051e,2026-07-06T21:44:54+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-98) (#135)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,347cbdacf924a20ee2c8e531d930f8199aab5e7a,2026-07-06T21:44:44+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-97) (#134)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b0dfd27a40f09d8ce9528ce69b1eac8fff25f268,2026-07-06T21:44:34+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-96) (#133)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d461f25865b4e5b2cdce332f089f14639d6bd5f8,2026-07-06T21:44:25+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-95) (#132)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,1ffb12f7ca2dc5799b18646a788d71731502bb70,2026-07-06T21:44:16+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-94) (#131)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,707d66e5b983a56bff3063686b2f635b77b0d832,2026-07-06T21:44:07+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-93) (#130)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d3fa12fa6d3f83233be0a47f11f5e0f8c2132c7f,2026-07-06T21:43:58+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-92) (#129)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,dabbc53f8c3c950bc914867c15ea99e5a8ed0a03,2026-07-06T21:43:49+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-91) (#128)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,f23e7f1d8b1f1123552a8f812567fb86af1bf406,2026-07-06T21:43:40+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-90) (#127)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,0f5617504ae39bf96e629ac565610fe859b0b172,2026-07-06T21:43:31+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-89) (#126)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,39851574ac434644e02fe47766a3760a940be30a,2026-07-06T21:43:22+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-88) (#125)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,8f338ea777ca4fd2f9324afcdf743085d040da29,2026-07-06T21:43:13+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-87) (#124)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,1aa631a691c6404835531061ff524ce06ff565e0,2026-07-06T21:43:04+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-86) (#123)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,aacee851d4b39027799ce0e5cc68fa24dbff3a95,2026-07-06T21:42:54+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-85) (#122)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,cfed1dcad5d84f68cf7b2a67a1eba4ebd294aef9,2026-07-06T21:42:46+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-84) (#121)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,1e320bce318feb2b7033dd7e2d484799c5cff4b5,2026-07-06T21:42:37+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-83) (#120)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,52d55b7a9af3c8a0715dc274526b7c4419c9f72f,2026-07-06T21:42:28+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-82) (#119)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,f562ce9fce6aa2daad42692a06eb9a054a4af21a,2026-07-06T21:42:19+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-81) (#118)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,75b3080f7e28e88c64a871310e09ef62110587fc,2026-07-06T21:42:10+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-80) (#117)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a91830f281120d7ce98e9307b1381e9bed5bb7d4,2026-07-06T21:42:01+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-79) (#116)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,6fbd6ae0d8bd02fcb8b40a15004bf09564d15075,2026-07-06T21:41:51+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-78) (#115)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,c878af74184f2c41d5ec63d2da824cac9429183b,2026-07-06T21:41:42+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-77) (#114)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,234c7675abf7e2b1e4b9dcc83ca033e442e637d6,2026-07-06T21:41:34+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-76) (#113)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,c06337f33109c997ee67a4b667867ff5827c9bb8,2026-07-06T21:41:25+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-75) (#112)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d63c6f33cbdc263c210fcb857d69fc4aadc1af9b,2026-07-06T21:41:16+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-74) (#111)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,aa9e7fb681c0fc6c8699ba2b8ea4a25c7773b82b,2026-07-06T21:41:07+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-73) (#110)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,38299df5a2b2cd128400403bec23252b1c0032af,2026-07-06T21:40:58+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-72) (#109)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,88799c1dec2238baf2d09d9db893b1073ac20595,2026-07-06T21:40:49+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-71) (#108)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,96333ea5b3044c23872566ea49c160fc44b5d625,2026-07-06T21:40:40+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-70) (#107)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,7ad7188f6adbc72aceac9fc2c8033172e4b2ab67,2026-07-06T21:40:31+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-69) (#106)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,2ac819b4c434ae0d59f1c8fbf34b6b7baf3d0ab5,2026-07-06T21:40:22+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-68) (#105)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,4d50629f98ff151ce764f13468c4e0be80f7d538,2026-07-06T21:40:13+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-67) (#104)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,eff7f2ee614d2830f828b2ea4e132afadcf5431e,2026-07-06T21:40:04+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-66) (#103)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,ae4725e085c3cd58112975fe5980466b0da97999,2026-07-06T21:39:54+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-65) (#102)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,6c6b1d6f91b4e2e4d52337acc2681076bcec28bb,2026-07-06T21:39:45+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-64) (#101)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,3b35c7946c715913cb0583d71ecb11af921b6717,2026-07-06T21:39:36+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-63) (#100)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,ae789b8f1f108f18c8f4e32e3e85373027fa4ae0,2026-07-06T21:39:27+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-62) (#99)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,377c92009ae5da80c3c7546cd4c786b7ddca6a70,2026-07-06T21:39:19+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-61) (#98)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,5319dfb19825c89e917b2f6235ed0a0a3b0255ac,2026-07-06T21:39:10+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-60) (#97)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,6ff58bb041398cc9771a9cfca7bebf1724b0e4b4,2026-07-06T21:39:01+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-59) (#96)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,7308c055b80c646f519d222e959ce9664d5bb2c3,2026-07-06T21:38:52+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-58) (#95)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,c27900547c664d51e4fdd3013c592f3d1b938f32,2026-07-06T21:38:44+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-57) (#94)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,8d6099a5bf808b45fd09add9b61a1ccddb1039ae,2026-07-06T21:38:35+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-56) (#93)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,6963198d795081f09a450c4094420bf43e7d320c,2026-07-06T21:38:26+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-55) (#92)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a0fd191c1431e536cf67fd1711ac5201c7f3645d,2026-07-06T21:38:17+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-54) (#91)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,f3e311031394b864caa823fa7d02486398579924,2026-07-06T21:38:06+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-53) (#90)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,9604c6ee3974843060b5f8b419f858d9b827a964,2026-07-06T21:37:57+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-52) (#89)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,73bdb78670bdbe17361c75b8fd661bcc5ff9ae72,2026-07-06T21:37:48+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-51) (#88)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,dd30fefa9f303ab4634daf26de482c422d432fa9,2026-07-06T21:37:39+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-50) (#87)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,97b8886b45e1b5fa439a067acc9b16b72425b04e,2026-07-06T21:37:29+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-49) (#86)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,dd97220475830f55200c3f6204789d4ced720f59,2026-07-06T21:37:20+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-48) (#85)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a2933986fe3257e655ef0cbbdede080b3998f018,2026-07-06T21:37:12+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-47) (#84)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,62f37a6528ea86c525a54b459c68ae5c1648cdb7,2026-07-06T21:37:03+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-46) (#83)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,8cf29b316fac9c3954bad8a651c7b1169387b67e,2026-07-06T21:36:54+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-45) (#82)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,66bd5b864fd01e18ac9219c646fc5ceb6a3b2c17,2026-07-06T21:36:45+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-44) (#81)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,6c4e66dde219b9f4595f9c94f47cffadc8e96624,2026-07-06T21:36:37+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-43) (#80)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,468b7ab926d707cad52c0403e909121648f435ce,2026-07-06T21:36:28+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-42) (#79)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d162a4850ef4383156abc3837e3947815c20c70e,2026-07-06T21:36:19+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-41) (#78)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a656a3497b149c4291bd3ec704370d75fb2e76ff,2026-07-06T21:36:10+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-40) (#77)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a8639a1361d6cd85a5bd891315a3a276bdb127dd,2026-07-06T21:36:00+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-39) (#76)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,36b8a097d07ed63ec7cc5991cdf53abb50631bce,2026-07-06T21:35:51+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-38) (#75)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,05a9e543683972a0c059826d2f1b11040abddfb1,2026-07-06T21:35:42+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-37) (#74)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,c4b6122532e56f0f714b8f190f0d77b07685bc2b,2026-07-06T21:35:32+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-36) (#73)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,14fe0dfbc86723d7caa5a99045ac052052a00fbc,2026-07-06T21:35:24+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-35) (#72)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,63618e08c8741dbd01fbf16ebbfdb097d10fddea,2026-07-06T21:35:13+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-34) (#71)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,050fbdff03e126fb395d5097153a6c4df99fa8b1,2026-07-06T21:35:04+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-33) (#70)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,56f304d9185c74e8de80c2cdc0169e45d6bcf666,2026-07-06T21:34:55+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-32) (#69)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,75abe3ced7c08ec7dca13e915cbe397d37837060,2026-07-06T21:34:46+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-31) (#68)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,80f58b0665b963999fd7836c511f457594a9121c,2026-07-06T21:34:37+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-30) (#67)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,7540c651430bae891e84aa0dc3b820d483c939dd,2026-07-06T21:34:28+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-29) (#66)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,0fddfda89f2233671689fb722cd0985b466e8223,2026-07-06T21:34:19+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-28) (#65)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,4a20c859ef870d73c2703ad4690c954b01fa4f7f,2026-07-06T21:34:10+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-27) (#64)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,c8cd3217d582b30656c92fccab20d868b72b28c0,2026-07-06T21:34:01+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-26) (#63)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,2a41f36720ccba2abe97d4f89135fcc6c3c15f77,2026-07-06T21:33:52+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-25) (#62)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,30fd34d98ea0f9600b769d821d4147a6bf293167,2026-07-06T21:33:43+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-24) (#61)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,3ef4f75298a529fe2f8666f9505f0a036182a8aa,2026-07-06T21:33:34+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-23) (#60)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,2a4fb14496ec8462011c4a5f72a397205230bc1b,2026-07-06T21:33:24+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-22) (#59)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,bc846cebc09f1903226cbc7a43ae9a6d6121e7a7,2026-07-06T21:33:16+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-21) (#58)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,7971ee452fff34bd5980a03a1f8a22fb357eb5de,2026-07-06T21:33:07+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-20) (#57)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,e65f5de7ef6f48cfe7ef6186510888e41538f81e,2026-07-06T21:32:57+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-19) (#56)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,017108161374a4b5fc2ad7799a06c0eb1b489094,2026-07-06T21:32:49+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-18) (#55)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,2ef31516c986ba7591915efae0bf474162b8c409,2026-07-06T21:32:40+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-17) (#54)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b144c1d84a3c58371e918384bf00a6ad0f17058e,2026-07-06T21:32:31+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-16) (#53)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,3d75d0a457ae4a8166891e31e28381a6d6cfa978,2026-07-06T21:32:22+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-15) (#52)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,bb61f2e75067484128da0ab3e17ce2efebfb468c,2026-07-06T21:32:13+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-14) (#51)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,70c8ae50297ddb67884abaeeb04750ac27b3015d,2026-07-06T21:32:04+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-13) (#50)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,48a136c67ce4c9ed905e95bd276e81f2d2c59545,2026-07-06T21:31:54+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-12) (#49)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,354ed8a97e34c7c9ac6c68e69ddd6958b8c8d537,2026-07-06T21:31:45+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-11) (#48)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d09a9705cc5d315f4c7e4e08ab63f2bb656e6c02,2026-07-06T21:31:36+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-10) (#47)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,3e74322dab911b8aec8b61f80b4d5f7ac25580c6,2026-07-06T21:31:27+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-9) (#46)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,78dd3c1901c514b6237b57004f7587712f85c774,2026-07-06T21:31:18+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-8) (#45)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,9e576e5f88c477df03ce0a44773f8cc9430850fd,2026-07-06T21:31:09+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-7) (#44)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,60926e082106b0d28cdae2ea77e717826af9f31f,2026-07-06T21:31:00+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-6) (#43)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,97c1590073de6594586c344e98aa51821da44934,2026-07-06T21:30:51+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-5) (#42)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,0557eac7447b5abaac62c1d44958d15d717656c0,2026-07-06T21:30:42+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-4) (#41)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,dff915fbbdd7559f8a30d3cdd4e90b449684804a,2026-07-06T21:30:33+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-3) (#40)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,9871f3751d147b4819a4c2c7f8ba369ec7835e77,2026-07-06T21:30:24+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-2) (#39)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,8efac22e453f2051c6d6f8883e337f0c33c64672,2026-07-06T21:30:15+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (pull-shark-1) (#38)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,4ab15b940b13f68bb84cb9870b889ce06b8501a5,2026-07-02T20:11:27+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-10) (#37)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,2ce9bafb239dce2394504ea916f0f627a3af691e,2026-07-02T20:11:17+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-9) (#36)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,f73a1fcd8da295f9a707e3a15006669f22a24fd8,2026-07-02T20:11:07+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-8) (#35)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a919fedff99c859a1fb8d5771af5451df036bb45,2026-07-02T20:10:57+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-7) (#34)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,676527a99c080b14cb46899944ec40ba5f9c1d36,2026-07-02T20:10:47+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-6) (#33)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,d78c7c9caa81536e249639c1c1b370e42f2cc34b,2026-07-02T20:10:37+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-5) (#32)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,54a31b54761de09a064c87804faf005515fbc45a,2026-07-02T20:10:27+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-4) (#31)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,946fd0498a01cb4d0be6abe08c415bea2e22086c,2026-07-02T20:10:18+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-3) (#30)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,bf76c694a317566854f0b5a5f53dece5ed347f03,2026-07-02T20:10:07+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-2) (#29)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,a2a4f0f439134a449e935340ecf521a6d62f9f97,2026-07-02T20:09:58+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-1) (#28)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,5c5dff35fadc97fe80fa7cfe3b955e447a160be6,2026-07-02T17:30:10+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-15) (#27)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,fb430acfbf1ab62a0670e0ae9f1902f83e25453e,2026-07-02T17:29:59+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-14) (#26)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,da23c7592e92290d6e67f24a3a04e9b439d943fa,2026-07-02T17:29:49+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-13) (#25)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,9698cdb3087b305a12f9dedfc55f39380e9f215e,2026-07-02T17:29:39+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-12) (#24)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,2d1d10b73c636897dd5a6f5b729555d747336b02,2026-07-02T17:29:28+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-11) (#23)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,27c3670f40885cd6d552bfa3f61b1df75caf37ae,2026-07-02T17:29:17+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-10) (#22)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b388153229000cf6fdd59fb7f4fa82a869133547,2026-07-02T17:29:07+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-9) (#21)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,37204084c9f377f0fe479db434a91c71e311de95,2026-07-02T17:28:56+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-8) (#20)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,001efa9abf0263e8a919b19dca11291cc5b4957d,2026-07-02T17:28:46+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-7) (#19)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,51944ba9a60d216c60d6d86d15d83f6641bc45f5,2026-07-02T17:28:34+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-6) (#18)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,1dca9557b83c7ee4dfc5124b3942559881c1c4dc,2026-07-02T17:28:21+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-5) (#17)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,afe557e9cb9cfb499c130c8f103a5f47d138afc3,2026-07-02T17:28:09+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-4) (#16)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,7c321c9521c1dc566408c88579d9a726076c5de7,2026-07-02T17:27:55+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-3) (#15)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,2d3bdcd64a60422b58c476fe807fbade91c84444,2026-07-02T17:27:45+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-2) (#14)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b877e5acb0a2958fa8067c8f15798373c441bef0,2026-07-02T17:27:28+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-1) (#13)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,58efcd7755d857e5fe5bbe9dddd1630cf4133b34,2026-07-02T14:51:15+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-2) (#12)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,e9209e94116061b4dc7008c0eb573a3682dcab21,2026-07-02T14:51:03+00:00,Human,,1,1,1,False,False,False,False,"chore: GitMigrate badge run (pair-1) (#11)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,3b09de4301c35a34e556e729927caf4f4178e122,2026-07-02T14:25:38+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-8) (#10)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,4ab35045042af0dbc15888d4610016efc51044b5,2026-07-02T14:25:28+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-7) (#9)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,761d7510ac858ea61fdecafb9cf435f20073c915,2026-07-02T14:25:18+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-6) (#8)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,8d3177776ccf1e9f43a9b3768d5218b171aa24be,2026-07-02T14:25:08+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-5) (#7)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b8cbe787c57622e5a7e2eb3147c932c715a5b68b,2026-07-02T14:24:58+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-4) (#6)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,1bea275e2b4e4257dcbe92acbe64ad478ad0f403,2026-07-02T14:24:48+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-3) (#5)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,b7dd7c04e7889d39d0ae0674dacb837fb5781094,2026-07-02T14:24:35+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-2) (#4)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,e50db856c6de9359c4f8ce2a2243ca3e8a9803c2,2026-07-02T14:24:25+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair-1) (#3)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,f0acd5df374dc47d81cc12c8ec2e784ce2fc1b49,2026-07-02T14:13:51+00:00,Human,,1,0,1,False,False,False,False,"chore: GitMigrate badge run (pair) (#2)
+
+Co-authored-by: C.P <172536691+cornel-pe@users.noreply.github.com>"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,2d05741a480c571bd570d78a4d3176688b921cc9,2026-07-02T14:03:39+00:00,Human,,1,0,1,False,False,False,False,"Merge pull request #1 from 0xMrW/gitmigrate/badge-yolo-1783001012460
+
+chore: GitMigrate yolo badge run"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,9beba0e32c5de340e1f73fc70e9c51d95f4d3437,2026-07-02T14:03:35+00:00,Human,,1,0,1,False,False,False,False,chore: GitMigrate badge run (yolo)
+https://www.github.com/0xmrw/solana-dapp-ui-ux,5113ea44eb3c40dbdf734f22e86ac74435b41673,2025-06-04T06:55:35+00:00,Human,,0,27,1,False,False,False,False,Update README.md
+https://www.github.com/0xmrw/solana-dapp-ui-ux,1af2fffbab8ced0a669a71539306a643d0ceccca,2025-06-04T06:37:58+00:00,Human,,12,77,6,False,False,False,False,update components
+https://www.github.com/0xmrw/solana-dapp-ui-ux,7435916b921d60be9e3c420aaf589ac396984fd5,2025-06-04T05:55:47+00:00,Human,,0,7,1,False,False,False,False,Update README.md
+https://www.github.com/0xmrw/solana-dapp-ui-ux,0077a9fe948a670f4d89f30932257c46fad91b18,2025-01-05T09:03:04+00:00,Human,,28,1,3,False,False,False,False,"Merge pull request #7 from Priyansh1547/priyansh-patch-1
+
+Added pull_request_template.md"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,0604c87f57297ae3498015cf7b85d044ffdf36c2,2025-01-05T06:32:54+00:00,Human,,2,0,1,False,False,False,False,minor: changes in CONTRIBUTING.md
+https://www.github.com/0xmrw/solana-dapp-ui-ux,188d283ceae3e9eff38536af392c5072215f6340,2025-01-05T06:05:15+00:00,Human,,13,0,1,False,False,False,False,added pr-template in CONTRIBUTING.md
+https://www.github.com/0xmrw/solana-dapp-ui-ux,cb98d5e6808fdfa6a93c81ebcedcba9a23074da6,2025-01-04T10:59:51+00:00,Human,,13,1,2,False,False,False,False,added pull_request_template.md
+https://www.github.com/0xmrw/solana-dapp-ui-ux,56fbc6e625d11e8061d12a1bab5a409f53f97cbf,2025-01-02T10:37:34+00:00,Human,,2,2,1,False,True,False,False,"Merge pull request #5 from Priyansh1547/priyansh-patch-1
+
+fix TokenDropdown Overlapping"
+https://www.github.com/0xmrw/solana-dapp-ui-ux,094c99703ad59c61c1fa8420862d02defaa156a6,2025-01-02T10:14:33+00:00,Human,,2,2,1,False,True,False,False,fix TokenDropdown Overlapping

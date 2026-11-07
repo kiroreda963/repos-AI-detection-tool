@@ -1,0 +1,173 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1010mark/progatehack,f8b16c231bdf6296de00435699fc4c97155be8c7,2025-03-23T07:03:52+00:00,Human,,1695,300,37,False,False,False,False,"Merge pull request #16 from 1010mark/product
+
+Product"
+https://www.github.com/1010mark/progatehack,44fc00287ecda0261ea62dbbbe8ad5cca2667a6c,2025-03-23T05:31:35+00:00,Human,,8,4,1,False,False,False,False,Merge remote-tracking branch 'origin/product' into product
+https://www.github.com/1010mark/progatehack,2802cf1f49c464b90067398590804b18d2bdf841,2025-03-23T05:28:58+00:00,Human,,1,1,3,False,False,False,False,アプリアイコンをJPEGからPNGに変更
+https://www.github.com/1010mark/progatehack,7ee81b215d181f467a367c2b206b3f6312aa068a,2025-03-23T05:27:19+00:00,Human,,8,4,1,False,False,False,False,"Merge pull request #15 from 1010mark/fix_image_to_ingredients
+
+fontを使わないように"
+https://www.github.com/1010mark/progatehack,65397cff93466950c62cb81161ba07db53480da4,2025-03-23T05:26:41+00:00,Human,,5,2,2,False,False,False,False,Update app metadata and add application icon
+https://www.github.com/1010mark/progatehack,878928e01eeaf3a94e4ceb6a450441ca08d4cf15,2025-03-23T05:24:12+00:00,Human,,8,4,1,False,False,False,False,fontを使わないように
+https://www.github.com/1010mark/progatehack,b8d7ed785c39e52cb88fe00829fe9d7b193b8e22,2025-03-23T05:13:43+00:00,Human,,788,14,3,False,False,False,False,"Merge pull request #14 from 1010mark/fix_image_to_ingredients
+
+jpeg to pdf"
+https://www.github.com/1010mark/progatehack,8eba2974e96704e06dc50fa568f9aefec8a56b33,2025-03-23T05:12:58+00:00,Human,,788,14,3,False,False,False,False,jpeg to pdf
+https://www.github.com/1010mark/progatehack,69e01a8ed37d74e53757aa0bfd42e11708a66f14,2025-03-23T05:07:41+00:00,Human,,5,5,1,False,True,False,False,"Merge pull request #13 from 1010mark/fix_image_to_ingredients
+
+Fix image to ingredients"
+https://www.github.com/1010mark/progatehack,d714ac93acee943189ed968e89ff58ddf036fa2e,2025-03-23T05:06:19+00:00,Human,,1,1,1,False,False,False,False,debug console
+https://www.github.com/1010mark/progatehack,795bee14bdcc776c44b50ce3de3335c82ad459a6,2025-03-23T05:05:44+00:00,Human,,4,4,1,False,False,False,False,jpeg to txt
+https://www.github.com/1010mark/progatehack,6ae0030704c25bf2121b083f25710438be618453,2025-03-23T04:45:35+00:00,Human,,141,34,6,False,False,False,False,Merge branch 'debug_finish' into product
+https://www.github.com/1010mark/progatehack,093a16ebab4d9af58ad8f9c2c429c7137184919d,2025-03-23T04:44:59+00:00,Human,,2,2,1,False,False,False,False,"Merge pull request #12 from 1010mark/fix_image_to_ingredients
+
+delete escape"
+https://www.github.com/1010mark/progatehack,a90e6362851cb8cfff922b46aa11e1bab099c48d,2025-03-23T04:43:52+00:00,Human,,73,15,3,False,False,False,False,レシピの使用状況を更新するPATCHエンドポイントを追加し、レシピテーブルのボタン表示を改善
+https://www.github.com/1010mark/progatehack,338f48dc8070a88e13b86967e9a8bbf30ed07f2e,2025-03-23T04:42:23+00:00,Human,,2,2,1,False,False,False,False,delete escape
+https://www.github.com/1010mark/progatehack,5980de3189ff013ba3fa87209687dffcdb7bc41c,2025-03-23T04:21:21+00:00,Human,,3,0,1,False,False,False,False,"Merge pull request #11 from 1010mark/skip_build_lint
+
+skip_build_lint"
+https://www.github.com/1010mark/progatehack,71521a9bd8ce17933ac4787f6dc491212727ff3a,2025-03-23T04:20:37+00:00,Human,,3,0,1,False,False,False,False,skip_build_lint
+https://www.github.com/1010mark/progatehack,8d6cb83c0da98c2e837ba2c737ad135285548549,2025-03-23T03:58:37+00:00,Human,,3,3,1,False,False,False,False,"Merge pull request #10 from 1010mark/fix_image_to_ingredients
+
+Uint8Array"
+https://www.github.com/1010mark/progatehack,7a5adeadf2399d149f8c979a85da10f39d2858dd,2025-03-23T03:57:44+00:00,Human,,3,3,1,False,False,False,False,Uint8Array
+https://www.github.com/1010mark/progatehack,d9b11c03541b46e93ccb1efc4592cfd7d85b2018,2025-03-23T03:50:53+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #9 from 1010mark/fix_syohikigen
+
+賞味期限を消費期限にrename"
+https://www.github.com/1010mark/progatehack,d84d38f37e91a57b14a8b6e382156bb30433eee1,2025-03-23T03:50:04+00:00,Human,,1,1,1,False,False,False,False,賞味期限を消費期限にrename
+https://www.github.com/1010mark/progatehack,c70f5d5613f17b129c17748442447c508b870e55,2025-03-23T03:37:39+00:00,Human,,82,33,5,False,False,False,False,レシピに使用済みステータスを追加し、レシピの使用状況を更新する機能を実装
+https://www.github.com/1010mark/progatehack,fe6741fe21d92dedddc63a48b7d826fad9c6dbe5,2025-03-23T03:33:30+00:00,Human,,101,60,10,False,False,False,False,Merge branch 'debug_finish' into product
+https://www.github.com/1010mark/progatehack,9c6f8b9306ba712e427aab928739e6dbe7a499e8,2025-03-23T03:23:01+00:00,Human,,350,0,3,False,False,False,False,"Merge pull request #8 from 1010mark/add_image_to_ingredients
+
+おらっ！！！！！！！！！！！！！！！"
+https://www.github.com/1010mark/progatehack,2186b30c627628746a9a856a945f6d1cd14eedd0,2025-03-23T03:01:12+00:00,Human,,51,31,2,False,False,False,False,2dWED3Sr0Qq
+https://www.github.com/1010mark/progatehack,9cb6760f68aaa2afe48819a3ffefadd249e089a1,2025-03-23T02:35:41+00:00,Human,,10,3,2,False,False,False,False,RecipesModalのz-indexを修正し、レシピ名の表示を更新。RecipesTableにダイアログ表示機能を追加。
+https://www.github.com/1010mark/progatehack,b3e2e57cce00851c5ae20e56daa8259cdad44bd9,2025-03-23T02:12:14+00:00,Human,,22,13,4,False,False,False,False,Add ingredient form to use dynamic unit and category options
+https://www.github.com/1010mark/progatehack,8e9462876582f455cbb7f71513d4d00b9e31da61,2025-03-23T02:02:17+00:00,Human,,18,13,2,False,False,False,False,CartFilterコンポーネントにclearAllプロパティを追加し、APIリクエスト後に呼び出すように変更
+https://www.github.com/1010mark/progatehack,d99289e0cb731c6b9203a09df68b4312bc33b837,2025-03-22T16:11:38+00:00,Human,,1,1,1,False,True,False,False,hot fix redirct
+https://www.github.com/1010mark/progatehack,7f8f31e27a6ce88ac730be458df8871088783b98,2025-03-22T16:08:02+00:00,Human,,4,4,1,False,True,False,False,hot fix for db ssl
+https://www.github.com/1010mark/progatehack,1ca2c304f6a48a99c3e678cb580157d8036a8ad8,2025-03-22T15:15:30+00:00,Human,,60,34,3,False,False,False,False,Merge branch 'debug_recipes' into debug_finish
+https://www.github.com/1010mark/progatehack,6ed16286b3d56326b84260248514cb696721da4e,2025-03-22T15:14:51+00:00,Human,,60,34,3,False,False,False,False,debug recipes & llm api
+https://www.github.com/1010mark/progatehack,a9606d75a64cbdc3208dcf6d540872b91be2f30f,2025-03-22T15:03:34+00:00,Human,,7,1,1,False,False,False,False,賞味期限が切れた食材を赤色で表示する機能を追加
+https://www.github.com/1010mark/progatehack,bd5a829175159f1ff3d0b44ec7dc0067501c1cbf,2025-03-22T14:47:15+00:00,Human,,32,20,4,False,False,False,False,Merge branch 'debug_date' into debug_finish
+https://www.github.com/1010mark/progatehack,abd410a048451c1d703799cbf8a67f4a1a0f97dd,2025-03-22T14:42:57+00:00,Human,,32,20,4,False,False,False,False,食材の更新および削除機能の改善、賞味期限入力コンポーネントの追加
+https://www.github.com/1010mark/progatehack,74b96140cb9d5eb1003dc4dd9a6653f92ef4022a,2025-03-22T14:40:48+00:00,Human,,67,40,5,False,True,False,False,dashboard bug fix
+https://www.github.com/1010mark/progatehack,872abcab24926ccf3406ad92a3d4c1e81fb1449e,2025-03-22T13:55:29+00:00,Human,,27,66,9,False,False,False,False,Dateのエラーを直した
+https://www.github.com/1010mark/progatehack,d08390317b215d1301b69b77cef9ffc47d6bf0f4,2025-03-22T13:42:28+00:00,Human,,129,48,5,False,False,False,False,新規: ユーザーエンティティ、食材、レシピのテーブルを作成し、認証機能を追加
+https://www.github.com/1010mark/progatehack,2e08eb1cfec7e4ffffe03f1fff13927267cc6b3b,2025-03-22T13:11:04+00:00,Human,,350,0,3,False,False,False,False,introduce
+https://www.github.com/1010mark/progatehack,ca769abf0b5de8bdf98d9f52dd74d16577e8a0fb,2025-03-22T11:55:10+00:00,Human,,36,24,3,False,False,False,False,Merge branch 'main' into product
+https://www.github.com/1010mark/progatehack,2d27fccf6394fb5dc401ee3bdf0e065dd8596dfa,2025-03-22T10:26:53+00:00,Human,,0,1,1,False,False,False,False,cert2
+https://www.github.com/1010mark/progatehack,1072260b8c5346133f13293f487c18e0e0f79e9f,2025-03-22T10:24:06+00:00,Human,,1,1,1,False,False,False,False,Merge branch 'product' of https://github.com/1010mark/ProgateHack into product
+https://www.github.com/1010mark/progatehack,bd771d50a3683608eb69fa3c93f2ee71bb009b47,2025-03-22T10:23:59+00:00,Human,,1,1,1,False,False,False,False,修正: DateInputBoxのインポートパスを修正
+https://www.github.com/1010mark/progatehack,35b46db5e20c27323f419aecd557855ca0b46ec1,2025-03-22T10:23:53+00:00,Human,,7,0,2,False,False,False,False,cet
+https://www.github.com/1010mark/progatehack,ed888484ad8a332de14655082f0c56ca84dd7ed9,2025-03-22T07:58:06+00:00,Human,,1,1,1,False,False,False,False,sslll
+https://www.github.com/1010mark/progatehack,ad39fc2d0bc7b2d47f4ce821054452fe9fcc2f26,2025-03-22T07:35:16+00:00,Human,,6,4,1,False,False,False,False,test
+https://www.github.com/1010mark/progatehack,b3e616681bd30acb7847a2aa5ad82d0eade72c4b,2025-03-22T07:18:43+00:00,Human,,1,1,1,False,False,False,False,ssl
+https://www.github.com/1010mark/progatehack,35698032ccde066734c11fb8b7cef61ffe8a234d,2025-03-22T07:15:36+00:00,Human,,1,1,1,False,False,False,False,ssl
+https://www.github.com/1010mark/progatehack,ee113f9af2c933ba96b4a0a910917399944d78ae,2025-03-22T07:12:40+00:00,Human,,1,1,1,False,False,False,False,ssl
+https://www.github.com/1010mark/progatehack,a74493d186f5a6a28a2503c85397e4a3552ce992,2025-03-22T07:10:56+00:00,Human,,489,182,8,False,False,False,False,Merge branch 'product' of https://github.com/1010mark/ProgateHack into product
+https://www.github.com/1010mark/progatehack,91bd3e28abc03636b02edd6e4a884fba8a874e30,2025-03-22T07:10:26+00:00,Human,,4,4,1,False,False,False,False,ssl
+https://www.github.com/1010mark/progatehack,09891745c7891ef70fe821b9d78c130b0674ccb6,2025-03-22T06:49:06+00:00,Human,,2015,348,11,False,False,False,False,Merge commit 'e1cc8d622feb1e7763766f84ce1613ce81cd6c66'
+https://www.github.com/1010mark/progatehack,e1cc8d622feb1e7763766f84ce1613ce81cd6c66,2025-03-22T06:37:13+00:00,Human,,489,182,8,False,False,False,False,Merge branch 'edit_ingredient' into product
+https://www.github.com/1010mark/progatehack,20e85f63548f85421e4910096889d1053b807d8b,2025-03-22T06:15:37+00:00,Human,,118,86,4,False,False,False,False,食材編集機能の改善と日付入力コンポーネントの追加
+https://www.github.com/1010mark/progatehack,0ba8efb89a5bb068e9be48d9e5f20e899c5e6e21,2025-03-22T05:59:27+00:00,Human,,1,1,1,False,True,False,False,fix bug in ingredients.ts
+https://www.github.com/1010mark/progatehack,ad0574dbdb2f85fe464c15bbf499bf506aaeb30b,2025-03-22T05:54:33+00:00,Human,,161,195,3,False,False,False,False,Merge commit 'c1ef41bcbf4e7ad77de8469e0a613b319437365b'
+https://www.github.com/1010mark/progatehack,b29525278125fee68e5ea5972a44ffc44515e5f4,2025-03-22T05:49:43+00:00,Human,,1526,166,3,False,False,False,False,認証を本番環境に
+https://www.github.com/1010mark/progatehack,05d41c2255ba4a71bdd9af903de12874a8873902,2025-03-22T05:48:59+00:00,Human,,36,24,3,False,False,False,False,llm api ちょっと修正
+https://www.github.com/1010mark/progatehack,c1ef41bcbf4e7ad77de8469e0a613b319437365b,2025-03-22T05:44:08+00:00,Human,,161,195,3,False,False,False,False,シミュレーションではなく実際にdbにアクセスする
+https://www.github.com/1010mark/progatehack,96b6c4416d69d7a7a82272a91de7c5ff2794d9b7,2025-03-22T05:40:06+00:00,Human,,1128,66,6,False,False,False,False,"Merge pull request #7 from 1010mark/main
+
+llm api 初期実装"
+https://www.github.com/1010mark/progatehack,92f566aab4df082fdfadd258ae589a6016b41df9,2025-03-22T05:22:36+00:00,Human,,231,11,4,False,False,False,False,とりあえずmodalを分離
+https://www.github.com/1010mark/progatehack,a2012ddca677b74a97263119318623e9aa3f5386,2025-03-22T05:21:42+00:00,Human,,1128,66,6,False,False,False,False,llm api 初期実装
+https://www.github.com/1010mark/progatehack,22214bb2bdfaebe30f3faa9e5b2afaf5277e7ebc,2025-03-22T04:59:20+00:00,Human,,175,120,4,False,False,False,False,モーダルコンテナと新しい食材追加フォームを実装
+https://www.github.com/1010mark/progatehack,f4b788b86f63ebc39fb78faf63484eea04f0b9fd,2025-03-22T02:03:48+00:00,Human,,10,2,2,False,True,False,False,trend chart fix
+https://www.github.com/1010mark/progatehack,9832c4a9d9894718e782a8a693cd3b14ff42ee3a,2025-03-21T17:58:11+00:00,Human,,620,279,10,False,False,False,False,Merge branch 'cart_and_recipes_backend'
+https://www.github.com/1010mark/progatehack,96576fa96bd223609a59f8ce87dafc34dd875ea2,2025-03-21T17:56:51+00:00,Human,,98,187,1,False,False,False,False,dialog change
+https://www.github.com/1010mark/progatehack,a62ded4c62bc5135198cdaeb0ad4a59ac4acf9db,2025-03-21T17:37:30+00:00,Human,,301,218,12,False,False,False,False,Merge branch 'main' into cart_and_recipes_backend
+https://www.github.com/1010mark/progatehack,19532f88dea9f2b8d11e9edb632cd4f51f04214f,2025-03-21T17:21:42+00:00,Human,,678,290,10,False,False,False,False,frontend に api を実装します
+https://www.github.com/1010mark/progatehack,d657f0016a6a4a7a60eaaa5ad4198d2a6f278c7d,2025-03-21T17:19:40+00:00,Human,,125,84,12,False,False,False,False,Merge branch 'followup_backend'
+https://www.github.com/1010mark/progatehack,05ee6d17727524ac2dbfb24aeebc04d83db390df,2025-03-21T17:19:13+00:00,Human,,12,1,2,False,False,False,False,ダイアログコンポーネントを追加し、食材削除時の確認機能を実装
+https://www.github.com/1010mark/progatehack,6a2248edcd0102dcfd48892d325e6066ce37a8c4,2025-03-21T17:15:03+00:00,Human,,113,83,11,False,False,False,False,ダイアログコンポーネントを追加し、カートおよびレシピページでの削除確認機能を実装
+https://www.github.com/1010mark/progatehack,bf00fb341776cdd15ff697bb0c6a672eb0a6d0a4,2025-03-21T16:13:16+00:00,Human,,257,279,10,False,False,False,False,db周り修正 / リファクタリング / userIdの追加
+https://www.github.com/1010mark/progatehack,87a333ceeba43f1517fe489086f750046e19c684,2025-03-21T16:11:38+00:00,Human,,30,32,2,False,False,False,False,コメントアウト忘れ / conflict解消忘れ
+https://www.github.com/1010mark/progatehack,1d46ec9fe1de010213f0436bd0b0c93f6829b664,2025-03-21T16:07:43+00:00,Human,,129,38,7,False,False,False,False,conflict解消
+https://www.github.com/1010mark/progatehack,82afabfbc69892a4e90d9af893a1684b0c92efdc,2025-03-21T16:05:51+00:00,Human,,109,109,2,False,False,False,False,一旦メインにマージする用のコミット
+https://www.github.com/1010mark/progatehack,583a985bd867b918dae937a78e48e410e7cdda26,2025-03-21T15:58:50+00:00,Human,,28,105,5,False,False,False,False,recipesのservices中をlibに移動
+https://www.github.com/1010mark/progatehack,9463d1b059752f9523649ee3e8040f9dabe27de6,2025-03-21T15:36:36+00:00,Human,,71,14,3,False,False,False,False,api/recipes/[recipeId]にPOSTするとingredientsを消費する実装
+https://www.github.com/1010mark/progatehack,6614b7171429fa732fa00d7ee95fc52c8696e531,2025-03-21T15:35:54+00:00,Human,,71,14,3,False,False,False,False,api/recipes/[recipeId]にPOSTするとingredientsを消費する実装
+https://www.github.com/1010mark/progatehack,92b1fb53f8a17f3fc7549558c98704a438400396,2025-03-21T15:27:52+00:00,Human,,54,24,4,False,False,False,False,Merge branch 'followup_backend'
+https://www.github.com/1010mark/progatehack,43a00c0f776db0e82897685ad32381cf960cbdd0,2025-03-21T15:27:15+00:00,Human,,26,6,2,False,False,False,False,ボタン追加
+https://www.github.com/1010mark/progatehack,ff4b4ee4b336a8dea128b38359a72e07f92246ab,2025-03-21T14:51:36+00:00,Human,,28,18,3,False,False,False,False,一旦UIを変更
+https://www.github.com/1010mark/progatehack,bb078415beacf4edcd8e7367f49ee54b3a9f4aa0,2025-03-21T13:31:21+00:00,Human,,4,19,3,False,False,False,False,有効期限（賞味/消費期間）まわりのsql文の修正
+https://www.github.com/1010mark/progatehack,ec266e0f227517d07cf7cc317d3200ea2276d89b,2025-03-21T12:41:04+00:00,Human,,0,1,1,False,False,False,False,"sessionのtypeのimportが不要なので消しました
+
+sessionのtypeのimportが不要なので消しました"
+https://www.github.com/1010mark/progatehack,acb0a20bbdbc4a9ca05ed91b32aedb753d2a9971,2025-03-21T12:40:28+00:00,Human,,0,1,1,False,False,False,False,sessionのtypeのimportが不要なので消しました
+https://www.github.com/1010mark/progatehack,b2b69bd3f6427f42bc1f2c095208b9ea4064d396,2025-03-21T12:39:14+00:00,Human,,342,275,6,False,False,False,False,一旦db
+https://www.github.com/1010mark/progatehack,87a5b3edc9ad6eb665c2c3c957ec79f597f10616,2025-03-21T09:18:57+00:00,Human,,21,3,2,False,False,False,False,"sessionにuser_idを追加
+
+keycloakをpostgreSQLと連携させる前提。devモードではdummyのidを返す。
+なおsqlの手元検証はまだtest-dbブランチで続けます"
+https://www.github.com/1010mark/progatehack,f92f7c9bc2acb0f0936ce0380aa48eaae818c76c,2025-03-21T09:16:30+00:00,Human,,173,113,4,False,False,False,False,Merge branch 'main' into test-db
+https://www.github.com/1010mark/progatehack,2c07d8457300c9126c81bb768dc4f7d338343ca2,2025-03-21T09:15:23+00:00,Human,,21,3,2,False,False,False,False,sessionにuser_idを追加
+https://www.github.com/1010mark/progatehack,0ab79325f70e5dc6a332376584981d23a35f598f,2025-03-21T06:10:14+00:00,Human,,173,113,4,False,False,False,False,食材管理のフックをリファクタリングし、カート用の新しいフックを追加
+https://www.github.com/1010mark/progatehack,98e853991d69e88ffc03f4e6930391058ba682d9,2025-03-20T19:19:37+00:00,Human,,1227,241,16,False,False,False,False,Merge branch 'add_backend_test'
+https://www.github.com/1010mark/progatehack,7de01b580a4831111eb27414a81e3ed696ad8f7f,2025-03-20T19:16:40+00:00,Human,,1227,241,16,False,False,False,False,ダッシュボードと食材管理ページのapi ＆　frontendの実装
+https://www.github.com/1010mark/progatehack,79262fbaa4e29dd74eea655cb63dd601a658e2a5,2025-03-20T16:33:50+00:00,Human,,7,0,1,False,False,False,False,db env.example update
+https://www.github.com/1010mark/progatehack,4785cd5224517e11dc3e3837fc10d36bf4dbda81,2025-03-20T16:10:22+00:00,Human,,436,19,6,False,False,False,False,home page 調整
+https://www.github.com/1010mark/progatehack,53b27865a90b1a6698ce7b3e84e58805461a77c1,2025-03-20T12:26:55+00:00,Human,,631,836,12,False,False,False,False,"Merge pull request #2 from 1010mark/add_recipes_proposal
+
+バックエンド-レシピ提案実装（仮）"
+https://www.github.com/1010mark/progatehack,98a63b002f83f83b9f250449119b53d511a55b9d,2025-03-20T12:25:45+00:00,Human,,724,1043,31,False,False,False,False,resolve conflict
+https://www.github.com/1010mark/progatehack,40f1c7ebf36bc50315e0c1f8bbd541e73af1d94b,2025-03-20T12:21:12+00:00,Human,,155,25,6,False,False,False,False,雛形を整え、仮データを返すように
+https://www.github.com/1010mark/progatehack,1aad7907a080c2b71b56ed28902e068d886dd564,2025-03-20T08:30:44+00:00,Human,,3112,311,14,False,False,False,False,"keycloakによるauthを追加。
+
+developmentモードではダミーのセッションを返す。ダミーのセッションではログインしたあとリダイレクトしない。"
+https://www.github.com/1010mark/progatehack,ce5bf5c065a8598ac2410ac78535e09784077a55,2025-03-20T08:29:51+00:00,Human,,4694,299,44,False,False,False,False,conflict修正
+https://www.github.com/1010mark/progatehack,854dd0c314f465e6e1640c2729bc3d1e211f33b2,2025-03-20T08:21:28+00:00,Human,,21,12,4,False,False,False,False,README & menu icon & 文字部分調整
+https://www.github.com/1010mark/progatehack,9ab022bdc4168ac94f316572b7c886ddc2768daf,2025-03-20T08:08:58+00:00,Human,,3484,533,11,False,False,False,False,とりあえず雛形をつくる
+https://www.github.com/1010mark/progatehack,30afbd5c016a732d18e678f4be894282d2f55f4f,2025-03-20T07:58:45+00:00,Human,,0,1,1,False,False,False,False,サインアップボタンを削除
+https://www.github.com/1010mark/progatehack,ea728b6dcd04425d0e32c70536c5548d0aa02e6e,2025-03-20T07:58:11+00:00,Human,,35,21,2,False,False,False,False,選択した食材の状態管理をJotaiを使用して改善し、全てクリアする機能を追加。UIを整理し、レシピ提案ボタンをリンクに変更。
+https://www.github.com/1010mark/progatehack,1c5c8c10069b149e7884d595d0c183abd2ba357a,2025-03-20T07:16:14+00:00,Human,,99,94,3,False,False,False,False,カートページの状態管理を改善し、Jotaiを使用して食材の追加、削除、数量更新機能を実装。ページネーション機能を追加し、表示する食材を動的に更新。
+https://www.github.com/1010mark/progatehack,3aa483cffe400dd15779d6a5c1f6d3cae2af9035,2025-03-20T06:57:09+00:00,Human,,178,33,6,False,False,False,False,選択した食材のカート状態を管理するためのJotaiアトムを追加し、チェックボックスコンポーネントを実装。食材ページで選択された食材の数を表示する機能を追加。
+https://www.github.com/1010mark/progatehack,c191f53abc629e443630eedbc1169c9ba118c643,2025-03-20T04:43:54+00:00,Human,,24,30,7,False,False,False,False,UIのスタイルを改善し、コンポーネントの構造を整理
+https://www.github.com/1010mark/progatehack,b97707305f1b0f3b808fe498a42960d3ad35d3a5,2025-03-20T04:39:04+00:00,Human,,18,9,3,False,False,False,False,auth setup with keycloak
+https://www.github.com/1010mark/progatehack,5c3a0f739c2fbdc344148e64fd5a0d835e71ba8c,2025-03-19T17:05:16+00:00,Human,,1891,38,26,False,False,False,False,Merge branch 'build_user_recipes_suggestion'
+https://www.github.com/1010mark/progatehack,7f87a595b494a50c71a6ff1476ab551571fbf6a4,2025-03-19T17:03:13+00:00,Human,,1891,38,26,False,False,False,False,提案カート & レシピ提案結果ページの実装
+https://www.github.com/1010mark/progatehack,f962566b3871cb11d561a460c9b515de5d1f0a35,2025-03-19T11:22:54+00:00,Human,,79,34,2,False,False,False,False,食材ページにページネーション機能を追加し、テーブルに表示する食材データを動的に更新
+https://www.github.com/1010mark/progatehack,44add56c771231de5bc3cf180a7dbf51d4f9e74e,2025-03-19T07:40:24+00:00,Human,,7,2,1,False,False,False,False,食材ページに削除ボタンを追加し、追加ボタンのスタイルを改善
+https://www.github.com/1010mark/progatehack,dcda656478c0d5b2686f3bdb5d2a80ee4237f1cf,2025-03-19T07:31:47+00:00,Human,,537,151,14,False,False,False,False,Merge branch 'main' into add_new_ingredient_modal
+https://www.github.com/1010mark/progatehack,58f864f57209d2126f5f3997695d41935823cd07,2025-03-19T07:31:15+00:00,Human,,294,20,7,False,False,False,False,食材テーブルコンポーネントを追加し、食材ページに表示するようにした
+https://www.github.com/1010mark/progatehack,76ef9184bf8fc14dae65ad1995c4dd5eaaa49e57,2025-03-19T07:13:39+00:00,Human,,1135,16,13,False,False,False,False,authのセットアップとuserページのヘッダーへの反映。まだproductionモードは未検証
+https://www.github.com/1010mark/progatehack,e7e7f7dc2db5835c080ab4c843210a44aceee4dd,2025-03-19T06:59:19+00:00,Human,,522,151,13,False,False,False,False,Merge branch 'build_user_dashboard'
+https://www.github.com/1010mark/progatehack,b07ec3f064d461bb8977c5a466c5d5963022239c,2025-03-19T06:57:39+00:00,Human,,522,151,13,False,False,False,False,dashboard page 雛形を作成
+https://www.github.com/1010mark/progatehack,85c23e6dcc389ca9de90792e5405e6c54944bfef,2025-03-19T02:33:24+00:00,Human,,15,7,3,False,False,False,False,食材追加モーダルのボタンとスタイルを改善
+https://www.github.com/1010mark/progatehack,fc981eb5663e41153ff9e32d6e7b8385725af5e8,2025-03-18T16:43:48+00:00,Human,,890,7,9,False,False,False,False,Merge branch 'add_new_ingredient_modal'
+https://www.github.com/1010mark/progatehack,3edf66df48161ce7fa412b07e2e0123b4f743fb5,2025-03-18T16:41:33+00:00,Human,,61,10,4,False,False,False,False,"食材追加のmodalを作成
+ついでに食材管理画面のtitle的なところと追加ボタンを実装"
+https://www.github.com/1010mark/progatehack,2788a571c0109c292858d8b6a7b7917f8cd6f1d1,2025-03-18T15:32:21+00:00,Human,,50,8,3,False,False,False,False,modal表示できるようにした、あとはmodalの中身を埋める
+https://www.github.com/1010mark/progatehack,9482a61c52d820357e86a6405bc11dda80da9cec,2025-03-18T13:54:34+00:00,Human,,15,0,1,False,False,False,False,ユーザー認証と食材のステータス受取の機能まで
+https://www.github.com/1010mark/progatehack,5ad7754f0403bbf6975fbc7bd44bda947fc642c2,2025-03-18T10:01:46+00:00,Human,,793,3,9,False,False,False,False,とりあえず使用しそうなinputの雛形を作成
+https://www.github.com/1010mark/progatehack,143610eede20d6c8221ba78b47de06187d8c52cb,2025-03-18T06:16:36+00:00,Human,,338,51,13,False,False,False,False,Merge branch 'build_user_page_sidebar_menu'
+https://www.github.com/1010mark/progatehack,4d70faf2b67f0ff678e7e1be40410b6a8c9f7cc8,2025-03-18T06:15:02+00:00,Human,,338,51,13,False,False,False,False,userpage 初期構築
+https://www.github.com/1010mark/progatehack,27bc9428e603978e73dca1b3160657d8d1e287e1,2025-03-17T06:39:34+00:00,Human,,133,30,12,False,False,False,False,ディレクトリ構成調整
+https://www.github.com/1010mark/progatehack,65300d245dbf4296568ffce1343c3accd9c4eb89,2025-03-16T14:59:21+00:00,Human,,158,7,8,False,False,False,False,Merge branch 'build_main_page'
+https://www.github.com/1010mark/progatehack,ccbd901ffe61a5dc850423de41a76aeeef2cfb0a,2025-03-16T14:58:58+00:00,Human,,18,34,5,False,False,False,False,ホームページの機能カードコンポーネントを更新し、背景画像を削除してカードコンポーネントを使用。また、ヒーローセクションのスタイルを改善し、ナビゲーションバーの間隔を調整しました。
+https://www.github.com/1010mark/progatehack,0ec771aae80210f79f599e9fc56012213f222736,2025-03-16T14:26:37+00:00,Human,,174,7,8,False,False,False,False,一旦build.ioで生成したコードをいろいろ変更した
+https://www.github.com/1010mark/progatehack,84e7940ab6d14798c0eb82e7897f45a66b1cabc5,2025-03-15T14:33:26+00:00,Human,,154,4,11,False,False,False,False,Merge branch 'build_main_page'
+https://www.github.com/1010mark/progatehack,a4864333c8029989af073a3f446b0be8733780cf,2025-03-15T14:30:50+00:00,Human,,75,2,7,False,False,False,False,大まかな枠組みを作成した
+https://www.github.com/1010mark/progatehack,a12d08c29fa97a1fe9e092a28d35af3e90879e2d,2025-03-15T14:15:15+00:00,Human,,79,2,5,False,False,False,False,ホームページのメインエリアを追加し、ナビゲーションバーのスタイルを調整。また、ホームページメニューコンポーネントを実装
+https://www.github.com/1010mark/progatehack,5c74c2f98e2b89ae8cdfa044e37c50aac0cd4f6e,2025-03-15T06:01:02+00:00,Human,,16,16,3,False,False,False,False,ナビゲーションバーコンポーネントを追加し、ログインボタンを統合しました。また、ホームページのレイアウトを更新しました。
+https://www.github.com/1010mark/progatehack,d1f0ffbd365dfa9b2b973de3456ccab49a66b43d,2025-03-15T05:59:16+00:00,Human,,15,15,3,False,False,False,False,ナビゲーションバーコンポーネントを追加し、ログインボタンを統合しました。また、ホームページのレイアウトを更新しました。
+https://www.github.com/1010mark/progatehack,5fcd477414116f1e0f1b2a1d0e5a13a1985d508f,2025-03-15T05:10:52+00:00,Human,,72,0,2,False,False,False,False,新しいサインアップフォームコンポーネントを追加し、登録ページを実装しました
+https://www.github.com/1010mark/progatehack,6b69ea4029b1fcbeec4d08a7bc3d2ecb45e1644e,2025-03-14T15:46:20+00:00,Human,,88,58,6,False,False,False,False,ログインページのリファクタリングと新しいログインボタンコンポーネントの追加
+https://www.github.com/1010mark/progatehack,b220533fab9f00d4f8ee80bc2b8d017f7fba2a57,2025-03-14T15:05:21+00:00,Human,,536,114,11,False,False,False,False,"新しいUIコンポーネント（Button, Card, Input, Label）を追加し、ユーティリティ関数を実装しました。また、依存関係に関連パッケージを追加しました。"
+https://www.github.com/1010mark/progatehack,cef89b86898b9308b8530424b38732ecf9580ec8,2025-03-14T14:36:09+00:00,Human,,16,13,3,False,False,False,False,.prettierrcの導入及び試験
+https://www.github.com/1010mark/progatehack,96855ca128386401cc9fc48d1daf7f8911033554,2025-03-14T12:17:56+00:00,Human,,1112,12,32,False,False,False,False,first init
+https://www.github.com/1010mark/progatehack,28dc306f260b1e9a0a35d074933e3924239a7372,2025-03-13T05:54:49+00:00,Human,,1782,0,15,False,False,False,False,create-next-app
+https://www.github.com/1010mark/progatehack,a7e6fe0863d65889275621b402632d98569eb4dc,2025-03-13T05:52:51+00:00,Human,,1,36,1,False,False,False,False,setup
+https://www.github.com/1010mark/progatehack,a220d7be0b82a0078957d0206f40fc49a241aa65,2025-03-13T05:51:18+00:00,Human,,36,1,1,False,False,False,False,create-next-app
+https://www.github.com/1010mark/progatehack,492a96e98e093fbf6a39cd1be5618db7e7c871d0,2025-03-12T10:25:29+00:00,Human,,1,1,1,False,False,False,False,Update README.md
+https://www.github.com/1010mark/progatehack,268d3adfd06098acfe3e027a13114d607f5d08c3,2025-03-12T10:03:36+00:00,Human,,1,0,1,False,False,False,False,first commit

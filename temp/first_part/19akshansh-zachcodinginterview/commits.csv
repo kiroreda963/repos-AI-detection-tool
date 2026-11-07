@@ -1,0 +1,254 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/19akshansh/zachcodinginterview,3a5026b6e6870f0111c460f0fcc35e5c693a7b4e,2026-08-10T04:23:59+00:00,Human,,354,169,26,False,True,False,False,"Merge pull request #16 from 19akshansh/fix/testHarnessFailing
+
+Fix: test harness failing"
+https://www.github.com/19akshansh/zachcodinginterview,4683bc13ad6877b94e3c83d80a3478fa800e0212,2026-08-10T04:21:27+00:00,Human,,278,158,25,False,False,False,False,chore: prettier formatting
+https://www.github.com/19akshansh/zachcodinginterview,e26eec233a8bc886db04f1f49b4a081f98406bc6,2026-08-10T04:20:48+00:00,Human,,76,11,1,True,True,False,False,fix: Fixes https://github.com/19akshansh/zachcodinginterview/issues/15
+https://www.github.com/19akshansh/zachcodinginterview,6c7ab14c94bcce9f36cda60596cdfd6407140b9c,2026-07-29T15:31:26+00:00,Human,,1268,145,23,False,True,False,False,"Merge pull request #14 from 19akshansh/recruiterUpdate
+
+feat: recruiter analytics, public report sharing, webhook, prompt/search fixes"
+https://www.github.com/19akshansh/zachcodinginterview,2ee72253f3fc72283a6133285c3096cee589f835,2026-07-29T15:27:49+00:00,Human,,1268,145,23,False,True,False,False,"feat: recruiter analytics, public report sharing, webhook, prompt/search fixes
+
+- Item 1: recruiter analytics endpoint + page (attempts/pass-rate/avg
+  score per question, scoped by recruiter, paginated + searchable)
+- Item 2: opt-in public report links (Report.isShared/shareId),
+  unauthenticated /r/[shareId] route, share toggle + copy-link UI
+- Item 3: tightened DOMAIN_SPECIFIC grading prompt for accuracy/depth
+  over fluent-but-shallow answers
+- Item 4: recruiter webhookUrl setting + best-effort
+  interview.completed POST from generateReportForInterview
+- Fix: useEntitySearch debounce reset by URL param churn
+- Fix: admin Questions search wasn't reaching the API (missing
+  `search` in useSuspenseAdminPendingQuestions query input)
+
+Migrations: report_sharing, webhook_url"
+https://www.github.com/19akshansh/zachcodinginterview,974b9b3f2d69234972f0a11d34039ad3b6b9c382,2026-07-28T10:18:35+00:00,Human,,46,21,1,False,False,False,False,"Change license from MIT to Business Source License 1.1
+
+Updated the license from MIT to Business Source License 1.1, including new terms and conditions."
+https://www.github.com/19akshansh/zachcodinginterview,195392e13b41c5bc3a209d55a854030daa804492,2026-07-24T11:55:56+00:00,Human,,1,0,1,False,False,False,False,feat: Enable file overwrite in storage helper
+https://www.github.com/19akshansh/zachcodinginterview,38ee6d8779bfe79ff1a3e94df4ed749274175d5f,2026-07-20T04:08:26+00:00,Human,,0,6,2,False,False,False,False,rem unused files
+https://www.github.com/19akshansh/zachcodinginterview,79af4df0706d5ba359a8eb06ccc1620d622da693,2026-07-19T18:35:15+00:00,Human,,1,1,1,False,False,False,False,Update README.md
+https://www.github.com/19akshansh/zachcodinginterview,a65b010d925b0dbc3fc995c4e9e64e1d688fb7f4,2026-07-19T18:25:45+00:00,Human,,11,0,1,False,False,False,False,Add files via upload
+https://www.github.com/19akshansh/zachcodinginterview,01294d33f3e639b41d9d2e1a96721af3b70ae84f,2026-07-19T18:24:37+00:00,Human,,0,5,1,False,False,False,False,Delete public/mainAssets/logoFull.svg
+https://www.github.com/19akshansh/zachcodinginterview,58846dba10da5fda6a9efb8e59788503a2170e4c,2026-07-19T18:11:18+00:00,Human,,421,1,1,False,False,False,False,"feat: Update README.md
+
+- Add full prod version of readme"
+https://www.github.com/19akshansh/zachcodinginterview,2c0fbb1cd8ae555d242146200100c998dcd296e1,2026-07-19T16:41:27+00:00,Human,,1596,214,28,False,False,False,False,"Merge pull request #13 from 19akshansh/wrapup
+
+feat: universal user profile page, admin queue search, question creation and more!"
+https://www.github.com/19akshansh/zachcodinginterview,31c57ecb1d13a91b6c26a2f25233c9041a9cc1bc,2026-07-19T16:39:01+00:00,Human,,1596,214,28,False,False,False,False,"feat: universal user profile page, admin queue search, question creation and more!
+
+- Add tRPC users.getById + /users/[id] page: viewer-aware access control
+  and response shaping across admin/self/recruiter/public tiers
+- Extract UserAdminActions from usersTable for reuse on the new page
+- Add search to questions.listPendingReview and recruiters.listApplications,
+  wired through params/loaders/pages + EntitySearch on both admin queues
+- Add ""New question"" action to the Questions queue via a generalized
+  QuestionEditDialog (create/edit) + useAdminCreateQuestion
+- Comment usersRouter.getMany role-scoping; note reportsRouter.generate
+  follow-up (missing interview-state validation)
+
+Verified already in place: ban enforcement, private resume/report storage
+with signed URLs, resume access control, invite-code email binding,
+questions admin-procedure consistency, sidebar route-matching."
+https://www.github.com/19akshansh/zachcodinginterview,3f239a90d1ad2e24f809b30a3fe6e6e6e7009dab,2026-07-19T09:42:40+00:00,Human,,2463,124,50,False,False,False,False,"Merge pull request #12 from 19akshansh/adminUI
+
+feat(ADMIN): Add Admin UI + Routers, Update Schema, and more!"
+https://www.github.com/19akshansh/zachcodinginterview,c17bc726f80a93a1d20b36dc7d85a2058a78fa93,2026-07-19T09:39:07+00:00,Human,,2463,124,50,False,False,False,False,"feat(ADMIN): Add Admin UI + Routers, Update Schema, and more!
+
+- Add Admins UI
+- Add Admins Router
+- An Admin can accept/deny recruiters, ban/unban users, accept/deny questions, and more!
+- Schema Update
+- Refactor @/features/dashboard/recruiters to @/features/recruiters
+- Remove dead code (logout button)
+- Version bump!"
+https://www.github.com/19akshansh/zachcodinginterview,5152d862a6acc775c7c6d50ebbfc06b7c6317e1e,2026-07-18T16:26:27+00:00,Human,,2950,64,43,False,False,False,False,"Merge pull request #11 from 19akshansh/recruiterUI
+
+feat: Recruiters UI, Invite only Interviews and more!"
+https://www.github.com/19akshansh/zachcodinginterview,03849eefeb6aef2802d55b52e0d1ac50198ed37d,2026-07-18T16:22:10+00:00,Human,,3,3,2,False,False,False,False,Version bump!
+https://www.github.com/19akshansh/zachcodinginterview,7e28272d19cd4a8888ed65f44cd1466dbdabb3a9,2026-07-16T08:24:58+00:00,Human,,2464,65,38,False,False,False,False,"feat: Recruiters UI, Update Interviews and more
+
+- Add Recruiters UI
+- Update Interviews to now support Invite based Interviews
+- Recruiters can accept/deny reports or rate them
+- Candidates can Request to be a Recruiter
+- more!"
+https://www.github.com/19akshansh/zachcodinginterview,a1f1bb544baa935e8da2a6d8986bddd999e28306,2026-07-15T20:44:16+00:00,Human,,338,2,9,False,False,False,False,"feat: Recruiters
+
+- Add Recruiter hooks and params
+- Update settings UI and server code to support Recruiters
+- Add new constants and enums"
+https://www.github.com/19akshansh/zachcodinginterview,c5030df99533a9a5f0534694aa6d2e2619df2230,2026-07-15T20:24:36+00:00,Human,,151,0,2,False,False,False,False,feat(Recruiter Schema): Schema Updat
+https://www.github.com/19akshansh/zachcodinginterview,db8a97e4a8f5cf34e6f27fa3f4d71a11ae0ab699,2026-07-15T20:16:07+00:00,Human,,53,50,1,False,False,False,False,UI: Improve interview coding panel UI
+https://www.github.com/19akshansh/zachcodinginterview,9003bbcf7a9d9c4d05e87d8d2e588f34efc412d3,2026-07-15T19:54:50+00:00,Human,,2878,892,51,False,False,False,False,"Merge pull request #10 from 19akshansh/dashboardUI
+
+Dashboard UI"
+https://www.github.com/19akshansh/zachcodinginterview,1f0310cd126add2747bba9ea4dfc2b9fa11a0418,2026-07-15T19:52:37+00:00,Human,,24,22,1,False,False,False,False,UI: Improve overflowing of tabs title in x axis on smaller screens
+https://www.github.com/19akshansh/zachcodinginterview,75e79430a419544ed623d60a99cf2867306f58b3,2026-07-15T19:42:36+00:00,Human,,911,4,14,False,False,False,False,"feat: Add Landing Page UI
+
+- We have a landing page!"
+https://www.github.com/19akshansh/zachcodinginterview,8a0a34114bac18f17d7d822cb5c7237595431e78,2026-07-15T12:50:42+00:00,Human,,91,64,1,False,False,False,False,ui(practice): practice session responsive
+https://www.github.com/19akshansh/zachcodinginterview,ec1be2ecd681b017fe1110b257e0088842771680,2026-07-15T12:06:37+00:00,Human,,599,534,7,False,False,False,False,ui(interiews and practice): Update UI to make it responsive
+https://www.github.com/19akshansh/zachcodinginterview,c9c1d1d95610abe11f120526dfe89f91db2131cf,2026-07-15T11:29:31+00:00,Human,,499,114,26,False,False,False,False,"feat: Bring your own Gemini Key
+
+- Users are now required to bring their own GEMINI API KEY to access AI features!
+- update respective UI and Routers to support the feature"
+https://www.github.com/19akshansh/zachcodinginterview,46d598c94cd6b8cf8f7abb80516098308bc80769,2026-07-15T08:03:10+00:00,Human,,836,236,12,False,False,False,False,"feat: Dashboard
+
+- Add UI and backend for Dashboard UI"
+https://www.github.com/19akshansh/zachcodinginterview,bfd0c2027487868d09002045d8845972c8e55b79,2026-07-15T02:36:26+00:00,Human,,2,2,1,False,False,False,False,jsdom override
+https://www.github.com/19akshansh/zachcodinginterview,0176e277f7250b8b03cd3def83bd52c748bd1f06,2026-07-15T02:25:18+00:00,Human,,603,608,2,False,False,False,False,override script
+https://www.github.com/19akshansh/zachcodinginterview,7ef3cc7154550603c037f91f90636f04e5af482d,2026-07-15T02:03:31+00:00,Human,,1,1,1,True,True,False,False,fix: add server external packages to resolve vercel build error
+https://www.github.com/19akshansh/zachcodinginterview,d7e5a9e2625cbe590b5e96ffe7e49385ec39753f,2026-07-15T01:48:32+00:00,Human,,2675,91,36,False,False,False,False,"Merge pull request #9 from 19akshansh/profile_settingsUI
+
+Profile settings UI"
+https://www.github.com/19akshansh/zachcodinginterview,af0c72d16b8f10b9108375939f807573a5f3a1ee,2026-07-15T01:45:00+00:00,Human,,4,5,1,False,False,False,False,update profile link
+https://www.github.com/19akshansh/zachcodinginterview,dd5d3dc00fd31386187e37052f3c13a6047e048c,2026-07-15T00:50:23+00:00,Human,,295,9,6,False,False,False,False,"feat: Resume based Questions
+
+- Implemented Resume and Domain specific questions"
+https://www.github.com/19akshansh/zachcodinginterview,ef441d086924d5fd2f4b59f2e7f3778fb7c1f1c0,2026-07-15T00:31:21+00:00,Human,,877,79,21,False,False,False,False,"feat: Settings Tab
+
+- Add Settings Tab UI and backend"
+https://www.github.com/19akshansh/zachcodinginterview,296dabfd717c549d65b39a60691c9c5ec02e68f8,2026-07-14T20:39:11+00:00,Human,,546,4,8,False,False,False,False,"feat: Add Profile UI
+
+- Add Profile UI
+- Add activity calendar
+- Add avatar ui, profile details, prefetch and more!
+- verison bump!"
+https://www.github.com/19akshansh/zachcodinginterview,70275fb1f7c06fc25f7abe58b77abb89c5a850e7,2026-07-14T19:57:49+00:00,Human,,1,1,1,False,False,False,False,version bump
+https://www.github.com/19akshansh/zachcodinginterview,459cb462d5b61ad55cb6cbf956ab7727861c4b2c,2026-07-14T19:57:37+00:00,Human,,964,5,9,False,False,False,False,"feat: Add backend router for profile UI
+
+- Add svg sanitizer
+- Upload pdf, edit name, change bio and more!"
+https://www.github.com/19akshansh/zachcodinginterview,7391729b3a1f490dadb806c1e8af44cabf2e749c,2026-07-14T19:31:12+00:00,Human,,1,0,1,False,False,False,False,Allow overwrite for resumes
+https://www.github.com/19akshansh/zachcodinginterview,2ed108509889c661c26dad8a2629a88d3526ce2f,2026-07-14T19:22:46+00:00,Human,,3,3,2,False,False,False,False,version bump!
+https://www.github.com/19akshansh/zachcodinginterview,9bdfee1626161412c0c1a798981f88dc501a67c4,2026-07-14T19:20:32+00:00,Human,,50,38,2,False,False,False,False,Add fallback models to whole of ai.ts
+https://www.github.com/19akshansh/zachcodinginterview,b3c7bdd34fa466ba806141a92c8ae83e93d0973d,2026-07-14T18:57:42+00:00,Human,,52,5,2,False,False,False,False,test: Add fallback models for resume feeback generation
+https://www.github.com/19akshansh/zachcodinginterview,05eb9e5353f66f3fbe9aef282d2ad3dbbff0f166,2026-07-14T18:26:07+00:00,Human,,5,2,2,False,False,False,False,"improvement: Removed 60ms cap for trpc
+
+- Update ai.ts to avoid ""thinking"" for resume feedbacks, not required and causes a lot of delay in response."
+https://www.github.com/19akshansh/zachcodinginterview,5f9562d96139d5b5ffe10af84fa068ba8c8a856b,2026-07-14T18:06:44+00:00,Human,,1724,12,27,False,False,False,False,"Merge pull request #8 from 19akshansh/resumeUI
+
+Resume UI"
+https://www.github.com/19akshansh/zachcodinginterview,fb85606e2b031d2e4eb8eda86e1a79ad4a2afa9c,2026-07-14T17:56:16+00:00,Human,,3,3,2,False,False,False,False,version bump!
+https://www.github.com/19akshansh/zachcodinginterview,1639c019ca6816f9c15bc7902d4ce008b59c5d3b,2026-07-14T17:55:37+00:00,Human,,643,1,7,False,False,False,False,feat: Resume UI
+https://www.github.com/19akshansh/zachcodinginterview,7078959b31b3151f5b8b2786bfa749997a0abcee,2026-07-14T11:51:57+00:00,Human,,1081,11,21,False,False,False,False,"feat(Resume):  Add Helpers for Resume Page
+
+- Add Resume routers, paramLoaders, and hooks
+- Add malware detection for uploaded pdfs
+- Add new variables
+- Update ai.ts and more!"
+https://www.github.com/19akshansh/zachcodinginterview,dba45c263bab8c8a875418afb3d0cc7159b4c583,2026-07-14T10:31:42+00:00,Human,,11,11,2,True,True,False,False,fix: useBreadcrumbLabels must be used within a BreadcrumbLabelsProvider
+https://www.github.com/19akshansh/zachcodinginterview,e1b9a98dca814a9b56437a2bbb3fdcadcced956b,2026-07-14T10:06:10+00:00,Human,,3,3,2,False,False,False,False,bumped version to 0.7.0!
+https://www.github.com/19akshansh/zachcodinginterview,8e78fb1c72f62a5fc8cd8eb349db9a88186a55bf,2026-07-14T10:05:03+00:00,Human,,1380,1347,129,False,False,False,False,refactor: Refactored folders and file destinations
+https://www.github.com/19akshansh/zachcodinginterview,608753410d6f942d66c9dbf6d9affb683e185c21,2026-07-14T09:47:21+00:00,Human,,189,133,14,True,True,False,False,"fix: Improved UI and Add Regenerate Reports Button
+
+- changed gemini model, users will later be able to select their preffered model
+- bug fixes with reports, regeneration implemented if generation is not possible at the moment
+- better error toasts"
+https://www.github.com/19akshansh/zachcodinginterview,563e109cdf6fb198d54fa46029472649a1c9cfdb,2026-07-13T17:42:12+00:00,Human,,825,17,11,False,False,False,False,"Merge pull request #7 from 19akshansh/reportsUI
+
+Reports UI"
+https://www.github.com/19akshansh/zachcodinginterview,cae7b98bea94effefa72639b689799388f6da66c,2026-07-13T17:37:27+00:00,Human,,87,356,2,False,False,False,False,Pushed wrong reports/page.tsx
+https://www.github.com/19akshansh/zachcodinginterview,bc160c95d11a85d89683140caf557f16374d841e,2026-07-13T17:27:14+00:00,Human,,3,3,2,False,False,False,False,version bump
+https://www.github.com/19akshansh/zachcodinginterview,7c56beceb7d8e60d3fc6b5e094f95667b1be1139,2026-07-13T17:23:23+00:00,Human,,1096,19,9,False,False,False,False,"feat(Reports): Add Report PDF Generation
+
+- Add Reports UI, users get reports of their attempted Interviews"
+https://www.github.com/19akshansh/zachcodinginterview,71a8357b54d5a4c8c2f28cc04311392d4e1be9ef,2026-07-13T10:02:53+00:00,Human,,1902,11,23,False,False,False,False,"Merge pull request #6 from 19akshansh/practiceUI
+
+Practice UI"
+https://www.github.com/19akshansh/zachcodinginterview,4ad7bf38a66fe539d8a1ea5e9d9c99a23ceaeccc,2026-07-13T09:59:55+00:00,Human,,3,3,2,False,False,False,False,bumped versions
+https://www.github.com/19akshansh/zachcodinginterview,d6f028c4b5b2561ea92832c9b6877607272eca47,2026-07-13T09:52:08+00:00,Human,,1899,8,21,False,False,False,False,"feat(practice): Practice UI, schema to support standalone questions, update constants and more
+
+- Add Practice UI (list, new per questions)
+- Update schema to support standalone questions
+- Add new enums
+- Update ai.ts to support practice ques"
+https://www.github.com/19akshansh/zachcodinginterview,b77eaa371ea4ba609b79048682f68ad53a48ddff,2026-07-13T06:59:12+00:00,Human,,25,11,4,True,True,False,False,"fix(interviews): UI, invalid ai model and stale submissions
+
+-  Few answers in an ongoing interview were getting stale state and lost of solution upon switching questions
+- Few buttons had a different appearance, fixed UI
+- used invalid model in ai.ts"
+https://www.github.com/19akshansh/zachcodinginterview,c38f5e0a1da62e8a1f9a7b19c3f615b915335396,2026-07-12T19:57:26+00:00,Human,,0,119,1,False,False,False,False,removed dead code
+https://www.github.com/19akshansh/zachcodinginterview,8df383771ff11211e3ec73b6eeba5e96e5af40fa,2026-07-12T19:56:45+00:00,Human,,0,0,0,False,False,False,False,removed dead code
+https://www.github.com/19akshansh/zachcodinginterview,d9d18e8bc7e6ce96ac1806e0d77de29c931c52f1,2026-07-12T19:47:02+00:00,Human,,27,24,3,False,False,False,False,.
+https://www.github.com/19akshansh/zachcodinginterview,2d0be1ed2d2ce64d56e9d574a8989e763f63dd77,2026-07-12T19:46:52+00:00,Human,,525,212,14,False,False,False,False,"refactor(interviews): Update Interviews + New Interviews UI
+
+- Users can now choose ques from all 5 types for an Interview
+- Better harnessing for test cases and code
+- UI Update
+- Support for multiple questions"
+https://www.github.com/19akshansh/zachcodinginterview,d2f3ce2b31c68cdfeb8be99487a56eb99c663127,2026-07-12T16:00:04+00:00,Human,,420,2,2,False,False,False,False,Better code Parsing for Interviews
+https://www.github.com/19akshansh/zachcodinginterview,e3478b36eb4f35d8d8590e8819d149b629022fd2,2026-07-11T22:45:02+00:00,Human,,3189,325,37,False,False,False,False,"Merge pull request #5 from 19akshansh/interviewsUI
+
+Interviews UI"
+https://www.github.com/19akshansh/zachcodinginterview,ccc0ac46cb8f21e5ee59cdaf805411e8e8c8c611,2026-07-11T22:40:32+00:00,Human,,28,19,1,True,True,False,False,fix: Report Generation file fixed as per new schema
+https://www.github.com/19akshansh/zachcodinginterview,eed85b15f395a279b4366f42186f53518d578946,2026-07-11T22:33:12+00:00,Human,,1952,289,26,False,False,False,False,"feat: Per Interview UI Design
+
+- Add Interview/[id] UI(monaco editor integration)
+- changed schema to support multiple Questions
+- Interviews now have a proper title
+- update constants
+- update routers and ai prompt to support multiple questions"
+https://www.github.com/19akshansh/zachcodinginterview,279ab5eb5955e6a4b6cfa55ff8f74289f6d9ec16,2026-07-11T19:35:46+00:00,Human,,483,36,9,False,False,False,False,"feat: Add new Interviews Page
+
+- Add Form to create new Interviews
+- Add hook to create new Interviews
+- Update appHeader UI"
+https://www.github.com/19akshansh/zachcodinginterview,f4562edbadf5e7ac3be46f77e79b2fd353f6ab9c,2026-07-11T17:26:55+00:00,Human,,759,14,12,False,False,False,False,"feat: Interviews Page
+
+- Add UI for /interviews. This page lists all of user's interviews.
+- Add relativeTime
+- Add reusable entityComponents & useEntitySearch
+- Add Params"
+https://www.github.com/19akshansh/zachcodinginterview,fddd21b3b1df33b672f27e16d8afd56c5b630506,2026-07-11T12:29:36+00:00,Human,,558,21,17,False,False,False,False,"Merge pull request #4 from 19akshansh/geminiIntegration
+
+feat: Gemini Integration"
+https://www.github.com/19akshansh/zachcodinginterview,9a5112ee576d21fb23bf1b1e811acbc7e2c3fe7a,2026-07-11T12:13:01+00:00,Human,,1,1,1,False,False,False,False,vercel rerun
+https://www.github.com/19akshansh/zachcodinginterview,911158dab83a1a3d9a4a9ea1cf4893e3df5fcc52,2026-07-11T12:06:10+00:00,Human,,557,20,16,False,False,False,False,"feat: Gemini Integration
+
+- new env variable, GEMINI_API_KEY
+- new constants
+- update routers
+- behavioural questions
+- interview time limit for free vs pro users"
+https://www.github.com/19akshansh/zachcodinginterview,76fa0811e91295e733ba295ec176fd90131ceb35,2026-07-09T18:48:34+00:00,Human,,23,60,11,False,False,False,False,"feat: Add new env variable BLOB_READ_WRITE_TOKEN, update checkout success ui, update logo colors, minor ui changes"
+https://www.github.com/19akshansh/zachcodinginterview,958de293d8472afa972e31cdf57d3e0f24c27dd9,2026-07-09T17:42:12+00:00,Human,,6,1,2,False,False,False,False,Add BLOB_READ_WRITE_TOKEN env variable
+https://www.github.com/19akshansh/zachcodinginterview,4a660de3cbe4977bae373afb0db4b2d264591901,2026-07-09T17:02:17+00:00,Human,,3413,39,40,False,False,False,False,"Merge pull request #3 from 19akshansh/trpcRouters
+
+feat:  TRPC Routers, backend, codeExecution"
+https://www.github.com/19akshansh/zachcodinginterview,1c740c257fc4d71b3107116ff4df33efea63dc73,2026-07-09T17:01:00+00:00,Human,,68,38,9,True,True,False,False,"fix: Schema, getUsers, interviewsRouter, questionsRouter, recruitersRouter
+
+- Skills had chances of being nullable
+- switched getUsers with prefetchUsersMe
+- removed getUsers completely
+- fixed other routers
+see https://github.com/19akshansh/zachcodinginterview/pull/3#issuecomment-4926212394 for more info"
+https://www.github.com/19akshansh/zachcodinginterview,12dac954172cd07a39f31b0f9df52dd44ee02140,2026-07-09T14:28:10+00:00,Human,,3377,33,38,False,True,False,False,"feat:  TRPC Routers, backend, codeExecution
+
+- Add features(trpc procedures and prefetch) for interview, questions, recruiters, submissions, report, users.
+- Update schema
+- Update envSchema
+- Add Code Execution(for python and javascript) and Report(pdf) storage
+- fix trpc server and client"
+https://www.github.com/19akshansh/zachcodinginterview,147e0584100df6e700a54100ebb316bde2622c8f,2026-07-07T12:28:59+00:00,Human,,456,66,17,True,True,False,False,"fix: Upgrade Modal, hardcoded session, TRPC Procedure and route.
+
+- Add Upgrade Modal
+- Add new TRPC Procedures
+- Update Route urls in appSidebar & routelabels in appHeader
+- Update hardcoded session
+- Dead requireAuth in layout files
+- UI Audits"
+https://www.github.com/19akshansh/zachcodinginterview,b2bb64f23e849471ff73d2b6943e4e803f606938,2026-07-04T20:46:11+00:00,Human,,1,1,1,False,False,False,False,Admins were also getting redirected if tried to visit recruiter routes
+https://www.github.com/19akshansh/zachcodinginterview,e093a70653b7321631e78f9a2400b7a8b69d727c,2026-07-04T20:40:38+00:00,Human,,1017,22,38,False,False,False,False,"Merge pull request #2 from 19akshansh/dashboardSkeleton
+
+Dashboard skeleton"
+https://www.github.com/19akshansh/zachcodinginterview,214425242842570afaa4bab0b1de4afb14627ceb,2026-07-04T20:38:40+00:00,Human,,356,5,10,False,False,False,False,feat: Polar Payments Setup
+https://www.github.com/19akshansh/zachcodinginterview,fa882c35faf04fa6bf3d15123de5550df476b885,2026-07-04T19:55:29+00:00,Human,,665,21,31,False,False,False,False,"feat: Added appSidebar and appHeader + all main routes + userRoles(recruiter, candidate, admin) + skeleton landing page + not found"
+https://www.github.com/19akshansh/zachcodinginterview,489b5f994ec4c29b14086f1501aa0037ede975b3,2026-07-04T16:48:28+00:00,Human,,1958,25,35,False,False,False,False,"Merge pull request #1 from 19akshansh/authentication
+
+Authentication"
+https://www.github.com/19akshansh/zachcodinginterview,65ce64d37f7fd4a0188b7984b89c7906432b3d4d,2026-07-04T16:45:49+00:00,Human,,160,18,8,False,False,False,False,(feat): Better Auth Authentication Added + Nodemailer mail services + envSchema updated + logo Added + Basic Dashboard Added
+https://www.github.com/19akshansh/zachcodinginterview,2f91985c3e69a2973caee99897bee00d02c7a4d6,2026-07-04T16:45:13+00:00,Human,,1812,21,32,False,False,False,False,(feat): Better Auth Authentication Added + Nodemailer mail services + envSchema updated + logo Added + Basic Dashboard Added
+https://www.github.com/19akshansh/zachcodinginterview,efb3d0d7907f86f2592fa1e60d71fd80799bdd11,2026-07-04T14:57:37+00:00,Human,,16082,0,96,False,False,False,False,"feat: Set up NextJS Project foundation with Prisma(postgres + neodb), tRPC, and shadcn/ui. Added example.env and envSchema for typesafety."

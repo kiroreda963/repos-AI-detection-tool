@@ -1,0 +1,280 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1624899/ai_interview,12c3b468445e9e4fbc0577af2858ab2154ac2572,2026-10-01T03:22:34+00:00,Human,,1095,726,37,False,False,False,False,修复前后端面试功能并完善回归测试
+https://www.github.com/1624899/ai_interview,6eda1e43d6842336284972feacb650bc007ed1cc,2026-07-07T03:23:46+00:00,Human,,339,29,6,True,True,False,False,"fix: 修复追问导致面试提前进入下一轮
+
+- 区分题目进度与面试完成状态
+- 文字面试仅在显式进入总结后标记完成
+- 语音面试取消按追问次数自动完成的判定
+- 前端不再用题数推断 completed 状态
+- 增加面试完成状态机测试"
+https://www.github.com/1624899/ai_interview,4bdd0516604603bd656fff2d25f535e66265877e,2026-03-14T03:01:53+00:00,Human,,5,5,1,False,False,False,False,feat: 更新api
+https://www.github.com/1624899/ai_interview,515d496ccda358b86ffae29d08d1c082a7cfa17c,2026-01-02T16:15:59+00:00,Human,,43,20,4,False,False,False,False,feat: 添加 Toaster 组件以增强用户反馈，优化连接测试结果展示
+https://www.github.com/1624899/ai_interview,0f1603d1f638a136c7795d983ca8b90550b28c6f,2026-01-02T08:56:20+00:00,Human,,191,3,3,False,False,False,False,feat: 添加简历处理视图组件，优化分析和优化过程中的用户体验
+https://www.github.com/1624899/ai_interview,d72f05d6d9148521f9c8a9476f28e7274061137c,2025-12-31T16:42:05+00:00,Human,,101,103,1,False,False,False,False,feat(settings): 重构配置教程面板，优化用户引导和信息展示
+https://www.github.com/1624899/ai_interview,bf5d0d0d567839de5aaf4408ff0a75dba6f2659a,2025-12-31T16:33:31+00:00,Human,,163,15,2,False,False,False,False,feat(settings): 添加配置教程面板，优化模型提供商信息
+https://www.github.com/1624899/ai_interview,13d63dfce15843657e3046947b93d65e81a67993,2025-12-31T15:50:04+00:00,Human,,388,383,2,False,False,False,False,"feat: 更新 SettingsDialog（设置对话框）和 API 提供商
+
+优化了 SettingsDialog 组件的布局和样式，以提升用户体验。
+调整了对话框内容的高度并增加了内边距，使界面看起来更整洁。
+重构了 API 提供商选项，包含了更新后的模型名称和描述。
+增加了新的 API 提供商及其相关信息，并对现有的提供商信息进行了更新以使其更清晰。"
+https://www.github.com/1624899/ai_interview,9df416ea010f96832a571aadbc57fb3604b37c70,2025-12-30T13:19:43+00:00,Human,,7,7,1,True,True,False,False,fix(interview): 调整页面布局，修复高度设置以适应不同屏幕
+https://www.github.com/1624899/ai_interview,9dc85ac15fa0f696c100c90a5ad9ae4646f71f92,2025-12-19T04:51:50+00:00,Human,,11,2,2,False,False,False,False,feat(interview): 更新问题内容规范，增加元语言禁止条款
+https://www.github.com/1624899/ai_interview,1b92bc13aa708ede5502131587db3de8cd643d32,2025-12-18T16:26:01+00:00,Human,,5871,1492,39,False,False,False,False,"feat(voice): 添加语音面试功能，支持实时音频流
+
+实现全面的语音面试功能，包括：
+- 使用 Qwen3-Omni 模型与 AI 面试官进行实时语音对话
+- 音频录制、VAD（语音活动检测）和语音识别
+- 基于 SSE 的音频和文本响应流式传输
+- 使用 IndexedDB 存储用户音频录音并支持播放
+- 从文本访谈中克隆语音会话并保留历史记录
+- 支持多轮访谈并跟踪进度
+- 专用语音面试界面，带动画语音可视化功能
+- 音频播放控制和对话回顾功能
+- 与现有面试规划和分析系统集成
+
+新增语音面试管理的 API 端点，核心业务逻辑模块以及语音交互的前端组件。更新数据库模式以支持音频 URL 和语音模式会话。
+feat: 添加语音面试功能，支持实时音频流
+
+实现全面的语音面试功能，包括：
+- 使用 Qwen3-Omni 模型与 AI 面试官进行实时语音对话
+- 音频录制、VAD（语音活动检测）和语音识别
+- 基于 SSE 的音频和文本响应流式传输
+- 使用 IndexedDB 存储用户音频录音并支持播放
+- 从文本访谈中克隆语音会话并保留历史记录
+- 支持多轮访谈并跟踪进度
+- 专用语音面试界面，带动画语音可视化功能
+- 音频播放控制和对话回顾功能
+- 与现有面试规划和分析系统集成
+
+为语音面试管理添加新的 API 端点，更新核心业务逻辑模块和前端语音交互组件。修改数据库模式以支持音频 URL 和语音模式会话。"
+https://www.github.com/1624899/ai_interview,7e19ca60b9c4cfeb06dc2e80936f5aeb3db2a529,2025-12-16T13:58:52+00:00,Human,,16,2,2,False,False,False,False,feat(database): 优化数据库初始化逻辑，避免重复执行DDL，优化api提供商配置
+https://www.github.com/1624899/ai_interview,3175a248debdcd4c5f08aeafa3baa00d0a543ace,2025-12-15T16:34:15+00:00,Human,,5,5,2,True,True,False,False,fix(settings): 更新模型推荐信息，修正deepseekv3为deepseekv3.2
+https://www.github.com/1624899/ai_interview,0505a79f33b572933e629008ac1fdfdba21dafbe,2025-12-15T13:57:16+00:00,Human,,257,78,5,False,False,False,False,feat(resume): 优化简历生成和优化流程，增加节点错误处理和警告提示
+https://www.github.com/1624899/ai_interview,7c84ed78f94cf9d428c9df7d2e947b091dded81d,2025-12-15T04:51:28+00:00,Human,,26,6,2,False,False,False,False,feat(resume): 更新简历分析输出描述，优化综合评分计算逻辑
+https://www.github.com/1624899/ai_interview,84a1ffa9f1826504fa29d7636e2bb8d904ec49c5,2025-12-15T03:51:46+00:00,Human,,44,245,4,False,False,False,False,feat(resume): 添加更新生成简历内容的API，优化简历管理功能
+https://www.github.com/1624899/ai_interview,452504dcd93a19a985704ea3ef7ad32b6d648f99,2025-12-14T05:18:09+00:00,Human,,245,13,4,False,False,False,False,feat(chat): 添加获取回答提示的API和前端逻辑，优化用户体验
+https://www.github.com/1624899/ai_interview,44ff6ac7fe5ea826953499525cecd5a570654e36,2025-12-13T15:23:24+00:00,Human,,183,68,9,False,False,False,False,feat(ui): 更新多个组件中的图标，优化界面视觉效果
+https://www.github.com/1624899/ai_interview,fba09551d08b3e138078e4b6a06f32ec8c2f69de,2025-12-13T13:46:35+00:00,Human,,134,72,6,False,True,False,False,"refactor(chat): 移除调试打印，优化面试开始逻辑
+refactor(graph): 修复 LLM 调用逻辑，增强 JSON 解析和错误处理
+feat(ui): 更新面试页面，添加滚动到底部按钮和输入框状态管理
+feat(ui): 在侧边栏中添加 logo，提升视觉效果
+fix(speech): 确保最新的转录回调在语音识别中被使用
+fix(interviewSlice): 刷新会话列表时保持一致的过滤条件"
+https://www.github.com/1624899/ai_interview,4036f36cdce50b09971661b20f8b89b2d4a2d44a,2025-12-13T13:00:21+00:00,Human,,562,133,10,False,False,False,False,"feat(resume): 增强简历编辑和验证功能，提升模型管理
+
+- 添加全面的编辑模式，在 ResumePreviewDialog 中实现内容实时保存
+- 实现简历照片的上传和删除功能
+- 通过结构化的地点、原始内容和原因追踪来增强事实核查系统
+- 添加模型配置复制功能在设置中
+- 引入 Minimax 提供者支持以实现恢复优化
+- 改进下载/打印功能，使用正确的 A4 格式
+- 将颜色系统从 oklch 更新为 hex 值以提高兼容性
+- 添加简历内容更新 API 端点和服务方法
+- 增强 JSON 输出格式处理，强制使用正确的英文标点"
+https://www.github.com/1624899/ai_interview,c898e9ee1d6a2d322e809d93dec794b5ebb76fe0,2025-12-13T10:23:36+00:00,Human,,1416,357,12,False,False,False,False,"feat(ui): 添加带有更新品牌标识的着陆页和用户指南
+
+- 引入具有现代设计和动画的新着陆页组件
+- 添加包含面试和简历功能分步说明的全面用户指南
+- 将面试设置重构为专用组件以提升可维护性
+- 将项目品牌从""AI 面试官""更新为""面面-AI 求职助手""
+- 添加浮动动画效果并改进视觉设计
+- 更新许可为非商业使用许可
+- 添加新的标志资源并更新网站图标
+- 改进 README，更新项目结构和添加更多截图
+- 在环境示例中配置生产 API 端点"
+https://www.github.com/1624899/ai_interview,94362034a98d2100f652e77830d5859c8c4de80c,2025-12-12T16:27:37+00:00,Human,,195,0,1,False,True,False,False,fix：漏推了一个文件
+https://www.github.com/1624899/ai_interview,6ac9691c4599ac92f4337cd308380f9ffe4c13e5,2025-12-12T16:18:14+00:00,Human,,7329,1420,39,False,False,False,False,"feat(resume): 添加全面的简历工具，包括分析、优化和生成
+
+- 实现多维度评分的简历竞争力分析
+- 添加使用多智能体架构（分析师、写手、HR 审阅员）的内容优化
+- 创建具有用户输入验证的交互式简历生成
+- 支持简历文件上传（PDF/DOCX）并提取文本
+- 添加简历历史管理及生成简历存储
+- 实现优化过程的流式进度更新
+- 添加用于简历工具集成的专用 UI 组件
+- 扩展 API 配置以支持专业简历代理模型
+- 更新数据库模式以存储简历结果和生成的简历
+
+此功能引入了一套完整的简历工具包，与现有的面试系统集成，允许用户根据其面试表现和职位描述分析、优化和生成专业简历。"
+https://www.github.com/1624899/ai_interview,7fbf380e82ca49df684e0cec9f46f0ad7172fe25,2025-12-10T09:14:57+00:00,Human,,24,42,1,False,False,False,False,feat(session): 优化获取面试系列终点画像的逻辑，修复多轮面试的中间状态也被重复计入的问题
+https://www.github.com/1624899/ai_interview,20dd33e8c80eefc5d17a4ecbdccf66a92ddbdef8,2025-12-10T08:51:29+00:00,Human,,81,70,3,False,False,False,False,feat(ability): 更新综合能力分析服务以适配多轮面试
+https://www.github.com/1624899/ai_interview,c396650f438440d95beccde10e98657e3650fa74,2025-12-10T08:45:23+00:00,Human,,409,134,10,False,False,False,False,"feat(profile): 添加会话级别的能力配置文件生成和显示
+
+- 添加新的 API 端点 `/profile/session/{session_id}` 用于获取单个会话配置文件
+- 创建 SessionProfileDialog 组件用于显示特定会话的能力评估
+- 更新面试完成 UI 以显示会话配置文件按钮并处理最终轮次逻辑
+- 增强个人资料生成提示，包含更多技能标签（5-10 个），并移除响应长度限制
+- 改进面试状态管理，正确跟踪会话完成状态
+- 更新 UI 标签和图标，以更好地区分会话和个人资料"
+https://www.github.com/1624899/ai_interview,6a3de83d16f94e318408452288e7cd81e0505de0,2025-12-09T17:16:55+00:00,Human,,84,18,6,False,False,False,False,feat(profile): 添加用户画像生成请求支持，优化 API 配置传递
+https://www.github.com/1624899/ai_interview,76dabdfe7daf3507e58ced82cc576cb51623a47d,2025-12-09T16:55:43+00:00,Human,,455,38,10,False,False,False,False,"feat(interview): 添加多轮面试支持，包含会话系列管理
+
+- 添加会话系列、轮次索引和父子关系的数据库模式
+- 实现后端 API 端点，用于从已完成的会话创建下一轮面试
+- 通过轮次特定的策略（tech_initial, tech_deep, hr_comprehensive）增强面试规划
+- 添加前端界面以支持可配置问题数量的下一轮开始
+- 在会话列表中显示轮次徽章，以便更好地导航
+- 支持面试轮次间简历和职位描述数据的继承"
+https://www.github.com/1624899/ai_interview,47f7986bed5da60a6dea9de9c26a1be5d67af135,2025-12-09T14:17:49+00:00,Human,,49,49,6,False,False,False,False,feat(api): 增强会话管理和用户 API 配置支持，优化错误处理
+https://www.github.com/1624899/ai_interview,93673dcc40371758d5a77f1a022132fe5803ed26,2025-12-09T10:46:40+00:00,Human,,117,4,4,False,False,False,False,feat(api): 增强错误处理，添加 API 错误提示和状态管理
+https://www.github.com/1624899/ai_interview,485dc6d75c4a7b2a55df04d2ccca8d4effc9f88e,2025-12-09T09:29:06+00:00,Human,,7,4,1,False,False,False,False,feat(page): 使用 useMemo 优化 API 配置状态计算，移除 isConfigured
+https://www.github.com/1624899/ai_interview,41d7cc8b9bf5b7bee419625a3abc087cfde58df3,2025-12-09T09:25:25+00:00,Human,,1,1,1,False,False,False,False,feat(api): 更新心流平台模型列表，将qwen-max替换为qwen3-max
+https://www.github.com/1624899/ai_interview,81f676c8815bccd792aacaf4118772cb268cf180,2025-12-09T09:15:29+00:00,Human,,30,11,3,False,False,False,False,feat(api): 添加 API 提供商的 API Key 获取链接，更新模型列表
+https://www.github.com/1624899/ai_interview,c790d3735bc09cd04f6e00fd108bf14a30100a4c,2025-12-08T14:14:18+00:00,Human,,8,1,1,False,False,False,False,feat(config): 更新 Next.js 配置以支持静态导出模式并禁用图片优化
+https://www.github.com/1624899/ai_interview,282b137d9c23f80492a901ea302272d27173605c,2025-12-08T13:51:03+00:00,Human,,163,166,3,False,True,False,False,"feat(llms): 添加动态 LLM 创建和用户自定义配置支持，优化环境变量加载
+fix(file_service): 更新 PDF 解析逻辑，使用 pypdf 库
+chore(requirements): 精简依赖项，移除不必要的库"
+https://www.github.com/1624899/ai_interview,5f70812ba566f389d0c8036525a6889827fb73b7,2025-12-08T11:04:10+00:00,Human,,4,4,1,True,True,False,False,fix: README使用正斜杠路径
+https://www.github.com/1624899/ai_interview,2a337922a86a61081f9c7a0fb241530d2882ffdb,2025-12-08T10:58:09+00:00,Human,,5,2,5,True,True,False,False,fix(docs): 更新 README 中的图标路径并添加演示截图
+https://www.github.com/1624899/ai_interview,124f28dde63e0943e89c057f769ab38ad0c953d3,2025-12-05T15:19:46+00:00,Human,,353,26,2,False,False,False,False,feat(docs): 添加项目 README 和开发路线文档，概述功能特性和技术栈
+https://www.github.com/1624899/ai_interview,304b6a11bc31f55e7e7b7456ed7b4d0af49d0376,2025-12-05T15:04:18+00:00,Human,,100,0,2,False,False,False,False,feat(docker): 添加 Docker Compose 配置文件以支持 PostgreSQL 和后端服务
+https://www.github.com/1624899/ai_interview,8eb00333eba16039e4e8a6c1a33523ff0db0be3f,2025-12-05T15:03:46+00:00,Human,,965,666,13,False,False,False,False,"feat(infra): 添加使用 Nginx 反向代理的 Docker 容器化
+
+为生产部署添加全面的 Docker 设置：
+- 后端 Dockerfile，包含 Python 3.12 和健康检查
+- 前端多阶段 Dockerfile，用于 Next.js 独立构建
+- 反向代理和负载均衡的 Nginx 配置
+- 优化构建的 Docker 忽略文件
+- 配置 Next.js 为独立输出模式
+
+移除 standalone server.py 和前端默认 README"
+https://www.github.com/1624899/ai_interview,0951d2cd1e9a6bd695dcd11f1b37e47976e54e6f,2025-12-05T10:01:06+00:00,Human,,471,863,9,False,False,False,False,"refactor(db): 从 SQLite 迁移到 PostgreSQL
+
+- 使用 asyncpg 替换 SQLite 以连接 PostgreSQL
+- 更新数据库模式以使用 PostgreSQL 类型（TIMESTAMP、JSONB、BOOLEAN）
+- 修改 SessionService 以使用 PostgreSQL 语法（$1、$2 参数）
+- 更新 LangGraph 内存模块，临时使用 MemorySaver
+- 删除 debug_db.py，因为它特定于 SQLite
+- 更新 requirements.txt 以包含 psycopg-binary
+- 更改数据库初始化为异步
+
+重大变更：数据库后端从 SQLite 更改为 PostgreSQL"
+https://www.github.com/1624899/ai_interview,08c89929aa5eebc6884af8b836c2ca98edd4f0ec,2025-12-05T09:43:36+00:00,Human,,90,1018,9,False,False,False,False,"feat(auth): 增加多用户支持及用户识别
+
+- 向会话表添加 user_id 列，默认为“default_user”
+- 更新所有会话 API 端点以接受 X-User-ID 头部
+- 在会话服务查询中实现基于用户的过滤
+- 向会话创建请求模型添加 user_id 字段
+- 更新前端，在所有 API 调用中包含用户 ID
+- 确保用户只能访问自己的会话和数据"
+https://www.github.com/1624899/ai_interview,1a08bfc2c4c5151895e26d883a71470345c3ec90,2025-12-05T08:50:25+00:00,Human,,182,49,9,False,False,False,False,"feat(auth): 增加多用户支持及用户识别
+
+- 向会话表添加 user_id 列，默认为“default_user”
+- 更新所有会话 API 端点以接受 X-User-ID 头部
+- 在会话服务查询中实现基于用户的过滤
+- 向会话创建请求模型添加 user_id 字段
+- 更新前端，在所有 API 调用中包含用户 ID
+- 确保用户只能访问自己的会话和数据"
+https://www.github.com/1624899/ai_interview,9eb95d2d4ecc57ad0c2383a990295af304279d86,2025-12-05T08:12:32+00:00,Human,,1275,491,8,False,False,False,False,"refactor(store): 将前端迁移到集中的 Zustand 存储
+
+- 创建了新的useInterviewStore.ts，使用 Zustand 实现统一状态管理
+- 将多个自定义钩子（useInterviewChat、useSessionManagement、useApiConfig）替换为单一存储
+- 整合了所有与面试相关的状态，包括会话、消息、进度和 API 配置
+- 改进了代码组织并减少了组件间的属性穿透
+- 通过集中化状态持久化和操作增强可维护性
+- 更新了 SessionSidebar、SettingsDialog 和主页面，以使用新的 store 架构
+- 修复了面试流程和进度跟踪中的状态保存问题"
+https://www.github.com/1624899/ai_interview,ae8a49037596d9ce614059f63b433599004c0c6b,2025-12-05T04:49:23+00:00,Human,,599,231,9,False,False,False,False,"feat(config):重构 API 配置系统以支持多模型管理
+
+重构 API 配置系统，以支持灵活管理多个模型配置，而非单一配置。新系统允许用户添加、编辑和删除多个模型配置，并支持 Smart 和 Fast 通道的独立选择。这包括：
+
+- 后端架构变更以支持双通道独立模型配置
+- 前端 UI 重新设计，采用基于卡片的模型管理界面
+- 增强了对缺失 API 配置的验证和错误处理
+- 提升了用户体验，提供更好的视觉反馈和配置指引
+
+重大变更：
+- API 配置结构已从单个配置改为多模型数组
+- 现有用户配置需要重新配置"
+https://www.github.com/1624899/ai_interview,18d4410e5f429c1927125f63f18ca177f38166d6,2025-12-04T16:48:44+00:00,Human,,1901,128,22,False,False,False,False,"feat: 添加能力配置文件功能，包含雷达图和技能标签
+
+- 实现了 AbilityProfileView 组件以显示用户能力配置文件。
+- 创建了 AbilityRadarChart 组件用于能力分数的可视化表示。
+- 添加了 SkillTags 组件用于展示用户技能。
+- 集成 API 调用以获取和生成能力配置文件。
+- 增强 SessionSidebar 以包含能力配置文件按钮和设置对话框。
+- 开发 SettingsDialog 用于 API 配置管理。
+- 引入 useApiConfig 和 useUserIdentity 钩子以管理 API 设置和用户身份。
+- 更新了 useInterviewChat，以利用用户 API 配置。
+- 添加了用于个人资料管理的必要 API 接口和函数。
+- 包含了 recharts 库用于雷达图可视化。"
+https://www.github.com/1624899/ai_interview,713ba1b65e083008dc616ceb0c2fb96d07d537f4,2025-12-04T11:56:26+00:00,Human,,4,4,1,False,False,False,False,feat(ui): 优化聊天界面布局，调整滚动区域和输入框样式
+https://www.github.com/1624899/ai_interview,914d34bb26957158729f944daa28ef430910deac,2025-12-04T10:44:49+00:00,Human,,2079,2428,30,False,False,False,False,"feat(interview): 实现双 LLM 系统的快速信道架构
+
+- 用简化的快速通道响应器取代复杂的规划器-执行者-评估器
+- 增加双 LLM 支持：快速 LLM 以实现快速响应，Smart LLM 用于分析
+- 实现多维评分背景候选人画像服务
+- 添加语音转文字输入支持，支持语音交互
+- 取消教练模式，专注于模拟面试体验
+- 通过回滚和状态水合来增强会话管理
+- 优化文件服务，使其提取文本而无需持久存储
+- 增加结构化评估模型以提升类型安全
+- 实现带有 WAL 模式的持久数据库连接
+- 添加候选档案缓存和检索 API
+
+突破性变革：取消教练模式，简化面试流程，专注于模拟面试。API 现在只支持“模拟”模式，面试开始流程也发生了变化。"
+https://www.github.com/1624899/ai_interview,909c8c31b0b7c82cb779d94caebc181c54be52c5,2025-12-02T04:57:19+00:00,Human,,52,33,7,False,False,False,False,"feat(interview): 增强会话管理并简化面试启动流程
+
+- 在会话创建时添加简历文件名和公司信息，以便更好地提供背景信息
+- 过滤流式输出，仅显示面试官和摘要节点的响应
+- 通过移除手动会话创建来简化前端面试启动
+- 改进聊天消息中的代码块样式
+- 更新应用程序图标和吉祥物资源"
+https://www.github.com/1624899/ai_interview,e60987230733880405078259225139e7cd2b8a2d,2025-12-01T09:17:57+00:00,Human,,90,9,3,False,False,False,False,"feat(ui): 新增自动滚动和滚动至底部聊天功能
+
+为面试聊天界面实现智能滚动管理：
+- 新消息到达时自动滚动到底部
+- 用户向上滚动时显示“滚动到底部”按钮
+- 用户手动向上滚动时暂停自动滚动
+- 返回底部区域时恢复自动滚动
+- 修复第一条消息再生以正确重启面试流程
+- 更新 ScrollArea 组件以支持滚动事件处理"
+https://www.github.com/1624899/ai_interview,69a49b09b24072ef271fe1d87c333456a6a917b1,2025-11-29T16:28:32+00:00,Human,,695,233,7,False,False,False,False,"feat(core, ui): 实现带有面试进度跟踪的 Planner-Executor-Evaluator 架构
+
+将面试系统从简单的顺序提问重构为支持动态后续问题、意图识别和自适应评估的智能 PEE 架构。新系统包括一个生成结构化面试计划的规划节点、一个处理不同交互模式（提问、后续、澄清）的执行节点，以及一个评估用户响应和控制面试流程的评估节点。
+
+主要改进：
+- 基于简历、职位描述和公司背景的动态问题生成
+- 智能的后续跟进和澄清功能，设有限制
+- 实时面试进度跟踪，带可视化进度条
+- 增强型 UI，包含公司信息输入和进度可视化
+- 统一状态管理，适用于教练和模拟面试模式
+- 问题和评估结果的架构化数据模型
+
+该架构支持更自然和自适应的面试体验，同时保持清晰的职责分离和可扩展性。"
+https://www.github.com/1624899/ai_interview,dd382fc295719f1600ac2e0135178fb713063410,2025-11-29T10:41:06+00:00,Human,,4,15,3,False,False,False,False,chore: 更新 .gitignore 文件以包含新依赖项，并删除不再需要的文件
+https://www.github.com/1624899/ai_interview,1410b45ce077dc8d09be8fb3ffaffe60f15ba8f0,2025-11-29T10:40:52+00:00,Human,,865,227,16,False,False,False,False,"feat(ui,backend): 添加会话钉顶和增强聊天功能
+
+- 添加置顶会话功能并更新数据库模式
+- 实现会话标题编辑功能
+- 增加消息编辑和再生功能
+- 实现流媒体暂停/停止功能
+- 为数据库连接添加适当的资源清理
+- 通过确认对话框和更好的用户体验来增强用户界面
+- 添加数据库检查的调试工具"
+https://www.github.com/1624899/ai_interview,a801c06f102e960eae2fbe5bcaa2ed6651b92a4c,2025-11-28T16:04:57+00:00,Human,,5034,766,57,False,False,False,False,"feat(backend): 重构为异步架构并添加会话持久化功能
+
+将后端从同步架构重构为异步架构，添加完整的会话管理功能，包括消息持久化、会话回滚和状态管理。同时移除Chainlit前端，准备迁移到Web前端架构。
+
+主要变更：
+- 将图谱构建改为异步操作，支持AsyncSqliteSaver持久化存储
+- 添加会话服务模块，支持会话创建、更新、消息存储和回滚功能
+- 新增会话管理API端点，提供完整的会话生命周期管理
+- 重构内存模块，统一使用ai_interview.db数据库存储
+- 改进服务器启动逻辑，添加优雅关闭处理
+- 移除Chainlit前端相关文件，为Web前端迁移做准备
+
+BREAKING CHANGE: 后端API从同步改为异步，需要更新调用方式"
+https://www.github.com/1624899/ai_interview,7e38fa7f85fa25fb2734064ebed13d54c926cdd4,2025-11-26T08:28:30+00:00,Human,,1444,101,22,False,False,False,False,"refactor(backend): 重构项目并迁移到 FastAPI 架构
+
+- 将核心应用逻辑从应用/后端/目录迁移到
+- 实现基于 FastAPI 的后端服务，并提供正确的 API 路由
+- 添加全面的 API 端点，用于聊天和文件上传功能
+- 创建结构化后端，合理分离关注点（API、核心、模型、服务）
+- 更新前端，使用新的 LangGraph API，去除版本参数
+- 移除过时的音频服务和未使用的核心模块
+- 添加完整的后端文档和测试基础设施
+- 建立适当的项目结构，后端/专用服务目录"
+https://www.github.com/1624899/ai_interview,8274899a45b61ab6138d66ceb2b373df264c5269,2025-11-21T05:22:23+00:00,Human,,65,16,4,False,False,False,False,更新内存保存器以支持持久化存储，并添加环境配置示例文件
+https://www.github.com/1624899/ai_interview,9df430bd83e73ce740197da3a3e2dabe412a69b6,2025-11-21T05:00:50+00:00,Human,,1684,0,19,False,False,False,False,init

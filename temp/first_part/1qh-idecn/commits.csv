@@ -1,0 +1,1806 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1qh/idecn,4e050eac1779b9da0eef0a3e0f55dc44372bf5c8,2026-09-24T02:55:46+00:00,Human,,0,24,24,False,False,False,False,style: apply formatter's import-block spacing
+https://www.github.com/1qh/idecn,e6fbd49c0891e9b1ceb41cc4351ccf114220da25,2026-09-24T02:55:46+00:00,Human,,1,0,1,False,False,False,False,chore: suppress useLayeredStyles on intentionally unlayered theme overrides
+https://www.github.com/1qh/idecn,33bf32700076870b0c699565ddccb7b657e604bc,2026-09-24T02:55:46+00:00,Human,,89,66,2,True,True,False,False,fix: derive registry modules from the component's import graph so every split sibling ships
+https://www.github.com/1qh/idecn,e3fa62d7003d0cf069819afde038e7f054dddd04,2026-09-24T02:46:12+00:00,Human,,1,1,1,False,False,False,False,chore: release 0.0.103
+https://www.github.com/1qh/idecn,cb16cd689dd7db2e5bae53427356768d3299bcf5,2026-09-24T02:46:12+00:00,Human,,46,3,1,True,True,False,False,fix: pdf page counter and page navigation track the page actually in view
+https://www.github.com/1qh/idecn,2c9004b2b32e0f13454aa6a8a7cf59f1f72725bb,2026-09-10T05:24:04+00:00,Human,,1,1,1,False,False,False,False,chore: release 0.0.102
+https://www.github.com/1qh/idecn,8f67674175c34803ccd12fc8255519c49ca07a4f,2026-09-10T04:08:52+00:00,Human,,336,119,3,False,False,False,False,"refactor: factor a minimal PaneHost for the studio entry
+
+Lift the shared dockview primitives (Tab, extractTabs/getTabId, layout
+persist/restore, TAB_TYPE) into panes.tsx and add a minimal PaneHost — a
+dockview host with no file-tree, Monaco, Leva, sidebar or tab menu. Workspace
+imports the primitives and keeps its IDE layer; chunk-studio now mounts PaneHost
+and imports every leaf from its focused module, so the idecn/chunk-studio entry
+carries no Monaco/Leva/glide/file-tree graph. Public barrel unchanged."
+https://www.github.com/1qh/idecn,ab55be2e9a5d4f7cd88cf69a13fb969260ddbab7,2026-09-10T03:51:30+00:00,Human,,1226,1192,8,False,False,False,False,"refactor: split studio leaf modules out of the idecn monolith
+
+Extract the chunk-studio closure's leaf components into focused modules —
+base (IconButton/TipButton/InfoButton/ScrubInput), pdf (PdfViewer + region
+geometry + asset config), chunk-panels (ChunkListPanel/ChunkEditorPanel), and
+split annotation-hosts into text-annotation-host (annotorious/recogito) and
+grid-editor-host (glide). idecn.tsx imports them and keeps the lazy host
+wrappers; the public barrel is unchanged so consumers are unaffected. First
+step toward a borrow-first studio entry whose graph carries no Monaco/Leva/glide."
+https://www.github.com/1qh/idecn,6b235417b3e67d64b680329257c7de9fa485f53f,2026-09-09T08:26:28+00:00,Human,,13,2,2,False,False,False,False,feat(idecn): let consumers configure pdfjs cMap/standardFont/wasm asset urls via configurePdfAssets
+https://www.github.com/1qh/idecn,6c46b4669120c87e9bb85d5c276a704ab3834c53,2026-09-09T05:51:51+00:00,Human,,2,2,2,True,True,False,False,fix(idecn): respect a consumer-set pdfjs workerSrc before defaulting it
+https://www.github.com/1qh/idecn,551ced313724dfdab44b3e2b69893e3792594373,2026-09-05T04:58:02+00:00,Human,,4,0,1,True,True,False,False,fix: install chromium before e2e so a fresh CI runner has the browser
+https://www.github.com/1qh/idecn,2d979a5370277b159b3270face2864f659e42c57,2026-08-27T05:57:13+00:00,Human,,3,3,2,False,False,False,False,chore: regenerate stale registry + icons
+https://www.github.com/1qh/idecn,2c0e6c8f87d88923073d11c61d3976a8099bdba4,2026-08-26T09:57:39+00:00,Human,,6,3,2,False,False,False,False,"feat: ChunkStudio gate-clean + release 0.0.99
+
+Source-agnostic chunk editor over idecn's panels (idecn/chunk-studio subpath), consuming ragworks + headrace. Repaired the react/display-name autofix corruption and the stripped oxlint-disable; check is clean, build green."
+https://www.github.com/1qh/idecn,31beb1d4c024fa47d7101f85fb4853cc03cf058d,2026-08-26T09:52:30+00:00,Human,,3,3,1,True,True,False,False,fix: repair fix-corrupted StudioContext declaration + merge dup import in chunk-studio
+https://www.github.com/1qh/idecn,676b8186f5abc1563eaf8ed056f83056ec9ad070,2026-08-26T09:50:30+00:00,Human,,1108,1,3,False,False,False,False,"feat: add ChunkStudio — source-agnostic chunk editor (idecn/chunk-studio subpath)
+
+WIP: builds green (both entries). Consumes ragworks (poll/chunk-edit/synthetic), headrace (repro), next-themes, sonner. Extracts data-studio's assembled editor: useStudio hook + StudioProvider + ChunkListView/ChunkEditorView/DocumentView + the ChunksView/Mutation model + StudioSource interface + assembled ChunkStudio (parameterized gate copy, layoutKey, reproGlobal). Lintmax comment-strip crashes parsing one file (missing-const-initializer, oxc quirk on valid TS) — to isolate + re-gate before publish."
+https://www.github.com/1qh/idecn,020114bb967bda2d8dba5809a0d5347c6380e1b0,2026-08-25T00:57:07+00:00,Human,,6,7,2,False,False,False,False,"feat: editor toolbar buttons uniform size via parent selector, font cap raised to 48"
+https://www.github.com/1qh/idecn,2710c48e2e19af3c4ee83f3699026bcebc316e65,2026-08-20T09:02:01+00:00,Human,,1,1,1,True,True,False,False,"fix: editor textarea stays borderless on focus (kill focus-visible border+ring), matching the preview"
+https://www.github.com/1qh/idecn,b199844d27060ada73b044d24f7868fc164c3550,2026-08-20T08:39:38+00:00,Human,,36,27,2,False,False,False,False,"feat: ChunkEditorPanel merges its two action rows into one zero-padding toolbar, borderless editor matching the preview, tighter spacing, and a subject prop that reads Editing/Previewing per mode"
+https://www.github.com/1qh/idecn,7adffc8f38eee6b9d73653ce0a51d17c637c6282,2026-08-19T17:24:45+00:00,Human,,1,1,1,False,False,False,False,chore: regenerate registry after keywords tooltip change
+https://www.github.com/1qh/idecn,3d046d1ddb2905d2bfc8c88dbe77d62721ed12d2,2026-08-19T17:07:32+00:00,Human,,12,4,2,True,True,False,False,fix: keywords-and-questions popover trigger carries a component tooltip via nested base-ui triggers (ref merge); bump 0.0.96
+https://www.github.com/1qh/idecn,2113dbea2a2c5ee874334cb26c1e503c4bc3a676,2026-08-19T11:11:11+00:00,Human,,71,72,3,False,False,False,False,"feat: every icon button shows a hover tooltip — add TipButton, convert PdfViewer toolbar + panel/workspace bare icon buttons"
+https://www.github.com/1qh/idecn,63cce5fdcc7d08a7f415f57b84dad414d8d5b78c,2026-08-19T10:52:53+00:00,Human,,8,2,1,False,False,False,False,chore: regenerate shadcn registry after component + streamdown-preview changes
+https://www.github.com/1qh/idecn,2ca8d3417ff926763dfb5f6a0e35c411b2aa606a,2026-08-19T03:57:29+00:00,Human,,184,86,12,True,True,False,False,"fix: dogfood noUnsafeTypeAssertion clean — type external SDK/DOM/JSON at one boundary, fix effect deps, restore rule ON via lintmax 0.1.93"
+https://www.github.com/1qh/idecn,f776d84180f4ba06dcf56afdbcd024fc93701ba1,2026-08-18T13:50:33+00:00,Human,,92,12,1,False,True,False,False,"feat: viewer zoom clip-fix + smooth transform-preview, chunk-list density + per-row expand"
+https://www.github.com/1qh/idecn,e04cdb63aa9566eb867c06da3bc1bcae0c085eeb,2026-08-13T13:07:05+00:00,Human,,1,0,1,False,False,False,False,chore: sync conventions
+https://www.github.com/1qh/idecn,6461c0cb7e01d02bfc60c6e117c006001947a85e,2026-08-13T08:53:39+00:00,Human,,12,12,1,False,False,False,False,chore: sync conventions
+https://www.github.com/1qh/idecn,55e61f5cb3f01b5e1b199824a0c12c1fbbd49ca0,2026-08-13T05:13:37+00:00,Human,,16,0,3,False,False,False,False,chore: sync conventions [skip ci]
+https://www.github.com/1qh/idecn,1c6d340cdf02dc8dfdd8a32386c4622c5ec51a2e,2026-08-12T17:51:02+00:00,Human,,6,3,3,False,False,False,False,"feat(ChunkEditorPanel): extraInPopover opt-in — extra renders as an always-on panel by default (restores the consumer relying on that), popover only when opted in"
+https://www.github.com/1qh/idecn,505b228389682c1fcdcb3ccca088c2c3e94f4f9d,2026-08-12T16:53:52+00:00,Human,,517,2,4,False,False,False,False,chore: regenerate CLAUDE.md + sync readonly/ui from cnsync
+https://www.github.com/1qh/idecn,8584c8fbd8b8129ad138426b9dfa5c74f436bb27,2026-08-11T03:19:08+00:00,Human,,5,5,5,True,True,False,False,"fix: dockview-core@8 moved its css to dockview-react/dist/styles — repoint the import, copy step, resolver and registry strip"
+https://www.github.com/1qh/idecn,ca5d13e968823cb55f9b6ffe67b3ba889c074690,2026-08-07T11:52:24+00:00,Human,,1,1,1,False,False,False,False,chore(registry): regenerate idecn.json for the editable-region pulse
+https://www.github.com/1qh/idecn,2cb86e2d3e8d65b7d889fccc55d6dee8b8b38085,2026-08-07T11:27:34+00:00,Human,,2,2,2,True,True,False,False,"fix(PdfViewer): pulse the editable selected region, not just the non-editable one"
+https://www.github.com/1qh/idecn,e73b7c37fe58681b3c4e0299830690cb5a6f4d7b,2026-08-07T11:05:43+00:00,Human,,14,4,3,False,False,False,False,feat: PdfViewer scrolls selected region page into view; prune-versions deprecates when unpublish is forbidden
+https://www.github.com/1qh/idecn,38357150a4d1479f4d905ab530a8fa4ff933a4a0,2026-08-07T10:19:39+00:00,Human,,116,73,2,False,False,False,False,feat: Tab contextMenu allowlist to pick tab-menu items and gate close-family on closable
+https://www.github.com/1qh/idecn,f562dcb272ddaf583dbbb647254fa4c37e35719c,2026-08-07T09:34:58+00:00,Human,,17,3,2,False,False,False,False,feat(idecn): PdfViewer controls slot + ChunkEditorPanel extra opens in a toolbar popover instead of an always-on panel
+https://www.github.com/1qh/idecn,846591a68beda1c56208ddfa3e004675c2b05262,2026-08-07T00:22:03+00:00,Human,,1,1,1,False,False,False,False,chore: regenerate registry (bun run gen)
+https://www.github.com/1qh/idecn,8ca7a020b749df887ea072f6c7775f66e57fa2f9,2026-08-07T00:12:48+00:00,Human,,0,0,0,False,False,False,False,chore: retrigger CI (webhook dropped during GitHub Actions outage)
+https://www.github.com/1qh/idecn,2cc7b6944236f4ef9032a7923b74724b78244367,2026-08-06T19:13:54+00:00,Human,,5,2,2,True,True,False,False,fix: guard PdfViewer render against a double-render race that doubled the page canvas
+https://www.github.com/1qh/idecn,ed5f43840167c25b42063df0c97ea833ff73f3f1,2026-08-06T15:17:13+00:00,Human,,21,1,1,False,False,False,False,chore: regenerate shadcn registry for the ChunkListPanel/ChunkEditorPanel adoption slots
+https://www.github.com/1qh/idecn,bbc0b88cefebc7e90581df04a53405f1f7d84c93,2026-08-06T08:19:54+00:00,Human,,54,12,2,False,False,False,False,"feat: ChunkListPanel/ChunkEditorPanel adoption slots — editor render-prop, per-row statusClass, loading/error/onLoadMore"
+https://www.github.com/1qh/idecn,a425c03ab44f6b22ee4ebd52aa7449628cd93f7e,2026-08-06T05:08:44+00:00,Human,,2,2,2,True,True,False,False,fix: chunk row renders page label when located (condition was inverted)
+https://www.github.com/1qh/idecn,dce6878d5d8ed1e5060221b9ac0ccf3b8ec91cc9,2026-08-06T04:52:34+00:00,Human,,268,3,3,False,False,False,False,feat: prop-driven ChunkListPanel + ChunkEditorPanel (shared chunk-editing panes); pulsing selected region
+https://www.github.com/1qh/idecn,be960d9c5307ef81fae77597ce986f8b788bc89e,2026-08-06T02:31:16+00:00,Human,,27,6,2,False,False,False,False,feat(pdf): region hover-sync + multi-region highlight props
+https://www.github.com/1qh/idecn,1b097320f72b4e308b1e180ac3bc59bab5a0db6a,2026-08-05T09:19:12+00:00,Human,,166,88,9,False,True,False,False,feat: export the theme-aware chunk-color palette as shared substrate for both editor clients; fix pre-existing shell brace drift
+https://www.github.com/1qh/idecn,4cd43c452971f4143def712d022782da52b162c5,2026-08-04T13:07:55+00:00,Human,,32,1,3,False,False,False,False,"feat: chunkSpansToAnnotations — map chunk char spans to text annotations, shared by both consumers"
+https://www.github.com/1qh/idecn,662bd3b6fd3b6e25ccfd73fa960a867c8feba8ec,2026-07-29T07:07:53+00:00,Human,,2,2,2,False,False,False,False,chore: sync managed files
+https://www.github.com/1qh/idecn,13ce630f51ab573bb3d906db7afa9de242e87cda,2026-07-28T13:48:19+00:00,Human,,1,0,1,False,False,False,False,chore: ignore the generated ui declarations the build emits beside their sources
+https://www.github.com/1qh/idecn,d9c5124f35c268a3bbbd3f425c2b3d45db803785,2026-07-28T11:08:06+00:00,Human,,3,3,3,True,True,False,False,fix(e2e): extend the repo root tsconfig so playwright resolves the base
+https://www.github.com/1qh/idecn,c4644c6167349a6a0b2403a8e092d84b68ed89f8,2026-07-28T10:20:16+00:00,Human,,1,1,1,True,True,False,False,fix(e2e): extend the resolved lintmax tsconfig so playwright can load it
+https://www.github.com/1qh/idecn,468268f7d2334c5adca793eaccff39542be355b3,2026-07-28T09:36:44+00:00,Human,,118,122,8,False,False,False,False,chore: track lintmax at latest so a pruned release cannot break a fresh install
+https://www.github.com/1qh/idecn,3f6b42eaa429fe0724378ba15bb9d8f507e1ed60,2026-07-28T08:19:47+00:00,Human,,188,158,7,False,False,False,False,chore: apply the current lint toolchain
+https://www.github.com/1qh/idecn,a522901c5bf63570418909f4ef7077d4243fd13e,2026-07-22T08:34:42+00:00,Human,,3,3,2,False,False,False,False,chore(gen): regenerate registry
+https://www.github.com/1qh/idecn,2c3e0a796d30e4694383baaf70946a226717af26,2026-07-22T08:08:48+00:00,Human,,1,1,1,False,False,False,False,chore: release 0.0.79
+https://www.github.com/1qh/idecn,e0c534ec846434d70d9b7fa08926821300258395,2026-07-22T08:08:30+00:00,Human,,35,3,2,True,True,False,False,fix(tree): keep marquee drag from swallowing portalled menu clicks
+https://www.github.com/1qh/idecn,ecf0b2899cfd50704157782dc47447c77f31c714,2026-07-22T07:37:28+00:00,Human,,70,1,1,False,False,False,False,feat(tree): marquee drag-select over tree items
+https://www.github.com/1qh/idecn,4721d63e412b52f531c87912f1de37b963f0a99f,2026-07-18T06:16:37+00:00,Human,,3,3,2,False,False,False,False,chore(gen): regenerate registry after lint header change
+https://www.github.com/1qh/idecn,29e0044c4ea2209faa8740cbac98bab7dea2ef5e,2026-07-17T21:24:10+00:00,Human,,208,134,10,False,True,False,False,"chore(lint): adopt lintmax 0.1.82; fix sonarjs/regexp findings across idecn.tsx, web, scripts"
+https://www.github.com/1qh/idecn,68f4854a541a17d88f742be499a9fc5fe6f965d5,2026-07-17T07:28:32+00:00,Human,,17,6,1,True,True,False,False,"fix(release): verify no older tag survived the prune instead of assuming it
+
+The prune ran gh release delete and git push --delete with every result discarded,
+then printed released regardless — so a tag that failed to delete stayed on the
+remote while the run reported success and the single-release policy quietly stopped
+holding. A tag with no release makes the delete fail for a reason that is not a
+problem, so no single call can judge itself: the remote is asked again afterwards
+and a survivor fails the run."
+https://www.github.com/1qh/idecn,eb64c6eb2d562c6106b197ca6ff877d30bf8bbff,2026-07-17T03:03:29+00:00,Human,,22,3,1,True,True,False,False,"fix(ci): give each prune run its own list, and stop reporting ok when it pruned nothing
+
+Every managed repo prunes on the same self-hosted runner, and the run list was written to one
+fixed path — two jobs overlapping meant the second overwrote the first's list, so the first then
+asked its own repo to delete another repo's run ids. Every call 404s, the failure was swallowed,
+and it printed ok having pruned nothing; the history kept growing with the job green. Proven:
+with the fixed path a concurrent pair reads back each other's list, with a run-owned file it
+does not.
+
+A run already gone is still nothing to report, but anything else now names the run and fails,
+so a systematic failure — a token without the scope — cannot look like a working prune."
+https://www.github.com/1qh/idecn,86693cd16a93a7c7280777f17c6c4af6b9211c99,2026-07-17T02:52:34+00:00,Human,,11,0,1,True,True,False,False,"fix(prune): a registry that will not answer is not a first publish, and a refused unpublish is not silence
+
+npm exits non-zero both when a package has never been published and when the registry declines
+to answer, so calling every failure 'first publish' turned an outage into a clean no-op that
+skipped the prune entirely. Only a 404 means never-published now.
+
+The unpublish results already recorded which versions npm refused, and only the successes were
+printed — so a version that stayed on npm against the single-present-publish convention left no
+trace, with the run green and the failure computed and dropped. Those versions are named now."
+https://www.github.com/1qh/idecn,2859e83b22bcb015d7d083cc6120fd958ae5b329,2026-07-17T02:25:15+00:00,Human,,16,3,1,True,True,False,False,"fix(release): a registry that will not answer is not 'nothing to publish'
+
+npm exits non-zero both when a package is absent and when the registry declines to answer, so
+resolving every failure to not-on-npm turned an outage into a clean 'no publishable package'
+and exit 0 — a version bump would be dropped with the run green and no trace. Only a 404 means
+absent now; anything else fails with the name that could not be resolved.
+
+The tag and release were fire-and-forget after a successful publish, so the package could land
+on npm with nothing pointing at it while the script still printed 'released'. The next run then
+sees the version already published and never retries, so the gap is permanent and invisible.
+It reports and exits non-zero instead."
+https://www.github.com/1qh/idecn,bd6af6d56e1a6d2a885869472c3ccfa52a35ae17,2026-07-17T00:31:05+00:00,Human,,33,10,6,False,False,False,False,"test: run the e2e suite in CI — 59 tests had no gate, and one stale selector
+
+Nothing has ever run these: no test script existed in this repo's history, so when the file
+tree stopped being a <nav> (it is a div; the ref is still called navRef) the shared waitTree
+helper's selector matched nothing and no gate noticed. Selecting on the label instead of the
+element name survives markup that keeps the same semantics — all 59 pass.
+
+The config also pinned port 3001 with reuse enabled, and this machine serves another project
+there: any run would have adopted that server and tested someone else's app. The port is now
+allocated once by scripts/e2e.sh and exported — playwright re-evaluates its config in every
+worker, so a port computed inside it differs per worker while only the webServer's answers —
+and reuse is off so a stray process fails the run instead of hijacking it.
+
+Verified through the wired path: @idecn/web:test reports 59 passed."
+https://www.github.com/1qh/idecn,03e416eb1c89612c6d554ca76fbc0540ff123846,2026-07-16T20:16:10+00:00,Human,,1,11,1,True,True,False,False,fix(sync): restore the fleet-managed up.sh; the registry gate belongs on action
+https://www.github.com/1qh/idecn,a5cab0397f25eefaa4484c538824679fda3285b5,2026-07-16T20:10:54+00:00,Human,,16,1,2,True,True,False,False,"fix(registry): gate the registry from this repo's action, not the fleet-managed up.sh
+
+up.sh is shared across every managed repo and only this one ships a registry, so the check
+lives beside what it guards and hangs off action, which CI already runs. Same two halves,
+both still proven: the generator refuses an unbuildable item, and this refuses a committed
+copy that no longer matches its source."
+https://www.github.com/1qh/idecn,78f53fc9ca3c4a9374593427af594689ebeb94e5,2026-07-16T19:46:59+00:00,Human,,35,3,2,True,True,False,False,"fix(registry): make the generator refuse a broken registry, and gate it on every run
+
+The defects this artifact shipped were each invisible in the JSON and only surfaced in a
+consumer's build, so the generator now asserts what it emits: no workspace-private import
+survives a rewrite, every alias resolves to an emitted file or a declared registryDependency,
+and every npm import is declared by some manifest. Proven against a planted regression — the
+single-quote rewrite that caused the original leak now exits non-zero and names the files.
+
+The check ran only when someone remembered to call it, which is why none of this was caught;
+up.sh regenerates and diffs the committed copy on every run, so a stale registry or an
+unbuildable one fails there instead of in someone else's app."
+https://www.github.com/1qh/idecn,b1bed0f2047cdd78c1a9f54d0d16ac93dff49ef7,2026-07-16T19:14:29+00:00,Human,,211,62,6,True,True,False,False,"fix(registry): ship a registry a consumer can actually build
+
+The published item resolved only inside this monorepo: every emitted file kept its
+workspace-private @a/ui imports (the rewrite matched one quote style, and the vendored
+files use the other), scoped packages never reached the dependency list (the extraction
+regex excluded @), a sibling module the component imports was never emitted, and the
+vendored files' own deps were invisible to a scan of the main component. Each is derived
+from what is emitted now, so a new import cannot silently miss the manifest.
+
+The registry test that would have caught this could not run: it fed a workspace: dep to
+bun add, piped the build through tail so the failing module names were discarded, and the
+add stopped on an overwrite prompt a non-tty answered No — so the components never landed
+and the build failed on files the add was meant to write. It also raced any other run on
+this machine through a fixed port and the shared .next.
+
+A consumer's scaffold targets ES2017, where the component's one named capture group is a
+type error; a replacer over the whole match splits camelCase identically with no groups."
+https://www.github.com/1qh/idecn,9e89d87b50e2403ddbf05cf4f7fc3955324648d7,2026-07-16T18:28:14+00:00,Human,,3,0,1,False,False,False,False,docs: regenerate CLAUDE.md with lintmax fixture/assertion/env-seam gotchas
+https://www.github.com/1qh/idecn,9c181c887333c3304b924997348d9585810dbea4,2026-07-16T13:29:33+00:00,Human,,27,0,1,False,False,False,False,docs: regenerate CLAUDE.md — #### thematic grouping propagated from rule .mdx
+https://www.github.com/1qh/idecn,0ac16b20972a1a64b13b424432829f8742d70307,2026-07-16T11:59:52+00:00,Human,,115,57,1,False,False,False,False,docs: regenerate CLAUDE.md — single-H1 navigable guide with Contents + lintmax gotchas
+https://www.github.com/1qh/idecn,c6830697a5993484a6dfdce1ae2a8977df0bb5fd,2026-07-15T21:17:31+00:00,Human,,707,36,7,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,93741b7a1f783e7ca54d467aee078946376be941,2026-07-15T07:41:24+00:00,Human,,4,0,1,True,True,False,False,"fix: name the react contexts so they are identifiable in the devtools tree
+
+Four unnamed contexts rendered as anonymous entries, indistinguishable while
+inspecting a component tree."
+https://www.github.com/1qh/idecn,92f9f84359ab4ebd5169162e17ca65423c65b85f,2026-07-15T06:26:03+00:00,Human,,1,1,1,True,True,False,False,"fix: scope the version check to skip the deliberate typescript split
+
+The vendored ui package tracks typescript 5 while the workspace pins the 6.0
+line for type-aware linting; the unscoped check called that a violation and
+exited non-zero from postinstall, failing every install before any build ran."
+https://www.github.com/1qh/idecn,8ae2eb740b4632bb1ea6f9d5f8e858a259806964,2026-07-15T06:23:34+00:00,Human,,4,7,2,True,True,False,False,"fix: read the mono font per render and name the react rules at their current ids
+
+The font came from a module-level cache written during render, which mutates a
+global mid-render and pins the first value even after the css variable changes;
+reading the custom property directly drops both. The suppressions named the
+pre-flattening rule ids, so they matched nothing and the rules they were meant
+to cover fired unsuppressed."
+https://www.github.com/1qh/idecn,5d595047b07b2d6a89d48254900f35a254a3a645,2026-07-15T06:19:06+00:00,Human,,1,1,1,True,True,False,False,"fix: pin typescript to the 6.0 line so the type-aware gate and the next build resolve it
+
+The 7.x package exposes only a version stub at its main entry, so next's
+typescript detection reports it as absent and typescript-estree dies reading
+ts.Extension — a floating spec turned every clean install, CI included, red."
+https://www.github.com/1qh/idecn,f141cc3adcaa2d0b0e670f2cfb2154f0657cf265,2026-07-13T17:09:11+00:00,Human,,12,2,2,True,True,False,False,"fix(workspace): force a dockview layout on mount so the panes never paint blank
+
+The docking workspace measured its container once on ready; a client-side-navigation mount could land on a pre-layout zero-height frame, so the panes painted blank until an unrelated reflow. Force api.layout to the real container size across the next frames on ready. Publishes 0.0.78."
+https://www.github.com/1qh/idecn,cdce415d3803360d3d59904857701731acfbdce6,2026-07-09T12:34:58+00:00,Human,,12,1,2,False,False,False,False,feat: FileTree onReachEnd scroll-end hook for infinite-scroll load-more
+https://www.github.com/1qh/idecn,a2e5ea392d4e92a032eb83acb4202ebf827b3b0e,2026-07-08T10:15:34+00:00,Human,,24,2,2,False,False,False,False,feat(FileTree): type-ahead jump — typing a printable char focuses the next tree item whose name starts with the buffered prefix (600ms reset)
+https://www.github.com/1qh/idecn,3e29c8ee58649fa518784bd8635b0a17af8f806f,2026-07-08T10:03:02+00:00,Human,,32,2,2,False,False,False,False,"feat(FileTree): cut (⌘X) / paste-move (⌘V) — cut marks the selection dimmed, paste into the focused folder moves them via onMove; cutIds threaded through TreeContext, data-folder marks paste targets"
+https://www.github.com/1qh/idecn,09b04a9999aadccd423bcf013abc77acc4f7d3ae,2026-07-08T09:47:58+00:00,Human,,10,2,2,False,False,False,False,chore(release): idecn 0.0.74 — FileTree cmd-A select-all
+https://www.github.com/1qh/idecn,4ba0f658356ae2215c9a14fd485347828f5e9eca,2026-07-08T09:32:25+00:00,Human,,1,1,1,False,False,False,False,chore(release): idecn 0.0.73 — FileTree keyboard Delete/F2
+https://www.github.com/1qh/idecn,543a9d63e4369f6b19b12e8b7cd8c1075469e668,2026-07-08T09:31:56+00:00,Human,,15,2,2,False,False,False,False,"feat(FileTree): keyboard Delete/Backspace deletes the selection via onDelete, F2 renames the selected node — extends the existing arrow-nav/Enter keydown; annotation-hosts documents the useAnnotator null-guard false-positive"
+https://www.github.com/1qh/idecn,f216d02dc72a2b1700f82af7bb47f505cdaddb96,2026-07-07T20:12:30+00:00,Human,,3,2,2,True,True,False,False,"fix(annotation-hosts): guard TextAnnotationHost setAnnotations/on against a null annotator before mount
+
+useAnnotator returns null until the recogito TextAnnotator mounts, so the binding effect deref'd null and crashed the whole workbench on any text-only document"
+https://www.github.com/1qh/idecn,f756275eb0e0e4bbc9fc2a0dc8a8137e5ab8be10,2026-07-06T21:14:19+00:00,Human,,1,1,1,False,False,False,False,chore(idecn): release 0.0.71 (onRegionResize)
+https://www.github.com/1qh/idecn,632ddaa83ce9bb4476564191a151bfcb6276bc6d,2026-07-06T21:13:03+00:00,Human,,116,15,1,False,False,False,False,"feat(pdf): onRegionResize — move + corner-resize an existing region box
+
+PdfViewer gains onRegionResize(id, box, page) beside onRegionDraw/onRegionClick: a selected region renders as a draggable box with four corner handles; dragging the body moves it, a corner resizes it, and on pointer-up the new box (converted to PDF points) fires onRegionResize. Consumers wire it to a region re-author/re-OCR mutation."
+https://www.github.com/1qh/idecn,1b48f27bfe66a553a3bd9d3e603c1752366c4af4,2026-07-06T11:13:16+00:00,Human,,52,10,2,False,False,False,False,"feat(TextAnnotationHost): onCreateSelection — report a raw text-selection span (start,end char offsets via TreeWalker) so a consumer can author from a text selection, the textual twin of the region draw callback; published 0.0.70"
+https://www.github.com/1qh/idecn,d842903a47a07e6a16f50bbb871f54f166df1882,2026-07-04T19:37:19+00:00,Human,,4,3,2,True,True,False,False,fix(pdf): pdfjs 6.x removed PageViewport.convertToViewportRectangle — use convertToViewportPoint on both box corners in pdfBoxStyle (the region overlay crashed 'convertToViewportRectangle is not a function' after the pdfjs-latest bump on republish). idecn 0.0.69
+https://www.github.com/1qh/idecn,a917115bd7cc57cf931e6cb2c0759e1c4d5df44a,2026-07-04T19:13:48+00:00,Human,,91,70,3,True,True,False,False,"fix(annotation): lazy-load the DOM-touching annotation libs (recogito/annotorious/glide) — they touch DOMMatrix/DOM at import, so a static top-level import crashed the whole workbench on load (the modality-editor.md client-only-dynamic-import gotcha); moved the hosts to annotation-hosts.tsx, lazy()-imported client-only. idecn 0.0.68. Build+lint clean"
+https://www.github.com/1qh/idecn,d7ca95d85e4d779c30db394f58ed635a124073b7,2026-07-04T18:56:51+00:00,Human,,31,29,2,False,True,False,False,"chore(release): idecn 0.0.67 — modality-editor annotation primitives (region-authoring, recogito text-host, glide grid-host) + typed pdfjs viewport facade (fixes pdfjs-latest unsafe-call); lintmax + build clean"
+https://www.github.com/1qh/idecn,42bf891958b6341e32c64acb6c30949981abcdbe,2026-07-04T17:30:00+00:00,Human,,31,0,1,False,False,False,False,"feat(annotation): grid-editor host primitive — GridEditorHost wraps glide-data-grid DataEditor with a generic {columns, rows, onCellSelect} API for the cell modality; the tabular twin of the spatial/text hosts per modality-editor.md. All 3 modality render primitives (region-authoring/text/grid) now in idecn. Build-verified"
+https://www.github.com/1qh/idecn,f516cd41c36ff3b7f86c616d63c9870471e25a4e,2026-07-04T17:28:10+00:00,Human,,40,0,1,False,False,False,False,"feat(annotation): text-annotation host primitive — TextAnnotationHost wraps recogito TextAnnotator in the Annotorious context, feeds W3C TextAnnotations via the annotator store + fires onSelect on selectionChanged (two-way selection binding); the generic text-highlight/select-to-chunk surface per modality-editor.md. Build-verified"
+https://www.github.com/1qh/idecn,3ffdc86cfc3670013dd822e50aaf1409447124fd,2026-07-04T17:24:40+00:00,Human,,46,1,1,False,False,False,False,"feat(annotation): region-authoring primitive on the PDF pane — onRegionDraw callback + a pointer-drag rubber-band overlay that converts the drawn viewport rect to PDF coords (convertToPdfPoint) and fires (box, page); the generic draw-region surface the product's mint-region consumes per provenance-overlay.md. Build-verified"
+https://www.github.com/1qh/idecn,2c9c61f797f1c603a57aff45d81d491cdbf99bc7,2026-07-04T17:20:36+00:00,Human,,3,0,1,False,False,False,False,"feat(annotation): add the W3C annotation + data-grid substrate deps — @recogito/react-text-annotator (text/TextPositionSelector), @annotorious/react (spatial/FragmentSelector), @glideapps/glide-data-grid (grid) — the render primitives the modality editors host per modality-editor.md"
+https://www.github.com/1qh/idecn,5478964905d9a9ebf83db0e64069637b0bf33216,2026-06-26T12:39:38+00:00,Human,,1,1,1,False,False,False,False,chore: release idecn 0.0.66 (palette Base UI command)
+https://www.github.com/1qh/idecn,1cd08ecbe074940bc1d34241fb8aa7265d870fab,2026-06-26T12:32:36+00:00,Human,,22,27,1,False,False,False,False,refactor(palette): migrate CommandPalette from raw cmdk to @a/ui Command
+https://www.github.com/1qh/idecn,c900a47078f856f6ad4e4ec286924f90021fd1d9,2026-06-26T09:26:18+00:00,Human,,2,1,1,False,False,False,False,chore: sync .gitignore (ignore venvs)
+https://www.github.com/1qh/idecn,62bc7e8f18d1d8a8764737a70796755859494eeb,2026-06-26T08:43:03+00:00,Human,,18,9,1,False,False,False,False,ci: sync idempotent release.ts (already-published = success)
+https://www.github.com/1qh/idecn,a1ae3f72fb89d5c1865a112f127a2c15ffe916d2,2026-06-26T02:44:28+00:00,Human,,11,0,1,False,False,False,False,ci: sync release.ts with single-present-release pruning
+https://www.github.com/1qh/idecn,a48a0a672656b8527356fc0bf9cfb49ea89c49b3,2026-06-25T21:36:51+00:00,Human,,18,1,2,True,True,False,False,fix: prune stale versioned layout keys on dockview ready
+https://www.github.com/1qh/idecn,c904b1604d74c1685f1e31185f00806f903832c8,2026-06-25T18:52:50+00:00,Human,,44,28,1,False,False,False,False,ci: canonical version-bump release (npm-presence target selection)
+https://www.github.com/1qh/idecn,d2571ed482dc4f9e76c3f624a3ffbbef48520de6,2026-06-25T18:34:18+00:00,Human,,82,0,2,False,False,False,False,ci: adopt canonical version-bump release (pm4ai-synced)
+https://www.github.com/1qh/idecn,389a72f4af18ae39a6a8e24bc01dc88b8dd0ae60,2026-06-25T15:58:32+00:00,Human,,8,2,2,True,True,False,False,fix(pdf): disable Previous/Next nav at page bounds — no dead nav buttons on single-page docs
+https://www.github.com/1qh/idecn,bc2590e92af723be1b495ca4cc4b9b63c738e7d1,2026-06-25T13:08:58+00:00,Human,,10,4,2,True,True,False,False,fix(pdfviewer): reset doc/base/page on src change; fix(workspace): 'within' tab position uses referenceGroup so panes tab not split
+https://www.github.com/1qh/idecn,315d8a34deb50feec6830fd381636d753446a537,2026-06-23T15:25:19+00:00,Human,,0,1,1,False,False,False,False,chore(ci): sync workflow
+https://www.github.com/1qh/idecn,31b068af423bbce33f9780d6d21bf3adc2f50160,2026-06-23T15:15:08+00:00,Human,,1,0,1,False,False,False,False,chore(ci): clear bun cache before gate (fresh lintmax)
+https://www.github.com/1qh/idecn,e3eb43710efbb24a7528fb1e59d7d799378da5b7,2026-06-23T09:34:53+00:00,Human,,12,13,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,9a0b73a040b0bbf4b43e1922ff5449a7b0e5d7d8,2026-06-23T04:59:42+00:00,Human,,4,2,2,True,True,False,False,fix(pdf-viewer): scrollbar-gutter:stable on scroll container — kills fit-width zoom shake
+https://www.github.com/1qh/idecn,9488aacea0286938e3efd5a77296e89e49aa1e53,2026-06-23T04:21:41+00:00,Human,,3,2,2,False,False,False,False,build(idecn): emit css via tsdown.config copy so plain tsdown ships dist/dockview.css
+https://www.github.com/1qh/idecn,6347670d7b0166e4d7533b1b93f0de78f2357eed,2026-06-23T03:18:39+00:00,Human,,1,1,1,False,False,False,False,chore: release 0.0.58
+https://www.github.com/1qh/idecn,42a5b6343be633deaf21637fa20b3082153861d2,2026-06-23T03:18:37+00:00,Human,,43,11,11,True,True,False,False,fix: dockview onDidActivePanelChange now emits {panel} not the panel — use e.panel.id; drop readonly/* glob; inline node/no-sync disables on scripts
+https://www.github.com/1qh/idecn,f513a64478ce05f85f8dba23da7884cf4f84aa99,2026-06-22T04:56:41+00:00,Human,,20,3,2,False,False,False,False,feat: ContextActions skips its leading separator when no menu items precede it
+https://www.github.com/1qh/idecn,031da8f57ec2686bc42df410c6ca8fc84f05ed9a,2026-06-22T04:15:12+00:00,Human,,1,1,1,False,False,False,False,chore: release 0.0.56 (openVirtual)
+https://www.github.com/1qh/idecn,412e5918d72a3c755aed9c4b136d482cc1e1075a,2026-06-22T04:12:56+00:00,Human,,6,1,1,False,False,False,False,feat: expose openVirtual(fileId) on WorkspaceRef to open a virtual file programmatically
+https://www.github.com/1qh/idecn,f8c6ef5947af3743efc51482efcb9b1804ef50cd,2026-06-22T03:53:49+00:00,Human,,3,3,2,True,True,False,False,fix(ui): clipboard copy failure shows a toast instead of swallowing the error; 0.0.55
+https://www.github.com/1qh/idecn,bdc3ec098ef80a742a32db1b5a9b005eb89ef2a0,2026-06-22T02:14:59+00:00,Human,,1,8,1,False,False,False,False,demo: remove the welcome tab
+https://www.github.com/1qh/idecn,aa3169ded92b905191695898e71e4855bb1f9430,2026-06-21T21:22:37+00:00,Human,,2,2,2,True,True,False,False,fix(ui): FileTree node-actions slot flush — no gap between ghost action buttons; 0.0.54
+https://www.github.com/1qh/idecn,2b793086168094941fa175a20e4069e9b09d8360,2026-06-21T20:46:02+00:00,Human,,21,7,2,True,True,False,False,"fix(ui): title on every truncating label — file paths, tree names, quick-open, palette items; release"
+https://www.github.com/1qh/idecn,e1ea982ffbea9224b963011a2962df506ff181c7,2026-06-21T20:26:44+00:00,Human,,1,1,1,False,False,False,False,chore: release 0.0.52
+https://www.github.com/1qh/idecn,debe37f0fc5866637993920765083af043ea490d,2026-06-21T20:26:27+00:00,Human,,12,7,1,False,False,False,False,feat: VirtualFile stable id (decoupled from display name); live tab-title on rename
+https://www.github.com/1qh/idecn,66de6a4500a75d2e32bacda671865833ecb1568b,2026-06-21T20:07:03+00:00,Human,,57,3,2,False,False,False,False,feat: opt-in editable + generic inputMethod (IME hook); empty editable docs render
+https://www.github.com/1qh/idecn,cc772c7e7fd7dc04df0cf0c1954ecbaa166a8038,2026-06-21T19:37:03+00:00,Human,,11,3,2,False,False,False,False,feat(config): enumLabels for short select display + leva input ellipsis — long model ids no longer clip; release 0.0.50
+https://www.github.com/1qh/idecn,21af1eac85738a31dcde31e5e2e4758a01cc0e66,2026-06-21T18:50:45+00:00,Human,,13,8,2,True,True,False,False,"fix(checktree): ghost checkbox+chevron sit flush, no gap utility (ux rule); release 0.0.49"
+https://www.github.com/1qh/idecn,5e5c4eb813867ea5605b0cc7456e7222021c256d,2026-06-21T18:09:23+00:00,Human,,2,2,1,True,True,False,False,fix(build): chain copy-styles into build so dist/idecn.css always ships; release 0.0.48
+https://www.github.com/1qh/idecn,1286c7890222dd92bc4baeae0854576fb643e46c,2026-06-21T17:56:31+00:00,Human,,1,1,1,False,False,False,False,chore(release): idecn 0.0.47
+https://www.github.com/1qh/idecn,f1467b340c491753c0d7202eb2153bb95284c6b2,2026-06-21T17:56:09+00:00,Human,,78,1,1,False,False,False,False,"feat(palette): global CommandPalette on raw cmdk — fuzzy, grouped, recent-first
+
+CommandPalette renders data-driven actions {group,label,icon,onSelect,keywords} via raw
+cmdk inside the shared Dialog, fuzzy-filtered, grouped, with a persisted recent-first
+group. the global navigation+action palette primitive, no shadcn Command dependency."
+https://www.github.com/1qh/idecn,900f174b69205f41c315412686ec15779785a7ad,2026-06-21T17:46:32+00:00,Human,,130,0,2,False,False,False,False,"feat(checktree): virtualized tri-state folder-rollup checkable tree
+
+CheckTree — a search-filtered, virtualized (tanstack), tri-state file/folder selector:
+checking a folder rolls up its whole subtree, long names middle-truncate with a title
+tooltip. for scope pickers that must scale to many folders and files. shares FileIcon/
+FolderIcon with FileTree, leaves the existing tree untouched."
+https://www.github.com/1qh/idecn,c2e0795c432f8160395992387eb0adaaecc0a1d4,2026-06-21T16:51:13+00:00,Human,,17,3,1,True,True,False,False,"fix(workspace): geometry-preserving pane toggle — capture sizes on open, restore on close
+
+togglePanel snapshots every pane's size before opening a new pane and restores the
+remaining panes' sizes after a pane closes, so a resized layout survives open/close
+instead of dockview re-splitting at a default ratio."
+https://www.github.com/1qh/idecn,a4c2f8f26f411a8799a7fba7c117176e0e34e2fd,2026-06-21T14:54:36+00:00,Human,,4,4,3,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,b7ed6ae74ac87bf183fecf6e9c381d4e6db19a27,2026-06-19T09:32:20+00:00,Human,,37,2,2,False,False,False,False,ci: self-hosted runner + history prune + failure notify
+https://www.github.com/1qh/idecn,394d485e9d711e15c4b376d63f1b9a0189007c3c,2026-06-19T08:11:26+00:00,Human,,2,2,2,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,572bb76b09bcefd25507abfd9e5635f0d89fc907,2026-06-17T22:03:13+00:00,Human,,24,19,2,False,False,False,False,"feat: FileActions.copyPath opt-out — set copyPath:false to drop the Copy Path context item on trees where a node path is meaningless (projects, chats, title-named docs); default on for the file-explorer demo"
+https://www.github.com/1qh/idecn,458908f871608d9ae4829d377e873cab1988c7ac,2026-06-17T18:11:51+00:00,Human,,5,2,2,True,True,False,False,"fix: configLeaf validates a saved enum value against the current options — a persisted pick no longer in the option set resolves to the default/first option (visible in the picker), instead of silently holding a dead value"
+https://www.github.com/1qh/idecn,f5de0864c9c422b715a8d760f060a408e1789346,2026-06-17T15:54:11+00:00,Human,,43,7,2,False,False,False,False,feat: FileTree chevron opt-out (chevron prop) + itemClassName(depth) for per-level styling + RenameInput respects icon:false (no glyph appears when renaming an iconless node)
+https://www.github.com/1qh/idecn,81d941bed462e51c3f71da9acdf73f5245b1b955,2026-06-17T15:23:32+00:00,Human,,4,1,2,False,False,False,False,feat: FileTree folders show a disclosure chevron (rotates on open) — the structural affordance for iconless folder rows
+https://www.github.com/1qh/idecn,b6719383bdfae3396bb76352cffd1df12e70da2f,2026-06-17T14:56:43+00:00,Human,,5,2,2,False,False,False,False,"feat: TreeFolder respects icon:false (iconless folder rows) — a single-kind tree's project rows drop the redundant folder glyph, keeping the chevron"
+https://www.github.com/1qh/idecn,38af5e0248d582382cd399121cbe46fdbd95edcd,2026-06-17T14:47:58+00:00,Human,,15,5,2,False,False,False,False,"feat: FileTree selectableFolders — a folder-row click fires onSelectChange (navigate) in addition to expand, so a project node can both open and reveal its children; default off keeps file trees expand-only"
+https://www.github.com/1qh/idecn,c7c3623cf8732039cd32c83f3b24e5defd1743aa,2026-06-17T13:55:33+00:00,Human,,4,4,2,False,False,False,False,"feat: FileTree node icon:false renders iconless (keeps chevron) — single-kind trees (projects, chats) need no repeated type glyph"
+https://www.github.com/1qh/idecn,952d84251a997517f44fb45514697174cbc78c1e,2026-06-17T12:01:40+00:00,Human,,41,1,2,False,False,False,False,"feat: InfoButton (icon+tooltip→popover for read-only facts) + Tab.initialWidth (consumer sets a pane's initial size, e.g. a narrow sidebar)"
+https://www.github.com/1qh/idecn,954692edcc9098ae85d21d5c939b0e4bb28c42b1,2026-06-17T09:23:43+00:00,Human,,4,2,2,True,True,False,False,fix: config rebuilds when overlay enum options change (async-loaded select options like model lists now populate instead of staying empty)
+https://www.github.com/1qh/idecn,ef9ab42dc98aff6dbbbb6dcb26a4a59782d2a8bc,2026-06-17T09:12:34+00:00,Human,,2,1,2,False,False,False,False,feat: config overlay accepts enum — consumers inject runtime select options (e.g. model lists) into a leva field
+https://www.github.com/1qh/idecn,39140261c122c3d82d3cbee48ba9adf11b347f53,2026-06-17T08:26:38+00:00,Human,,2,2,2,True,True,False,False,"fix: config popover sizes to content (w-fit, min-w-72, viewport-capped max) so long values—model names—read in full instead of clipping at a fixed width"
+https://www.github.com/1qh/idecn,a2351527f8f10240644f644a32bb9d36cedbf2a6,2026-06-17T05:33:11+00:00,Human,,18,10,2,True,True,False,False,"fix: content registry by panel id (race-free restore, no empty panes); Tab inactive prop; 5px tab left padding"
+https://www.github.com/1qh/idecn,c14841f5375ef04f04f312a122f960aafe758165,2026-06-17T05:10:22+00:00,Human,,62,5,2,False,False,False,False,"feat: Tab defaultOpen prop — a registered tab excluded from the default build/reset, addable on demand and persisted once opened"
+https://www.github.com/1qh/idecn,d2cad048642f613506a33691b9ccc5e318e7494c,2026-06-17T03:27:52+00:00,Human,,5,4,2,False,False,False,False,feat: optional status bar via statusBar prop (default on); active-tab border via overridable var fallback
+https://www.github.com/1qh/idecn,7376f50c1521f3749a70508cf7b2abde60f524e6,2026-06-17T03:19:16+00:00,Human,,3,2,2,False,False,False,False,"feat: active-tab underline color via --dv-active-tab-border-color var (default primary), consumer-overridable"
+https://www.github.com/1qh/idecn,c407b9117fca30693f70413d82df1063f736f9d1,2026-06-17T03:15:59+00:00,Human,,3,3,2,True,True,False,False,fix: roomier tab padding + icon-text gap; close-X uses destructive color with more gap from title
+https://www.github.com/1qh/idecn,da373aba7085742d1b1f4826b2c5f53c7d39469c,2026-06-17T03:07:16+00:00,Human,,2,2,2,True,True,False,False,"fix: transparent active-tab background, selection shown by underline + bold label only"
+https://www.github.com/1qh/idecn,f5984ef0c90b2f63e023286fabc9aa0aaab4249b,2026-06-17T03:04:37+00:00,Human,,3,3,2,True,True,False,False,fix: active tab title uses foreground (visible in light mode); subtle pane separator via --dv-separator-border
+https://www.github.com/1qh/idecn,afc7a4c16cada19dc251f312605b21e8c2778f0c,2026-06-17T02:57:03+00:00,Human,,7,6,2,False,False,False,False,"feat: stronger light-mode active-tab contrast, 1px tab padding, bolder active label"
+https://www.github.com/1qh/idecn,c2e6b8a7c1053879b61245ea8a2aaa993b71eab6,2026-06-17T02:20:48+00:00,Human,,2,2,2,True,True,False,False,"fix: tab header renders forwardRef (lucide) icons, not only plain function components"
+https://www.github.com/1qh/idecn,550d48d60342c314ed0633c28c2bec2a1b0513cc,2026-06-16T23:52:02+00:00,Human,,13,8,2,False,False,False,False,"feat: per-tab custom icon (Tab.icon accepts a component), borderless PDF pages with a thin inter-page separator, subtle dockview tab divider — published as 0.0.25"
+https://www.github.com/1qh/idecn,20d469234c7732cb604204fbcae99066c1b6cabd,2026-06-15T22:15:42+00:00,Human,,0,3,2,False,False,False,False,chore(lint): drop react-compiler suppressions now allowed globally in lintmax 0.1.69
+https://www.github.com/1qh/idecn,3eee157542954135814b198a277345b4b06d124f,2026-06-15T21:35:51+00:00,Human,,7,2,3,True,True,False,False,"fix(lint): suppress react-compiler on mount/sync effects; sync managed CLAUDE.md
+
+oxlint 1.70's react-compiler flags intentional client-mount guards
+(setMounted) and external-sync effects (setError/setTree on repo change);
+suppress with reason. jsx-no-literals/prefer-export-from handled by lintmax 0.1.68."
+https://www.github.com/1qh/idecn,f2341f4ea4df2b249d93eaa64afa9af00064f10d,2026-06-15T09:30:58+00:00,Human,,8,3,2,False,False,False,False,"feat: emit a styles bundle so consumers import idecn styles, not dockview directly
+
+Copy the dockview stylesheet into dist/idecn.css on build and export it as
+idecn/styles.css, so a consuming app references idecn for its workspace
+styling instead of reaching into dockview-core/react."
+https://www.github.com/1qh/idecn,4258f9bcbfa7276464d369419c480fa1b6e5ba0e,2026-06-15T09:23:05+00:00,Human,,2,1,2,True,True,False,False,"fix: fire onPanelsChange for the initially-added panels
+
+handleReady adds the declared tabs before the onDidAddPanel listener is
+registered, so the consumer never heard about the initial panel set; emit
+onPanelsChange once after layout init so a pane sidebar reflects the open
+panes from first render and after a reload."
+https://www.github.com/1qh/idecn,a9ea37dafce025b8dbe5ad5c472a24f50c3006a3,2026-06-15T08:28:46+00:00,Human,,2,1,2,True,True,False,False,fix: sync a positioned tab's title when its declared title changes
+https://www.github.com/1qh/idecn,88c12baa3b7aa44e54d706ac951e6095bc34ab66,2026-06-15T08:26:32+00:00,Human,,54,7,2,False,False,False,False,"feat: WorkspaceRef gains pane controls + onPanelsChange
+
+Expose togglePanel/reopenLast/reset/hasPanel/panelIds on WorkspaceRef and
+an onPanelsChange callback so a consumer can drive a pane sidebar, command
+palette, and keyboard shortcuts against the workspace's open/closed panes."
+https://www.github.com/1qh/idecn,5c50e8b25d90c71d278dad349826620280168f95,2026-06-15T08:20:47+00:00,Human,,24,4,3,False,False,False,False,"feat: Tab accepts a position so declarative children build a split layout
+
+A Tab can declare position {direction, referenceTab} so consumers express
+a multi-pane split (panes opening left/right/above/below a reference tab)
+from declarative children, not just a stacked tab group. Foundation demo
+shows a positioned Details pane beside Welcome."
+https://www.github.com/1qh/idecn,33195210048abc329f5d450e872be61a3a8657d3,2026-06-15T04:59:33+00:00,Human,,28,10,2,False,False,False,False,"feat: config panel accepts acronyms set for label casing
+
+Thread an optional acronyms set through useConfig/toLevaSchema so a
+consumer can render domain acronyms (BM25, OCR, PDF) upper-cased in
+generated config labels instead of title-cased."
+https://www.github.com/1qh/idecn,c672f1d5fbbb8ebf2b357e1007fe7fb0533befd0,2026-06-13T18:12:41+00:00,Human,,114,125,8,True,True,False,False,fix: biome 2.5.0 compatibility
+https://www.github.com/1qh/idecn,fc1e1397bbae28b1f10b49f50dce5d3c526313e0,2026-06-12T15:24:57+00:00,Human,,1,1,1,False,False,False,False,chore(release): idecn 0.0.17
+https://www.github.com/1qh/idecn,0b71bf0e6c7c0841f02a78555ab49c2c94e2acf5,2026-06-12T15:24:26+00:00,Human,,52,1,2,False,False,False,False,feat(FileTree): generic contextActions slot for custom right-click menu items + demo
+https://www.github.com/1qh/idecn,83b8545187eb74ab1d8859e671652ddebe5ed4fa,2026-06-12T14:59:03+00:00,Human,,13,1,2,False,False,False,False,feat(FileTree): onSelectionChange exposes the multi-selection (enables workspace-from-selection)
+https://www.github.com/1qh/idecn,6b28b7038813ba0fab33767d8cceb3d34673daf5,2026-06-12T11:46:57+00:00,Human,,190,36,2,False,False,False,False,"feat(PdfViewer): full out-of-the-box viewer — thumbnail rail, page-nav, current-page tracking, responsive fit (ResizeObserver re-fits on pane resize), regions toggle, floating toolbar"
+https://www.github.com/1qh/idecn,384beff85c30d0111bf259c34d122b15be42ae5c,2026-06-12T11:37:07+00:00,Human,,2,2,1,True,True,False,False,fix(PdfViewer): key regions by id+index so a chunk's multiple segments share a region id (group highlight/select)
+https://www.github.com/1qh/idecn,22284bd69d1482f5a5519ba566f82b72f26f4eff,2026-06-12T11:15:27+00:00,Human,,34,28,2,False,False,False,False,"feat(FileTree): render TreeDataItem.actions as a row overlay (badges, inline buttons)"
+https://www.github.com/1qh/idecn,62b46c3bb555ff6dc3c590817acd242d0d3b476f,2026-06-12T10:57:31+00:00,Human,,1,1,1,False,False,False,False,"release: idecn 0.0.13 (PdfViewer, ConfigPanel, IconButton, ScrubInput, FileTree onMove)"
+https://www.github.com/1qh/idecn,046dfc942cd67c8676a84136d9aa75b9057bdbfd,2026-06-12T08:59:12+00:00,Human,,231,3,1,False,False,False,False,"feat(idecn): schema-driven config panel — Zod walked into leva controls
+
+toLevaSchema walks a Zod object's JSON Schema into leva controls with folders, conditional reveal (showWhen), unit labels, hover hints, and consumer-supplied icons; useConfig binds it with typed state and validated load/save persistence; ConfigPopover mounts it behind a gear with a tooltip"
+https://www.github.com/1qh/idecn,caff8e351b2c399bff4a46c7b2c87996467af400,2026-06-12T08:46:25+00:00,Human,,3,1,1,False,False,False,False,chore(idecn): add leva and zod for the schema-driven config panel
+https://www.github.com/1qh/idecn,fb526e376ccd79007c984ca2d733473a796fd24a,2026-06-12T08:45:06+00:00,Human,,64,1,1,False,False,False,False,"feat(idecn): IconButton — ghost icon button with tooltip, spinner, kbd hint, and a disabled-reason"
+https://www.github.com/1qh/idecn,69a647a83cb3f9ebc8f25c54211d2d26b48f03f7,2026-06-12T08:42:59+00:00,Human,,195,2,2,False,False,False,False,"feat(idecn): PdfViewer — generic pdf.js viewer with a region-overlay API
+
+renders all pages with zoom, overlays caller-supplied regions ({id,page,box,color,label}) positioned by the pdf.js viewport transform, fires onRegionClick and scrolls selectedRegionId into view; pdf.js loads client-only behind a dynamic import so the server build never touches DOMMatrix"
+https://www.github.com/1qh/idecn,31824a8072633f8bced4406952c164bdcda9f24c,2026-06-12T08:30:14+00:00,Human,,65,2,1,False,False,False,False,feat(idecn): export ScrubInput — a base-ui drag-scrub numeric field
+https://www.github.com/1qh/idecn,02359d3a7bb0a00d712f6927f6efc80f1de4f27c,2026-06-12T08:25:25+00:00,Human,,4,0,1,False,False,False,False,feat(explorer): demo the FileTree onMove action on drag-to-move
+https://www.github.com/1qh/idecn,35d02215445496a7c118736be9faa12489fb7625,2026-06-12T08:23:52+00:00,Human,,33,0,1,False,False,False,False,"feat(filetree): drag-to-move reparenting via FileActions.onMove
+
+nodes are draggable move sources and folders are drop targets that discriminate an internal node drag from an OS file drop by a custom dataTransfer type, calling onMove(source, targetFolder) while rejecting a drop onto self or a descendant"
+https://www.github.com/1qh/idecn,21ab7f3054ba5afe423ec27646edcceb46a9bdd0,2026-06-11T18:12:22+00:00,Human,,28,4,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,6c9d322df4a5e14d18a86393bed00f352250c20a,2026-06-11T12:58:03+00:00,Human,,2,2,2,False,False,False,False,chore: sync root build script
+https://www.github.com/1qh/idecn,1fe8201a96088119efebfd402ea836486ca84c8a,2026-06-10T04:56:47+00:00,Human,,1,1,1,False,False,False,False,chore: normalise CLAUDE.md to current canonical formatter output
+https://www.github.com/1qh/idecn,1d44ae201be58c2f8934e908f1a4add29ff1352e,2026-06-10T04:31:41+00:00,Human,,1,1,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,bf8a875d3ab0ba745da870f5f1b753239cfdfa25,2026-06-10T03:54:25+00:00,Human,,9,4,2,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,c3cb5f2285a3979bcac62083528e7bb60546b742,2026-06-09T16:45:29+00:00,Human,,55,47,5,False,True,False,False,chore: sync managed files; fix shellcheck findings in test-registry.sh
+https://www.github.com/1qh/idecn,9eaf3008177b05bc309240690a4f95b258a78538,2026-06-05T21:26:08+00:00,Human,,182,5,22,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,04d130e3ca19e4335bd2be2f279e295298ad2642,2026-06-05T20:57:40+00:00,Human,,2,0,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,5c82d14a66bba374a0ce219b4b90dcbb0d276052,2026-06-05T20:53:01+00:00,Human,,1,34,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,610d4bc7e9fbaa29f787b5a4b3942b1edac7741b,2026-06-01T15:04:21+00:00,Human,,7,6,4,False,False,False,False,chore: sync CLAUDE.md + readonly/ui; bun 1.3.14
+https://www.github.com/1qh/idecn,a8e0b44987bd83c00f420d1246f016c8ea16a922,2026-06-01T08:10:53+00:00,Human,,37,3,1,False,False,False,False,"chore: sync managed files (lintmax 0.1.53, regenerated CLAUDE.md)"
+https://www.github.com/1qh/idecn,65c4ca0b09b3abd54c3a179f616c8cf4cff76ab6,2026-05-22T12:48:30+00:00,Human,,1,0,1,False,False,False,False,chore: sync .gitignore (add secrets/)
+https://www.github.com/1qh/idecn,50e736c525a6e1eda2e9d5a81526cfed48ecde27,2026-05-22T07:28:45+00:00,Human,,291,253,2,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,8aca479bfb9f765e594c9e5c0dabfc49999f2342,2026-05-21T17:15:56+00:00,Human,,14,5,1,True,True,False,False,"fix(types): typed MonacoApi facade for monaco interop, removes no-unsafe-* suppressions"
+https://www.github.com/1qh/idecn,91b668c23afb0b92cec16662afb8d4b225443fe3,2026-05-21T14:36:17+00:00,Human,,1,3,3,False,False,False,False,chore: lintmax 0.1.48 stable detector cleanup
+https://www.github.com/1qh/idecn,177866b28cc8aac63cb5d752ff4c4cd1def65489,2026-05-21T12:35:01+00:00,Human,,2,8,3,False,False,False,False,chore: lintmax auto-removes unused suppressions
+https://www.github.com/1qh/idecn,9715c1b58f41a38b9fc7fb2babd4c345c9aa1dfc,2026-05-20T18:36:56+00:00,Human,,4,0,2,True,True,False,False,fix(a11y): add aria-label to inputs in idecn + explorer
+https://www.github.com/1qh/idecn,c8fdefaf2abe4140b97fc5b8cb89bd675698d134,2026-05-20T17:37:36+00:00,Human,,49,4,21,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,d275c4f785bf468f0957f88059f36abf3859a6ba,2026-05-12T03:55:39+00:00,Human,,3,3,1,True,True,False,False,fix(types): ComponentProps<'div'> + HTMLDivElement ref after nav→div
+https://www.github.com/1qh/idecn,578b8d39f8c1d3c960866e5165d168e9b1af1dd4,2026-05-12T03:23:50+00:00,Human,,2,2,1,True,True,False,False,fix(idecn): nav→div for role=tree (a11y rule)
+https://www.github.com/1qh/idecn,b30ae9081077d340826071a1709f15475c6d09f5,2026-05-12T03:05:16+00:00,Human,,6,1,3,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,2fdfeb30698f3ea53b624e3b69491e150c5af2a9,2026-05-08T12:11:52+00:00,Human,,53,1,2,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,1f5c63827d63393db65d9688da4144597732cee6,2026-05-08T08:40:35+00:00,Human,,3,2,2,False,False,False,False,"chore: sync readonly/ui — pin react-day-picker to 9
+
+cnsync probe-pin override (shadcn calendar.tsx still uses v9
+ClassNames.table key, removed in v10)."
+https://www.github.com/1qh/idecn,6b4b6188a26d422baf77b074907423ebf80cac1d,2026-04-28T18:31:16+00:00,Human,,1,1,1,False,True,False,False,chore: bump version (republish for README fix)
+https://www.github.com/1qh/idecn,f22d7db7fc15f0aca994af7dd66a05283d2d88de,2026-04-28T18:21:51+00:00,Human,,127,5,5,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,16435c517aff2144e1f1ed2570de8afd97706fb6,2026-04-28T15:29:23+00:00,Human,,1,1,1,False,False,False,False,chore: bump bun 1.3.13
+https://www.github.com/1qh/idecn,b223e3f52a293cb6816b39e86cb01f8d69fa8e1c,2026-04-28T12:35:56+00:00,Human,,1,1,1,False,False,False,False,chore: lintmax 0.1.40 strips vestigial no-underscore-dangle directives
+https://www.github.com/1qh/idecn,7043c6565837c984ca7b9bd1b039a6086290cbec,2026-04-28T11:33:44+00:00,Human,,3,5,4,False,False,False,False,refactor: move generated repo.json to app/.cache/ (already gitignored)
+https://www.github.com/1qh/idecn,875e6f9a647b5a31b3b59d664ee2916389934b65,2026-04-28T11:25:55+00:00,Human,,1,0,1,False,False,False,False,chore: gitignore apps/web/app/_generated (auto-generated repo.json)
+https://www.github.com/1qh/idecn,c08301c67f9369ba421e808191f86cbe41b30d4d,2026-04-28T11:07:19+00:00,Human,,1,1,1,False,False,False,False,chore(idecn): silence forbid-component-props + no-underscore-dangle (Linux oxlint)
+https://www.github.com/1qh/idecn,3e77b89e65fdc44f23c189cacdb3becc04f43514,2026-04-28T11:04:24+00:00,Human,,7,7,3,False,False,False,False,"chore(idecn): bump 0.0.11, switch to .js/.d.ts extensions"
+https://www.github.com/1qh/idecn,daa84e9deda52ae0a7b10d9c1563a2e24d999a09,2026-04-22T11:03:14+00:00,Human,,63,5,9,False,False,False,False,"Update screenshot
+
+
+Former-commit-id: d037a19d145e4b242fa0a6fd427f10f852037169"
+https://www.github.com/1qh/idecn,a0895a52c4c8492b23ec890845b650362fff23ed,2026-04-21T18:11:01+00:00,Human,,0,0,0,False,False,False,False,"chore: bfg clean history, restore generated files
+
+Former-commit-id: 2e316865ff5286ecc45674c1c1c845cb2f0233f8"
+https://www.github.com/1qh/idecn,24b4c8c46fc524856c56dd7778adba870687907d,2026-04-21T18:08:35+00:00,Human,,2,2,2,False,False,False,False,"chore: retake screenshot with new quick open display
+
+Former-commit-id: 5458aa59ecb26bd59dd1c112d8a07c74ede83fe9
+Former-commit-id: 63f041b65b5af2b43805ab02a7f70574824eb953"
+https://www.github.com/1qh/idecn,ec9753c44a09871f431214c00e6524a740aaeff9,2026-04-21T18:04:17+00:00,Human,,48,24,4,False,True,False,False,"feat: quick open VS Code style + fix gen-repo self-recursion
+
+- Quick open: filename + parent dir separately (not duplicated path)
+- gen-repo.ts: exclude _generated/ dir to avoid self-modifying loop
+- 2 new E2E tests for quick open display
+
+
+Former-commit-id: 15f2fbe3ba14150334734915d7aae5b6613363dc
+Former-commit-id: d6dc93cf90968c187f9a72aa9bc797f159fc1c10"
+https://www.github.com/1qh/idecn,7f3c1f8fce9966bcd2fae761a9e62834b21301cc,2026-04-20T03:27:51+00:00,Human,,1,1,2,False,False,False,False,"chore: sync canonical .gitignore + track _generated/repo.json
+
+Former-commit-id: 8816eef903cee3acab8b23706d8da743da1b45b8
+Former-commit-id: 974b0fa41017897e37213090e49c9046643a7bc0"
+https://www.github.com/1qh/idecn,39f9e10f5e47fea90b4ddcbb6113ca8376a24757,2026-04-15T09:42:12+00:00,Human,,94,0,2,True,True,False,False,"fix: use API route for downloads, bypass server action size limits
+
+Server actions serialize through RSC with base64 bloat, hitting
+Vercel 4.5MB response limit for folders. New /api/download route
+streams binary directly (zip for folders, raw for files).
+
+
+Former-commit-id: 917d27463ee5626d2d6d6d8556fe8db608aee510
+Former-commit-id: 8262cf889b1895206a6eeee964c98c2ccd96fecc"
+https://www.github.com/1qh/idecn,92ad60ce0dec94142107495154e7afba62ceabfb,2026-04-15T09:29:41+00:00,Human,,1,1,1,True,True,False,False,"fix: static import client-zip so Next.js bundles it for Vercel lambda
+
+Former-commit-id: 961438b996b04076c1052930c6d985fe9173a8ac
+Former-commit-id: 3add0d68214b362a1d36043d7f171ed29ca88e20"
+https://www.github.com/1qh/idecn,d948fb139e93450b63e6e2e32d5e00e87c4fd6e9,2026-04-15T09:24:13+00:00,Human,,161,63,6,True,True,False,False,"fix: bundle repo files at build time for Vercel serverless
+
+Vercel lambda doesn't include repo source. Prebuild script generates
+apps/web/app/_generated/repo.json with all file contents (base64).
+actions.ts checks fs first (dev), falls back to bundled JSON (prod).
+Works locally and on Vercel. Revert version bump (core unchanged).
+
+
+Former-commit-id: 9d57a3f00c95ccf66ac77f878ca8839f456da589
+Former-commit-id: 253f55809bfa6d34baa83c5ad0eeb1e87b10ecde"
+https://www.github.com/1qh/idecn,6b96bcf4b72c5d6e2233cd803e559f86f5c735aa,2026-04-15T09:09:15+00:00,Human,,20,7,4,False,False,False,False,"refactor: use client-zip for folder download
+
+client-zip is 100% TypeScript, edge-safe (Web Streams API), works on
+both local and Vercel. Replaces manual tar+gzip impl. Bump to 0.0.9.
+
+
+Former-commit-id: e8e88fddb7e45b648f041d479f3b949910a5ec74
+Former-commit-id: f549650fcbf5664b16006591c1ad29502b59016b"
+https://www.github.com/1qh/idecn,de8332350c56f3017fd3102a53cb9114333d7d3e,2026-04-15T07:15:45+00:00,Human,,1,1,1,False,False,False,False,"chore: retake screenshot with existing script
+
+Former-commit-id: 73043fd73af7d970c6f68cd03bc8944437b4a67e
+Former-commit-id: fc6a0fc15e1ee5d854e668b46485cc88d6f9e5a0"
+https://www.github.com/1qh/idecn,25a7a68a1ccf8bb88e461f1f23ea136084103c9f,2026-04-15T07:08:57+00:00,Human,,8,33,3,False,False,False,False,"chore: replace jszip with tar.gz via execSync, remove banned dep
+
+Former-commit-id: 5435c83309e23f8925aedc05536af64469506f2d
+Former-commit-id: 4cf04bbf079fefc6281613a32fb073cb40276467"
+https://www.github.com/1qh/idecn,ed8d318ce6f3accff1c37fb64f49254d658b78d0,2026-04-15T07:00:39+00:00,Human,,3,8,4,False,False,False,False,"chore: bump 0.0.8, retake screenshot, jszip latest
+
+Former-commit-id: a12031873e65f1393a7082d16d08cc5db2dce20a
+Former-commit-id: 7bae27ca46558cc657b2b247570ca4bf5eaf01ca"
+https://www.github.com/1qh/idecn,e37e746267d74029ad9783ad5f20d930c769fb20,2026-04-15T06:58:13+00:00,Human,,225,101,2,False,False,False,False,"refactor: inline rename input replacing window.prompt
+
+- Rename uses inline input at item position, pre-filled with current name
+- Selection highlights name without extension (like VS Code)
+- Enter submits, Escape cancels, blur submits if changed
+- Remove window.prompt and noAlert ignores
+- Add RenameInput component with smart extension-aware selection
+- 57 E2E tests (3 new rename tests: submit, cancel, selection range)
+
+
+Former-commit-id: 2c4b6a6ebb9e5cf6f63338da30b68b9ce956131e
+Former-commit-id: ba5b8b2bcc6d03d946d5220472ab8029ece262f9"
+https://www.github.com/1qh/idecn,7ac388286665d5891c9f6bdba025a76af6a1df11,2026-04-15T06:27:34+00:00,Human,,1062,115,5,False,False,False,False,"feat: file operations, multi-select, inline input, download
+
+- Add FileActions interface (onCreateFile, onCreateFolder, onDelete,
+  onRename, onDownload, onUpload) to Workspace
+- Add mutable prop to TreeDataItem for per-item mutability control
+- Context menus: file (Rename, Delete, Download, Copy Path),
+  folder (New File, New Folder, Upload, Rename, Delete, Download,
+  Copy Path), empty space (New File, New Folder, Upload)
+- Hide mutation actions when no callback or item not mutable
+- Download always visible when callback provided (read op)
+- Tree header icons: New File, New Folder, Upload, Collapse All
+- Inline text input in tree for new file/folder creation
+- Multi-select: Cmd-click toggle, Shift-click range, batch delete
+- Drag-and-drop upload zone with visual indicator
+- Demo app: all items mutable with toast callbacks, actual file/folder
+  download via server actions (local fs + JSZip for folders)
+- 55 E2E tests covering all features
+
+
+Former-commit-id: cc17857c53a7050b81d7523412883ba71b82bf00
+Former-commit-id: 9d4e554b0617cfa18841e7b5ba179e29ffd5c9c6"
+https://www.github.com/1qh/idecn,04cb4d87e779ffc3fa52680c5fe11353326d0ebe,2026-04-13T05:15:21+00:00,Human,,0,177,20,False,False,False,False,"chore: sync clean readonly/ui
+
+Former-commit-id: 83e2e4dc9a9886958f368cb789897744215fe1f2
+Former-commit-id: e564bb73ef97df0df8b3c09c734e57068549849d"
+https://www.github.com/1qh/idecn,848a80db5344ed7c5f74a4b6cb5b2393f79980f6,2026-04-13T04:33:40+00:00,Human,,177,0,20,False,False,False,False,"chore: sync readonly/ui
+
+Former-commit-id: cd2576a520a54a51a1e19976913703d51b93cbaf
+Former-commit-id: 72951c18760f385c29131d822d1ea529d1752d45"
+https://www.github.com/1qh/idecn,c68f13a8d7952ad24a9f389f1d548e23b135c632,2026-04-13T03:42:20+00:00,Human,,1,1,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,13da6ee7d04a7be4f932b99c379a242397c97926,2026-04-12T23:40:35+00:00,Human,,1,2,2,True,True,False,False,"fix: use bare rule names in oxlint-disable for cross-platform compat
+
+Former-commit-id: 310d5442afe7b53368cda98edf1d58274dec396d
+Former-commit-id: fa8c088ab35139061fa0258ad15dacfb4ef9a364"
+https://www.github.com/1qh/idecn,202f3c88b2ef4146b7f7a57b2cbe653ced85ca65,2026-04-12T23:34:55+00:00,Human,,2,1,2,False,False,False,True,"Revert ""chore: remove dead lint ignore directives""
+
+This reverts commit 810827bf75b9a069fbfb538974034b75027995dd [formerly 9af2a629823ae473094c38fffbcded7be5736238] [formerly cef2585a9b865c4a02139b71814876b4c8b9c587].
+
+
+Former-commit-id: 9fe6ed1067f7336cb941d4be2bb03f76be28516f
+Former-commit-id: f0e771e464a84f52e55b00d259250d486fa4303a"
+https://www.github.com/1qh/idecn,aafaef5155c40a97817a70c53f3f7c26418730dd,2026-04-12T23:28:45+00:00,Human,,0,0,0,False,False,False,False,"ci: retrigger
+
+Former-commit-id: b394f8ae7ab8d77a61c3c762487a102611e5e706
+Former-commit-id: 2a217840e518ada19e65cbbfa55d51cc0277d942"
+https://www.github.com/1qh/idecn,626a79f607761572bef28d0385b212b6ca6b9e8d,2026-04-12T23:25:11+00:00,Human,,0,0,0,False,False,False,False,"ci: retrigger with lintmax 0.1.22
+
+Former-commit-id: e09d6843c2a40299be9935bd6d030c086977d6e6
+Former-commit-id: cedbfaec21a767c55835be04d30daad97cabe0d0"
+https://www.github.com/1qh/idecn,4d2a57bb20d8390654e771d8da5b6bf2a7a714cf,2026-04-12T23:16:00+00:00,Human,,0,0,0,False,False,False,False,"ci: retrigger with lintmax 0.1.22
+
+Former-commit-id: ef71581bfe50bcc68fc9733a24acdf1ddaadce8d
+Former-commit-id: 3316de15404b1b801f87f21322fb38e66afccdf5"
+https://www.github.com/1qh/idecn,5145db7b3e88e4f019fbc5bca8415e3f32c82233,2026-04-12T23:10:39+00:00,Human,,0,0,0,False,False,False,False,"ci: retrigger with lintmax 0.1.22
+
+Former-commit-id: 0a901ccd34d856997bc079130d2f2fc737e1778b
+Former-commit-id: 955693ce75b10951fb326a53aa4a918b25730ccc"
+https://www.github.com/1qh/idecn,70dd9a3c03098908a4a84ecfb750f0e5866332e1,2026-04-12T21:00:59+00:00,Human,,1,2,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,28b622f6dee9f93bd686fa3b273f98f964e72d0a,2026-04-12T10:23:17+00:00,Human,,2,0,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,c356567a4cc9bdcf6f18b744d46ed41974953d03,2026-04-12T09:44:14+00:00,Human,,1,2,2,False,False,False,False,"chore: remove dead lint ignore directives
+
+Former-commit-id: cef2585a9b865c4a02139b71814876b4c8b9c587
+Former-commit-id: 9af2a629823ae473094c38fffbcded7be5736238"
+https://www.github.com/1qh/idecn,4fd09e126e05f538e82853781a4dd73a03f0e35b,2026-04-12T08:28:45+00:00,Human,,17,1,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,5e545a59a1f11d7114b5940dd7833a770552c159,2026-04-12T06:03:41+00:00,Human,,1,0,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,ded7a6597d57f9dac80ab86767a228465e275381,2026-04-10T03:31:00+00:00,Human,,1,1,1,False,False,False,False,"chore: bump bun to 1.3.12
+
+Former-commit-id: be3a449d0acaca5291627d685574220699917fc2
+Former-commit-id: 632139925ddf57a6541411588c5b6ef796479e6f"
+https://www.github.com/1qh/idecn,3e2f8ccbb36e25447dc517da4c79b18ad57982e9,2026-04-10T03:25:48+00:00,Human,,1,2,1,False,False,False,False,"chore: sync readonly/ui
+
+Former-commit-id: 9a6f921872543edc545e9a54bb01600ef1eb96aa
+Former-commit-id: 0ec0957ad0dd9db556636e80e2406aa2b8c604af"
+https://www.github.com/1qh/idecn,13dd52d5aa792130c4ffb108f7f81e8aad09e140,2026-04-09T17:47:06+00:00,Human,,0,2,1,False,False,False,False,"chore: sync postcss.config.ts and readonly/ui
+
+Former-commit-id: 29cf66ed1033117ccace654d659cf409c36605d7
+Former-commit-id: 7d756a0229e5ba5e9c6eccc4a124fe8a3ae305ea"
+https://www.github.com/1qh/idecn,361bda239a489d19e45fbaaa653b974d0985972d,2026-04-09T17:12:01+00:00,Human,,1,1,1,False,False,False,False,"feat: enforce root postcss.config.ts, sync as verbatim file, ban app-level copies
+
+Former-commit-id: 3cb2f51fb14762688a866275222ec49da837d549
+Former-commit-id: 14d06639b149a6252894474dee660fb976e0fc1d"
+https://www.github.com/1qh/idecn,0fa5dc1e52e3fe6d8a7d8a6f23300b12a8196e64,2026-04-09T17:11:27+00:00,Human,,0,0,1,True,True,False,False,"fix: single root postcss.config.ts
+
+Former-commit-id: 1e47c7bfdfd874592fec61447f4519c80117d841
+Former-commit-id: a6be907ee3f2b55af6ca394faa4cb2951e6adc9c"
+https://www.github.com/1qh/idecn,dc41f1977c98145774e05e03ccd564ae47a665f3,2026-04-09T17:04:09+00:00,Human,,2,0,1,True,True,False,False,"fix: restore postcss.config.ts
+
+Former-commit-id: 483bc7ede62f483500a1d56a00ee67cdb595f514
+Former-commit-id: e0d2455a8cfa4a6dfd47245857d4917dd26ed6c1"
+https://www.github.com/1qh/idecn,79447922b11c5457c6301229800907bb472da4eb,2026-04-09T16:32:23+00:00,Human,,0,2,1,False,False,False,False,"chore: remove redundant postcss.config (verified on Vercel)
+
+Former-commit-id: 1f4f355960f6973c162df3a72f48888484acf765
+Former-commit-id: e938cd3d6d4430f074bbffde5ef73134f3eb372d"
+https://www.github.com/1qh/idecn,2e0987400011d690f2a9db612f8b07b9309c9137,2026-04-09T14:07:15+00:00,Human,,11,4,2,False,False,False,False,"chore: remove redundant devDeps
+
+Former-commit-id: a9a6369d1d1c70727b21041b39e3a120dfb38630
+Former-commit-id: 6a0754dfe3972d7ddf83cab5b58ea8d3cabb495c"
+https://www.github.com/1qh/idecn,c3b64cef0f5e6158c2a4595e7a8f3924344b396d,2026-04-09T13:58:45+00:00,Human,,0,11,1,False,False,False,False,"chore: sync deps
+
+Former-commit-id: d68606ed3676610d883604cccea65b5de263a3ef
+Former-commit-id: 0247e3792474d01452b4ad1e5937f80a3ef1b787"
+https://www.github.com/1qh/idecn,2c6105f61fcb7bcbc37f699e099cf3c464033f8c,2026-04-09T13:49:56+00:00,Human,,7,0,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,3c3cf118ff91050ce87f3519b05d48e2abcf7724,2026-04-09T12:02:28+00:00,Human,,2,0,1,True,True,False,False,"fix: restore postcss.config.ts (required for Vercel builds)
+
+Former-commit-id: 85bfd578ca118f1fad3d6c0059ecc1a38df20774
+Former-commit-id: c88ac5be45acb2c2f38d3990c6a41c327c49072e"
+https://www.github.com/1qh/idecn,90c71d05424308d184faebf1c1a66853a23f5139,2026-04-09T05:32:51+00:00,Human,,4,12,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,6835260bae998f5c5f2ac635a0d4a64b11f9ea95,2026-04-09T04:28:22+00:00,Human,,12,5,1,False,False,False,False,"refactor: remove include from app tsconfig, remove redundant postcss
+
+Former-commit-id: e159a4d1cdbd5f9a3878253cfd926dea2232f2be
+Former-commit-id: 06cbf30e894154b728ffc393a79c2524f15df7ad"
+https://www.github.com/1qh/idecn,fbd932dac2560c86a5f91c4c35c7b39cca4e3681,2026-04-09T04:27:16+00:00,Human,,0,6,1,False,False,False,False,"refactor: remove redundant postcss.config
+
+Former-commit-id: 4f110c2418c3d2fdb7dc0e544adae48e8fd00aa4
+Former-commit-id: 93f082ea26fdd4e58fc949d6dac597dadd265a3a"
+https://www.github.com/1qh/idecn,7b54f3c34ce581d371f417fb6314836788c953a2,2026-04-09T03:05:13+00:00,Human,,11,3,3,False,False,False,False,"refactor: standardize layout/page exports, global.css, tracking, metadata
+
+Former-commit-id: a614904efd3fbf1c0afbdece8290e1ea60900b81
+Former-commit-id: 7447838f03a247203af616e20514fad96ee1e5e8"
+https://www.github.com/1qh/idecn,9636dd61e7c4ffb91dc17e3aa45643cdd5bcd381,2026-04-08T17:25:36+00:00,Human,,0,5,1,True,True,False,False,"fix: remove duplicate postcss.config.mjs from readonly/ui
+
+Former-commit-id: 8fb5ab96f8d3fa44df0e9742486480a62c2e161c
+Former-commit-id: dbb2e200e6455984122e82220e50cb31d2e2f71e"
+https://www.github.com/1qh/idecn,6aa5cc4d05b89c49147cdb9703914d9cec3fa270,2026-04-08T10:57:19+00:00,Human,,3,1,2,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,9a987c6341cf09cc88af5549f81017ec30466319,2026-04-08T08:26:41+00:00,Human,,0,3,1,False,False,False,False,"chore: sync readonly/ui
+
+Former-commit-id: 0de43107fb834791a6a2aa0c26104baa7217a730
+Former-commit-id: 76117a7451044fb2315241ad09c8b605d88aacdb"
+https://www.github.com/1qh/idecn,c77a6d7679e15d41f2434f34837bb4ec7d7d78cd,2026-04-08T07:38:15+00:00,Human,,1,0,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,3245d147a8fd777bd48dd9e45c712167d91b4430,2026-04-08T05:18:39+00:00,Human,,0,1,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,04457843fe3f097224bd211f0f39f7c2cc427ef0,2026-04-08T05:07:10+00:00,Human,,7,6,5,False,False,False,False,"chore: remove root package name, use directory name
+
+Former-commit-id: 4d186b6b04f6dfa4b61271098b916436646d49f4
+Former-commit-id: 0340384a46a42a4708b578db3933a1727979ccb4"
+https://www.github.com/1qh/idecn,3467ea67f88c452c5b403d3abdad82fa66723d70,2026-04-08T04:56:31+00:00,Human,,11,4,2,False,False,False,False,"refactor: move ThemeProvider from layout to providers.tsx
+
+Former-commit-id: 5ae564d7d7fdbcf3852d418b3984c451b4459465
+Former-commit-id: 76b629ed8b3afdfb7aefc0711f1e16a76952e615"
+https://www.github.com/1qh/idecn,f4207944352c2f0531d8414d6ee58c84a0bc6b97,2026-04-08T03:55:45+00:00,Human,,0,1,1,False,False,False,False,"refactor: remove dark background override, now default in @a/ui
+
+Former-commit-id: 6b5743b21bdf89f9d16237b054ebab35432f93e3
+Former-commit-id: 20ac3d1f25ede44e2fa43a6121992451fa34131e"
+https://www.github.com/1qh/idecn,3e4a2b892abf1845ffe5401a8bed57e4894fdaaa,2026-04-08T03:52:40+00:00,Human,,1,108,1,False,False,False,False,"refactor: import @a/ui/globals.css instead of duplicating theme
+
+Keep only true-black dark mode overrides that differ from default.
+
+
+Former-commit-id: 9538350362323df0f1e93480878e4f632f4fd4c0
+Former-commit-id: 0257c1ee0ddfc04d6739a4e90ce54caa0b50538f"
+https://www.github.com/1qh/idecn,55202518f1af773955aebf4d59a630abd9eed00c,2026-04-07T18:29:51+00:00,Human,,4,2,2,False,False,False,False,"chore: add _generated ignore, restore typescript
+
+Former-commit-id: 38e957f241605c593666a9b2fb44afa4f4f4af88
+Former-commit-id: 41cf5f6a5d2a72efa8c22e00bc37e14eeabebc5c"
+https://www.github.com/1qh/idecn,0967dfb8cbf491e1ed9505c6be92a44bc3319b2e,2026-04-07T17:01:06+00:00,Human,,0,3,1,True,True,False,False,"fix: auto-fix new eslint strict rules + remove redundant deps
+
+Former-commit-id: 4a9778e95e502fd8514bdc5548e1e41477afe032
+Former-commit-id: c819844ca89b0cdd796470858eb6d759240acc06"
+https://www.github.com/1qh/idecn,38ce31d3920ef02c25c84a72b31aae4f235f0df0,2026-04-07T12:33:30+00:00,Human,,46,44,3,True,True,False,False,"fix: enforce cn() + sync readonly/ui + README symlink
+
+Former-commit-id: e0cf5f17ea69c5b4e88ebd9409681a1a3b02eb5f
+Former-commit-id: 3ece54b1a544f26e6690c719087ee3076fdcf719"
+https://www.github.com/1qh/idecn,04acf49642210978b2c9d55908b64ee017d29b4b,2026-04-06T18:08:49+00:00,Human,,2,2,2,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,c1046cb9bbd3864bd717477f98bd3531298804eb,2026-04-06T17:52:45+00:00,Human,,1,0,1,False,False,False,False,"feat: add action script for unified CI
+
+Former-commit-id: 0dc41882621c30f14138a6a8514428001f7aec92
+Former-commit-id: e9b92d1816fcb66cc6eac993979d8b143240f151"
+https://www.github.com/1qh/idecn,927ae77331af6c52dd428fd9cab0c5ebf43ad5cf,2026-04-06T17:14:16+00:00,Human,,9,1,2,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,a55823c4d4030b9df7a4c4aac44cec54aed7e94b,2026-04-06T16:46:06+00:00,Human,,5,13,3,False,False,False,False,"chore: sync readonly/ui
+
+Former-commit-id: 1dacbbf2723da804ed63b86ced0f4e682753c6a5
+Former-commit-id: 0af64e4e9e5404f7f132bf41f73b6f063be41ed1"
+https://www.github.com/1qh/idecn,77d32db6850e7b5ff14909d72d0baebc8e714199,2026-04-06T09:38:39+00:00,Human,,0,1,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,d271a3b991d02bf3dcb68394eed1821e8330e08a,2026-04-06T08:45:11+00:00,Human,,18,0,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,a8db639efb96150fe07730f8845cb329da770ad0,2026-04-06T08:39:14+00:00,Human,,5,4,2,True,True,False,False,"fix: typed Monaco loader wrapper, remove non-null assertions from gen-icons
+
+Former-commit-id: 70c550c3a485e43dd8e9108db9d4962d563e6447
+Former-commit-id: 721d53fc8b89755c866bda3684d1c7e6d9f8209e"
+https://www.github.com/1qh/idecn,d9ab5b9939e3cc05c416780b720fc8d618a45420,2026-04-06T08:02:49+00:00,Human,,15,14,1,True,True,False,False,"fix: replace non-null assertions with nullish coalescing in gen-icons
+
+Former-commit-id: 5abf5619b83bde75b026b0f5c1fab1e3ba732996
+Former-commit-id: cd647de67e9754f51e97c3f887b076da48a68acd"
+https://www.github.com/1qh/idecn,444790561f2954353fa96cfcf9331697597d290d,2026-04-06T05:07:37+00:00,Human,,5,0,1,True,True,False,False,"fix: add cleanup-old-versions script for postpublish
+
+Former-commit-id: 3881146fc383ebd6d3aa1732ba7a33bbd10597d2
+Former-commit-id: 10491294eb0793d85b5ed5618f78300d3ab398a6"
+https://www.github.com/1qh/idecn,754dad9a838f555e0edb6c576688beeb55773145,2026-04-04T21:16:38+00:00,Human,,3,2,2,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,3ac3cee2fd0016614461abc80e33cf94b6a75769,2026-04-04T18:30:21+00:00,Human,,12,3,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,eb5912891e4329b4d7cef9351e79735c00ff9727,2026-04-04T18:01:45+00:00,Human,,3,1,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,42fcd1849860ad7145df918d597a68d6438ef5e1,2026-04-04T17:38:49+00:00,Human,,21,0,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,0c5797252a67e0896f735e58b26c65f98d41d7a2,2026-04-04T17:24:23+00:00,Human,,3,3,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,49896e6f10c600fd72458f35485fbab8e63dcfa2,2026-04-04T15:51:17+00:00,Human,,1,1,1,False,False,False,False,"chore: bun i --silent in up.sh
+
+Former-commit-id: 0e3699c3e6bf5be543306317fcf866e860a2a1a2
+Former-commit-id: 84d404e864d05e50ab750f21d26e2a32c2afc290"
+https://www.github.com/1qh/idecn,599cb26cd38a993e2b649de3f12d76d9c72a05fb,2026-04-04T13:43:46+00:00,Human,,32,2,1,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,c3a2083bce18bc78e93f9d6f57bb5c9f4d0f9946,2026-04-04T05:29:07+00:00,Human,,13,1,2,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,1344c5f0d68b0af1fa8edd53937e8bb37064bfda,2026-04-04T04:33:03+00:00,Human,,5,9,3,False,False,False,False,chore: sync repo conventions
+https://www.github.com/1qh/idecn,d040e8f278cf8c8b9de139f595c2688aff844db8,2026-04-04T04:15:58+00:00,Human,,3,3,1,True,True,False,False,"fix: strip trailing slashes from gitignore entries, fix root path for monorepo
+
+Former-commit-id: d4693ea35d255bae33529dbed7bc8f77bf0fe87c
+Former-commit-id: 1c5e911f78f6321c75e0c1baacc29df82c8fb7be"
+https://www.github.com/1qh/idecn,6063a48c528c75a98333e182ae514c35fd659155,2026-04-04T04:05:27+00:00,Human,,1,1,1,False,False,False,False,"chore: turbo --output-logs=errors-only
+
+Former-commit-id: fb5d00651e69b0b9fdcc8cf37c1407497541c234
+Former-commit-id: 0e14df244e6911a71a0e37b71dbb7fbc17bb6524"
+https://www.github.com/1qh/idecn,9179b5cb159de3a8fd487d64b35ab660f8e731ed,2026-04-04T03:43:47+00:00,Human,,4,18,3,False,False,False,False,"chore: remove duplicate deps provided by workspace packages
+
+Former-commit-id: 0f0c6d37f403d2e48887c485795be92763f88f89
+Former-commit-id: 5a8ff17c1b39bcce00e08730fd63db1ff9d862ed"
+https://www.github.com/1qh/idecn,d053e3adb130ff0e078276dd2b94f8581a59a94b,2026-04-03T18:10:37+00:00,Human,,11075,268,146,False,False,False,False,"chore: restructure to turborepo monorepo with readonly/ui from cnsync
+
+Former-commit-id: 66a3a12f13d804812c57d0591a4aa2f7c01fa49f
+Former-commit-id: 605d14db08a4eff571066aefbaec1e0ab2606d5f"
+https://www.github.com/1qh/idecn,80c23d76c393a9ec956083bf87efc099df1acae1,2026-04-03T17:39:41+00:00,Human,,2,2,2,False,False,False,False,"chore: sync up.sh and clean.sh
+
+Former-commit-id: 741a23a6d0a5343e37f762bfb2620051bed7e5c0
+Former-commit-id: 1e6bf4e1180565e881f583ddea05015d15bfeb1e"
+https://www.github.com/1qh/idecn,9698b506e19bd2ee7550abd71542d94ff69efe8f,2026-04-03T17:08:48+00:00,Human,,2,2,2,False,True,False,False,"chore: sync up.sh, fix vercel installCommand, bun publish
+
+Former-commit-id: 7dc6e37c58c645666769297459b52dd88166a568
+Former-commit-id: 2efb26a5c8bba6af9e9b4baeba46c3ccaf86f97e"
+https://www.github.com/1qh/idecn,003796e77bd62c9db5772fb6558dd441ef338766,2026-04-03T16:27:21+00:00,Human,,75,34,4,False,False,False,False,"chore: clean script delegates to sh clean.sh
+
+Former-commit-id: 1f23c9059b7c1ba57b8624e7ea8d160e1a7a504c
+Former-commit-id: 43e2c728d05c84354c3a15db0bc2a5c45d8bfe99"
+https://www.github.com/1qh/idecn,8e1c4aa13a50bf76b7fbc47a104d118bc33abd1f,2026-04-03T13:37:22+00:00,Human,,2133,1944,16,False,False,False,False,"chore: universal .gitignore, remove nested
+
+Former-commit-id: e3f1897b04010f1cf236b86ef1f316047258aa7f
+Former-commit-id: 23de97226c7b97c99e13399dc7c773542e64bb57"
+https://www.github.com/1qh/idecn,2a342e254ecfd5a3918997f23500fb445e0a8dd1,2026-03-30T08:00:22+00:00,Human,,15,3,3,False,True,False,False,"Fix React 19 strict mode: preserve dockview api across remount cleanup
+
+
+Former-commit-id: f6e087af3f9f3ad52432fd7a0db87185bb6a4efe"
+https://www.github.com/1qh/idecn,b173c22b776e67dbcf295acbc81bfedd49fc4859,2026-03-29T20:25:41+00:00,Human,,32,10,1,False,True,False,False,"Fix import order and increment operator
+
+
+Former-commit-id: a5dc6bc5c407f29ff058187d7ab2c947112ec1f0"
+https://www.github.com/1qh/idecn,8ab84c0bed893a4808922ac4acea44dfdd3e86b9,2026-03-29T20:21:26+00:00,Human,,1,1,1,False,False,False,False,"Bump to 0.0.6
+
+
+Former-commit-id: 66d0f95b954b104dbf60748e96883d5f5dd105e7"
+https://www.github.com/1qh/idecn,bb9ac30ab4630040a797d9031aff086b36e132c2,2026-03-29T20:15:38+00:00,Human,,91,11,2,False,False,False,False,"Breadcrumb dropdown with expandable mini file tree
+
+
+Former-commit-id: 753e40b28338fce060856962c075ef2c2ebc8b55"
+https://www.github.com/1qh/idecn,db92ef46f7055c86d83fdd39c1fc0e62e95e47e2,2026-03-29T19:38:04+00:00,Human,,144,6,3,False,True,False,False,"Image preview, binary detection, file size warning, Monaco resize fix, model cleanup, virtual file removal
+
+
+Former-commit-id: 2b62f01854787b324a7f523ebc94d3b3b4beef8d"
+https://www.github.com/1qh/idecn,c2c4fda8adf5165317e64da71723e5352387dcb2,2026-03-29T19:04:56+00:00,Human,,8,439,2,False,False,False,False,"Clean up PROGRESS.md and IDEA.md, remove completed items
+
+
+Former-commit-id: 9aede52389c04f27467443914bd9442510aa797f"
+https://www.github.com/1qh/idecn,c763b8aa5832c2115ed138d61b264eb457279475,2026-03-29T18:53:53+00:00,Human,,42,45,4,False,True,False,False,"Use cmdk directly for quick open, fix theme after lazy load, update README
+
+
+Former-commit-id: 64faa834d102835be215b53ec88267c8d269994c"
+https://www.github.com/1qh/idecn,4484694ca49862ee7b860e5344eee3e0bfe0fc00,2026-03-29T18:09:23+00:00,Human,,1,0,1,False,True,False,False,"Re-add screenshot, fix theme colors after lazy language load
+
+
+Former-commit-id: 6694036e2e9c4729c183290fdbba8becb1509adb"
+https://www.github.com/1qh/idecn,410cf2fcbccb817660775432ae14f881ac01af45,2026-03-29T18:08:45+00:00,Human,,26,7,2,False,True,False,False,"Ship UI components in registry, fix CommandDialog type error with cmdk + TS 6"
+https://www.github.com/1qh/idecn,6bcb157d92b5ddd4a6866e3ceea684e6b08db6a2,2026-03-29T18:08:08+00:00,Human,,96,56,5,False,True,False,False,"Lazy shiki language loading, debounce virtual file updates, fix CommandDialog context, update README"
+https://www.github.com/1qh/idecn,932149a505e8ea6f1297c00bb4408df59a48bc15,2026-03-29T14:02:56+00:00,Human,,5,25,2,False,False,False,False,"Revert view state and layout persistence (not possible with dockview architecture)
+
+Dockview recreates panel components on tab switch — single Monaco
+editor instance reused. View state (scroll, cursor, folds) cannot
+persist across tab switches without a single-editor-multiple-models
+refactor. Layout persistence deferred due to SSR hydration complexity.
+
+- Remove editorViewStates map, activeEditor global, saveViewState
+- Remove localStorage read/write for open files
+- Keep pinned tabs, undo close, tab history (these work)
+- Audit IDEA.md: remove infeasible features, add architecture note
+
+
+Former-commit-id: 2dc01fc152e0de347c203c0f047aa57460c293f8"
+https://www.github.com/1qh/idecn,9de4a9885bb891b9cb0d99e219faecfeddc7a1e7,2026-03-29T10:58:53+00:00,Human,,11,19,1,True,True,False,False,"Fix: let Monaco handle view state natively, read localStorage directly for layout restore
+
+- Remove manual editorViewStates map and save/restore effects
+- Remove keepCurrentModel=false and saveViewState=false (let Monaco defaults work)
+- Monaco path prop + default saveViewState=true handles scroll/cursor persistence
+- Read localStorage directly in handleReady instead of atomWithStorage (hydration race)
+
+
+Former-commit-id: 0438d64512b3e11071913475eb65e3cd5d36889f"
+https://www.github.com/1qh/idecn,f0e085b853d1274578120640a39e55f6738d4c73,2026-03-29T10:50:40+00:00,Human,,54,30,1,False,True,False,False,"Fix view state persistence, pinned tabs protect, layout restore hydration
+
+- Manual saveViewState/restoreViewState via editorViewStates map
+- Save on unmount, restore on mount — survives tab switching
+- Close All/Others/Right skip pinned tabs (VS Code behavior)
+- Mod+Shift+W close-all also skips pinned
+- Layout restore: rAF delay for localStorage hydration
+- savedOpenFiles takes priority over initialFiles
+
+
+Former-commit-id: fd16a5a23c3fda0cdc846de2657be1a3affcf535"
+https://www.github.com/1qh/idecn,2828d997cfffcfb581c2b0cbc05da6d0901c4da0,2026-03-29T10:36:11+00:00,Human,,11,3,1,False,True,False,False,"Fix scroll/cursor persistence, pin icon on tab, layout restore from localStorage
+
+- Use defaultValue for regular files (preserves Monaco view state)
+- Use value for virtual files (reactive content updates)
+- Pin icon (rotated 45deg) replaces close button on pinned tabs, click to unpin
+- Layout restore: savedOpenFiles from localStorage takes priority over initialFiles
+
+
+Former-commit-id: 9b890df35e7175b904ae3205644e8a13b48760ad"
+https://www.github.com/1qh/idecn,d25d2f0bd2592f9934a690e20783527b4d9488de,2026-03-29T10:23:38+00:00,Human,,39,11,2,False,False,False,False,"Scroll position memory, pinned tabs, toast notifications, layout persistence
+
+- Monaco path prop enables saveViewState (scroll/cursor memory per file)
+- Pin/Unpin in tab context menu, pinned tabs hide close button
+- Toast notifications on copy path via shadcn sonner
+- Open files persisted to localStorage via atomWithStorage
+- Restored from localStorage on mount when no initialFiles provided
+
+
+Former-commit-id: 60b4b8f26e2e864d469976731ab94ceaa265be33"
+https://www.github.com/1qh/idecn,95fbe24244118d1d80f39d2d318f79178bce5b89,2026-03-29T10:08:43+00:00,Human,,42,57,2,False,True,False,False,"Fix tree nav with capture phase, refactor tab history to refs, add memory review gate
+
+- onKeyDownCapture on nav intercepts before accordion (fixes folder stuck)
+- Tab history uses refs instead of atoms (no re-renders on focus)
+- History capped at 50 entries, consecutive duplicates skipped
+- navigating flag prevents history push during back/forward
+- Review gate: memory overflow avoidance for all arrays
+
+
+Former-commit-id: 4d2ebd136840ab47dac1284a6ad665fbbdb5b176"
+https://www.github.com/1qh/idecn,15151d65c869ea17f0eeb7031a92ee0b080ac148,2026-03-29T09:59:08+00:00,Human,,48,24,1,False,True,False,False,"Fix tree arrow nav on folders (onKeyDown on trigger), fix tab history stale closures
+
+
+Former-commit-id: 33a9df9ba4e0b93eb0278425e59f3f13afb998fa"
+https://www.github.com/1qh/idecn,9bb83205d2d8584449af6f5c9c6eb299cf3f2b49,2026-03-29T09:50:12+00:00,Human,,198,207,2,False,True,False,False,"Fix tree keyboard nav, Alt+T undo close, clean URL, tab history via useAltKeys
+
+- stopPropagation in tree keyboard handler (fixes stuck on folder)
+- Alt+T as fallback for undo close tab (browser blocks Cmd+Shift+T)
+- Alt+Left/Right via useAltKeys for tab history (macOS compatible)
+- Remove URL hash — clean URL, no more writeHash/readHash
+- Remove radix-ui dep from package.json
+
+
+Former-commit-id: 75871bea1826b6d47094f6594a69bbe595d8baef"
+https://www.github.com/1qh/idecn,081924bed07b3303160e11af528006ef02bf412b,2026-03-29T09:31:08+00:00,Human,,113,5,3,False,False,False,False,"Phase 4: tree keyboard nav, undo close tab, tab history, persistent state
+
+- Tree keyboard navigation (arrow keys, enter to open)
+- Undo close tab Ctrl+Shift+T (closed tabs stack, max 20)
+- Tab history back/forward Alt+Left/Right
+- Font size and word wrap persisted via atomWithStorage (localStorage)
+- Tab history tracking on panel focus changes
+- role=tree and role=treeitem for accessibility
+- Remove radix-ui dep (zero usage)
+
+
+Former-commit-id: f91776c43661731341c84e306dd09b6ab737859a"
+https://www.github.com/1qh/idecn,c822ee2867f9eb7e5c93a805ea3fce07737154e2,2026-03-29T09:02:29+00:00,Human,,1016,869,31,False,False,False,False,"Sync lib/ui from noboil: zero radix-ui, base-ui only
+
+
+Former-commit-id: 08fa59b5a20238ba09605cf5ed593abfaea13476"
+https://www.github.com/1qh/idecn,9cbcb8eb084c1ce5882284ccd14bb2a81be7d857,2026-03-28T19:13:19+00:00,Human,,4,2,1,False,True,False,False,"Fix initialFiles focus with rAF, retake screenshot
+
+
+Former-commit-id: f7e8d79b9a50d343d481ff03e6c0e46a3afc3557
+Former-commit-id: 58cf368410e0e2caaf36285f051b82b3651279c7"
+https://www.github.com/1qh/idecn,6649526e298fbfa89616217d3c6499177a464fb5,2026-03-28T19:08:46+00:00,Human,,2,2,2,False,True,False,False,"Fix initialFiles using pinFile instead of preview, retake screenshot
+
+
+Former-commit-id: 2efce68a057cc13d07c35978663a9bbd0b994701
+Former-commit-id: da49d1972425011fbbdb326a63611d64778f08b4"
+https://www.github.com/1qh/idecn,7ab61b9bffcaed1037e20f5feb6fe032da6a1dcf,2026-03-28T19:05:44+00:00,Human,,1,1,1,False,False,False,False,"Retake screenshot from production build
+
+
+Former-commit-id: 593973f5925ee1288a429e0ffee761200988294b
+Former-commit-id: 64629345f1b97686881ef80988b180b85ec97feb"
+https://www.github.com/1qh/idecn,8ef4c521282c4e930a6424a5a3867b6d9c9abbf9,2026-03-28T19:02:07+00:00,Human,,6,2,2,False,False,False,False,"Update screenshot
+
+
+Former-commit-id: 253853441c0bb8e5ecae9f59e4e2a2b900dd0872
+Former-commit-id: ee8fbe9b832ce8a14e05eee40a214ef64ddb4ac1"
+https://www.github.com/1qh/idecn,5fc6986169e2201e2cecf3f19ead6df40aaf2e33,2026-03-28T19:01:34+00:00,Human,,1,1,1,False,False,False,False,"Retake screenshot with GitHub link and polished icons
+
+
+Former-commit-id: 743aa60b07702785bc18f34a030c2c7ff2ca5c77"
+https://www.github.com/1qh/idecn,449884fe1e1212745f430870070662551f33d847,2026-03-28T19:00:08+00:00,Human,,5,5,2,False,False,False,False,"Polish demo header icons: consistent sizing, GitHub link, theme toggle
+
+
+Former-commit-id: 9bb88582cbe7e2a51734e00de2d07e01aa49dce0"
+https://www.github.com/1qh/idecn,445871e54e09891f039b96d8128a1d8d096d4053,2026-03-28T18:49:58+00:00,Human,,11,2,3,False,False,False,False,"Add GitHub link to demo header
+
+
+Former-commit-id: 3e80898735cfb661b0d96763702dfd6420170b4f"
+https://www.github.com/1qh/idecn,b70e40a8bf1fd0153d23af06f2a471d9c40b8887,2026-03-28T18:46:09+00:00,Human,,9,107,2,False,False,False,False,"Clean up IDEA.md and PROGRESS.md after Phase 1-3 completion
+
+
+Former-commit-id: 00abe4ab3654d49aadc923d1ebb527710c274e4e"
+https://www.github.com/1qh/idecn,248d148bafa8b7cb70a6c60b40680995a4e125ed,2026-03-28T18:40:21+00:00,Human,,17,25,2,False,True,False,False,"Fix registry: generic ui path rewrite, remove tooltip (asChild compat), add breadcrumb+skeleton deps
+
+
+Former-commit-id: 171af27a733462fd7af57add587abf2afecdcc3e"
+https://www.github.com/1qh/idecn,3d04169d7b00aaeb013321cb069937d9afa3b6bf,2026-03-28T18:24:27+00:00,Human,,2,4,1,False,True,False,False,"Fix setState-during-render in tree collapse log
+
+
+Former-commit-id: bf2bb92d3399b4665ec6b6619f30c5b0cb4ebf48
+Former-commit-id: c2a51122192f49b9e23003b7c50ba8d24316b835"
+https://www.github.com/1qh/idecn,8b290d57fb830f79c3ad77ee62508f7039a31f19,2026-03-28T18:18:06+00:00,Human,,36,6,2,False,False,False,False,"Exhaustive logging: tree expand/collapse, theme change, folder clicks, workspace ready
+
+- Pass log through TreeContext for per-folder expand/collapse logging
+- Theme change detection via MutationObserver in Workspace
+- Quick open close logged
+- Virtual file open logged
+- Initial files and workspace ready logged
+- Double-click pin logged
+- File load result with char count
+- Review gate: every new interaction must have activityLog
+
+
+Former-commit-id: 2996e05320a55e70e5c2db6c58b9934349b64b54"
+https://www.github.com/1qh/idecn,9e18a2b27335b5130e442a7b2c1a50d45769b118,2026-03-28T18:11:18+00:00,Human,,40,10,1,False,False,False,False,"Exhaustive activity logging, raw messages to consumer
+
+- activityLog passes raw messages (no timestamp/newline) — consumer formats
+- Added: workspace ready, initial files, virtual file open, folder click,
+  double-click pin, quick open close, file load result with char count,
+  load failure/error, tree expand info
+- 25+ distinct log points covering every internal interaction
+
+
+Former-commit-id: 13d06eae97afce384274d4f08fce023fbb08f7e1"
+https://www.github.com/1qh/idecn,9b467559941fdbb993b665499afad66224992fef,2026-03-28T17:55:12+00:00,Human,,131,34,2,False,False,False,False,"activityLog prop: stream all internal interactions to consumer
+
+- New activityLog prop on Workspace — consumer receives timestamped lines
+- Logs: sidebar toggle, quick open, split, zoom, close tab, cycle tab,
+  word wrap, tree collapse/expand, file preview/pin, tab open/close/focus
+- Demo simplified: only app-specific logs (theme, search, file source)
+- Restored readOnly: true in EDITOR_OPTIONS
+- Activity file pinned to bottom of tree
+
+
+Former-commit-id: 353d33f6171f0f02efffcafec22b15826a327145"
+https://www.github.com/1qh/idecn,ed52cc1ee2c2147e36ae063e214f4817179d069d,2026-03-28T16:50:32+00:00,Human,,26,5,1,False,False,False,False,"Add activity log virtual file to demo, dogfood auto-scroll
+
+
+Former-commit-id: d7d55d383108a8297f6c81462658e1a7d84afc45"
+https://www.github.com/1qh/idecn,18149d1ff708b4cebf7ea7184148bee2ab5af788,2026-03-28T11:54:56+00:00,Human,,25,12,2,False,True,False,False,"Fix breadcrumb hydration, auto-scroll virtual files, preview mode polish
+
+- Fix li-in-li hydration error: BreadcrumbSeparator as sibling not child
+- Virtual files auto-scroll to bottom on content update (logs)
+- Monaco model cleanup verified (handled by @monaco-editor/react)
+- Add review gate: read shadcn source before using components
+
+
+Former-commit-id: 4422a1780a39d3b7899bdc3541d333eb3a38ec61"
+https://www.github.com/1qh/idecn,4ac4e68d6f922c2c8c37333107fcdbf5620c18fd,2026-03-28T11:34:38+00:00,Human,,114,71,1,False,False,False,False,"Preview mode: single-click previews, double-click pins, tree context menu on folders
+
+- Single-click file in tree opens preview tab (italic title, reuses previous preview)
+- Double-click pins the file (normal tab, stays open)
+- Preview tab replaced when another file is single-clicked
+- CSS data-preview attribute for italic tab styling
+- Tree context menu on both files and folders (Copy Path)
+- FileTree accepts onDoubleClick prop
+- renderItems passes onItemDoubleClick through tree hierarchy
+
+
+Former-commit-id: 161331120f1d160708498d276ef8e0b03fc3993c"
+https://www.github.com/1qh/idecn,9813cb7066ffade329588d1e77763b9fee75c258,2026-03-28T11:22:27+00:00,Human,,174,74,2,False,False,False,False,"Phase 3: breadcrumbs, skeleton loading, tooltips, kbd shortcuts, tree context menu
+
+- Breadcrumbs above editor showing file path segments (shadcn Breadcrumb)
+- Skeleton loading animation while file fetches (shadcn Skeleton)
+- Tooltip on collapse/expand button (shadcn Tooltip)
+- Keyboard shortcut hints in tab context menu (ContextMenuShortcut)
+- Tree context menu on both files and folders (Copy Path)
+- Removed misleading Cmd+Shift+W shortcut hint (browser intercepts it)
+
+
+Former-commit-id: b1d80097a7f2ba473fca2aed235c493f98cacbb8"
+https://www.github.com/1qh/idecn,b8bdefe8c6a7c02552416a995a57612ca9c5612a,2026-03-28T10:35:44+00:00,Human,,3,2,1,False,False,False,False,"Screenshot URL as required CLI arg, no fallback
+
+
+Former-commit-id: 7253a94a2116053abca9919cda664ea79f387461"
+https://www.github.com/1qh/idecn,9c8a3944ed4e56ed3ffcc89958eb7da57fb8fce9,2026-03-28T10:33:13+00:00,Human,,5,3,3,True,True,False,False,"Fix: use bun env import, restore lintmax scope
+
+Former-commit-id: faea2c7c75b2e5ca2b1986f69055ae20a1433d88
+Former-commit-id: 144af3e075fe6e27ffa11d1bcfd30bd60c46b575"
+https://www.github.com/1qh/idecn,f49b1144bff69854df93eb683ae3fedd9fe389f3,2026-03-28T10:31:36+00:00,Human,,269,54,11,False,False,False,False,"Phase 2: quick open, status bar, tab context menu, expandExclude
+
+- Quick file open (Cmd+P) using shadcn CommandDialog
+- Status bar showing file path, line:col, language via jotai atoms
+- Tab context menu using shadcn ContextMenu (VS Code order)
+- expandExclude prop to skip folders from auto-expand
+- Transparent dialog overlay for quick open
+- Cursor position tracking via Monaco onMount
+- DockviewApiContext for cross-component dockview access
+- Registry updated with new deps and shadcn registry deps
+- Screenshot with quick open dialog visible
+
+
+Former-commit-id: 0f0318aa8243e6097df9165dfeaa154317368db6"
+https://www.github.com/1qh/idecn,0e6ced1da147660223f18e9ae9635234102f4c33,2026-03-28T07:26:35+00:00,Human,,7,1,2,False,True,False,False,"Fix registry test: install extra deps, add dockview CSS to layout
+
+
+Former-commit-id: ab88a7ddeda7e3cd651c4550407b220015a1e377"
+https://www.github.com/1qh/idecn,80ea4913f314414134858755f3b4125103c3deae,2026-03-28T07:17:53+00:00,Human,,4,1,1,False,True,False,False,"Fix registry path rewrite for cn import from lib/utils
+
+
+Former-commit-id: 568c4d11de06b7717a09ee27d713685dbf9f11cd"
+https://www.github.com/1qh/idecn,237026e8c57e69cab6aac8952be3361c88c78403,2026-03-28T07:14:48+00:00,Human,,6009,58,62,False,True,False,False,"Add shadcn ui components, deduplicate cn util, prep for Phase 2
+
+- Copy shadcn components from uniclaw lib/ui into src/ui/
+- Fix imports from @a/ui to relative paths
+- Extract cn() to src/lib/utils.ts, remove duplicate from idecn.tsx
+- Add all shadcn deps (cmdk, radix-ui, recharts, etc.)
+- Ignore src/ui/**, src/lib/utils.ts, src/hooks/ in lintmax
+- Tree-shaking keeps bundle unchanged (no new imports from src/ui yet)
+
+
+Former-commit-id: 747305a01cc90c52419fb56f3ec8d86319016757"
+https://www.github.com/1qh/idecn,0263306cca6f0153381723b6d195c7456d9285f8,2026-03-28T06:46:38+00:00,Human,,54,39,1,False,True,False,False,"Fix Alt shortcuts on macOS, useAltKeys helper for event.code matching
+
+macOS Alt/Option key transforms letter keys into special characters
+(Alt+Z → Ω), breaking tanstack hotkeys which uses event.key. Added
+useAltKeys hook using event.code for physical key matching. Moved
+Alt+Z (word wrap), Alt+W (close tab), Alt+E (cycle tabs) to useAltKeys.
+Also fixed deduped tab icon resolution and editorOptions propagation
+for word wrap toggle.
+
+
+Former-commit-id: 70a87bdf8793ca50b898329c193bc3a6d16ac51b"
+https://www.github.com/1qh/idecn,0a44f814497d0e8b03d6608f4a065db867463489,2026-03-28T06:16:55+00:00,Human,,111,89,3,False,False,False,False,"Complete Phase 1: consumer props, word wrap, zoom, close all, dedup tabs, cleanup
+
+- Add editorOptions as single customization point (no overlapping props)
+- Add onTabChange callback, shortcuts enable/disable prop
+- Alt+Z word wrap toggle, Mod+=/- font zoom, Mod+0 reset, Mod+Shift+W close all
+- Tab label deduplication (show parent folder when names collide)
+- Tree horizontal scroll with custom scrollbar
+- Remove WatermarkContext (simplify to static component)
+- Remove emptyState prop (keep API small)
+- Dynamic editor options propagated to all open panels
+- Update PROGRESS.md with Phase 1 completion
+
+
+Former-commit-id: 7dbc5ed7d2a7df5efca58e015eaafd922a17c729"
+https://www.github.com/1qh/idecn,9a45f603a025810f89d3b1c510ce3eb4881d0050,2026-03-28T05:50:14+00:00,Human,,204,34,3,False,False,False,False,"Phase 1: styling polish, Monaco defaults, keyboard shortcuts, tree-tab sync
+
+- Active tab 1px bottom border accent
+- Tab separator lines between tabs
+- Tree indent guides (absolute positioned vertical lines)
+- EXPLORER header with collapse/expand all toggle
+- Watermark when no files open
+- Tabs overflow thin scrollbar
+- Reduced motion support
+- Monaco: sticky scroll, bracket colorization, smooth scrolling, cursor animation, font ligatures
+- Keyboard shortcuts via @tanstack/react-hotkeys (Mod+B sidebar, Alt+W close tab, Alt+E cycle tabs, Mod+\ split)
+- Middle-click tab to close
+- Tree selection syncs with active dockview panel
+- Custom dockview watermark component
+- Externalize @tanstack/react-hotkeys in tsdown bundle
+
+
+Former-commit-id: 56f6982a5fb393aadbc5eb38b291de03a50b6aa2"
+https://www.github.com/1qh/idecn,25007e10c6cf92748e997a71dfc1e3e1d59f97de,2026-03-28T04:16:36+00:00,Human,,1,0,1,False,True,False,False,"Fix JSX in dist output, override jsx to react-jsx for tsdown transform
+
+Without this, tsdown preserves raw JSX in .mjs output which Turbopack
+cannot parse during next build (production). Setting jsx: react-jsx
+ensures tsdown transforms JSX to jsx() function calls.
+
+
+Former-commit-id: 5afed866e272afd87479b348f0ab958c2fba2fd4"
+https://www.github.com/1qh/idecn,d5b3bd4dde7ffc98ac0c61195c004ebe468cde95,2026-03-28T04:08:53+00:00,Human,,1050,134,9,False,False,False,False,"Virtual files API, OKLCH theme, remove all hsl, extend lintmax/tsconfig
+
+- Add `files` prop to Workspace for virtual file entries (pin top/bottom, reactive content, language-based icons, open by default)
+- Add `icon` field to TreeDataItem for custom icons per tree item
+- Add `VirtualFile` and `PanelPosition` types, remove all `as const`
+- Replace all hsl color values with oklch, use color-mix for opacity
+- Match shadcn v2 globals.css with full @theme inline block
+- Add @tailwindcss/typography and tw-animate-css
+- Extend lintmax/tsconfig, add lintmax.config.ts
+- Add IDEA.md with categorized feature roadmap
+
+
+Former-commit-id: 1ee35ff62191082c1d1ff9c2c02d1ef2946f0ff7"
+https://www.github.com/1qh/idecn,0a7c021ee2dcd8fadd89f5fd517a999d9125de3a,2026-03-27T12:50:01+00:00,Human,,1,1,1,False,False,False,False,"Update screenshot
+
+
+Former-commit-id: 90c96effbd2ab2c02f7f8afc5d162a6a18b21478
+Former-commit-id: 59200d38050e42d208a13c28132ee269f3a88bfe"
+https://www.github.com/1qh/idecn,522f39145f01215ad7a3086fc44a0ad770e329cd,2026-03-27T12:47:22+00:00,Human,,37,5,1,False,False,False,False,"Triple fallback: server action → jsdelivr/raw.githubusercontent → GitHub API for both tree and files
+
+
+Former-commit-id: 5b38f0ee3e84ee05daad622ed3e1845bd5e49728"
+https://www.github.com/1qh/idecn,8311acd01a17e7199ed1af15fad80ca4a116046a,2026-03-27T12:43:31+00:00,Human,,128,93,5,False,False,False,False,"Server action priority with jsdelivr+raw.githubusercontent fallback, constants.ts single source of truth, error alerts, no GitHub API dependency
+
+
+Former-commit-id: 69b837a6f751b95c64f4a724c5cb950871a0fcd4"
+https://www.github.com/1qh/idecn,3a8dec89183b449d68fe568d08a14810f9f9d8ee,2026-03-27T12:22:50+00:00,Human,,2,3,1,False,False,False,False,"Use raw.githubusercontent.com for file content — no rate limit, plain text, no base64
+
+
+Former-commit-id: 22b1ed0e8f282c09731150451f285860b34ed8f6"
+https://www.github.com/1qh/idecn,830c8c426b466bbe9789fe926fb83b51523019dc,2026-03-27T12:21:17+00:00,Human,,11,4,3,False,False,False,False,"Handle missing .gitignore in server action, 2400x1800 viewport with 200% zoom, all tests pass
+
+
+Former-commit-id: 494765c09b986b21cbf30d604c21a24aa9e931b5"
+https://www.github.com/1qh/idecn,76d7eb60c4a6af147d06b26e39932881dbd0f0ea,2026-03-27T12:12:46+00:00,Human,,3,3,2,False,False,False,False,"Screenshot: 2560x1440 viewport with 150% CSS zoom
+
+Former-commit-id: 10f826e02be8004f1c6b06265a0887591ffdf18c"
+https://www.github.com/1qh/idecn,f37adfb43748ca1342c6f9993746da20a3b70c24,2026-03-27T12:06:50+00:00,Human,,4,1,2,False,False,False,False,"Screenshot: CSS zoom 1.5x for larger text
+
+Former-commit-id: 2bd4f561521259a7078eace82d618ac7e0ce7cea"
+https://www.github.com/1qh/idecn,21b3e5b5afb9b38912ee1aac7014cfc97906e711,2026-03-27T11:57:12+00:00,Human,,128,178,8,False,False,False,False,"Eliminate gen-demo-tree: server component reads tree at render, server action reads files, ignored from .gitignore, copy whole app/ in test
+
+
+Former-commit-id: 27af36df346a43dcf49018e72333dce402e50069"
+https://www.github.com/1qh/idecn,22032c09cd5b6a278ff6fe1453e7925803451ff8,2026-03-27T11:43:36+00:00,Human,,23,5,4,False,False,False,False,"Dogfood: serve own files via server action instead of GitHub API for default repo
+
+Former-commit-id: 5443b30f38980115c3da422a676931e42f7f47ad"
+https://www.github.com/1qh/idecn,30b3e00b52123f3d07c958ffa7ef8b512a70ed01,2026-03-27T11:26:54+00:00,Human,,21,14,5,False,False,False,False,"Guard removePanel against dockview race condition on HMR, wider sidebar, 16:9 screenshot
+
+
+Former-commit-id: 032ca17aa8d37ee335ee574aeb206684e471c74e"
+https://www.github.com/1qh/idecn,0fc3620d4922b27065f67e19120a2ba1e521603d,2026-03-27T11:12:04+00:00,Human,,1,1,1,False,False,False,False,"Update screenshot
+
+
+Former-commit-id: bc0121ce9dd786270380cfa4bb15e1b56398f0d3
+Former-commit-id: 129cf7aef4a1543aa758aa13d2af85c22f674d91"
+https://www.github.com/1qh/idecn,ea32924d2cd15d118bdd8096b95582c8ca21854e,2026-03-27T11:11:39+00:00,Human,,2,2,2,False,False,False,False,"Retake screenshot with VS Code-matched settings
+
+
+Former-commit-id: fdb93900679059e1820bc1e27419f85ff5d1aa60"
+https://www.github.com/1qh/idecn,d62bcb87a468363f52c1bcede5936087ee400deb,2026-03-27T11:00:00+00:00,Human,,3,3,1,False,False,False,False,"Font size 24, keep tight spacing from VS Code settings
+
+
+Former-commit-id: fc8901b510335da99a9a388127f525025712ddc1"
+https://www.github.com/1qh/idecn,eae99c63f543e3fb05fbdc1213f8f27fbe16e71a,2026-03-27T10:59:00+00:00,Human,,4,4,2,False,False,False,False,"Adjust font: 14px, -0.5 letter spacing, 1.4 line height for web readability
+
+
+Former-commit-id: f8bf9ef42eed7141640d24d4892825a98688084f"
+https://www.github.com/1qh/idecn,d631515132e1bff78c58c7a760ec955012a74980,2026-03-27T10:57:48+00:00,Human,,20,9,2,False,False,False,False,"Match VS Code settings: semi-transparent bg, faded line numbers, tight spacing, hidden scrollbar, block minimap
+
+
+Former-commit-id: 0d1896e562c597178394e00507b90992f47aadc4"
+https://www.github.com/1qh/idecn,296e504301f3b0fe543d6fdd39c80cf1c4424b37,2026-03-27T10:50:57+00:00,Human,,16,5,2,False,False,False,False,"Minimap: block render, scale 2, maxColumn 50, always show slider. Scrollbar: themed, fade on idle
+
+Former-commit-id: 88f7f65d468de636e93a31bc6f572f660156c5a7"
+https://www.github.com/1qh/idecn,65ef5e04b30dde0f040472831df7c148b61117e4,2026-03-27T10:46:01+00:00,Human,,9,2,2,False,False,False,False,"Set minimap background to black/white via textmateThemeToMonacoTheme
+
+
+Former-commit-id: 43d071d01ab5cdbfc19dabe48515836af8d69158"
+https://www.github.com/1qh/idecn,2426104a5d6e47f0d098ee74ed2835dd2af10b38,2026-03-27T10:43:44+00:00,Human,,4,14,2,False,False,False,False,"Revert minimap hacks: let theme handle its native background, minimap is readable
+
+
+Former-commit-id: 498da3e8237f184327a250dfe23721d32c1f9bb7"
+https://www.github.com/1qh/idecn,79dbb0f8e14df509dbec0360dc1bc476aefe2311,2026-03-27T10:38:50+00:00,Human,,6,5,2,False,True,False,False,"Fix minimap: match editor/minimap bg to shadcn default hex, CSS fallback for div elements
+
+
+Former-commit-id: 792f214c654b145a2d97d7bc8d66517173ee2895"
+https://www.github.com/1qh/idecn,64f6188810dc6ab6dc513a14fc1821a7810e1a1b,2026-03-27T10:33:23+00:00,Human,,12,4,3,False,True,False,False,"Fix minimap: patch theme colors after shiki registration via textmateThemeToMonacoTheme
+
+
+Former-commit-id: 27c306b97127d72d6a406e11ffc4e231b37ef1e3"
+https://www.github.com/1qh/idecn,70a3dd7f7663f43aa7db1fbe3dd3262da06c765e,2026-03-27T10:20:01+00:00,Human,,2,0,1,False,False,False,False,"Show useRef setup in custom sidebar example
+
+
+Former-commit-id: ff6f3f3ebb35eda493aeffa5b56ac31da67d457b"
+https://www.github.com/1qh/idecn,c9a96d028a9b80761e5c1cd31863080380a145fa,2026-03-27T10:16:47+00:00,Human,,2,0,1,False,False,False,False,"Add Install header
+
+
+Former-commit-id: 230905c4fdd42e4ef4aea30a9dbe8b6aa5c6b761"
+https://www.github.com/1qh/idecn,4f03bcae1b50db289a95939fbfc767992d28aaec,2026-03-27T10:16:17+00:00,Human,,1,9,1,False,False,False,False,"Strip self-explanatory text from README
+
+
+Former-commit-id: fba9ef97656cc33bf9a9e4a9c628faf5f77cb289"
+https://www.github.com/1qh/idecn,09297b61b2491aa9517f1863a7ea368d4cb85a58,2026-03-27T10:14:59+00:00,Human,,1,1,1,False,False,False,False,"Update screenshot
+
+
+Former-commit-id: 815f56b464e191dd386f2df1893dd2893bbc40ec
+Former-commit-id: 7ca257b6d3fd3063efd5f3290099f8ca4f7ad98a"
+https://www.github.com/1qh/idecn,9f366542116d632cece0f0e70ab7e4c1128c3857,2026-03-27T10:14:36+00:00,Human,,61,76,3,False,True,False,False,"Fix minimap bg via theme colors, strip README descriptions, FileTree before Workspace
+
+
+Former-commit-id: b5cfcfdc9fc2a00a9078494dd2148deab07c9f65"
+https://www.github.com/1qh/idecn,b9934dca251900d8c4b045172be3da16624904b2,2026-03-27T10:06:45+00:00,Human,,8,4,3,False,True,False,False,"Fix minimap background: transparent theme color, CSS background shows through
+
+
+Former-commit-id: 9e38af538aae7e4b1f22cf7a1e6792b15e5d7ca9
+Former-commit-id: 98a47ddaba255e7a50a1c23d169af5d0538a039d"
+https://www.github.com/1qh/idecn,212361dde0de10ad932f89010f8133bb8088e4a4,2026-03-27T09:37:35+00:00,Human,,1,1,1,False,False,False,False,"Update screenshot
+
+
+Former-commit-id: 03a48b232901482c5d04d394082d1c8d7cc9438d
+Former-commit-id: ecc61f1d18adaa89d0dc6a2469c0029834fef199"
+https://www.github.com/1qh/idecn,fc3d33b0d6d466c982d4c432732d76e181622d1e,2026-03-27T09:36:07+00:00,Human,,45,42,3,False,False,False,False,"Retake screenshot after all changes
+
+
+Former-commit-id: a3954ac7b7876cf7601b36931ac9e63f3f7fb932"
+https://www.github.com/1qh/idecn,dd5c48f7acd3d9c97396afec927fe314e2673c55,2026-03-27T09:26:21+00:00,Human,,46,32,1,False,False,False,False,"Update README: add expandDepth, FileTree props table, compact folders, shiki/monokai credit
+
+
+Former-commit-id: 389dc0a52fc7e39c19618a7b9f587565912aa972"
+https://www.github.com/1qh/idecn,e9ea8beb3a3c62659ad751c68eccbc2ae11b5683,2026-03-27T09:15:46+00:00,Human,,9,12,1,False,False,False,False,"Extract useIconsReady hook, precompute icon class constants, remove section comments
+
+
+Former-commit-id: 145fa937a8266d234ce3a407d58c820179316f02"
+https://www.github.com/1qh/idecn,75a3977f410ef10f2d661f89af374a26ee68c924,2026-03-27T09:09:56+00:00,Human,,204,205,1,False,False,False,False,"Reorganize: constants → utils → types → components → exports, object params, ...props spread, no forward refs, compact folders, expandDepth
+
+Former-commit-id: 0a0ea38e13f02b1fc2b186a82466dd23b085df64"
+https://www.github.com/1qh/idecn,5fa8a5e18a7bf4c34dfbb72cb9d154056b2766c3,2026-03-27T08:40:04+00:00,Human,,43,15,2,False,False,False,False,"Add compact folders, expandDepth via context, object params for renderItems
+
+
+Former-commit-id: 6517d70b31360eb992dafc92170980fd753fcedf"
+https://www.github.com/1qh/idecn,d9745cd4aa66634877c60b5466888467adbfaf8f,2026-03-27T08:18:13+00:00,Human,,2,1,1,False,False,False,False,"Minimap background uses shadcn --background
+
+
+Former-commit-id: 71b23a4ab07fcba003ebf6bdd867c9bd0113a7cf"
+https://www.github.com/1qh/idecn,05f8bb3b680eb85708651f3fdd24373794672326,2026-03-27T08:14:05+00:00,Human,,2,1,1,False,False,False,False,"Override monaco current line highlight with shadcn accent color
+
+
+Former-commit-id: 96f3aae6d134351eaa56895df2b9b8ef06262a1b"
+https://www.github.com/1qh/idecn,1fcaadd0d13d199e02757a26bcd4dc98dd34ae30,2026-03-27T08:11:13+00:00,Human,,1,1,1,False,False,False,False,"File tree icons scale on row hover
+
+
+Former-commit-id: dbf82eb0e0dc49301641cbfffd8dec6717457ad9"
+https://www.github.com/1qh/idecn,b5d21a11ae756126bd78fdd71089e0c1038e0596,2026-03-27T08:10:04+00:00,Human,,11,8,2,False,False,False,False,"Micro-interactions: icon transitions, tab hover scale, close button polish, toolbar hover effects
+
+Former-commit-id: 3422aadbc82f69c343716a9e79211312310b78b1"
+https://www.github.com/1qh/idecn,43855985745bc45a59643e629e4ba39ffdb35b5c,2026-03-27T07:23:20+00:00,Human,,16,6,1,False,True,False,False,"Fix biome formatting in build-registry.ts
+
+
+Former-commit-id: 22a55d0d75c941e342e6ef53f024db7eb1e6de04"
+https://www.github.com/1qh/idecn,2394d5b9d2d2bc79b05a62bd8b22c2657bdda7f8,2026-03-27T06:02:39+00:00,Human,,55,32,3,False,True,False,False,"Lazy-load icons: 21KB initial bundle, 1.3MB icons load on demand, fix registry dynamic import path
+
+
+Former-commit-id: 733ec5fde9c107e1f9deaa42fda579deb50396fd"
+https://www.github.com/1qh/idecn,560eaa915bde45e6899f13dd377894dfa2ad0363,2026-03-27T05:55:06+00:00,Human,,20,54,4,False,False,False,True,"Revert ""Ship raw source instead of bundled dist, drop tsdown, setup docs for Next.js/Vite/shadcn""
+
+This reverts commit 881e199a253d2397239ee617e4249551d5cf9e9f [formerly 30490817fd5b0e4bdce043d6c61f685a2df5ecc2].
+
+
+Former-commit-id: b5637d8c9861d5df699065cf6dba2ec995880b4a"
+https://www.github.com/1qh/idecn,3a60ec687cfec6bdfb82232b2433a11034a60204,2026-03-27T05:40:22+00:00,Human,,54,20,4,False,False,False,False,"Ship raw source instead of bundled dist, drop tsdown, setup docs for Next.js/Vite/shadcn
+
+
+Former-commit-id: 30490817fd5b0e4bdce043d6c61f685a2df5ecc2"
+https://www.github.com/1qh/idecn,5f72bad35d00cae623ec47119881e992de7be545,2026-03-27T04:43:36+00:00,Human,,8,4,2,False,True,False,False,"Fix CI: test-registry starts/stops its own dev server, ci command is sequential
+
+
+Former-commit-id: 3bf6ebeced72785c963ae2b3b152859a2bc5f51a"
+https://www.github.com/1qh/idecn,52a589ada2511aa5a99ce6dc6cbc08017d63c2ba,2026-03-27T04:41:05+00:00,Human,,2,2,2,False,False,False,False,"Include bun i in ci command
+
+
+Former-commit-id: 1960e462dc1711ab2fa9d8b86c948bf2ac00d8fa"
+https://www.github.com/1qh/idecn,fedd5ac7e7e5b16dcafef8fd47a6e77e1ada4334,2026-03-27T04:40:13+00:00,Human,,1,2,1,False,False,False,False,"Single CI step: install + ci
+
+
+Former-commit-id: 5a920b235e821476c1508b943b7022f3ec377ad3"
+https://www.github.com/1qh/idecn,ad103f3ddd813ba3433143cb271dd7a0488df7e8,2026-03-27T04:39:54+00:00,Human,,2,5,2,False,False,False,False,"Add ci command, simplify workflow to single bun run ci
+
+
+Former-commit-id: 08a8cf353b24234efec3fb7e6b284b39e011f027"
+https://www.github.com/1qh/idecn,0c8839372cb5055ac4ba2a3da810d9f0897f7af6,2026-03-27T04:37:59+00:00,Human,,1,0,1,False,False,False,False,"CI: run gen before check to ensure _generated/icons.ts exists
+
+Former-commit-id: a2a4779f4c17feeb4ec9f6e62907345c77261104"
+https://www.github.com/1qh/idecn,27205bd58662d888f36491e83e634d1c25ae7660,2026-03-27T04:35:32+00:00,Human,,10,13,6,False,False,False,False,"Flatten: delete index.ts barrel, move e2e to root, entry point is idecn.tsx directly
+
+Former-commit-id: d1d33f20da07bdc1d827646df9f7b9eb50c0cea4"
+https://www.github.com/1qh/idecn,9bf3b72a3a1af07051905b40f414b3278849a0f5,2026-03-27T04:32:04+00:00,Human,,73,94,14,False,False,False,False,"Consolidate demo: 9 files to 6, move app/ to root, inline utils, drop src/ and lib/
+
+
+Former-commit-id: 3a38d901eead77eae6b892aaf44bd2f62efad81c"
+https://www.github.com/1qh/idecn,eeb3b8856409a05d47d8728fdc859a454d8d83ce,2026-03-27T04:23:31+00:00,Human,,91,94,4,False,False,False,False,"Merge explorer into page.tsx, remove extra file
+
+
+Former-commit-id: ef79b8b1b1986a6e1c7b5730d32b77f086d46baa"
+https://www.github.com/1qh/idecn,74c7f5d8989966bf74409ace2159a73d8b0f6dc0,2026-03-27T04:21:50+00:00,Human,,10,13,5,False,False,False,False,"Remove unnecessary Suspense wrapper in page.tsx
+
+
+Former-commit-id: e00a1217239f0694cc9ae50e2f6f853669cffc4c"
+https://www.github.com/1qh/idecn,68cbe04720e527ca4889e20c417c08f7b352dac7,2026-03-27T04:19:02+00:00,Human,,33,1,3,False,False,False,False,"Add publish:git script - screenshot, push, BFG clean, sync
+
+
+Former-commit-id: d4c42f05f72364ba3182cc75e27addbbb99d5e05
+Former-commit-id: 70fd8fd25ae5b4f063b8aac4500013d4c088c1bf"
+https://www.github.com/1qh/idecn,8d92095933534e51f49e0d9f63ce30653549b613,2026-03-27T04:17:32+00:00,Human,,16,16,1,False,False,False,False,"Replace em dashes with hyphens in README
+
+
+Former-commit-id: 65ad7cc61d08dd0f076691cf9441133f33df35cb
+Former-commit-id: cd11d30cf70a948b1c3969ed800a8e2687dc5bfa"
+https://www.github.com/1qh/idecn,d6aacc34378b8abb8aa18c33af4df43c48f2f1ee,2026-03-27T04:10:40+00:00,Human,,16,2,4,False,True,False,False,"Fix sidebarSize: strings for %, numbers for px. 4:3 screenshot, collapsible sizing notes in README
+
+
+Former-commit-id: e3538fcb99257474d003a456d5382786e55d9d38
+Former-commit-id: d5fcb87ab20df1aa9817e52e8d643e9dcdc1bfa1"
+https://www.github.com/1qh/idecn,b27b354c0a85a65de0ea29bfb09763b228e6a729,2026-03-27T03:57:30+00:00,Human,,2,2,2,False,False,False,False,"4x screenshot resolution
+
+
+Former-commit-id: 495d3d37e0d540a0c74547eb5f0fc2c6a4df720d"
+https://www.github.com/1qh/idecn,9aefd00f1c96af3aa7c77f0d9d5d8fb5b8a14f93,2026-03-27T03:56:59+00:00,Human,,5,3,3,False,True,False,False,"Fix lint ignores in screenshot script, 2x resolution, reorder README
+
+
+Former-commit-id: 5eea170ca255917016f3344e52a771ff6bd42437"
+https://www.github.com/1qh/idecn,433e9b16ba0d640152ba66736ae2512d626158e1,2026-03-27T03:53:49+00:00,Human,,14,0,2,False,False,False,False,"Add reproducible screenshot script
+
+
+Former-commit-id: a0595103bcaefe967b9bdfa51458871caababd25"
+https://www.github.com/1qh/idecn,d14dc0ef8b56e7f30729041473d4e23d235ecf61,2026-03-27T03:52:56+00:00,Human,,2,0,2,False,False,False,False,"Add screenshot to README
+
+
+Former-commit-id: db961e84d6c2b528a96c35c995e0245b7ae06e76"
+https://www.github.com/1qh/idecn,6f482875ee09c3355541ff52278677d3203a5465,2026-03-27T03:50:38+00:00,Human,,2,0,1,False,False,False,False,"Add centered 'or' between install methods in README
+
+
+Former-commit-id: 93ef9206e5c5368b24b3ff3d33d3ad0869b1229f"
+https://www.github.com/1qh/idecn,c3664e2844ac9caba0adc2ba4102a70fe5325873,2026-03-27T03:49:49+00:00,Human,,20,24,5,False,True,False,False,"Convert icons to .ts, fix registry paths, all .ts output
+
+
+Former-commit-id: cf6582b8b5c1a79e9d453788dcd0b3b33c7eb174"
+https://www.github.com/1qh/idecn,d9a8a2b9fd025d018831d76970a7dc3b1e142746,2026-03-27T03:46:13+00:00,Human,,189,6,5,False,False,False,False,"Convert monokai-lite.json to .ts, sort all keys for linter
+
+
+Former-commit-id: c02080057f712b95788a29609fb735ae647ad8fd"
+https://www.github.com/1qh/idecn,9195f915fa6bbb21c99f6ce56ba5159d384e2781,2026-03-27T03:41:19+00:00,Human,,59,51,13,False,False,False,False,"Clean demo: dedicated constants/types/hash files, gitignore generated files, clean = fresh clone
+
+
+Former-commit-id: 5775e72e84e774de75db7c0d5631e99bd087d85e"
+https://www.github.com/1qh/idecn,1bd3992cf9acb9bd29fe1cf92b17308aed38acf4,2026-03-27T03:34:42+00:00,Human,,40,48,2,False,False,False,False,"Remove stale next-themes from neverBundle, update README with all new props
+
+
+Former-commit-id: 01e9c1d530148493904cdbb3b9fb59ea073878dc"
+https://www.github.com/1qh/idecn,2b61866ec27bf19025e22326f2100f9f011a2601,2026-03-27T03:31:26+00:00,Human,,52,95,2,False,False,False,False,"Inline dockview CSS in library, strip demo to 99 lines
+
+
+Former-commit-id: e0dd01ab8c2f744427309c74f7732f7a62946c06"
+https://www.github.com/1qh/idecn,78c92baae897d7f38a646c91912e6ef879b3fdd5,2026-03-27T03:26:52+00:00,Human,,117,35,2,False,False,False,False,"Add sidebar toggle (Cmd+B), custom sidebar content, editorOptions, theme, sidebarPosition, remove wrapper div
+
+
+Former-commit-id: bc82fdbc8575d5fa4edb8d950ee9030aed0a4038"
+https://www.github.com/1qh/idecn,5a3de5168ec33e7a3ed768e5e19438eafbe5e1c9,2026-03-27T03:07:54+00:00,Human,,15,13,1,False,True,False,False,"Final consolidation: inline isDark, remove last span, extract CENTER, fix Separator placement, cache monoFont
+
+
+Former-commit-id: 10aa0e64febd8f0be5dd852ee0d526975c522258"
+https://www.github.com/1qh/idecn,a057223da7cc5e9aa29082b8f5620cb6041eb009,2026-03-27T03:02:52+00:00,Human,,3,3,1,False,False,False,False,"Remove unnecessary spans, use gap instead of margin for spacing
+
+
+Former-commit-id: 7d3ea0eba9a67d59ed2eef054835ddea5aa0457b"
+https://www.github.com/1qh/idecn,e44ee60b59118a7cc6c38b1f3719cc5f1e62b925,2026-03-27T03:01:27+00:00,Human,,7,8,1,False,False,False,False,"Remove wrapper div around FileTree in Workspace, pass className directly
+
+
+Former-commit-id: 6264cd2a0da982976c1588b93ebd7d55e2f35505"
+https://www.github.com/1qh/idecn,e8a40cbe68c04e65afd1e4b78a32e1894274d81d,2026-03-27T03:00:27+00:00,Human,,15,17,1,False,False,False,False,"Extend ComponentProps for native elements, direct imports from react
+
+
+Former-commit-id: 022b90848c1a2645e195d27d0777a0f2f6c671e8"
+https://www.github.com/1qh/idecn,543f6ac35ac9ef8c807fd229cb2cdb77deda091d,2026-03-27T02:56:34+00:00,Human,,72,67,1,False,False,False,False,"Infer prop types via ComponentProps, remove separate interfaces
+
+
+Former-commit-id: 4c6fa93648cbcb26880c2b5cf567c9bc9062bddf"
+https://www.github.com/1qh/idecn,47d3921c3aac8ca097768c160f265fc2725badcb,2026-03-27T02:50:44+00:00,Human,,8,4,1,False,False,False,False,"Observe theme class changes to switch monaco theme without refresh
+
+
+Former-commit-id: 9c900035793395882ef19734245cb9ae54d8e970"
+https://www.github.com/1qh/idecn,82a7f2c393c352bac0ad9e74770548816afb194c,2026-03-27T02:46:41+00:00,Human,,3,3,2,False,False,False,False,"Tab header text-sm by default, inactive tabs text-muted-foreground
+
+
+Former-commit-id: 59500c39654b582798b13fcd34aead81b6eda471"
+https://www.github.com/1qh/idecn,e64dd2e422a8eab52e4f5f390693bd2e81c5fdda,2026-03-27T02:44:34+00:00,Human,,43,21,2,False,False,False,False,"Move externalized deps to dependencies, github-light theme for light mode, activeClassName/inactiveClassName on Tab
+
+
+Former-commit-id: 1012511d9e94815cb517ba4cb74c4385a3711275"
+https://www.github.com/1qh/idecn,8a8886d3892e7c115c4306bd9d71782942b62879,2026-03-27T02:32:59+00:00,Human,,13,6,1,False,True,False,False,"Externalize shiki, dockview, monaco, lucide as peer deps to fix node:module in client bundles
+
+
+Former-commit-id: 9dd9f0947bdfe96ee8ccacef12bbb1eae66bac5d"
+https://www.github.com/1qh/idecn,d0a254859005ce873a3319bdc7776076a955effd,2026-03-26T20:43:31+00:00,Human,,9,5,1,False,True,False,False,"Fix registry: add shiki deps, rewrite monokai-lite.json path, include theme file
+
+
+Former-commit-id: 4377a8f5db1cc4fc19c8577af7855abb13d73ecb"
+https://www.github.com/1qh/idecn,4845dcf6b3746337a5fa91371f12cb64b8c96003,2026-03-26T20:31:49+00:00,Human,,46,51,4,False,False,False,False,"Add shiki + @shikijs/monaco for VS Code-quality Monokai Lite syntax highlighting
+
+
+Former-commit-id: c741fbdf71b96f734e37ae09bcc5d9dbbf478789"
+https://www.github.com/1qh/idecn,d1ce0bb050fa41ba5f4962913b5a9d6f908cd98d,2026-03-26T20:19:01+00:00,Human,,28,12,2,False,False,False,False,"WIP: monokai theme rules for monaco
+
+Former-commit-id: caa58bd58b1a7e245ca3bc55d9749479ffcb9d1f"
+https://www.github.com/1qh/idecn,fd9595b8127e8058e212ec7c3f693b57b054bf8e,2026-03-26T20:16:21+00:00,Human,,29,3,2,False,False,False,False,"Add Monokai Lite syntax theme for monaco, transparent background inherits from page
+
+
+Former-commit-id: 5066b15aa6e98ff3853eb2e87cf561fc863253ee"
+https://www.github.com/1qh/idecn,bcb9e42dcab0a84878e382f6de41b568974b0c9b,2026-03-26T20:14:01+00:00,Human,,7,4,1,False,True,False,False,"Fix monaco font: read --font-mono from computed style at runtime
+
+
+Former-commit-id: 941ea60052563144d9c07e26b2fece826614884c"
+https://www.github.com/1qh/idecn,ea02b7857618f50e3a0b63be17a5ab30e45a6df0,2026-03-26T20:12:15+00:00,Human,,4,3,2,False,True,False,False,"Fix monaco font: use --font-mono CSS variable for editor text
+
+
+Former-commit-id: 68b0beb0be0d27019690b7f86e4971a273a75bdb"
+https://www.github.com/1qh/idecn,b45ad7218eab784d777ac88d21bed48d228d95a1,2026-03-26T20:11:26+00:00,Human,,6,3,1,False,False,False,False,"Focus first initial file, enable minimap, inherit font family in monaco
+
+
+Former-commit-id: 2249b45658cab84c1286c79b50dc6a6c38bdba06"
+https://www.github.com/1qh/idecn,3435c2da8cdfa04a527d09918ec3359c022be37a,2026-03-26T20:08:02+00:00,Human,,3,2,1,False,True,False,False,"Fix sed cross-platform: use -i.bak for macOS + Linux compat
+
+
+Former-commit-id: fee162c21dafa1c1ca9815b695d60f76c966e1c2"
+https://www.github.com/1qh/idecn,0f16b2cb03f1ee745c326c4c844c62ed8abdd11a,2026-03-26T20:03:23+00:00,Human,,42,67,5,False,False,False,False,"Remove findPath dead code, capture addPanel return, remove turbo (single workspace)
+
+
+Former-commit-id: b27d1d8635456efc5823139b95662e3b3915b875"
+https://www.github.com/1qh/idecn,a70f2af57f39b1ca400fdadf192091e1cc9bfd51,2026-03-26T19:57:15+00:00,Human,,19,22,7,False,False,False,False,"Merge 2 icon JSONs into single icons.json, registry now ships 2 files
+
+
+Former-commit-id: 3523bbbd6d024347c14544d298464e64a020f8de"
+https://www.github.com/1qh/idecn,c5635f934df7616424cb5ae72adc2b7b58c2478d,2026-03-26T19:55:19+00:00,Human,,0,1,1,False,False,False,False,"Remove dead cn rewrite from build-registry
+
+
+Former-commit-id: b47a2ea55625d98fcf627a4b1188dcc0412d5575"
+https://www.github.com/1qh/idecn,6219f0afe0678763cc0b533f61b52f74c8971ff5,2026-03-26T19:53:52+00:00,Human,,628,738,12,False,False,False,False,"Merge all source into single src/idecn.tsx, 1:1 with registry output, open README + idecn.tsx as default tabs
+
+
+Former-commit-id: 70a4328f0c7d688697674621ef94b4d7d30b88c3"
+https://www.github.com/1qh/idecn,edf919f1569091d80b654447bdc19a5b0c856c96,2026-03-26T19:45:48+00:00,Human,,6,7,3,False,True,False,False,"Move ICON_CLASS from tree.tsx to icon.tsx to fix spurious coupling
+
+
+Former-commit-id: 2a50c7e88b16a6f6c59df11621738b41f1d61cc4"
+https://www.github.com/1qh/idecn,f444098007b083c785d20aa3f0bde1287fdc0814,2026-03-26T19:40:59+00:00,Human,,44,52,4,False,False,False,False,"Simplify: extract ITEM_CLASS/ICON_CLASS/useTreeItem, onCloseMap instead of tabs array, CSS :has() for tab flex, CI runs registry test
+
+Former-commit-id: 6aef01f670e84360850e2d73f25419cb7a064261"
+https://www.github.com/1qh/idecn,175ffae0c6f485b573b299b4445093cf772c90bd,2026-03-26T19:36:08+00:00,Human,,7,7,2,False,False,False,False,"Shorter internal component names: ContentPanel, FilePanel, TabHeader
+
+
+Former-commit-id: 8b44e8a9db19eeb1bdccd51a5bc9ed8e2c1eef29"
+https://www.github.com/1qh/idecn,cdb3e24f27e9883a2cda29e0546806b51e5ddce0,2026-03-26T19:35:13+00:00,Human,,24,25,6,False,True,False,False,"Fix stale e2e tests, lucide icon names, lint suppressions, build-registry in build pipeline
+
+
+Former-commit-id: 8e6574ae8912114a4a990602f4ada10685403829"
+https://www.github.com/1qh/idecn,dc83c39bbf20a664ab9bca8741685e2ca9730eec,2026-03-26T19:30:20+00:00,Human,,12,1,3,False,False,False,False,"Add test command (check + build + registry), CI workflow on push
+
+
+Former-commit-id: 9f7a15fff82b1ec711aead9fe57da209431a41fe"
+https://www.github.com/1qh/idecn,2579aed61e134f1084e3fa2bde61b4ae75d1113d,2026-03-26T19:29:04+00:00,Human,,44,74,1,False,False,False,False,"Rewrite README to match current API: built-in FileTree, Tab for dockview only
+
+
+Former-commit-id: ec97ac42e4b506258f1737f53bec5777e51e67ff"
+https://www.github.com/1qh/idecn,7b1cd0df8ab93819fe21bfe7a2d444321f5ecd79,2026-03-26T19:28:25+00:00,Human,,43,1,2,False,False,False,False,"Add registry integration test: shadcn init, add idecn, copy demo, build
+
+
+Former-commit-id: 553c7795a66f176b4f11c90d18b236b29fe7302a"
+https://www.github.com/1qh/idecn,b28754b49bec017d277960e9b3b2f2b2f7bde2a2,2026-03-26T19:23:26+00:00,Human,,71,11,1,False,False,False,False,"Registry: merge all source into single idecn.tsx with deduped imports, 3 files total
+
+Former-commit-id: 1b48660176f35ac2a458258e649a08810b296621"
+https://www.github.com/1qh/idecn,bbcd1880b341a05a3ae087b58d34b38c8448016a,2026-03-26T19:18:15+00:00,Human,,51,82,3,False,False,False,False,"Registry: merge all source into single idecn.tsx, use consumer cn from @/lib/utils, 3 files total
+
+Former-commit-id: 27c125d6bce5465f8b806c23fc341ccbe0b64df5"
+https://www.github.com/1qh/idecn,6c2e15458727a89ab672334f1692ce9c72b921d3,2026-03-26T19:14:35+00:00,Human,,79,120,3,False,False,False,False,"Built-in FileTree sidebar, Tab for dockview only, simpler DX
+
+
+Former-commit-id: 50f98301c4b5ef16dca0e5d3a5c6beef9845e90a"
+https://www.github.com/1qh/idecn,7780fd47fb6ce9da18527ab970f7d4146b9be43b,2026-03-26T19:07:22+00:00,Human,,17,15,2,False,False,False,False,"Only render side panel header when headerClassName is set
+
+
+Former-commit-id: 86f4c7cbd973ff45d2a1eb5fe6c09b40281710ee"
+https://www.github.com/1qh/idecn,854db27257848d5f12866f3b8d4fd463314d4705,2026-03-26T19:06:35+00:00,Human,,19,4,2,False,False,False,False,"Add header to side panels with title and headerClassName support
+
+
+Former-commit-id: 38723d47f81fbbeabc5b90543748cd00da214aa7"
+https://www.github.com/1qh/idecn,37175e8996c2605d138bf552ec5ef59db2220f28,2026-03-26T19:05:24+00:00,Human,,86,85,5,False,False,False,False,"Move positioned tabs outside dockview into resizable panels, replace initialWidth with defaultSize/minSize
+
+
+Former-commit-id: 11a64b048c18810b18a9e015a999fccd15489935"
+https://www.github.com/1qh/idecn,e9408e6e46a3d79feb8dc3d372068de90e041780,2026-03-26T18:58:59+00:00,Human,,2,2,1,False,False,False,False,"Use setTimeout 50ms for applyWidths to run after dockview layout settles
+
+
+Former-commit-id: 7a637205f553423d1f529cef6a3e2546749956cb"
+https://www.github.com/1qh/idecn,b3fe580d6a9e7ec644c4adc050f775e71cb2907c,2026-03-26T18:57:27+00:00,Human,,4,1,1,False,False,False,False,"Set explorer group priority to low so it keeps size when other groups reorganize
+
+
+Former-commit-id: 239f5c618178413f07ded1fa9747d1547279fa7b"
+https://www.github.com/1qh/idecn,d62edc926884c823995e32e6ac2286254b9f08bd,2026-03-26T18:53:56+00:00,Human,,6,4,1,False,False,False,False,"Defer applyWidths via rAF so it runs after dockview finishes layout
+
+
+Former-commit-id: 945fc536447f6c9ae1dd7b228250222bab040995"
+https://www.github.com/1qh/idecn,65d1a782b48efe0199ddee1f67e1b7defa649de3,2026-03-26T18:43:59+00:00,Human,,13,3,1,False,False,False,False,"Re-apply tab widths after every panel add/remove to prevent explorer resize on drag-split
+
+
+Former-commit-id: bd00bb520d9b8450de0a5cdf2fb4616fd25a2fc3"
+https://www.github.com/1qh/idecn,a1d014366c227b8011cfa0501418b3e1cff44683,2026-03-26T18:40:13+00:00,Human,,1,1,1,False,False,False,False,"Use minimumWidth only so explorer can grow but not shrink below initialWidth
+
+
+Former-commit-id: e44f75fdfc487d7cdb82a8537a516109e74106ac"
+https://www.github.com/1qh/idecn,5d6a25fd906d612981be7c8c31219f3853939860,2026-03-26T18:39:31+00:00,Human,,4,0,1,False,False,False,False,"Lock tab group width via setConstraints when initialWidth is set
+
+
+Former-commit-id: 56decf6ad44685e3b7864e304aa6e1ead57155a7"
+https://www.github.com/1qh/idecn,e3ec65d94e921bb02453ba908a7e16077bec4592,2026-03-26T18:36:56+00:00,Human,,2,2,1,False,False,False,False,"Restore drag-over highlight with shadcn accent/ring colors
+
+
+Former-commit-id: e02bd2f4fcb30ec1040c7ba9e374fe19ced68e51"
+https://www.github.com/1qh/idecn,ea0589b65e3a70661073d8cbbf005e96f4708d8f,2026-03-26T18:35:28+00:00,Human,,1,1,1,False,True,False,False,"Fix active tab background with !important to override dockview theme specificity
+
+
+Former-commit-id: 57c3844802aac1adbbc6c87a1d02f75e7071cfad"
+https://www.github.com/1qh/idecn,a9686465a74048dfdb6f05b602bd58da275d4a8f,2026-03-26T18:34:17+00:00,Human,,1,0,1,False,False,False,False,"Add default active tab background using shadcn --muted variable
+
+
+Former-commit-id: 77f343c09bb1850b1bd28ccc2c91c70954a1109f"
+https://www.github.com/1qh/idecn,b92782b529d62e03217f37abde5b11ac0d719656,2026-03-26T18:33:28+00:00,Human,,28,26,2,False,False,False,False,"Move dockview and monaco CSS resets into Workspace component, remove from globals.css
+
+
+Former-commit-id: 168b94421e7a04ff940b988e3d771999be731264"
+https://www.github.com/1qh/idecn,2cd1892dd0346ed03b7f67424b071ed5293db770,2026-03-26T18:31:32+00:00,Human,,1,1,1,False,False,False,False,"Reset tab font-size to inherit
+
+
+Former-commit-id: 7211f36aa70f9fb08d926a1c11d590ca6c171da0"
+https://www.github.com/1qh/idecn,df73c396483f1b0259d74d8c36b85f178f0be575,2026-03-26T18:30:45+00:00,Human,,1,1,1,False,True,False,False,"Reset tab bar height to auto instead of fixed 36px
+
+
+Former-commit-id: cf92163737d65688d99a1f887db3116d4a1955eb"
+https://www.github.com/1qh/idecn,c7d9ba7cb8ae053535fd4ddae2396b6e25d671c2,2026-03-26T18:29:39+00:00,Human,,16,9,4,False,False,False,False,"Reset dockview tab chrome to transparent, style via inner className only
+
+
+Former-commit-id: de44de69705bc461ae151d7926576bde4a0d2d3f"
+https://www.github.com/1qh/idecn,b1098b7a5425ae5360c13fb2f459b62b2c4d3886,2026-03-26T17:45:44+00:00,Human,,0,31,2,False,False,False,False,"Single idecn registry item, remove file-tree and tree subsets
+
+
+Former-commit-id: a1e0745155132734c9619c652e0da541298b9d55"
+https://www.github.com/1qh/idecn,2b6424eddbb360109508af5e30c068df666906ef,2026-03-26T17:44:49+00:00,Human,,0,8,1,False,False,False,False,"Single install command in README
+
+
+Former-commit-id: 76e3f03506fff2a1ffb44019351c912af9a96ab5"
+https://www.github.com/1qh/idecn,684e93a8f35b9e3f138be2b5e2721e13d044fcd9,2026-03-26T17:43:06+00:00,Human,,51,13,5,False,False,False,False,"Add idecn registry item with all components, update README install order
+
+
+Former-commit-id: ce5ad4b8064b2cd741a57994e06c332116e66e21"
+https://www.github.com/1qh/idecn,945c6a57dddc5fedf3232190f3909cee28e495f8,2026-03-26T17:39:07+00:00,Human,,84,26,2,False,False,False,False,"Rewrite README with Workspace, Tab, FileTree, Icons docs
+
+
+Former-commit-id: 22f8c41388e5b288ebe544ad021e307b3d3aedb2"
+https://www.github.com/1qh/idecn,cb64d57f6817775971602091c53f9f7667cdbaf7,2026-03-26T17:30:11+00:00,Human,,119,100,1,False,True,False,False,"Simplify workspace: useRef state, dispose listeners, memoize tabs, fix stale closures, remove showPanel
+
+
+Former-commit-id: dfd456aa9995418c78214aeae85e93dcfae5918a"
+https://www.github.com/1qh/idecn,086541d5e55525c78c6b56a6968212c86bcd33ba,2026-03-26T17:26:52+00:00,Human,,54,62,3,False,True,False,False,"Clean up stale code, fix vercel build, bump to 0.0.2
+
+
+Former-commit-id: 7f9f4c6819bf499605ac264bb0acd6123e9c6859"
+https://www.github.com/1qh/idecn,6e01cd94718ab69138a50d507b034c024bd27b1c,2026-03-26T17:20:35+00:00,Human,,12,17,1,False,False,False,False,"Persist open files in URL hash, drop localStorage
+
+
+Former-commit-id: 6615feee52d5382144fd5011cd3860cc8c7643cd"
+https://www.github.com/1qh/idecn,f68963bf540158bec9330e447a27330d416f1d1e,2026-03-26T17:17:06+00:00,Human,,35,95,2,False,False,False,False,"Replace layout persistence with file list persistence via localStorage
+
+
+Former-commit-id: 47c9d949fc612cfefe822c138195f819a01fa425"
+https://www.github.com/1qh/idecn,d708a2de62727045c2dd322d50fd11fc13bb187e,2026-03-26T17:11:07+00:00,Human,,21,68,3,False,False,False,False,"Switch layout persistence from URL hash to localStorage
+
+
+Former-commit-id: ae5bb0abe24627fd2f4e30b54a913d4c1ddf6271"
+https://www.github.com/1qh/idecn,be7af954e52617a93b304c505ba2fca8ed48a167,2026-03-26T17:05:23+00:00,Human,,4,2,1,False,False,False,False,"Restore language param on file panels after layout restore
+
+
+Former-commit-id: 994d401d606db86122ca19f857aacf25f1e90881"
+https://www.github.com/1qh/idecn,84fbbb1f82f6299b812d89d0468724ab23d63cbe,2026-03-26T16:59:45+00:00,Human,,1,0,1,False,False,False,False,"Populate initialWidths in restoreLayout so rAF resize works
+
+
+Former-commit-id: c0510e517a62591ab2e6bbf046229df96d979d7f"
+https://www.github.com/1qh/idecn,faa907a54aadd1635a6e39915469bd598eda4c63,2026-03-26T16:55:40+00:00,Human,,6,0,1,False,False,False,False,"Restore panel widths after fromJSON via initialWidths + rAF
+
+
+Former-commit-id: 568f50039fc7ec830a4fac82daaeee7088ad7516"
+https://www.github.com/1qh/idecn,b0f29d984aef7b3595fd7b5f4e6f757d147eac9b,2026-03-26T16:48:52+00:00,Human,,7,4,1,False,True,False,False,"Fix hash flood: replace onDidLayoutChange with onDidAddPanel, onDidRemovePanel, onDidActivePanelChange
+
+
+Former-commit-id: 6e69636084e7513437972b902621b924ca0b53d4"
+https://www.github.com/1qh/idecn,10b4a8a28c7dfa5ffbfddfa85bd3c808d2b09f0a,2026-03-26T16:44:10+00:00,Human,,3,2,2,False,True,False,False,"Fix hash flood: strip all params from saved layout, reset initialized on mount
+
+
+Former-commit-id: c1cfbf5d7c78ae5859d95116c458b8ab0d452f2e"
+https://www.github.com/1qh/idecn,9e0c34d421f7ceee0ea66e4bd215ab90c29ac892,2026-03-26T16:38:06+00:00,Human,,8,1,1,False,False,False,False,"Skip onLayoutChange during initialization to prevent URL hash flood
+
+
+Former-commit-id: a2679b5167c09ea2b6e8f92c601b2687030e4aa1"
+https://www.github.com/1qh/idecn,d0f53abc9f415709cb2bf9945c395388d9aa88ac,2026-03-26T16:33:59+00:00,Human,,28,24,2,False,True,False,False,"Fix layout restore timing: initialLayout prop, ready gate, restoreLayout in handleReady
+
+
+Former-commit-id: 02bdc5dededf515aa7aa9fc7fb097808ad846274"
+https://www.github.com/1qh/idecn,bc56b846680956e7d39c100805b098b08b9f7326,2026-03-26T16:29:43+00:00,Human,,35,2,1,False,True,False,False,"Fix layout restore: re-hydrate tab children and re-fetch file content after fromJSON
+
+
+Former-commit-id: 705f5a5d87f0855e236ffe581fb688737c09ceea"
+https://www.github.com/1qh/idecn,e5688a405a0123551ff68824a3a1b5876f52755e,2026-03-26T16:25:19+00:00,Human,,41,1,2,False,False,False,False,"Restore layout persistence: onLayoutChange callback, getLayout/loadLayout ref methods, debounced hash state in demo
+
+
+Former-commit-id: 810015582f7787152da3f403e52136dc04c5b033"
+https://www.github.com/1qh/idecn,ec0b3d26a82837643eec6c90c943d7516d0d5b91,2026-03-26T16:20:05+00:00,Human,,11,3,3,False,True,False,False,"Fix explorer 50-50 split: resize group after first file opens, fix full-width tab header via closest .dv-tab
+
+
+Former-commit-id: 78d59c17c4dc74eb644c0096efb9169796877543"
+https://www.github.com/1qh/idecn,d40f9fb824a14dd4adc9483c10e1e6970923979b,2026-03-26T16:14:40+00:00,Human,,16,2,4,False,False,False,False,"Setup turborepo with bun, turbo dev for web workspace
+
+
+Former-commit-id: b71b469174ff8f45753ae2c10d60db0107190771"
+https://www.github.com/1qh/idecn,a8cf13dc41d2d6b8fb48a0a4124e5ec79f55f1f9,2026-03-26T16:09:01+00:00,Human,,1,0,1,False,False,False,False,"Set packageManager to bun to prevent turbo pnpm fallback
+
+
+Former-commit-id: 9771d89ed626a4cc57ab6479c73682cc6d2775d9"
+https://www.github.com/1qh/idecn,980a9a60da15932fc35c200ec992220fea580363,2026-03-26T16:07:29+00:00,Human,,18,9,4,False,False,False,False,"Tab initialWidth, full-width header via parent flex, remove initialFileWidth
+
+
+Former-commit-id: ce43bb58404919d298f27ffb28a2064ab03a5436"
+https://www.github.com/1qh/idecn,ba02e95beef5826ee626a6119f3c24cf41c00c8d,2026-03-26T16:02:19+00:00,Human,,5,5,4,False,False,False,False,"Rename className to headerClassName on Tab
+
+
+Former-commit-id: a10a5bafe3670bbae697dfece55693597664ea22"
+https://www.github.com/1qh/idecn,d35c0e39e6164dd7a2c04b3ce8265a8874e7f66b,2026-03-26T16:00:55+00:00,Human,,6,4,4,False,False,False,False,"Tab className prop for custom tab header styling
+
+
+Former-commit-id: c3a89090a138031118b8c43ae05a21485fb0162b"
+https://www.github.com/1qh/idecn,f10d359baf27a58658de8c20ddebe0e9401a7a43,2026-03-26T15:59:20+00:00,Human,,29,17,4,False,False,False,False,"Tab closable/icon options, initialFileWidth for right panel split
+
+
+Former-commit-id: 0549d39ccac469668edfa3dc53cdb8c01ac1c462"
+https://www.github.com/1qh/idecn,a73aaca29e1954daa475f24a93152e1f0ee20bbf,2026-03-26T15:52:25+00:00,Human,,23,4,3,False,True,False,False,"Fix file tabs: open in right panel, add close button, track file groups
+
+
+Former-commit-id: c57c1a75d3482daf3a1f6567840b89945010c65b"
+https://www.github.com/1qh/idecn,72526179c6dd3e6c8d7007e0c0a28f74d9aa8b89,2026-03-26T15:48:02+00:00,Human,,11,2,2,False,False,False,False,"Add workspaces and dev deps for dockview, monaco, next-themes, playwright
+Single bun install now resolves all deps including web/ workspace.
+Pre-commit hook works after bun clean without manual web/ install.
+
+
+Former-commit-id: b02373c7275db899e73d3c98ca2fd11a9e0ed7a3"
+https://www.github.com/1qh/idecn,862a4361dd3fa3e14dc64b7b2b214693ab17ee02,2026-03-26T15:40:36+00:00,Human,,6,1,2,False,True,False,False,"Fix pre-commit: add playwright to root devDeps, gitignore next-env.d.ts
+
+
+Former-commit-id: 5c8e61602c222acfa3345dd88f0369d542c93364"
+https://www.github.com/1qh/idecn,b76db051441b218c2c106d17a8c15536921972f6,2026-03-26T15:40:30+00:00,Human,,43,219,6,False,False,False,False,"Update demo app to use Workspace and Tab components
+Replaces raw DockviewReact + ResizablePanelGroup with declarative
+Workspace/Tab API. File tree is now a dockview Tab. Removes unused
+panels.tsx, resizable.tsx, langOf, and react-resizable-panels dep.
+
+
+Former-commit-id: 3955e3b2821e619fea7361d8cf4fc2d1e38ff805"
+https://www.github.com/1qh/idecn,3614ace9b1224028e0778425b5f18b6569a4ea8c,2026-03-26T15:40:22+00:00,Human,,259,0,4,False,False,False,False,"Add Workspace and Tab components for declarative dockview layout
+
+
+Former-commit-id: 1d04ad83287b4f1f02f906d04b09fef96a07fea8"
+https://www.github.com/1qh/idecn,b80de956671dd3d9629e88dabe4ac60e90ad50a6,2026-03-26T12:27:09+00:00,Human,,2,2,1,False,False,False,False,"Use bun x for tsdown in all scripts
+
+
+Former-commit-id: c7174af0789f47a7bb070453ad336e13a3d4a112"
+https://www.github.com/1qh/idecn,af2d0ce5c24958b07c094130c4e43d1ffe0d711c,2026-03-26T12:26:14+00:00,Human,,1,1,1,False,True,False,False,"Fix repository URL format for npm
+
+
+Former-commit-id: 6a3be18eaa4293d6d6070f6f4b0030d8664ff1e8"
+https://www.github.com/1qh/idecn,6fb6948ce132e29c2baea2c622d27de17f5f3ea6,2026-03-26T12:24:44+00:00,Human,,11,14,4,False,False,False,False,"Add tsdown build, dist output for npm, prepublishOnly hook
+
+
+Former-commit-id: c6b41d67d4f65257449a56d90aa5957e5aee9d82"
+https://www.github.com/1qh/idecn,4573cd234b36cb5861baa95ec57ef7a53b1af2b3,2026-03-26T12:21:55+00:00,Human,,5,7,2,False,False,False,False,"Disable autocomplete and password manager overlays on repo input
+
+
+Former-commit-id: 168a9e0f37f4a34786aee60aaf22d5f6f3145414"
+https://www.github.com/1qh/idecn,90a330d52162ee736a9012937da39757ca38105d,2026-03-26T12:18:13+00:00,Human,,130,4,7,False,False,False,False,"E2e tests (6 pass), loading state for empty editors, rate limit on restore, better input placeholder
+
+
+Former-commit-id: debde14cab86e8fa9c0187fa36852a51ef9f54f8"
+https://www.github.com/1qh/idecn,48ae605d928da408afcc28476eef368b74e5edd1,2026-03-26T12:03:21+00:00,Human,,22,22,3,False,True,False,False,"Fix empty editor on reload: subscribe to onDidParametersChange in FilePanel
+
+
+Former-commit-id: cbc6a49a50645ec8a20b2ae0606ded0b97ee798f"
+https://www.github.com/1qh/idecn,9f136e39fa17e385a2d2ba2c55f599a1f8f1e892,2026-03-26T11:57:40+00:00,Human,,14,2,2,False,True,False,False,"Fix empty editor on reload: remove+re-add panels with fetched content instead of updateParameters
+
+
+Former-commit-id: 6d5758caacebe2dbf1d97f4521c93db1f98ca0d7"
+https://www.github.com/1qh/idecn,4275deb4ed20b6f97630f9c0f44c6a99bf66323a,2026-03-26T11:53:47+00:00,Human,,1,1,1,False,False,False,False,"Engaging demo link
+
+
+Former-commit-id: fa03bc1d7e2d935035b8051d7b0500c0c5b91d02"
+https://www.github.com/1qh/idecn,0b5314c97935ea44cb1a500254f71738b7a1177e,2026-03-26T11:52:59+00:00,Human,,2,0,1,False,False,False,False,"Add centered demo link at top of README
+
+
+Former-commit-id: 070b48655c1a8af48a1ccf91941a02e9f3ab8f10"
+https://www.github.com/1qh/idecn,18654c0e12c1361644188f19b8b4a87736c05e74,2026-03-26T11:50:48+00:00,Human,,21,0,1,False,False,False,False,"Add MIT license
+
+
+Former-commit-id: 35df4ab47dd60c7fe25078b82a947b2479c4401d"
+https://www.github.com/1qh/idecn,8f6d20b099ca734f31977e987e781b3d76106214,2026-03-26T11:50:29+00:00,Human,,8,26,1,False,False,False,False,"Minimal README: remove redundant headers, split code blocks
+
+
+Former-commit-id: 03110a613289a37fedbe2abb1df4a8c941f1d5a2"
+https://www.github.com/1qh/idecn,3123d249bdff96d6267e27c6c22abea2965cd35f,2026-03-26T11:44:32+00:00,Human,,1,1,1,False,False,False,False,"Pin shadcn-tree-view commit hash in credit
+
+
+Former-commit-id: cbd213e80139aa23a735a71b6963f437f5553856"
+https://www.github.com/1qh/idecn,62fb4ad04d9b138e1cad1d6e249b6004d78392da,2026-03-26T11:44:05+00:00,Human,,2,1,1,False,False,False,False,"Simplify credit section
+
+
+Former-commit-id: 24d94c0d09b834500dfc224d7be17cdfdfe2b948"
+https://www.github.com/1qh/idecn,52473527551665650f32a091d30b54539d1942a3,2026-03-26T11:43:43+00:00,Human,,9,16,3,False,False,False,False,"Remove custom CSS vars, use shadcn accent directly, clean README
+
+
+Former-commit-id: 621945768e03284ca1e3323f7470b1be47fed7e1"
+https://www.github.com/1qh/idecn,e7757bdc8bf9a3a66aab566f56fec74d7c71a988,2026-03-26T11:38:24+00:00,Human,,5,2,2,False,False,False,False,"Run gen-demo-tree in build pipeline, add gen script for all codegen
+
+
+Former-commit-id: 2dedebb5b1ea74e16400ed983b6025f449c43aa4"
+https://www.github.com/1qh/idecn,2b6e34d2bebe9693d16b8d63decd75603b75ea7a,2026-03-26T11:34:24+00:00,Human,,5,3,4,False,False,False,False,"Gitignore web lockfile and registry output, rebuild registry on deploy
+
+
+Former-commit-id: d07fa897d62ae508c143484e7fb0700d9c09134b"
+https://www.github.com/1qh/idecn,1d9cb4f1bbd71fe27bd2c81f02c9761c4df06ce5,2026-03-26T11:30:42+00:00,Human,,99,77,4,False,False,False,False,"Split explorer into focused modules, add npm metadata, clean up
+
+
+Former-commit-id: aa4f0589edbc057683abd39bfd825346649a31ea"
+https://www.github.com/1qh/idecn,54b0dcc56a7d4caa2529b5739ca77c4d51a71f0a,2026-03-26T11:26:22+00:00,Human,,84,112,10,False,True,False,False,"Clean up: Inter + JetBrains Mono fonts, Monaco bg matches theme, reactive theme, fix README API docs, remove stale PLAN, dynamic icon path resolution
+
+
+Former-commit-id: d9b87ee6f8a34618393ed74d2ec84a124a8bb354"
+https://www.github.com/1qh/idecn,655166b634ce4125450fab5843d0a8e4128ea9d9,2026-03-26T11:12:56+00:00,Human,,26,13,1,False,True,False,False,"Fix state restore timing, strip file content from hash, refetch on restore, remove nuqs
+
+
+Former-commit-id: 2b2e2c9ad2fb54c5fa0c0de4df111969d0e8eaca"
+https://www.github.com/1qh/idecn,58aaef6f6fe11850d022c6a73f05df713ef85142,2026-03-26T11:04:24+00:00,Human,,130,62,6,False,False,False,False,"URL hash state persistence: compress layout to shareable URL, remove nuqs, rate limit fallback, dogfood own repo
+
+
+Former-commit-id: 7321c986d1ccaaddcee9da34371be851c81ff8e3"
+https://www.github.com/1qh/idecn,72d26ee915961d626a7eb1160f3a58c89fb57895,2026-03-26T10:47:59+00:00,Human,,119,11,3,False,False,False,False,"Dogfood own repo as demo, rate limit fallback, gitignore-aware tree gen, no external JSON
+
+
+Former-commit-id: 2b54013befca398e6116c9fe4c2d65e3c631c4a3"
+https://www.github.com/1qh/idecn,2ae81c64bc1cfa006934c608102835f617cc572f,2026-03-26T10:40:40+00:00,Human,,2,2,1,False,True,False,False,"Fix Vercel: install both root and web deps
+
+
+Former-commit-id: 3b6da6148ff3953c8655f5d9536361d2d08f15c5"
+https://www.github.com/1qh/idecn,c8987044d2a2cae67cd143803ff104ed4f49c70c,2026-03-26T10:39:24+00:00,Human,,134,65,19,False,False,False,False,"Flatten structure, shadcn registry at /r/, tsconfig path alias for idecn
+
+
+Former-commit-id: b061de518c757908ed717f081fbaab8cdcb040e3"
+https://www.github.com/1qh/idecn,a3ba6f4bc144bf78b768df81f7b3a034174e7151,2026-03-26T10:23:47+00:00,Human,,1,0,1,False,False,False,False,"Add next to root devDeps for Vercel detection
+
+
+Former-commit-id: 32431157f4598cef0c297118996d7e0e748078b5"
+https://www.github.com/1qh/idecn,56b94869bb90130ca3c349bc407da75a3de58cf2,2026-03-26T10:22:49+00:00,Human,,2,0,2,False,False,False,False,"Vercel config: build from root, output from web/.next
+
+
+Former-commit-id: 0f90e031378e00a55280a93e4eeb09aa12f0c1b0"
+https://www.github.com/1qh/idecn,6e98dcfea06ae4dae476428b3206b9d5f580fad9,2026-03-26T10:21:03+00:00,Human,,9,9,13,False,False,False,False,"Move demo to web/, simplify structure, add vercel.json
+
+
+Former-commit-id: 7ef278afd50ea5dcb3ff5e4db3bfbf760b0bc8f1"
+https://www.github.com/1qh/idecn,0ec50fe84f19b8499af71015227bf615bec8538e,2026-03-26T10:16:35+00:00,Human,,6,0,1,False,False,False,False,"Add vercel.json for monorepo deploy
+
+
+Former-commit-id: 928717e892b0ba8ca6a1fc14b26280f34bbb7efd"
+https://www.github.com/1qh/idecn,2e2b82b8b7735161fb641971c060be5e0a581b62,2026-03-26T10:15:05+00:00,Human,,171,90,4,False,True,False,False,"Refactor: primitives (Tree, TreeFolder, TreeFile) + convenience FileTree, fix types
+
+Former-commit-id: 00d3b03b299ff6c6301b3b8db781c3c096fb1d13"
+https://www.github.com/1qh/idecn,5da7b74f26285967df09d210a9905342ff8ae38e,2026-03-26T10:04:36+00:00,Human,,20,20,14,False,False,False,False,"Rename nicetree to idecn: IDE-like UI components for React
+
+
+Former-commit-id: 9faaaeb27ff7bf8a794b995876024156514ca353"
+https://www.github.com/1qh/idecn,9fc95cc4c50fdcb3d4c9a19b46ba8f89762d73cc,2026-03-26T09:59:38+00:00,Human,,10,12,1,False,False,False,False,"Cleaner UI: search icon, stroke-1 icons, tighter tabs and top bar
+
+
+Former-commit-id: 2da1c155e6693df3d422c6fe4b7f24c0fdbcfac7"
+https://www.github.com/1qh/idecn,9282645cd8c6167a5ebc72538bdb46f75ff7dd9f,2026-03-26T09:43:19+00:00,Human,,2,2,1,False,False,False,False,"Tighter tab padding, X only visible on tab hover
+
+
+Former-commit-id: d59152a22c83e63887698b158513a705a1fa3787"
+https://www.github.com/1qh/idecn,5da59e7054c413672f16e219c10580d011e2eb0b,2026-03-26T09:39:50+00:00,Human,,1,1,1,False,True,False,False,"Fix tab vertical alignment with h-full
+
+
+Former-commit-id: 85010585d201f38a3b3c9839d79b90bba165f750"
+https://www.github.com/1qh/idecn,010825e31a5818fcb0405cc5db6e6628d2369edc,2026-03-26T09:38:54+00:00,Human,,1,1,1,False,False,False,False,"Make tab close button visible
+
+
+Former-commit-id: 19a6a855f9cb488918c9719969a85b5c10b303cc"
+https://www.github.com/1qh/idecn,b916be9be81a698131f985ee387ac5c6f023f2fd,2026-03-26T09:33:51+00:00,Human,,11,2,2,False,False,False,False,"Add close button to tabs
+
+
+Former-commit-id: b71f21623ae8315d6774dc7584445dc17b2716ec"
+https://www.github.com/1qh/idecn,b8aada7071cc871ae0ebc7e3bc5e90eed956bedd,2026-03-26T09:30:50+00:00,Human,,66,28,9,False,True,False,False,"Fix ts/js icons via languageIds, file icons in tabs, thinner tabs via CSS var, regenerate icons
+
+
+Former-commit-id: e646e75fb301d1a082a3e466293780f5e6468ee9"
+https://www.github.com/1qh/idecn,1ae6b3db3d21e696a317cd42861a609749432280,2026-03-26T09:22:41+00:00,Human,,3,3,1,False,False,False,False,"Active tab muted bg, inactive tab background bg
+
+
+Former-commit-id: 4b5531b3b0a71058aac5e924e11c3cb5d55a5b77"
+https://www.github.com/1qh/idecn,ba9f9e5921ecf7c8c399bf0dcbf52298f3cad743,2026-03-26T09:21:27+00:00,Human,,8,0,1,False,False,False,False,"Thinner tabs: 30px height, 13px font
+
+
+Former-commit-id: 3f25b9880c9e8a065526e9b8d73977a09b155ed3"
+https://www.github.com/1qh/idecn,e1b294e92f94b6abc6663bf8f26767384f777e20,2026-03-26T09:20:17+00:00,Human,,1,1,1,False,False,False,False,"Tab bar background matches page background
+
+
+Former-commit-id: 98aff79e7745dc70fcd2e171369c0a592531703f"
+https://www.github.com/1qh/idecn,a1ea6d8bd71af1a7238e883b719d6dbf7d99e924,2026-03-26T09:19:03+00:00,Human,,17,1,2,False,False,False,False,"Match dockview colors with shadcn theme variables
+
+
+Former-commit-id: 9a25bf4f69f83e037b95631a56a75cbff2fd336d"
+https://www.github.com/1qh/idecn,674b6c448cbdbb4e7301aaa0a3c10cbbce4cb189,2026-03-26T08:58:27+00:00,Human,,83,62,6,False,False,False,False,"Dockview tabbed editor, all deps latest, clean command, pre-commit hook
+
+
+Former-commit-id: 7118a465e913a6a89c11ff347c167654864d806a"
+https://www.github.com/1qh/idecn,927dd7e394c9a782c7f729a8c1062bbceebf4a32,2026-03-26T08:35:04+00:00,Human,,1,1,1,False,False,False,False,"Sidebar default 320px
+
+
+Former-commit-id: 4c59be2784737d891964792f02c011611909ea61"
+https://www.github.com/1qh/idecn,92e0a04f3e06e810ee3bdd56e70164bcdd2ff7dc,2026-03-26T08:34:37+00:00,Human,,2,2,1,False,False,False,False,"Increase file tree font to text-sm
+
+
+Former-commit-id: 94a83dd46290a0a27ed29c0559c1cbcdf00a2b80"
+https://www.github.com/1qh/idecn,ff32b4e1ef5461f0fd0a9d5b6cb8991ee2157dd8,2026-03-26T08:33:54+00:00,Human,,1,1,1,False,False,False,False,"Set sidebar default width to 280px
+
+
+Former-commit-id: 05589bfb67d8f29a38a9ccf1e39d153080c0cc1c"
+https://www.github.com/1qh/idecn,7d1822c92c03d3b974c62bf6635c3d93b3f48d8c,2026-03-26T08:32:40+00:00,Human,,2,2,2,False,False,False,False,"Set sidebar minSize to 200px
+
+
+Former-commit-id: b9b0ea592e7dd0eeccfd1508c0961442a10e25d5"
+https://www.github.com/1qh/idecn,575a391f5297aaf67c4f3e45218dda0f00749a14,2026-03-26T08:31:32+00:00,Human,,8,6,2,False,False,False,False,"Invisible resize handle, horizontal scroll for long filenames, remove truncation
+
+
+Former-commit-id: edf2acd6c530ca124a8ba2deb877632d668ac969"
+https://www.github.com/1qh/idecn,146194c191398a904620dafef665286c4fd753b8,2026-03-26T08:25:00+00:00,Human,,6,2,3,False,True,False,False,"Fix animation: @source for Tailwind to scan component lib, gap-7px, sidebar default 25%
+
+
+Former-commit-id: 17495a8299a1154efd4d15fddc840fcf027447db"
+https://www.github.com/1qh/idecn,4b6c7c92fcfb84a5ae6b215bb5e159ec8591b693,2026-03-26T07:51:12+00:00,Human,,66,66,5,False,True,False,False,"Fix nested folders: separate Accordion.Root per folder, shadcn resizable panels, full TreeDataItem API
+
+
+Former-commit-id: 16d30af847dbe2b68cae61d088a12a3a1bedbe89"
+https://www.github.com/1qh/idecn,afe190d569ebd2bd6345695ce43f1c2ed40506d4,2026-03-26T07:41:56+00:00,Human,,142,88,3,False,False,False,False,"Rewrite with Base UI accordion: full API match, smooth animation, proper expand/collapse
+
+
+Former-commit-id: b0be846a307a2bfbcfd27a54d5437b918ba262be"
+https://www.github.com/1qh/idecn,400eb20cab68f4412448f8f54a5f5d69a192b46e,2026-03-26T07:34:30+00:00,Human,,35,47,4,False,False,False,False,"Collapse all by default, Base UI collapsible animation, resizable sidebar, remove input border, gap-7px
+
+
+Former-commit-id: 3a32addf72c8eaa13d2e37223bc55d05cf4e319f"
+https://www.github.com/1qh/idecn,7c2b17e6a4f390c58f974d18ed0705b29ebd1407,2026-03-26T07:22:14+00:00,Human,,33,14,1,False,True,False,False,"Fix collapse/expand with Collapsible height animation, proper indent via inline paddingLeft
+
+
+Former-commit-id: eac568a6f9aafabef8fe1e434555f39fdeab8b8a"
+https://www.github.com/1qh/idecn,218e20fb805b1977d4d9e74063cdf9e64db1c067,2026-03-26T07:15:55+00:00,Human,,19,23,1,False,True,False,False,"Fix indent with inline paddingLeft, add smooth expand/collapse animation via grid-template-rows
+
+
+Former-commit-id: 028d021ec721040ab99425cc96097e2851850d88"
+https://www.github.com/1qh/idecn,75a34f266a5de4d1032dcb17e10a91581bf1e364,2026-03-26T07:08:13+00:00,Human,,95,11,8,False,True,False,False,"Use material-icon-theme for folder+file icons with open/closed states, fix for-loop rendering
+
+
+Former-commit-id: 9a68df53dd55b92168f26552c361a8970140ab39"
+https://www.github.com/1qh/idecn,8ca8c0bbb41329e586e455582fef587339d75ecd,2026-03-26T06:59:19+00:00,Human,,41,33,4,False,True,False,False,"Fix hydration mismatch and flicker: for-loop rendering, mounted gate for theme icon, disableTransitionOnChange"
+https://www.github.com/1qh/idecn,7c54e752a33cb516ae330a9edbf5897865d64486,2026-03-26T06:53:17+00:00,Human,,11,10,1,False,True,False,False,"Fix hydration flicker: mount gate, resolvedTheme, memoized editor theme"
+https://www.github.com/1qh/idecn,8c575d886f1b3784872e11ec26edc875b6264c93,2026-03-26T06:18:25+00:00,Human,,73,0,1,False,False,False,False,Add README with usage docs
+https://www.github.com/1qh/idecn,1584716b11c0fb43ee65e78e04d4d39b101daacd,2026-03-26T06:17:49+00:00,Human,,181,57,4,False,False,False,False,"VS Code layout with GitHub repo browser, Monaco editor, theme toggle, nuqs URL state"
+https://www.github.com/1qh/idecn,b1d3ddfb528c8b56fc48feb505842748938b4f7b,2026-03-26T06:13:27+00:00,Human,,174,6,8,False,False,False,False,Add Next.js demo app with shadcn theme
+https://www.github.com/1qh/idecn,60bbc2ab83adbbdc450d9a25f3e5e79a42d3b2c9,2026-03-26T06:09:42+00:00,Human,,117,6,5,False,False,False,False,Add FileTree component with material-file-icons
+https://www.github.com/1qh/idecn,987316feef03e237d3673a252ed49ad39b979d44,2026-03-26T06:04:22+00:00,Human,,146,0,6,False,False,False,False,Init monorepo with plan and package skeleton

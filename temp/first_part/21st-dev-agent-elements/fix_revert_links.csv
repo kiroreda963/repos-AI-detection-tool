@@ -1,0 +1,13 @@
+github_url,source_sha,source_date,source_type,source_author_type,target_sha,target_date,target_author_type,days_to_action,day_bucket,link_method
+https://www.github.com/21st-dev/agent-elements,b04b36cb6381a1dd1a0e86cc7c90564ddcd56d37,2026-04-24T17:53:37+00:00,fix,AI,940abb80b97aca2963a59c3d6e9e90fc87729778,2026-04-22T23:04:43+00:00,AI,1.784,1-3,blame
+https://www.github.com/21st-dev/agent-elements,a08c0540a32988cdd34aebefa745735beec7bb0a,2026-04-23T03:59:31+00:00,fix,AI,ba8b6e8b2913c839baf77cf33e35f9b0179b60a0,2026-04-22T23:57:48+00:00,AI,0.168,0-1,blame
+https://www.github.com/21st-dev/agent-elements,b9537ae733859eceb284d3e9fd036763425eb7ca,2026-04-23T00:00:19+00:00,fix,AI,ba8b6e8b2913c839baf77cf33e35f9b0179b60a0,2026-04-22T23:57:48+00:00,AI,0.002,0-1,blame
+https://www.github.com/21st-dev/agent-elements,e9b38d8f1491e8a9f1ce73158e17ac15b3837958,2026-04-10T16:03:04+00:00,fix,Human,ef83ccc86f5c4a493f813dc9e78ce04738b4fabc,2026-03-31T10:31:33+00:00,Human,10.23,7-30,blame
+https://www.github.com/21st-dev/agent-elements,ac4efdc93277b5a027e66ea8014fd154f6cbc667,2026-04-09T15:25:20+00:00,fix,Human,6b415dab4b2adbc3c6d6eda68a151402a2cbe618,2026-04-09T10:06:28+00:00,Human,0.221,0-1,blame
+https://www.github.com/21st-dev/agent-elements,6b415dab4b2adbc3c6d6eda68a151402a2cbe618,2026-04-09T10:06:28+00:00,fix,Human,d4bab405f9b5d08250ad56c5f854a0314ab7ca32,2026-03-31T10:57:49+00:00,Human,8.964,7-30,blame
+https://www.github.com/21st-dev/agent-elements,119f5e1dcb6bca5539bbd74e4279e14d574aa3ce,2026-04-06T09:57:32+00:00,fix,Human,a0f74e25b42911c98b11acbb866952249e25eee3,2026-03-13T08:57:33+00:00,Human,24.042,7-30,blame
+https://www.github.com/21st-dev/agent-elements,185270dc6df14f8631cbb7aadbdb7645cb759229,2026-03-27T18:35:43+00:00,fix,Human,17c3a907e46d4e75db8e05fbc141444899fb72c2,2026-03-24T09:43:53+00:00,Human,3.369,3-7,blame
+https://www.github.com/21st-dev/agent-elements,4515dd23bdc68c92b16657ef07f48c507a82467e,2026-03-18T08:08:37+00:00,fix,Human,a0b02442bb8dac7bb7c9421590573032f6b51ed3,2026-03-16T10:54:28+00:00,Human,1.885,1-3,blame
+https://www.github.com/21st-dev/agent-elements,20f78c5d59d4398122b6e2c4226690178d66ea58,2026-03-13T13:52:52+00:00,fix,Human,a0f74e25b42911c98b11acbb866952249e25eee3,2026-03-13T08:57:33+00:00,Human,0.205,0-1,blame
+https://www.github.com/21st-dev/agent-elements,1fc08b647248f91876f4b9d22eecd1c9cde01d44,2026-03-13T09:45:39+00:00,fix,Human,92cb917891ed9a028109106a925e98c4d9539b79,2026-03-13T09:26:40+00:00,Human,0.013,0-1,blame
+https://www.github.com/21st-dev/agent-elements,38ff9d149e6b38e09772543bdd46c1e7b9ded49c,2026-03-13T09:16:36+00:00,fix,Human,a0f74e25b42911c98b11acbb866952249e25eee3,2026-03-13T08:57:33+00:00,Human,0.013,0-1,blame

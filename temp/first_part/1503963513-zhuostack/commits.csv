@@ -1,0 +1,1524 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1503963513/zhuostack,69c3f6aadef57e1b1a90170fec4d241cd829bd67,2026-11-04T07:20:02+00:00,AI,Claude_Code,19,9,3,False,False,False,False,"perf(monitor): 调低系统定时任务执行频率并补全环境配置模板
+
+- 将 health-check 频率由 5 分钟调至 30 分钟，减缓调度日志膨胀
+- 将 cache-cleanup 与 online-cleanup 频率由 10/30 分钟调至 2 小时
+- 补充部署与认证环境配置模板说明
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,8ba98048daa4c254fca0ecb8816180ef2dc2dfd6,2026-11-03T09:03:13+00:00,Human,,5991,3459,137,True,True,False,False,fix: 强化认证安全与双数据库契约一致性
+https://www.github.com/1503963513/zhuostack,a95191cb4f743f3ddbd1d5332c8b7d051e2832c1,2026-11-03T06:40:05+00:00,Human,,4,9,2,True,True,False,False,fix(web): 清理监控页面未使用的类型导入
+https://www.github.com/1503963513/zhuostack,1b3ac32af9a053a8db6bcd5a58a404851f12b28b,2026-11-03T06:28:44+00:00,Human,,381,103,3,False,False,False,False,feat(web): 增强 TreeTable 搜索与工具栏体验
+https://www.github.com/1503963513/zhuostack,31647b4ffeab6839f1bfd7e623019d18c1a321d3,2026-11-03T06:02:22+00:00,Human,,474,308,3,False,False,False,False,refactor(web): 封装 TreeTable 并接入部门与菜单管理
+https://www.github.com/1503963513/zhuostack,fe84867c35c530f977f289c5fdd51d60f55cc9f2,2026-11-03T05:23:55+00:00,Human,,117,95,1,False,False,False,False,refactor(web): 将定时任务管理列表重构为 DataTable 表格组件
+https://www.github.com/1503963513/zhuostack,4bf877faf76f69b8b9cee00e5da3dd8188bb81c0,2026-11-03T05:21:12+00:00,Human,,98,77,1,False,False,False,False,refactor(web): 将缓存监控列表重构为 DataTable 表格组件
+https://www.github.com/1503963513/zhuostack,6a3384d4e9660b38eccca80469c655826ef9f6a0,2026-11-03T05:11:01+00:00,Human,,49,41,2,True,True,False,False,fix(web): 为菜单管理和部门管理树形列表添加水平滚动及最小宽度保护
+https://www.github.com/1503963513/zhuostack,b7e3200ba32f14b6c487641b0a6c04ce777e8f60,2026-11-03T05:03:22+00:00,Human,,85,38,1,True,True,False,False,fix(web): 优化 DataTable 表格自适应及操作列按钮溢出问题
+https://www.github.com/1503963513/zhuostack,5329cf455dd3be75de31ede4df98289d3de7d42a,2026-11-01T05:13:05+00:00,Human,,2,0,1,True,True,False,False,fix(docker): upgrade patched alpine packages
+https://www.github.com/1503963513/zhuostack,c45a9ebde9f7bb8988afa3a8623a99bf1f985ba0,2026-11-01T05:07:12+00:00,Human,,9,1,2,True,True,False,False,fix(docker): harden runtime images
+https://www.github.com/1503963513/zhuostack,2eae46c030a05ecc4afb54d8d1854ab278eb095a,2026-11-01T04:45:29+00:00,Human,,3071,3120,8,True,True,False,False,"fix(ci): resolve contract, migration, and audit failures"
+https://www.github.com/1503963513/zhuostack,81a50d68686f861269de052aaedebb6c74b8d27e,2026-11-01T02:53:21+00:00,Human,,23,4,4,True,True,False,False,fix(web): reset PageTabs on logout and preserve parent menu active state on subpages
+https://www.github.com/1503963513/zhuostack,2a13d069455401281e2bff22d8e4ec9110cc42db,2026-11-01T02:42:11+00:00,Human,,51,12,4,False,False,False,False,feat(deploy): support independent WEB_VERSION/API_VERSION and single-component rolling updates
+https://www.github.com/1503963513/zhuostack,91c3771d635256f22cd343d926d9dd4f876565f1,2026-11-01T02:36:01+00:00,Human,,8,2,2,True,True,False,False,fix(deploy): allow web-only packages to bypass database type verification
+https://www.github.com/1503963513/zhuostack,b9857381f235c59118564e7ff3c9b219348ebb49,2026-11-01T02:26:10+00:00,Human,,1,1,1,True,True,False,False,fix(docker): use stable nginx:1.27-alpine tag in Dockerfile.web
+https://www.github.com/1503963513/zhuostack,8a73c3b692cc916819183b454eac6d372215b83d,2026-11-01T02:11:54+00:00,Human,,17,2,1,True,True,False,False,fix(deploy): auto detect new offline images and sync APP_VERSION on redeploy
+https://www.github.com/1503963513/zhuostack,f2340ab961652e275f35aac63f11e3468a2660e0,2026-10-31T15:37:58+00:00,Human,,23,4,2,True,True,False,False,fix(file): copy absolute file url with origin instead of relative path
+https://www.github.com/1503963513/zhuostack,13b512be2bb8c895177c0b938583a08da4ff4683,2026-10-31T15:09:53+00:00,Human,,92,17,6,True,True,False,False,fix(web): fallback clipboard copy on non-secure http and enable gzip compression in nginx
+https://www.github.com/1503963513/zhuostack,14b8e92241703d78e2d1200e9f61412f90e4fa1e,2026-10-31T05:14:58+00:00,Human,,4,4,2,True,True,False,False,fix(deploy): fix relative upload and tls volume paths in compose.app-only.yml and ensure recursive host permissions
+https://www.github.com/1503963513/zhuostack,307fcd0253c039fb0e23bd0c86a87b06b6b21061,2026-10-31T04:19:05+00:00,Human,,11,7,4,False,False,False,False,feat(deploy): bind mount uploads to host directory for permanent file persistence and easy backup
+https://www.github.com/1503963513/zhuostack,a21ba6ca19d5c3ff37e1e7ae49ae3f7571da309b,2026-10-31T04:08:50+00:00,Human,,8,14,2,True,True,False,False,fix(nginx): use ^~ prefix for /files/ and /api/ to prevent static regex hijack and enable image preview
+https://www.github.com/1503963513/zhuostack,732237542af1220b005374d5c91b137eed5b9ab0,2026-10-31T04:01:54+00:00,Human,,65,13,4,False,False,False,False,docs: promote pnpm release interactive wizard across deployment guides and readmes
+https://www.github.com/1503963513/zhuostack,181d4c4fab003e6b58c9e538c6b40000d879ab9d,2026-10-31T03:42:26+00:00,Human,,2,0,1,False,False,False,False,chore(git): ignore temporary test and deploy directories in .gitignore
+https://www.github.com/1503963513/zhuostack,c6f72255f2066396488a3dd7383bcd38c295231a,2026-10-31T03:28:10+00:00,Human,,108,5,3,True,True,False,False,fix(deploy): use dedicated compose.app-only.yml for EXTERNAL_DB mode to prevent dependency conflicts
+https://www.github.com/1503963513/zhuostack,73bda7f7dfb39a7da792699159cf5f751283d18f,2026-10-31T01:53:57+00:00,Human,,10,12,3,False,False,False,False,perf(docker): switch api base image to node:24-alpine and add linux-musl-openssl-3.0.x binaryTarget
+https://www.github.com/1503963513/zhuostack,ce91e61a0f9a5a9d51f9c1ce9fd949e5e1ac028b,2026-10-31T01:47:22+00:00,Human,,8,5,1,False,False,False,False,perf(docker): optimize api dockerfile size by pruning node_modules and eliminating redundant chown layer
+https://www.github.com/1503963513/zhuostack,0f9bc0736554f6070126926d4f74d88325ea6513,2026-10-31T01:13:25+00:00,Human,,4,1,1,True,True,False,False,fix(deploy): safely handle empty middleware array under bash set -u
+https://www.github.com/1503963513/zhuostack,8b593430111fd593aa3d74e3ecd95ef3944dee3a,2026-10-30T15:37:00+00:00,Human,,0,2,2,True,True,False,False,fix(docker): remove redundant syntax directive to prevent Docker Hub resolve timeout
+https://www.github.com/1503963513/zhuostack,0cf6c80d60b9cc2304fd789d32964b03ff44219e,2026-10-30T15:30:23+00:00,Human,,158,28,2,False,False,False,False,"feat(deploy): interactive wizard for custom docker packaging (components, db, and middleware options)"
+https://www.github.com/1503963513/zhuostack,e66210e972c06f88b10ef24a8a83bfa8f220dcb5,2026-10-30T15:25:22+00:00,Human,,129,26,1,False,False,False,False,docs(deploy): comprehensive overhaul of .env.deploy.example with beginner-friendly guides and checklists
+https://www.github.com/1503963513/zhuostack,dbc882643d421cbd21fa2d8563209e3dda6c0e8b,2026-10-30T15:22:24+00:00,Human,,3,1,2,True,True,False,False,fix(deploy): allow NODE_ENV override in compose and add COOKIE_SECURE example
+https://www.github.com/1503963513/zhuostack,3d1abdcdc572077cc49f19db0900ea475a76b325,2026-10-30T14:59:45+00:00,Human,,45,12,4,True,True,False,False,fix(auth): fix cookie secure flag on http and add sys_job_log postgres migration
+https://www.github.com/1503963513/zhuostack,347f960398ecaeaa9332488e65ee27c95783b130,2026-10-30T08:54:55+00:00,AI,Claude_Code,7,1,1,True,True,False,False,"fix(docker): grant necessary capabilities to redis container to fix permission denied on data volume
+
+- Add CHOWN, SETUID, SETGID, and DAC_OVERRIDE capabilities to redis service
+- Add start_period to redis healthcheck and improve redis-cli command syntax
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,c0dff618afe60d37ac747770d21fa7a82da02afd,2026-10-30T08:40:10+00:00,AI,Claude_Code,39,10,5,False,False,False,False,"feat(deploy): support external MySQL/PostgreSQL and Redis deployment mode
+
+- Add docker/compose.external-db.yml to disable containerized DB and Redis
+- Support EXTERNAL_DB=true in .env.deploy with host.docker.internal gateway
+- Allow custom REDIS_URL override in docker-compose.yml
+- Include compose.external-db.yml in offline docker packages
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,d13349c06e103269096a194bef5ef9b14e90f730,2026-10-30T07:36:45+00:00,AI,Claude_Code,2,2,2,True,True,False,False,"fix(layout): adjust z-index layering between Header and PageTabs to prevent avatar menu overlap
+
+- Elevate Header to z-35 so avatar dropdown menu stays above PageTabs
+- Set PageTabs to z-20 so it remains sticky over main content without covering Header popovers
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,339b211f7cca9f202ded6478145891686026e052,2026-10-30T07:29:21+00:00,AI,Claude_Code,80,17,3,False,False,False,False,"perf(deploy): optimize offline docker packaging speed and support architecture selection
+
+- Add architecture prompt with auto-detection to prevent slow QEMU emulation on Apple Silicon
+- Stream image export directly through gzip/pigz to avoid docker VM out of space errors
+- Optimize final archive compression pipeline and avoid double compression of image layers
+- Support loading both offline-images.tar and offline-images.tar.gz in docker up
+- Add offline docker package option to the interactive release wizard
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,d0fb66097516f0a07c0bf9b1dcd27c2a102d4a59,2026-10-30T06:43:43+00:00,AI,Claude_Code,661,88,1,False,False,False,False,"feat(monitor): enhance online users page with search, table view, pagination and batch kick
+
+- Add KPI overview cards for total users, client environments, and current session
+- Support debounced search by username, email, and IP, plus browser/OS filters
+- Implement standard data table layout with user avatars and environment badges
+- Add client-side pagination, session details dialog, and auto-refresh toggle
+- Support batch kick out and prevent self-kick misoperations
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,4991a25c429f10403460be9551562c8b35d1d1c3,2026-10-30T06:33:36+00:00,AI,Claude_Code,1151,41,14,False,False,False,False,"feat: add PageTabs component and enhance cache monitor with category filtering and pagination
+
+- Implement PageTabs store and layout component with auto-tracking, close actions, and persistence
+- Enhance /monitor/cache with prefix category tabs (menu, dict, dept, captcha, security)
+- Add Redis data type filter (string, hash, list, set, zset) and debounced key search
+- Implement client-side pagination with Pagination component
+- Add GET /api/monitor/cache/value/:key endpoint and inspection dialog with JSON formatting
+- Mark protected security keys with Lock badge to prevent accidental deletion
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,f5f6cbe50e39b68402a0a16c03d1f85fcf6814a4,2026-10-30T06:06:52+00:00,AI,Claude_Code,354,93,6,True,True,False,False,"fix(log): fix field mapping for login and oper logs and add detail dialogs
+
+- Align LoginLogItemDto fields with database (username, ip, location)
+- Align OperLogItemDto fields with database (operName, url, ip)
+- Add complete inspection dialog for login logs (IP, location, user, client UA, status, timestamp)
+- Add complete inspection dialog for oper logs with JSON result preview and error stack trace
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,5b61ed1702003f4fbe3178f7fa8448ca9327e1d3,2026-10-30T05:55:35+00:00,AI,Claude_Code,199,92,7,True,True,False,False,"fix(monitor): populate and display complete online user metadata
+
+- Update OnlineUserItemDto to include userName, email, avatar, ip, browser, os, and loginTime
+- Pass full user profile metadata to Redis in auth service and jwt strategy
+- Render user Avatar, name, email, IP, browser/os tags, and formatted login time in online page
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,a72008b3d98801f67355d5c9e95fe810d4dcb183,2026-10-30T05:41:15+00:00,AI,Claude_Code,3,7,1,False,False,False,False,"style(monitor): unify scheduled jobs counter card icons
+
+- Replace custom background div tags with PlayCircle and PauseCircle icons
+- Align running and paused card icon style with the total jobs Timer icon
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,ef7be7a8703a9edd4f942eae6d67dfbb99d09108,2026-10-30T05:36:42+00:00,AI,Claude_Code,1187,82,21,False,True,False,False,"feat(monitor): fix scheduled job status display and add job logs tracking subpage
+
+- Fix JobItemDto mapping with real status, running boolean, cron, and description
+- Create SysJobLog schema across Postgres and MySQL and apply migration
+- Automatically measure and record execution time, status, and exceptions in SystemJobsService
+- Expose paginated GET /api/monitor/jobs/logs and DELETE /api/monitor/jobs/logs
+- Sync OpenAPI schema and add /monitor/jobs/logs subpage with filtering and exception details
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,96190073f63cc0d9f61300bc965e4789492c73fb,2026-10-30T03:59:56+00:00,AI,Claude_Code,91,83,2,True,True,False,False,"fix(menu): unify sidebar navigation order by backend sort field
+
+- Consolidate topMenus and menuGroups into a single sorted navItems list
+- Ensure all top-level items (menus and directories) strictly respect backend sort order
+- Set default sort for profile menu to 99 in seed.ts
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,629b318c597f0d38e076193963f0ae88024b5264,2026-10-30T02:57:56+00:00,AI,Claude_Code,105,11,9,False,False,False,False,"feat(menu): support show/hide visibility toggle across backend and frontend
+
+- Add hidden field to MenuItemDto, UserMenuTreeNodeDto, and persist in create service
+- Sync OpenAPI schema and regenerate frontend contract models
+- Filter hidden menus from sidebar navigation while preserving routes and permissions
+- Add show/hide visibility status badge and one-click toggle in menu management page
+- Add visibility select dropdown in menu creation and edit dialogs
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,c1cbb0c9532e0dce28095e3e59380311cc8109b0,2026-10-30T00:58:41+00:00,AI,Claude_Code,147,22,1,False,False,False,False,"feat(menu): add toggle expand-all button and filter parent menu options
+
+- Add one-click 'expand all / collapse all' toggle button in menu page header
+- Filter out BUTTON types from parent menu select dropdown (only allow DIRECTORY and MENU)
+- Recursively exclude editing menu node and its descendants to prevent circular parenting
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,0c18ad7357537db8e423b83363d0f5d745a392ba,2026-10-29T16:05:21+00:00,AI,Claude_Code,48,50,6,True,True,False,False,"fix(ui): eliminate dialog scroll offset shift and focus ring clipping
+
+- Add scrollbar-gutter: stable to scrollable containers to prevent content layout shifts
+- Adjust dialog form scroll containers from asymmetric pr-1 to balanced px-1.5
+- Replace ring-offset-2 on Input and SelectTrigger with ring-offset-0 to avoid overflow clipping
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,c3c83559ea44c471b4a372676f8c0fd008cbe132,2026-10-29T15:53:15+00:00,AI,Claude_Code,23,4,1,True,True,False,False,"fix(cors): allow PUT/DELETE methods, custom headers, and cross-origin resource policy in dev
+
+- Explicitly allow PUT, DELETE, PATCH, and OPTIONS in CORS configuration
+- Expose x-request-id and allow x-csrf-token and authorization headers
+- Set crossOriginResourcePolicy to cross-origin in development to prevent CORP blocking
+- Allow 127.0.0.1 and localhost origins dynamically in development without throwing 500
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,85261f68bc88bee19c5f845454a11019d46d5d2a,2026-10-29T08:14:26+00:00,AI,Claude_Code,118,109,8,False,False,False,False,"docs: update all references and hooks to unified db commands
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,4448234423201f1e13f1327a413db8f8c9383ed9,2026-10-29T05:49:32+00:00,AI,Claude_Code,268,45,7,False,False,False,False,"refactor(db): unify database commands with auto-detecting DB CLI
+
+- Add apps/api/prisma/db-cli.mjs to automatically detect DB_TYPE from env
+- Consolidate fragmented db:*:pg and db:*:mysql into universal pnpm db:* commands
+- Support --pg and --mysql flags for explicit target database overrides
+- Update CI and release workflows to use unified commands
+- Update CLAUDE.md and invariants.md documentation
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,3a85344f2ed6dbb6f471541fef7c9fa71af97e98,2026-10-27T08:09:22+00:00,Human,,78,90,3,False,False,False,False,docs: streamline local quick start
+https://www.github.com/1503963513/zhuostack,e8828396b603ccf90ba27cc0be77ad779ef9fcde,2026-10-27T02:28:20+00:00,Human,,20,67,15,False,False,False,False,chore: consolidate root config and project docs
+https://www.github.com/1503963513/zhuostack,733face0e84fd3edc78fb1c225a6b58681c320c9,2026-10-23T09:25:36+00:00,AI,Claude_Code,829,50,23,False,False,False,False,"feat: enhance observability with request ID tracing, deep health checks, and troubleshooting runbook
+
+- Configure FastifyAdapter with automated request ID tracking via x-request-id header
+- Attach requestId to TransformInterceptor responses and HttpExceptionFilter error payloads and log stacks
+- Enhance /health with real-time DB and Redis ping latency, and add /health/liveness and /health/readiness probes
+- Update E2E tests to validate x-request-id and deep health check contracts
+- Add comprehensive production troubleshooting guide in docs/troubleshooting.md
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,9922ae635837333d543aee716b150ce3b03ad8be,2026-10-23T07:59:08+00:00,AI,Claude_Code,103,538,8,False,False,False,False,"refactor(rules): consolidate redundant rules into invariants and add rule-check skill
+
+- Remove duplicated and outdated rule files in .claude/rules/
+- Add single concise .claude/rules/invariants.md defining non-negotiable core constraints
+- Add .claude/skills/rule-check/SKILL.md for automated rule and quality verification
+- Update CLAUDE.md documentation and skills navigation
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,8f9cb143fe86bac5b9ea189c7481d8593ce8c3a3,2026-10-23T07:43:42+00:00,AI,Claude_Code,460,1040,6,False,False,False,False,"refactor(skills): replace static crud generator script with structured crud-module skill
+
+- Remove static scripts/gen-crud.mjs and pnpm gen:crud script
+- Add .claude/skills/crud-module/SKILL.md defining complete full-stack CRUD workflow
+- Update frontend-crud-page and backend-module skills to use OpenAPI contract patterns
+- Document /crud-module workflow in CLAUDE.md
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,1060762e94b0bf8583f7d05ac1951aad42ab129c,2026-10-23T07:08:31+00:00,AI,Claude_Code,853,0,3,False,False,False,False,"feat: add lightweight full-stack CRUD scaffold generator
+
+- Add scripts/gen-crud.mjs to generate simple, readable, easy-to-modify CRUD scaffolds
+- Cover Prisma schemas (PG/MySQL), DTOs, Service, Controller, Module, and frontend page
+- Include menu and permission seed code snippets for seamless integration
+- Add pnpm gen:crud command to package.json and document in CLAUDE.md
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,3f130902a394c1fcb9d3aabaf4c8e4c656eaedc7,2026-10-23T06:42:06+00:00,AI,Claude_Code,624,0,1,False,False,False,False,"test: add contract and runtime response validation E2E tests
+
+- Verify authentication cookie and double-submit CSRF protection
+- Verify role authorization guards and menu tree response structure
+- Verify user relation updates and detail response schema matching
+- Verify paginated response wrapper format (code, data, pagination)
+- Verify file upload validation and error response shape
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,da7bb0c89cb59731404a29af341092ee7d9625d6,2026-10-23T06:08:04+00:00,AI,Claude_Code,3,0,1,False,False,False,False,"chore: pin Node 24.18.0 in package.json for Volta
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,a92cba3673cee6a5617a9e6f4667c839c22bd299,2026-10-23T04:31:30+00:00,AI,Claude_Code,21610,2544,296,False,False,False,False,"feat: establish end-to-end OpenAPI contract and remove shared-types
+
+- Add OpenAPI response wrappers and DTOs across all backend modules
+- Integrate Orval for automatic client and hook generation from OpenAPI schema
+- Refactor frontend pages and hooks to use strongly-typed generated API client
+- Add real-time network byte progress monitoring to file upload flows
+- Remove unused packages/shared-types and decouple workspace/docker/deploy configs
+- Add CI contract drift check to prevent frontend-backend divergence
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,6005bfa2f70606b0da69b4c68404dfbd8167b218,2026-07-23T05:45:27+00:00,Human,,528,7,14,False,False,False,False,chore: establish release and open source governance
+https://www.github.com/1503963513/zhuostack,0cd127bef38dde1edb27182bc56969c8014d8065,2026-07-23T04:19:00+00:00,Human,,679,347,17,True,True,False,False,fix: stabilize template after dependency upgrades
+https://www.github.com/1503963513/zhuostack,bdcc5292a724caa1ced6d2e7071d47a51d3b4b47,2026-07-22T16:34:57+00:00,Human,,8,4,3,True,True,False,False,fix: update Prisma 7 CI commands
+https://www.github.com/1503963513/zhuostack,be8b8d6ba998ad3ac1ff0b6413972dd27593f465,2026-07-22T16:27:45+00:00,Human,,321,326,16,True,True,False,False,fix: restore development startup after dependency upgrades
+https://www.github.com/1503963513/zhuostack,b72c69c06127f6495eb3ed5b29e2708b3c7d2001,2026-07-22T16:01:06+00:00,Human,,1394,1866,5,False,False,False,False,"Merge remote-tracking branch 'github/dependabot/npm_and_yarn/development-dependencies-d1f51326cc'
+
+# Conflicts:
+#	apps/web/package.json
+#	pnpm-lock.yaml"
+https://www.github.com/1503963513/zhuostack,192e9f942c270b28fed69f899cbad78c4cb4459e,2026-07-22T15:56:26+00:00,Human,,1518,707,3,False,False,False,False,Merge remote-tracking branch 'github/dependabot/npm_and_yarn/production-dependencies-3b5b65e273'
+https://www.github.com/1503963513/zhuostack,f4365c7cd68b56057e6ac9db1f73738d6c967669,2026-07-22T15:55:50+00:00,Human,,3,3,2,False,False,False,False,Merge remote-tracking branch 'github/dependabot/docker/docker/node-26-alpine'
+https://www.github.com/1503963513/zhuostack,7446087d48fc661583d9ba56dc8343ffbaa7bda1,2026-07-22T15:55:50+00:00,Human,,1,1,1,False,False,False,False,Merge remote-tracking branch 'github/dependabot/docker/docker/nginx-1.31-alpine'
+https://www.github.com/1503963513/zhuostack,9dbaf29c77d6387f4201b28717fbe13273d0cf53,2026-07-22T15:55:50+00:00,Human,,2,2,1,False,False,False,False,"Merge remote-tracking branch 'github/dependabot/github_actions/pnpm/action-setup-6'
+
+# Conflicts:
+#	.github/workflows/ci.yml"
+https://www.github.com/1503963513/zhuostack,65583891f7e3c8f5e96897decad1097da41f8c4d,2026-07-22T15:54:39+00:00,Human,,1,1,1,False,False,False,False,Merge remote-tracking branch 'github/dependabot/github_actions/gitleaks/gitleaks-action-3'
+https://www.github.com/1503963513/zhuostack,525e792c62201fd45038270932a0c3f03a08e957,2026-07-22T15:54:38+00:00,Human,,2,2,1,False,False,False,False,Merge remote-tracking branch 'github/dependabot/github_actions/aquasecurity/trivy-action-0.36.0'
+https://www.github.com/1503963513/zhuostack,f050b48907704efe318c975a74586115fecb9da9,2026-07-22T15:54:38+00:00,Human,,2,2,1,False,False,False,False,Merge remote-tracking branch 'github/dependabot/github_actions/actions/setup-node-7'
+https://www.github.com/1503963513/zhuostack,d5055622eb20a602ae8080b8d89f7be0ef615c6a,2026-07-22T15:54:38+00:00,Human,,4,4,1,False,False,False,False,Merge remote-tracking branch 'github/dependabot/github_actions/actions/checkout-7'
+https://www.github.com/1503963513/zhuostack,bae369fbca7e8fe3103d696fcc9c6eacb31ccbcf,2026-07-22T12:01:48+00:00,Human,,3,27,5,False,False,False,False,"docs: consolidate documentation assets
+
+Move deployment guidance into docs, use a PNG architecture diagram for Gitee compatibility, and remove the stale image naming guide."
+https://www.github.com/1503963513/zhuostack,ba4e0fd44fb5a4a6837183293b0184925b36587a,2026-07-22T11:53:37+00:00,Human,,263,49,6,False,False,False,False,"docs: add project previews and architecture
+
+Show ZhuoStack login, dashboard, administration, monitoring, animated usage flow, and the production architecture directly in the README."
+https://www.github.com/1503963513/zhuostack,fd4f95e7a92a5000f223857e7ffcbd9ba9e37bc5,2026-07-22T11:43:32+00:00,Bot,dependabot,1368,1823,5,False,False,False,False,"chore(deps-dev): bump the development-dependencies group with 16 updates
+
+Bumps the development-dependencies group with 16 updates:
+
+| Package | From | To |
+| --- | --- | --- |
+| [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/eslint-plugin) | `6.21.0` | `8.65.0` |
+| [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/parser) | `6.21.0` | `8.65.0` |
+| [eslint](https://github.com/eslint/eslint) | `8.57.1` | `10.7.0` |
+| [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) | `9.1.2` | `10.1.8` |
+| [prettier](https://github.com/prettier/prettier) | `3.8.3` | `3.9.6` |
+| [turbo](https://github.com/vercel/turborepo) | `2.9.14` | `2.10.5` |
+| [typescript](https://github.com/microsoft/TypeScript) | `5.9.3` | `7.0.2` |
+| [@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/node) | `20.19.41` | `26.1.1` |
+| [jest](https://github.com/jestjs/jest/tree/HEAD/packages/jest) | `29.7.0` | `30.4.2` |
+| [supertest](https://github.com/ladjs/supertest) | `6.3.4` | `7.2.2` |
+| [@types/supertest](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/supertest) | `6.0.3` | `7.2.1` |
+| [ts-jest](https://github.com/kulshekhar/ts-jest) | `29.4.11` | `29.4.12` |
+| [autoprefixer](https://github.com/postcss/autoprefixer) | `10.5.0` | `10.5.4` |
+| [postcss](https://github.com/postcss/postcss) | `8.5.15` | `8.5.22` |
+| [tailwindcss](https://github.com/tailwindlabs/tailwindcss/tree/HEAD/packages/tailwindcss) | `3.4.19` | `4.3.3` |
+| [vitest](https://github.com/vitest-dev/vitest/tree/HEAD/packages/vitest) | `3.2.7` | `4.1.10` |
+
+
+Updates `@typescript-eslint/eslint-plugin` from 6.21.0 to 8.65.0
+- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)
+- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/CHANGELOG.md)
+- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.65.0/packages/eslint-plugin)
+
+Updates `@typescript-eslint/parser` from 6.21.0 to 8.65.0
+- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)
+- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/parser/CHANGELOG.md)
+- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.65.0/packages/parser)
+
+Updates `eslint` from 8.57.1 to 10.7.0
+- [Release notes](https://github.com/eslint/eslint/releases)
+- [Commits](https://github.com/eslint/eslint/compare/v8.57.1...v10.7.0)
+
+Updates `eslint-config-prettier` from 9.1.2 to 10.1.8
+- [Release notes](https://github.com/prettier/eslint-config-prettier/releases)
+- [Changelog](https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/prettier/eslint-config-prettier/commits/v10.1.8)
+
+Updates `prettier` from 3.8.3 to 3.9.6
+- [Release notes](https://github.com/prettier/prettier/releases)
+- [Changelog](https://github.com/prettier/prettier/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/prettier/prettier/compare/3.8.3...3.9.6)
+
+Updates `turbo` from 2.9.14 to 2.10.5
+- [Release notes](https://github.com/vercel/turborepo/releases)
+- [Changelog](https://github.com/vercel/turborepo/blob/main/RELEASE.md)
+- [Commits](https://github.com/vercel/turborepo/compare/v2.9.14...v2.10.5)
+
+Updates `typescript` from 5.9.3 to 7.0.2
+- [Release notes](https://github.com/microsoft/TypeScript/releases)
+- [Commits](https://github.com/microsoft/TypeScript/commits)
+
+Updates `@types/node` from 20.19.41 to 26.1.1
+- [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+- [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/node)
+
+Updates `jest` from 29.7.0 to 30.4.2
+- [Release notes](https://github.com/jestjs/jest/releases)
+- [Changelog](https://github.com/jestjs/jest/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/jestjs/jest/commits/v30.4.2/packages/jest)
+
+Updates `supertest` from 6.3.4 to 7.2.2
+- [Release notes](https://github.com/ladjs/supertest/releases)
+- [Commits](https://github.com/ladjs/supertest/compare/v6.3.4...v7.2.2)
+
+Updates `@types/supertest` from 6.0.3 to 7.2.1
+- [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+- [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/supertest)
+
+Updates `ts-jest` from 29.4.11 to 29.4.12
+- [Release notes](https://github.com/kulshekhar/ts-jest/releases)
+- [Changelog](https://github.com/kulshekhar/ts-jest/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/kulshekhar/ts-jest/compare/v29.4.11...v29.4.12)
+
+Updates `autoprefixer` from 10.5.0 to 10.5.4
+- [Release notes](https://github.com/postcss/autoprefixer/releases)
+- [Changelog](https://github.com/postcss/autoprefixer/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/postcss/autoprefixer/compare/10.5.0...10.5.4)
+
+Updates `postcss` from 8.5.15 to 8.5.22
+- [Release notes](https://github.com/postcss/postcss/releases)
+- [Changelog](https://github.com/postcss/postcss/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/postcss/postcss/compare/8.5.15...8.5.22)
+
+Updates `tailwindcss` from 3.4.19 to 4.3.3
+- [Release notes](https://github.com/tailwindlabs/tailwindcss/releases)
+- [Changelog](https://github.com/tailwindlabs/tailwindcss/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/tailwindlabs/tailwindcss/commits/v4.3.3/packages/tailwindcss)
+
+Updates `vitest` from 3.2.7 to 4.1.10
+- [Release notes](https://github.com/vitest-dev/vitest/releases)
+- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)
+- [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.10/packages/vitest)
+
+---
+updated-dependencies:
+- dependency-name: ""@typescript-eslint/eslint-plugin""
+  dependency-version: 8.65.0
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+- dependency-name: ""@typescript-eslint/parser""
+  dependency-version: 8.65.0
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+- dependency-name: eslint
+  dependency-version: 10.7.0
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+- dependency-name: eslint-config-prettier
+  dependency-version: 10.1.8
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+- dependency-name: prettier
+  dependency-version: 3.9.6
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+  dependency-group: development-dependencies
+- dependency-name: turbo
+  dependency-version: 2.10.5
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+  dependency-group: development-dependencies
+- dependency-name: typescript
+  dependency-version: 7.0.2
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+- dependency-name: ""@types/node""
+  dependency-version: 26.1.1
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+- dependency-name: jest
+  dependency-version: 30.4.2
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+- dependency-name: supertest
+  dependency-version: 7.2.2
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+- dependency-name: ""@types/supertest""
+  dependency-version: 7.2.1
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+- dependency-name: ts-jest
+  dependency-version: 29.4.12
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+  dependency-group: development-dependencies
+- dependency-name: autoprefixer
+  dependency-version: 10.5.4
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+  dependency-group: development-dependencies
+- dependency-name: postcss
+  dependency-version: 8.5.22
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+  dependency-group: development-dependencies
+- dependency-name: tailwindcss
+  dependency-version: 4.3.3
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+- dependency-name: vitest
+  dependency-version: 4.1.10
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+  dependency-group: development-dependencies
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1503963513/zhuostack,070e678315bd266ec318971b04c34c3463bf4b40,2026-07-22T11:36:42+00:00,Bot,dependabot,1518,707,3,False,False,False,False,"chore(deps): bump the production-dependencies group with 26 updates
+
+Bumps the production-dependencies group with 26 updates:
+
+| Package | From | To |
+| --- | --- | --- |
+| [@fastify/static](https://github.com/fastify/fastify-static) | `9.3.0` | `10.1.2` |
+| [@prisma/client](https://github.com/prisma/prisma/tree/HEAD/packages/client) | `5.22.0` | `7.9.0` |
+| [bcryptjs](https://github.com/dcodeIO/bcrypt.js) | `2.4.3` | `3.0.3` |
+| [class-validator](https://github.com/typestack/class-validator) | `0.14.4` | `0.15.1` |
+| [file-type](https://github.com/sindresorhus/file-type) | `21.3.2` | `22.0.1` |
+| [ioredis](https://github.com/luin/ioredis) | `5.11.0` | `5.11.1` |
+| [prisma](https://github.com/prisma/prisma/tree/HEAD/packages/cli) | `5.22.0` | `7.9.0` |
+| [tsx](https://github.com/privatenumber/tsx) | `4.22.4` | `4.23.1` |
+| [@hookform/resolvers](https://github.com/react-hook-form/resolvers) | `3.10.0` | `5.4.0` |
+| [@radix-ui/react-dialog](https://github.com/radix-ui/primitives/tree/HEAD/packages/react/dialog) | `1.1.15` | `1.1.20` |
+| [@radix-ui/react-dropdown-menu](https://github.com/radix-ui/primitives/tree/HEAD/packages/react/dropdown-menu) | `2.1.16` | `2.1.21` |
+| [@radix-ui/react-popover](https://github.com/radix-ui/primitives/tree/HEAD/packages/react/popover) | `1.1.15` | `1.1.20` |
+| [@radix-ui/react-progress](https://github.com/radix-ui/primitives/tree/HEAD/packages/react/progress) | `1.1.8` | `1.1.13` |
+| [@radix-ui/react-select](https://github.com/radix-ui/primitives/tree/HEAD/packages/react/select) | `2.2.6` | `2.3.4` |
+| [@radix-ui/react-slot](https://github.com/radix-ui/primitives/tree/HEAD/packages/react/slot) | `1.2.4` | `1.3.0` |
+| [@radix-ui/react-switch](https://github.com/radix-ui/primitives/tree/HEAD/packages/react/switch) | `1.2.6` | `1.3.4` |
+| [@tanstack/react-query](https://github.com/TanStack/query/tree/HEAD/packages/react-query) | `5.100.14` | `5.101.4` |
+| [lucide-react](https://github.com/lucide-icons/lucide/tree/HEAD/packages/lucide-react) | `0.312.0` | `1.25.0` |
+| [next-themes](https://github.com/pacocoursey/next-themes) | `0.2.1` | `0.4.6` |
+| [react](https://github.com/react/react/tree/HEAD/packages/react) | `18.3.1` | `19.2.8` |
+| [react-dom](https://github.com/react/react/tree/HEAD/packages/react-dom) | `18.3.1` | `19.2.8` |
+| [react-hook-form](https://github.com/react-hook-form/react-hook-form) | `7.76.1` | `7.82.0` |
+| [sonner](https://github.com/emilkowalski/sonner) | `1.7.4` | `2.0.7` |
+| [tailwind-merge](https://github.com/dcastil/tailwind-merge) | `2.6.1` | `3.6.0` |
+| [zod](https://github.com/colinhacks/zod) | `3.25.76` | `4.4.3` |
+| [zustand](https://github.com/pmndrs/zustand) | `4.5.7` | `5.0.14` |
+
+
+Updates `@fastify/static` from 9.3.0 to 10.1.2
+- [Release notes](https://github.com/fastify/fastify-static/releases)
+- [Commits](https://github.com/fastify/fastify-static/compare/v9.3.0...v10.1.2)
+
+Updates `@prisma/client` from 5.22.0 to 7.9.0
+- [Release notes](https://github.com/prisma/prisma/releases)
+- [Commits](https://github.com/prisma/prisma/commits/7.9.0/packages/client)
+
+Updates `bcryptjs` from 2.4.3 to 3.0.3
+- [Release notes](https://github.com/dcodeIO/bcrypt.js/releases)
+- [Commits](https://github.com/dcodeIO/bcrypt.js/compare/2.4.3...v3.0.3)
+
+Updates `class-validator` from 0.14.4 to 0.15.1
+- [Release notes](https://github.com/typestack/class-validator/releases)
+- [Changelog](https://github.com/typestack/class-validator/blob/develop/CHANGELOG.md)
+- [Commits](https://github.com/typestack/class-validator/compare/v0.14.4...v0.15.1)
+
+Updates `file-type` from 21.3.2 to 22.0.1
+- [Release notes](https://github.com/sindresorhus/file-type/releases)
+- [Commits](https://github.com/sindresorhus/file-type/compare/v21.3.2...v22.0.1)
+
+Updates `ioredis` from 5.11.0 to 5.11.1
+- [Release notes](https://github.com/luin/ioredis/releases)
+- [Changelog](https://github.com/redis/ioredis/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/luin/ioredis/compare/v5.11.0...v5.11.1)
+
+Updates `prisma` from 5.22.0 to 7.9.0
+- [Release notes](https://github.com/prisma/prisma/releases)
+- [Commits](https://github.com/prisma/prisma/commits/7.9.0/packages/cli)
+
+Updates `tsx` from 4.22.4 to 4.23.1
+- [Release notes](https://github.com/privatenumber/tsx/releases)
+- [Changelog](https://github.com/privatenumber/tsx/blob/master/release.config.cjs)
+- [Commits](https://github.com/privatenumber/tsx/compare/v4.22.4...v4.23.1)
+
+Updates `@hookform/resolvers` from 3.10.0 to 5.4.0
+- [Release notes](https://github.com/react-hook-form/resolvers/releases)
+- [Commits](https://github.com/react-hook-form/resolvers/compare/v3.10.0...v5.4.0)
+
+Updates `@radix-ui/react-dialog` from 1.1.15 to 1.1.20
+- [Changelog](https://github.com/radix-ui/primitives/blob/main/packages/react/dialog/CHANGELOG.md)
+- [Commits](https://github.com/radix-ui/primitives/commits/HEAD/packages/react/dialog)
+
+Updates `@radix-ui/react-dropdown-menu` from 2.1.16 to 2.1.21
+- [Changelog](https://github.com/radix-ui/primitives/blob/main/packages/react/dropdown-menu/CHANGELOG.md)
+- [Commits](https://github.com/radix-ui/primitives/commits/HEAD/packages/react/dropdown-menu)
+
+Updates `@radix-ui/react-popover` from 1.1.15 to 1.1.20
+- [Changelog](https://github.com/radix-ui/primitives/blob/main/packages/react/popover/CHANGELOG.md)
+- [Commits](https://github.com/radix-ui/primitives/commits/HEAD/packages/react/popover)
+
+Updates `@radix-ui/react-progress` from 1.1.8 to 1.1.13
+- [Changelog](https://github.com/radix-ui/primitives/blob/main/packages/react/progress/CHANGELOG.md)
+- [Commits](https://github.com/radix-ui/primitives/commits/HEAD/packages/react/progress)
+
+Updates `@radix-ui/react-select` from 2.2.6 to 2.3.4
+- [Changelog](https://github.com/radix-ui/primitives/blob/main/packages/react/select/CHANGELOG.md)
+- [Commits](https://github.com/radix-ui/primitives/commits/HEAD/packages/react/select)
+
+Updates `@radix-ui/react-slot` from 1.2.4 to 1.3.0
+- [Changelog](https://github.com/radix-ui/primitives/blob/main/packages/react/slot/CHANGELOG.md)
+- [Commits](https://github.com/radix-ui/primitives/commits/HEAD/packages/react/slot)
+
+Updates `@radix-ui/react-switch` from 1.2.6 to 1.3.4
+- [Changelog](https://github.com/radix-ui/primitives/blob/main/packages/react/switch/CHANGELOG.md)
+- [Commits](https://github.com/radix-ui/primitives/commits/HEAD/packages/react/switch)
+
+Updates `@tanstack/react-query` from 5.100.14 to 5.101.4
+- [Release notes](https://github.com/TanStack/query/releases)
+- [Changelog](https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md)
+- [Commits](https://github.com/TanStack/query/commits/@tanstack/react-query@5.101.4/packages/react-query)
+
+Updates `lucide-react` from 0.312.0 to 1.25.0
+- [Release notes](https://github.com/lucide-icons/lucide/releases)
+- [Commits](https://github.com/lucide-icons/lucide/commits/1.25.0/packages/lucide-react)
+
+Updates `next-themes` from 0.2.1 to 0.4.6
+- [Release notes](https://github.com/pacocoursey/next-themes/releases)
+- [Commits](https://github.com/pacocoursey/next-themes/commits/v0.4.6)
+
+Updates `react` from 18.3.1 to 19.2.8
+- [Release notes](https://github.com/react/react/releases)
+- [Changelog](https://github.com/react/react/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/react/react/commits/v19.2.8/packages/react)
+
+Updates `react-dom` from 18.3.1 to 19.2.8
+- [Release notes](https://github.com/react/react/releases)
+- [Changelog](https://github.com/react/react/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/react/react/commits/v19.2.8/packages/react-dom)
+
+Updates `react-hook-form` from 7.76.1 to 7.82.0
+- [Release notes](https://github.com/react-hook-form/react-hook-form/releases)
+- [Changelog](https://github.com/react-hook-form/react-hook-form/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/react-hook-form/react-hook-form/compare/v7.76.1...v7.82.0)
+
+Updates `sonner` from 1.7.4 to 2.0.7
+- [Release notes](https://github.com/emilkowalski/sonner/releases)
+- [Commits](https://github.com/emilkowalski/sonner/commits/v2.0.7)
+
+Updates `tailwind-merge` from 2.6.1 to 3.6.0
+- [Release notes](https://github.com/dcastil/tailwind-merge/releases)
+- [Commits](https://github.com/dcastil/tailwind-merge/compare/v2.6.1...v3.6.0)
+
+Updates `zod` from 3.25.76 to 4.4.3
+- [Release notes](https://github.com/colinhacks/zod/releases)
+- [Commits](https://github.com/colinhacks/zod/compare/v3.25.76...v4.4.3)
+
+Updates `zustand` from 4.5.7 to 5.0.14
+- [Release notes](https://github.com/pmndrs/zustand/releases)
+- [Commits](https://github.com/pmndrs/zustand/compare/4.5.7...v5.0.14)
+
+---
+updated-dependencies:
+- dependency-name: ""@fastify/static""
+  dependency-version: 10.1.2
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: ""@prisma/client""
+  dependency-version: 7.9.0
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: bcryptjs
+  dependency-version: 3.0.3
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: class-validator
+  dependency-version: 0.15.1
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+  dependency-group: production-dependencies
+- dependency-name: file-type
+  dependency-version: 22.0.1
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: ioredis
+  dependency-version: 5.11.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: production-dependencies
+- dependency-name: prisma
+  dependency-version: 7.9.0
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: tsx
+  dependency-version: 4.23.1
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+  dependency-group: production-dependencies
+- dependency-name: ""@hookform/resolvers""
+  dependency-version: 5.4.0
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: ""@radix-ui/react-dialog""
+  dependency-version: 1.1.20
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: production-dependencies
+- dependency-name: ""@radix-ui/react-dropdown-menu""
+  dependency-version: 2.1.21
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: production-dependencies
+- dependency-name: ""@radix-ui/react-popover""
+  dependency-version: 1.1.20
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: production-dependencies
+- dependency-name: ""@radix-ui/react-progress""
+  dependency-version: 1.1.13
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+  dependency-group: production-dependencies
+- dependency-name: ""@radix-ui/react-select""
+  dependency-version: 2.3.4
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+  dependency-group: production-dependencies
+- dependency-name: ""@radix-ui/react-slot""
+  dependency-version: 1.3.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+  dependency-group: production-dependencies
+- dependency-name: ""@radix-ui/react-switch""
+  dependency-version: 1.3.4
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+  dependency-group: production-dependencies
+- dependency-name: ""@tanstack/react-query""
+  dependency-version: 5.101.4
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+  dependency-group: production-dependencies
+- dependency-name: lucide-react
+  dependency-version: 1.25.0
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: next-themes
+  dependency-version: 0.4.6
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+  dependency-group: production-dependencies
+- dependency-name: react
+  dependency-version: 19.2.8
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: react-dom
+  dependency-version: 19.2.8
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: react-hook-form
+  dependency-version: 7.82.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+  dependency-group: production-dependencies
+- dependency-name: sonner
+  dependency-version: 2.0.7
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: tailwind-merge
+  dependency-version: 3.6.0
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: zod
+  dependency-version: 4.4.3
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+- dependency-name: zustand
+  dependency-version: 5.0.14
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+  dependency-group: production-dependencies
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1503963513/zhuostack,d9a38c881b91cacfc731232334dff7f1b6c3ec49,2026-07-22T11:23:49+00:00,Bot,dependabot,3,3,2,False,False,False,False,"chore(deps): bump node from 20-alpine to 26-alpine in /docker
+
+Bumps node from 20-alpine to 26-alpine.
+
+---
+updated-dependencies:
+- dependency-name: node
+  dependency-version: 26-alpine
+  dependency-type: direct:production
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1503963513/zhuostack,9ae95980adc0fc96b7cbd8ac349c4e24380fde48,2026-07-22T11:23:48+00:00,Bot,dependabot,2,2,1,False,False,False,False,"chore(deps): bump actions/setup-node from 4 to 7
+
+Bumps [actions/setup-node](https://github.com/actions/setup-node) from 4 to 7.
+- [Release notes](https://github.com/actions/setup-node/releases)
+- [Commits](https://github.com/actions/setup-node/compare/v4...v7)
+
+---
+updated-dependencies:
+- dependency-name: actions/setup-node
+  dependency-version: '7'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1503963513/zhuostack,0d89ff116aa4ba966555f4a8e9ebc9ddea0054d7,2026-07-22T11:23:45+00:00,Bot,dependabot,1,1,1,False,False,False,False,"chore(deps): bump gitleaks/gitleaks-action from 2 to 3
+
+Bumps [gitleaks/gitleaks-action](https://github.com/gitleaks/gitleaks-action) from 2 to 3.
+- [Release notes](https://github.com/gitleaks/gitleaks-action/releases)
+- [Commits](https://github.com/gitleaks/gitleaks-action/compare/v2...v3)
+
+---
+updated-dependencies:
+- dependency-name: gitleaks/gitleaks-action
+  dependency-version: '3'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1503963513/zhuostack,52066a10b4f887f1dde770c74e16832f6e2d747f,2026-07-22T11:23:42+00:00,Bot,dependabot,4,4,1,False,False,False,False,"chore(deps): bump actions/checkout from 4 to 7
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4 to 7.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/v4...v7)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-version: '7'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1503963513/zhuostack,3d2c1c6d9e2773ddb5707def9e02b144a07f988c,2026-07-22T11:23:39+00:00,Bot,dependabot,2,2,1,False,False,False,False,"chore(deps): bump aquasecurity/trivy-action from 0.28.0 to 0.36.0
+
+Bumps [aquasecurity/trivy-action](https://github.com/aquasecurity/trivy-action) from 0.28.0 to 0.36.0.
+- [Release notes](https://github.com/aquasecurity/trivy-action/releases)
+- [Commits](https://github.com/aquasecurity/trivy-action/compare/0.28.0...v0.36.0)
+
+---
+updated-dependencies:
+- dependency-name: aquasecurity/trivy-action
+  dependency-version: 0.36.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1503963513/zhuostack,bd9f95a2af221222ea2c23450c263b2698ef055d,2026-07-22T11:23:36+00:00,Bot,dependabot,2,2,1,False,False,False,False,"chore(deps): bump pnpm/action-setup from 4 to 6
+
+Bumps [pnpm/action-setup](https://github.com/pnpm/action-setup) from 4 to 6.
+- [Release notes](https://github.com/pnpm/action-setup/releases)
+- [Commits](https://github.com/pnpm/action-setup/compare/v4...v6)
+
+---
+updated-dependencies:
+- dependency-name: pnpm/action-setup
+  dependency-version: '6'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1503963513/zhuostack,359c649b1b9eb7f01feb786ce5e5723dc8d2b8d9,2026-07-22T11:23:31+00:00,Bot,dependabot,1,1,1,False,False,False,False,"chore(deps): bump nginx from 1.27-alpine to 1.31-alpine in /docker
+
+Bumps nginx from 1.27-alpine to 1.31-alpine.
+
+---
+updated-dependencies:
+- dependency-name: nginx
+  dependency-version: 1.31-alpine
+  dependency-type: direct:production
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/1503963513/zhuostack,7ca71089d3ceee85f0dc38eced52e57c527be259,2026-07-22T11:10:59+00:00,Human,,85,85,30,False,False,False,False,"chore: rebrand project as ZhuoStack
+
+Unify the public product name, workspace scope, Docker and PM2 identifiers, JWT defaults, deployment examples, CI resources, and Apache-2.0 README notice under the ZhuoStack brand."
+https://www.github.com/1503963513/zhuostack,bc5754a941900b6600067fd21d563e19cc7cd1a4,2026-07-22T10:40:59+00:00,Human,,201,0,1,False,False,False,False,"add LICENSE.
+
+Signed-off-by: Apcallover <1503963513@qq.com>"
+https://www.github.com/1503963513/zhuostack,3d6b14a87f87e2012cc0e714767ded36f9427349,2026-07-22T10:38:01+00:00,Human,,2231,334,89,False,False,False,False,"feat: complete production readiness hardening
+
+Separate PostgreSQL and MySQL migration histories, add safe legacy baselining and deployment verification, and align the development Prisma client automatically.
+
+Harden authentication, throttling, exception handling, containers, CI, tests, linting, and dependency security gates."
+https://www.github.com/1503963513/zhuostack,10fab9f7b26eb2b7d5927061aebe4e64355a589b,2026-07-22T09:24:54+00:00,Human,,670,151,32,True,True,False,False,fix(security): 加固认证 Cookie 与 TLS
+https://www.github.com/1503963513/zhuostack,61d3f8f0a6a24950a3bf3603feb0651958ab3ab1,2026-07-22T09:03:29+00:00,Human,,2112,1408,14,True,True,False,False,fix(security): 升级依赖并清零已知漏洞
+https://www.github.com/1503963513/zhuostack,b1ade8305ac9ae282605898418848adf995f09c9,2026-07-22T08:38:12+00:00,Human,,245,19,12,True,True,False,False,fix(security): 加固密码存储与文件上传
+https://www.github.com/1503963513/zhuostack,bfa811dd64103aa4ac0157710b1c22603404e3a5,2026-07-22T04:54:01+00:00,Human,,1405,143,13,False,False,False,False,feat(storage): 支持多云文件存储
+https://www.github.com/1503963513/zhuostack,1948d9330de9d5e7d5a641e19a96e33fdf9d0723,2026-07-22T04:37:05+00:00,Human,,116,38,10,False,False,False,False,feat(dev): 完善本地环境与数据库初始化
+https://www.github.com/1503963513/zhuostack,9d2dd4048dc7711eb66afd6015746b016d2f7f22,2026-07-22T04:03:58+00:00,Human,,35,997,3,False,False,False,False,docs(deploy): 整理 Docker 离线部署说明
+https://www.github.com/1503963513/zhuostack,22ca34173bd7daa90359fea5545afb213647a707,2026-07-21T03:57:25+00:00,Human,,116,4,1,False,False,False,False,docs(deploy): 完善部署命令帮助信息
+https://www.github.com/1503963513/zhuostack,4fe51fc81817bb5a549534af6e21e487da1b7c64,2026-07-21T03:53:34+00:00,Human,,1581,1031,28,False,False,False,False,feat(deploy): 统一 Docker PM2 与离线部署流程
+https://www.github.com/1503963513/zhuostack,ba6d3a87b08be19cd3bdf93f4aec0c344d2dce1f,2026-07-02T02:28:29+00:00,Human,,27,20,4,False,False,False,False,chore: gitignore 本地环境配置 + CLAUDE.md 补 onboard 步骤
+https://www.github.com/1503963513/zhuostack,7bf23bf7a8f96130a6cd8487879cef94995a840d,2026-07-02T01:55:15+00:00,Human,,3,0,1,False,False,False,False,chore: gitignore 排除 apps/api 本地环境配置
+https://www.github.com/1503963513/zhuostack,79ea0440aca45945f406b4ec417995d699255411,2026-07-02T01:49:09+00:00,AI,Claude_Code,444,150,7,False,False,False,False,"feat(deploy): 在线/离线双模式打包体系 + 交互式 release 向导
+
+- deploy-pack.sh: 支持 online/offline/all 三模式。离线包在 node:20 linux 容器内
+  用 hoisted linker 构建 prod node_modules + 生成 prisma client（含 linux engine），
+  强制 --platform linux/amd64，避免 Apple Silicon 默认 arm64 不匹配 x86 服务器
+- server-setup/update.sh: 读 .deploy-mode 自检模式（离线跳过 install）、
+  强制注入强随机 JWT_SECRET（否则 main.ts 启动即 exit(1)）、
+  install 改 --filter api... 排除 web 的 next/react、启动后 /health 健康检查
+- release.sh: 新增交互向导，pnpm release 询问是否 build + 选包类型
+- package.json: 4 个 release 脚本收成单个 release
+- turbo.json: build outputs 加 out/**
+- .gitignore: 排除 .deploy-temp/
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,9be6f29dff930fab9a1b0b5a750784240a46fc58,2026-07-02T01:48:47+00:00,AI,Claude_Code,0,15,1,True,True,False,False,"fix(web): 删除与静态导出互斥的残留 next.config.ts
+
+next.config.ts（无 output:'export' + 带 rewrites）与 next.config.mjs 并存，
+Next 配置优先级 .ts > .mjs，仅因 Next 14.1 不识别 .ts 才侥幸走 .mjs。
+升级 Next 即构建失败（rewrites 与静态导出互斥）。
+dev 已用 .env.development 的 NEXT_PUBLIC_API_URL 直连后端，rewrites 非必需。
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,e706fce1eea410ae050205eb0a477cbce6fe9eb7,2026-07-01T09:04:04+00:00,AI,Claude_Code,21,21,1,False,False,False,False,"style: prettier 格式化 redis-monitor 表格
+
+auto-format hook 启用后顺带产生的表格列对齐格式化，无语义变化。
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,6c85a9f23526d8eed1f38ea00b988ba04c7bf9c7,2026-07-01T08:59:44+00:00,AI,Claude_Code,135,0,6,False,False,False,False,"feat(claude): 加装 5 个 hooks 自动护栏，把 rules 软约束变硬约束
+
+- guard-schema-active: 禁止编辑 prisma/schema.active（自动生成目录）
+- guard-destructive: 拦截高危不可逆命令（数据库 reset、git 强推 force、DROP 库等）
+- auto-format: 编辑 .ts/.tsx/.js/.json/.md 等后自动跑项目本地 prettier
+- remind-db-sync: 编辑 prisma 源 schema 后提醒 db:use + generate + migrate
+- typecheck-on-stop: 改动 apps/api 的 .ts 后结束前跑 tsc --noEmit，失败则 block
+
+settings.json 保留原 permissions，新增 hooks 配置；脚本用 $CLAUDE_PROJECT_DIR 定位，可随 git 共享。
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,ac194b437346250b7fa2af4a463d5b0e31e66a8a,2026-07-01T08:08:37+00:00,AI,Claude_Code,31,0,5,False,False,False,False,"docs(claude): 操作模板从 rules 迁移到 skills，给常驻 context 瘦身
+
+rules 从 9 文件/1203 行降至 5 文件/531 行（-56%），仅保留每次写码都要遵守的
+硬约束（认证/数据库/API 规范/Redis/前端开发）。4 个操作模板/参考转为按需调用
+的 skill，不再占用每次会话的常驻 context：
+
+- frontend-crud-page：新建前端 CRUD 管理页面
+- backend-module：新建 NestJS 后端模块
+- file-upload：集成文件/图片上传
+- frontend-hooks：查阅前端 Hooks 用法
+
+CLAUDE.md 增加「操作技能（Skills，按需调用）」索引小节。
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,9d60a955570a0836c5a6f56666f1427b97b13ae2,2026-07-01T08:08:01+00:00,AI,Claude_Code,7,2,3,False,False,False,False,"refactor(db): 用户表 users 重命名为 sys_user
+
+统一系统表命名规范，与其他 sys_ 前缀表（sys_menu/sys_role/sys_dept 等）保持一致。
+
+- @@map(""users"") → @@map(""sys_user"")，文件 user.prisma → sys-user.prisma（mysql + postgres 两套）
+- 新增迁移 20260701153505_rename_users_to_sys_user（RENAME TABLE，数据保留）
+- Prisma model 名仍为 User，业务代码零改动
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,047efe112fda8dfef50c7fc6a6e0146b3ef4b34f,2026-06-09T13:57:49+00:00,AI,Claude_Code,58,16,4,True,True,False,False,"fix: 文件上传超限时前端预检+后端动态错误信息
+
+- 前端：选择文件后立即检查大小，超限直接提示不再等到上传一半报错
+- 前端：XHR 错误处理改为提取后端 JSON message，错误信息更明确
+- 后端：FileService 暴露 maxFileSizeMB/maxImageSizeMB getter
+- 后端：Controller 检测 multipart 超限（空 buffer）返回 PayloadTooLarge
+- 后端：错误信息从环境变量动态生成，不再硬编码 50MB
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,e349254a941b68c981241848bb2476517de46230,2026-06-09T08:02:03+00:00,Human,,34,7,2,False,False,False,False,"flat:刷新或重新激活在线用户状态, 下周文件"
+https://www.github.com/1503963513/zhuostack,1765ff2eb6b06e102979554d6bfbff32ac871a0c,2026-06-04T10:04:28+00:00,Human,,44,4,4,True,True,False,False,"fix(api): 修复三处内存泄漏
+
+- SSE 流客户端断开时通过 AbortController 取消 OpenAI 请求
+- JwtStrategy.onlineRefreshMap 定期清理过期记录防止无界增长
+- RedisService 实现 OnModuleDestroy 正确关闭连接"
+https://www.github.com/1503963513/zhuostack,6bd5298015dae95692542f72d87b699cc2a59bed,2026-06-04T10:04:17+00:00,Human,,331,8,10,False,False,False,False,"feat(api): 登录日志记录浏览器、操作系统和用户ID
+
+- 引入 ua-parser-js 解析 User-Agent 请求头
+- SysLoginLog 模型新增 userId 字段
+- 记录 browser、os 信息到登录日志
+- 查询接口通过 select 排除 userId 字段返回"
+https://www.github.com/1503963513/zhuostack,2cf6ebe7359980308b5c2fe0a591019c1429f039,2026-06-04T10:03:58+00:00,Human,,3,3,1,True,True,False,False,"fix(web): DataTable 单元格内容过长溢出问题
+
+添加 overflow-hidden、min-width:0 和 break-words，防止长文本与相邻单元格重叠"
+https://www.github.com/1503963513/zhuostack,bb82f066b73d35cbac516908f9ce56b0499403e4,2026-06-04T05:26:16+00:00,Human,,1,1,1,False,False,False,False,docs(api): .env.example 补充 FILE_STORAGE_PATH 与 Nginx alias 对应说明
+https://www.github.com/1503963513/zhuostack,fc3f0ad7976d478cba15c2aa8344faacc030c396,2026-06-04T04:56:49+00:00,Human,,16,3,5,True,True,False,False,"fix(web): 统一环境变量为四文件方案
+
+- .env.development → pnpm dev 时生效（git 跟踪，NEXT_PUBLIC_API_URL=http://localhost:3100）
+- .env.production  → pnpm build 时生效（git 跟踪，NEXT_PUBLIC_API_URL 为空）
+- .env.example     → 模板文档（git 跟踪）
+- .env.local       → 个人覆盖（gitignore，可选）"
+https://www.github.com/1503963513/zhuostack,ccf6b01a15d9c7fae1bb6dcd41ec1dfcabacf169,2026-06-04T04:54:09+00:00,Human,,5,4,5,True,True,False,False,"fix(deploy): 环境变量优先级修正，用 .env.development 替代 .env.local
+
+.env.local 优先级高于 .env.production，导致本地 localhost:3100 覆盖生产空值。
+改为：
+- .env.production（git 跟踪）→ pnpm build 时生效，NEXT_PUBLIC_API_URL 为空
+- .env.development（gitignore）→ pnpm dev 时生效，NEXT_PUBLIC_API_URL=http://localhost:3100
+- .env.local（gitignore）→ 可选，个人覆盖用"
+https://www.github.com/1503963513/zhuostack,e56a61a0d1657fc60f9928f09311658f090e31bc,2026-06-04T04:51:29+00:00,Human,,1,1,1,True,True,False,False,"fix(deploy): release 构建时强制清空 NEXT_PUBLIC_API_URL
+
+环境变量注入优先级：命令行 > .env.production > .env.local
+直接在 pnpm build 前设置 NEXT_PUBLIC_API_URL='' 确保产物走相对路径"
+https://www.github.com/1503963513/zhuostack,bef4fb34add53090d2dfa3ea51726993211f1734,2026-06-04T04:46:29+00:00,Human,,4,0,2,True,True,False,False,"fix(web): 添加 .env.production 清空 NEXT_PUBLIC_API_URL，修复部署后请求指向 localhost
+
+NEXT_PUBLIC_API_URL 是构建时注入的，本地 .env.local 设的 localhost:3100
+会被硬编码到产物 JS 里。添加 .env.production（优先级更高）覆盖为空值，
+生产环境由 Nginx 同域代理 /api/* 到后端，前端用相对路径即可。"
+https://www.github.com/1503963513/zhuostack,04b6980a6bf345ebe9245423a342f6c249b62aab,2026-06-04T04:38:30+00:00,Human,,12,2,1,False,False,False,False,docs: Nginx 配置中 files alias 路径关联 FILE_STORAGE_PATH 环境变量
+https://www.github.com/1503963513/zhuostack,de5b62dc2d746437c539d860943289633d86c85e,2026-06-04T04:34:53+00:00,Human,,187,14,3,False,False,False,False,"docs: 更新部署脚本适配静态导出 + 添加 Nginx 配置指南
+
+- deploy-pack.sh: 改为复制 out/ 而非 .next/，移除不必要的文件
+- server-update.sh: 清除 out/ 而非 .next/cache
+- nginx-guide.md: 完整 Nginx 配置说明（SPA 回退、API 代理、文件服务、HTTPS）"
+https://www.github.com/1503963513/zhuostack,b4144792aa4f9551b3c2be639f49e8c788354ea2,2026-06-04T04:31:00+00:00,Human,,6,0,1,True,True,False,False,fix(api): 静默处理 favicon.ico 404，消除日志噪音
+https://www.github.com/1503963513/zhuostack,a118cd4ea1f2e0a4f8a828173f2a05b9241c0c4f,2026-06-04T04:28:54+00:00,Human,,2,1,1,True,True,False,False,fix(web): 复制文件链接改用 NEXT_PUBLIC_API_URL，修复跨源地址错误
+https://www.github.com/1503963513/zhuostack,9be591fc5bb9c2b6f211df9f9729e27a3575bc1a,2026-06-04T04:26:26+00:00,Human,,1,0,1,True,True,False,False,"fix(api): 关闭 helmet crossOriginResourcePolicy，允许跨源访问静态文件
+
+ERR_BLOCKED_BY_RESPONSE.NotSame-Origin 是因为 helmet 默认设置
+Cross-Origin-Resource-Policy: same-site，浏览器直接拦截了
+localhost:3000 对 localhost:3100/files/* 的请求"
+https://www.github.com/1503963513/zhuostack,252ce28fbabb7bc7201fc753e5267e2b1b8f0cef,2026-06-04T04:24:41+00:00,Human,,22,5,4,True,True,False,False,"fix(web): 文件/头像图片 URL 补上 NEXT_PUBLIC_API_URL 前缀
+
+- utils.ts: 新增 fileUrl() 工具函数，拼接后端地址前缀
+- file-upload.tsx: 图片预览 src 改用 fileUrl()
+- system/file/page.tsx: 文件列表和预览弹窗图片改用 fileUrl()
+- header.tsx: 头像 AvatarImage src 改用 fileUrl()"
+https://www.github.com/1503963513/zhuostack,aac5937ca92c329e2b55636b627ad2c7af9cea0f,2026-06-04T04:17:20+00:00,Human,,7,4,3,True,True,False,False,"fix(web): 修复所有硬编码 /api/ 路径，补上 NEXT_PUBLIC_API_URL 前缀
+
+- use-auth.ts: logout 接口
+- system/file/page.tsx: 文件上传 XHR
+- monitor/swagger/page.tsx: Swagger iframe 地址"
+https://www.github.com/1503963513/zhuostack,080ddf80a904f394a46be50e748bd868bdb6ccf8,2026-06-04T04:15:47+00:00,Human,,4,1,1,True,True,False,False,"fix(web): 文件上传 endpoint 补上 NEXT_PUBLIC_API_URL 前缀
+
+静态导出后无 rewrites 代理，XHR 请求需要直接指向后端地址"
+https://www.github.com/1503963513/zhuostack,e1a036bcaab702e17667c26c46511589fb52f92b,2026-06-04T04:05:23+00:00,Human,,8,4,1,False,False,False,False,docs: 更新前端规则文档，反映纯静态导出架构
+https://www.github.com/1503963513/zhuostack,8b6008139cf3a273d28744695245346796e9ce34,2026-06-04T04:04:37+00:00,Human,,20,114,5,False,False,False,False,"refactor(web): 改为纯静态导出，移除 Node.js 服务端依赖
+
+- next.config.mjs: 添加 output: 'export'，移除 rewrites（不支持静态导出）
+- api-client.ts: BASE_URL 改用 NEXT_PUBLIC_API_URL 环境变量
+- crypto.ts: fetch 地址同步改为绝对路径 + 清理 debug log
+- 删除 middleware.ts: 路由守卫已由客户端 DashboardLayout 覆盖
+- ecosystem.config.js: 移除 myapp-web 进程（静态站点由 Nginx 直接服务）
+
+效果：
+- PM2 少一个 Node.js 进程，节省 ~200 MiB 内存
+- 构建产物仅 2MB（out/ 目录），Nginx 直接服务
+- 部署只需 nginx + API 后端，不再需要 Next.js 服务端"
+https://www.github.com/1503963513/zhuostack,0487e92bfc7a1b8380c3c53860c2b250aac500b8,2026-06-04T03:57:05+00:00,Human,,2,0,1,True,True,False,False,"fix(deploy): PM2 配置增加 node_args 堆内存上限，解决空载 94% 堆使用率
+
+- API: --max-old-space-size=256（NestJS + Prisma + Redis 够用）
+- Web: --max-old-space-size=512（Next.js SSR 需要更多内存）
+- V8 默认 ~45 MiB 上限导致启动初始化就占 94%，非内存泄漏"
+https://www.github.com/1503963513/zhuostack,a1eefd8dca32fe264bb93f5cfccc907c688d1884,2026-06-04T03:39:10+00:00,Human,,11,1,1,True,True,False,False,fix(web): 头像下拉菜单的退出登录也加上确认弹窗
+https://www.github.com/1503963513/zhuostack,08cf10cf3a1e317c9e74337eaf48c9aa2dccd4fe,2026-06-04T03:35:10+00:00,Human,,9,1,1,False,False,False,False,feat(web): 退出登录新增确认弹窗，防止误操作
+https://www.github.com/1503963513/zhuostack,aaba7e95fe972e4213d07349d25a2739916d1e4e,2026-06-04T03:30:46+00:00,Human,,4,2,2,True,True,False,False,fix(monitor): 部门缓存 key 前缀 dept: 加入清空白名单
+https://www.github.com/1503963513/zhuostack,72d01d277812aa9a018f0a55f0f360be3a67a220,2026-06-04T03:26:31+00:00,Human,,51,0,1,False,False,False,False,docs: 添加 Redis 缓存键管理规则，新增 key 前缀时自动判断或询问归属
+https://www.github.com/1503963513/zhuostack,8fddc74df78d9da4ded9def4fe8ba2a5e8519960,2026-06-04T03:21:52+00:00,Human,,12,7,1,True,True,False,False,"fix(monitor): 修复清空缓存无法清理实际业务 key 的问题
+
+- ALLOWED_KEY_PREFIXES 改为实际使用的前缀：menu:、dict:、captcha:、token:blacklist:
+- PROTECTED_KEY_PREFIXES 精确到 token:active:、login:、kicked:、online:user:
+- clearAllCache 新增 PROTECTED_KEY_PREFIXES 二次校验，防止安全键被误删"
+https://www.github.com/1503963513/zhuostack,72d6398518418fc9d975bc2cdcef7754bdd4b845,2026-06-04T03:17:22+00:00,Human,,46,18,2,True,True,False,False,"fix(auth): 用 jti 实现单设备登录，解决重复登录 token 堆积问题
+
+- generateToken 生成唯一 jti（UUID），写入 JWT payload
+- 登录/注册时将 jti 存入 Redis（token:active:{userId}，90 天 TTL）
+- JwtStrategy 验证时比对 jti，不匹配则拒绝（旧 token 自动失效）
+- 保留 blacklist 机制用于显式登出
+- 彻底消除重复登录导致的 token:blacklist 堆积问题"
+https://www.github.com/1503963513/zhuostack,188298b633e3229a68b28000a5c9182399d27951,2026-06-04T03:11:18+00:00,Human,,8,3,2,True,True,False,False,"fix(web): Loading 组件支持全屏模式，修复退出登录时 spinner 居中偏上
+
+- Loading 新增 fullscreen prop，true 时用 min-h-screen 覆盖整个视口
+- dashboard layout 使用 <Loading fullscreen />，页面内 loading 保持 flex-1"
+https://www.github.com/1503963513/zhuostack,549c2cda7ec693c510fb9a9e6a94c0edab2851d1,2026-06-04T03:11:06+00:00,Human,,82,58,2,True,True,False,False,"fix(auth): 修复验证码竞态、blacklistToken 静默吞错、getUserMenus N+1 查询
+
+- verifyCaptcha: 改用 Redis GETDEL 原子操作，杜绝并发重复验证
+- blacklistToken: 消除 any 类型，decode 失败记录 warning 而非静默吞错
+- getUserMenus: 一次性查出所有活跃菜单 + Map 内存解析父链，消除 N+1 查询
+- RedisService: 新增 getdel<T>() 原子方法
+- buildTree: 补充 MenuTreeNode 类型，消除 any[]"
+https://www.github.com/1503963513/zhuostack,be2e2a4b8d1b5c61021f0b3f09fbc93985e4d573,2026-06-04T02:52:28+00:00,Human,,199,34,10,False,False,False,False,"feat: 登录/注册添加图形验证码防机器人
+
+- 后端: 新增 GET /auth/captcha 端点，svg-captcha 生成 SVG 验证码，答案存 Redis 5 分钟
+- 后端: 登录/注册接口新增 captchaId + captchaCode 字段，一次性验证
+- 前端: 登录/注册表单添加验证码输入框 + SVG 图片，点击图片刷新
+- Schema/DTO 同步更新"
+https://www.github.com/1503963513/zhuostack,2527acb4854e99011559593f585a1482cec4dc47,2026-06-04T02:07:16+00:00,Human,,54,5,4,False,False,False,False,"feat: 在线用户状态续期 & 强制下线机制 & 401 toast 提示
+
+- jwt.strategy.ts: 每次认证请求刷新在线用户 TTL（5 分钟节流），检查踢出标记
+- auth.service.ts: 登录成功时清除踢出标记
+- monitor.service.ts: 强制下线同时设置 kicked:user 标记（30 秒过期）
+- api-client.ts: 401 时弹出 toast 提示再跳转登录页，防重复跳转"
+https://www.github.com/1503963513/zhuostack,c299ad17adfaf6e33854b6eba0af2316ae9d85c1,2026-06-04T01:39:36+00:00,Human,,199,28,5,False,False,False,False,"feat: 实现系统定时任务 & 修复 cron v4 状态 & 移除 Google Fonts 依赖
+
+- system-jobs.service.ts: 实现 4 个定时任务（健康检查、缓存清理、在线用户清理、日志清理）
+- monitor.controller.ts: 新增 GET /monitor/health 端点
+- monitor.module.ts: 导入 LogModule
+- monitor.service.ts: 修复 cron v4 的 running → isActive，添加 log-cleanup 描述
+- layout.tsx: 移除 Google Fonts Inter，改用系统字体栈"
+https://www.github.com/1503963513/zhuostack,1f76b5f511ab8432ff828f5451c1c16611956d77,2026-06-03T10:45:57+00:00,Human,,37,18,3,True,True,False,False,"fix: 部署脚本回退为 next start 模式，完善 setup 提示
+
+- deploy-pack.sh: 回退 standalone 方案，使用 next start + pnpm install --prod
+- server-setup.sh: 添加 DB_TYPE 和 DATABASE_URL 配置提醒，补充数据库同步步骤
+- server-update.sh: 显示当前数据库类型"
+https://www.github.com/1503963513/zhuostack,8e61b294c736582e880f5a9ea6af550429567fc0,2026-06-03T09:34:12+00:00,Human,,3,0,1,False,False,False,False,chore: 添加 .codegraph/ 到 gitignore
+https://www.github.com/1503963513/zhuostack,dbf5c14c1291b2b608a930af5c36bcc506f5c4ff,2026-06-03T09:32:40+00:00,Human,,361,143,15,False,False,False,False,"feat: 服务器监控页面样式优化 & Progress 组件 & 后端服务重构
+
+- 服务器信息页：使用 PageHeader、概览卡片采用 Dashboard 模式、内存进度条使用 shadcn Progress 组件（根据使用率动态变色）、CPU/内存详情改为网格卡片布局
+- 新增 shadcn Progress 组件，支持 indicatorClassName 自定义指示器颜色
+- 后端多个 Service 重构优化（log、dept、dict、file、user）
+- 部门管理页面更新
+- API 客户端改进"
+https://www.github.com/1503963513/zhuostack,7ebc0ccd0b044eeb3ef1d5a6b553b42cc0677b2b,2026-06-03T08:50:11+00:00,Human,,12,10,2,True,True,False,False,fix: Pagination 不足一页自动隐藏，更新 CRUD 规则文档
+https://www.github.com/1503963513/zhuostack,2e5de43028aaf4a0f44d4dbf6453e6fac8c7c2ae,2026-06-03T08:23:54+00:00,Human,,246,299,6,False,False,False,False,"refactor: 6 个页面统一改用 CRUD 模板（PageHeader + DataTable + Pagination）
+
+- 角色管理：DataTable 列配置 + PermissionButton 操作列
+- 岗位管理：同上，移除未使用的 deleteMutation
+- 用户管理：PageHeader + DataTable，保留复杂表单逻辑
+- 字典管理：主表 DataTable，字典数据弹窗保持不变
+- 操作日志：只读表格，无操作列
+- 部门管理：PageHeader，保留树形 DeptRow 组件"
+https://www.github.com/1503963513/zhuostack,e5a1a7490c3a4252e35b66d20446155b1bcfdcfb,2026-06-03T08:09:34+00:00,Human,,48,60,1,False,False,False,False,refactor: 登录日志页面改用 CRUD 模板（PageHeader + DataTable + Pagination）
+https://www.github.com/1503963513/zhuostack,71fd22880867a5290ebf0446b220590114db1782,2026-06-03T07:55:51+00:00,Human,,211,0,1,False,False,False,False,docs: 新增前端 CRUD 页面模板规范（DataTable + Pagination + PageHeader）
+https://www.github.com/1503963513/zhuostack,50048e516c43fd97f038fd309e909101928d6359,2026-06-03T07:50:16+00:00,Human,,28,0,1,False,False,False,False,feat: 新增 PageHeader 通用页面标题组件
+https://www.github.com/1503963513/zhuostack,0c010cc7b680bbccbc2bcf9163375acb8aec80ff,2026-06-03T07:46:22+00:00,Human,,112,0,1,False,False,False,False,feat: 新增 DataTable 通用表格组件（列配置 + 操作列 + 加载空状态）
+https://www.github.com/1503963513/zhuostack,f2978ef6d0e8a2f84ba534f9e97307f4307c15cc,2026-06-03T07:43:09+00:00,Human,,31,8,8,False,False,False,False,refactor: 新增 buildUrl 工具函数，替换所有页面的手动 URL 拼接
+https://www.github.com/1503963513/zhuostack,7ca1dba48ee120d9100d15b86756a32f90731a5c,2026-06-03T07:31:59+00:00,Human,,112,67,7,False,False,False,False,feat: 分页组件居中显示，所有页面支持动态 pageSize 切换
+https://www.github.com/1503963513/zhuostack,501162d9872f1029a4dc77ed809743e8ec5e1787,2026-06-03T07:21:29+00:00,Human,,103,20,1,False,False,False,False,feat: Pagination 组件支持 pageSize 切换和手动输入页码
+https://www.github.com/1503963513/zhuostack,cde55ea6f253809405c461d797636739050cca13,2026-06-03T07:17:01+00:00,Human,,55,53,8,False,False,False,False,refactor: 封装 Pagination 公共组件，替换 7 个页面的重复分页代码
+https://www.github.com/1503963513/zhuostack,7445a760f97f9b778055514590f8f941deff35d9,2026-06-03T05:57:09+00:00,Human,,6,0,2,False,False,False,False,chore: uploads 目录加入 gitignore 和打包排除
+https://www.github.com/1503963513/zhuostack,a8c7d419ecf4358d294144e6ab22ce77d7193ae3,2026-06-03T05:41:59+00:00,Human,,168,0,1,False,False,False,False,docs: 添加文件管理模块开发规范文档
+https://www.github.com/1503963513/zhuostack,f68a4056ed810fd4f13e437232edeb250627d78d,2026-06-03T05:36:05+00:00,Human,,11,2,1,True,True,False,False,fix: 文件删除使用实际存储目录拼接路径，修复绝对路径下删除无效
+https://www.github.com/1503963513/zhuostack,97b8d96b03e9f7960ead14126f04b3c0789c2365,2026-06-03T05:29:55+00:00,Human,,3,2,2,True,True,False,False,fix: FILE_STORAGE_PATH 支持绝对路径和相对路径
+https://www.github.com/1503963513/zhuostack,2ad2386bb54a9258c67e454549fb474c74cfc090,2026-06-03T05:28:04+00:00,Human,,13,1,1,True,True,False,False,fix: 复制链接降级方案，兼容 HTTP 环境
+https://www.github.com/1503963513/zhuostack,0d3a6d470f6b3988d83d06e82bd6485816430c4a,2026-06-03T04:53:59+00:00,Human,,12,15,1,True,True,False,False,fix: 文件卡片缩小尺寸，hover 边框变色
+https://www.github.com/1503963513/zhuostack,6f32f49d82fb64a44bf6c9bea79402d96b1e05b2,2026-06-03T04:51:39+00:00,Human,,14,0,1,False,False,False,False,feat: 文件卡片增加复制在线链接按钮
+https://www.github.com/1503963513/zhuostack,0f29f2a11cd44275645218400f676f44a103c36e,2026-06-03T04:48:50+00:00,Human,,6,1,1,True,True,False,False,fix: Next.js rewrites 添加 /files 代理，本地开发文件预览可用
+https://www.github.com/1503963513/zhuostack,611381fe441986821aad14ca0d53806a58cd5b68,2026-06-03T04:45:44+00:00,Human,,45,50,3,False,False,False,False,"feat: 文件存储配置从环境变量读取
+
+- FILE_STORAGE_PATH: 存储目录（默认 uploads）
+- FILE_URL_PREFIX: URL 前缀（默认 /files）
+- FILE_MAX_SIZE_MB: 最大文件大小（默认 50MB）
+- FILE_ALLOWED_MIME_TYPES: 允许的 MIME 类型（逗号分隔）"
+https://www.github.com/1503963513/zhuostack,61947e7881e4be4149749857898897c887bad435,2026-06-03T04:18:49+00:00,Human,,19,22,2,True,True,False,False,fix: @fastify/multipart 降级到 v8 兼容 Fastify 4.x
+https://www.github.com/1503963513/zhuostack,dfe7b27f12aaa1f475bf1f9ca555cfebc3724aa8,2026-06-03T04:15:37+00:00,Human,,94,53,5,True,True,False,False,"fix: 文件上传改用 @fastify/multipart（兼容 Fastify 适配器）
+
+- 安装 @fastify/multipart 替代 @nestjs/platform-express
+- main.ts 注册 multipart 插件（50MB 限制）
+- controller 使用 req.file() 接收文件
+- service 统一 saveFile/saveImage 方法
+- sys-file 模型同步到 schema.active"
+https://www.github.com/1503963513/zhuostack,c0a74604bedd77d16351b1219f56b7c2d4300fd5,2026-06-03T04:03:26+00:00,Human,,1685,3,16,False,False,False,False,"feat: 文件管理模块完整实现
+
+后端：
+- 新增 SysFile Prisma 模型（postgres + mysql）
+- 新增 FileModule：上传、下载、预览、删除、批量删除
+- 注册 @fastify/static 静态文件服务（/files → uploads/）
+- 种子数据：文件管理菜单 + 按钮权限（upload/download/delete/edit）
+
+前端：
+- 新增文件管理页面：卡片视图、搜索筛选、拖拽上传、图片预览
+- 新增可复用 FileUpload 组件（单文件/多文件、图片模式、进度条）
+- 用户管理集成头像上传功能
+
+静态资源方案：
+- 本地开发：Fastify /files/xxx → uploads/ 目录
+- 生产环境：Nginx 直接从磁盘读取 /files/xxx（不走应用）"
+https://www.github.com/1503963513/zhuostack,dbbd796413deaafd7bd3a16dc108d15ac3e8fcc9,2026-06-03T02:38:22+00:00,Human,,304,38,3,True,True,False,False,fix: use-confirm 改为 .tsx 扩展名支持 JSX
+https://www.github.com/1503963513/zhuostack,d25d5c0206afed0f77347d8555fa84b79ce13749,2026-06-03T02:32:27+00:00,Human,,191,53,11,False,False,False,False,"feat: 全局自定义确认对话框替代原生 confirm()
+
+- 新增 useConfirm Hook，Promise 风格调用
+- 12 处原生 confirm() 全部替换为自定义对话框
+- 支持 destructive 变体，统一 UI 风格"
+https://www.github.com/1503963513/zhuostack,28fbb3cf324f5abf754dba485d819e5b68056b1d,2026-06-03T01:55:58+00:00,Human,,7,1,1,True,True,False,False,fix: UpdateUserDto 添加可选 password 字段
+https://www.github.com/1503963513/zhuostack,55ca44c3c0817dcdbb114c870aafa42ab830c155,2026-06-03T01:42:23+00:00,Human,,22,1,2,True,True,False,False,fix: 编辑用户时回填部门、岗位、角色数据
+https://www.github.com/1503963513/zhuostack,f079f43d0bfcd6153fd64cdbf970605cf79b992b,2026-06-03T01:34:36+00:00,Human,,21,1,1,True,True,False,False,fix: UserService.update 正确处理 role/deptId/postIds/roleIds 关系字段
+https://www.github.com/1503963513/zhuostack,9625c303ae3aa2a880b5502f6e84a51b799f5569,2026-06-03T01:25:35+00:00,Human,,25,5,1,True,True,False,False,fix: UpdateUserDto 补全 role/deptId/postIds/roleIds 字段
+https://www.github.com/1503963513/zhuostack,bef63755b0e6381edff1e92b4a630a2bb58caaa3,2026-06-02T14:43:07+00:00,Human,,1,1,1,True,True,False,False,fix: 恢复 sidebar 中 useMemo 的 import
+https://www.github.com/1503963513/zhuostack,4916952823d2dd7a6b5d1b7f59e7482f8a1b1d1a,2026-06-02T14:42:34+00:00,Human,,13,9,1,True,True,False,False,fix: 侧边栏页面刷新后自动展开当前路径所在的目录
+https://www.github.com/1503963513/zhuostack,582ab9dcf2a320850a7cb9a76160b2ecfae6fa95,2026-06-02T14:39:25+00:00,Human,,2,2,2,False,False,False,False,chore: .env.example 恢复默认 CORS，monitor 缓存白名单精简
+https://www.github.com/1503963513/zhuostack,98dd92af4908ac23e5cc9b96dfeebe408b09fc34,2026-06-02T14:14:13+00:00,Human,,194,0,1,False,False,False,False,docs: 添加前端 Hooks 使用规范文档
+https://www.github.com/1503963513/zhuostack,441b3cc73796b1fff07e568e2644c92ae0e594c3,2026-06-02T14:11:22+00:00,Human,,60,7,3,False,False,False,False,feat: 日志页面使用字典 Hook 替代硬编码枚举映射
+https://www.github.com/1503963513/zhuostack,e9ec4ac8ed2d0f04329ea4900492feacf31d854c,2026-06-02T14:07:45+00:00,Human,,59,0,1,False,False,False,False,"feat: 种子数据补全系统字典
+
+- 新增角色类型字典（ADMIN/USER）
+- 新增菜单类型字典（DIRECTORY/MENU/BUTTON）
+- 新增业务操作类型字典（其他/新增/修改/删除/导出）
+- 新增操作状态字典（成功/失败）
+- 新增隐藏状态字典（显示/隐藏）"
+https://www.github.com/1503963513/zhuostack,22b4476ed218155ff5004720d325288abb2c8a77,2026-06-02T14:04:34+00:00,Human,,33,0,1,True,True,False,False,fix: 全局滚动条美化，6px 细滚动条适配亮色暗色模式
+https://www.github.com/1503963513/zhuostack,c270f809a9112c5cf2eca03007b13bea68664851,2026-06-02T14:02:27+00:00,Human,,3,3,1,True,True,False,False,fix: 侧边栏退出按钮固定在底部，菜单列表可滚动不重叠
+https://www.github.com/1503963513/zhuostack,23bcf1151160a34377b62638d4ce864893aa0cf6,2026-06-02T13:56:36+00:00,Human,,58,41,1,True,True,False,False,"fix: 菜单表单按类型显示不同字段
+
+- BUTTON：仅显示名称、类型、状态、权限标识
+- DIRECTORY：显示路由路径、图标、排序、状态、隐藏菜单（无组件路径、无权限标识）
+- MENU：显示全部字段"
+https://www.github.com/1503963513/zhuostack,561b39b8fb2b785a7c01e14fc926ff8c17eed9cf,2026-06-02T13:53:39+00:00,Human,,17,13,1,True,True,False,False,fix: 菜单表单布局优化，按钮类型隐藏无关字段
+https://www.github.com/1503963513/zhuostack,46cb406b209d4677334340e1167640ccce1e997c,2026-06-02T13:45:38+00:00,Human,,65,2,1,False,False,False,False,"feat: 种子数据补全所有模块的按钮权限
+
+- 新增用户管理按钮权限：system:user:add/edit/delete
+- 新增岗位管理按钮权限：system:post:add/edit/delete
+- 新增菜单管理按钮权限：system:menu:add/edit/delete
+- 新增字典管理按钮权限：system:dict:add/edit/delete/data
+- 新增操作日志按钮权限：log:oper:delete
+- 新增登录日志按钮权限：log:login:delete
+- 管理员角色自动关联所有 BUTTON 类型权限"
+https://www.github.com/1503963513/zhuostack,7077a3bb9ae0096a8932e361467b9dda6ca4b8b4,2026-06-02T13:43:39+00:00,Human,,105,137,9,False,False,False,False,"feat: 前端按钮级别权限控制
+
+- 新增 usePermissions Hook：从菜单树中提取所有权限标识
+- 新增 PermissionButton 组件：根据权限控制按钮显隐
+- 所有系统管理页面的增删改按钮改用 PermissionButton
+- 权限标识格式：模块:资源:操作（如 system:user:add）"
+https://www.github.com/1503963513/zhuostack,9ac2192c29b7ab195c41c9b68997992de013ff9b,2026-06-02T13:33:15+00:00,Human,,1,1,1,True,True,False,False,fix: 缓存管理白名单添加业务缓存前缀（menu/dict/dept/post/role）
+https://www.github.com/1503963513/zhuostack,aef1e6ac964191daf6426f17f91ba0b187264733,2026-06-02T13:30:13+00:00,Human,,43,43,1,True,True,False,False,fix: 菜单弹窗改为2x2网格布局
+https://www.github.com/1503963513/zhuostack,3141f77f1262ea5c70f287fedceb07893a2dd5df,2026-06-02T13:28:26+00:00,Human,,51,25,1,True,True,False,False,fix: 菜单弹窗布局优化，按钮类型只显示排序和状态
+https://www.github.com/1503963513/zhuostack,d552918fd5e45f57231279ce8f10640b11e16547,2026-06-02T13:26:15+00:00,Human,,43,37,1,True,True,False,False,fix: 按钮类型隐藏路由路径、组件路径、图标、隐藏菜单等无关字段
+https://www.github.com/1503963513/zhuostack,00144e9d214eadc996508ca3f046320b17fb7278,2026-06-02T13:24:57+00:00,Human,,4,1,1,True,True,False,False,fix: usePermissions 过滤隐藏和停用的按钮权限
+https://www.github.com/1503963513/zhuostack,4a30aad16c8ff4c64590076cfc95e4a17eb58f6d,2026-06-02T13:17:42+00:00,Human,,123,6,4,False,False,False,False,"feat: 实现按钮级别权限控制
+
+- 新增 usePermissions Hook，从用户菜单中提取权限标识
+- 新增 PermissionButton 组件，根据 perm 属性控制按钮显隐
+- 角色管理页面新增/编辑/删除按钮改为 PermissionButton
+- 菜单管理和角色管理更新后自动刷新 user-menus 缓存"
+https://www.github.com/1503963513/zhuostack,0994d5dd94b7214657100bb66cac9b9b8e370727,2026-06-02T10:15:54+00:00,Human,,1,45,1,True,True,False,False,fix: Swagger 移除 Basic Auth 认证，改为公开访问
+https://www.github.com/1503963513/zhuostack,1abc6423df6b2fad5caefd21c68f53732e1320ab,2026-06-02T10:04:43+00:00,Human,,1,0,1,True,True,False,False,fix: esbuild 加入 onlyBuiltDependencies 白名单
+https://www.github.com/1503963513/zhuostack,1898d7480c1d4e16b4ab4388ae48ff15e5cb2b7a,2026-06-02T09:57:42+00:00,Human,,6,3,2,True,True,False,False,fix: Swagger 改用 SWAGGER_ENABLED 环境变量控制，支持生产环境启用
+https://www.github.com/1503963513/zhuostack,448da4fab7206f9d3d83bdc399108891a6687759,2026-06-02T09:55:41+00:00,Human,,91,25,8,True,True,False,False,"fix: 部署脚本修复 + API 路径修正 + 种子命令改用 tsx
+
+- server-update.sh: 移除 --skip-old-files，改用 --exclude 排除 .env
+- server-update.sh: 添加 approve-builds 和 prisma:push 步骤
+- deploy-pack.sh: 清理 ._ 隐藏文件，添加 docker-compose.yml
+- api-client.ts: baseURL 改为空字符串，避免部署后指向 localhost
+- use-auth.ts: 登出接口改用相对路径
+- package.json: 种子命令从 ts-node 改为 tsx，tsx 加入 dependencies
+- login-form.tsx: 添加加密流程 console.log 调试日志
+- crypto.ts: 完善 RSA 加密错误处理和日志"
+https://www.github.com/1503963513/zhuostack,028188800c8b14c726045ece97cd8fc8161f4247,2026-06-02T07:40:04+00:00,AI,Claude_Code,10,4,2,True,True,False,False,"fix: RSA 加密改用 node-forge 替代 jsencrypt
+
+- node-forge 支持 RSA-OAEP + SHA-256，与 Node.js crypto 兼容
+- Node.js 22 已禁用 PKCS1v1.5 解密（CVE-2023-46809），必须用 OAEP
+- 前端 node-forge OAEP 加密 ↔ 后端 RSA-OAEP + SHA-256 解密
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,7c764bc6ab043ef46738b18ed5ebcaf41b8e2df1,2026-06-02T07:24:45+00:00,AI,Claude_Code,34,26,3,True,True,False,False,"fix: RSA 加密改用 node-forge 替代 jsencrypt
+
+- node-forge 更轻量、类型支持更好
+- 后端保持 RSA_PKCS1_PADDING 解密兼容
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,96998f6bd838b0c8744d9cea35032c00af4c4178,2026-06-02T07:17:21+00:00,AI,Claude_Code,32,56,4,True,True,False,False,"fix: RSA 加密改用 JSEncrypt 兼容 HTTP 部署环境
+
+Web Crypto API (crypto.subtle) 仅在安全上下文（HTTPS/localhost）可用，
+服务器 HTTP 部署下加密失败。改用 JSEncrypt 纯 JS 实现：
+- 前端：JSEncrypt RSA-PKCS1v1.5 加密（任何协议下都能工作）
+- 后端：RSA_PKCS1_PADDING 解密（匹配 JSEncrypt 填充方式）
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,725d0c7f6507176f15fe13e22537456c1f226fb6,2026-06-02T07:04:05+00:00,AI,Claude_Code,1,1,1,True,True,False,False,"fix: PM2 入口路径修正为 dist/src/main.js
+
+NestJS 构建输出保留 src/ 目录结构。
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,6bc5289d4d7d7c758155777e8a0fc48a1cec577d,2026-06-02T06:49:20+00:00,AI,Claude_Code,8,0,1,True,True,False,False,"fix: 打包脚本加入 docker-compose.yml
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,76e29371f9befaa3217ae3030254fa23922b4144,2026-06-02T04:45:56+00:00,AI,Claude_Code,59,0,2,False,False,False,False,"feat: 添加 docker-compose.yml 用于部署 MySQL + Redis
+
+- MySQL 8.0：utf8mb4 字符集、健康检查、数据持久化
+- Redis Alpine：AOF 持久化、128MB 内存限制、LRU 淘汰策略
+- 数据卷挂载到 docker/data/（已 gitignore）
+- 支持环境变量自定义密码和库名
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,e2e7d7587cb70aa391e410a4479e8427bb790b84,2026-06-02T04:41:40+00:00,AI,Claude_Code,14,0,1,True,True,False,False,"fix: 恢复 next.config.mjs（Next.js 14 不支持 .ts 配置）
+
+next build 需要 .mjs 格式，保留 .ts 供 IDE 类型提示。
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,abdf59114c916a6ba5755afeb73bde025c218918,2026-06-02T04:33:29+00:00,AI,Claude_Code,1,0,1,False,False,False,False,"chore: 将 tsconfig.tsbuildinfo 加入 gitignore
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,496731a0559b40043f9f5e3afd9144bbd5145010,2026-06-02T04:32:51+00:00,AI,Claude_Code,7,7,2,True,True,False,False,"fix: 修复 Swagger 文档页 iframe 被 helmet X-Frame-Options 拦截
+
+- 关闭 helmet frameguard 允许前端 iframe 嵌入 Swagger
+- Swagger 页面改用 Next.js /api 代理路径，避免跨域直连后端
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,0f26e7b30db5b22dd22204da3a6e7efcfa4fbb61,2026-06-02T04:29:32+00:00,AI,Claude_Code,66,46,12,True,True,False,False,"fix: 修复性能问题和逻辑缺陷
+
+性能优化：
+- 6 个搜索页面（角色/岗位/用户/字典/操作日志/登录日志）添加 useDebounce 300ms 防抖
+- Redis 所有操作失败时记录 warn 日志，避免静默降级无人感知
+
+逻辑修复：
+- AI 聊天 DTO 添加消息条数上限 20 条 + 单条消息长度上限 5000 字符
+- Header 用户下拉菜单添加外部点击关闭 + Escape 键关闭
+- 删除未使用的 LocalAuthGuard、重复的 next.config.mjs
+- 修正 constants.ts 中失效的 STORAGE_KEYS 为 AUTH_STORAGE_KEY
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,003684a2ec0182e90b78840aecb23728ae3dff69,2026-06-02T04:19:33+00:00,AI,Claude_Code,587,123,23,True,True,False,False,"fix: 全面修复系统安全漏洞（P0/P1/P2）
+
+P0 严重问题修复：
+- JWT Secret 启动时校验强度，拒绝弱密钥和模板默认值（≥32字符）
+- 新增 Next.js middleware.ts 服务端路由保护，未认证用户无法访问 dashboard 页面
+- 移除无盐 SHA-256 客户端哈希，改用 RSA-2048 非对称加密传输密码
+- 安装 @fastify/helmet 添加安全响应头
+
+P1 高危问题修复：
+- 登录接口统一返回「邮箱或密码错误」，不泄露剩余尝试次数
+- 监控接口 Redis 操作加白名单前缀限制，禁止 flushdb 和删除安全键
+- Swagger 文档支持 Basic Auth 保护（SWAGGER_USER/PASSWORD 环境变量）
+- 操作/登录日志清空改为保留最近 7 天 + 单次最多 5000 条
+
+P2 中危问题修复：
+- Token 黑名单 Redis key 改用 SHA-256 哈希前缀（节省内存）
+- Log 控制器新增 class-validator DTO 验证（与其他模块一致）
+- AI 端点添加独立速率限制 10次/分钟（全局 100次/分钟）
+- CORS 支持逗号分隔多源配置 + 通配符
+
+RSA 加密方案：
+- 后端启动时生成 RSA-2048 密钥对，GET /auth/public-key 下发公钥
+- 前端 crypto.subtle RSA-OAEP 加密密码，后端私钥解密后 bcrypt 存储
+- auth-store 同步 Cookie 供 middleware 读取，401 拦截器改用 location.replace
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/1503963513/zhuostack,0d8e31848a1f326ff36b9effe445c87bdd98ca66,2026-06-02T03:25:16+00:00,Human,,155,46,15,True,True,False,False,"fix: 修复系统审计发现的安全和性能问题
+
+安全修复：
+- 用户接口 findAll/findOne/update 添加 @Roles(Role.ADMIN) 防越权
+- 登录暴力破解防护（5次失败锁定15分钟，Redis 记录）
+- Token 黑名单机制（登出/改密码时 Token 立即失效）
+- 新增 POST /api/auth/logout 接口
+- 前端退出登录改为调用后端 logout 接口
+
+性能修复：
+- SysMenu 添加 @@index([parentId], [status]) 索引
+- SysDept 添加 @@index([parentId]) 索引
+- SysDictData 添加 @@index([dictId], [status]) 索引
+
+代码质量：
+- 所有 pageSize 添加 @Max(100) 上限
+- 删除 PrismaService 未使用的 enableShutdownHooks 方法
+- 修复 changePassword 异常类型 ConflictException → BadRequestException
+- 清理 auth.service.ts 未使用的 Req 导入"
+https://www.github.com/1503963513/zhuostack,d29f84a64c7a3e9684ae54f7e9104e47fe3f27f5,2026-06-02T02:52:19+00:00,Human,,11,4,1,True,True,False,False,"fix: 页面刷新后不再需要重新登录
+
+- 添加 hydrated 状态，等待 Zustand persist 完成 hydrate
+- hydrate 前显示 Loading，避免 SSR 时 isAuthenticated=false 导致闪跳到登录页"
+https://www.github.com/1503963513/zhuostack,a654a7e16e4538ac6e323e5dce7f7ea022b04b6a,2026-06-02T02:29:16+00:00,Human,,85,2,3,False,False,False,False,"feat: 侧边栏按用户角色过滤菜单权限
+
+- 新增 GET /api/auth/menus 接口，按当前用户角色返回菜单树
+- 管理员返回所有菜单，普通用户返回角色关联的菜单
+- 自动补全父菜单（保证树形结构完整）
+- 侧边栏改用 /api/auth/menus 获取菜单"
+https://www.github.com/1503963513/zhuostack,31a04ad1d307e9b7a5a70fa95c6e17a66e3b932e,2026-06-02T02:20:47+00:00,Human,,226,32,1,False,False,False,False,"feat: 角色管理添加菜单权限树选择器
+
+- 编辑角色时加载已分配的菜单权限
+- 菜单树支持父子联动（选中父菜单自动选中所有子菜单）
+- 半选状态显示（部分子菜单被选中时父菜单显示半选）
+- 全选/全不选按钮
+- 按钮类型菜单显示特殊标签
+- 菜单图标按类型着色（目录蓝/菜单绿/按钮橙）"
+https://www.github.com/1503963513/zhuostack,f600ce2d6adc58a5617ebbbfbf7fa6afa1db616b,2026-06-02T02:12:56+00:00,Human,,10,4,1,True,True,False,False,"fix: 退出登录时用独立 axios 实例调用后端清除在线状态
+
+- 使用独立 axios 实例（不走 api-client 拦截器）
+- 先完成 API 调用，再清除本地 token
+- 避免 token 清除后 401 导致调用失败"
+https://www.github.com/1503963513/zhuostack,267b54d749377965387191085d22374a1d14446c,2026-06-02T01:48:17+00:00,Human,,11,1,1,True,True,False,False,"fix: 退出登录时清除 Redis 在线用户记录
+
+- useLogout 调用后端 DELETE /api/monitor/online/:userId 清除在线状态
+- 退出后在线用户列表不再显示已下线用户"
+https://www.github.com/1503963513/zhuostack,5b52855db3acd095d8abeedbd02e7b4a99ab0413,2026-06-02T01:42:05+00:00,Human,,7,0,2,True,True,False,False,"fix: 登录时记录在线用户到 Redis
+
+- AuthService 登录成功后调用 monitorService.userOnline()
+- 在线用户监控页面现在能正确显示已登录用户"
+https://www.github.com/1503963513/zhuostack,ac9279a820bbefbc208967fbe6f76986850c9d84,2026-06-02T01:25:51+00:00,Human,,9,6,1,False,False,False,False,"feat: 菜单类型标签按颜色区分
+
+- 目录：蓝色标签
+- 菜单：绿色标签
+- 按钮：橙色标签 + 行背景微灰
+- 标签改为圆角胶囊样式"
+https://www.github.com/1503963513/zhuostack,30aae93a94fdf4694c72d6c6c45a4f836bef496e,2026-06-02T01:05:36+00:00,Human,,91,116,3,False,False,False,False,"refactor: 修改密码功能合并到个人中心页面
+
+- 删除独立的 /profile/change-password 页面
+- 修改密码表单直接放在个人资料页面下方
+- 移除种子数据中的「修改密码」子菜单"
+https://www.github.com/1503963513/zhuostack,ed18dcb5936b738cfd04b545a50bd285e84ff51a,2026-06-02T00:57:40+00:00,Human,,172,15,5,False,False,False,False,"feat: 接入登录日志和操作日志记录
+
+- AuthService 登录/注册时自动记录登录日志（成功/失败、IP、用户名）
+- OperLogInterceptor 全局拦截器自动记录 POST/PUT/DELETE 操作日志
+- 自动识别操作类型（新增/修改/删除）和资源名称（部门/角色/菜单等）
+- 跳过登录/注册接口（已有登录日志）
+- 操作日志记录耗时、IP、操作人、状态、错误信息"
+https://www.github.com/1503963513/zhuostack,c0fc800b9233c6185b67cbb18cd50fe444bf5d8e,2026-06-02T00:49:19+00:00,Human,,14,0,1,False,False,False,False,chore: seed 脚本末尾自动清除 Redis 缓存
+https://www.github.com/1503963513/zhuostack,71dd1f379dbfe58dd5162db224b7a1424e106641,2026-06-02T00:31:11+00:00,Human,,1227,4,18,False,False,False,False,"feat: 补充系统管理必备功能
+
+系统管理新增：
+- 用户管理页面（CRUD + 分页搜索 + 部门选择）
+- 修改密码接口 POST /api/user/change-password
+- 修改密码页面 /profile/change-password
+- 操作日志（SysOperLog 模型 + API + 页面 /system/oper-log）
+- 登录日志（SysLoginLog 模型 + API + 页面 /system/login-log）
+
+系统监控新增：
+- 服务器信息页面 /monitor/server（CPU/内存/负载/运行时间）
+
+种子数据新增菜单：
+- 系统管理 > 用户管理、操作日志、登录日志
+- 系统监控 > 服务器信息
+- 个人中心 > 修改密码"
+https://www.github.com/1503963513/zhuostack,e9a8c32bd6ff8ecad0b338382be22e2201f27cbc,2026-06-01T15:06:01+00:00,Human,,26,4,2,True,True,False,False,"fix: 恢复菜单和部门服务的查询缓存
+
+- 菜单 findTree/findAll 恢复 Redis 缓存读写
+- 部门 findTree/findAll 恢复 Redis 缓存读写
+- 缓存列表现在会显示 dict:list、menu:tree、menu:list、dept:tree、dept:list 等键"
+https://www.github.com/1503963513/zhuostack,1d5ec6d8bc515e488ebff0958ac4651d321754bc,2026-06-01T14:58:36+00:00,Human,,15,1,1,True,True,False,False,fix: 字典管理添加删除功能
+https://www.github.com/1503963513/zhuostack,79a4060a1c3c5a9c5df08ecc0cc21aeb396a2040,2026-06-01T14:53:51+00:00,Human,,2,1,1,False,False,False,False,chore: 个人中心菜单默认隐藏
+https://www.github.com/1503963513/zhuostack,1297571e29c11c4fd9aa38f7bf7931c3e637d15d,2026-06-01T14:51:25+00:00,Human,,31,5,5,False,False,False,False,"feat: 菜单增加隐藏功能
+
+- SysMenu 模型新增 hidden 字段（Boolean，默认 false）
+- 菜单管理表单新增「隐藏菜单」选项（显示/隐藏）
+- 侧边栏过滤 hidden=true 的菜单（不在导航中显示）
+- 菜单列表中隐藏的菜单显示「隐藏」标签
+- 隐藏菜单仍可通过 URL 直接访问"
+https://www.github.com/1503963513/zhuostack,176c2f935a82792ae8f114b924d9551459f42796,2026-06-01T14:36:18+00:00,Human,,362,98,7,False,False,False,False,"feat: 监控模块改为真实数据（Redis + 真实定时任务）
+
+- 缓存监控：真实 Redis 数据（键列表、TTL、类型、大小、内存使用）
+- 在线用户：Redis 存储在线状态（登录写入、登出删除、30分钟过期）
+- 定时任务：@nestjs/schedule 真实 Cron 任务（health-check、cache-cleanup、online-cleanup）
+- 定时任务管理：支持启动/停止/立即执行
+- 新增 SystemJobsService 注册系统定时任务
+- 安装 @nestjs/schedule 依赖"
+https://www.github.com/1503963513/zhuostack,0e8643894b61ab34832cfa1b1af011b3d545dc70,2026-06-01T14:22:32+00:00,Human,,770,0,9,False,False,False,False,"feat: 添加系统监控模块（缓存、在线用户、定时任务、接口文档）
+
+后端 API（/api/monitor/*）：
+- GET /cache - 获取缓存信息（键列表、内存使用）
+- DELETE /cache/:key - 删除指定缓存键
+- DELETE /cache - 清空所有缓存
+- GET /online - 获取在线用户列表
+- DELETE /online/:userId - 强制用户下线
+- GET /jobs - 获取定时任务列表
+- GET /server - 获取服务器信息
+
+前端页面：
+- /monitor/cache - 缓存列表（查看/删除/清空）
+- /monitor/online - 在线用户（查看/强制下线）
+- /monitor/jobs - 定时任务（Cron 表达式、执行时间）
+- /monitor/swagger - 接口文档（iframe 内嵌 Swagger）
+
+种子数据：
+- 新增「系统监控」一级目录（Monitor 图标）
+- 缓存列表、在线用户、定时任务、接口文档 四个子菜单"
+https://www.github.com/1503963513/zhuostack,a807c2c2458563b988a59c8eca2f236bb3b000cf,2026-06-01T13:58:38+00:00,Human,,367,3,5,False,False,False,False,"feat: 菜单管理图标选择器（可视化选择 Lucide 图标）
+
+- 新增 IconPicker 组件（Popover 弹出 + 网格展示 + 搜索过滤）
+- 包含 90+ 常用 Lucide 图标
+- 菜单管理表单的图标字段改为可视化选择器
+- 选中后显示图标预览 + 图标名称"
+https://www.github.com/1503963513/zhuostack,aa03b9fe625f30be7db9f286673bba89a208070e,2026-06-01T13:36:22+00:00,Human,,22,21,1,False,False,False,False,"feat: 侧边栏完全动态渲染（仪表盘等一级菜单也从 API 获取）
+
+- 移除所有硬编码菜单项
+- 一级菜单（MENU 类型 + 无 parentId）独立渲染
+- 分组菜单（DIRECTORY 类型）带折叠子菜单
+- 仪表盘、个人中心等也通过数据库控制显隐"
+https://www.github.com/1503963513/zhuostack,d066f992c1e4a006b839592ba79bac20aa1a4f15,2026-06-01T13:29:46+00:00,Human,,142,64,1,False,False,False,False,"feat: 侧边栏菜单改为动态加载（从 API 获取）
+
+- 菜单数据从 /api/system/menu/tree 获取
+- 只显示 status=ACTIVE 的菜单
+- 菜单类型为 DIRECTORY 的作为分组，MENU 的作为子项
+- 图标根据数据库 icon 字段动态映射
+- 停用菜单后刷新页面自动隐藏"
+https://www.github.com/1503963513/zhuostack,0dac13ed9e3b61671408e62b52a67db0ca4ca107,2026-06-01T13:24:08+00:00,Human,,52,21,1,False,False,False,False,"feat: 部门管理支持新增子部门
+
+- 父部门选择器改为树形缩进展示
+- 每行操作栏新增「+」按钮，一键新增子部门
+- 自动设置 parentId
+- 编辑时不能选择自己作为父部门（防循环）"
+https://www.github.com/1503963513/zhuostack,dbee1b10c1cce9cfb73c58be9f68e9d37a2105f0,2026-06-01T13:17:47+00:00,Human,,64,5,1,False,False,False,False,"feat: 菜单管理支持新增子菜单
+
+- 表单新增「父菜单」选择器（树形缩进展示）
+- 每行操作栏新增「+」按钮，一键新增子菜单
+- 自动设置 parentId 为当前菜单 ID
+- 编辑时不能选择自己作为父菜单（防循环）"
+https://www.github.com/1503963513/zhuostack,8e995b830a4fb406e407e99469fcc9003498e848,2026-06-01T13:11:39+00:00,Human,,267,44,3,False,False,False,False,"feat: 内置系统菜单数据（树形结构）
+
+种子数据新增：
+- 仪表盘（一级菜单）
+- 系统管理（一级目录）
+  - 部门管理（二级菜单 + 新增/编辑/删除按钮权限）
+  - 岗位管理（二级菜单）
+  - 角色管理（二级菜单 + 新增/编辑/删除按钮权限）
+  - 菜单管理（二级菜单）
+  - 字典管理（二级菜单）
+- 个人中心（一级菜单）
+- 部门、岗位、角色、字典内置测试数据
+- 移除菜单/部门服务中的 Redis 缓存（避免 seed 后缓存脏数据）"
+https://www.github.com/1503963513/zhuostack,b49c0620af915d281f2e747f0690d4d4ba51cb1b,2026-06-01T13:02:19+00:00,Human,,2,2,1,True,True,False,False,fix: 部门管理新增/更新后自动刷新列表
+https://www.github.com/1503963513/zhuostack,05094af098f773349a6b609893d0f5e3a0cf303b,2026-06-01T12:57:34+00:00,Human,,9,9,4,True,True,False,False,"fix: 统一所有系统管理页面 CRUD 后自动刷新列表
+
+所有 mutation 的 onSuccess 中直接调用 refetch()，移除不可靠的 invalidateKeys 机制
+
+修复页面：角色管理、菜单管理、岗位管理、字典管理"
+https://www.github.com/1503963513/zhuostack,52f44e4d37203b1b1a8913bd134c2c162f169802,2026-06-01T12:45:05+00:00,Human,,4,2,2,True,True,False,False,"fix: 所有系统管理页面新增/修改/删除后自动刷新列表
+
+- 角色管理：删除后 refetch
+- 菜单管理：删除后 refetch
+- 部门管理：已有 refetch（无需修改）
+- 岗位管理：已有 refetch（无需修改）"
+https://www.github.com/1503963513/zhuostack,675fba23c915bb151baeb9676c5e646d0a2a749f,2026-06-01T12:39:34+00:00,Human,,4,3,1,True,True,False,False,"fix: 字典新增/修改后自动刷新列表
+
+- useApiMutation 的 invalidateKeys 改为部分匹配
+- invalidateQueries({ queryKey: ['dicts'] }) 会匹配所有以 'dicts' 开头的查询键
+- 包括 ['dicts', '1', '']、['dicts', '2', 'test'] 等"
+https://www.github.com/1503963513/zhuostack,14d7ea2667f40eba9d8a33bce78986ee74570bf7,2026-06-01T12:36:22+00:00,Human,,38,74,3,False,False,False,False,"perf: 切换到本地数据库，接口响应从 2-9 秒降至 4-74 毫秒
+
+- Docker MySQL 端口改为 3307（避免与 OrbStack 冲突）
+- .env 切换到本地 MySQL 数据库
+- 优化字典更新方法，减少不必要的数据库查询
+- RedisService 连接失败时快速跳过，不阻塞主流程
+
+性能对比：
+  远程数据库: 健康检查 2.67s, 登录 1.35s, 字典更新 9s
+  本地数据库: 健康检查 19ms, 登录 74ms, 菜单树 4ms"
+https://www.github.com/1503963513/zhuostack,ba3f64822e5488a06c789ed185f33d541b94fb42,2026-06-01T12:12:30+00:00,Human,,37,21,1,True,True,False,False,"fix: 修复 Redis 缓存导致接口超时
+
+- RedisService 添加 isConnected 状态检查，未连接时直接跳过
+- 将 KEYS 命令替换为 SCAN，避免阻塞 Redis
+- 缓存操作全部静默失败，不影响主业务流程
+- 连接超时设为 3 秒，最大重试 2 次"
+https://www.github.com/1503963513/zhuostack,1df5de4a9b73f98aba92cc28dea6c59fa6e3fd1d,2026-06-01T11:54:11+00:00,Human,,405,23,11,False,False,False,False,"feat: 添加 Redis 缓存优化接口性能
+
+- 新增 RedisService（ioredis）封装缓存操作
+- 新增 RedisModule 全局注册
+- 字典服务添加缓存（按编码查询、列表查询）
+- 菜单服务添加缓存（树形列表、平铺列表）
+- 部门服务添加缓存（树形列表、平铺列表）
+- User 模型添加数据库索引（deptId, role, createdAt）
+- 数据库连接池参数优化
+- 关闭开发环境查询日志减少开销"
+https://www.github.com/1503963513/zhuostack,10654ab7338d00f17639abd50e54bea66e76cf94,2026-06-01T11:34:15+00:00,Human,,4868,1,71,False,False,False,False,"feat: 添加系统管理模块（角色、岗位、部门、菜单、字典）
+
+后端：
+- 新增 SysRole、SysPost、SysDept、SysMenu、SysDict、SysDictData 模型
+- 创建部门管理模块（树形结构 CRUD）
+- 创建岗位管理模块（分页 CRUD）
+- 创建角色管理模块（CRUD + 菜单关联）
+- 创建菜单管理模块（树形结构 CRUD）
+- 创建字典管理模块（字典 + 字典数据 CRUD）
+- 注册 SystemModule 到 AppModule
+- User 模型新增 deptId、roles、posts 关联
+
+前端：
+- 创建部门管理页面（树形表格）
+- 创建岗位管理页面（分页表格）
+- 创建角色管理页面（分页表格）
+- 创建菜单管理页面（树形表格）
+- 创建字典管理页面（字典 + 数据管理）
+- 更新侧边栏菜单（添加系统管理折叠菜单）
+- 安装 Table、Dialog、Select、Switch、Badge 组件"
+https://www.github.com/1503963513/zhuostack,a733fa8a5a091932a8e57fe01af48536de161edf,2026-06-01T09:35:01+00:00,Human,,85,30,8,True,True,False,False,"fix: 修复生产级安全隐患
+
+- JWT 密钥移除默认值，启动时强制检查环境变量
+- Swagger 文档仅在开发环境暴露
+- AI 模块添加 PromptDto 输入验证
+- 启用全局 ThrottlerGuard 限流守卫
+- 数据库查询日志根据环境动态配置
+- 添加优雅关闭处理（enableShutdownHooks）
+- 添加必需环境变量检查（JWT_SECRET、DATABASE_URL）"
+https://www.github.com/1503963513/zhuostack,7035b7e014b2589375e12f8799499bb59a8f4ba2,2026-06-01T09:07:52+00:00,Human,,122,113,1,False,False,False,False,docs: README 改为中文
+https://www.github.com/1503963513/zhuostack,9c62d4c34e0ca7cd91fb6ccf1505dbc66090ebc9,2026-06-01T09:02:33+00:00,Human,,823,142,24,False,False,False,False,"feat: 中文化前端界面 + 添加 Claude Code 开发规则 + 密码传输加密
+
+- 前端界面全面中文化（登录、注册、仪表盘、个人资料等）
+- 应用名称改为「NodeJs 全栈模板」
+- 添加 .claude/rules/ 开发规则文件（CRUD、认证、前端、数据库、API 规范）
+- 添加 .claude/settings.json 权限配置
+- CLAUDE.md 改为中文
+- 前端密码传输使用 SHA-256 哈希加密
+- 后端支持 HTTPS 配置（仅生产环境）"
+https://www.github.com/1503963513/zhuostack,85d786eabc5ac6ab393ebe4ba861a177baf6c5c3,2026-06-01T07:00:49+00:00,Human,,14099,0,122,False,False,False,False,"feat: init NestJS + NextJS fullstack monorepo template
+
+- NestJS 10 API backend (Fastify + Prisma + JWT auth)
+- Next.js 14 web frontend (App Router + shadcn/ui + TanStack Query)
+- Shared TypeScript types package
+- Dual PostgreSQL/MySQL Prisma schema support
+- Docker compose with multi-stage builds
+- PM2 production deployment scripts
+- ESLint + Prettier + Husky + lint-staged"

@@ -1,0 +1,98 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/004ongoro/blahg-2.0,4eaf8bca5e9d7eede0cfe55d4e0b25c983dfb9a0,2026-05-23T10:52:31+00:00,Human,,1,1,1,False,True,False,False,chore: revert next.config.mjs and push latest style/logic fixes
+https://www.github.com/004ongoro/blahg-2.0,ef25478ec896033143ed54ef86cc15c85e9d15b1,2026-05-23T10:27:52+00:00,Human,,59,43,2,True,True,False,False,fix: improve code block visibility with dark theme and fix callout markdown parsing
+https://www.github.com/004ongoro/blahg-2.0,cc5bec364ec39ec5d965b9783b787d4941cbefbc,2026-05-23T10:04:51+00:00,Human,,401,49,7,False,False,False,False,feat: add client-side code execution for JS/TS/React/Python via WASM
+https://www.github.com/004ongoro/blahg-2.0,68d64ec76ca06ed9da216dbe718dc41f1b25a0ac,2026-05-22T06:48:27+00:00,Human,,2,2,2,True,True,False,False,fix: update RSS content-type and XSLT version for better browser styling
+https://www.github.com/004ongoro/blahg-2.0,f2614ecf33fd878ac8a7b8dc33c88695b0583420,2026-05-22T06:46:11+00:00,Human,,5,2,2,True,True,False,False,fix: resolve TS errors and force static generation for RSS feed
+https://www.github.com/004ongoro/blahg-2.0,4dc2547f1e5fff7f0a7a8617305499a59e9ee1e4,2026-05-22T06:31:20+00:00,Human,,154,0,2,False,False,False,False,feat: style RSS feed with XSLT
+https://www.github.com/004ongoro/blahg-2.0,4d69614199c2d2a2fad0b5fafb15ea05f4d6b28d,2026-05-22T06:29:14+00:00,Human,,30,11,1,False,False,False,False,feat: add full content to RSS feed
+https://www.github.com/004ongoro/blahg-2.0,fc3d2996bb9977048d2a603205a9c8a82928854d,2026-05-19T15:58:28+00:00,Human,,1,0,1,True,True,False,False,fix: add missing Link import in newsletter page
+https://www.github.com/004ongoro/blahg-2.0,5bd7e424e6d207143af3e99b5b8a1df72804ec13,2026-05-19T15:49:09+00:00,Human,,257,65,4,False,False,False,False,feat: redesign newsletter archive and issue pages for better engagement
+https://www.github.com/004ongoro/blahg-2.0,61e71a6ed89e12093bd1c893d6a137a1afadc5de,2026-05-19T07:49:21+00:00,Human,,19,0,1,False,False,False,False,seo: add related tags section at the bottom of the post page
+https://www.github.com/004ongoro/blahg-2.0,561a98746db114ebcd3335357fc6dbc49f0da9a4,2026-05-19T05:41:01+00:00,Human,,36,0,2,True,True,False,False,"fix: implement on-demand revalidation for posts
+
+- Added revalidatePath to POST, PUT, and DELETE handlers for posts
+- Ensures homepage, archive, post details, tags, and series pages are updated immediately
+- Added handling for slug changes to clear both old and new post caches"
+https://www.github.com/004ongoro/blahg-2.0,82fa08de689f182c3ec890c7be425881ccd958ec,2026-05-19T05:28:03+00:00,Human,,63,63,7,False,False,False,False,"feat: update brand color palette across the application
+
+Replaced the old neon green theme with a new palette:
+- Orange (#ffa400) as primary accent
+- Alice Blue (#eaf6ff) as main background
+- Shadow Grey (#232528) as main foreground
+- Blue Bell (#009ffd) for secondary highlights
+
+Updates applied to:
+- Global CSS theme variables and syntax highlighting
+- Email templates (newsletter and contact form)
+- OpenGraph image generation
+- 404 page animations
+- Admin dashboard previews"
+https://www.github.com/004ongoro/blahg-2.0,d8f48a46eb56e154fe1bd27a2553b923cbd8e870,2026-05-18T19:15:25+00:00,Human,,50,11,7,False,False,False,False,feat: implement relative date formatting for posts published less than a week ago
+https://www.github.com/004ongoro/blahg-2.0,61d88c83a48dae87228de67e7238c3d5746d9b34,2026-05-18T18:21:49+00:00,Human,,2,2,2,False,False,False,False,feat: add Google Analytics with NEXT_PUBLIC_GOOGLE_ANALYTICS_ID environment variable
+https://www.github.com/004ongoro/blahg-2.0,4afe5d1c2279e7c541cfa6bad45e8d08f9e62f74,2026-05-18T17:59:50+00:00,Human,,2,2,1,False,False,False,False,design: set light theme as default
+https://www.github.com/004ongoro/blahg-2.0,69f80af044dffd13825deeaf8e08cfb1ef7e7d54,2026-05-18T15:04:04+00:00,Human,,2,1,1,True,True,False,False,fix: resolve syntax error in email events page
+https://www.github.com/004ongoro/blahg-2.0,69b064bdadfb615bdfe2aae37308ede3b75450fa,2026-05-18T14:48:25+00:00,Human,,16,17,5,False,False,False,False,design: replace orange accent colors with electric green across the application
+https://www.github.com/004ongoro/blahg-2.0,4025e6db318cdfb2b170be91d315a90da3017eb5,2026-05-18T09:44:01+00:00,Human,,7,2,4,False,False,False,False,switch domain
+https://www.github.com/004ongoro/blahg-2.0,310a8ded2e86a36d9945f2989bc4511502cd8151,2026-05-18T09:00:10+00:00,Human,,115,18,9,False,False,False,False,design: update primary color to electric green and change domain to code.geohack.top
+https://www.github.com/004ongoro/blahg-2.0,9a1b919ef5bad8b9547f121b74697a0207948257,2026-05-17T12:53:23+00:00,Human,,318,275,22,False,False,False,False,optimize resources and remove framer-motion
+https://www.github.com/004ongoro/blahg-2.0,086605186fbde8fb6a78d300a8f3c0ceb56159a5,2026-05-14T09:26:22+00:00,Human,,78,14,9,False,False,False,False,Resolve merge conflict and remove visitor map
+https://www.github.com/004ongoro/blahg-2.0,e7d8730c34e949c858a9b6786972a957705147da,2026-05-14T09:24:48+00:00,Human,,1,0,1,False,False,False,False,Remove visitor map from footer
+https://www.github.com/004ongoro/blahg-2.0,e66a3a0e48bd9a469ce8055f9df25ea72c3c59e1,2026-05-14T08:53:26+00:00,Human,,88,14,10,False,True,False,False,Fix reactions and add analytics widget
+https://www.github.com/004ongoro/blahg-2.0,66493be07da1ecdbf32be0c95fedad21279dbf0f,2026-05-12T12:04:05+00:00,Human,,18,19,10,False,False,False,False,migrate domains
+https://www.github.com/004ongoro/blahg-2.0,1e0b0807885e041954b1f4a8f31fc086b9cb9c1a,2026-05-10T07:56:27+00:00,Human,,166,4,7,False,False,False,False,feat: complete series functionality with public pages and improved visibility
+https://www.github.com/004ongoro/blahg-2.0,81688f7a692d8660bc7f8dc537dc045c5817516a,2026-05-10T07:41:55+00:00,Human,,80,1,3,False,False,False,False,main
+https://www.github.com/004ongoro/blahg-2.0,374f795c6df26201043acbea6ac7dafca1a5e5ea,2026-05-09T18:20:36+00:00,Human,,20,0,1,False,False,False,False,feat: add daily.dev sharing option with official logo
+https://www.github.com/004ongoro/blahg-2.0,d37e9c1c6fddffc034c5be1285f94c6db2af2081,2026-05-09T10:37:38+00:00,Human,,99,148,4,False,False,False,False,Redesign archive as full-width frictionless calendar and rename newsletters to issues
+https://www.github.com/004ongoro/blahg-2.0,9b4716457c2d226747339cd374b480d419b3ab03,2026-05-09T10:28:06+00:00,Human,,262,1,4,False,False,False,False,Add interactive content calendar archive and newsletter archive links
+https://www.github.com/004ongoro/blahg-2.0,25f83cbee91733da3a5610aea0a9b84fbdb9c3c2,2026-05-09T10:15:59+00:00,Human,,105,11,2,False,False,False,False,Add social share buttons and clean up post page comments
+https://www.github.com/004ongoro/blahg-2.0,5c0dbdd652e28b48502c0112a7057b18b67e0b84,2026-05-09T09:58:08+00:00,Human,,34,15,8,False,False,False,False,"Optimize for Vercel free tier: throttle views, cache APIs, and update trending UI"
+https://www.github.com/004ongoro/blahg-2.0,d3940fd4d67547f7634e02d65b4df72c326d572f,2026-05-09T08:44:21+00:00,Human,,0,1,1,False,False,False,False,remove counter
+https://www.github.com/004ongoro/blahg-2.0,9189958d5aa983abfc0983ae356364d235c7d23a,2026-05-09T08:32:17+00:00,Human,,41,6,3,False,False,False,False,refactor: clean homepage and enhance command palette discovery
+https://www.github.com/004ongoro/blahg-2.0,f5eba248874c7a70b2986e6e124b565fc7ee45b0,2026-05-09T08:04:11+00:00,Human,,62,26,2,False,False,False,False,feat: enhance SEO with JSON-LD and rich OG images
+https://www.github.com/004ongoro/blahg-2.0,117d689e197835bf19cb4e9bb8956015ef47c2a5,2026-05-09T07:59:24+00:00,Human,,387,1,9,False,False,False,False,feat: implement post reactions and guestbook
+https://www.github.com/004ongoro/blahg-2.0,2dfbc55cb9d8b1722482a87d903861307ad5f485,2026-05-09T07:55:36+00:00,Human,,180,1,5,False,False,False,False,feat: implement post series and markdown callouts
+https://www.github.com/004ongoro/blahg-2.0,5f41c0b2cb5a25f40022ed73f593019e339af527,2026-05-09T07:51:19+00:00,Human,,93,7,8,False,False,False,False,feat: add post view tracking and trending badges
+https://www.github.com/004ongoro/blahg-2.0,d749d7347b3457c6fde815d151397c1d718a3145,2026-05-09T07:46:56+00:00,Human,,297,47,6,False,False,False,False,feat: implement developer-centric UX with command palette and keyboard navigation
+https://www.github.com/004ongoro/blahg-2.0,cc18396158a1a5d44d0070e9fc14aba839b0191e,2026-05-09T07:23:27+00:00,Human,,130,80,1,False,False,False,False,feat: improve newsletter email template with clean brutalist design
+https://www.github.com/004ongoro/blahg-2.0,7e2849731a5623b3d96896af05e80393d84319af,2026-05-05T18:43:45+00:00,Human,,1,1,1,False,False,False,False,feat: increase subscriber fetch limit to 1000 for newsletter composer
+https://www.github.com/004ongoro/blahg-2.0,fecdc7fabe256c10a7faa818ffd729fd31e6d3f8,2026-05-05T18:11:22+00:00,Human,,27,4,3,True,True,False,False,"fix: admin login redirect, subscriber fetching, and add link click tracking"
+https://www.github.com/004ongoro/blahg-2.0,6fc176910c029a0b891ba8b6b4de1ed5e488d4db,2026-05-04T09:05:18+00:00,Human,,35,3,3,False,False,False,False,main
+https://www.github.com/004ongoro/blahg-2.0,e32ba07fd9e955919da09032213961a8c68488ee,2026-05-03T14:01:58+00:00,Human,,75,51,3,False,False,False,False,feat: add neo-brutalist tooltips to floating action buttons
+https://www.github.com/004ongoro/blahg-2.0,e7bb12e5879d546780b7e5d421b357a1083de5be,2026-05-03T13:00:11+00:00,Human,,24,2,1,False,False,False,False,feat: add utm tracking parameters to external links in blog posts
+https://www.github.com/004ongoro/blahg-2.0,1c209e5f2fbb05032065011cd1982f7ccfd0a2a4,2026-05-03T12:35:37+00:00,Human,,230,1,5,False,False,False,False,feat: add floating contact form with server action and neo-brutalist styling
+https://www.github.com/004ongoro/blahg-2.0,c8f599f7a69d590a14a89094e173e4da00dc64aa,2026-05-02T18:22:24+00:00,Human,,105,21,2,False,False,False,False,feat: add floating theme toggle with dark mode support
+https://www.github.com/004ongoro/blahg-2.0,ed10665885045dfcba16eda34570ca027606d0b0,2026-05-02T17:46:35+00:00,Human,,192,0,5,False,False,False,False,"feat: add last edited date, table of contents, and section anchors to post page"
+https://www.github.com/004ongoro/blahg-2.0,d7d6568524ed17b70314fa17ef3c195f2723d5d2,2026-05-02T15:27:33+00:00,Human,,39,5,2,False,False,False,False,feat: add support for new tab links and custom markdown highlights (definitions & references)
+https://www.github.com/004ongoro/blahg-2.0,790b5f27e71462528cdb613d91c98ce07b7de48b,2026-05-02T15:15:11+00:00,Human,,67,28,1,False,False,False,False,style: redesign public blog footer with bold neo-brutalist aesthetic
+https://www.github.com/004ongoro/blahg-2.0,811eeb80e322ca6a9248d1ff5478f806e61ae220,2026-05-02T14:57:57+00:00,Human,,36,10,1,False,False,False,False,style: redesign subscribers admin footer with neo-brutalist cards
+https://www.github.com/004ongoro/blahg-2.0,1006ee15f06960b5ec38df922ce0acc05ba9f394,2026-05-02T13:29:04+00:00,Human,,129,22,2,False,False,False,False,feat: implement pagination and server-side search for subscribers admin
+https://www.github.com/004ongoro/blahg-2.0,549fd67c130f04f68a0d13a2401a6b3d092059aa,2026-04-26T06:27:34+00:00,Human,,42,10,1,False,False,False,False,feat: implement controlled throughput for email dispatch to avoid Gmail rate limiting
+https://www.github.com/004ongoro/blahg-2.0,5c0436bcdf45eeb3fea9547b240412fa3d5ebe63,2026-04-25T19:30:28+00:00,Human,,286,27,11,False,False,False,False,feat: implement resend webhooks for email tracking and improve rss feed
+https://www.github.com/004ongoro/blahg-2.0,cedddbf1b83f31fc2ee174d6a117713466e3da72,2026-04-24T10:40:28+00:00,Human,,69,31,2,False,True,False,False,feat: add newsletter to post page and fix 'I'm Feeling Lucky' randomness
+https://www.github.com/004ongoro/blahg-2.0,eb4aef753865f0b4df56a97c032cfda8b27ede78,2026-04-24T10:17:14+00:00,Human,,4,216,4,True,True,False,False,"fix: resolve build errors, implement newsletter enhancements, and clean history"
+https://www.github.com/004ongoro/blahg-2.0,7e5f0de22710d028b5bc71a23f30d9b54048fc57,2026-04-24T10:01:31+00:00,Human,,1,1,1,False,True,False,False,fix newsletter page responsiveness
+https://www.github.com/004ongoro/blahg-2.0,db452232983b2f7592df683c6dfbc1d3b0b4fa84,2026-04-24T09:26:59+00:00,Human,,298,14,5,False,True,False,False,fix newsletter page responsiveness
+https://www.github.com/004ongoro/blahg-2.0,9ae2aa7880df146bacf1456af08958d26b06df58,2026-04-24T08:47:30+00:00,Human,,596,206,6,False,False,False,False,add newsletter page
+https://www.github.com/004ongoro/blahg-2.0,abcf0ed677c9dcc74704066831a2961fa23de1c4,2026-04-21T15:40:05+00:00,Human,,1,0,1,False,False,False,False,REmove .next from git history
+https://www.github.com/004ongoro/blahg-2.0,be7ebf72044cb07b2adaceea61582f261d4d89ec,2026-04-21T15:26:47+00:00,Human,,102,50,3,False,False,False,False,Add documentation
+https://www.github.com/004ongoro/blahg-2.0,c30e93d67cdbe228732c33648bfc825a35384697,2026-04-21T07:57:24+00:00,Human,,5,4,2,False,False,False,False,Add socials
+https://www.github.com/004ongoro/blahg-2.0,6ad94a1d26df9d3ca947f5a6aa3564a098f60eb1,2026-04-21T07:30:27+00:00,Human,,63,2,2,False,False,False,False,Add navigation buttons
+https://www.github.com/004ongoro/blahg-2.0,4f6f464fe9d798d25d2de1989b258f03c598ff91,2026-04-17T08:58:45+00:00,Human,,1,0,1,False,False,False,False,add gtag
+https://www.github.com/004ongoro/blahg-2.0,d3d8c5fa4ca68337d73f084d2a744ae9248272d0,2026-04-17T08:49:46+00:00,Human,,17,11,1,False,False,False,False,add gtag
+https://www.github.com/004ongoro/blahg-2.0,6e3bc8c22bd555b4aa7ca003bbeb61fba94a61a9,2026-04-17T08:33:09+00:00,Human,,11,0,1,False,False,False,False,add gtag
+https://www.github.com/004ongoro/blahg-2.0,a25b2f8757e1616f3390c9da68209d6c7b6e7bba,2026-04-17T07:48:51+00:00,Human,,357,44,6,False,False,False,False,"chore: Update newsletter emails, add issue archive"
+https://www.github.com/004ongoro/blahg-2.0,1c8509e4d793b5114d77b383047c75d762f832d2,2026-04-17T07:26:13+00:00,Human,,260,78,3,False,False,False,False,"chore: Update newsletter emails, add issue archive"
+https://www.github.com/004ongoro/blahg-2.0,14ab8998bccd8aec51cda33379979aaea61ca6d7,2026-04-17T06:44:19+00:00,Human,,1,0,1,False,False,False,False,chore: add admin in the header nav list
+https://www.github.com/004ongoro/blahg-2.0,8f51f9ccb5b914992433fbf2567d6cc58ad71fc5,2026-04-17T06:40:24+00:00,Human,,346,201,6,True,True,False,False,fix: fix the post page crash on prod
+https://www.github.com/004ongoro/blahg-2.0,d80686db735bf675113e1a93936b2fc14532f927,2026-04-17T06:19:13+00:00,Human,,90,77,2,False,False,False,False,chore: add animations
+https://www.github.com/004ongoro/blahg-2.0,1be66d49acf79d48891cb24b15c4363d53563a58,2026-04-17T06:03:16+00:00,Human,,201,44,5,False,False,False,False,"chore: improve header and footer, add rss feeds"
+https://www.github.com/004ongoro/blahg-2.0,3107d519f8ea8dc455f65e869a34c2902567dfb5,2026-04-17T05:44:11+00:00,Human,,22,9,3,True,True,False,False,fix: add post read time in the post model and add helper function to calculate readtime in the api route
+https://www.github.com/004ongoro/blahg-2.0,17fd5d1426b9327d0b0ebff46dc1dd1dfd1f50d7,2026-04-16T19:12:15+00:00,Human,,166,13,6,False,False,False,False,"chore: sitemap, og image, layout"
+https://www.github.com/004ongoro/blahg-2.0,632fdfcf5cb91ed4c6565ceb0eecd9998dedc16b,2026-04-16T18:42:51+00:00,Human,,3,3,2,True,True,False,False,fix: Change category of giscus
+https://www.github.com/004ongoro/blahg-2.0,2f918cc780fc4353a1aabf3fa67b67b25e1f37fd,2026-04-15T16:56:03+00:00,Human,,0,3960,1,False,False,False,False,remove outdated lockfile
+https://www.github.com/004ongoro/blahg-2.0,1f0a3a1c41c19f32066942ab9590e386c04aea46,2026-04-15T13:55:48+00:00,Human,,6258,213,17,False,False,False,False,MVP1 complete
+https://www.github.com/004ongoro/blahg-2.0,e0badd911c69e20320ddaa72f4d679d26c07d69f,2026-04-14T14:44:01+00:00,Human,,36,25,1,True,True,False,False,fix: Remove redirect loop from the root layout
+https://www.github.com/004ongoro/blahg-2.0,10ca076070ffbc3d54006a030cdea25ab0d59581,2026-04-14T14:30:15+00:00,Human,,41,0,1,False,False,False,False,Create README.md for the Blahg 2.0 project
+https://www.github.com/004ongoro/blahg-2.0,5efbbadf740835d919d76edd48d0b4816b808b75,2026-04-14T14:23:42+00:00,Human,,6,2,1,False,True,False,False,Fix redirect loop by excluding the login page from authentication checks.
+https://www.github.com/004ongoro/blahg-2.0,6bac246fdf9cfef11a70c608677be12baaed34f1,2026-04-14T13:53:21+00:00,Human,,13538,0,106,False,False,False,False,Initial commit

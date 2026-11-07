@@ -1,0 +1,616 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/2bb-dev/claw2claw,5117ba9e5dee0696c6e2169ef1fa72d4ff73dab9,2026-02-10T15:01:38+00:00,Human,,19,1,1,False,False,False,False,feat: display bot address with ENS name on deal detail page
+https://www.github.com/2bb-dev/claw2claw,d04a80092fb02dbb3ea34a84b589023b175203df,2026-02-10T13:36:24+00:00,Human,,56,25,2,True,True,False,False,"fix: show ENS names for P2P participants, remove Bot Address from deal detail, cross-reference maker/taker comments"
+https://www.github.com/2bb-dev/claw2claw,01cc0d62f8898089968e39e36a206bc72ee02b83,2026-02-10T13:17:13+00:00,Human,,210,28,6,False,False,False,False,"feat: reset to non-bot all state on logo click and input clear
+
+- Header: Claw2Claw logo click resets mode to 'all' and clears bot selection
+- BotSearch: auto-clears bot state when user deletes input text
+- BotSearch: exposed reset() via ref for programmatic clearing
+- DealsList: include completed p2p-post deals in P2P filter
+- Deal detail: show maker/taker addresses with explorer links"
+https://www.github.com/2bb-dev/claw2claw,a33c3d6960f9ee87fa663c95e8a31ecad92a449d,2026-02-10T13:14:51+00:00,Human,,34,11,1,True,True,False,False,"fix(p2p): fix order ID race condition + add maker validation to sync
+
+- Wait for tx receipt before reading nextOrderId (reduces race window)
+- Use receipt block timestamp for accurate expiry calculation
+- Add maker address validation in syncOrderStatuses: mismatched
+  on-chain maker vs DB maker auto-expires stale/wrong IDs
+- Fixes stuck order #14 (belonged to different bot on-chain)"
+https://www.github.com/2bb-dev/claw2claw,c6bdc578784c3981b6ad2c027c480bbc5a6ce359,2026-02-10T13:00:18+00:00,Human,,147,13,5,False,False,False,False,"feat(p2p): add order sync cron job + self-healing /me endpoint
+
+- syncOrderStatuses: generic function multicalls on-chain to verify DB orders
+- /me endpoint: syncs active orders before returning (self-healing)
+- Cron job: runs every 5 min to clean stale filled/expired orders
+- Uses node-cron for proper scheduling
+- Uses chain block timestamp for accurate expiry checks"
+https://www.github.com/2bb-dev/claw2claw,8758dc577f8cc9640e9d85ec586ee43cadf60682,2026-02-10T12:31:34+00:00,Human,,11,8,1,True,True,False,False,"fix(p2p): use chain block timestamp for order expiry checks, fix RPC priority"
+https://www.github.com/2bb-dev/claw2claw,5354191b4efa893fa9d9693f4d877dcb86d03eb4,2026-02-10T12:29:32+00:00,Human,,13,5,1,True,True,False,False,fix(rpc): custom env var RPCs now take priority over Alchemy
+https://www.github.com/2bb-dev/claw2claw,d2bbeee762426c1cb0f05e7b8904565aa604867b,2026-02-10T12:23:44+00:00,Human,,37,12,2,False,False,False,False,"feat(me): add activeP2POrders to /me endpoint, update skill template"
+https://www.github.com/2bb-dev/claw2claw,cdb90590b0a01b645dffa0fa6fba7548ee827ef9,2026-02-10T12:19:26+00:00,Human,,78,1,1,True,True,False,False,fix(p2p): sync maker order status to filled after taker matches on-chain
+https://www.github.com/2bb-dev/claw2claw,eec0a5df110b9b40c28e1738073d077227ddc0de,2026-02-10T12:15:03+00:00,Human,,22,0,1,True,True,False,False,fix(register): add duplicate ENS name checks (DB + on-chain) before minting
+https://www.github.com/2bb-dev/claw2claw,7472600b9939682d46bc853e5be63f9442277846,2026-02-10T11:58:29+00:00,Human,,63,77,4,False,False,False,False,"refactor(cache): add LIFI_API_KEY support, remove LI.FI caches, keep only ENS cache"
+https://www.github.com/2bb-dev/claw2claw,f69e05148d4ad13772ed7dd692339cc980235698,2026-02-10T11:37:57+00:00,Human,,48,60,1,False,False,False,False,perf(api): parallelize LI.FI balance and ENS profile calls in /me endpoint
+https://www.github.com/2bb-dev/claw2claw,b7b501174ad2cb6475c2e5db56d87698f226e25d,2026-02-10T11:33:44+00:00,Human,,8,5,3,False,False,False,False,"refactor(config): consolidate RPC URLs into chains.ts, add DEFAULT_ETH_MAINNET_RPC_URL"
+https://www.github.com/2bb-dev/claw2claw,feb641e8475aef6a97daca33e7a2e91bb5ceec6c,2026-02-10T11:27:11+00:00,Human,,5,2,2,False,False,False,False,feat(config): add DEFAULT_BASE_RPC_URL env var for custom Base chain RPC
+https://www.github.com/2bb-dev/claw2claw,3c3ed21cc4f5ff96294e7c4153bc3a1c0085ea3d,2026-02-08T16:42:43+00:00,Human,,0,0,0,False,False,False,False,Merge branch 'staging'
+https://www.github.com/2bb-dev/claw2claw,d1db6332cb062e9b56fc0ec6a90fb9196bf0d46b,2026-02-08T16:26:12+00:00,Human,,67,31,5,False,False,False,False,"feat: unify P2P/ALL 2-column layout, bot-scoped View All links, back buttons"
+https://www.github.com/2bb-dev/claw2claw,fd13fb022612f6f20fa415a514e3241495c9db30,2026-02-08T16:07:17+00:00,Human,,9,1,1,True,True,False,False,fix: wrap useSearchParams in Suspense boundary for Next.js 16 build
+https://www.github.com/2bb-dev/claw2claw,4b41e74edd6aec41d2b9790fac6bd18850a25192,2026-02-08T16:02:37+00:00,Human,,9,1,1,True,True,False,False,fix: wrap useSearchParams in Suspense boundary for Next.js 16 build
+https://www.github.com/2bb-dev/claw2claw,318e4d77e2cc345882ee85e1375b729c2d469754,2026-02-08T15:58:58+00:00,Human,,11387,1849,91,False,False,False,False,"Merge pull request #4 from 2bb-dev/staging
+
+Staging"
+https://www.github.com/2bb-dev/claw2claw,343aec625c15bf42c5744814c0703171e35afb75,2026-02-08T15:49:19+00:00,Human,,40,17,4,False,False,False,False,"feat: preserve page state on back navigation
+
+- Deal/order detail pages use router.back() instead of hardcoded Link to /
+- Main page state (viewMode, botAddress, botLabel) persisted in URL search params
+- BotSearch accepts initialValue prop to restore input on navigation back"
+https://www.github.com/2bb-dev/claw2claw,f721e3d87cae4117f0b51443d5de0a8a3593976a,2026-02-08T15:48:25+00:00,Human,,39,29,2,True,True,False,False,"fix: use Alchemy RPC + multicall for P2P order reads
+
+- getRpcUrl() now prefers Alchemy when ALCHEMY_API_KEY is set
+- getActiveOrders() uses multicall (1 RPC request instead of N)
+- Fixes 429 rate limiting from public mainnet.base.org"
+https://www.github.com/2bb-dev/claw2claw,3c70466b4914e675f4f11b7e9ab92af75a28472e,2026-02-08T15:38:01+00:00,Human,,112,92,3,False,False,False,False,"perf: cache P2P orders with 10s Redis TTL, parallelize RPC calls, sort by orderId"
+https://www.github.com/2bb-dev/claw2claw,baadc089b1a3c3c5e69a42911f1b4eb3fd49ad8a,2026-02-08T15:34:43+00:00,Human,,10,1,1,True,True,False,False,fix: mark LI.FI 404 deals as failed to stop retry spam
+https://www.github.com/2bb-dev/claw2claw,90cf00341c4ea6341a9bb4aade0f10c806d6d5f9,2026-02-08T15:25:36+00:00,Human,,30,19,1,True,True,False,False,"fix: DB-driven pool discovery for getAllActiveOrders, no fallback"
+https://www.github.com/2bb-dev/claw2claw,2985e05bf11e141fef337d08e9055720aa2e9fff,2026-02-08T15:15:43+00:00,Human,,3,5,1,True,True,False,False,"fix: show P2P orders from all pools, skip LI.FI status for P2P deals
+
+- getAllActiveOrders() queries all known token pair pools in parallel
+- Remove filter that hid on-chain orders without DB records
+- Skip LI.FI status resolution for p2p regime deals (not LI.FI txs)"
+https://www.github.com/2bb-dev/claw2claw,39e6205414e5f376e68ce7e25f17381fb6f62550,2026-02-08T15:05:20+00:00,Human,,137,8,3,True,True,False,False,"fix: resolve P2P deal toAmount from blockchain tx receipt
+
+- executeP2PSwap now extracts actual output amount from ERC20 Transfer
+  logs in the tx receipt instead of storing null
+- deals.ts adds resolveP2PToAmount() to retroactively fetch and backfill
+  toAmount from blockchain for existing completed P2P deals
+- Backfills DB on first access so subsequent reads are instant
+- Fixes USDC showing as '...' in deal details page"
+https://www.github.com/2bb-dev/claw2claw,d7509e13797f2720ed18eaba388e38293db5d83e,2026-02-08T14:34:58+00:00,Human,,15,7,2,False,False,False,False,feat: add back buttons on deal/order detail pages
+https://www.github.com/2bb-dev/claw2claw,e47e0fd0e32b292457df2a5ff2e12af0c0451b99,2026-02-08T14:32:06+00:00,Human,,12,21,2,True,True,False,False,"fix: shared Header on detail pages, hide non-DB orders, remove back buttons"
+https://www.github.com/2bb-dev/claw2claw,86b9e02eb3376621ef148595563a4ba031acd727,2026-02-08T14:23:27+00:00,Human,,7,5,1,True,True,False,False,"fix: hide orders without DB records, only show API-posted orders"
+https://www.github.com/2bb-dev/claw2claw,3743be262bc03e9b070249eae5a737d3ce73eeb4,2026-02-08T14:10:17+00:00,Human,,22,12,1,True,True,False,False,"fix: use UUID for order links, fallback P2POrder.id when no DealLog"
+https://www.github.com/2bb-dev/claw2claw,289cbf209a382cca6733201f28a07df1299f966b,2026-02-08T14:02:49+00:00,Human,,179,17,3,True,True,False,False,"fix: numeric orderId lookup, view all orders link, orders listing page, remove back buttons"
+https://www.github.com/2bb-dev/claw2claw,33d41ac75e8a1c4f50272ec33f41e5ccf10295b0,2026-02-08T13:59:19+00:00,Human,,3,24,3,True,True,False,False,"fix: remove back buttons from all pages, remove state trace"
+https://www.github.com/2bb-dev/claw2claw,705a75cb32811d49ba33c9625cab9f2a89c554fb,2026-02-08T13:53:11+00:00,Human,,71,51,4,True,True,False,False,"fix: orders clickable, token decimals, bot filtering, layout states, state trace"
+https://www.github.com/2bb-dev/claw2claw,344c087170849fdbd1dea7bd967c11bc086e6c5e,2026-02-08T13:37:11+00:00,Human,,1,1,1,True,True,False,False,fix: remove stray text from page.tsx className attribute breaking build
+https://www.github.com/2bb-dev/claw2claw,0d7f607fa519437c38a7e2d8c0ab57ee7f1510fd,2026-02-08T13:35:08+00:00,Human,,631,171,12,False,False,False,False,"feat: two-column layout, dynamic token decimals, order detail improvements
+
+- Main page: responsive 2/3-column grid (Assets|Trades in All, Orders|Deals in P2P)
+- Three-column layout when P2P mode + bot selected (Orders|Deals|Assets)
+- New /deals page for full trades list
+- New OrdersList component for P2P orders
+- Backend: store/return fromTokenDecimals/toTokenDecimals in deal responses
+- Frontend: shared lib/format.ts, removed all hardcoded TOKEN_DECIMALS maps
+- Order detail page: duration display, maker reasoning section
+- bot-assets: removed mt-6 margin (grid gap handles spacing)"
+https://www.github.com/2bb-dev/claw2claw,b5c01000dde40fe65dcecff0ee176c7ca6895187,2026-02-08T13:13:09+00:00,Human,,40,3,1,False,False,False,False,remove deal id from deal details page
+https://www.github.com/2bb-dev/claw2claw,1d6194eb6935d100f80c4d2e7e58b4ff6d5e597e,2026-02-08T13:12:17+00:00,Human,,17,9,1,True,True,False,False,"fix(p2p): resolve ERC20 allowance error on order posting
+
+- Use maxUint256 for token approvals (approve once per token, not per order)
+- Wait for approval tx receipt before submitting postOrder/swap tx
+- Prevents race condition where order tx hits chain before approval is mined
+- Applies to both postP2POrder and executeP2PSwap flows"
+https://www.github.com/2bb-dev/claw2claw,f4c510be83f74245905ee4d6cfbc8f2804c115ca,2026-02-08T13:08:36+00:00,Human,,103,467,2,False,False,False,False,"docs: add P2P endpoints to skill template, remove root SKILL.md
+
+- Remove root SKILL.md (frontend serves from templates/skill.md.template)
+- Add full P2P trading section to frontend skill template
+- Document all endpoints: POST/GET/DELETE orders, match, pools, tokens
+- Include supported P2P tokens table (8 Base tokens)"
+https://www.github.com/2bb-dev/claw2claw,fb355c6784e6ed833ee84a3072c1aa26f583c9c0,2026-02-08T13:03:24+00:00,Human,,136,92,5,False,False,False,False,"feat: add P2P/Swaps docs, chain display, UI polish
+
+- Add P2P Trading and Swaps (LI.FI) sections to For Humans page
+- Remove '(Claude, GPT, etc.)' from prompt text
+- Show USDC volume without cents (integer)
+- Show trades/hour and total trades as integers
+- Add destination chain display in deal details (from → to)
+- Add chain labels under tokens in swap visualization
+- Show failed trades with red indicator in deals list
+- Hide failed trades from general Latest Trades (show only for bot lookup)
+- Add botEnsName support in deals list with ENS link"
+https://www.github.com/2bb-dev/claw2claw,7bdcd02e09ce7b2174f50085aca82d4894e39b32,2026-02-08T13:01:16+00:00,Human,,158,10,1,False,False,False,False,"docs: add P2P trading section to SKILL.md
+
+- Document all P2P endpoints: post, list, cancel, match
+- Add pool initialization and custom token registration docs
+- Expand token table with all 8 supported Base tokens
+- Add P2P examples to Quick Start section
+- Renumber Market Data to section 9"
+https://www.github.com/2bb-dev/claw2claw,75f4849a9fc2ad81de911012a4859da08f664449,2026-02-08T12:56:23+00:00,Human,,1334,1,6,False,True,False,False,"feat(p2p): add multi-pool support with dynamic token registry
+
+- Support 8 Base tokens: WETH, USDC, USDbC, DAI, cbBTC, cbETH, AERO, DEGEN
+- Add computePoolKey() for arbitrary token pair pool keys
+- Add initializePool() to create new Uniswap v4 pools on-chain
+- Add runtime token registration via addToken()
+- Add API endpoints: GET/POST /tokens, POST /pools
+- All order endpoints now accept any token pair (not just WETH/USDC)
+- Fix orders() ABI to include poolId (bytes32) matching Solidity struct
+- Fix sqrtPriceLimitX96 boundary values (+1n/-1n per TickMath)
+- Make POOL_MANAGER_ADDRESS configurable via env
+- Add P2POrder Prisma model, ENS gate, p2pEnabled on /bots/me"
+https://www.github.com/2bb-dev/claw2claw,26152d78b248bc95487ca0790a3c04843f43689b,2026-02-08T12:39:56+00:00,Human,,1,1,1,True,True,False,False,fix: increase header logo size to 48px
+https://www.github.com/2bb-dev/claw2claw,b0427d7b3cbd8773856d7bb12e81bd2e1d36d87a,2026-02-08T12:37:06+00:00,Human,,1,1,2,False,False,False,False,feat: use transparent logo in header
+https://www.github.com/2bb-dev/claw2claw,c7b560c77197b35b5ffbc8e8debd0515270fbe34,2026-02-08T12:32:58+00:00,Human,,1,1,1,True,True,False,False,fix: use --webpack flag to disable turbopack for production builds
+https://www.github.com/2bb-dev/claw2claw,9189cf21defe909ba4ec257ed3c817ef5b1322bd,2026-02-08T12:28:36+00:00,Human,,47,1968,9,False,False,False,False,"feat(contracts): verified P2P trade 21 USDC <> 0.01 WETH on Base mainnet
+
+- Claw2ClawHook deployed at 0x9114Ff08...FC188 (CREATE2)
+- E2E trade: Bot A sold 21 USDC, Bot B matched with 0.01 WETH (~$21)
+- Verified swap tx: 0x997a5226...baeada
+- Test script now idempotent (staticcall pool init check)
+- Gitignore broadcast/ folder (forge deploy logs)
+- Update READMEs with contract addresses and verified tx"
+https://www.github.com/2bb-dev/claw2claw,f0cdc51f94283f96763cb5d26d60cc2af5af44a2,2026-02-08T12:25:21+00:00,Human,,1,1,1,True,True,False,False,fix: disable turbopack for production builds to avoid panic
+https://www.github.com/2bb-dev/claw2claw,311dbd4b6b5c10b357e3f317fa5c68e572a675f5,2026-02-08T12:21:32+00:00,Human,,622,35,23,False,False,False,False,"feat: integrate favicon icons, update header, cleanup boilerplate"
+https://www.github.com/2bb-dev/claw2claw,e6eeffb44a618f59d66d41afc41d1a9f25ebc4c4,2026-02-08T11:39:04+00:00,Human,,81,9,2,False,False,False,False,"feat: /me returns full multi-chain portfolio via LI.FI
+
+walletBalance on GET /api/bots/me now returns totalUSD + assets[]
+across all chains (via LI.FI getWalletBalances), replacing the
+single-chain native ETH balance.
+
+- Same data as /api/bots/assets/:address but embedded in /me
+- Cached 60s, dust < $0.01 filtered, sorted by USD value desc
+- Bot can now see its entire portfolio from one API call
+- Updated skill.md.template with new response format"
+https://www.github.com/2bb-dev/claw2claw,d3a5a362870b7a8845bd53ef21c43063f82b8e30,2026-02-08T11:29:41+00:00,Human,,220,130,1,False,True,False,False,"docs: rewrite skill.md — full API audit, fix walletBalance format, add missing endpoints
+
+Changes from codebase audit:
+- Fix walletBalance response (was [object Object], now { formatted, symbol })
+- Add GET /api/bots/assets/:address (LI.FI multi-token balances)
+- Add GET /api/deals/stats (trade stats + PNL)
+- Add ?botAddress filter on GET /api/deals
+- Add GET /api/bots/ens/record/:name/:key (single record read)
+- Add GET /api/bots/ens/status (config check)
+- Add GET /api/chains/crosschain/supported
+- Move ENS docs out of Swaps section into own section
+- Remove undocumented heartbeat feature
+- Add accurate response examples with JSON shapes
+- Add auth badge (lock emoji) on authenticated endpoints"
+https://www.github.com/2bb-dev/claw2claw,9d3690abf1502d5a4d1928124b34fb1b4aeb9349,2026-02-08T11:26:38+00:00,Human,,5,4,1,True,True,False,False,"fix: walletBalance serialization bug — [object Object] → structured response
+
+getWalletBalance() returns { balance, formatted, symbol } but both
+/me and /:id/wallet called .toString() on the object. Now returns
+proper formatted balance + symbol on both endpoints."
+https://www.github.com/2bb-dev/claw2claw,c004d76da96619244149e363d0c433d9b0494dfd,2026-02-08T01:17:11+00:00,Human,,293,87,7,False,True,False,False,"Merge feat/add-p2p-contracts: apply all security audit fixes
+
+Merges complete security audit remediation into staging:
+- C-1: Store poolId in Order struct, validate on cancel (cross-pool theft)
+- H-1: Fix BeforeSwapDelta accounting for mismatched amounts
+- H-2: Switch to SafeERC20 for non-standard token compatibility
+- H-3: Bounded iteration in beforeSwap (MAX_ITERATIONS=100)
+- H-4: Pull-pattern refunds in purgeExpiredOrders with maxPurge param
+- M-1: Taker price protection (only pay order.minAmountOut)
+- M-2: Two-step admin transfer (setAdmin/acceptAdmin)
+- M-3: Checks-effects-interactions pattern + ReentrancyGuard
+- L-1: MAX_ORDER_DURATION = 30 days cap
+- L-2: orderId >= nextOrderId existence check
+- I-1: Non-whitelisted senders fall through to AMM
+- I-2: Exact-output swaps fall through to AMM"
+https://www.github.com/2bb-dev/claw2claw,a6b19635931dba742638cbb6642e2e8ff64883e0,2026-02-08T00:09:51+00:00,Human,,450,128,6,False,False,False,False,"feat: add bot assets list + move search below cards
+
+- Add GET /api/bots/assets/:address using LI.FI getWalletBalances
+- Add BotAssets component showing token holdings with USD values
+- Move bot search input below For Humans/For Agents cards
+- Proper token decimal formatting with formatUnits"
+https://www.github.com/2bb-dev/claw2claw,29d8c343caa093566ce16f0c56d8294fdaea2dee,2026-02-07T23:47:15+00:00,Human,,312,887,11,False,False,False,False,"feat: add bot lookup input with ENS/wallet search and LI.FI PNL
+
+- Add BotSearch component on main page (ENS name or wallet address)
+- Add GET /api/deals/stats endpoint with PNL using LI.FI priceUSD
+- Add ?botAddress filter to GET /api/deals
+- StatsBar TOTAL VOLUME transforms to PNL when bot selected
+- DealsList filters by bot address"
+https://www.github.com/2bb-dev/claw2claw,35e94a2ac116592a9e1f6ed50dc6494582ff596e,2026-02-07T23:30:19+00:00,Human,,1876,91,8,True,True,False,False,"fix: redeploy hook with delta fix + verified mainnet P2P trade
+
+- Fixed BeforeSwapDelta: unspecifiedDelta now uses order.amountIn
+- Hook: 0xcCFAf7E2c4C46064aF5Df6dB6a22A377a2d10188
+- Verified P2P trade: 0x1dc3ae3a (5 USDC <-> 0.002 WETH)
+- Removed outdated testnet addresses from READMEs
+- Added SimpleSwapRouter + TestP2PMainnet script"
+https://www.github.com/2bb-dev/claw2claw,2d0b32630eb17c59698915aa13d67b311b0a03e8,2026-02-07T23:14:11+00:00,Human,,135,161,5,False,False,False,False,"feat: remove bot list, add latest trades with regime badges, add All/P2P toggle"
+https://www.github.com/2bb-dev/claw2claw,56331663b745a07f0b6d71ba20655e4ba0aa3aaf,2026-02-07T23:08:06+00:00,Human,,456,11,7,False,True,False,False,"deploy: Claw2ClawHook on Base mainnet + update READMEs
+
+- Hook deployed at 0x00D12cB704407CB53Ca384eEec12aEF9c2320188
+- Verified on BaseScan
+- Added DeployMainnet.s.sol (lean, no mock tokens)
+- Added Base mainnet RPC + etherscan config to foundry.toml
+- Fixed test struct destructures after poolId addition
+- Both READMEs show mainnet as primary deployment"
+https://www.github.com/2bb-dev/claw2claw,370c40d88517a4c9a45bf7249069827dfa9b36f5,2026-02-07T22:55:15+00:00,Human,,68,36,4,False,False,False,False,"refactor: simplify ENS records + add Redis caching to profile lookups
+
+- ENS text records simplified to motto + tokens (bot fills via OpenClaw)
+- Profile endpoint cached via Redis (5 min TTL)
+- Cache invalidated on record updates
+- README: EIP-7702, swap endpoints, Redis, ENS as P2P identity
+- skill.md: ENS for P2P, profile lookup, correct record examples"
+https://www.github.com/2bb-dev/claw2claw,32a50c104697eb5d1aed83ce2717b3c1663ecf2c,2026-02-07T22:51:32+00:00,Human,,11162,1,2,True,True,False,False,fix: commit package-lock.json for reproducible Docker builds on Railway
+https://www.github.com/2bb-dev/claw2claw,836816aa194e26ef81bf07784fc065821cff45fc,2026-02-07T22:50:14+00:00,Human,,4,2,2,True,True,False,False,"fix: require package-lock.json in frontend Dockerfile, update Railway watchPatterns"
+https://www.github.com/2bb-dev/claw2claw,439aca1ca1a9918f9c0fe036014a7d6465fd1088,2026-02-07T22:46:18+00:00,Human,,1089,10531,23,False,False,False,False,"Merge pull request #3 from 2bb-dev/feature/lifi-integration
+
+feat: Li.FI integration"
+https://www.github.com/2bb-dev/claw2claw,001f6c438337b94572b4694b9bc54f55be806153,2026-02-07T22:42:30+00:00,Human,,81,55,8,True,True,False,False,"fix: address critical security vulnerabilities and Copilot review findings
+
+Security fixes (Critical):
+- C1: Replace Math.random() with crypto.randomBytes() for API key generation
+- C2: Validate PoolKey in cancelOrder to prevent stale order entries
+- C3: Separate wallet keys from API credentials (new BotWallet table)
+
+Copilot review fixes:
+- CP1: Use quote.action.fromToken.address for ERC20 interactions (not raw params)
+- CP2: Keep DealLog status as pending until tx confirmed
+- CP3: Show txHash instead of DB UUID in deals list
+- CP4: Make REDIS_URL overridable in docker-compose.yml
+- CP5: Use crypto.randomUUID() for pending txHash placeholders"
+https://www.github.com/2bb-dev/claw2claw,465d96a6fed9d37c664aa480834f0f6bd70a66ef,2026-02-07T22:34:54+00:00,Human,,308,92,7,True,True,False,False,"fix(contracts): implement security audit fixes for all critical/high/medium findings
+
+- C-1: Store poolId in Order struct, validate on cancelOrder to prevent cross-pool token theft
+- H-1: Fix BeforeSwapDelta to use order.minAmountOut for specified and order.amountIn for unspecified
+- H-2: Switch from raw IERC20 to OpenZeppelin SafeERC20 for USDT compatibility
+- H-3: Add MAX_ITERATIONS (100) bound on beforeSwap loop to prevent gas DoS
+- H-4: Add maxPurge param to purgeExpiredOrders, catch failed refunds with pull-pattern (claimRefund)
+- M-1: Taker only pays order.minAmountOut instead of full amountSpecified (price protection)
+- M-2: Two-step admin transfer via setAdmin/acceptAdmin (replaces instant transfer)
+- M-3: Apply checks-effects-interactions: state changes before external calls in beforeSwap/cancelOrder
+- L-1: Add MAX_ORDER_DURATION (30 days) cap
+- L-2: Add orderId >= nextOrderId existence check in cancelOrder
+- I-1: Non-whitelisted senders fall through to AMM instead of reverting
+- I-2: Exact-output swaps fall through to AMM instead of reverting
+- Add ReentrancyGuard to all state-mutating external functions
+- Add 6 new tests covering all fixes (34 total, all passing)"
+https://www.github.com/2bb-dev/claw2claw,08843c77540aecd4a1430ec9941d8dc93e68b8e9,2026-02-07T22:20:00+00:00,Human,,0,270,1,False,False,False,False,delete unused script
+https://www.github.com/2bb-dev/claw2claw,29e4cabd583743f41b90734af86f20e8311c1e84,2026-02-07T22:00:31+00:00,Human,,2866,11015,23,False,False,False,False,"merge: sync with origin/staging — resolve conflicts (LI.FI + ENS), gitignore package-lock.json"
+https://www.github.com/2bb-dev/claw2claw,12893242bfdd63db1a72969d18c6ff9817720d31,2026-02-07T21:48:09+00:00,Human,,2445,483,20,True,True,False,False,"fix: pre-sign EIP-7702 authorization to fix signer mismatch
+
+Workaround for viem v2.45.1 bug where prepareUserOperation uses stub
+r/s/yParity values for EIP-7702 authorization and sendUserOperation
+never replaces them with real signatures.
+
+- Add getSignedAuthorization() to wallet.ts that pre-signs the auth
+- createSponsoredClient() now returns { client, signedAuthorization }
+- lifi.ts passes signed auth only for the first tx (approval/swap)
+- After first tx sets 7702 delegation, subsequent txs skip auth
+
+Tested: 1 USDC (Base) → ETH (Arbitrum) via LI.FI + Pimlico sponsorship"
+https://www.github.com/2bb-dev/claw2claw,3800f2385231b7b177a0419fde4d546e04a4d709,2026-02-07T19:49:57+00:00,Human,,7,6,2,True,True,False,False,"fix: correct ENS contract addresses + reliable Sepolia RPC
+
+Root cause: ALL Sepolia contract addresses were wrong.
+- NameWrapper: 0xab50971... → 0x0635513f... (from ENS GitHub deployment JSON)
+- PublicResolver: 0x9010A2... → 0xE99638b4... (from ENS GitHub deployment JSON)
+- Mainnet PublicResolver: 0x231b0E... → 0xF29100... (also wrong)
+- Default RPC: rpc.sepolia.org (times out) → publicnode.com (reliable)
+
+Verified: debug script created debug-1770493735548.claw2claw.eth
+on block 10212616 (tx: 0x3820cf87...)"
+https://www.github.com/2bb-dev/claw2claw,959d7bd77ce8b2e6afdf30428c271ff4f9e0fa6f,2026-02-07T19:39:10+00:00,Human,,78,52,1,True,True,False,False,"fix: replace hand-written ENS ABIs with verified deployment JSON
+
+Root cause of silent ENS failure: isWrapped ABI had wrong signature.
+- Sourced ABIs from ensdomains/ens-contracts GitHub deployment JSON
+- Added both isWrapped overloads: (bytes32 node) and (bytes32 parentNode, bytes32 labelhash)
+- Added keccak256/toBytes imports for labelhash computation
+- All internalType fields match verified on-chain contract"
+https://www.github.com/2bb-dev/claw2claw,044e3ca53c0976e7e6fa52cb5784b3aee74a8d04,2026-02-07T19:27:52+00:00,Human,,25,4,1,False,True,False,False,"docs: update README with ENS setup guide and fix stale references
+
+- Add ENS Setup section with step-by-step: register, wrap, env vars
+- Fix .base.eth → .claw2claw.eth throughout
+- Add ENS API endpoints to the endpoint table
+- Fix Tech Stack: ENS via NameWrapper, not Basenames
+- Fix Prize Targets: ENS subdomains + text records"
+https://www.github.com/2bb-dev/claw2claw,5865ce6ccfcdf315ebb38aed2b74d3771d1fe90c,2026-02-07T19:26:08+00:00,Human,,44,52,2,False,False,False,False,"feat: async ENS minting — registration returns instantly
+
+Registration no longer blocks on on-chain tx confirmation.
+- Bot ID, API key, and wallet returned immediately
+- ENS subdomain minting fires in the background
+- DB updated with ensName when on-chain tx confirms
+- Callers poll GET /api/bots/me to check ENS status
+- skill.md updated to explain async polling flow"
+https://www.github.com/2bb-dev/claw2claw,0230c1ce1416c24b015d5029680ca95b7ab2f115,2026-02-07T19:23:09+00:00,Human,,12,0,1,True,True,False,False,"fix: surface ENS/wallet errors in registration response
+
+Instead of silently swallowing errors, the response now includes
+ensError and walletError fields so callers can see why ENS or
+wallet creation failed."
+https://www.github.com/2bb-dev/claw2claw,e55257b9abb689cdfd38b0393dd5a19519aee411,2026-02-07T19:11:42+00:00,Human,,37,6,1,False,True,False,False,"docs: update skill.md to make ENS optional and add ENS management
+
+- Registration shows basic (no ENS) and full (with ENS) examples
+- Step 1 guides bots to propose ENS name to human and explain it's optional
+- Fix .base.eth → .claw2claw.eth in resolve example
+- Add ENS text records update endpoint with usage example
+- Architecture section clarifies ENS is optional"
+https://www.github.com/2bb-dev/claw2claw,bee7ead8b4b9b3983a2293cc175f69c8a9e50057,2026-02-07T18:54:46+00:00,Human,,1205,26,9,False,False,False,False,"Merge pull request #2 from 2bb-dev/feat/ens-integration
+
+Feat/ens integration"
+https://www.github.com/2bb-dev/claw2claw,01574a059e45d862879a32b8dda6ac94d407961b,2026-02-07T18:54:26+00:00,Human,,1,2,2,False,False,False,False,"chore: remove prize/self-promotion comments from backend code
+
+- Remove 'for prize qualification' from bots.ts ENS section header
+- Remove 'written by us' self-promotion from ens.ts header"
+https://www.github.com/2bb-dev/claw2claw,e5b46e22d7ef4a73d6d6a928d007518be55936bb,2026-02-07T18:51:51+00:00,Human,,1762,13,12,False,False,False,False,"Merge pull request #1 from 2bb-dev/feat/add-p2p-contracts
+
+Feat/add p2p contracts"
+https://www.github.com/2bb-dev/claw2claw,08b209edfcf56da5e47c478a3c8c160c7bf084b2,2026-02-07T18:50:10+00:00,Human,,40,5,2,True,True,False,False,"fix(contracts): purgeExpiredOrders cleanup, zero-address admin guard, README storage
+
+- Add purgeExpiredOrders(): permissionless function to clean up expired orders
+  from pool arrays and refund escrowed tokens to makers (prevents unbounded growth)
+- Add ZeroAddress revert on setAdmin(address(0)) to prevent permanent admin lockout
+- Add AdminChanged and OrderExpired events for better observability
+- Fix README Order Storage section to match actual implementation
+  (separate order struct mapping + per-pool order ID arrays)"
+https://www.github.com/2bb-dev/claw2claw,96557e7fe3137c843dc412dcc229f493f4d1af8c,2026-02-07T18:45:07+00:00,Human,,18,10,3,True,True,False,False,"fix(ens): normalize parent name, key length limit, records txHash, active undefined
+
+- Normalize ENS_PARENT_NAME at startup to prevent namehash mismatches
+- Add MAX_KEY_LENGTH=64 check to prevent gas drain via oversized keys
+- Return recordsTxHash separately; only include records in response when write succeeded
+- active field returns undefined when record not yet loaded (prevents false-inactive)
+- Remove stale 'prize rules' comment from use-ens.ts header
+- Fix misleading comment about wallet/zero-address guard"
+https://www.github.com/2bb-dev/claw2claw,9a9d98f4c9e9e53b9bcbc2fe2224ac9b56bc4cc0,2026-02-07T18:32:28+00:00,Human,,32,16,3,True,True,False,False,"fix(ens): split try/catch, require wallet for ENS, validate records, fix isLoading
+
+- Separate try/catch for subdomain creation vs text records to prevent
+  orphaned subdomains when setBotTextRecords fails
+- Require createWallet when createEns is true (prevents zero-address addr records)
+- Validate all record values are strings before length check (prevents bypass)
+- Reject non-object/array records bodies with proper 400 response
+- Fix isLoading to aggregate all 8 query flags (prevents partial renders)
+- Document 0x-prefix requirement for ENS_DEPLOYER_PRIVATE_KEY"
+https://www.github.com/2bb-dev/claw2claw,1a99ef3aad0cc73ed158031c368edb1bb9b23bef,2026-02-07T18:26:33+00:00,Human,,43,6,5,True,True,False,False,"fix(contracts): int256.min guard, bitmask precedence, transfer check, docs alignment
+
+- Guard type(int256).min negation panic in beforeSwap
+- Fix critical operator precedence bug in deploy script bitmask check
+- Check transfer return value in MockPoolManager.take()
+- Update _removeOrder NatSpec (expired orders can still accumulate)
+- Fix README expiry docs (< to <=) and gas optimization notes
+- Add cancel-with-wrong-PoolKey regression test"
+https://www.github.com/2bb-dev/claw2claw,3bfc0d85bf13ab4c3a1728ed9fdd4c91cb020203,2026-02-07T18:13:32+00:00,Human,,15,7,1,True,True,False,False,"fix(ens): remove redundant setBotAddress, dynamic explorer URLs, record size limits
+
+- Remove duplicate setBotAddress call (createBotSubdomain already sets addr)
+- Dynamic ENS/Etherscan explorer URLs based on network config
+- Add record count (max 20) and value length (max 512) limits to prevent gas drain"
+https://www.github.com/2bb-dev/claw2claw,57e538792c8330a150857cb80ac331bbee08c978,2026-02-07T18:06:37+00:00,Human,,37,13,3,True,True,False,False,"fix(contracts): replace string requires with custom errors, add order cleanup
+
+- Migrate 6 string require() to custom errors for gas efficiency
+- Tighten overflow check from uint128.max to int128.max
+- Add _removeOrder swap-and-pop to prevent unbounded array growth
+- Fix deploy script amountSpecified to ether-scale
+- Update test expectations for custom error selectors"
+https://www.github.com/2bb-dev/claw2claw,5064b7c91e42ee3b10f93ef9fb894b315b04a5a5,2026-02-07T17:59:03+00:00,Human,,101,25,4,True,True,False,False,"fix(ens): address 15 Copilot review comments on PR #2
+
+Backend (ens.ts):
+- Guard against empty labels from sanitizeBotLabel
+- Actually set addr record with botWalletAddress in createBotSubdomain
+- Check NameWrapper.isWrapped before setSubnodeRecord
+- Check subdomain existence via NameWrapper.ownerOf (not resolution)
+- Use botName in getDefaultBotRecords description
+- Export getEnsConfig for dynamic /ens/status endpoint
+
+Backend (bots.ts):
+- Exact-match key validation for standard ENS keys (not startsWith)
+- Add isAddress validation on /ens/reverse endpoint
+- Dynamic /ens/status using getEnsConfig (not hardcoded Sepolia)
+
+Frontend (use-ens.ts):
+- Add safeNormalize wrapper to prevent render crashes on invalid names
+- All hooks use safeNormalize and disable queries on failure
+
+Config (.env.example):
+- Document NEXT_PUBLIC_ENS_MAINNET and RPC URL vars"
+https://www.github.com/2bb-dev/claw2claw,e2fe8acb5d0879d12f834f4799ec8ea4319f8db3,2026-02-07T17:45:38+00:00,Human,,28,23,4,True,True,False,False,"fix(contracts): address Copilot review — SafeERC20, exact-input enforcement, bounds checks
+
+- Safe ERC20: check transferFrom/transfer return values
+- Remove unused CurrencySettler import
+- Enforce exact-input only (amountSpecified < 0)
+- Add AmountOverflow check before uint128 cast
+- Explicit int128 variables for BeforeSwapDelta
+- Fix deploy script comment (0x180 → 0x0188)
+- Fix README settlement flow diagram (take first, then sync/settle)
+- Remove unused test variable (makerToken0Before)
+
+All 27 tests pass."
+https://www.github.com/2bb-dev/claw2claw,8afe88e5791cb35266970f073e0c714e91ee4e71,2026-02-07T17:39:40+00:00,Human,,43,27,4,False,False,False,False,feat(ens): add ENS_MAINNET toggle for mainnet/sepolia switching
+https://www.github.com/2bb-dev/claw2claw,8743ecd5c9d36254d24cb2fdeba9c1b0438e4730,2026-02-07T17:31:20+00:00,Human,,1082,26,9,False,False,False,False,"feat(ens): integrate ENS for bot identity on Sepolia
+
+Backend:
+- Add ens.ts: viem calls to NameWrapper + PublicResolver
+- Bot subdomains via setSubnodeRecord (deployer owns subnames)
+- DeFi text records via multicall (strategy, risk, pairs)
+- 6 new ENS endpoints, optional createEns flag on registration
+
+Frontend:
+- Add wagmi + viem + react-query
+- 12 wagmi hooks for ENS resolution and text records
+- Web3Provider wired into root layout
+
+Config:
+- ENS_PARENT_NAME, ENS_DEPLOYER_PRIVATE_KEY, SEPOLIA_RPC_URL"
+https://www.github.com/2bb-dev/claw2claw,799c168685ccf12e88988586f4208545868f836d,2026-02-07T16:55:44+00:00,Human,,123,53,2,False,False,False,False,"docs(contracts): add deep v4 hook technical breakdown and cleanup gitmodules
+
+- Hook permission flags (BEFORE_SWAP, AFTER_SWAP, BEFORE_SWAP_RETURNS_DELTA)
+- Swap lifecycle: unlock context, beforeSwap execution
+- Inline settlement: sync/transfer/settle/take explained
+- BeforeSwapDelta: packed int256 with specified/unspecified deltas
+- Order storage: mapping, post, match, cancel mechanisms
+- Test architecture: MockPoolManager with real token transfers
+- 27-test coverage table by category
+- Removed .gitmodules from tracking (forge deps are gitignored)"
+https://www.github.com/2bb-dev/claw2claw,b450e018c428674d0ecc9da25c1215923cc64f45,2026-02-07T16:53:24+00:00,Human,,1,1,1,True,True,False,False,fix: add --accept-data-loss to prisma db push for Railway deploy
+https://www.github.com/2bb-dev/claw2claw,38c2234124fa9ae5aa52d41a54767057659c8305,2026-02-07T16:51:41+00:00,Human,,333,103,3,False,True,False,False,"test(contracts): rewrite test suite with proper MockPoolManager
+
+- Add MockPoolManager contract that tracks take/sync/settle calls
+  with real token transfers (fixes silent EOA no-op bug)
+- Settlement verification: token balance assertions, PM call params
+- New tests: sellToken1 direction, multi-order matching, skip-filled
+- Edge cases: zero amounts, zero duration, double-cancel, unauthorized
+- 27/27 passing (was 20/21 — p2pMatch_success now works)
+- Add contracts/lib and foundry.lock to gitignore"
+https://www.github.com/2bb-dev/claw2claw,0ae749df07212d968dafc5e24cbdd144d0a80f62,2026-02-07T16:47:48+00:00,Human,,21,498,5,False,False,False,False,"chore: remove basenames, use ENS instead
+
+- Delete basenames.ts service, register-basename.ts and debug-register.ts scripts
+- Update bots.ts to use inline generateBotEnsName() producing .eth names
+- Remove BASENAME_NETWORK and BASENAME_FUNDER_PRIVATE_KEY env vars
+- Replace Basename references with ENS in skill.md template"
+https://www.github.com/2bb-dev/claw2claw,3a756d39e07bb8bcbd10ecc2deece5f78e8aa9c9,2026-02-07T15:49:36+00:00,Human,,1360,12,10,False,False,False,False,"feat(contracts): add Claw2ClawHook P2P order matching on Uniswap v4
+
+- Claw2ClawHook: on-chain order book with P2P matching via beforeSwap
+- CustomCurve pattern: bypasses AMM liquidity when orders match
+- Bot whitelist access control (addBot/removeBot)
+- Order lifecycle: post with escrow, cancel with refund, expiry
+- MockToken: ERC20 for testing
+- Deploy script with CREATE2 address mining for hook flag bits
+- TestP2P script for live P2P trade verification
+- 8 unit test scenarios (admin, orders, matching, expiry, events)
+- Deployed and verified on Base Sepolia (0xb763CfE0...Ce180188)
+- Updated main README with contract addresses and prize targets
+- Added contracts/.env.example and .gitignore"
+https://www.github.com/2bb-dev/claw2claw,b5e4297524db27858943b9f6d8775eabd2316fa2,2026-02-07T14:45:18+00:00,Human,,175,1266,18,False,False,False,False,"chore: DB cleanup - remove legacy migrations, seeds, orders route, simplify schema and routes"
+https://www.github.com/2bb-dev/claw2claw,783d69b5a48831bfb937e4096291e3beb9d3a216,2026-02-05T16:04:46+00:00,Human,,22,0,1,False,False,False,False,"docs(skill): add Telegram-friendly messaging guidelines
+
+- Add 'Messaging Your Human' section
+- Show good format example (simple, readable)
+- Advise against markdown tables, long breakdowns, emoji headers
+- Direct humans to web UI for details"
+https://www.github.com/2bb-dev/claw2claw,99fc619a751c1d4b09a6ee47d65b686caa522071,2026-02-05T16:01:08+00:00,Human,,101,94,1,False,False,False,False,"refactor(skill): give bots absolute freewill for trading
+
+- Remove POC mock information and fake response examples
+- Remove strategy guidelines table (Conservative/Moderate/Aggressive)
+- Remove prescriptive heartbeat logic with specific thresholds
+- Add research-first onboarding flow (register → research → consult human → fund → trade → evolve)
+- Add 'Your Autonomy' section emphasizing complete freewill
+- Add note about Yellow Network integration (coming soon)
+- Update rules: don't spam human, only notify on trades/insights"
+https://www.github.com/2bb-dev/claw2claw,9fca7df3105f7617fb0f988e9f3250cb760636bc,2026-02-05T15:35:26+00:00,Human,,19,53,3,False,False,False,False,"chore: consolidate env files into root .env.example
+
+- Merge backend/.env.example and frontend/.env.example into root
+- Remove legacy ENS_CHAIN and ENS_RPC_URL (use Basenames only)
+- Add missing HOST variable
+- Delete separate backend/frontend .env.example files"
+https://www.github.com/2bb-dev/claw2claw,acd9792e977375e5e70c80e21ad24e13b26c56b4,2026-02-05T15:19:25+00:00,Human,,96,194,3,False,False,False,False,"refactor: consolidate ENS to Base-only Basenames
+
+- Removed ens.ts (Ethereum ENS support)
+- Added missing exports to basenames.ts:
+  - generateBotBasenameSubdomain
+  - getBasenameProfile
+  - resolveBasenameToAddress
+  - registerBotBasename
+  - isValidBasename
+  - getBasenamesStatus
+- Updated bots.ts to import from basenames.ts
+- All ENS operations now use Base chain only"
+https://www.github.com/2bb-dev/claw2claw,c74588147ccacf33f790d7b1d77111f82a3133b8,2026-02-05T13:25:49+00:00,Human,,97,33,10,True,True,False,False,"fix(backend): Railway deployment with entrypoint.sh and proper Prisma config
+
+- Add entrypoint.sh with prisma migrate deploy
+- Remove dotenv from prisma.config.ts (env from Docker/Railway)
+- Remove EXPOSE directives from Dockerfiles
+- Add pg dependency for Prisma adapter
+- Add health check config for Railway
+- Update docker-compose with all env vars
+- Update README with Docker instructions"
+https://www.github.com/2bb-dev/claw2claw,ea2b09831f0926e912be1055eecba17bc599e66b,2026-02-05T12:06:34+00:00,Human,,57,17,7,False,False,False,False,"feat: dynamic domain URLs for staging/production
+
+- Add NEXT_PUBLIC_SITE_URL build arg to Dockerfile
+- Create skill.md.template with {{SITE_URL}} and {{API_URL}} placeholders
+- Add prebuild script to generate skill.md from template
+- Update humans page to use env var for skill.md URL
+- Add .gitignore for generated skill.md
+- Update .env.example with SITE_URL documentation"
+https://www.github.com/2bb-dev/claw2claw,f3daf2a6192d07fbebc680991fcfb5e7d6d7893a,2026-02-05T11:52:03+00:00,Human,,17,1,1,False,False,False,False,"docs: add bot profile/wallet links to skill.md
+
+- Added View Bot Profile API endpoint documentation
+- Added Web UI links for orders, deals, and wallet pages
+- Documented that bot names are clickable in order/deal pages"
+https://www.github.com/2bb-dev/claw2claw,8808d5e9763bd4a26a60dd4fc74cafe7f706ebd1,2026-02-05T11:43:12+00:00,Human,,465,61,10,False,False,False,False,"feat: add clickable wallet navigation links for trader bot names
+
+- deals-list.tsx: maker/taker names link to /wallet/{id}
+- orders-list.tsx: bot name links to /wallet/{id}
+- orders/[id]/page.tsx: bot name in card links to wallet
+- deals/[id]/page.tsx: maker/taker names link to wallets"
+https://www.github.com/2bb-dev/claw2claw,b353ef0c7b72c5953ae63976eb30f021665e0471,2026-02-05T11:33:37+00:00,Human,,7,7,2,False,False,False,False,feat(backend): move CORS origins to environment variable
+https://www.github.com/2bb-dev/claw2claw,0a45eda9096c4c55bf8313b50de8a79bce2c45e5,2026-02-04T12:16:40+00:00,Human,,3020,123,21,False,False,False,False,"Phase 1: ENS/Basenames integration with AA wallets
+
+- Add Basenames service for on-chain .base.eth registration
+- Create AA wallet infrastructure with Pimlico
+- Add multi-chain RPC configuration
+- Create Bot Portfolio page at /wallet/[id]
+- Add real price feeds from CoinGecko
+- Add E2E tests for Phase 1 flow
+- Secure docker-compose with .env file"
+https://www.github.com/2bb-dev/claw2claw,ae1350206cc5b063a45470dc87df2892a71f5c27,2026-02-03T16:48:10+00:00,Human,,14,9,1,False,True,False,False,Fix E2E test: ensure taker has enough USDC for sell order
+https://www.github.com/2bb-dev/claw2claw,0bbc7cc8d336577087a5244fcf4ac75e285e489f,2026-02-03T16:45:49+00:00,Human,,263,36,4,False,False,False,False,"Add order details page and remove emojis
+
+- Add GET /api/orders/:id backend endpoint with bot assets
+- Create /orders/[id] page showing order details
+- Make order rows clickable in orders-list
+- Replace emojis with styled indicators in orders/deals lists"
+https://www.github.com/2bb-dev/claw2claw,7db6867a3c4aa328c9d0cdfd3b3fb3d551d3ce06,2026-02-03T16:41:47+00:00,Human,,156,3,1,False,False,False,False,"Add missing POST /api/orders/:id/take endpoint
+
+- Execute atomic asset swaps between maker and taker
+- Validate taker has sufficient balance
+- Create deal record with reviews
+- Mark order as filled"
+https://www.github.com/2bb-dev/claw2claw,5d21e24f75a52c69ba48ce7fb835180815fefa7b,2026-02-03T16:29:31+00:00,Human,,45,149,5,False,False,False,False,"Add Get Started section and AI prompt for humans
+
+- Add welcome hero with For Humans/For Agents cards on main page
+- Add 'Prompt for Your AI' section on For Humans page
+- Delete agents page (For Agents links to skill.md)
+- Remove For Agents and For Humans from header nav
+- Exclude vitest/tests from TypeScript build"
+https://www.github.com/2bb-dev/claw2claw,b43a865e4b8d97c84a24805e6e557365a4a6f78c,2026-02-03T16:18:49+00:00,Human,,7,2,3,True,True,False,False,"fix: frontend Docker build with NEXT_PUBLIC env vars
+
+- Restore turbopack.root for monorepo builds
+- Exclude vitest.config.ts from TypeScript build
+- Add NEXT_PUBLIC_API_URL as Docker ARG with default"
+https://www.github.com/2bb-dev/claw2claw,c4ee1c364eb5c2957141b319ceecfffeb5fb5da9,2026-02-03T15:46:05+00:00,Human,,314,2943,11,False,False,False,False,"feat: switch frontend to axios with api.claw2claw.2bb.dev
+
+- Install axios, create lazy API client with runtime env validation
+- Update all components to use axios instead of fetch
+- Update skill.md to use api.claw2claw.2bb.dev for bot access
+- Add api.claw2claw.2bb.dev to CORS origins
+- Remove root .env.example (each workspace has own)"
+https://www.github.com/2bb-dev/claw2claw,6dc9d58dda56cce54f28925a9959729de4edde6d,2026-02-03T15:20:22+00:00,Human,,16,1,1,False,False,False,False,feat: configure CORS for claw2claw.2bb.dev
+https://www.github.com/2bb-dev/claw2claw,de8c1e2547bc6b7648c3dcaa3ae809ecd474bcb2,2026-02-03T15:10:22+00:00,Human,,1960,923,38,False,False,False,False,"refactor: move API to Fastify backend
+
+- Add Fastify 5 backend with Prisma 7
+- Move API routes from Next.js to backend
+- Update docker-compose for new architecture
+- Update documentation and env examples"
+https://www.github.com/2bb-dev/claw2claw,402a30cbe003de68e8d5697ddc0804fd80c4ae9c,2026-02-03T13:51:10+00:00,Human,,10,10,2,False,False,False,False,docs: update domain to claw2claw.2bb.dev and repo to 2bb-dev
+https://www.github.com/2bb-dev/claw2claw,aca2912cde5844989a2dc6168afc44c02fc9308c,2026-02-03T13:48:03+00:00,Human,,3,2,1,True,True,False,False,fix: add DATABASE_URL to prisma schema datasource
+https://www.github.com/2bb-dev/claw2claw,40d25b8eb6522c7738751fdcedb74bf7134a37b5,2026-02-03T13:44:33+00:00,Human,,3,1,1,True,True,False,False,fix: configure turbopack.root for monorepo build
+https://www.github.com/2bb-dev/claw2claw,4dc6dcc15497f96f1028fd1ce9073713c2f386b5,2026-02-03T13:42:05+00:00,Human,,69,40,7,False,False,False,False,"refactor: separate prisma migrations from frontend
+
+- Create dedicated prisma/Dockerfile for migrations
+- Create prisma/railway.json for Railway migrations service
+- Update docker-compose with migrate service (runs before app)
+- Move prisma commands from frontend to root package.json
+- Frontend Dockerfile: explicit prisma generate in builder stage
+- Clean separation: frontend only builds UI, prisma handles DB"
+https://www.github.com/2bb-dev/claw2claw,84daf07d47c1d174db278cf9152de13edca5129c,2026-02-03T13:30:09+00:00,Human,,0,0,1,False,False,False,False,refactor: move railway.json to frontend folder for consistency
+https://www.github.com/2bb-dev/claw2claw,7d2ff94f34a93f8bb29d88979e4c416e7c66bfd9,2026-02-03T13:20:24+00:00,Human,,0,2,1,True,True,False,False,fix: remove healthcheck to fix railway deployment
+https://www.github.com/2bb-dev/claw2claw,c6478bcdbeacf53092b03493043178b7379d438e,2026-02-03T13:19:14+00:00,Human,,288,358,56,False,False,False,False,"refactor: restructure to npm workspaces monorepo
+
+- Move Next.js app to frontend/ directory
+- Add backend/ and contracts/ placeholder directories
+- Keep prisma/ at root as shared database layer
+- Convert to npm workspaces with root package.json
+- Update Dockerfile for monorepo build context (node:24-alpine)
+- Add docker-compose.yml with app and PostgreSQL services
+- Replace railway.toml with railway.json (latest schema)
+- Add preDeployCommand for migrations, watchPatterns for monorepo
+- Update README with monorepo structure and deployment docs
+- Bump to Node 24, React 19.2.4"
+https://www.github.com/2bb-dev/claw2claw,8294d0557fb8e46827e5c0366f2322d2b31851a2,2026-02-02T20:45:36+00:00,Human,,2405,546,8,False,False,False,False,Add e2e bot simulation tests and remove back button from deals page
+https://www.github.com/2bb-dev/claw2claw,8dca34a2e55697c47b74fce70ee4d1465d87049c,2026-02-02T18:20:33+00:00,Human,,6,0,1,True,True,False,False,fix: copy prisma files and node_modules to runner stage for migrations
+https://www.github.com/2bb-dev/claw2claw,fafca92181e2379a24fd1c7295e7e169ade4be38,2026-02-02T17:57:23+00:00,Human,,1,0,1,True,True,False,False,fix: copy prisma.config.ts in Docker build
+https://www.github.com/2bb-dev/claw2claw,bcd0930beaf61e1a7d97d261bd2b8c1b458355c5,2026-02-02T17:56:41+00:00,Human,,1,1,1,True,True,False,False,fix: use npm exec instead of npx for prisma in deploy
+https://www.github.com/2bb-dev/claw2claw,f289b7e5aa09ce42063e8bda4e806028c5c76064,2026-02-02T17:51:00+00:00,Human,,625,145,17,False,False,False,False,"feat: expand prices endpoint to support all crypto assets
+
+- Add simulated prices for BTC, ETH, SOL, DOGE, AVAX, MATIC vs USDC
+- Implement realistic volatility per asset (3-8% range)
+- Include supportedPairs array in response for bot discoverability
+- Proper decimal precision for small-value tokens"
+https://www.github.com/2bb-dev/claw2claw,11a8f12a35a025dbf421cf8116dc68cc23cef95d,2026-02-02T17:08:08+00:00,Human,,59,10,4,False,False,False,False,Add Dockerfile with Node.js 22.12 for Prisma 7 compatibility
+https://www.github.com/2bb-dev/claw2claw,b2c8453aa63f4490ed8be7754e76ca556807c302,2026-02-02T17:03:39+00:00,Human,,3,0,1,True,True,False,False,fix: specify Node.js 22+ for Nixpacks deployment
+https://www.github.com/2bb-dev/claw2claw,8760830ca9239e40ad17d91052f3f188f4e66a7e,2026-02-02T17:00:55+00:00,Human,,11,2,2,False,False,False,False,chore: Add Railway deployment config
+https://www.github.com/2bb-dev/claw2claw,64247e8d010063d7a3ca86537c2ccc4156be4eb9,2026-02-02T16:58:15+00:00,Human,,281,55,8,False,True,False,False,"feat: Add shared Header, fix dark mode text colors, refactor info pages"
+https://www.github.com/2bb-dev/claw2claw,e0d2fc25844218b8ea493fffe39287db67a81dff,2026-02-02T16:35:45+00:00,Human,,11759,0,42,False,False,False,False,"feat: Etherscan-style redesign with stats bar, theme toggle, and API
+
+- Add stats bar component (ETH price, deals, bots, volume)
+- Add dark/light theme toggle
+- Redesign orders list with compact Etherscan-style rows
+- Redesign deals list with From→To format
+- Add GET /api/bots endpoint to list all bots
+- Add GET /api/deals/[id] endpoint for deal details
+- Apply full tweakcn theme with Cascadia Code font
+- Remove old role cards component
+- Update home page layout"

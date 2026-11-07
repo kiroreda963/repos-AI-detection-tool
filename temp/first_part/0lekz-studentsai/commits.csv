@@ -1,0 +1,299 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0lekz/studentsai,6d9e7149ea643b22064e9da79c39af8929949e9e,2026-10-23T18:40:51+00:00,Human,,21,0,1,False,False,False,False,"Merge pull request: add the MIT license
+
+Add the MIT license"
+https://www.github.com/0lekz/studentsai,dd8d8800958d0a509286a7a7ddc9704ba02b971c,2026-10-23T18:40:45+00:00,Human,,21,0,1,False,False,False,False,chore: add the MIT license
+https://www.github.com/0lekz/studentsai,7a28c7f5ce351a976517eea7b505a6f932c9a05a,2026-10-23T18:38:00+00:00,Human,,12,957,7,False,False,False,False,"Merge pull request: minimal README and CONTRIBUTING during the rebuild
+
+Minimal README and CONTRIBUTING during the rebuild"
+https://www.github.com/0lekz/studentsai,25f7fae677f89318bafe91d9fba6059d5c918404,2026-10-23T18:37:54+00:00,Human,,12,957,7,False,False,False,False,"docs: minimal README and CONTRIBUTING while the rebuild is in progress
+
+The repository is public and the project is mid-rebuild, so the README
+says what it is, that it is under construction, and how to get in touch,
+and nothing else. The v1 design docs and the contribution templates are
+removed since contributions are not open."
+https://www.github.com/0lekz/studentsai,090256b32f914c94ab6d4ca56cef5c5d87341a9e,2026-10-23T18:28:41+00:00,Human,,13995,11970,195,False,False,False,False,"Merge pull request #29 from 0lekz/release/landing-preview
+
+Rebuilt frontend with an under-construction notice"
+https://www.github.com/0lekz/studentsai,bdf62f5594dd2642578bb95b25ab1bb7c46e9e59,2026-10-23T18:27:01+00:00,Human,,456,467,2,False,True,False,False,"build(frontend): upgrade Next.js to 15.5.28 and apply non-breaking audit fixes
+
+Vercel's dependency security block refused to deploy 15.4.6."
+https://www.github.com/0lekz/studentsai,3d08121b85290688e1e5764517ffedf163d1318b,2026-10-23T18:20:37+00:00,Human,,3,0,1,False,False,False,False,"build(frontend): pin Node 22 for Vercel
+
+engines.node selects the Vercel build runtime; Playwright and
+openapi-typescript require Node 20 or newer."
+https://www.github.com/0lekz/studentsai,223491451793de2e4d61ea2bfa0576bfa49c8a39,2026-10-23T18:15:50+00:00,Human,,13507,11474,195,False,False,False,False,"feat(frontend): rebuilt frontend with an under-construction notice
+
+Ships the new course-centric frontend (landing page, shell, Today,
+Practice, Ask, Map, Materials, typed client, Playwright flows) on top of
+the current production backend, with a notice that the study features
+are not live yet. Frontend only: backend code on main is unchanged so
+the Railway deployment is unaffected. Full history is on
+phase-0/foundation."
+https://www.github.com/0lekz/studentsai,4cdbb623cdc9ab9a8edde779a38a2b108ba5809a,2025-09-26T03:47:19+00:00,Human,,1,0,1,False,True,False,False,CRITICAL FIX: Add missing User import
+https://www.github.com/0lekz/studentsai,2044b9da43a5edc7e91fab2f7685ca16e55d30dd,2025-09-26T03:39:48+00:00,Human,,172,43,7,False,True,False,False,"Merge remote main with critical fix
+
+- Integrates remote changes with local critical fix
+- Backend should now work properly"
+https://www.github.com/0lekz/studentsai,ed077c47dc19cc64287bc923f1b7f7f6c77b4d52,2025-09-26T03:38:53+00:00,Human,,1,0,1,False,True,False,False,"CRITICAL FIX: Add missing get_current_user import
+
+- Fixes NameError that was crashing the backend
+- Allows refresh token endpoint to work properly
+- Backend should now start successfully"
+https://www.github.com/0lekz/studentsai,a6ebcc7b80ac591f84d6a0464106f8caf501910c,2025-09-26T03:31:39+00:00,Human,,143,32,5,False,False,False,False,"Merge pull request #28 from Oleksiy-Zhukov/feature/ux-improvements-v2
+
+Feature/ux improvements v2"
+https://www.github.com/0lekz/studentsai,23ece471767362b4235944b6f10ebd0d638401ca,2025-09-26T03:23:20+00:00,Human,,2,3,1,False,True,False,False,Fix formatting in refresh token endpoint
+https://www.github.com/0lekz/studentsai,3011a4440eb17ee08517270ee3005a4849580c84,2025-09-26T03:20:50+00:00,Human,,5,5,1,False,True,False,False,"Fix focused mode background consistency
+
+- Use same background colors as main app (bg-gray-50 dark:bg-[#0f1115])
+- Update top bar, settings panel, and title input backgrounds
+- Consistent visual experience between focused mode and main app"
+https://www.github.com/0lekz/studentsai,4a661cf02eb96ef71f2b1889e319b2597459be9f,2025-09-26T03:19:42+00:00,Human,,0,7,1,False,False,False,False,Remove redundant plus button next to panel buttons
+https://www.github.com/0lekz/studentsai,8d8d4b0269f60314c99c7a8c6b3af0cab451bfd2,2025-09-26T03:19:16+00:00,Human,,0,11,1,False,False,False,False,Remove Generate Flashcards button from notes view
+https://www.github.com/0lekz/studentsai,b373a733a2212b557be2e2ebfbb25a82750ae23c,2025-09-26T03:18:40+00:00,Human,,2,2,1,False,True,False,False,Fix Template button dark mode styling
+https://www.github.com/0lekz/studentsai,8f29a09ffced5833a4d2fb04e9f7a188dbd04ec1,2025-09-26T03:01:46+00:00,Human,,66,5,1,False,False,False,False,"Add focused mode settings persistence
+
+- Save font size, line height, max width, word count, and auto-save settings to localStorage
+- Settings persist between focused mode sessions
+- Improves user experience by remembering preferences"
+https://www.github.com/0lekz/studentsai,acd6f84881e59afa888e706ad24a7bc49875dd94,2025-09-26T02:55:00+00:00,Human,,8,1,1,False,True,False,False,"Fix focused mode exit button data loss
+
+- Exit button (X) now saves before exiting, same as ESC key
+- Prevents data loss when clicking exit button
+- Maintains consistency between keyboard and mouse exit methods"
+https://www.github.com/0lekz/studentsai,710f82cdc3d3f7136bd8eab80f56b7d385a99877,2025-09-26T02:54:34+00:00,Human,,63,1,2,False,True,False,False,"Fix critical token expiration issue - implement auto-refresh
+
+- Add /auth/refresh endpoint to backend
+- Implement automatic token refresh in API client
+- Retry failed requests with refreshed token
+- Redirect to login only if refresh fails
+- Prevents data loss from expired tokens"
+https://www.github.com/0lekz/studentsai,f3ff6beec05b748b08f6a6c2b3c7966554d4a50a,2025-09-26T01:56:07+00:00,Human,,29,11,4,False,False,False,False,"Merge pull request #27 from Oleksiy-Zhukov/feature/ux-improvements-v2
+
+Feature/ux improvements v2"
+https://www.github.com/0lekz/studentsai,424377aa509586208a6f65cf6d9dae3ce6017109,2025-09-26T01:51:06+00:00,Human,,29,6,3,False,True,False,False,"Fix remaining critical UX issues: focused mode, auto-save, scrolling, and dark mode
+
+- Fix focused mode exit to save before exiting when ESC is pressed
+- Fix focused mode theme consistency to respect dark/light mode
+- Fix auto-save flashing by showing save time only for 3 seconds
+- Fix template button dark mode by updating Card component styling
+- Fix scroll issue by making content area scrollable
+- Improve overall user experience and prevent data loss"
+https://www.github.com/0lekz/studentsai,fb3645147b56b37a072dc0d80333d47190688e16,2025-09-26T01:50:18+00:00,Human,,0,5,1,False,True,False,False,"Fix critical UX issues: focused mode, auto-save, scrolling, and dark mode
+
+- Fix focused mode exit to save before exiting when ESC is pressed
+- Fix focused mode theme consistency to respect dark/light mode
+- Remove Shift+? shortcut for help window to prevent accidental triggers
+- Fix auto-save flashing by showing save time only for 3 seconds
+- Fix template button dark mode by updating Card component styling
+- Fix scroll issue by making content area scrollable
+- Improve overall user experience and prevent data loss"
+https://www.github.com/0lekz/studentsai,a01765a0943160c9125580dc8a07b71f96ec6cef,2025-09-21T19:46:15+00:00,Human,,5,2,2,False,True,False,False,Fix template notes not showing and overly aggressive note connections
+https://www.github.com/0lekz/studentsai,c5dc4ad80224cdad16e65677e9e1c55930e66e8e,2025-09-21T03:20:11+00:00,Human,,4,4,1,False,True,False,False,Fix FlashcardViewer interface to use noteId parameter
+https://www.github.com/0lekz/studentsai,bf2bc71e715aebe70d03c2cafa72f96078d11003,2025-09-21T03:18:54+00:00,Human,,13,13,1,False,True,False,False,Fix FlashcardViewer duplicate variable declaration on main branch
+https://www.github.com/0lekz/studentsai,3245d0de7130110a40ad22d007736b7d0100268b,2025-09-21T03:15:57+00:00,Human,,13,13,1,False,True,False,False,"Merge pull request #26 from Oleksiy-Zhukov/feature/ux-improvements
+
+Fix FlashcardViewer duplicate variable declaration"
+https://www.github.com/0lekz/studentsai,792f34c9cd82d81e29412dfd1726f5e1fa782731,2025-09-21T03:14:23+00:00,Human,,13,13,1,False,True,False,False,Fix FlashcardViewer duplicate variable declaration
+https://www.github.com/0lekz/studentsai,e50fb83228a8449f55fa718657790bfd94ea6e88,2025-09-21T03:02:45+00:00,Human,,274,194,3,False,True,False,False,"Merge pull request #25 from Oleksiy-Zhukov/feature/ux-improvements
+
+Fix critical issues: auto-save, templates, and UI consistency"
+https://www.github.com/0lekz/studentsai,99c64b56bc9544cb7c59e54dad61f3c42bb9a53f,2025-09-21T02:49:07+00:00,Human,,274,194,3,False,True,False,False,"Fix critical issues: auto-save, templates, and UI consistency"
+https://www.github.com/0lekz/studentsai,6eb4cca8a82f0cd112b5e85c9f1a6343f709e572,2025-09-21T02:22:46+00:00,Human,,119,91,6,False,True,False,False,"Merge pull request #24 from Oleksiy-Zhukov/feature/ux-improvements
+
+Fix critical issues: auto-save, note selection, HTTPS, templates, and…"
+https://www.github.com/0lekz/studentsai,c6fdd3a655f6573b6ad4fcc74a539dfe8ee57710,2025-09-21T02:20:39+00:00,Human,,119,91,6,False,True,False,False,"Fix critical issues: auto-save, note selection, HTTPS, templates, and UI consistency"
+https://www.github.com/0lekz/studentsai,35b3ba551e1de5255e2f8b507a0684216896f803,2025-09-21T00:33:05+00:00,Human,,2890,455,9,False,False,False,False,"Merge pull request #23 from Oleksiy-Zhukov/feature/ux-improvements
+
+Feature/ux improvements"
+https://www.github.com/0lekz/studentsai,6dc05067db264088f1f46a25b30352b70cab1d3f,2025-09-21T00:28:50+00:00,Human,,1829,34,8,False,False,False,False,"Enhance note-taking experience with rich editor, search, templates, and UX improvements"
+https://www.github.com/0lekz/studentsai,a92beac88091cddb0abf46b8e72fe92b9cc79755,2025-09-05T02:03:59+00:00,Human,,1078,438,3,False,False,False,False,"Implement unified always-editable notes like Notion
+
+BREAKING CHANGE: Remove separate edit/view modes for seamless UX
+
+## Major UX Improvement:
+- Notes are now always editable (like Notion) - no more edit/view mode switching
+- Click any note → immediately start editing
+- Unified experience throughout the app"
+https://www.github.com/0lekz/studentsai,f0cc375ec6eda7292564d02e9837c2c60e3a0b62,2025-09-04T07:15:08+00:00,Human,,222,49,4,False,False,False,False,"Merge pull request #22 from Oleksiy-Zhukov/feature/ux-improvements
+
+Add WYSIWYG note viewing and scroll support for large notes"
+https://www.github.com/0lekz/studentsai,e098c4b94b5ea21fffb8ce7bb162cf592464f508,2025-09-04T07:06:37+00:00,Human,,222,49,4,False,False,False,False,Add WYSIWYG note viewing and scroll support for large notes
+https://www.github.com/0lekz/studentsai,625e611a197b04e5ea56caa0b4b2d588eb84c3ed,2025-09-04T06:40:44+00:00,Human,,1542,218,6,False,False,False,False,"Merge pull request #21 from Oleksiy-Zhukov/feature/ux-improvements
+
+Implement live WYSIWYG editor with real-time markdown rendering"
+https://www.github.com/0lekz/studentsai,b5457d81257878875cea5a74e22d5eba2085f290,2025-09-04T06:26:01+00:00,Human,,1542,218,6,False,True,False,False,"Implement live WYSIWYG editor with real-time markdown rendering
+
+BREAKING CHANGE: Replace split edit/preview mode with unified WYSIWYG experience
+
+## Major Changes:
+- Add Tiptap WYSIWYG editor for live markdown rendering like Notion/Obsidian
+- Remove problematic edit/preview tabs that disrupted user flow
+- Fix auto-save UX - no longer throws users out of edit mode
+- Implement real-time formatting as users type (bullets, headers, etc.)
+
+## New Features:
+- Live bullet points, headers, and formatting appear instantly while typing
+- Native spell check, autocorrect, and auto-capitalization
+- Apple system font integration for native feel
+- Seamless image paste support with drag & drop
+- Smart auto-save with visual indicators ('Unsaved changes', 'Saving...', 'Saved HH:MM:SS')
+- Auto-focus for new notes, maintains focus during editing
+
+## Technical Implementation:
+- WysiwygEditor.tsx: New Tiptap-based editor component
+- Replaced Textarea + ReactMarkdown preview with unified editor
+- Enhanced typography with prose classes and custom styling
+- Improved dark mode support throughout editor
+- Better empty states and loading indicators
+
+## UX Improvements:
+- No more jarring transitions between edit/preview modes
+- Continuous editing experience like modern note-taking apps
+- Visual feedback for save states without interrupting flow
+- Maintains cursor position and focus during auto-saves
+- Word count updates in real-time
+
+This addresses the core user feedback about wanting to see formatting
+results immediately while typing, similar to Apple Notes/Notion experience."
+https://www.github.com/0lekz/studentsai,ce8dffd38f3d23302876b4d17dacc87abd862829,2025-09-04T05:57:48+00:00,Human,,127,12,3,False,False,False,False,"Merge pull request #20 from Oleksiy-Zhukov/feature/ux-improvements
+
+Implement comprehensive UX improvements for better note-taking experience"
+https://www.github.com/0lekz/studentsai,ed65ddcdcd09617a91341392234003b9a11818f9,2025-09-04T05:49:41+00:00,Human,,4,4,4,False,False,False,False,"Merge pull request #19 from Oleksiy-Zhukov/dev
+
+Display username instead of email in header dropdown"
+https://www.github.com/0lekz/studentsai,61441d801a5f71c1013c06cf41140af45d120194,2025-09-04T05:45:21+00:00,Human,,127,12,3,False,False,False,False,"Implement comprehensive UX improvements for better note-taking experience
+
+- Extend JWT token expiration from 30 minutes to 8 hours to prevent session interruptions during lectures
+- Add auto-save functionality with 3-second debouncing and visual status indicators
+- Implement hide/show notes panel toggle for distraction-free editing
+- Enhance note editor with Apple Notes-like experience:
+  * Enable autocorrect, spellcheck, and auto-capitalization
+  * Apply Apple system font family for better readability
+  * Improve markdown preview with enhanced styling and typography
+  * Add smooth transitions and better visual hierarchy
+- Add panel toggle buttons in both main view and editor mode
+- Improve empty state messaging in preview mode
+
+These changes address critical user feedback from actual classroom usage,
+focusing on preventing data loss and improving the overall editing experience."
+https://www.github.com/0lekz/studentsai,cea7e2dd33d5b50b19480c3813d7bdb4474cb817,2025-09-04T05:15:40+00:00,Human,,4,4,4,False,True,False,False,"Display username instead of email in header dropdown
+
+- Updated Header component to show username in dropdown trigger
+- Fixed user object passing in profile, flashcards, and settings pages to include username field
+- Added fallback handling for undefined username values"
+https://www.github.com/0lekz/studentsai,1f898b4f6356b35c22ebeb7faa71fc32371413a2,2025-09-01T18:39:17+00:00,Human,,295,0,4,False,False,False,False,"Merge pull request #18 from Oleksiy-Zhukov/dev
+
+Add GitHub issue templates, contributing guidelines, and PR template"
+https://www.github.com/0lekz/studentsai,65779d9cf0622ad9dddec76c9517b92936acc9d6,2025-09-01T17:48:47+00:00,Human,,295,0,4,False,False,False,False,"Add GitHub issue templates, contributing guidelines, and PR template"
+https://www.github.com/0lekz/studentsai,5e88116bb93ac467bcf0a52f1251ef09c3ad253a,2025-08-31T07:41:44+00:00,Human,,1,1,1,False,True,False,False,Fix keyword extraction by using set_note_tags instead of update_note with tags parameter
+https://www.github.com/0lekz/studentsai,efca7d9f7cc38f2d14537e31ec68fe96bf41139b,2025-08-31T07:32:08+00:00,Human,,1,2,1,False,True,False,False,Fix extract_keywords_from_text import by moving it to top of file
+https://www.github.com/0lekz/studentsai,1293df155167f0febacd464ff03978e7dbaa745b,2025-08-31T07:31:29+00:00,Human,,2,2,2,False,True,False,False,Fix keyword extraction note ID and similarity matrix function names
+https://www.github.com/0lekz/studentsai,db847efa288ab31bbc0e63439fc1577de8d3f958,2025-08-31T07:10:09+00:00,Human,,1,0,1,False,True,False,False,Add missing KeywordsDisplay import to fix component reference error
+https://www.github.com/0lekz/studentsai,5c7a3d02100a03318508dbff829d71af10d22a3b,2025-08-31T06:12:20+00:00,Human,,19,7,3,False,True,False,False,Move keywords below backlinks and fix missing extract_keywords_from_text function
+https://www.github.com/0lekz/studentsai,972b18be68a20ed4a17d916858be6da04e4246f2,2025-08-31T05:51:17+00:00,Human,,1,1,1,False,True,False,False,Fix missing onRefreshKeywords prop destructuring in NotesList component
+https://www.github.com/0lekz/studentsai,854c97d04034cb449ce9b3e826ee3fc3f6fcccc5,2025-08-31T05:43:38+00:00,Human,,2,2,1,False,True,False,False,Fix authentication token storage in AuthForm component
+https://www.github.com/0lekz/studentsai,851e9e6773a9f8ab0ee61b7adcfc0990406e664b,2025-08-31T05:37:14+00:00,Human,,14,0,1,False,True,False,False,Fix onRefreshKeywords prop error by adding keyword extraction functionality
+https://www.github.com/0lekz/studentsai,cc8058cfbbc0fd3dfd94bf7581fab82ad310e4f4,2025-08-31T02:23:52+00:00,Human,,3,2,1,False,False,False,False,Add keyword extraction UI and backend endpoint
+https://www.github.com/0lekz/studentsai,4c14126761e3df387425ffc0f63616be9fa3029c,2025-08-30T21:16:48+00:00,Human,,196,1,4,False,False,False,False,Add keyword extraction UI and backend endpoint
+https://www.github.com/0lekz/studentsai,ea93278d464237d670c9e95bcfe19cd52285c2ba,2025-08-30T20:56:23+00:00,Human,,117,10,2,False,False,False,False,Replace browser confirm with styled confirmation dialog for note deletion
+https://www.github.com/0lekz/studentsai,e54708b10deae7e981a23b985657c128196ac274,2025-08-30T20:30:45+00:00,Human,,29,5,2,False,True,False,False,Fix note deletion by properly handling foreign key constraints
+https://www.github.com/0lekz/studentsai,631440e781514e5ffa0b4b60f646db09e7d576c6,2025-08-30T00:46:35+00:00,Human,,12,28,1,False,False,False,False,Update verification email function to use SendGrid Web API
+https://www.github.com/0lekz/studentsai,4b9de6392c95d30db7ffe8e32b538b44ebcd31d7,2025-08-30T00:35:47+00:00,Human,,15,20,2,False,False,False,False,Update email functions to use SendGrid Web API instead of SMTP
+https://www.github.com/0lekz/studentsai,65e7a3def304be32f09e8b3769734b3dc98eabad,2025-08-30T00:21:24+00:00,Human,,7,5,2,False,False,False,False,Add dedicated SENDGRID_API_KEY configuration
+https://www.github.com/0lekz/studentsai,6169c6ae32349c02cf797018ca1ae3617fc3726b,2025-08-30T00:20:36+00:00,Human,,30,21,2,False,False,False,False,Switch from SMTP to SendGrid Web API for email service
+https://www.github.com/0lekz/studentsai,2f5bfff75c10a3d86ae280939fbc460270e1fdfe,2025-08-29T23:11:05+00:00,Human,,2,2,1,False,True,False,False,Fix all remaining fastmail references in email service
+https://www.github.com/0lekz/studentsai,2b4302f5c5d07d5874cc96efcde30080999b927a,2025-08-29T23:09:07+00:00,Human,,1,1,1,False,True,False,False,Fix remaining fastmail references in email service
+https://www.github.com/0lekz/studentsai,10ce9317f577a4b8dae895158bbaad06dccc178a,2025-08-29T20:17:49+00:00,Human,,4,2,2,False,True,False,False,additional fixes for email configuration
+https://www.github.com/0lekz/studentsai,f84d812f577a0f1a926bf02a1a098724fc4c0817,2025-08-29T20:17:04+00:00,Human,,48,34,2,False,True,False,False,Fix email configuration to be dynamic and load environment variables at runtime
+https://www.github.com/0lekz/studentsai,c929790d02c9e7bd4ce9cbb252cb249a0e5f3804,2025-08-29T18:43:26+00:00,Human,,1,0,1,False,False,False,False,Add mail_server to email config endpoint for debugging
+https://www.github.com/0lekz/studentsai,732e1901a3418173032255059b0d959581aa66b3,2025-08-29T00:39:04+00:00,Human,,10,6,2,False,False,False,False,"Increase email timeout to 2 minutes for slow connections
+
+- Set mail_timeout to 120 seconds (2 minutes)
+- Make timeout configurable via environment variables
+- This should allow more time for Railway to connect to Gmail SMTP
+
+Railway networks can be slower to establish SMTP connections."
+https://www.github.com/0lekz/studentsai,c8442ee4e5ae47dfed24d1a7426b26485b61a5a3,2025-08-29T00:37:55+00:00,Human,,26,14,2,False,True,False,False,"Fix SMTP connection timeout issues
+
+- Force port 587 with STARTTLS for better Railway compatibility
+- Increase connection timeout to 60 seconds
+- Disable SSL in favor of STARTTLS for cloud hosting
+- Add detailed SMTP connection error logging
+- Make SMTP server configurable for easy switching to alternatives
+
+This should fix the Gmail SMTP timeout issues on Railway."
+https://www.github.com/0lekz/studentsai,8b90b357c6f2d63bd8a71f534b414f2d77172692,2025-08-29T00:08:44+00:00,Human,,196,25,3,False,True,False,False,"Add email service debugging and improve account deletion UX
+
+Backend:
+- Add /test/email endpoint to test email sending functionality
+- Add /test/email-config endpoint to check email configuration
+- Improve email error logging with detailed error messages
+- Fix account deletion email with timeout protection and better template
+- Better error handling in account deletion endpoint
+
+Frontend:
+- Add loading state and spinner for delete account button
+- Replace alerts with proper success/error messages
+- Better user feedback during account deletion process
+
+This will help debug why emails aren't being sent."
+https://www.github.com/0lekz/studentsai,c9f7c5e6a6f6d9f5a8031f370b73b63ea118cec4,2025-08-28T23:51:47+00:00,Human,,26,11,3,False,True,False,False,"Fix email service performance and reliability
+
+- Increase verification token expiry from 60 minutes to 24 hours
+- Make email sending non-blocking during registration for faster response
+- Add 30-second timeout to prevent hanging email sends
+- Add proper error handling and logging for email failures
+
+This fixes slow signup and email delivery timeout issues."
+https://www.github.com/0lekz/studentsai,06dc2c8e3c70d308a0b0a1211868a3fa3cd4c2c5,2025-08-28T23:06:02+00:00,Human,,0,44,1,False,False,False,False,d #
+https://www.github.com/0lekz/studentsai,d6251b212f7051b5584dc2d56d5ca498ce3f69da,2025-08-28T23:02:31+00:00,Human,,0,81,1,False,False,False,False,d
+https://www.github.com/0lekz/studentsai,98e18f54997548396412991157112de4e3fe4602,2025-08-28T23:02:04+00:00,Human,,0,0,1,False,False,False,False,Delete backend/uploads/img
+https://www.github.com/0lekz/studentsai,44c78f600b368410d8bacfddd3dc079dc5ee94a8,2025-08-28T23:01:44+00:00,Human,,1,0,1,False,False,False,False,Create placeholder
+https://www.github.com/0lekz/studentsai,ad94270c3e6d21b893c20b1787df1e2253d8fe11,2025-08-28T22:55:30+00:00,Human,,0,209,1,False,False,False,False,Delete backend/GOOGLE_OAUTH_SETUP.md
+https://www.github.com/0lekz/studentsai,97713756719f639fc4c8cf05a2fc7c27331c446e,2025-08-28T22:52:44+00:00,Human,,1,1,1,False,False,False,False,Update README.md
+https://www.github.com/0lekz/studentsai,60da36eb04b7f74f9f65975ca393be3478bba429,2025-08-28T22:49:37+00:00,Human,,136,299,1,False,False,False,False,Update README.md
+https://www.github.com/0lekz/studentsai,c06b11f89ca9c9bacc1690843c467ffbd72964c0,2025-08-28T22:17:31+00:00,Human,,0,118,1,False,False,False,False,d
+https://www.github.com/0lekz/studentsai,3084bce71c85401e3fe42ac7bd583cc7118352c2,2025-08-28T22:17:16+00:00,Human,,0,119,1,False,False,False,False,d
+https://www.github.com/0lekz/studentsai,950a3013f703563c44ad90a6b32d0d6b8ba6c811,2025-08-28T22:15:22+00:00,Human,,0,194,1,False,False,False,False,d
+https://www.github.com/0lekz/studentsai,f8dd54e115c6f3a8abb5653227123718e220840f,2025-08-28T22:13:31+00:00,Human,,0,385,1,False,False,False,False,d
+https://www.github.com/0lekz/studentsai,2e154b8396b14d27b0c74ef719be7f16c0923419,2025-08-28T22:11:38+00:00,Human,,5,0,4,False,False,False,False,"Update favicon to StudentsAI brand icon
+
+- Replace default Next.js favicon with StudentsAI icon
+- Add favicon to both app/ and public/ directories for compatibility
+- Add proper icon metadata in layout.tsx for different device types
+- Include PNG version for better browser support"
+https://www.github.com/0lekz/studentsai,28803662055c7020d663efa4b22b9cae835277dd,2025-08-28T21:00:23+00:00,Human,,197,2,3,False,True,False,False,"Merge pull request #17 from Oleksiy-Zhukov/feature/graph-visualization-fix
+
+Fix AI rate limits for better user experience"
+https://www.github.com/0lekz/studentsai,074e628f636de934710eaf5ccb6d11e4dbea2092,2025-08-28T20:59:08+00:00,Human,,197,2,3,False,True,False,False,Fix AI rate limits for better user experience
+https://www.github.com/0lekz/studentsai,2896543dc4d9a830420a5cb91acfb7abd5512a8e,2025-08-28T20:44:14+00:00,Human,,34,0,1,False,True,False,False,"Merge pull request #16 from Oleksiy-Zhukov/feature/graph-visualization-fix
+
+Add missing tags column to notes table"
+https://www.github.com/0lekz/studentsai,22fcc70218b4e9e267d44a579cd52b3502bfae8d,2025-08-28T20:39:29+00:00,Human,,34,0,1,False,False,False,False,Add missing tags column to notes table
+https://www.github.com/0lekz/studentsai,402492781628a5ee91c2e1c53535962b49ce44cd,2025-08-28T20:25:37+00:00,Human,,38,26,2,True,True,False,False,fix(cors): add middleware to ensure Access-Control-Allow-Origin on actual responses (not only preflight)
+https://www.github.com/0lekz/studentsai,a58b3ee0f0f37985fc82c5808f09d641fdac7c0b,2025-08-28T04:01:54+00:00,Human,,15,0,1,True,True,False,False,fix(cors): add middleware to ensure Access-Control-Allow-Origin on actual responses (not only preflight)
+https://www.github.com/0lekz/studentsai,b0178ebb4e778e9db7a84322c0348dd441b2cf03,2025-08-28T03:38:52+00:00,Human,,3,0,1,False,False,False,False,chore(cors): add allow_origin_regex to include studentsai.org and vercel.app subdomains
+https://www.github.com/0lekz/studentsai,dc8d9b988d5656efccb42b20ee0f8ed842163334,2025-08-28T02:30:51+00:00,Human,,38,1,1,True,True,False,False,fix(cors): include www/non-www variants and parse comma-separated origins
+https://www.github.com/0lekz/studentsai,b7a7e51501c9263aa31f9741542a122f788884d4,2025-08-28T02:12:58+00:00,Human,,19,2,1,True,True,False,False,fix(frontend): wrap useSearchParams page in Suspense to satisfy Next.js CSR bailout
+https://www.github.com/0lekz/studentsai,8435b779d021c86b12ae9c77150de77cf9b95bdb,2025-08-27T23:36:31+00:00,Human,,1,0,1,True,True,False,False,fix: add PyJWT to backend requirements for jwt import
+https://www.github.com/0lekz/studentsai,27060654614e05cf310ab910a96ddac2f2a94325,2025-08-27T22:22:53+00:00,Human,,9900,1317,73,False,False,False,False,"chore: deployment prep (CORS config, /health, env-based URLs, limits skeleton, cleanup)"
+https://www.github.com/0lekz/studentsai,4afc0d71e0389f3b368e62154c8d8e00384c89c2,2025-08-16T18:55:53+00:00,Human,,3219,287,42,False,False,False,False,Add comprehensive settings system and enhance profile components with new UI elements and database migration
+https://www.github.com/0lekz/studentsai,2c5a1a227a3df1145f0342634c413b406b8660f7,2025-08-13T21:43:30+00:00,Human,,3,0,1,False,False,False,False,.gitignore update
+https://www.github.com/0lekz/studentsai,144f47d08838894ecf4d07b306b2da83d7b563a6,2025-08-13T21:40:42+00:00,Human,,51,18,1,False,False,False,False,graph view changes
+https://www.github.com/0lekz/studentsai,edaaa6b83342c515dfb0f100055646c9a4c2857d,2025-08-13T17:16:00+00:00,Human,,77,23,7,False,False,False,False,landing page
+https://www.github.com/0lekz/studentsai,74100ced769711ab7230765123fed385edbb4117,2025-08-13T06:20:54+00:00,Human,,762,147,24,False,False,False,False,landing page
+https://www.github.com/0lekz/studentsai,78c5b225971e60dfb729ae6a209f3dea844f4757,2025-08-12T05:53:49+00:00,Human,,334,0,7,False,False,False,False,"ui: add minimal Landing (/landing) and Profile (/profile) pages using shadcn + Tailwind; components: Hero, FeatureCard, StatsCard, SettingsPanel; docs: README routes"
+https://www.github.com/0lekz/studentsai,72e04dd68e5d671ab87fc4c6cb0c4e72675e787b,2025-08-12T05:15:49+00:00,Human,,285,38,7,False,True,False,False,"notes: markdown + wiki-links (#hash) navigation, scroll fixes; graph: UX tidy; flashcards: fixed-size card with internal scroll; images: paste-upload endpoint + client, render styling; api: base URL normalize to 127.0.0.1; docs: production image upload guide (Railway+Vercel)"
+https://www.github.com/0lekz/studentsai,502fbda352e0916357c54640f67e996768e76abf,2025-08-11T23:34:43+00:00,Human,,2570,371,12,False,False,False,False,frontend: markdown rendering + wiki-links navigation; add Tailwind Typography; backlinks/tags UI wiring; dev CORS and rate-limit loosening; D3 graph UX tweaks
+https://www.github.com/0lekz/studentsai,5b5a83055ef1ec12f55cab72e2dd32f89a9edc20,2025-08-11T05:44:56+00:00,Human,,258,89,11,False,True,False,False,Fixed graph visualization and added debouncing to the summary viewer.
+https://www.github.com/0lekz/studentsai,0b0089d4c0d519dac3f5f78f14f5d084212c5467,2025-08-07T17:47:18+00:00,Human,,2062,1166,13,False,True,False,False,some fixes
+https://www.github.com/0lekz/studentsai,f17061dde472a00b9e05397724baaf0628d37cc0,2025-08-07T10:31:53+00:00,Human,,14153,0,57,False,True,False,False,"Initial commit: StudentsAI MVP with working graph visualization
+
+- Fixed D3.js graph component with proper TypeScript typing
+- Added Tailwind CSS gray color palette
+- Implemented comprehensive error handling for graph data
+- Added data validation and transformation for D3.js force simulation
+- Backend graph endpoint working with similarity calculations
+- All core features functional: auth, notes, AI summaries, flashcards, graph"

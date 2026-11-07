@@ -1,0 +1,222 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xnyn/cruso,85de4f79b9d1daf5e500484fdf9cdee09c1b6097,2025-08-05T16:56:42+00:00,Human,,661,0,1,False,False,False,False,docs: add agpl license
+https://www.github.com/0xnyn/cruso,e23715026edf1857782bf81351a4179b09b0fb45,2025-08-05T16:38:36+00:00,Human,,194,0,2,False,False,False,False,docs: add README
+https://www.github.com/0xnyn/cruso,d0fb9d709fcc2ba5bf0b7e349ab58b7839f0b8b0,2025-08-05T09:21:04+00:00,Human,,2,29,2,True,True,False,False,fix: refine scope
+https://www.github.com/0xnyn/cruso,60687398b38620c5a75a71e2311f148a9259a5ad,2025-08-03T18:16:18+00:00,Human,,2,2,1,True,True,False,False,fix: resolve copy
+https://www.github.com/0xnyn/cruso,ecab1ff77cbdfded6452266a992c7a9418cb71a4,2025-08-03T17:51:52+00:00,Human,,2372,9,6,False,False,False,False,feat: add timezone step
+https://www.github.com/0xnyn/cruso,2b37fc163c72c16d45d93b7e8dc15c09422c27f5,2025-08-03T17:10:08+00:00,Human,,26,14,8,True,True,False,False,fix: resolve copy
+https://www.github.com/0xnyn/cruso,bd19d66216cec6cdb1f1380d4dc399e31430e654,2025-08-03T16:37:25+00:00,Human,,17005,13039,6,True,True,False,False,fix: cors policy
+https://www.github.com/0xnyn/cruso,1f02136c7b0e440a9b4ba00ec47439111fba3cb6,2025-08-03T15:39:28+00:00,Human,,4,4,4,True,True,False,False,fix: resolve founder email
+https://www.github.com/0xnyn/cruso,aa75f10de45cbf02fe6e9f730148ca475751444c,2025-08-03T15:07:21+00:00,Human,,19,0,3,True,True,False,False,fix: add mistral provider
+https://www.github.com/0xnyn/cruso,88fbb054efdbc444c1c2806c67076b2e65258a81,2025-08-03T14:16:11+00:00,Human,,13021,16959,3,True,True,False,False,fix: resolve db connect
+https://www.github.com/0xnyn/cruso,bb09b3355d883c52833155eead20dcc3a2f1989c,2025-08-03T14:00:06+00:00,Human,,4,4,1,True,True,False,False,fix: replace video
+https://www.github.com/0xnyn/cruso,459d6899a79430279cd3e5374bc96d0b845e8baf,2025-08-03T13:42:37+00:00,Human,,40,40,12,True,True,False,False,fix: move to cruso.app
+https://www.github.com/0xnyn/cruso,a10e4e25523e8f07a8aa4972f0d274f2395d5ef2,2025-08-03T00:42:14+00:00,Human,,2,68,1,False,False,False,False,chore: purge sensisitive logs
+https://www.github.com/0xnyn/cruso,2b7ed78263435e3fd6df604c9be3ee427c4b9eab,2025-08-03T00:31:06+00:00,Human,,8029,8922,14,True,True,False,False,fix: purge logs
+https://www.github.com/0xnyn/cruso,aca8f152f70e163c3e5ba2c6ca22aca47dff6fcf,2025-08-03T00:17:08+00:00,Human,,8788,7633,1,False,False,False,False,docs: add crusolabs api
+https://www.github.com/0xnyn/cruso,25a2379fa12d924054e115b5c9f86ff4f5b2b82b,2025-08-03T00:15:45+00:00,Human,,12,18,6,True,True,False,False,fix: handle copy
+https://www.github.com/0xnyn/cruso,41c2a8e63b42278db2e59cab2f2ebc186936eab6,2025-08-02T23:00:28+00:00,Human,,467,412,6,True,True,False,False,fix: resolve circular imports
+https://www.github.com/0xnyn/cruso,a47416812a21c5c0dd9ede0e0705c69c79a8a148,2025-08-02T20:00:01+00:00,Human,,587,553,30,True,True,False,False,fix: handle cyclic imports
+https://www.github.com/0xnyn/cruso,5094ddc48fc13b9e5251e5057d2f0ae9ff0637e0,2025-08-02T18:10:52+00:00,Human,,17473,13693,17,True,True,False,False,fix: reorg shared commons
+https://www.github.com/0xnyn/cruso,1b78d20ff107c130c7f39fdd3614e4749f4047d8,2025-08-02T16:56:12+00:00,Human,,13992,17693,20,False,False,False,False,feat: add statsig feature flag
+https://www.github.com/0xnyn/cruso,ffcef409102a4a83f2e9b7c2ec2c85beb815b421,2025-08-02T16:07:31+00:00,Human,,34,34,1,True,True,False,False,fix: push updated video
+https://www.github.com/0xnyn/cruso,38282d07ed70b06a687c1a58a22e562e46b42e3f,2025-08-02T06:42:13+00:00,Human,,3,1,1,True,True,False,False,fix: add missing tool refs
+https://www.github.com/0xnyn/cruso,f0cefa10fd61978a76739a7175073fb8da58927a,2025-08-02T06:23:28+00:00,Human,,6,4,1,True,True,False,False,fix: refine tool call defs
+https://www.github.com/0xnyn/cruso,87ae99c162a27df658b7d92f8ba36559134b11d6,2025-08-02T05:55:32+00:00,Human,,141,182,2,True,True,False,False,fix: add pause protocol
+https://www.github.com/0xnyn/cruso,eed8591ba33e7cc5a41a2fa0d8336af6c9263a86,2025-07-31T21:08:23+00:00,Human,,49,42,3,False,False,False,False,feat: add copy
+https://www.github.com/0xnyn/cruso,a3217b39097777c5e4ac60b446019173dea9429a,2025-07-31T18:53:26+00:00,Human,,8,13,4,True,True,False,False,fix: add domain allow list
+https://www.github.com/0xnyn/cruso,569799a313b9d28bc59fd38442ef9d3b8479b904,2025-07-31T18:34:02+00:00,Human,,373,311,5,False,False,False,False,feat: add zustand stores
+https://www.github.com/0xnyn/cruso,605f3ab0c12a7fd7d6c2fadd0d403233bd0a75ed,2025-07-31T17:51:01+00:00,Human,,638,43,9,True,True,False,False,fix: resolve copy for onboarding
+https://www.github.com/0xnyn/cruso,4cb73d65766d32bcb07422ce0692404742b2ecc0,2025-07-31T00:32:21+00:00,Human,,28,21,2,True,True,False,False,fix: inject preview
+https://www.github.com/0xnyn/cruso,e4d0c175d3f90c55b8c9e1df283105a03d4a4724,2025-07-29T20:09:09+00:00,Human,,61,49,3,True,True,False,False,fix: resolve signup hook import cycle
+https://www.github.com/0xnyn/cruso,040c348fe5b931b4e8952702b679b69cc2eb0446,2025-07-29T19:00:18+00:00,Human,,29,11,10,False,False,False,False,feat: inject context keys
+https://www.github.com/0xnyn/cruso,a9967ed84a7e844e89596cef7abef34bc0f1d437,2025-07-29T18:28:36+00:00,Human,,158,159,9,True,True,False,False,fix: handle patch for disallowed domains
+https://www.github.com/0xnyn/cruso,ac273ff1b6acda0e7945ce53ee71aaaa7d0d58f5,2025-07-29T16:28:57+00:00,Human,,1,1,1,True,True,False,False,fix: resolve lint errors
+https://www.github.com/0xnyn/cruso,7321e3fe0b6f44ee6a6c260fd3f8ae81f6ba3913,2025-07-29T16:23:06+00:00,Human,,56,0,1,True,True,False,False,fix: remap 404 not found
+https://www.github.com/0xnyn/cruso,a22693597fdb6f4dc1e6871df7b9d4d65d1e60e8,2025-07-29T15:48:26+00:00,Human,,333,241,8,True,True,False,False,"fix: refine tool, schema and prompts for event and calendar management agent"
+https://www.github.com/0xnyn/cruso,f768ae6808c561998bb08f3e6e3aab41e9f5678f,2025-07-29T15:47:52+00:00,Human,,347,127,5,True,True,False,False,fix: inject timezone resolution for the rest of the services
+https://www.github.com/0xnyn/cruso,7b30126e34cc9d682773a9f9d04c46cb26cd7ca7,2025-07-29T15:47:02+00:00,Human,,19,12,2,True,True,False,False,fix: add timezone awareness for availability and slots
+https://www.github.com/0xnyn/cruso,1da45b01f7394b8315944fcf359b335e749b7856,2025-07-29T03:37:03+00:00,Human,,30,5,3,False,False,False,False,feat: inject timezone formatting
+https://www.github.com/0xnyn/cruso,4bcc0a1c311703ae1b2285fe7f0de39be0218c00,2025-07-29T03:24:44+00:00,Human,,2036,1510,7,False,False,False,False,feat: add timezone availability patch
+https://www.github.com/0xnyn/cruso,01c0c67a8d839cff9df8d09634a9ca8fa1de310c,2025-07-28T14:37:04+00:00,Human,,108,12,5,False,False,False,False,feat: add log footprint
+https://www.github.com/0xnyn/cruso,cdfbfd6df0937f206399084447b8729c601eb049,2025-07-27T19:52:28+00:00,Human,,68,9,3,True,True,False,False,fix: make timezone based prompts
+https://www.github.com/0xnyn/cruso,ab3d3037bd1a70724eb9fdede19750a7e2eac85b,2025-07-27T19:51:54+00:00,Human,,17992,14122,13,False,False,False,False,feat: make dates as timestamp
+https://www.github.com/0xnyn/cruso,b96d149bf810bd53d845e736fe66eb896f801e17,2025-07-27T18:35:31+00:00,Human,,126,35,12,True,True,False,False,fix: remove timezones from working hours
+https://www.github.com/0xnyn/cruso,a5c633fde4ea2210bf718651ed0660ab4ddfc752,2025-07-27T15:40:15+00:00,Human,,1,1,1,True,True,False,False,fix: disallowed domain flag fix
+https://www.github.com/0xnyn/cruso,4a0c5c6817424b6147fe38f00f4244bcddc31a5a,2025-07-27T15:07:00+00:00,Human,,7,1,2,True,True,False,False,fix: add nodejs runtime
+https://www.github.com/0xnyn/cruso,53dec33db5432376f1f21574ef168b990c5051fb,2025-07-27T14:57:28+00:00,Human,,1,1,1,False,False,False,False,feat: add better auth url to public client
+https://www.github.com/0xnyn/cruso,bfb2d943b5980605baf6caefa77fcbc1a678bdf8,2025-07-27T14:16:52+00:00,Human,,12695,18129,4,False,False,False,False,chore: resolve deps
+https://www.github.com/0xnyn/cruso,421ab6c3fe38efadaf8b0865ee3da52907c16a4c,2025-07-27T12:42:01+00:00,Human,,1,0,1,False,False,False,False,feat: add mailgun wh listener for dev
+https://www.github.com/0xnyn/cruso,155d32e19404cffeb9741776b57791ea6b9f9bb4,2025-07-27T12:36:46+00:00,Human,,39,0,1,True,True,False,False,fix: add blocking and clear calendar flows
+https://www.github.com/0xnyn/cruso,fb7995cdd11c7f36dc76f000991207974d068f64,2025-07-27T12:06:10+00:00,Human,,351,17,9,False,False,False,False,feat: add allowed list injection
+https://www.github.com/0xnyn/cruso,769273f1497d41d918a0bcac4a63bdfedf39bcb1,2025-07-27T11:23:45+00:00,Human,,485,0,7,False,False,False,False,feat: implement batch scheduling and rescheduling
+https://www.github.com/0xnyn/cruso,92fae24ca2d6574609bc424f7ff932164fd578f4,2025-07-27T11:23:14+00:00,Human,,73,2,4,False,False,False,False,feat: implement delegate exchange
+https://www.github.com/0xnyn/cruso,e1dc88c4bd3cc7646072b840756e98afb21e3b84,2025-07-27T08:15:41+00:00,Human,,112,160,3,False,False,False,False,feat: handle exchange flow cleanly
+https://www.github.com/0xnyn/cruso,b6bd4ad64dd1f93c4afa247fd546d6f22c669293,2025-07-27T08:15:26+00:00,Human,,289,249,6,True,True,False,False,fix: refactor agent flow
+https://www.github.com/0xnyn/cruso,8a46b7d73384dd4813c0d3900c9cc4e4057b1a60,2025-07-26T19:40:53+00:00,Human,,1903,1253,16,True,True,False,False,fix: refine email content and handle missing receipts
+https://www.github.com/0xnyn/cruso,eb3cfc8b5e2251d2a01165b914fb68051e766ac6,2025-07-26T13:29:43+00:00,Human,,1245,1191,4,False,False,False,False,feat: resolve timezone parsing from calendar to preference document
+https://www.github.com/0xnyn/cruso,9b305a804edf93f71bdbb02c2760729124ab7f80,2025-07-26T02:35:49+00:00,Human,,278,21,4,False,False,False,False,feat: handle exchange processing service
+https://www.github.com/0xnyn/cruso,b5c3a47dadeb27b34e0a53ab33a51cfa582a1e93,2025-07-26T02:35:01+00:00,Human,,68,8,4,False,False,False,False,feat: add mockingbird tp and fp
+https://www.github.com/0xnyn/cruso,cdab38eb14b70d44d1b35c666946787c127246dd,2025-07-26T02:33:46+00:00,Human,,165,18,3,False,False,False,False,feat: add third party and first party scheduling
+https://www.github.com/0xnyn/cruso,4741267891a8ef7f106d72821b47837f414f72de,2025-07-26T00:31:55+00:00,Human,,445,30,8,False,False,False,False,feat: add slot management
+https://www.github.com/0xnyn/cruso,5fcb7de757ed5ae5db90e495af21ca05aa994a86,2025-07-25T22:18:49+00:00,Human,,273,108,11,True,True,False,False,fix: resolve timezone issue and datetime issue
+https://www.github.com/0xnyn/cruso,0f4f9f1422a136aef2c75b464aac888f3e6f5923,2025-07-25T18:46:01+00:00,Human,,241,68,9,False,False,False,False,feat: add scheduling agent
+https://www.github.com/0xnyn/cruso,40544e4ba6226cea4aa8495fb29d8fce202e7b09,2025-07-24T22:56:44+00:00,Human,,104,6,4,False,False,False,False,feat: add agent core
+https://www.github.com/0xnyn/cruso,6a8f7bc1798614acfa9aa3760c78eab5f3fe17f9,2025-07-24T22:56:33+00:00,Human,,242,0,3,False,False,False,False,feat: add mastra tools
+https://www.github.com/0xnyn/cruso,9eb2be408108d47311c4014ff33af9dfd2ee1163,2025-07-24T19:50:36+00:00,Human,,674,394,4,False,False,False,False,feat: sync response types
+https://www.github.com/0xnyn/cruso,aa83da143092552bd1bc1bf780e695a3078f7533,2025-07-24T17:26:03+00:00,Human,,228,85,17,False,False,False,False,feat: add search and availability service
+https://www.github.com/0xnyn/cruso,82ae1786fa98401de12d92bcbed1098af32d6b1e,2025-07-24T17:25:26+00:00,Human,,1366,2064,17,False,False,False,False,feat: add calendar event management service
+https://www.github.com/0xnyn/cruso,b08f89057cdf4dae7f8d6b70c7e1fdf658f2be98,2025-07-23T22:17:10+00:00,Human,,2082,66,33,False,False,False,False,feat: add types structure
+https://www.github.com/0xnyn/cruso,92967c27c66127533b59bd89d5dcc8a050536bc0,2025-07-23T20:22:10+00:00,Human,,555,110,9,False,False,False,False,feat: add calendar refresh
+https://www.github.com/0xnyn/cruso,7fc405c04ea10867556fc66df889c9684c925739,2025-07-23T19:19:50+00:00,Human,,265,10,9,False,False,False,False,feat: add preference updates
+https://www.github.com/0xnyn/cruso,2ace80f32b88fe910ceadec45053fd53a202659f,2025-07-23T15:03:42+00:00,Human,,21,23,1,False,False,False,False,feat: handle non user engagement
+https://www.github.com/0xnyn/cruso,e2d4bc0b8cd8b9e4a9d66f7891180f852c1c35d7,2025-07-23T12:57:28+00:00,Human,,19732,16448,37,True,True,False,False,fix: sync types
+https://www.github.com/0xnyn/cruso,ed5ece03774dc52f18ca29225237dc9146c37e99,2025-07-23T09:05:08+00:00,Human,,2,2,3,True,True,False,False,fix: move user emails to types
+https://www.github.com/0xnyn/cruso,318bd23e3270a6c4193bed195389240027e4bfd7,2025-07-23T09:01:38+00:00,Human,,2,2,3,True,True,False,False,fix: move prefernces to types
+https://www.github.com/0xnyn/cruso,241faf282524370907eed73b52abc89291034aca,2025-07-23T08:57:02+00:00,Human,,308,266,17,False,False,False,False,feat: migrate exchange and email types
+https://www.github.com/0xnyn/cruso,e31b6bb9a91fa5f931c5cfa1a121850349b1255e,2025-07-23T08:33:20+00:00,Human,,1660,896,24,True,True,False,False,fix: remap availability to working hours
+https://www.github.com/0xnyn/cruso,399ad1fd1b701d5f33c8f680f605050e50ba5f40,2025-07-22T21:35:26+00:00,Human,,1041,8756,100,True,True,False,False,fix: nuke slop
+https://www.github.com/0xnyn/cruso,40e40f5061d24fa60f761dadb7707dca7513142a,2025-07-22T20:11:23+00:00,Human,,24,4875,57,True,True,False,False,fix: nuke recurring events
+https://www.github.com/0xnyn/cruso,61cd25d307cd93fb48124131bb9a1607e80f1066,2025-07-22T19:55:45+00:00,Human,,66,79,10,False,False,False,False,feat: add delete management
+https://www.github.com/0xnyn/cruso,bd2eb9be42abd2add6c7a9b819c78feb97adc35f,2025-07-22T19:31:57+00:00,Human,,199,425,14,True,True,False,False,fix: get and list event sync
+https://www.github.com/0xnyn/cruso,f1dbf44db21e3e4c8317f73c9ef075217e8e44eb,2025-07-22T16:37:59+00:00,Human,,5,20,6,False,False,False,False,chore: remove unused imports
+https://www.github.com/0xnyn/cruso,a49803f91ea0a0454f67198f9abbb5c14f672138,2025-07-22T16:26:38+00:00,Human,,54,6,4,True,True,False,False,fix: add conference data type
+https://www.github.com/0xnyn/cruso,b8a0fce850c2372f0fbcc25a6c489842ff323c82,2025-07-22T16:26:23+00:00,Human,,48,86,8,True,True,False,False,fix: add calendar event type
+https://www.github.com/0xnyn/cruso,814a574def81676f304f4c2366f230786a1789a6,2025-07-22T16:02:54+00:00,Human,,13821,17825,13,True,True,False,False,fix: resolve types any
+https://www.github.com/0xnyn/cruso,512a12650ec4cd15a936fab61eb3be66a57a7c9a,2025-07-22T14:46:51+00:00,Human,,614,388,37,True,True,False,False,fix: resolve type inconsistency
+https://www.github.com/0xnyn/cruso,bc86169ab1f470ad3e5ad934aac113585c5c7bff,2025-07-22T13:26:44+00:00,Human,,200,2736,26,True,True,False,False,fix: consolidate types for agent
+https://www.github.com/0xnyn/cruso,2b9f372e42801501290972077b5df2fa0dbe8abd,2025-07-22T13:26:26+00:00,Human,,70,65,10,True,True,False,False,fix: consolidate types for service
+https://www.github.com/0xnyn/cruso,ccbb92028a81a41030e431e6cbed84601a05ea31,2025-07-22T13:26:17+00:00,Human,,2017,0,29,True,True,False,False,fix: consolidate types for tools
+https://www.github.com/0xnyn/cruso,7fd70df5f74085b2e354182a5cbcfe7c19ce847f,2025-07-22T11:27:51+00:00,Human,,1997,531,17,False,False,False,False,feat: consolidate types for services
+https://www.github.com/0xnyn/cruso,b088419298c506317929cd5e75a41c1e77b70e6d,2025-07-21T23:14:53+00:00,Human,,7715,8677,7,False,False,False,False,feat: sync exchange deps
+https://www.github.com/0xnyn/cruso,f78eff8fc4635ead5917deb0334b34028778dc43,2025-07-21T23:14:30+00:00,Human,,989,718,14,False,False,False,False,feat: merge exchange into inbox table
+https://www.github.com/0xnyn/cruso,2fcdb43b9222f0256cffc32b32a1ee3c2334be46,2025-07-21T23:14:14+00:00,Human,,90,142,10,False,False,False,False,feat: merge exchange into inbox table
+https://www.github.com/0xnyn/cruso,37f9137a5cc2394fce3e9aa0ef15169819e973e3,2025-07-21T22:09:06+00:00,Human,,4199,578,3,False,False,False,False,feat: add mocking bird plug
+https://www.github.com/0xnyn/cruso,de92cb0eb36643e2b0969b8ab4ec7a2ddddccf29,2025-07-21T22:08:51+00:00,Human,,90,31,5,False,False,False,False,feat: add preference handler
+https://www.github.com/0xnyn/cruso,7fc024dbc1aaa1c072ae6a0e31f4d56216dfff58,2025-07-21T22:08:13+00:00,Human,,870,458,13,False,False,False,False,feat: add search tools
+https://www.github.com/0xnyn/cruso,22bcc1c0a2d6dee4f5b49c8d2e7259bd82bb543c,2025-07-21T22:07:52+00:00,Human,,2395,0,11,False,False,False,False,feat: add recurring event tools
+https://www.github.com/0xnyn/cruso,6b0a180139932603b2d20d61419e35a6365d512f,2025-07-21T22:07:28+00:00,Human,,1097,0,8,False,False,False,False,feat: add availability tools
+https://www.github.com/0xnyn/cruso,478b81c28f160c492c115e4b26af4ec49f28b470,2025-07-21T22:07:05+00:00,Human,,369,0,3,False,False,False,False,feat: add availability tools
+https://www.github.com/0xnyn/cruso,6c5ab1212c20a0d9e6fb2d4a116946e047020beb,2025-07-20T18:46:57+00:00,Human,,4881,1029,1,False,False,False,False,docs: add search and recurring events
+https://www.github.com/0xnyn/cruso,0beaa8bedec1128d72dc319b21de40b5626bae56,2025-07-20T18:46:12+00:00,Human,,552,94,11,False,False,False,False,feat: add recurring routes and handlers
+https://www.github.com/0xnyn/cruso,dee94d3b6834bff7c677b14b3f41136783c523e8,2025-07-20T13:31:04+00:00,Human,,411,348,19,True,True,False,False,fix: resolve routes
+https://www.github.com/0xnyn/cruso,4baaa27f64cfd6a84e7f9c08fe8a8d8f9e03d55c,2025-07-20T13:07:55+00:00,Human,,1055,2,8,False,False,False,False,feat: add calendar missing handlers
+https://www.github.com/0xnyn/cruso,a848ff75c4facc3852899a87668490c5b40917da,2025-07-20T12:35:02+00:00,Human,,1299,1277,15,True,True,False,False,fix: modularize calendar handlers
+https://www.github.com/0xnyn/cruso,70660efcc2519994eaa200124a2312547b567c9c,2025-07-20T11:57:54+00:00,Human,,4369,4143,9,False,False,False,False,feat: modularize calendar service
+https://www.github.com/0xnyn/cruso,7b1beda3df5479edc7d2f4364c0fb9d8f421d1d3,2025-07-20T10:43:48+00:00,Human,,484,14,1,False,False,False,False,feat: add search service
+https://www.github.com/0xnyn/cruso,74b61c85ae48615d2fdf92422e0834e7b239a776,2025-07-20T09:41:39+00:00,Human,,216,0,1,False,False,False,False,feat: add calendar statistics
+https://www.github.com/0xnyn/cruso,3e8d3f3536e58079a4e3cf9e5cae37a31a464faa,2025-07-20T09:39:02+00:00,Human,,589,0,1,False,False,False,False,feat: add scheduling and conflict detection
+https://www.github.com/0xnyn/cruso,19fa6629737c7ed997f06f34664a0dc1754fbb50,2025-07-20T09:29:15+00:00,Human,,502,15,1,False,False,False,False,feat: add timezone support for lookups
+https://www.github.com/0xnyn/cruso,ee3ddce99427fda3303fbeced32884126a050c05,2025-07-19T23:20:45+00:00,Human,,6,6,2,False,False,False,False,chore: sync availability refs
+https://www.github.com/0xnyn/cruso,6e5a13e58ac9d923353584de17c3f6727307854c,2025-07-19T23:16:00+00:00,Human,,1112,1,5,False,False,False,False,feat: add recurring event management api
+https://www.github.com/0xnyn/cruso,4c5f760b460cd22619732193e74fc66d38e8f591,2025-07-19T22:08:19+00:00,Human,,93,2,3,False,False,False,False,feat: add rescheduling
+https://www.github.com/0xnyn/cruso,e1e1c301fe7c3c3af126db83896e2b2c1319b98f,2025-07-19T21:52:59+00:00,Human,,796,30,3,False,False,False,False,feat: add event management handelrs
+https://www.github.com/0xnyn/cruso,f46e239c91b2ae90162f70a6d76b0268dab362a3,2025-07-19T20:18:44+00:00,Human,,616,35,3,False,False,False,False,feat: add availability creation
+https://www.github.com/0xnyn/cruso,941789fb235bc16e0dee47cfd8cc892f1eaaa6e1,2025-07-19T15:51:34+00:00,Human,,218,48,4,False,False,False,False,feat: add availability check
+https://www.github.com/0xnyn/cruso,5a7f8d9038d9cd16053cb9c7f6a2f425955da084,2025-07-17T18:26:28+00:00,Human,,290,40,17,False,False,False,False,feat: add toolset skeleton
+https://www.github.com/0xnyn/cruso,ab1d9571ec3520fa227ca8a7df1d4b66a4ea4436,2025-07-16T16:25:41+00:00,Human,,656,329,24,False,False,False,False,feat: add tool skeleton
+https://www.github.com/0xnyn/cruso,bdbcc76e7f35e740c877bdd45ed246b24be62fce,2025-07-15T03:34:50+00:00,Human,,299,85,28,False,False,False,False,chore: restructure build
+https://www.github.com/0xnyn/cruso,68f001a7b85919f74b966ed79bf590aa92942fe8,2025-07-14T18:11:39+00:00,Human,,11803,3028,10,False,False,False,False,build: initialize mastra core
+https://www.github.com/0xnyn/cruso,4cb3929f563571c04d5340bacc6cc3523cf70c52,2025-07-13T15:28:48+00:00,Human,,779,753,4,False,False,False,False,chore: deprecate thread based user creation
+https://www.github.com/0xnyn/cruso,e25e9c1270cb46fc98381b9d249b399c47bc8f75,2025-07-13T14:36:41+00:00,Human,,700,0,1,False,False,False,False,docs: add postman collection
+https://www.github.com/0xnyn/cruso,5f93a53bd26ff54fb5cb127afe2f2eabe74787ba,2025-07-13T13:32:44+00:00,Human,,181,12,3,False,False,False,False,feat: add featur step overview
+https://www.github.com/0xnyn/cruso,0c6f74f417d072c7601b3ed33a532d95acad8d65,2025-07-13T07:14:48+00:00,Human,,126,3,3,False,False,False,False,feat: scheduling heatmap
+https://www.github.com/0xnyn/cruso,e28d6e7d57270add0932ca588960c09233e5e310,2025-07-13T06:38:23+00:00,Human,,310,9,7,False,False,False,False,feat: add envelope and schedule overlay
+https://www.github.com/0xnyn/cruso,516283d11db298cfa380446ff375ef5e430da883,2025-07-13T05:17:53+00:00,Human,,10111,7726,5,False,False,False,False,feat: add mail overlay
+https://www.github.com/0xnyn/cruso,b65337e48e77dd82f9e608367aa02081e3505a3b,2025-07-13T00:43:46+00:00,Human,,7163,9314,4,False,False,False,False,feat: add step persistence
+https://www.github.com/0xnyn/cruso,895dc7b183f5694cb6500496637e9e08a8f95710,2025-07-13T00:16:46+00:00,Human,,37,0,6,False,False,False,False,feat: add error plug toasts
+https://www.github.com/0xnyn/cruso,8c7ef9aff2e88d4db003d16de08307adcb13b43c,2025-07-13T00:08:29+00:00,Human,,54,57,5,False,False,False,False,feat: add sonner toast throughout the flow
+https://www.github.com/0xnyn/cruso,c0d65b57c3ff4bc95493505bfb1fd09ba08fb1de,2025-07-12T23:50:15+00:00,Human,,9375,7149,4,False,False,False,False,feat: add sonner core
+https://www.github.com/0xnyn/cruso,c8ec7a42dc2b4d29b6f0d44b590b6817edb425a8,2025-07-12T23:39:22+00:00,Human,,7163,9277,5,False,False,False,False,build: add sonner core
+https://www.github.com/0xnyn/cruso,87c7b6751e9668d4bfb1210fc2665dcfc4f55f1e,2025-07-12T23:16:10+00:00,Human,,1359,204,11,True,True,False,False,fix: resolve preference consistency issues
+https://www.github.com/0xnyn/cruso,970f32e6f8661b4fdf8b1531051c9cc71cc3190e,2025-07-12T22:44:50+00:00,Human,,9,3,2,False,False,False,False,feat: add middleware plug
+https://www.github.com/0xnyn/cruso,5a88915e2b1ea18f60f3ab1c97ba7d3902c4ff8c,2025-07-12T22:37:26+00:00,Human,,671,137,15,False,False,False,False,feat: add availability plug
+https://www.github.com/0xnyn/cruso,5a73b04d7eca22aaa4314ddcfc4ce6c1d596e27e,2025-07-12T21:58:02+00:00,Human,,9576,7098,5,False,False,False,False,feat: add preference doc populate
+https://www.github.com/0xnyn/cruso,924166a1f53a28ef579c2ff5271ab46bd61d0f6e,2025-07-12T21:41:11+00:00,Human,,12,65,4,True,True,False,False,fix: remove timezone toggle
+https://www.github.com/0xnyn/cruso,58d97a754ba36db46860f371b90435a6ba719010,2025-07-12T21:16:43+00:00,Human,,7118,9256,3,False,False,False,False,feat: add confetti
+https://www.github.com/0xnyn/cruso,674bc5c36060fbe2259693a804fa15e205483c59,2025-07-12T20:42:44+00:00,Human,,57,42,2,False,False,False,False,feat: add user step and timebuffer step
+https://www.github.com/0xnyn/cruso,39ec73e64851b98b7fc2c1dbab4de445b8de2c05,2025-07-12T20:34:13+00:00,Human,,41,8,2,False,False,False,False,feat: add buffer tracking
+https://www.github.com/0xnyn/cruso,d818fb80ce09cdd6a45edc2256a4836d451811b7,2025-07-12T20:18:32+00:00,Human,,89,11,2,False,False,False,False,feat: add calendar step
+https://www.github.com/0xnyn/cruso,f410402e09590bd85738b37186768fd49aca2985,2025-07-12T20:08:43+00:00,Human,,59,58,5,False,False,False,False,feat: add user view completion step
+https://www.github.com/0xnyn/cruso,69f5e0a79e98f4d49254ee5689f5f90875965368,2025-07-12T18:27:44+00:00,Human,,0,268,3,False,False,False,False,chore: remove post oauth sync fallback
+https://www.github.com/0xnyn/cruso,9b79f684991278515e8fa7204d88faeb013baad6,2025-07-12T18:23:43+00:00,Human,,1028,723,9,False,False,False,False,chore: resolve inconsistent jsdoc
+https://www.github.com/0xnyn/cruso,e0995bb75789f68fbd537c85dcad3746b5d193b7,2025-07-12T17:57:36+00:00,Human,,1361,1389,5,True,True,False,False,fix: resolve primaries
+https://www.github.com/0xnyn/cruso,12be98e5c12deac3591b488fcfac1be02fe7b6b6,2025-07-12T17:37:57+00:00,Human,,43,32,2,False,False,False,False,feat: handle user profiler
+https://www.github.com/0xnyn/cruso,4edada5a5171c9868ca600119fcd758de0127a41,2025-07-12T17:16:25+00:00,Human,,13,11,2,True,True,False,False,fix: resolve preference missing names
+https://www.github.com/0xnyn/cruso,9ac7e13706cdc35658d8f367b4907d0d0e25b8ae,2025-07-12T16:49:26+00:00,Human,,1827,216,13,True,True,False,False,fix: reorg hooks
+https://www.github.com/0xnyn/cruso,ac40bcf61f1ce575675df2bb4fa167ee4e1b8dc8,2025-07-12T16:49:12+00:00,Human,,26,1,2,True,True,False,False,fix: add guards against orphan accounts
+https://www.github.com/0xnyn/cruso,3a4e12bbc11f01cc892343601d8cbc5c8bcffbed,2025-07-12T13:36:26+00:00,Human,,190,1696,8,False,False,False,False,feat: refresh api handlers
+https://www.github.com/0xnyn/cruso,ab43870687e45a983ae288aa6d9872f372a5bbdb,2025-07-12T13:35:28+00:00,Human,,806,4,4,False,False,False,False,feat: add preference service
+https://www.github.com/0xnyn/cruso,c9732ee96fec0c525fdbea5e7882d7e2d128d6fe,2025-07-12T13:34:16+00:00,Human,,448,0,3,False,False,False,False,feat: user email service
+https://www.github.com/0xnyn/cruso,f350e316e452331d9e62fd61f125960128994dd5,2025-07-12T12:30:43+00:00,Human,,678,100,13,False,False,False,False,feat: add smart defaults
+https://www.github.com/0xnyn/cruso,dd982dc1a095b0be7e8d4a506503b2982f29ee1f,2025-07-12T11:53:40+00:00,Human,,123,96,12,False,False,False,False,feat: extend soft deletes
+https://www.github.com/0xnyn/cruso,a00636aa3c01be6b4ebfd55dfc2ad93df8657588,2025-07-12T11:53:22+00:00,Human,,41,20,1,False,False,False,False,feat: add soft deletes for calendar
+https://www.github.com/0xnyn/cruso,6438ff94004b2804be8a348c705aadaf65871199,2025-07-11T18:12:47+00:00,Human,,54,5,3,True,True,False,False,fix: resolve handler toggle issue
+https://www.github.com/0xnyn/cruso,a3468a50d247a5a0d788a18bd8d6aaff2fa42ea1,2025-07-11T17:58:12+00:00,Human,,945,177,5,False,False,False,False,feat: inject api calls through the flow
+https://www.github.com/0xnyn/cruso,652cf32a7e394aeb89dd4288b8dc8500358b8587,2025-07-11T17:57:57+00:00,Human,,888,18,9,False,False,False,False,feat: add api view handlers
+https://www.github.com/0xnyn/cruso,71ef5fb8543e8092b389aa335ef22b2e4dfb24b9,2025-07-11T17:57:12+00:00,Human,,389,37,10,True,True,False,False,fix: resolve service and schema
+https://www.github.com/0xnyn/cruso,21917675c5070d632c23da16e8025dad8bee026a,2025-07-10T22:16:22+00:00,Human,,0,0,1,False,False,False,False,docs: add subsignal
+https://www.github.com/0xnyn/cruso,6016bd8bb81ef0dd266f1fe6428ad99301b3efe8,2025-07-10T22:06:29+00:00,Human,,1489,50,13,True,True,False,False,fix: refine db schema
+https://www.github.com/0xnyn/cruso,2a1152735f134611317c4e65c5ccdc01a23d9393,2025-07-10T20:50:21+00:00,Human,,346,218,6,False,False,False,False,feat: add mobile view
+https://www.github.com/0xnyn/cruso,0be9bab424af0d49c14b19b5353bde159d646340,2025-07-10T20:23:09+00:00,Human,,647,580,7,False,False,False,False,feat: modularize the dashboard view
+https://www.github.com/0xnyn/cruso,b74b52041d792e224324ffd39ea63dac97e847bd,2025-07-10T20:02:35+00:00,Human,,18,3,3,True,True,False,False,fix: resolve lint issues
+https://www.github.com/0xnyn/cruso,348a4a5b0eae5aadce71bf7fd89787450a3d3357,2025-07-10T20:00:02+00:00,Human,,1338,6,12,False,False,False,False,feat: add dashboard shell
+https://www.github.com/0xnyn/cruso,49d6c59639262c18ac823678708980e217aab5ac,2025-07-10T18:19:54+00:00,Human,,830,712,9,False,False,False,False,feat: modularize onboarding step
+https://www.github.com/0xnyn/cruso,721e3743a3281798c04201a18c1505b6537d5a27,2025-07-10T17:23:03+00:00,Human,,1618,22,4,False,False,False,False,feat: add multi-step onboarding
+https://www.github.com/0xnyn/cruso,cf1ee92642fbfdc8d6fb550d07fc7ae029622134,2025-07-10T16:31:38+00:00,Human,,128,0,2,False,False,False,False,feat: add onboarding skeleton
+https://www.github.com/0xnyn/cruso,b244c8c1ab45996e464754755009dc53c1c57a30,2025-07-09T11:02:28+00:00,Human,,4,8,2,True,True,False,False,fix: resolve lint issues
+https://www.github.com/0xnyn/cruso,df84d66f4fbaebefdee71d35ea1f9ab5f427af6f,2025-07-09T11:00:23+00:00,Human,,375,20,9,False,False,False,False,feat: add sign up and login view
+https://www.github.com/0xnyn/cruso,6a8d3cb31b14bee1275089b23e7cd958c279a34b,2025-07-09T10:00:28+00:00,Human,,727,1891,13,False,False,False,False,feat: add calendar hooks and clients
+https://www.github.com/0xnyn/cruso,4ae4df63f4baa62cdfb4aac0cacf10bf3bb8352f,2025-07-09T10:00:05+00:00,Human,,292,146,13,False,False,False,False,feat: add db setup for better auth
+https://www.github.com/0xnyn/cruso,e240e8069bada74e21cc9a5dbe295d043b19b816,2025-07-09T09:59:39+00:00,Human,,666,346,13,False,False,False,False,feat: add api handlers and routes for authflow
+https://www.github.com/0xnyn/cruso,b654d1f496c07fd9d4c3ea3b5dc35a67d9f56a33,2025-07-09T09:59:16+00:00,Human,,1484,346,7,False,False,False,False,feat: add calendar service
+https://www.github.com/0xnyn/cruso,17e59f618329878565a0211c057c2b58f9920f1d,2025-07-08T16:57:43+00:00,Human,,5,31,1,True,True,False,False,fix: remove fullscreen viewer
+https://www.github.com/0xnyn/cruso,5c9e550b5a99a71d4a62a0ef37d286d24336fe7c,2025-07-08T16:53:29+00:00,Human,,8632,6369,11,False,False,False,False,feat: add overlay for video playback
+https://www.github.com/0xnyn/cruso,2557f46517d700dec2ab3faa94a060de4ff36a72,2025-07-08T16:00:30+00:00,Human,,182,11,5,False,False,False,False,feat: add shortcuts
+https://www.github.com/0xnyn/cruso,b6fd9ed74d282d92499d74e697704399c1b484ef,2025-07-08T14:27:58+00:00,Human,,182,33,8,False,False,False,False,feat: add animations to views
+https://www.github.com/0xnyn/cruso,41e1f58b754089b1825ad2336190706e57c0b2f5,2025-07-08T12:46:39+00:00,Human,,7,1,1,False,False,False,False,feat: sync color palette
+https://www.github.com/0xnyn/cruso,504b342cb5a3caeec4b52553534e7e6c04f93810,2025-07-08T12:40:38+00:00,Human,,6586,7969,11,False,False,False,False,feat: add onboarding screen for auth
+https://www.github.com/0xnyn/cruso,f370c3cac515b27999605d88a2d908f86491ed7f,2025-07-08T08:51:08+00:00,Human,,11,11,12,False,False,False,False,build: refac component directory
+https://www.github.com/0xnyn/cruso,e962e28241549ed5e3c9bfaaf151f53a0a62a8e5,2025-07-07T01:04:10+00:00,Human,,1915,852,7,False,False,False,False,feat: add exchange type
+https://www.github.com/0xnyn/cruso,798cceadf5a49c947b951766f9a7219723b65dff,2025-07-07T00:18:41+00:00,Human,,926,1783,13,True,True,False,False,fix: swap parent to exchange identifier
+https://www.github.com/0xnyn/cruso,06d66499f7bdb0c4b05f80e4ea1fda65f20f39d3,2025-07-06T23:51:58+00:00,Human,,8408,5999,4,False,False,False,False,feat: add disallowed addresses
+https://www.github.com/0xnyn/cruso,2241235750cb4e6db6c19b341b8cbd250ce00abe,2025-07-06T23:40:36+00:00,Human,,5989,7981,1,False,False,False,False,chore: sync out of date lockfile
+https://www.github.com/0xnyn/cruso,31b3b94aefe905e5e45538b90a3229feeeb190b7,2025-07-06T23:35:27+00:00,Human,,860,877,6,False,False,False,False,feat: add depth limit
+https://www.github.com/0xnyn/cruso,56cc8c2fbdabf71fb6ab21920102ff52aacf46ab,2025-07-06T23:30:26+00:00,Human,,934,47,12,True,True,False,False,fix: threading and profile
+https://www.github.com/0xnyn/cruso,92fb3f5b3f51b784f1e2786c1b8a86bfb849bd9b,2025-07-06T22:22:47+00:00,Human,,266,63,7,False,False,False,False,chore: annotate parsers
+https://www.github.com/0xnyn/cruso,6b1fa5d728e3a9644ebe002c76ed621b0f6dd04f,2025-07-06T22:16:50+00:00,Human,,646,550,18,True,True,False,False,fix: resolve threading bug
+https://www.github.com/0xnyn/cruso,1e4ba064062636fad7bb6fce784fe6693665c1d8,2025-07-06T19:25:55+00:00,Human,,1141,1215,5,False,False,False,False,feat: streamline reply modes
+https://www.github.com/0xnyn/cruso,f68a798a6158defd0ac17ed702512d880acf5716,2025-07-06T18:58:57+00:00,Human,,334,62,5,False,False,False,False,feat: add response modes
+https://www.github.com/0xnyn/cruso,bd9fd6261e4891c2d16dadfc7a6c616c6d49bd95,2025-07-06T16:12:04+00:00,Human,,278,131,11,False,False,False,False,feat: add pingpong mailer
+https://www.github.com/0xnyn/cruso,25c920d708c28423f5af9177491cd7f5182f0089,2025-07-06T14:02:21+00:00,Human,,950,12,3,False,False,False,False,db: migrate inbox data
+https://www.github.com/0xnyn/cruso,9a3bcaf48ea37afa4cac6d39e4bf1bd4a637f069,2025-07-06T13:57:18+00:00,Human,,117,67,5,False,False,False,False,feat: add inbox table
+https://www.github.com/0xnyn/cruso,7f5b82ef665c6d32ae72cccc39e2b7f188068a05,2025-07-06T13:56:44+00:00,Human,,323,90,6,False,False,False,False,feat: add persistence to inbox
+https://www.github.com/0xnyn/cruso,aaa5d2c2fe880435fe24e7fcfa4aa4f2ba7cd081,2025-07-06T13:56:07+00:00,Human,,59,0,1,False,False,False,False,feat: add inbox api schema
+https://www.github.com/0xnyn/cruso,9b5bdd45e1c155e99d52ca3ffb58eef0a94352a0,2025-07-06T10:33:42+00:00,Human,,7996,5999,4,False,False,False,False,build: resolve runtime mismatch
+https://www.github.com/0xnyn/cruso,de59bfdecfcca5dc836546eba5859c7c578b7103,2025-07-06T10:29:42+00:00,Human,,13,4,1,False,False,False,False,feat: add skeleton
+https://www.github.com/0xnyn/cruso,5dc5d10db0fb631fee8af82f30557eb9540d925c,2025-07-06T09:48:56+00:00,Human,,6212,8142,9,False,False,False,False,feat: add inbox middleware
+https://www.github.com/0xnyn/cruso,ae73fbc0bbaa4368fe274a035c7d5641d60e46c3,2025-07-05T22:48:30+00:00,Human,,8193,5977,9,False,False,False,False,feat: add email service
+https://www.github.com/0xnyn/cruso,952eb7c9f85c7b0dfb10937f44362bd059355df3,2025-07-05T22:47:48+00:00,Human,,162,76,5,False,False,False,False,feat: add db skeleton
+https://www.github.com/0xnyn/cruso,ae5a997a19885231a8459e147f946939c27d6265,2025-07-05T22:47:00+00:00,Human,,9300,0,2,False,False,False,False,feat: inject disallowed email check
+https://www.github.com/0xnyn/cruso,bad35644c3cf285a8979b94cfb82c9c7fac69d9c,2025-07-05T22:45:32+00:00,Human,,1298,148,15,False,False,False,False,feat: add inbox management apis
+https://www.github.com/0xnyn/cruso,3483142d9d1fca6996fac202006c24662c68507e,2025-07-05T22:42:01+00:00,Human,,148,0,1,False,False,False,False,feat: add google auth manager
+https://www.github.com/0xnyn/cruso,018bde54b819d7dbe39f3c3fc8aab5e70743c931,2025-07-05T13:53:39+00:00,Human,,116,0,9,False,False,False,False,feat: add api types
+https://www.github.com/0xnyn/cruso,6cd573ac9cd95abb27fd975e8f9aeedcae2aa6c0,2025-07-05T13:53:29+00:00,Human,,233,1,5,False,False,False,False,feat: add db schema
+https://www.github.com/0xnyn/cruso,877e2e3c13062a8148693794c6da19c10d8ce39e,2025-07-05T12:41:35+00:00,Human,,6219,6710,9,False,False,False,False,build: wire up database
+https://www.github.com/0xnyn/cruso,22c6905a5791996eeff17f51a2f31df0a6920647,2025-07-05T12:41:08+00:00,Human,,105,0,5,False,False,False,False,feat: plug in database
+https://www.github.com/0xnyn/cruso,f51ffdc9068ee44b341398a4fbf9ecc420c9f62c,2025-07-05T09:33:06+00:00,Human,,2,10,1,False,False,False,False,feat: trim footer
+https://www.github.com/0xnyn/cruso,8cfc942844134c7af089a3f0b58f5031c1fa4f67,2025-07-04T21:41:29+00:00,Human,,6,1,2,True,True,False,False,fix: resolve force dark mode
+https://www.github.com/0xnyn/cruso,bfc2db6bd9da7df059c229242b712beaf81b2459,2025-07-04T21:32:21+00:00,Human,,28,26,1,False,False,False,False,feat: resolve dark mode override
+https://www.github.com/0xnyn/cruso,41220f6703178c59e132f567e61e2e3a09e45b8d,2025-07-04T21:19:52+00:00,Human,,6659,5000,2,False,False,False,False,chore: tidy up formatting
+https://www.github.com/0xnyn/cruso,509e5279fe346df0c6992170ebb097b87307d4b6,2025-07-04T21:08:39+00:00,Human,,5561,6604,10,False,False,False,False,build: add hono server with mock endpoints
+https://www.github.com/0xnyn/cruso,4597ce293aa0a29158ca12703e28ae5dcd009baf,2025-07-04T20:13:50+00:00,Human,,31,10,6,False,False,False,False,feat: add grainy
+https://www.github.com/0xnyn/cruso,c962c4694be6accd7619576b90751934b1236597,2025-07-04T19:50:04+00:00,Human,,6,16,3,False,False,False,False,chore: remove dead nav
+https://www.github.com/0xnyn/cruso,711a3eb8fa1de5dc800968788c69d1230f3a8508,2025-07-04T19:21:55+00:00,Human,,0,0,1,False,False,False,False,chore: add og image
+https://www.github.com/0xnyn/cruso,178ee6424e2fe3299387d960a13262f61b5d2ffe,2025-07-04T19:04:16+00:00,Human,,0,0,3,False,False,False,False,build: add cruso ico
+https://www.github.com/0xnyn/cruso,4c3abb14dfd05cfd5202a7ccab274ad60bacc29f,2025-07-04T18:45:37+00:00,Human,,6707,5075,9,False,True,False,False,chore: fix formatting
+https://www.github.com/0xnyn/cruso,9fd37932841f748da189ecaac28ad9889d571338,2025-07-04T18:45:07+00:00,Human,,1672,64,33,False,False,False,False,build: bootstrap project
+https://www.github.com/0xnyn/cruso,fbf36e495847ea52ee10e04be2f222d40af40c6c,2025-07-04T18:44:46+00:00,Human,,393,0,4,False,False,False,False,feat: add legal and marketing ui
+https://www.github.com/0xnyn/cruso,beed275dcd1866dc03c924b068b90a5e1b70c450,2025-07-04T18:44:14+00:00,Human,,493,143,8,False,False,False,False,feat: add homepage ui
+https://www.github.com/0xnyn/cruso,e9aab4aecd49f26519c4e576170830f2d4704d5b,2025-07-04T18:43:26+00:00,Human,,56,0,2,False,False,False,False,feat: add hero section
+https://www.github.com/0xnyn/cruso,532ca7442a69100d0db3461c3503eaee2c8aa995,2025-07-04T18:43:03+00:00,Human,,148,0,3,False,False,False,False,feat: add blog support
+https://www.github.com/0xnyn/cruso,260562c6b7538dbce2d370e4cc0edbb1f1ea3379,2025-07-04T16:00:00+00:00,Human,,4116,0,17,False,False,False,False,Initial commit from Create Next App

@@ -1,0 +1,159 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/321-vegan/321vegan-www,a22500ec9145c0ae03c90a9e82fae8e992ecb6f6,2026-11-01T10:44:14+00:00,Human,,2,2,2,False,False,False,False,:sparkles: Rename
+https://www.github.com/321-vegan/321vegan-www,03bd092f357ed30166d10e54dc0d1e1748be0f81,2026-11-01T10:42:44+00:00,Human,,930,55,13,False,False,False,False,:sparkles: Render restaurants and selections
+https://www.github.com/321-vegan/321vegan-www,2fe4c405a32ea5d47af868cf94a1a3653e0300a5,2026-10-27T19:05:10+00:00,Human,,70,0,2,False,False,False,False,:sparkles: Deep link restaurants
+https://www.github.com/321-vegan/321vegan-www,da290083d6455202beea212590e58cf40711606b,2026-10-27T18:06:34+00:00,Human,,7,6,2,False,False,False,False,:sparkles: Change deeplink to selection
+https://www.github.com/321-vegan/321vegan-www,51651f00332fa902927afa313aeb40a968a1cf75,2026-10-27T17:52:53+00:00,Human,,100,0,4,False,False,False,False,:sparkles: Deep link restaurants
+https://www.github.com/321-vegan/321vegan-www,d134e98f7da4188809866d46489a6538961ef933,2026-10-27T14:37:55+00:00,Human,,294,25,1,False,False,False,False,:sparkles: Update terms
+https://www.github.com/321-vegan/321vegan-www,98092ccf70feb84dd1cb31dffbe7fe200ad7c7b2,2026-09-27T18:59:08+00:00,Human,,0,0,7,False,False,False,False,:sparkles: Change assets
+https://www.github.com/321-vegan/321vegan-www,085f49fe18220838f3e80570638247390b12bfea,2026-09-14T08:33:59+00:00,Human,,812,0,3,False,False,False,False,:sparkles: add cgu
+https://www.github.com/321-vegan/321vegan-www,a75c14265cc5dcef34d232c7ed62889268052bdc,2026-08-21T20:58:44+00:00,Human,,9,0,2,False,False,False,False,:sparkles: Add Anonymous for the Voiceless
+https://www.github.com/321-vegan/321vegan-www,824500883331b57000aa9cb92480680e3911efc4,2026-07-22T19:09:10+00:00,Human,,214,153,2,False,False,False,False,"Merge pull request #21 from 321-Vegan/bump-axios
+
+chore(deps): bump axios 1.16.1 to 1.18.1"
+https://www.github.com/321-vegan/321vegan-www,eb4393478cc648e15f5eac62f0d74e1d787d9b0a,2026-07-22T18:40:58+00:00,Human,,214,153,2,False,False,False,False,chore(deps): bump axios 1.16.1 to 1.18.1
+https://www.github.com/321-vegan/321vegan-www,79101a01f713eb31921abbbd240c57d0fed3d530,2026-06-18T16:28:08+00:00,Human,,684,189,26,False,False,False,False,"Merge pull request #20 from ISAsxm/feat-feature-map-reminder
+
+Feat feature map reminder"
+https://www.github.com/321-vegan/321vegan-www,4494f0889ace683be858366e162a3b4bea1cc8a3,2026-06-17T15:16:46+00:00,Human,,179,138,2,False,False,False,False,"chore(deps): bumped form-data, nodemailer js-yaml and @babel/core"
+https://www.github.com/321-vegan/321vegan-www,3afc92a2dd7d62ce5f6f1e231713cca5d92d7e69,2026-06-17T14:29:48+00:00,Human,,190,57,21,False,False,False,False,feat(map & reminder): Added map & reminder pages + .psd mockup file
+https://www.github.com/321-vegan/321vegan-www,7f2aaae184192acabae71192638dbe3d6d0db2a3,2026-06-11T19:41:31+00:00,Human,,3,21,1,False,False,False,False,switch branch
+https://www.github.com/321-vegan/321vegan-www,d57ac7a23ff382a391631fc45e93e2577d222968,2026-06-11T19:41:31+00:00,Human,,361,22,6,False,False,False,False,switch branch
+https://www.github.com/321-vegan/321vegan-www,834bc82b957ac864a25a38c620dfc1274b4e1e17,2026-06-11T19:39:11+00:00,Human,,198,36,16,False,False,False,False,"Merge pull request #19 from ISAsxm/feature/add-stickers-to-kit
+
+✨ Add sticker download"
+https://www.github.com/321-vegan/321vegan-www,1da2592ff0bb745fa102333870a770be7544db82,2026-06-11T19:33:21+00:00,Human,,1,1,1,False,True,False,False,:sparkles: Fix size affiche
+https://www.github.com/321-vegan/321vegan-www,87f28bf63ca439c93ffc2bfbfe9d99c31803da16,2026-06-11T18:35:17+00:00,Human,,26,26,7,False,False,False,False,:sparkles: Apply PR suggestions
+https://www.github.com/321-vegan/321vegan-www,bb7025c5b62764982833dbec806fb6904100abcd,2026-06-10T22:27:49+00:00,Human,,0,0,6,False,False,False,False,:sparkles: Modify images
+https://www.github.com/321-vegan/321vegan-www,54a5c020bbe8f38b6425c368bf4ffb4a137d3274,2026-06-10T22:16:08+00:00,Human,,197,35,10,False,False,False,False,:sparkles: Add sticker download
+https://www.github.com/321-vegan/321vegan-www,3cf3879bad09be376d5f76f7cb0eeecf6febb13d,2026-06-09T21:07:30+00:00,Human,,2,2,1,False,True,False,False,:sparkles: Fix typo
+https://www.github.com/321-vegan/321vegan-www,99404c645f2523e4cf8f4a351765205d7d27211f,2026-06-09T20:56:33+00:00,Human,,1,1,1,False,True,False,False,:fix: Fix typo
+https://www.github.com/321-vegan/321vegan-www,c949f061cbdc87bd224436ec7e8af3ea66a562c9,2026-06-07T22:27:27+00:00,Human,,3,3,1,False,True,False,False,feat(mediakit): fixed text card IOS wrong size
+https://www.github.com/321-vegan/321vegan-www,e13a2a7c6fec71169bad069d48183e3926099064,2026-06-07T21:49:20+00:00,Human,,464,11,16,False,False,False,False,"Merge pull request #18 from ISAsxm/feature/mediakit
+
+:sparkles: Add communication kit page"
+https://www.github.com/321-vegan/321vegan-www,3eaa92ee0ffb5d2b917402c90a58d0146ad9bfb1,2026-06-07T21:25:26+00:00,Human,,109,62,5,False,False,False,False,feat(mediakit): implemented special component for copy-paste text
+https://www.github.com/321-vegan/321vegan-www,a38267d2565d887726f278079204a7e03acea883,2026-06-07T18:58:46+00:00,Human,,0,1,1,False,True,False,False,:fix: Fix aria
+https://www.github.com/321-vegan/321vegan-www,858733143b8450310cb8b8043462afb2da8223f0,2026-06-07T18:02:08+00:00,Human,,2,2,3,False,True,False,False,:fix: Fix SEO aria labels
+https://www.github.com/321-vegan/321vegan-www,fc7aa41b6e03597e719537d0949895eb759ecae7,2026-06-07T16:59:32+00:00,Human,,1,1,1,False,False,False,False,:sparkles: Light for moutarde
+https://www.github.com/321-vegan/321vegan-www,e2222dbedc59a8e63513947bebd0801a7fa26345,2026-06-07T16:24:56+00:00,Human,,150,53,3,False,False,False,False,:sparkles: Apply PR suggestions
+https://www.github.com/321-vegan/321vegan-www,ddfa9ca26339c6d75f98d848185fec2a2c480b90,2026-06-07T14:34:11+00:00,Human,,320,10,12,False,False,False,False,:sparkles: Add communication kit page
+https://www.github.com/321-vegan/321vegan-www,3e6e4cc9ac09b77f1eea5f951381064b420d8b72,2026-06-06T20:42:10+00:00,Human,,2,0,1,False,True,False,False,"Merge pull request #17 from lbetranc/fix/issues-14
+
+fix: add axios force dynamic cache #14"
+https://www.github.com/321-vegan/321vegan-www,15142b951cf827be184e2457446ea59af0813322,2026-06-06T20:30:24+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #16 from ISAsxm/chore/change-env-example
+
+:chore: Change env example with host docker internal instead"
+https://www.github.com/321-vegan/321vegan-www,7932d21522e856ab8b0f7ef7f223e01d44db5ca8,2026-06-06T08:46:47+00:00,Human,,2,0,1,True,True,False,False,fix: add axios force dynamic cache #14
+https://www.github.com/321-vegan/321vegan-www,6235ddba9be14a43e0d6675e72d6ff13e731ae65,2026-06-06T08:18:52+00:00,Human,,1,1,1,False,False,False,False,:chore: Change env example with host docker internal instead
+https://www.github.com/321-vegan/321vegan-www,0187a4131020ec83711115c362448c1bf87bf379,2026-05-30T17:41:15+00:00,Human,,33,6,2,False,False,False,False,chore: bump axios from 1.15.2 to 1.16.1
+https://www.github.com/321-vegan/321vegan-www,4ab2b44ae659a62d1b9b98c88ba06505ed51a11d,2026-05-29T14:47:55+00:00,Human,,1091,68,54,False,False,False,False,"Merge pull request #15 from ISAsxm/feat-resources-page-9
+
+feat(resources page #9): Implemented resources page and resources by …"
+https://www.github.com/321-vegan/321vegan-www,680511122ff19f85f06ea611bd12fb31b7d8f779,2026-05-29T14:32:20+00:00,Human,,1091,68,54,False,False,False,False,feat(resources page #9): Implemented resources page and resources by category page
+https://www.github.com/321-vegan/321vegan-www,ecdd8a520e17665fcdd6c63b04ba5f217d11cd6c,2026-05-04T18:54:35+00:00,Human,,2,2,1,False,True,False,False,:fix: use docker-compose in prod
+https://www.github.com/321-vegan/321vegan-www,872d190bc403b700b667dcf4ff6524d9a4af7b7b,2026-05-04T18:52:55+00:00,Human,,1,1,3,False,True,False,False,:bug: fix filename
+https://www.github.com/321-vegan/321vegan-www,e8798c19ded20fda62e8a728e895abbf15b5b51a,2026-05-04T18:50:39+00:00,Human,,1,1,3,False,False,False,False,:bug: jpg to png
+https://www.github.com/321-vegan/321vegan-www,2bd27940ae2eecfa6364fd9854990e3709f0e15a,2026-05-04T17:55:20+00:00,Human,,2,2,1,False,True,False,False,"Merge pull request #13 from ISAsxm/fix/filename-download
+
+:bug: Set filename download"
+https://www.github.com/321-vegan/321vegan-www,5fe30863fb19520e9cc023c8981c80517e6e8e1a,2026-05-04T17:48:31+00:00,Human,,2,2,1,False,True,False,False,:fix: Set filename download
+https://www.github.com/321-vegan/321vegan-www,445f79429a2549f897cb58a0ce9e02e07bac4180,2026-05-02T12:24:05+00:00,Human,,2,2,1,False,True,False,False,:fix: Fix typos
+https://www.github.com/321-vegan/321vegan-www,b809ee2b6dc98fc3b7a137b30778be59debe8a0f,2026-05-02T12:06:32+00:00,Human,,5,5,3,False,True,False,False,:fix: Fix typos
+https://www.github.com/321-vegan/321vegan-www,d23f6d2333f3541498edd76f422431ceb5bf947b,2026-05-01T18:49:48+00:00,Human,,0,0,1,False,False,False,False,:sparkles: Change cordons bleus photo for new version
+https://www.github.com/321-vegan/321vegan-www,7c6102fc819ff370fe915261ba7fa28077eeaa51,2026-04-30T00:28:08+00:00,Human,,1263,73,36,False,False,False,False,"Merge pull request #12 from ISAsxm/feature/signalements
+
+:sparkles: Signal Conso campaings"
+https://www.github.com/321-vegan/321vegan-www,4c5115862891793e16636d6be1e954b274daa4fc,2026-04-29T21:51:44+00:00,Human,,1105,845,30,False,False,False,False,feat(signal conso campaigns): refactored the accessibility and better match the global design
+https://www.github.com/321-vegan/321vegan-www,6b86a563c3a5a8424b4b6d2eee7c0a7ab292b749,2026-04-29T21:39:40+00:00,Human,,8,16,2,False,False,False,False,chore(package): bump postcss to 8.5.10
+https://www.github.com/321-vegan/321vegan-www,d09d3240234643ecf5cfc5ece31b275e7b791585,2026-04-23T15:41:39+00:00,Human,,1,1,1,False,True,False,False,:fix: fix typo
+https://www.github.com/321-vegan/321vegan-www,d0dacfd7e59f294601f878cbe9e8d7c24078a532,2026-04-23T15:29:12+00:00,Human,,2,0,1,False,False,False,False,:sparkles: Modify text to add law reference
+https://www.github.com/321-vegan/321vegan-www,a25a4767251c6f025e8e6639586227a20746c592,2026-04-23T08:09:48+00:00,Human,,62,9,5,False,False,False,False,:sparkles: Improvments
+https://www.github.com/321-vegan/321vegan-www,205e7672cafdf313472f65cc4ed0a022895d4255,2026-04-23T07:55:19+00:00,Human,,9,8,2,False,True,False,False,:sparkles: Fix images
+https://www.github.com/321-vegan/321vegan-www,fceb4fd82c8630232cbe4cdf10157e3f92ebf29a,2026-04-23T07:22:59+00:00,Human,,31,26,24,False,False,False,False,:sparkles: Change images to webp
+https://www.github.com/321-vegan/321vegan-www,c6510cbb9e3731f161af521dc2e38e66a0a655e1,2026-04-23T07:09:26+00:00,Human,,62,55,2,False,True,False,False,:package: Pnpm audit fix
+https://www.github.com/321-vegan/321vegan-www,4a2c6dc1cf8c12e68d93a01fab0c909d3a53ebce,2026-04-23T07:07:41+00:00,Human,,151,103,7,False,False,False,False,:sparkles: Apply PR suggestions
+https://www.github.com/321-vegan/321vegan-www,5fa6021ba05f71d0ce9a3c2bbe0819ed5faef4ed,2026-04-20T19:16:49+00:00,Human,,7,7,4,False,True,False,False,:chore: Fix eslint
+https://www.github.com/321-vegan/321vegan-www,c237ec57ca0be4486946e760eda64ed7824160bb,2026-04-20T14:44:52+00:00,Human,,47,146,3,False,False,False,False,:sparkles: Cleanup template code
+https://www.github.com/321-vegan/321vegan-www,24489126f584f95dc2d5da45feac04bc3840264b,2026-04-16T06:20:02+00:00,Human,,921,0,25,False,False,False,False,:sparkles: Add signalements
+https://www.github.com/321-vegan/321vegan-www,fd3e3e3e84c0b7a602ebb257bce13e958c49d301,2026-04-07T21:46:00+00:00,Human,,13,33,2,False,True,False,False,chore(package): fixed picomatch version
+https://www.github.com/321-vegan/321vegan-www,e838e77c7fcf6377329ca616729114a5fae9f6bf,2026-04-07T21:22:59+00:00,Human,,222,170,2,False,True,False,False,chore(package): fixed some vulnerabilities
+https://www.github.com/321-vegan/321vegan-www,e944eb7c8fc92ac29c9cb11c3a4028fe43ae5ca1,2026-04-07T21:20:57+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #11 from khiastos/main
+
+Spelling mistake at /suivi-d-impact"
+https://www.github.com/321-vegan/321vegan-www,cb416c824ca9957f7ae0a40412f146a60bc51734,2026-03-30T11:26:46+00:00,Human,,1,1,1,False,True,False,False,"Merge pull request #1 from khiastos/khiastos-patch-1
+
+Fix ""écomosisée"" to ""économisée"""
+https://www.github.com/321-vegan/321vegan-www,96d9a9dc2602089879718262be5d9f24dfe0bf1c,2026-03-30T11:17:30+00:00,Human,,1,1,1,False,True,False,False,"Fix ""écomosisée"" to ""économisée"""
+https://www.github.com/321-vegan/321vegan-www,243414e539ffa2dc74bd64f88ea351d1dbc67116,2026-03-10T16:56:20+00:00,Human,,13,13,2,False,False,False,False,chore(package): Bumped minimatch 10.2.1 to 10.2.3
+https://www.github.com/321-vegan/321vegan-www,a822edbb57ddf6da4307d1a4da007bbe200811ae,2026-02-25T19:09:00+00:00,Human,,497,3151,31,False,False,False,False,"Merge pull request #10 from ISAsxm/feat-api-consumption
+
+Feat api consumption"
+https://www.github.com/321-vegan/321vegan-www,15c893a4f84aa4ad50b2918c14c37db8fd12b6f9,2026-02-23T22:09:53+00:00,Human,,99,115,2,False,False,False,False,chore(package): Bumped minimatch 10.2.2 to 10.2.1
+https://www.github.com/321-vegan/321vegan-www,73e71be05972372b49cec9a4a2939129824f1ccc,2026-02-23T21:43:29+00:00,Human,,218,2907,14,False,False,False,False,feat(additives): Implemented API call
+https://www.github.com/321-vegan/321vegan-www,63dbe4b768e801c72a472b7fdff7968394c6a856,2026-02-21T18:01:15+00:00,Human,,208,157,24,False,False,False,False,feat(partners): Implemented API call
+https://www.github.com/321-vegan/321vegan-www,44bdb8129792b25438fc68f50ae4d9b3bbf11685,2026-02-17T14:20:48+00:00,Human,,6,981,2,False,False,False,False,bump @types/nodemailer from 7.0.3 to 7.0.10
+https://www.github.com/321-vegan/321vegan-www,90ad0e344fe6904ceb6f9de956ad02f6f774a77f,2026-01-30T19:41:16+00:00,Human,,1,1,1,False,False,False,False,feat(partners): Modified Yumgo description
+https://www.github.com/321-vegan/321vegan-www,33751d0678089594f48ba43c45272caea23ff76a,2026-01-30T19:05:47+00:00,Human,,24,1,3,False,False,False,False,feat(partners): Addition of new partners Reify and Yumgo
+https://www.github.com/321-vegan/321vegan-www,97da50ef37e329ca583e742806a751b5beba4aaa,2026-01-30T19:02:39+00:00,Human,,48,43,2,False,False,False,False,chore: update next version
+https://www.github.com/321-vegan/321vegan-www,026bea632df85494414f69ec1a939faa0bd77a7d,2026-01-23T17:17:14+00:00,Human,,1,12,2,False,False,False,False,feat(partners): Removed Petit Veganne + registered Maison Prot as affiliate
+https://www.github.com/321-vegan/321vegan-www,d55299eb87e3b800f9976c8828219b91e8959e10,2026-01-19T20:48:09+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #8 from ISAsxm/feature/change-pulse-protein-link
+
+:sparkles: Use affiliate link to pulse protein co"
+https://www.github.com/321-vegan/321vegan-www,84954eadca11a872bd0d227e03e4f0786ecc0b0c,2026-01-19T20:46:26+00:00,Human,,1,1,1,False,False,False,False,:sparkles: Use affiliate link to pulse protein co
+https://www.github.com/321-vegan/321vegan-www,92c13a44099ab239d07470a6094cd2426a009eca,2026-01-19T18:52:16+00:00,Human,,86,84,2,False,False,False,False,chore: overrided js-yaml version
+https://www.github.com/321-vegan/321vegan-www,9f443372593c3695c98b8d852bc1f086a985af25,2026-01-19T18:06:47+00:00,Human,,452,450,7,False,False,False,False,feat(partners): Added new partner Pulse Protein
+https://www.github.com/321-vegan/321vegan-www,aa45aaffa1e7b27a47a018b0a6a2243ba5816f2c,2026-01-19T18:06:11+00:00,Human,,60,60,2,False,False,False,False,"chore: bump next, nodemailer and altcha packages version"
+https://www.github.com/321-vegan/321vegan-www,3e2d6b996115e2168e20bf07d69cb11f3b568234,2026-01-05T17:45:55+00:00,Human,,15,2,3,False,False,False,False,feat(partner): Added new partner RAGNA
+https://www.github.com/321-vegan/321vegan-www,9611073d4adaf64ee8ad01ffa6ccb647828145a2,2025-12-24T14:45:11+00:00,Human,,33,17,3,False,False,False,False,"Merge pull request #6 from ISAsxm/feature/show-discount-or-not
+
+:sparkles: Show discount conditionnaly"
+https://www.github.com/321-vegan/321vegan-www,3e74c71dd07325699bc7bf130ae1d6b12e3cce3e,2025-12-24T10:55:24+00:00,Human,,33,17,3,False,False,False,False,:sparkles: Show discount conditionnaly
+https://www.github.com/321-vegan/321vegan-www,68b0c41d0e6dcaf5932c54597a6a1ef95f037e18,2025-12-22T16:50:06+00:00,Human,,1,0,1,True,True,False,False,fix: Failed to find Server Action
+https://www.github.com/321-vegan/321vegan-www,c091f9d5ef7a5dd48eaccda5bd5f1f260aa31fcb,2025-12-04T13:34:05+00:00,Human,,198,183,2,False,False,False,False,"Merge pull request #5 from ISAsxm/upgrading-nextjs
+
+chore(packages): upgraded nextjs to patched version"
+https://www.github.com/321-vegan/321vegan-www,96b36963c33d8c954ea92015b3e73bc4784d29e1,2025-12-04T13:30:50+00:00,Human,,198,183,2,False,False,False,False,chore(packages): upgraded nextjs
+https://www.github.com/321-vegan/321vegan-www,4b026123e86ac66c4bc05e5761c8aac64be8f0f5,2025-11-09T15:12:10+00:00,Human,,7,0,1,False,False,False,False,feat(additives): Added E968
+https://www.github.com/321-vegan/321vegan-www,d5345cb6a4a4afa46403c3dd1a053f9482ee545b,2025-11-07T20:44:13+00:00,Human,,46,31,6,False,False,False,False,(seo): Enhanced content for SEO
+https://www.github.com/321-vegan/321vegan-www,76494a42c515631b6c20bda0ef2a2f2e99e76d90,2025-11-07T20:43:40+00:00,Human,,129,65,10,False,False,False,False,feat(assets): Added type
+https://www.github.com/321-vegan/321vegan-www,85801ec71511b9ea601b477be811b5d830b45a93,2025-11-07T20:42:27+00:00,Human,,64,35,2,False,False,False,False,feat(partners): Added new partner Le Papondu
+https://www.github.com/321-vegan/321vegan-www,5c34c85b7bdc9428c9ab942e4391b1971a5bc92a,2025-11-07T20:41:24+00:00,Human,,1,5,2,False,False,False,False,style: Converted css style to tailwind
+https://www.github.com/321-vegan/321vegan-www,bdb4cbb3cec8b8b662411ce3dd4ffb6fbf56b55b,2025-11-07T20:41:00+00:00,Human,,3,0,1,True,True,False,False,fix(og image): Added metadata base url
+https://www.github.com/321-vegan/321vegan-www,6e2c56b44d9930cb45b28e326d8d9005ebd77919,2025-11-05T19:52:12+00:00,Human,,1,1,1,False,False,False,False,feat(contact form): moved reset
+https://www.github.com/321-vegan/321vegan-www,3a8434af2608a15d11bb5764012ef71aedf69b73,2025-11-05T19:49:28+00:00,Human,,4,0,1,False,False,False,False,feat(altcha): Rewrited css class to tailwind class
+https://www.github.com/321-vegan/321vegan-www,5c83074c24fcd99bb85aa0a5c9338e60e6fa1bfc,2025-11-05T19:26:00+00:00,Human,,9,11,6,False,False,False,False,feat(obfuscate): Migrated css class to tailwind classes
+https://www.github.com/321-vegan/321vegan-www,5fabb4a57f90e5a8c146e917bdc4fda634263768,2025-11-05T15:32:14+00:00,Human,,1,1,1,True,True,False,False,fix(contributions section): Corrected typo
+https://www.github.com/321-vegan/321vegan-www,12b2c83617b0924b13b45c56fc34cdb58d035eaa,2025-11-05T14:52:56+00:00,Human,,40,13,5,False,True,False,False,feat(obfuscate): Fixed wrong copy value
+https://www.github.com/321-vegan/321vegan-www,04c9c5391a42d2bea31a9f56d218becd61811f97,2025-11-05T13:58:00+00:00,Human,,3,0,1,False,True,True,False,fix #45: Masked the table columns when it overflows
+https://www.github.com/321-vegan/321vegan-www,83a21449452a0fe7935cd6056f177062fadce825,2025-11-05T13:55:54+00:00,Human,,1,1,1,False,True,True,False,fix #44: Corrected the duplicate
+https://www.github.com/321-vegan/321vegan-www,40882c33dd18902bc2adfed830052d05b96f2194,2025-11-04T21:42:12+00:00,Human,,6,2,1,False,False,False,False,chore(Makefile): Added command for production stage
+https://www.github.com/321-vegan/321vegan-www,e7f9c5533007ac1b3b2c6e5ed98bc98ab425be39,2025-11-04T21:38:32+00:00,Human,,33,0,1,False,False,False,False,chore(manifest): Added manifest file
+https://www.github.com/321-vegan/321vegan-www,ef6b84e2ae43f2b2d04a505f7aa5115dfa47ddfd,2025-11-04T18:04:34+00:00,Human,,1,1,1,True,True,False,False,fix(JoinUsCta): Fixed wrong social  link
+https://www.github.com/321-vegan/321vegan-www,c6f4368e77880b0a4800c3eca54c58cbf0cc7d0c,2025-11-04T15:30:49+00:00,Human,,2,0,4,False,False,False,False,feat(og): Added opengraph and twitter images
+https://www.github.com/321-vegan/321vegan-www,ac0e9f5eae0bf284e27d706297d0b7648ef6e171,2025-11-04T12:34:43+00:00,Human,,47,85,12,True,True,False,False,fix(FAQs): Removed wrong tailwind class
+https://www.github.com/321-vegan/321vegan-www,e54028885444e362f7e80eec02490262e291f58a,2025-11-04T10:01:09+00:00,Human,,11,11,1,True,True,False,False,fix(contact form): Fixed form overflow on tiny screen
+https://www.github.com/321-vegan/321vegan-www,c2d02a5e930f009ba8272b6ec7a06431968c010e,2025-11-03T22:04:49+00:00,Human,,1,5,3,True,True,False,False,fix(CORS origin): Removed rewrited api call
+https://www.github.com/321-vegan/321vegan-www,980ea48736495e1ed774e0ae64df28433e5db55c,2025-11-03T21:42:30+00:00,Human,,1,1,1,True,True,False,False,fix(cors origin): Rewrite destination api call
+https://www.github.com/321-vegan/321vegan-www,c6defc5a01ece4301a378ef6ac4f19e1ff5dcb61,2025-11-03T21:18:33+00:00,Human,,4,0,1,True,True,False,False,fix(cors api): Added rewrites rules for api call
+https://www.github.com/321-vegan/321vegan-www,dd11b8cefd62e63932cfad4d3e1ac1e1045cbf56,2025-11-03T20:50:00+00:00,Human,,26,8,2,False,False,False,False,feat(send email): Added non well known service configuration to api route
+https://www.github.com/321-vegan/321vegan-www,05c104e495e76ad2f40f68213c6adda57a7c7d15,2025-11-03T19:26:35+00:00,Human,,2,2,3,True,True,False,False,fix(image): Added unoptimized next image setting
+https://www.github.com/321-vegan/321vegan-www,29cfd7a6db1bc2d44b3618247b37ac46d40c764a,2025-11-03T19:25:28+00:00,Human,,26,22,1,True,True,False,False,fix(testimonials): Fixed responsive bugs
+https://www.github.com/321-vegan/321vegan-www,11e30b08fec7d92803cd3b5316ba8e434b06561e,2025-11-03T18:31:38+00:00,Human,,23,4,3,False,False,False,False,feat(additives): Added data sources
+https://www.github.com/321-vegan/321vegan-www,1f85e85f1f7ddc57b0ac0791d529334acb474084,2025-11-03T17:47:44+00:00,Human,,77,0,4,False,False,False,False,chore(github): Added community templates
+https://www.github.com/321-vegan/321vegan-www,8d854d2111ec5bae2f679a4b09a4ffb8416f23ae,2025-11-03T16:46:40+00:00,Human,,96,84,62,False,False,False,False,Converted png to webp
+https://www.github.com/321-vegan/321vegan-www,080cf4178a74328de2b57d115f4b3b3817b34dd2,2025-11-03T14:32:06+00:00,Human,,52,0,1,False,False,False,False,feat(global): Added custom global error page
+https://www.github.com/321-vegan/321vegan-www,ccb9b276f2fa8b40f6b23e157dc7113ab49b235f,2025-11-03T13:26:45+00:00,Human,,37,25,9,False,False,False,False,feat(contact): Implemented Altcha
+https://www.github.com/321-vegan/321vegan-www,b312e87f06fd88aec8ec8d4713f3233199e81dcd,2025-11-03T13:24:26+00:00,Human,,6,6,1,False,True,False,False,feat(footer sitemap): fixed wrong html tags
+https://www.github.com/321-vegan/321vegan-www,f26ebd451307aefe077c207c60d172b2c4e89573,2025-11-03T10:38:25+00:00,Human,,1882,0,12,False,False,False,False,feat(legal): Implemented terms page
+https://www.github.com/321-vegan/321vegan-www,7a6e5be1582c4fd16b6ccb8d2f0aaba73919356b,2025-11-03T10:37:25+00:00,Human,,3263,70,44,False,False,False,False,global: Added img and assets
+https://www.github.com/321-vegan/321vegan-www,8fefe296f04644ae2b5c98047c459009193eb7dd,2025-11-03T10:32:18+00:00,Human,,159,0,4,False,False,False,False,chore: Init docker configuration
+https://www.github.com/321-vegan/321vegan-www,598c3b34b5f3b46f6304db5f06de443e849467e8,2025-11-03T10:31:42+00:00,Human,,1107,23,6,False,False,False,False,docs: Added Readme and contributing files
+https://www.github.com/321-vegan/321vegan-www,8fb42aa3e13f0e70897e2d399aef48675d304777,2025-11-03T10:30:57+00:00,Human,,34,0,2,False,False,False,False,feat(seo): Added seo file
+https://www.github.com/321-vegan/321vegan-www,c86a03d42be0387b405228831af034272603a15a,2025-11-03T10:30:22+00:00,Human,,35,0,1,False,False,False,False,feat(site): Added custom 404
+https://www.github.com/321-vegan/321vegan-www,e242cca7207ae330fd50f88bc332ee664019f101,2025-11-03T10:30:00+00:00,Human,,213,0,9,False,False,False,False,feat(contact): Implemented email contact action
+https://www.github.com/321-vegan/321vegan-www,c4b1d6ede425a0981d21c3a869088a59b44c04ba,2025-11-03T10:29:15+00:00,Human,,1819,99,5,False,False,False,False,chore: Added global configuration
+https://www.github.com/321-vegan/321vegan-www,5699389e3c50a652e25f17c3a482e6a114bfad3d,2025-11-03T10:28:36+00:00,Human,,25,18,1,False,False,False,False,style: Init brand style
+https://www.github.com/321-vegan/321vegan-www,f1f2d73ffe680dabd35dd9355621202ca053a992,2025-11-03T10:28:09+00:00,Human,,21,0,1,False,False,False,False,feat(modal): Implemented clickoutside hook
+https://www.github.com/321-vegan/321vegan-www,0deffce97a1a8fb1da295d66627f18f2ec961f09,2025-11-03T10:27:43+00:00,Human,,2939,14,42,False,False,False,False,feat(site): Initial commit
+https://www.github.com/321-vegan/321vegan-www,486dc5e184d329d0ec73e5450912754266ce4dd4,2025-10-22T19:01:20+00:00,Human,,4304,0,17,False,False,False,False,Initial commit from Create Next App

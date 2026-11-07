@@ -1,0 +1,3 @@
+github_url,source_sha,source_date,source_type,source_author_type,target_sha,target_date,target_author_type,days_to_action,day_bucket,link_method
+https://www.github.com/4murilort/clinic-plus,1404c6c7198e7b29aa66eeb80afe0965d7d76096,2025-06-02T20:27:18+00:00,fix,Human,,,Unknown,,unresolved,unresolved
+https://www.github.com/4murilort/clinic-plus,c32c12d9cb2d9b5d7811d7606fae3d572eb1e6b1,2025-05-30T17:07:00+00:00,fix,Human,6bd88d1d0df0b632b7662c6e14bb1058ee749090,2025-05-30T14:29:24+00:00,Human,0.109,0-1,blame

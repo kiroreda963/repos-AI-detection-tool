@@ -1,0 +1,216 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1bye/apiser,3ddf7ee44d3a8dc6f97046c39472af9958fb4b35,2026-06-01T12:55:38+00:00,Human,,34,5,2,False,False,False,False,"feat(drizzle-model): add and/or combinators and isNotNull to where
+
+- Support top-level `and`/`or` arrays in where objects
+- `isNull: false` maps to `not(isNull(...))`, enabling `isNotNull`
+- Expose `and`, `or`, `isNull`, `isNotNull`, `sql` helpers on query builder"
+https://www.github.com/1bye/apiser,04186e051d778d8697a99b3fbf14a2a17cee512e,2026-06-01T12:08:20+00:00,Human,,200,67,8,False,False,False,False,"feat(drizzle-model): accept string[] for select/exclude, propagate orderBy/limit in relations
+
+- `select()` / `exclude()` accept `string[]` alongside `{ col: true }` for brevity
+- Model runtime exposes `$orderBy` / `$limit` so relation descriptors carry
+  ordering/limit context
+- Per-relation orderBy/limit wired through `extractRelationDescriptor` but
+  guarded by runtime error (not yet supported)
+- Simplified `MethodWhereValue` type — removed unused model-identifier branch
+- `ModelQueryResult.debug()` returns typed `QueryState` instead of `any`"
+https://www.github.com/1bye/apiser,2dfbf1383fcb32350224bec5626e4c49c695ac84,2026-04-09T09:53:01+00:00,Human,,5,1,2,False,False,False,False,bump: v2.0.6
+https://www.github.com/1bye/apiser,b02b06c252e0cc433b6380b136cd3135f65cc63e,2026-04-09T09:31:20+00:00,Human,,603,56,12,False,False,False,False,feat: add orderBy and other things
+https://www.github.com/1bye/apiser,30c7ddda1bb2a67e36c23f72cdf78e03c283c277,2026-03-07T09:27:00+00:00,Human,,66,0,3,False,False,False,False,feat(drizzle-model): add todo
+https://www.github.com/1bye/apiser,dfd7f17034a2f55b7b993d35f618c40ca35ade35,2026-03-03T17:07:29+00:00,Human,,12,1,3,False,False,False,False,feat(drizzle-model): 2.0.5 | bypass undefined
+https://www.github.com/1bye/apiser,afd765435f12fc623ae5ad564f10ec0037ce0832,2026-03-02T11:46:29+00:00,Human,,414,32,5,False,True,False,False,feat(drizzle-model): v2.0.4 | fix custom methods
+https://www.github.com/1bye/apiser,5adb5bcd6a1e7587f8e92723b7785c33dc763520,2026-03-02T11:12:44+00:00,Human,,121,58,9,False,True,False,False,feat(response): v0.0.4 | fix headers
+https://www.github.com/1bye/apiser,286496d266570c6e1fd6881aa59a3f6837c9f5e8,2026-03-02T10:06:41+00:00,Human,,904,187,2,False,False,False,False,feat: temporary move readme of drizzle-model to root
+https://www.github.com/1bye/apiser,6a8b3063597047d9c27f939f2d07997e6aca4815,2026-03-02T10:05:26+00:00,Human,,5,2,2,False,False,False,False,bump(drizzle-model): v2.0.3 (forgot to build package)
+https://www.github.com/1bye/apiser,9a514e249a93d282804df3be2ec00e72c9ab53f3,2026-03-01T14:42:00+00:00,Human,,3,0,1,False,False,False,False,feat(drizzle-model): add roadmap
+https://www.github.com/1bye/apiser,f5f54b1cffc6ae2db262bfc8772c01750181882e,2026-03-01T14:26:35+00:00,Human,,282,37,2,False,False,False,False,feat(drizzle-model): make README much more better
+https://www.github.com/1bye/apiser,9ba0a7370a4d9f814ee50da9712c7725f5a5ac48,2026-03-01T14:26:13+00:00,Human,,21,0,1,False,False,False,False,feat: add license
+https://www.github.com/1bye/apiser,3054cbcf852fbbbe544b72eb5c25326fd3de25e2,2026-03-01T14:13:45+00:00,Human,,308,41,6,False,False,False,False,feat(drizzle-model): v2.0.2 new esc.*() functions
+https://www.github.com/1bye/apiser,973557cf9f872ecb14a2feca18fe5a9ecb8e5fb0,2026-03-01T14:00:44+00:00,Human,,722,21,8,False,False,False,False,feat(drizzle-model): ship v2.0.1
+https://www.github.com/1bye/apiser,2bd161a7214f037fc10fc56c7f787388101b2552,2026-03-01T13:20:24+00:00,Human,,84,35,6,True,True,False,False,fix(drizzle-model): select & exclude
+https://www.github.com/1bye/apiser,bc07e5ebfc83d946039e7b3d91dc83b5e938de75,2026-03-01T11:39:17+00:00,Human,,1,0,1,False,False,False,False,feat(drizzle-model): update readme
+https://www.github.com/1bye/apiser,ca50fba4ae669718067bad462d45d5de407765a3,2026-03-01T11:36:55+00:00,Human,,4,2,3,False,False,False,False,feat(drizzle-model): update readme and insert types
+https://www.github.com/1bye/apiser,45e28a91d4cf7050a398019cea006e938dedaee2,2026-02-28T20:50:39+00:00,Human,,400,0,1,False,False,False,False,feat(drizzle-model): add README (not best)
+https://www.github.com/1bye/apiser,e09220fbd86b60d9abf5fd8862c7c17652381c43,2026-02-28T20:30:29+00:00,Human,,1,1,1,False,False,False,False,bump(drizzle-model): version 2.0.0
+https://www.github.com/1bye/apiser,da045c0b0de7eeba1a2934ea7bc57285f9b29629,2026-02-28T20:15:47+00:00,Human,,719,2213,22,False,True,False,False,feat(drizzle-model): fixes and tests
+https://www.github.com/1bye/apiser,91c0755d60831210ed8852b336f8aa5c429188ae,2026-02-28T19:59:50+00:00,Human,,2327,9,12,False,False,False,False,feat(drizzle-model): new CORE v2
+https://www.github.com/1bye/apiser,611d41a0e7ffd7eea209aaa51862afd82dbd0a69,2026-02-28T18:41:26+00:00,Human,,440,143,15,False,True,False,False,feat(drizzle-model): new/fix types
+https://www.github.com/1bye/apiser,a1556b2379daa028e15317bd512c3f9124426905,2026-02-28T15:08:52+00:00,Human,,232,79,13,False,False,False,False,feat(drizzle-model): start of new version
+https://www.github.com/1bye/apiser,dc6ba3635e344bb27213e4abfec6ae284df92e92,2026-02-20T11:28:01+00:00,Human,,7,2,2,False,False,False,False,feat(logger): update console logger file path
+https://www.github.com/1bye/apiser,3db5c53eeba938c94a4d16a5353d0156ed99e39f,2026-02-20T10:24:34+00:00,Human,,26,1,4,False,False,False,False,feat(drizzle-model): re-export everything from package
+https://www.github.com/1bye/apiser,415d5ced3acaabf246b169cd6811a780057eea4f,2026-02-18T20:15:28+00:00,Human,,25,21,1,True,True,False,False,fix: some details on readme
+https://www.github.com/1bye/apiser,7af599f0092fb472d9c78ce47789695b6a2c43b1,2026-02-18T20:11:40+00:00,Human,,150,0,1,False,False,False,False,feat: update readme with more examples
+https://www.github.com/1bye/apiser,59c341cf467b2705b8b560fc20c4b013066dc76e,2026-02-18T19:47:28+00:00,Human,,196,41,4,False,False,False,False,feat: include readme
+https://www.github.com/1bye/apiser,d4c752ac25bd7df7a205d1e2cc12d268bd8a92b6,2026-02-17T13:27:02+00:00,Human,,5250,4238,114,False,False,False,False,refactor: entire project
+https://www.github.com/1bye/apiser,f9aaa06d2f8e4feb103cdf6a3e454d3560670b51,2026-02-17T12:56:49+00:00,Human,,3347,2856,55,False,False,False,False,"feat: rename apiser to apisr, publish some packages to npm"
+https://www.github.com/1bye/apiser,17fdd755bb2c9eb47fe44ac45795942d8c498bba,2026-02-17T12:09:13+00:00,Human,,529,8,11,False,False,False,False,feat: add ultracite
+https://www.github.com/1bye/apiser,7998365cd96482a9443e62b390bd880266ffbb5c,2026-02-17T12:06:45+00:00,Human,,381,36,9,False,False,False,False,feat(controller): add `cache` to handler
+https://www.github.com/1bye/apiser,575abcd75d0362bad2ae3d4dd538b245651035d1,2026-02-15T18:55:24+00:00,Human,,74,47,3,False,False,False,False,feat(controller): add new binding feature: inject mode
+https://www.github.com/1bye/apiser,5d381d85f655dff058ff6b79776b3477fa47dd84,2026-02-15T18:10:11+00:00,Human,,46,10,4,False,False,False,False,feat(controller): better types
+https://www.github.com/1bye/apiser,13d6f5c892213ee5995275985832a2e7a361dfb8,2026-02-15T16:20:31+00:00,Human,,583,451,18,False,False,False,False,feat(controller): add elysia adapter and build adjustments
+https://www.github.com/1bye/apiser,ff749c6ec5bc9038b1832dcd5e5ab94440408843,2026-02-15T14:17:53+00:00,Human,,556,196,15,False,False,False,False,"feat(controller+response): more tests, better responseHandler"
+https://www.github.com/1bye/apiser,2dbe6ac14190b66ac156be8bb70b4745b9279310,2026-02-13T11:57:53+00:00,Human,,119,22,1,False,False,False,False,feat(controller): binding model tests
+https://www.github.com/1bye/apiser,fd414a4368425554712f01c4dd5299fe1d5273d1,2026-02-13T11:38:22+00:00,Human,,185,7,4,False,False,False,False,feat(controller): model binding
+https://www.github.com/1bye/apiser,bd3f0212b0cc1d06b7dcc9c57ac4bd0fe9a4c80a,2026-02-13T10:38:09+00:00,Human,,15,4,2,False,False,False,False,feat(drizzle-model): add `where` to options
+https://www.github.com/1bye/apiser,6ad33e3b9bed5495b35fa1678895b8b5e1e84cd5,2026-02-13T10:31:12+00:00,Human,,19,13,8,False,False,False,False,feat(response+controller): better types
+https://www.github.com/1bye/apiser,406fd526adc6f5157cdb717c5f70e1d3153bdac9,2026-02-13T09:56:01+00:00,Human,,325,39,11,False,False,False,False,feat(schema+zod+typebox): for now apiser will use only zod
+https://www.github.com/1bye/apiser,9336d7024e6a1c10777a1ef1b7079bd6dc0b42ef,2026-02-11T21:42:35+00:00,Human,,167,65,9,False,False,False,False,feat(controller): handler payload sources from request
+https://www.github.com/1bye/apiser,6a3c152b3477310a796b4ef243f622d96652496d,2026-02-11T21:05:33+00:00,Human,,28,20,5,False,False,False,False,feat(schema+zod): adapt schema to new zod sources
+https://www.github.com/1bye/apiser,f1584c3ff8a14de19920c52d3bf5e234e4da3d07,2026-02-11T21:01:31+00:00,Human,,257,1,2,False,False,False,False,feat(zod): check schema fn
+https://www.github.com/1bye/apiser,a565c5c22ebf26dfdec806b96997e0a0d390afce,2026-02-11T20:48:24+00:00,Human,,401,1,4,False,False,False,False,feat(zod): add resolve meta fn
+https://www.github.com/1bye/apiser,a627d3e384150d6cabce4a6758a5f52aa685d723,2026-02-11T20:04:00+00:00,Human,,131,25,6,True,True,False,False,fix(controller+response): minor fixes
+https://www.github.com/1bye/apiser,636b1e22327dd6f31f588e4e3d37d2cf38da2c2e,2026-02-07T20:52:07+00:00,Human,,35,25,4,True,True,False,False,fix(response): minor fixes
+https://www.github.com/1bye/apiser,3bf9ad3b31362f84f0265546e0d90170eb43400b,2026-02-07T20:15:14+00:00,Human,,170,69,10,False,True,False,False,feat(response): several fixes and error defaults and more
+https://www.github.com/1bye/apiser,594f2c39193e0d0e82b20c01fee80d6400e3916a,2026-02-07T19:19:42+00:00,Human,,87,42,4,True,True,False,False,fix(controller): fixes
+https://www.github.com/1bye/apiser,e4547ab4fcd1b4f1d861f3237358cb0d7e251db9,2026-02-07T15:22:02+00:00,Human,,312,26,11,False,False,False,False,feat(controller): handler core implementation
+https://www.github.com/1bye/apiser,e324920a85a8d6a1bb194d61768452dfa17f9cc6,2026-02-05T19:10:11+00:00,Human,,144,2,3,False,False,False,False,feat(transform): collection updates
+https://www.github.com/1bye/apiser,55ace85d363db9064f45089f82c14f625af4cc46,2026-02-04T10:18:57+00:00,Human,,56,49,3,False,False,False,False,feat(transform): a bit change of API
+https://www.github.com/1bye/apiser,c0ee4418cb8a3c722dd224bd40e609c9ac9481dd,2026-02-03T21:18:45+00:00,Human,,289,0,10,False,False,False,False,feat(transform): initial commit
+https://www.github.com/1bye/apiser,a56c69a1c4bc49ee9f0eb13fb9ee5b25820d11fa,2026-02-02T16:44:45+00:00,Human,,26,8,4,False,False,False,False,feat(controller): small type tweaks
+https://www.github.com/1bye/apiser,ea8c76df891f5ea9a7cd7f7a59152a307be9c149,2026-02-01T14:17:42+00:00,Human,,275,32,7,False,False,False,False,feat(logger): finish logger
+https://www.github.com/1bye/apiser,a6bc5b284ee8e9f20ca84c1980c2b92be1c375c5,2026-02-01T12:23:11+00:00,Human,,183,25,5,False,False,False,False,feat(logger): core logic
+https://www.github.com/1bye/apiser,7c8425334ba58a02a28824de325a10851a568a79,2026-02-01T11:45:26+00:00,Human,,423,0,15,False,False,False,False,feat(logger): initial commit
+https://www.github.com/1bye/apiser,3799c1b8df58b56cdc0a63db90183eece1d71e96,2026-01-31T16:40:22+00:00,Human,,143,46,7,False,False,False,False,feat(controller): bindings model
+https://www.github.com/1bye/apiser,352eab025e7e0d4fd34ed00712f4a8a7b714c727,2026-01-28T19:28:13+00:00,Human,,66,60,3,False,False,False,False,feat(controller): better types on bindings
+https://www.github.com/1bye/apiser,06fdac2f3e7a285a8001827e0c20730af90e0eb2,2026-01-28T18:29:05+00:00,Human,,315,0,12,False,False,False,False,feat(api-aggregator): add endpoints
+https://www.github.com/1bye/apiser,c1b0486267b2227db3dfd2003ea613302ea8d734,2026-01-27T09:46:11+00:00,Human,,37,18,8,False,False,False,False,"feat: Add model binding and drizzle peer deps
+
+- Add peer dependency on drizzle-orm version ^1.0.0-beta.2-86f844e.
+- Make the model helper return a binding definition object instead of the raw model.
+- Add $modelName and $$config properties to ModelIdentifier.
+Remove ModelConfig, InferModelConfig, and Model generic interfaces.
+Redefine BindingModelOptions to reference $$config for primaryKey.
+Extend BindingModelOptions with optional from, fromKey, where, and transform options.
+Import FromKey type for new binding parameters.
+- Create a user model called “user”.
+Add a model binding for userModel in controller options.
+Exclude the userModel parameter from the handler function.
+- Enable symlink preservation in the TypeScript config.
+- Require drizzle-orm ^1.0.0-beta.2-86f844e as a peer dependency.
+- Expose model configuration via new $$config property.
+- Enable symlink preservation in TypeScript compilation."
+https://www.github.com/1bye/apiser,74b539763277e5032fde95215b5d5b739153f724,2026-01-26T21:13:29+00:00,Human,,225,32,11,False,False,False,False,feat(controller): start making bindings model support
+https://www.github.com/1bye/apiser,bae2b618b5cea0f259b2a1a769995a07ea0b8a68,2026-01-26T20:49:36+00:00,Human,,50,6,3,False,False,False,False,"feat(controller): add UnionToIntersection type
+
+- Export UnionToIntersection type from external module.
+Document ExpandBindingResult to clarify object merging behavior.
+Define Context type that merges binding results and includes response handler methods.
+Introduce Result interface to standardize handler component output.
+Add Component and Base interfaces to formalize handler component factories.
+- Add export of public types from the controller module.
+- Export a utility type that converts a union type into an intersection type."
+https://www.github.com/1bye/apiser,4ce1cc0cb68d1828e0ea85a9b76ca6229c15c52b,2026-01-26T20:45:29+00:00,Human,,30,8,2,False,False,False,False,"feat(controller): add binding utils and test field
+
+- Import BindingDefinition alongside HandlerBindings for binding definitions.
+Introduce UnionToIntersection utility type to merge multiple binding result types.
+Add ExpandBindingResult type to normalize individual binding results into objects.
+Refine InferedBindingValue to accurately infer result types from binding definitions.
+Rewrite InferedBindings to produce a combined binding object using UnionToIntersection.
+- Add test field with value 123 to the controller response."
+https://www.github.com/1bye/apiser,9eb8e91dbfced0512e1e233f0a2046ae158b5949,2026-01-26T20:23:08+00:00,Human,,107,10,8,False,False,False,False,"feat(controller+schema): add handler API with deps and docs
+
+- Add @apiser/response as a runtime dependency of the controller package.
+Add @apiser/schema as a runtime dependency of the controller package.
+Add @apiser/zod as a runtime dependency of the controller package.
+Add @apiser/zod as a runtime dependency of the schema package.
+Add type-fest to the catalog and lockfile.
+- Add a new documentation page containing the text copy from f-end.
+-
+- Add type-fest @5.4.1 as a new runtime dependency.
+- Add HandlerFn namespace with generic types for options, bindings, and context.
+Export createHandler function that returns a handler builder based on given options.
+Introduce OptionsBindings type to map optional handler bindings to their argument types.
+Define Component interface that returns a Result object containing data and error.
+Provide Callback type that receives a Context containing payload and response fail method.
+- Export the handler module publicly.
+Delete the unused createHandler stub.
+- Export `createHandler` from the package index.
+Define a Zod payload schema when creating a handler.
+Enable handlers to receive a `userModel` argument.
+Remove the default `model` binding from the test options.
+Instantiate a handler in the test and retrieve `data` and `error` from its call.
+- Add InferUndefined generic type to infer schema from possibly undefined values."
+https://www.github.com/1bye/apiser,c2a35d80f4950a75b6508f4429d4c49ee6f0db71,2026-01-25T13:50:27+00:00,Human,,268,8,8,False,False,False,False,"feat(controller+response): add bindings, options, and tests with deps
+
+- Add @apiser/response, @apiser/schema, and @apiser/zod as workspace dependencies.
+- Add a new bindings module that defines types, factories, and runtime helpers for creating and resolving handler bindings.
+- Export bindings and options modules from the handler index.
+- Introduce generic HandlerOptions including name, bindings, and responseHandler properties, add ExtendedHandlerOptions with an extend method, and overload createOptions to provide strongly‑typed bindings handling.
+- Export the handler module from the package’s entry point.
+- Add a new test file that defines a response handler with JSON and error schemas, registers a custom error, and configures handler bindings.
+- Add package exports mapping the main entry and TypeScript types to src/index.ts.
+- Replace the Zod import with the scoped @apiser/zod package in the response tests."
+https://www.github.com/1bye/apiser,454155584d1c6fa49be5dcd7839e415b075991fc,2026-01-25T10:18:11+00:00,Human,,11,8,2,False,False,False,False,"feat(drizzle-model): add primaryKeys to ModelConfig and upsert
+
+- Add primaryKeys and whereValue properties with their respective types to the ModelConfig type.
+- Replace the target type's primary‑key resolution to use `TConfig[""primaryKeys""]` instead of derived `GetPrimarySerialOrDefaultKeys` references."
+https://www.github.com/1bye/apiser,2e280758b4a0e855e1db986b60e14f2dbe9c6118,2026-01-25T10:07:15+00:00,Human,,10,5,2,False,False,False,False,"feat(response): add options builder
+
+- Enable createResponseHandler to accept an options builder function that receives option methods and resolves to the final options before constructing the handler.
+- Refactor createResponseHandler to accept an options callback and eliminate the unused options import."
+https://www.github.com/1bye/apiser,73d818ffd94ef14781956ea77441a23bcd26e55c,2026-01-25T09:54:45+00:00,Human,,8,0,1,False,False,False,False,"feat: Add chainable extend and createOptions factory
+
+- Introduce a chainable `extend` method in HandlerOptions and add a `createOptions` factory that returns an options object with a self‑returning extend."
+https://www.github.com/1bye/apiser,53ddb2a7ca0369a1613b03b0d23d7552a55ad892,2026-01-24T19:14:42+00:00,Human,,37,13,2,False,False,False,False,"feat: functional bindings, id route, docs list
+
+- Enable functional bindings with expanded model options, replace `.elysia()` calls by the `elysia` wrapper, and add an `id` route handler.
+- Convert the upsert and Transactions entries in the TODO to bullet points using asterisks."
+https://www.github.com/1bye/apiser,b73517fb5727eef9118dd4b3bbf36b0c1841a8b5,2026-01-22T20:59:49+00:00,Human,,265,70,9,False,False,False,False,feat(response): add tests and make better options types
+https://www.github.com/1bye/apiser,16b0325f57a9e248072cf0b9beae9b507d23042f,2026-01-22T19:22:47+00:00,Human,,6,0,2,False,False,False,False,feat(controller): handler types
+https://www.github.com/1bye/apiser,ecfa594ce5e29c7f0794a2ff5db3b31bfdd37554,2026-01-22T19:19:02+00:00,Human,,8,8,4,False,True,False,False,feat(response): minor fixes
+https://www.github.com/1bye/apiser,706314d21bdaaa23801f91cb965a21c6e6e724a1,2026-01-22T17:00:58+00:00,Human,,4,0,1,False,False,False,False,feat(response): add types for `JsonResponse.json`
+https://www.github.com/1bye/apiser,b0eb2480736aefb6702892af0615c4359ec09120,2026-01-22T16:54:49+00:00,Human,,75,18,1,False,False,False,False,feat(response): add comments and binary fn
+https://www.github.com/1bye/apiser,01b3f7da69f8b779b16b74675ab1eb3657371191,2026-01-22T16:48:24+00:00,Human,,168,176,18,False,False,False,False,feat(response): refactor codebase + better fns + text fn
+https://www.github.com/1bye/apiser,4c091f4da7ce3ba1c7a63128cb46cb252305d208,2026-01-22T16:25:22+00:00,Human,,399,229,29,False,False,False,False,feat(response): refactor entire codebase + json fn
+https://www.github.com/1bye/apiser,5ad1728fdedd38a5b8ef62b9899c3eb38f7998a0,2026-01-22T14:05:50+00:00,Human,,289,21,15,False,False,False,False,feat(schema+*): add schema pkg and tsdown for builds
+https://www.github.com/1bye/apiser,5a6e92d43eb15b60822d0a5466909c05198a1405,2026-01-20T22:36:42+00:00,Human,,103,21,5,False,False,False,False,"feat(response): better meta, error types and new ideas"
+https://www.github.com/1bye/apiser,397720376c65b2dff04ba1754426c2d3a849957b,2026-01-20T21:54:57+00:00,Human,,100,41,4,False,False,False,False,feat(response): better error types
+https://www.github.com/1bye/apiser,aba84eac965bfa03c152a4578f1828d68ddb8a77,2026-01-20T19:54:29+00:00,Human,,329,42,9,False,False,False,False,feat(response): new api
+https://www.github.com/1bye/apiser,5169fa9eca1bddd47408334cb5cccea5b3eed7b8,2026-01-17T17:36:44+00:00,Human,,162,10,8,False,False,False,False,feat(response): options
+https://www.github.com/1bye/apiser,00c16971759980afc11b83c2d21df966029cd2d1,2026-01-16T15:19:06+00:00,Human,,126,0,7,False,False,False,False,feat(response): initial commit
+https://www.github.com/1bye/apiser,9c6ce76a9247ed31206d6954b7102d5dc82e915d,2026-01-16T14:35:10+00:00,Human,,118,4,5,False,False,False,False,feat(controller): initial commit
+https://www.github.com/1bye/apiser,8759d29c82c267ea1b10f6229617cd268a2f9a2b,2026-01-16T14:33:34+00:00,Human,,157,0,5,False,False,False,False,feat(zod): apiser zod
+https://www.github.com/1bye/apiser,b83d1578c9209911ea94e4b58b0b7e36c1db61b8,2026-01-16T11:52:35+00:00,Human,,509,0,1,False,False,False,False,feat: ideas for controller
+https://www.github.com/1bye/apiser,7ef3f29106ce969dc1d8a5a36e8e381e6c795ab7,2026-01-11T14:09:05+00:00,Human,,39,20,2,False,False,False,False,feat(drizzle-model): update `upsert`
+https://www.github.com/1bye/apiser,71977b064a2c919f87ed095960e37c2de5874414,2026-01-11T11:20:23+00:00,Human,,1074,570,10,False,False,False,False,feat(drizzle-model): implement all functionality
+https://www.github.com/1bye/apiser,df7f3eaf8ae74e484cbffbfa8755481dc32daf16,2026-01-10T18:33:24+00:00,Human,,670,202,8,False,False,False,False,feat(drizzle-model): core functions and find tests
+https://www.github.com/1bye/apiser,fffc2f2b0252810cf843803df1f77002d9347009,2026-01-10T13:55:04+00:00,Human,,70,1200,43,False,False,False,False,"refactor(drizzle-model): mark v2 as default, and remove v1"
+https://www.github.com/1bye/apiser,b6597f75c8e0665a93aa7e8581f4ce12d0a49a2c,2026-01-10T13:52:34+00:00,Human,,12,6,2,True,True,False,False,fix(drizzle-model): the relations type issue
+https://www.github.com/1bye/apiser,2d873977d00dbf70e5b518f8301d4cc8e8b351e8,2026-01-10T13:31:29+00:00,Human,,95,24,2,False,False,False,False,feat(drizzle-model): add comments
+https://www.github.com/1bye/apiser,04e8f9e888dc7b0915085a275d12c8f9d669fa1a,2026-01-08T14:54:54+00:00,Human,,91,67,13,False,False,False,False,feat(drizzle-model): enhance types
+https://www.github.com/1bye/apiser,edece79d7b24f49df1117c98fecb61c0062d7e5d,2026-01-08T14:34:51+00:00,Human,,198,54,11,False,False,False,False,feat(drizzle-model): upsert function
+https://www.github.com/1bye/apiser,9361e7fd812598ab6aab9415df23081d6fc460f0,2026-01-08T11:41:25+00:00,Human,,114,21,2,False,False,False,False,feat(drizzle-model): esc function
+https://www.github.com/1bye/apiser,e646280f4b82137f1c6579d9a2ce8695175839ef,2026-01-05T15:57:16+00:00,Human,,225,106,9,False,False,False,False,feat(drizzle-model): new functions and types
+https://www.github.com/1bye/apiser,4be3892815ef61c7403a36621f1aeb3fc9c2323d,2026-01-03T13:22:45+00:00,Human,,123,48,7,False,False,False,False,feat(drizzle-model): methods
+https://www.github.com/1bye/apiser,7534381d864aacf7492e4abcadca976eb530f428,2026-01-02T12:11:09+00:00,Human,,118,86,7,False,False,False,False,"feat(drizzle-model): minimize types, by mapping into ModelConfig"
+https://www.github.com/1bye/apiser,466dded9326d602f9bf1a74c7b18bcccb56b9aa1,2026-01-02T11:37:36+00:00,Human,,180,88,8,False,False,False,False,feat(drizzle-model): update
+https://www.github.com/1bye/apiser,cc2cfb0f9d25797437a5f4498d4831dd676b7a51,2026-01-01T11:54:13+00:00,Human,,62,8,5,False,False,False,False,feat(drizzle-model): ideas of tx
+https://www.github.com/1bye/apiser,3585dd3acfa4809409af58906f54bd5adbfd8c56,2025-12-30T16:50:36+00:00,Human,,113,47,8,False,False,False,False,feat(drizzle-model): new `where` query function
+https://www.github.com/1bye/apiser,44278913fbc7fe01af4f57c9ab465fdd20bb8161,2025-12-30T16:38:37+00:00,Human,,70,30,4,False,False,False,False,feat(drizzle-model): foreign queries
+https://www.github.com/1bye/apiser,ab2524d35bf8ec3515fd87f314217f53640611c6,2025-12-30T15:44:58+00:00,Human,,13,7,2,False,False,False,False,feat(drizzle-model): prefix all methods with $
+https://www.github.com/1bye/apiser,9a5583f60aedf35b5a8b4e438d40904b8a89447c,2025-12-30T15:35:39+00:00,Human,,184,51,12,False,False,False,False,feat(drizzle-model): support different dialects and new model methods
+https://www.github.com/1bye/apiser,ac4542b755bd981ed3e731d15fcf4ac821920b33,2025-12-27T14:36:36+00:00,Human,,301,272,6,False,False,False,False,feat(drizzle-model): insert method
+https://www.github.com/1bye/apiser,6f85d14a6abab675dbefbe54c4bc08cea11a03fd,2025-12-27T12:57:04+00:00,Human,,152,135,4,False,False,False,False,feat(docs): add docs
+https://www.github.com/1bye/apiser,e7c81b728278f4031fa1a1fe7d73dae5ba987bb6,2025-12-16T09:45:54+00:00,Human,,2,0,3,False,False,False,False,feat(server): update logic
+https://www.github.com/1bye/apiser,437fd334c1a0cda7d92b6a5bcab900d26421fc63,2025-12-15T19:52:00+00:00,Human,,182,79,6,False,True,False,False,feat(drizzle-model): separate code and fix .findMany
+https://www.github.com/1bye/apiser,a091d5be964ce313d8a1b20c4d9ee83a1ca00408,2025-12-14T21:01:22+00:00,Human,,137,14,5,False,False,False,False,feat(drizzle-model): add column operations
+https://www.github.com/1bye/apiser,ee6ef73d092d7acc66610ab6b1a7bee44de0bee4,2025-12-13T22:54:26+00:00,Human,,84,8,2,False,False,False,False,feat(drizzle-model): new select & exclude methods
+https://www.github.com/1bye/apiser,bd09fd0bdac8b25839e66924566cb577c720323f,2025-12-13T21:58:40+00:00,Human,,76,3,3,False,False,False,False,feat(drizzle-model): add comments
+https://www.github.com/1bye/apiser,2675346e7578a02f39556f47363ecb859c1aabe1,2025-12-13T21:50:04+00:00,Human,,70,47,2,False,False,False,False,feat(drizzle-model): move code into smaller chunks
+https://www.github.com/1bye/apiser,7b3bece0720e6c934e8d3f8706b199e33d3ce01b,2025-12-13T21:45:20+00:00,Human,,344,1,14,False,False,False,False,feat(drizzle-model): do a v2 of model
+https://www.github.com/1bye/apiser,d444f7047e22d7ad4074f654c0856ba1aeb74611,2025-12-13T16:00:16+00:00,Human,,4,0,1,False,False,False,False,feat(drizzle-model): add missing type
+https://www.github.com/1bye/apiser,1deecc9efeb93cddd3cb5269450d0d15e90ee8a4,2025-12-13T16:00:01+00:00,Human,,49,19,4,False,True,False,False,feat(drizzle-model): fix issues with tables names
+https://www.github.com/1bye/apiser,2cca604476816c145695116f6dde89f6c5ef65cf,2025-12-13T15:39:56+00:00,Human,,418,335,9,False,False,False,False,feat(drizzle-model): allow to select values from relations
+https://www.github.com/1bye/apiser,1362acc52d9371533dcfc9f09ed9476406a46ab4,2025-12-11T11:11:32+00:00,Human,,58,26,6,False,False,False,False,feat: update
+https://www.github.com/1bye/apiser,fdc330f87063691d403b580155b6503687d2b6d1,2025-12-10T22:00:00+00:00,Human,,93,21,7,False,False,False,False,feat(drizzle-model): select function
+https://www.github.com/1bye/apiser,a7fd150163d9a9fc7ada5427824c52205b059030,2025-12-10T21:38:24+00:00,Human,,271,224,19,False,False,False,False,refactor(drizzle-model): organize package
+https://www.github.com/1bye/apiser,e0d4571b4f23d68f185e19b11344d9dbb809ec40,2025-12-10T21:12:25+00:00,Human,,502,126,11,False,False,False,False,feat(drizzle-model): moving to another new Api
+https://www.github.com/1bye/apiser,7452828721a56e5f39650d640f0a07bf33d09bf8,2025-12-08T19:10:02+00:00,Human,,529,172,9,False,False,False,False,feat(drizzle-model): huge API change
+https://www.github.com/1bye/apiser,232cae052e467956da05051684d77015cd505f0f,2025-12-07T16:28:46+00:00,Human,,81,7,2,False,False,False,False,feat(drizzle-model): new query functions
+https://www.github.com/1bye/apiser,0ac8bafb36d99024c14d0842dd1576c47b766bda,2025-12-07T16:23:27+00:00,Human,,28,8,2,False,False,False,False,feat(drizzle-model): root model functions
+https://www.github.com/1bye/apiser,a580d7395360037f4525cfec4ec9688852d8d593,2025-12-07T16:14:50+00:00,Human,,488,41,9,False,False,False,False,feat(drizzle-model): make find working
+https://www.github.com/1bye/apiser,04fd0966439636ce133296ff0ec9f961937c6f04,2025-12-07T15:43:00+00:00,Human,,161,68,10,False,False,False,False,feat(drizzle-model): new model api
+https://www.github.com/1bye/apiser,e70c2bfb66f38250747257176b5a86bdf587a605,2025-12-06T15:28:02+00:00,Human,,86,92,3,False,False,False,False,feat(db): new chainable api
+https://www.github.com/1bye/apiser,1cb74c099e8f21e40f8c4c44e762b606685d4ae4,2025-12-06T13:09:59+00:00,Human,,1065,0,10,False,False,False,False,feat(db): model
+https://www.github.com/1bye/apiser,f2458d468ddf823e57a1b7274a5b6525bdc4c50d,2025-12-05T15:31:58+00:00,Bot,Bot,14,3012,6,False,False,False,False,feat(create-turbo): apply package-manager transform
+https://www.github.com/1bye/apiser,caf37d29f6fbb2f5f40ee97a3e6b90369a5ed021,2025-12-05T15:31:57+00:00,Bot,Bot,2,7,2,False,False,False,False,feat(create-turbo): apply official-starter transform
+https://www.github.com/1bye/apiser,504fcb00be66cd41aa54e70995d360e40b0d0e2e,2025-12-05T15:31:57+00:00,Bot,Bot,4643,0,63,False,False,False,False,feat(create-turbo): create basic

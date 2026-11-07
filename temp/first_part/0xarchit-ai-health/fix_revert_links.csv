@@ -1,0 +1,6 @@
+github_url,source_sha,source_date,source_type,source_author_type,target_sha,target_date,target_author_type,days_to_action,day_bucket,link_method
+https://www.github.com/0xarchit/ai-health,6df3dda4dbc60c8dc1a3cb9a5107e6106d352b9f,2025-12-07T10:24:48+00:00,fix,Human,4c186591cca5b98b3002ae2eb22e30ae33b43e8e,2025-11-26T16:09:52+00:00,Human,10.76,7-30,blame
+https://www.github.com/0xarchit/ai-health,d3f8d097dc19271ecc7fda497fb206edac11ca79,2025-12-07T07:20:48+00:00,fix,Human,c72e4e799d7b66c147203ed3385e0336a31ea256,2025-12-06T11:52:56+00:00,Human,0.811,0-1,blame
+https://www.github.com/0xarchit/ai-health,6a57f986e7cc90f9c855cf81229a1edf079e4ff4,2025-12-06T15:39:00+00:00,fix,Human,487fffe7fe3aad8e14d03fd0af06b9a471c45122,2025-12-05T03:48:53+00:00,Human,1.493,1-3,blame
+https://www.github.com/0xarchit/ai-health,f05866d6699b1d7b2c7ba64b2fc9b222e546548f,2025-12-06T07:22:54+00:00,fix,Human,,,Unknown,,unresolved,unresolved
+https://www.github.com/0xarchit/ai-health,a858cb0fa939484924b596d018ebfcf044be4205,2025-12-05T17:29:23+00:00,fix,Human,8abdebd632718d31631414cd7c25400b9a0f249e,2025-12-04T03:56:08+00:00,Human,1.565,1-3,blame

@@ -1,0 +1,4 @@
+github_url,source_sha,source_date,source_type,source_author_type,target_sha,target_date,target_author_type,days_to_action,day_bucket,link_method
+https://www.github.com/4890a/mimiuchi,aa7ab5c0b6a88799fe2e57a4469808661045c80c,2026-08-28T18:43:34+00:00,fix,AI,7bd97e82eea70607741e2f1552c77aeed8de8459,2026-08-20T14:23:45+00:00,AI,8.18,7-30,blame
+https://www.github.com/4890a/mimiuchi,b0fbeb56b8b8f24f1c552b81a86230e7508bc900,2026-08-18T17:47:47+00:00,fix,Human,6189d62b1a5dab88e2d2e7a40dfaf18454d75e43,2026-05-21T19:39:55+00:00,Human,88.922,30+,blame
+https://www.github.com/4890a/mimiuchi,5ae4ddd4422c0076bffc6317d07271b6605d3b9c,2026-05-21T20:39:39+00:00,fix,AI,6189d62b1a5dab88e2d2e7a40dfaf18454d75e43,2026-05-21T19:39:55+00:00,Human,0.041,0-1,blame

@@ -1,0 +1,1027 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/4890a/mimiuchi,d745d23e9e68ee561c88deac8d17bd2f375d62c9,2026-09-17T16:12:27+00:00,AI,Claude_Code,110,34,8,False,False,False,False,"auth: set the cookie's Secure flag from the request scheme
+
+The flag used to follow NODE_ENV, so a production build reached over plain
+http://<lan-ip> set a Secure cookie the browser dropped, and login bounced
+back to /login. It now follows x-forwarded-proto per request, which Next
+fills from the socket when no proxy sets it. KIKOERU_SECURE_COOKIES still
+forces it either way, and compose no longer defaults it to false.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01C8rJjRP7juwzG1Mw8HMMxG"
+https://www.github.com/4890a/mimiuchi,cacb6f7808aa5672e8ff9635441d39ce7fa2096d,2026-09-02T16:41:52+00:00,AI,Claude_Code,159,16,1,False,False,False,False,"extras: page the image lightbox by scroll and swipe
+
+The lightbox now steps through every image in the work in the order the
+grid shows them. Grouping by folder reorders images that interleave two
+folders, so paging through the raw list jumped around.
+
+Three ways through it: the existing arrow buttons, a wheel or trackpad
+scroll on desktop, and a horizontal swipe on touch. Wheel deltas
+accumulate to a threshold and a step opens a short cooldown, so a
+trackpad flick's momentum tail does not fly through the gallery. The
+swipe locks its axis on the first real movement, drags the image with
+the finger, and eats the click that ends it so the full-bleed close
+overlay does not dismiss the viewer. The two neighbouring originals are
+preloaded once an image is up so moving on does not stall on a fetch.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PX2dgxpTCdKZeyV5oBNj1v"
+https://www.github.com/4890a/mimiuchi,af0e0ad9db03d3167401a79d49ccfbe834fd2350,2026-09-02T16:41:52+00:00,AI,Claude_Code,6,1,1,False,False,False,False,"reader: let the player bar's flyouts open over the script reader
+
+The reader popup sat at the same z-index as the player bar, so the
+volume slider and seek tooltip the bar opens upwards were clipped
+behind it. z-45 keeps the reader over the top nav (z-40) and under the
+bar (z-50), which stays usable while the reader is open.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PX2dgxpTCdKZeyV5oBNj1v"
+https://www.github.com/4890a/mimiuchi,adead252222d442122d794d6698400be9ba0d503,2026-09-02T16:25:42+00:00,AI,Claude_Code,309,6,10,False,False,False,False,"deploy: add Docker as an optional way to run the app
+
+A root Dockerfile, compose.yaml, .env.docker.example and .dockerignore
+build a self-contained image (Node 22, production node_modules, ffmpeg)
+that runs from web/ so the cwd-relative drizzle and kuromoji lookups keep
+working. The library is mounted read-only at /library; data and covers
+live in named volumes.
+
+Nothing changes for node/pnpm installs. The three code changes are all
+opt-in through env vars the Dockerfile or compose sets:
+
+- KIKOERU_SECURE_COOKIES lets the login cookie work over plain HTTP.
+  `next start` marks it Secure, which browsers drop on a LAN IP.
+- /api/health answers without a session for the compose healthcheck.
+- KIKOERU_IN_CONTAINER hides ""Open folder"", which has no desktop to
+  hand the path to inside a container.
+
+The README documents the Docker path, how to move an existing install
+across via backup import, and that Settings -> Library paths overrides
+KIKOERU_LIBRARY_ROOT once set.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PX2dgxpTCdKZeyV5oBNj1v"
+https://www.github.com/4890a/mimiuchi,e69000bb58856de6134096eb393f912bd79dbfcc,2026-08-28T18:43:56+00:00,AI,Claude_Code,15,2,1,False,False,False,False,"search: keep the caret in the box when Escape closes the suggestions
+
+Escape closed the suggestion list and blurred the input. Anything that
+put focus back — and focus has to come back for a subsequent keystroke to
+reach the box at all — fired onFocus, which reopens the list, and cmdk
+highlights its first item as it mounts. Enter then took that suggestion
+instead of submitting what was typed, so ""Escape, then Enter to search
+for exactly this"" worked or not depending on whether React had flushed
+the reopen before the keystroke landed.
+
+Leave focus where it is, which is what a combobox is expected to do, and
+reopen on the next keystroke instead. onFocus can no longer do that job,
+since the box never lost focus to begin with.
+
+Found because the e2e spec that covers free-text submit is written as
+Escape then Enter, and it had been passing on timing.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_014DWgZiktsedPGdb84M28mL"
+https://www.github.com/4890a/mimiuchi,c586fe6b18643c174e268535a284423466f0a81e,2026-08-28T18:43:47+00:00,AI,Claude_Code,243,51,3,False,False,False,False,"search: find works by their RJ code
+
+Typing a work id into the search box returned nothing. The index builds a
+document per work from its title, kana title and circle name; the id was
+carried as refId, stored but never indexed. The only works findable by
+code were the ones with no DLsite listing, because upsertWork titles
+those by their own id — which is also why the e2e suite never noticed.
+
+Works gain a `code` field holding the forms of an id that are actually in
+circulation: the id itself, its bare digits for anyone who has the number
+but not the prefix, and the zero-padded eight-digit form. DLsite answers
+to both paddings, which is why the scanner probes both when it looks a
+work up, so whichever one was copied has to find it.
+
+A code query also turns fuzzy matching off. Ids in a library sit a digit
+or two apart and at fuzzy 0.3 a ten-character term tolerates three edits,
+so RJ01678210 came back with every neighbour within three digits of it
+and the work asked for arrived buried among them. isWorkCodeQuery draws
+the line: an rj/vj/bj prefix, or six to eight bare digits. Shorter
+numbers and ordinary words keep the fuzzy matching they want.
+
+The field is boosted above every other, since a code has to beat the type
+weighting that otherwise ranks works below seiyuu, circles and tags.
+
+The rules live in their own module, free of server-only and of the
+database, so they can be tested on their own. searchSuggestions and
+searchWorkIdsForQuery each carried a copy of the variant loop and the
+boost table, which is how the two would have drifted apart; both now go
+through rankDocs.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_014DWgZiktsedPGdb84M28mL"
+https://www.github.com/4890a/mimiuchi,aa7ab5c0b6a88799fe2e57a4469808661045c80c,2026-08-28T18:43:34+00:00,AI,Claude_Code,317,65,2,False,True,False,False,"player: keep playing when a background stall interrupts a handoff
+
+Android reports playback pausing about a minute after an autoplay
+advance, but only with the screen off, and for every format. iOS is
+clean. The wav transcode shipped in the same batch and took the blame,
+but it only touches .wav and serves a plain range-capable file, so it
+cannot explain mp3. The two-deck handoff can.
+
+armStandby loads the next track 30s early and leaves it paused inside a
+hidden page, which is the state Chrome on Android suspends. advance()
+then plays that suspended deck, downgrades it to preload=""metadata"", and
+destroys the outgoing deck's player before the incoming one has reported
+playing — a window Chrome hands to Android as ""nothing is playing"".
+Playback runs off the prebuffered range for about a minute, then needs
+the network again on a radio in power save. One error was fatal: onError
+probed once, retried once, and called setIsPlaying(false). There were no
+stalled or waiting listeners at all.
+
+The trigger is the phone's power management. What made it permanent was
+ours, so:
+
+- A recovery ladder replaces the one-shot retry. waiting/stalled/playing
+  are listened for, attempts back off 2/4/8/15/15s escalating from a bare
+  play() to a reload and reseek, and it gives up after ~44s with a toast.
+  The first rung is unhurried on purpose: waiting is also what a healthy
+  deck fires while it buffers the start of a track, so nothing is
+  reloaded until the clock has failed to move for six seconds.
+- The outgoing deck is kept intact until its replacement fires playing,
+  with a 5s fallback, so the page never owns zero live players mid-swap.
+- preload is left where armStandby put it rather than downgraded at the
+  moment the deck needs its buffer most.
+- The prearm window drops to 10s while hidden, shortening the span in
+  which a paused standby deck can be suspended. hiddenRef moves to its
+  own mount-once effect so it can be trusted for that decision: the
+  effect that owned it bails when the queue is empty, leaving the flag
+  stuck on its last value.
+- The handoff timer is re-anchored on every tick. It was fixed from a
+  single timeupdate sample, so a stall left it firing into the middle of
+  a track and banking that track as finished.
+
+errorRetryRef goes with the one-shot retry it existed for.
+
+Progress writes now check their result. They were fire-and-forget, and
+the session proxy answers an unauthenticated POST with a 307 to /login
+that fetch follows and reports as 200, so a lost position read as saved.
+A failed write puts lastSavedRef back so the next tick retries, and
+sendBeacon's return value is no longer ignored.
+
+Not reproducible here, so this hardens every branch of the diagnosis
+rather than confirming one. Two e2e specs cover it: a handoff with the
+page reporting itself hidden, and a synthetic buffering hiccup that must
+not restart playback.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_014DWgZiktsedPGdb84M28mL"
+https://www.github.com/4890a/mimiuchi,abe7eebf3957cf841f90c96f06658c6f1259e4a7,2026-08-26T23:04:05+00:00,AI,Claude_Code,365,11,8,False,False,False,False,"work: let a work's play progress be cleared
+
+Positions are written continuously while a track plays and there was no
+way to take them back. A work that has been touched once keeps its
+per-track bars for good and sits in the library's on-deck row for good,
+because listRecentlyPlayedWorks is driven by nothing but max(updated_at)
+over the work's track_progress rows.
+
+Add a Clear progress button to the work page, in the Tracks header over
+the bars it erases and only when there are some, so it is never a no-op.
+It confirms first: the wipe is irreversible and can span dozens of
+tracks. Likes and bookmarks are untouched.
+
+Deleting the rows is what drops the work off on deck. Marking them
+completed would not have — on deck asks only whether a row exists, not
+where it sits or whether it finished — so the finished tracks go with the
+part-played ones, and a test pins that.
+
+router.refresh() alone left the bars up. Two client-side caches of a
+position outlive it: the map TrackList banks on the way out of a track,
+and the player's sessionPosRef, which also feeds initialPosition on a
+queued track. The player gains forgetProgress(trackIds) for both, and
+publishes a progressEpoch that TrackList stamps its map with, so a stale
+stamp reads as empty rather than being cleared by an effect after the
+fact.
+
+Clearing while a track of the work is playing is allowed and does not
+interrupt it. The player banks a position again within seconds and the
+work returns to on deck, which is the honest answer for something being
+played right now.
+
+repository.test.ts is new and covers listRecentlyPlayedWorks too, which
+had no test at all.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01T3FfmHWG7AntykavnEyfAF"
+https://www.github.com/4890a/mimiuchi,363b4e02fce3a8c4cd039b466a88eccaca6fdc59,2026-08-26T00:51:56+00:00,AI,Claude_Code,1334,277,25,False,False,False,False,"scan: let folders with no work id become works
+
+A folder of loose audio, a Comiket release, anything bought outside
+DLsite — `findWorkEntries` recursed into it, found no RJ code and dropped
+it without a log line. There was no way to get it into the library.
+
+Add an opt-in setting. A folder becomes a work when it is the shallowest
+one holding audio and holding no RJ-coded work anywhere beneath it. Its
+id is `LOCAL-` plus a hash of its absolute path, so discovery stays pure;
+it is titled from the folder and everything else is filled in through the
+existing edit dialog. Off by default: with it off neither subtree probe
+runs and the scan is byte-for-byte what it was.
+
+Nothing about such a work may be looked up, so three gates say so —
+`needsMeta`, the quick-skip, and `refreshWorkMetadata` — and the
+missing-seiyuu list excludes them, or its scan would force-fetch every
+one. The title and `metadata_source` are insert-only, so a rescan cannot
+walk back a hand-typed edit. With the setting off again these works are
+filtered out of reconciliation rather than offered up for deletion.
+
+Discovery is now one function shared with backup restore, which carried
+a second copy of the same walk; a folder the scanner claimed but restore
+did not is a work that silently loses its path on restore. Covers with no
+parseable id fall back to the filename, which is the id.
+
+No migration: the setting is a key in the existing `settings` table, and
+`NormalizedWork[""source""]` was already typed `""dlsite"" | ""manual""`.
+
+Verified against the real library: 331 RJ works either way, plus exactly
+the 8 expected folders, with `Images`, `Video`, `エロ` and the rest
+correctly passed over.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01GWNQEVyc6JU399VMgH9p8i"
+https://www.github.com/4890a/mimiuchi,9623e48fdb1e461925d02ce7fb20f5648e8d50fc,2026-08-26T00:39:49+00:00,AI,Claude_Code,28,1,2,False,False,False,False,"scan: see the work ids that sit next to an underscore
+
+`\b` treats `_` as a word character, so the trailing boundary in RJ_REGEX
+refused `RJ01124146_MP3V0` — the shape DLsite's own downloader produces —
+and the leading one refused `耳フェラ。_RJ191210`. 108 top-level folders in
+one real library carried an id the scanner could not see, 103 of them
+absent from the database entirely.
+
+Swap both boundaries for lookaround that rejects an adjacent letter or
+digit but lets `_` and punctuation through, and rejects a following digit
+so 9+ digit strings still fail instead of matching their first 8.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01GWNQEVyc6JU399VMgH9p8i"
+https://www.github.com/4890a/mimiuchi,1df7edcfc5c1b5e5920abaa1cd1d9df0c226f119,2026-08-25T19:32:28+00:00,AI,Claude_Code,334,18,3,False,False,False,False,"library: narrow the filter menu to the works still showing
+
+The filter sheet listed every tag, voice actor and circle in the library with a
+library-wide count, and that list never moved as you filtered. Picking ASMR
+still offered every other tag in the collection, most of them on no remaining
+work, so choosing a second one landed on an empty grid with nothing to say why.
+
+The menu is now built from the works currently showing, with counts to match:
+filter by 耳舐め and the tag list goes from 160 entries to the 136 those works
+actually carry, ASMR reading 83 rather than 103. On the library this was built
+against every one of those 136 leads somewhere, and the facet pass costs under
+two milliseconds over 231 works.
+
+It needs no extra query to know what matched. listWorksFiltered takes no limit
+or offset and has a single caller, so the array the page already holds is the
+complete filtered set and its ids are all the facets need. The lists are built
+that way with or without active filters — one code path, and the counts in the
+menu cannot disagree with the grid. FilterList itself is untouched: it renders
+what it is handed, and maps its fuzzy-search suggestions back through the same
+items, so narrowing constrains those too.
+
+Voice actors and circles narrow the same way, which is worth being explicit
+about because they are OR filters: pick one voice actor and the menu offers
+only the people they have worked with, so a second, unrelated one can no longer
+be added from it. The unfiltered lists therefore stay, now purely to label the
+chips in ActiveFilters — a selection that has narrowed itself out of the menu
+is undone from its chip, and resolving those names from the narrowed lists
+would remove the way back at the exact moment it is needed.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01E2w8BpWYeKpSv8R6rT68px"
+https://www.github.com/4890a/mimiuchi,a7063752764047c62165efb5295b0272b8053125,2026-08-25T19:32:13+00:00,AI,Claude_Code,1499,26,19,False,False,False,False,"library: notice when a work's folder has gone
+
+Deleting an RJ folder left its entry in the library forever. The scanner only
+ever added: it walked what was on disk and upserted, so nothing ever compared
+that against what was on record, and an absence looked exactly like a work it
+had not reached yet.
+
+It now takes the set of ids it found and diffs it against the ids in the
+database, stamping missing_since on the ones that are no longer there. That
+drops them out of every browse surface — library, seiyuu, circles, on deck,
+recently played, and the tag and voice-actor counts — while the row itself,
+along with its likes, bookmarks and playback progress, stays put. Settings
+lists what went missing and removes it only when you say so, because a work
+that disappeared because a drive was unplugged should not take your listening
+history with it.
+
+Two guards make that safe to run unattended. Nothing is marked unless every
+library root read successfully first: findWorkEntries swallows a readdir
+failure and returns an empty map, so a disconnected drive is otherwise
+indistinguishable from a library someone emptied. And the found-id set is
+snapshotted before the incremental pass deletes the entries it decides to
+skip — reading it afterwards would have flagged the entire healthy library.
+Both were mutation-tested: removing either guard fails exactly the tests
+written for it.
+
+Playing a track from a folder that has gone used to leave the deck stuck on
+it, retrying an element that would never load. The error handler now probes
+the failing URL, and on a 404 or 410 says so and advances the queue, giving up
+after three gone tracks in a row rather than walking the whole queue with a
+toast for each.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01E2w8BpWYeKpSv8R6rT68px"
+https://www.github.com/4890a/mimiuchi,29771c5f42fdea424ea5b8271db82c7e88f0b8fe,2026-08-25T00:03:21+00:00,AI,Claude_Code,98,9,7,False,False,False,False,"scan: add an extras-only pass that never contacts DLsite
+
+Getting extras for the first time already needs nothing but a scan: every
+existing row has a null assets_scanned_at, so the next ordinary scan re-walks
+each work once and then goes back to skipping it. Keeping them up to date
+afterwards was the gap.
+
+An incremental scan skips a work whose folder mtime has not moved, and that
+check stats the work folder itself. Dropping a file into おまけ/ or 台本/ only
+changes the immediate parent directory's timestamp, so the work folder looks
+untouched and the new file stays invisible — indefinitely. The only way to
+reach it was a force rescan, which finds it by re-fetching every DLsite
+listing: minutes of rate-limited network to pick up a text file.
+
+This mode re-walks every work's files and never asks DLsite for anything. On a
+231-work library it reads 3236 tracks and 2410 extras in about two seconds,
+where the force rescan it replaces would have made 231 network round trips.
+
+It also covers the case where the classification rules themselves change: an
+upsert plus a prune over the same walk reconciles what is recorded with what
+is on disk, so a release that learns to recognise a new kind of file only
+needs this to be run once.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_018rT1DnuESJNntxLhkDKLSh"
+https://www.github.com/4890a/mimiuchi,f86956d69dc9e876c06e032ae7d513f52a389cdb,2026-08-24T23:40:01+00:00,AI,Claude_Code,98,9,2,False,False,False,False,"work: keep the player reachable while the 台本 reader is open
+
+Reading along with the audio is the point of having the reader, and it was
+covering the one control you need while doing it. It now stops at the top of
+the player bar rather than at the bottom of the viewport, and stops being modal
+so what is underneath still answers to the mouse.
+
+The bar publishes its own height, because there is no constant to hard-code:
+it differs between the compact and wide layouts, moves with the safe-area
+inset, and changes again when the waveform seek bar is on. Measured once on
+mount as well as from a ResizeObserver — observers deliver on an animation
+frame, which a background tab never gets, so a reader opened in a tab that was
+never brought forward would size itself against a variable that is not there
+yet. The property is cleared on unmount, so an empty queue leaves the reader
+full height.
+
+Two things had to follow from the bar being live. Outside presses no longer
+dismiss, or reaching for pause would shut the reader. And the scroll keys are
+claimed only for presses aimed inside the popup, since the seek and volume
+sliders want the arrow keys for themselves.
+
+That key handler moved to the capture phase: the dialog stops arrow keys from
+propagating, so a bubble-phase listener on window never saw them — PageUp and
+PageDown worked while the arrows silently did nothing. It finds the popup
+through the DOM rather than a ref, because Base UI's Popup does not forward
+one and a ref left null would have sent every key down the early return.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_018rT1DnuESJNntxLhkDKLSh"
+https://www.github.com/4890a/mimiuchi,bf90d44750654ce7e22522252528d7334eab99a0,2026-08-24T21:58:26+00:00,AI,Claude_Code,3079,36,27,False,False,False,False,"work: show the extras that ship alongside the audio
+
+A release carries more than tracks — bonus illustrations, おまけ videos, and
+台本 — and until now the scanner dropped all of it on the floor. It lands in a
+pre-collapsed panel on the work page, so it is there without crowding out the
+tracks.
+
+Detection is its own pure module, because the naming is a mess in practice.
+台本 is recognised from the filename or any folder above it: one release ships
+eleven scripts as 台本\1　バイノーラル指示あり.txt, where only the directory
+says so. Readmes are always dropped, and the Latin spellings are the minority —
+リードミー and 説明書 together outnumber every variant of ""readme"", which
+itself arrives as Read me, read_me, readme txt.txt and one Rreadme typo.
+はじめに and おわりに are only readmes as a whole .txt name; as a PDF they are
+illustrated booklet pages, and 【はじめに】 inside a longer name is a talk
+theme.
+
+Scripts pair with their tracks off the filename rather than tracks.track_number,
+which is NULL for precisely the works this matters for — the ones named tr01_.
+Both sides go through the same first-digit-run extractor, and a number claimed
+by two scripts links neither, so a set split across JP/EN/CN or per character
+stays unlinked instead of guessing.
+
+A .txt 台本 reads in the app as continuous vertical Japanese. Wheel movement is
+mapped onto the horizontal axis; without that a mouse does nothing at all in a
+vertical-rl box. PDFs open in a new tab instead.
+
+Gallery images are served downscaled. The originals are print resolution — 2000
+x3000 and about 4 MB — so one work's twenty-two thumbnails came to roughly 90 MB
+before the cache went in, which is hopeless on the phone this is mostly read
+from. It mirrors lib/transcode: a capped LRU directory that is safe to delete,
+falling back to the original whenever sharp cannot produce something.
+
+Storage is one additive table plus a nullable works.assets_scanned_at, and the
+column is what makes the upgrade free: every existing row has NULL there, so
+the next ordinary scan re-walks each work exactly once to backfill it and then
+skips it forever after. That pass reads local directories only and fetches no
+metadata.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_018rT1DnuESJNntxLhkDKLSh"
+https://www.github.com/4890a/mimiuchi,dde1c744ca6e5cb55d1f8098d9bdf0f9ef258f0d,2026-08-21T17:31:11+00:00,AI,Claude_Code,100,19,5,False,False,False,False,"work: tap the cover to enlarge it, and transcode at 320k
+
+Two changes, in one commit because both touch the dictionaries and the hunks
+sit too close together to stage apart.
+
+The work page's cover is now a button that opens the image full size. The
+thumbnail is cropped to 4:3 by `object-cover`, so a squarer cover loses its
+edges on the page; the enlarged view is `object-contain` and shows all of it,
+at native resolution rather than upscaled. Escape, the backdrop and an explicit
+close button all dismiss it, and focus returns to the cover.
+
+It is not built on `DialogContent` — that is a small padded card, and undoing
+its background, ring, padding and width would leave nothing of it. The portal
+is reused, the popup composed alongside it with a backdrop dark enough to read
+as a lightbox.
+
+Making the cover focusable has one visible consequence: with the R18 blur on, a
+click now un-blurs the thumbnail for as long as it holds focus, where before
+only hover did. That follows from the existing `:focus-within` rule, and it
+re-blurs as soon as focus moves. Left alone, since forcing a blur on close
+would break focus restoration for keyboard users.
+
+Transcoding moves from 192 to 320 kbps, still CBR. Constant rate is the point:
+byte offset stays a linear function of time so seeking is exact, where VBR
+needs the Xing TOC — 100 entries however long the file, roughly 36-second
+granularity across an hour. Fine for a song, not for a two-hour work with a
+waveform scrubber and bookmarks on it.
+
+Bitrate joins the cache key, so entries from the old setting are re-converted
+rather than served forever. `dropStaleSiblings` already removes any other entry
+for the track, so the old files clear themselves on first replay; no manual
+cache wipe.
+
+`data/transcodes/` is added to .gitignore. The existing rules cover data/*.db
+and nothing else under data/, so the cache — tens of megabytes of derived audio
+per track — was staging itself.
+
+Measured on a 61 MB mono WAV: 27.6 MB out at exactly 320000 bps, an `Info`
+header with no `Xing`, duration within 27ms of the source.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01EPBdaaa2EanudWyWqvxBKR"
+https://www.github.com/4890a/mimiuchi,70534e435a44a698f95712e45c5df43e1c3762b5,2026-08-21T17:12:07+00:00,AI,Claude_Code,689,25,7,False,False,False,False,"player: send phones a compressed copy of WAV tracks
+
+A WAV in this library runs 1.4-2.9 Mbps. A phone that drops its radio into
+power-save when the screen goes off can't keep that fed, and because the
+browser's media buffer is bounded in bytes rather than seconds, a high bitrate
+also buys fewer seconds of slack to ride out the gap. FLAC of the same content
+is half the size and doesn't stutter, which is what pointed at bitrate.
+
+`?t=1` on the audio URL asks for a 192 kbps MP3. The server decides whether the
+track's format is worth converting — lossy sources fall straight through — and
+any failure (no ffmpeg, broken file, timeout) serves the original instead, so a
+failed conversion can never cost playback.
+
+The MP3 is written to a cache file and then served through the route's existing
+range code, rather than piped out of ffmpeg live. That is the whole reason this
+is a cache and not a stream: iOS refuses a media URL that can't answer `Range`
+with a real 206 and a Content-Length, and a live pipe doesn't know its own final
+length. Converting once buys a plain file every platform already knows how to
+seek. Entries are keyed by source size so a re-ripped file is never served stale.
+
+The cache is capped (KIKOERU_TRANSCODE_CACHE_MB, default 4 GB, 0 to disable) and
+evicted least-recently-used, with a hit touching mtime so a track in rotation
+stays hot. An entry whose work was deleted is never touched again and ages out on
+its own, which is why nothing is wired into work deletion or the scanner's prune.
+The entry just written is exempt from its own sweep — without that, a ceiling
+below one track deletes each conversion the instant it finishes and re-runs
+ffmpeg on every request.
+
+Stored per device in localStorage alongside the other player preferences, and
+defaulted from `(pointer: coarse)`: phones and tablets get the small copy, a
+desktop on the same server keeps the original. Settable either way under
+Settings -> Playback. `createPref` grew an optional client-side default for
+this, which deliberately does not affect the server snapshot.
+
+Measured on a 1.2 GB / 56-minute source: 28s to convert at 120x realtime, 77 MB
+out, duration within 44ms of the original.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01EPBdaaa2EanudWyWqvxBKR"
+https://www.github.com/4890a/mimiuchi,91ec2917f1a4e15a993bb5f6a9164fb2eaf9cd14,2026-08-20T15:31:56+00:00,AI,Claude_Code,326,81,2,False,False,False,False,"player: give phones their own now-playing layout
+
+The seek bar ran the full width of the screen along the player's top rim,
+which left nothing to aim at and no room for a thumb, and the elapsed/total
+readout was desktop-only.
+
+Below the `sm` breakpoint the player now renders a second layout: the track
+and transport on one row, and the seek bar on a padded row of its own,
+flanked by elapsed and total. Label widths follow the total's digit count so
+the track doesn't jump at 9:59 -> 10:00. Both seek styles come along — the
+line bar gains an inline variant (a 6px rounded track in a 28px touch strip
+with an always-visible thumb) and the waveform is sized to 36px.
+
+The layout is chosen from a matchMedia subscription rather than responsive
+classes, so a single seek bar stays mounted — two would mean two canvases and
+two resize observers painting the same waveform.
+
+Skip back/forward are no longer hidden on phones, at 36px rather than the
+desktop 32px, and the title scrolls like a ticker when it overflows: hold,
+slide at a constant 40px/s, hold, ease back. The keyframe offsets follow the
+distance, so a longer title takes longer to cross instead of scrolling
+faster. It falls back to plain truncation when the text fits and when the OS
+asks for reduced motion.
+
+Both seek bars also clear the hover marker when a non-mouse pointer is
+released — a finger never fires pointerleave, so the scrub bubble used to
+stay pinned where the drag ended.
+
+The wide layout is untouched.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01EPBdaaa2EanudWyWqvxBKR"
+https://www.github.com/4890a/mimiuchi,7bd97e82eea70607741e2f1552c77aeed8de8459,2026-08-20T14:23:45+00:00,AI,Claude_Code,527,193,2,False,False,False,False,"player: hand off to the next track before the current one ends
+
+Autoplay stopped advancing on Android whenever the screen was off. It
+worked with the browser merely backgrounded, and it did not reproduce on
+iOS.
+
+Everything the advance needed happened after the track had already
+finished: `ended` fired, React scheduled a render, the `setCurrentIndex`
+updater called `loadAndPlay` from the render phase, that assigned a new
+src, and only then did a cold HTTP request and a `play()` go out. Chrome
+exempts a page from background throttling while it is playing audio, so
+that whole chain ran in the one window where the exemption had just
+lapsed and the phone was free to suspend it — and the `play()` rejection
+was swallowed by a bare catch, so nothing said so.
+
+The player now runs two alternating <audio> decks, owned by the provider
+rather than the bar. Thirty seconds out, the standby deck loads and
+buffers the next track; a timer armed while audio is still playing, and
+therefore not throttled, hands over 0.2s before the end. The handoff is a
+synchronous pause/play on an already-buffered deck: no React render, no
+network, nothing left to suspend. `ended` stays on as a backstop.
+
+Falling out of that: the side effect is gone from the state updater and
+the handlers read refs instead of render-time closures; `play()`
+rejections and media errors are logged and retried once; media session
+metadata is set imperatively at the handoff so the lock screen is right
+even when React is behind; and a hidden page stops re-rendering on every
+timeupdate, pushing position state straight to the platform instead and
+resyncing when it comes back.
+
+The decks moved out of the player bar because its tree comes and goes
+with the queue — the one-shot ref sync there would have left the store
+driving a detached element.
+
+Verified in Chrome against a 20-track work: handoffs chain across decks
+with `ended` never firing, they still happen with the document hidden,
+pause cancels a pending handoff and resume re-arms it, the end of the
+queue rewinds and stops, and progress rows come out right — position 0
+and completed at a boundary, the real position on a manual skip. Not yet
+confirmed on a physical Android device with the screen off.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01A6rCiCu8DStyHAVMhpSgqr"
+https://www.github.com/4890a/mimiuchi,5ee696e67385ab3360c8b4f03b9ca56b71e9e36d,2026-08-18T20:43:26+00:00,AI,Claude_Code,738,345,18,False,False,False,False,"metadata: drop hvdb, pace and retry dlsite instead
+
+HVDB is gone as a source, so a work that isn't on DLsite no longer costs
+a second round of requests. Rows already stored as `hvdb` are treated as
+stale by both the mtime quick-skip and the needsMeta check, so an
+ordinary incremental scan replaces them.
+
+In exchange DLsite gets manners. Every request — announce API and cover
+download alike — queues through a shared min-interval gate, configurable
+in settings and defaulting to one per second. Each attempt now carries a
+15s timeout, and a 429/408/5xx/transport failure is retried three times
+with exponential backoff, honouring Retry-After when DLsite sends one. A
+404 or empty list still returns null after exactly one request: ""not on
+DLsite"" is a settled answer, not a failure.
+
+When the retries run out, fetchFromDlsite throws instead of returning
+null, and that propagates rather than replaying the remaining id
+variants against a server already refusing us. One such work is just a
+bad work and the scan moves on; three in a row means DLsite is down, so
+the scan pauses a minute, gives it one more try, and stops — cleanly,
+with result.aborted and a final done event, so the progress panel closes
+rather than hanging.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,6912d5a0126cdbb81710fe4933abd7ee1cfca142,2026-08-18T19:40:56+00:00,AI,Claude_Code,91,2,4,False,False,False,False,"library: show four tags per card, with the rest behind a +N popup
+
+Cards cut the tag list at three with nothing to say more existed, so a
+work's remaining tags were only reachable from its own page — and there
+was no way to filter by one without leaving the grid.
+
+Four now fit, and any left over sit behind a ""+3"" counter that mirrors
+the voice-actor overflow one row up. Opening it lays the remaining tags
+out as the same chips as the row rather than as menu rows, and each is a
+link that adds itself to the current filters, exactly like a visible
+chip. The chip styling moves to a shared constant so the row and the
+popup cannot drift apart.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,d6610b7db8394c8a37b31cb43f48757c6c1cf526,2026-08-18T19:18:31+00:00,AI,Claude_Code,202,10,5,False,False,False,False,"library: filter by R18 and archive, accumulate card chips
+
+The filter panel could only narrow by seiyuu, circle, and tag, so there
+was no way to say ""no R18 right now"" or to pull up just the works still
+waiting to be extracted. Two tri-state switches now sit at the top of the
+panel — all / only / hide — each backed by one query param (?r18, ?zip)
+and applied as a WHERE clause, so they compose with search and the other
+filters and show up as removable chips.
+
+Clicking a tag or seiyuu chip on a work card also replaced the whole
+query string, wiping every other filter. Those hrefs now start from the
+page's current params and append the id to that key's list, so filters
+accumulate as you click.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,36f751c0f309cb61fb75f80f4567332cf863925b,2026-08-18T19:18:03+00:00,AI,Claude_Code,1176,60,18,False,False,False,False,"scanner: list works still packed in a .zip/.rar/.7z
+
+The scanner only ever looked at directories, so a work you had downloaded
+but not yet extracted was invisible — no way to tell ""not in the library""
+from ""in the library, still zipped"".
+
+Archives whose name carries an RJ code are now scanned like any other
+work: full metadata, cover, and a card in the grid, tinted red with an
+archive badge so it reads as ""nothing to play here yet"". Extracting and
+re-scanning replaces the entry in place rather than leaving a duplicate,
+and still-packed works are kept out of the on-deck shuffle since that is
+a play shortcut.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,b0fbeb56b8b8f24f1c552b81a86230e7508bc900,2026-08-18T17:47:47+00:00,Human,,236,195,2,False,True,False,False,"deps: update next and undici, pin patched postcss and sharp
+
+- next 16.2.6 -> 16.2.11 (middleware/proxy bypass, SSRF, DoS fixes)
+- undici ^8.3.0 -> ^8.10.0 (TLS validation bypass, DoS fixes)
+- pnpm overrides: postcss ^8.5.26, sharp ^0.35.0 for next's pinned
+  transitive versions"
+https://www.github.com/4890a/mimiuchi,b6ea93d26d150b2a91470c1926d04f423f81e286,2026-08-18T17:32:57+00:00,Human,,26,13,1,False,False,False,False,search: merge suggestions into existing filters instead of replacing them
+https://www.github.com/4890a/mimiuchi,2500bcd3b85cb1ba130516e38c0ee7746fbe2ddc,2026-08-15T18:27:26+00:00,AI,Claude_Code,5,1,1,False,False,False,False,"gitignore: cover every distDir, not just .next-e2e
+
+`distDir` is settable per-run through KIKOERU_DIST_DIR, and Tailwind's
+source scanner excludes gitignored paths only. A build directory under a
+name the ignore file did not anticipate gets walked as source, and
+Turbopack's binary persistent cache then yields mangled class candidates
+— `pb-[max(0.5rem,env(safe-area-<U+0011>^...))]` and friends — which fail
+the CSS parse and 500 every page.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,1ca1ba8635c866144a16323eb4575a61fface4bc,2026-08-15T18:23:08+00:00,AI,Claude_Code,77,7,3,False,False,False,False,"api: stop leaking uncaught exceptions when a stream is abandoned
+
+Browsers abort media range requests constantly — every seek, every track
+switch, every partially buffered file the player drops. `Readable.toWeb`
+does not survive that: the web stream is cancelled but the Node stream
+underneath keeps going, and the adapter then calls close()/enqueue() on
+an already-closed controller. The resulting ERR_INVALID_STATE is thrown
+from a stream callback with nobody to catch it, so every aborted request
+logged an uncaughtException and left the file handle's teardown to
+chance.
+
+`lib/file-stream.ts` replaces it with an adapter that guards every
+controller call and destroys the file handle on every exit — end, error,
+cancel, or request abort. Used by the audio and cover routes.
+
+Verified by hand: ten seeks and four track switches against the audio
+route, previously one uncaughtException apiece, now none — with playback
+still streaming continuously and no backpressure stall.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,fb3f0fbc1ab359731bae012f58ea6db6cdb1be32,2026-08-15T17:46:37+00:00,AI,Claude_Code,504,65,9,False,False,False,False,"player: restart finished tracks instead of skipping them
+
+A track played to the end left its saved position sitting on its
+duration. Playing it again seeked there, `ended` fired at once, and the
+queue moved on — so a finished track looked skipped, and a run of them
+skipped the lot.
+
+`lib/resume.ts` now decides where a track starts: a position inside the
+tail of the track (the last 15s, or 2% on long files), under ten seconds
+in, or on a track flagged completed all mean ""start over"". Every load
+path goes through it, and `loadedmetadata` re-runs the check against the
+real duration for tracks whose length was never scanned.
+
+`ended` now records the track as finished at position zero rather than
+leaving it parked on the end, with guards so the pause/interval savers
+cannot write the end position back over it, and rewinds instead of
+advancing when the finished track is last in the queue.
+
+Adds a Playback card in settings to choose between resuming and always
+starting from the beginning, stored per-device alongside the other
+player preferences.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,46b71bdd9c864c9c98ddd7ebdc25535b9a963128,2026-08-14T22:33:25+00:00,Human,,192,31,8,False,False,False,False,"Merge pull request #2 from 4890A/e2e-harness-and-db-concurrency
+
+Lazy DB connection, migration-race retries, and playwright plumbing"
+https://www.github.com/4890a/mimiuchi,655a0687da61688f39232970b504172be6ff5cd4,2026-08-14T22:32:35+00:00,AI,Claude_Code,82,8,6,False,False,False,False,"test: add playwright scripts and keep e2e builds out of .next
+
+`next dev` and `next build` share one output directory, so an end-to-end
+run that builds the app would stomp on a dev server someone has open. Make
+distDir configurable so the harness can build into .next-e2e instead.
+
+The suite itself and playwright.config.ts stay local and ignored; this
+commit is the plumbing in the app that the suite needs, including an
+aria-label on the scan rows, whose buttons all read ""Run"" and are
+otherwise indistinguishable to a screen reader or a test.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,41cb2096692a73f3ba24d63960d90eb81347636b,2026-08-14T22:32:24+00:00,AI,Claude_Code,110,23,2,False,False,False,False,"db: open the database lazily and survive migration races
+
+`next build` collects page data in one worker process per core, and each
+worker evaluates every route module. Connecting and migrating at module
+scope meant a build against an unmigrated database had every worker racing
+to apply the same migrations, failing with SQLITE_BUSY.
+
+Move the connect-and-migrate work behind lazy proxies so it runs on the
+first query rather than at import, add a busy_timeout for the case where a
+scan script holds the write lock, and retry the migrator on SQLITE_BUSY --
+drizzle reads its bookkeeping table before issuing a deferred BEGIN, and
+SQLite fails that read-to-write upgrade immediately instead of waiting.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,2605d0029868c58605651e2e776a2e23e946d175,2026-08-14T22:30:23+00:00,Human,,61,140,9,False,False,False,False,"Merge pull request #1 from 4890A/remove-waveform-backup-option
+
+backup: stop exporting waveform caches"
+https://www.github.com/4890a/mimiuchi,55bb1695c710ba9f8a62ac1a57e1874cf3a8befd,2026-08-14T22:02:11+00:00,AI,Claude_Code,61,140,9,False,False,False,False,"backup: stop exporting waveform caches
+
+The ""Include waveform data"" checkbox was the only thing standing between a
+backup and a file several times larger than it needed to be. Waveforms are
+regenerable from the audio with ffmpeg on first play, so the choice was
+never really a choice — drop the option and the data with it.
+
+`track_waveforms` leaves BACKUP_TABLES, which both the export and the import
+iterate, so backups taken before this still restore: the extra table is just
+ignored. The includeWaveforms plumbing goes with it, from ExportOptions and
+RestoreOptions through both API routes down to the CLI --no-waveforms flags.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,d9078c0f205c1ac1ec0418ac31e373bd52791c21,2026-08-14T18:13:33+00:00,Human,,34,4,3,False,False,False,False,"docs: document pnpm start as the way to run the app
+
+Splits the commands section into normal use and development. pnpm dev was
+presented as the way to run the app, which is the slow path and, on the dev
+server, blocks hydration for LAN devices unless their IP is in
+allowedDevOrigins -- the app renders but every button is dead.
+
+Adds two new screenshots. Nothing references them yet; the README still
+points at the originals."
+https://www.github.com/4890a/mimiuchi,634eb29fab9518397d4eaac74472a966a17b3ccd,2026-08-14T18:13:16+00:00,Human,,143,2,3,False,False,False,False,"edit: re-fetch a work's metadata from DLsite
+
+Adds a Refresh from DLsite button to the edit dialog, backed by a
+refreshWorkMetadata action that runs the same write the scanner does with
+forceMetadata -- details, tags, voice actors and cover -- for a single work,
+without walking the library.
+
+Local edits to that work are overwritten, which is the point: it is the
+escape hatch for undoing a bad edit or picking up a changed listing."
+https://www.github.com/4890a/mimiuchi,becc9c7fb8c14fca0e2b7f7c5a21aafd24784aee,2026-08-14T18:12:52+00:00,Human,,417,179,10,False,False,False,False,"settings: fold the theme toggle into an appearance panel
+
+Replaces the header's light/dark button and the player-only settings card
+with one Appearance section: theme (light/dark/system), seek bar style, and
+a switch that hides tag chips on library cards. All three are per-device
+browser preferences.
+
+The hide-tags preference is applied as a class on <html> from the existing
+inline head script, alongside the NSFW blur, so cards never flash their tags
+before hydration."
+https://www.github.com/4890a/mimiuchi,138b4e66f155e437908c86b7fd2a895d34caa579,2026-08-14T18:12:36+00:00,AI,Claude_Code,143,60,2,False,False,False,False,"liked: shuffle the track order on demand
+
+A Shuffle toggle above the list reorders the rows and, with them, the queue
+handed to the player, so shuffled on screen means shuffled playback. The
+permutation is kept as track ids rather than as a reordered copy of the rows,
+so a re-render carrying a changed list resolves against current data instead
+of pinning stale rows.
+
+Also gives the list grid-cols-1. Without it the single column was an implicit
+`auto` track sized to the rows' max-content -- their untruncated nowrap titles
+-- so the track grew past the viewport and the whole page scrolled sideways
+while `truncate` never fired.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,1fc0e77e1fbca77ce184bd0640bceaa519d4ae97,2026-08-14T17:31:23+00:00,AI,Claude_Code,41,6,1,False,False,False,False,"search: stop the URL echo from corrupting IME input
+
+On the library page q is mirrored into the URL after 180ms, and a separate
+effect copied the URL back into state on every params change -- so each
+keystroke was undone ~180ms later by the text as it stood before it. In
+latin that reads as a caret jump; with an IME open it is destructive,
+because writing value while the browser holds a composition buffer desyncs
+the two and the buffer gets re-committed on top. Hence the duplicated kana
+and leftover romaji. The URL now only writes back when the box is unfocused.
+
+Composition is also tracked properly: no suggest requests or URL writes on
+half-typed romaji, compositionend reads the element (chrome and safari fire
+the final input event on opposite sides of it), and Enter no longer submits
+when it is only accepting an IME candidate.
+
+Separately, pr-8 toggled with the loading spinner, resizing the content box
+and lurching a long value sideways. It is reserved unconditionally now.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,2dfd7406832cffcbfff56d49e9801b7ec4ae7cfa,2026-08-14T17:31:14+00:00,AI,Claude_Code,8,2,2,False,False,False,False,"library: show the full work title on hover
+
+Card titles are clamped to two lines, so long ones were unreadable without
+opening the work. A native title attribute is enough here, and keeps the
+grid a server component -- a base-ui tooltip would push the whole thing
+across the client boundary for a hover hint.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,96c34e82eb1c6be93076783e5034fab579cf1bf3,2026-08-13T20:14:51+00:00,AI,Claude_Code,2602,1,14,False,False,False,False,"test: cover metadata, scanner, search and player helpers
+
+Widen the test glob to src/**/*.test.ts and add suites for the parts
+that were easiest to break silently: DLsite/HVDB parsing, the filesystem
+scanner, bookmarks, transliteration, i18n and the time/class helpers.
+
+src/test/env.ts points config and the database at a throwaway tmpdir
+before either module reads the environment; src/test/net.ts stubs both
+undici fetch and the global fetch, since the metadata fetchers use
+different ones.
+
+DLsite parsing replays a committed fixture, refreshed with
+`pnpm -C web test:fixtures`. One live suite hits DLsite for real behind
+KIKOERU_LIVE_TESTS=1, so an endpoint change cannot pass unnoticed.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,c14f63a7939c13b9f83ca21a9b9ed5c822c24367,2026-08-11T18:56:27+00:00,AI,Claude_Code,2481,2,13,False,False,False,False,"backup: export and restore the library as a single JSON file
+
+Covers metadata, play progress, likes, bookmarks and cover images; audio
+files stay on disk. A restore only fills in what is missing, matching work
+folders by RJ code against the current library roots so paths from another
+machine are remapped automatically.
+
+`/api/backup/import` is exempt from the proxy matcher: the proxy buffers a
+matched request's body so it can be read twice, capped at 10MB, which would
+truncate an upload. The route authenticates itself instead.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,94acd0fc0d8a537905f22bf34574e599a5b42b20,2026-08-11T18:55:58+00:00,AI,Claude_Code,1294,262,35,False,False,False,False,"i18n: add English/Japanese interface language setting
+
+The locale lives in a cookie rather than localStorage: most of the UI is
+server-rendered, so a client-only store would paint English first and flip
+on hydration.
+
+`en` is the source of truth for the dictionary — its keys define
+TranslationKey and `ja` is a Record over exactly those keys, so a string
+added to one language and not the other fails the build. Japanese is the
+default for visitors with no cookie yet.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,0a482c42e5ec015aa7a587cf0283a3982ca37321,2026-08-03T21:55:13+00:00,AI,Claude_Code,44,10,1,False,False,False,False,"docs: rewrite readme around features and setup
+
+Drops the tech-stack blurb in favour of a feature list, and documents
+the ffmpeg dependency for the waveform seek bar.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,4d2b4672e1e637bfe24788526cbca809e947fb9c,2026-08-03T21:55:09+00:00,AI,Claude_Code,2303,24,20,False,False,False,False,"player: add waveform seek bar and per-track bookmarks
+
+Adds an ffmpeg-backed waveform seek bar as an alternative to the plain
+progress line, selectable per device from settings, with peaks generated
+once per track and cached. Also adds per-track bookmarks persisted
+server-side so they survive a cleared browser and follow the user
+between devices.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,6dd19e0b429462e4f38bd0cd7edf6fbca8189635,2026-07-14T02:47:21+00:00,AI,Claude_Code,7,3,2,False,False,False,False,"api: stream files as Web ReadableStream, not raw Node stream
+
+The cover and audio routes passed a Node.js Readable cast straight to
+NextResponse as a ReadableStream. Next consumed it as a Web stream, so
+every response threw an uncaught `ERR_INVALID_STATE: ReadableStream is
+already closed`. In a long-running dev server this destabilized the
+process and the dynamic route modules began serving Next's global 404,
+producing bursts of 404s on cover/audio requests.
+
+Convert the Node stream with Readable.toWeb() so NextResponse receives a
+real Web ReadableStream. No more uncaught exceptions; ranged audio and
+covers stream cleanly.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,9db985f171e2c02830e26c7b512c0ed021813bbd,2026-07-14T02:47:14+00:00,AI,Claude_Code,890,2,6,False,False,False,False,"db: auto-run migrations on first connection
+
+Provision the SQLite schema automatically when the app first opens the
+database, so a fresh checkout (or a wrong KIKOERU_DATA_DIR) no longer
+yields an empty db that fails every query with `no such table`.
+
+Legacy databases created before migrations existed are detected and
+baselined (their existing schema is treated as up to date) so no
+migration re-runs against them. Removes the manual `pnpm db:push` step
+from the setup docs.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,be615f47181d1933f654268b9169e28dbb521389,2026-07-12T02:21:55+00:00,AI,Claude_Code,17,2,1,False,False,False,False,"cover: revalidate via ETag so replaced covers refresh immediately
+
+Switch the cover route from `max-age=86400, immutable` to `no-cache` with
+an ETag/Last-Modified derived from the file size + mtime, returning 304 on
+match. The old immutable header pinned a stale image for a day after an
+in-app cover replacement.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,1e08bc3685c262c34da375289c74cc9f75ef0c90,2026-07-10T18:09:52+00:00,AI,Claude_Code,734,34,6,False,False,False,False,"work: add edit-work dialog for cover, seiyuu, and metadata
+
+Adds an ""Edit work"" button on the work page opening a dialog to replace
+the cover (file upload or URL), edit the voice-actor and tag sets with
+autocomplete, and change title/circle/date/type/language/description/NSFW.
+Useful for works no longer on DLsite that can't be re-scanned.
+
+- updateWorkDetails/uploadWorkCover/setWorkCoverUrl server actions
+- coverVersion (cover mtime) busts the immutable cover cache after swaps
+- scrollbar-hide utility applied to the dialog
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,9490813ff52cfad2b4a04b3e814624b58a31e64a,2026-07-09T22:45:52+00:00,AI,Claude_Code,110,0,3,False,False,False,False,"work: add delete-entry action removing a work and its cover file
+
+Cascades tracks, tags, VA links, likes, and progress via FK; leaves
+audio files on disk untouched. Exposed via a confirm dialog on the
+work page for cleaning up stale/renamed entries.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,52b93d32dcf0c7abd6e43afebf1495521f894e17,2026-06-04T23:10:12+00:00,AI,Claude_Code,92,9,4,False,False,False,False,"home: toggle On deck section to a random works display
+
+Add a shuffle icon next to the ""On deck"" heading that swaps the recently-played strip for a freshly randomized set of works, with a History icon to switch back. Re-clicking shuffle re-rolls.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,7d489a22032f86a9cced42b9f95e4d6a91391ebe,2026-05-24T23:20:14+00:00,AI,Claude_Code,331,30,4,False,False,False,False,"work: add per-work tag editing and reveal-folder button
+
+- + chip at the end of the tag row opens a small command palette that
+  fuzzy-searches existing tags via /api/search/suggest and lets the
+  user pick one or create a new tag. Tags already on the work are
+  filtered out of suggestions.
+- New 'Open folder' link next to the DLsite link shells out to
+  explorer.exe / open / xdg-open via a server action. Useful when the
+  browser and the host are on the same machine.
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,bab2c25bd2ed15f81e24bb8ada09100a3192e1d9,2026-05-24T23:20:05+00:00,AI,Claude_Code,206,58,1,False,False,False,False,"work: group tracks by folder with collapse-all toggle
+
+Works whose tracks span subfolders now render a small folder header
+above each group, expanded by default. Native <details> with controlled
+state so a single Collapse/Expand-all button at the top right of the
+listing toggles every group at once. Suppressed when all tracks share
+a single folder or live at the root. Queue order matches the displayed
+order so playback continues across folder boundaries naturally. Path
+separator normalized for Windows-scanned libraries.
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,d41f321d25b13fe6fc674734ed72f6299ed1bad1,2026-05-24T23:19:58+00:00,AI,Claude_Code,76,10,1,False,False,False,False,"player: resume tracks from in-session position, not stale page snapshot
+
+The work page renders track.initialPosition from the RSC snapshot at
+page-load. After playing/scrubbing, returning to a previously-touched
+track within the same session loaded that stale position instead of
+where the user actually left off.
+
+Keep an in-memory Map<trackId, positionSeconds> updated on every save
+(track-switch flush, interval, pause, pagehide, visibilitychange) and
+prefer it over track.initialPosition when loading. Also flush on those
+events with sendBeacon/keepalive so the DB itself stays current.
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,b56d6712575b6c2834ee6c9cbe9bdcfba6bf134b,2026-05-24T23:19:51+00:00,AI,Claude_Code,293,63,10,False,False,False,False,"scan: multi-root libraries, chain durations, skip up-to-date works
+
+- Settings + scanner accept multiple library roots (newline / OS path
+  delimiter). Settings UI swaps to a textarea; env var also accepts a
+  delimited list.
+- Incremental scan auto-runs a duration pass for tracks with no stored
+  duration when it finishes, on the same progress stream.
+- Pre-filter fully-indexed works (metadata source, on-disk cover, >=1
+  tag, folder mtime <= lastScannedAt) so the per-work loop only touches
+  works that actually need work. Force rescan bypasses this.
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,70ccc6c61bfb4a509c0a530d6f3204228e045e40,2026-05-22T20:18:10+00:00,AI,Claude_Code,247,57,7,False,False,False,False,"search: fuzzy filter library and sidebar lists as you type
+
+Library page and filter sidebar inputs now drive the same MiniSearch index
+that powers the top search bar, so romaji like ""mizuhara"" matches kanji
+entries and partial CJK substrings hit. The top search bar debounces q
+into the URL on the library page so the grid filters live as the user
+types. Filter-list queries are memoized in-process (invalidated on scan)
+so each keystroke doesn't re-run the heavy GROUP BY queries.
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,0dae2ffc885d9b35c6889016d6aba0e9df66623b,2026-05-21T22:10:38+00:00,AI,Claude_Code,576,15,15,False,False,False,False,"settings: add settings page with DLsite proxy, paths, and scan actions
+
+Adds a /settings page backed by the existing key/value settings table:
+- DLsite proxy URL + enable toggle (auto-saves), with a Test button
+  that probes DLsite through the proxy via undici ProxyAgent. HVDB is
+  not proxied.
+- Optional library root and covers dir overrides (env defaults shown).
+- Buttons for all scan modes, including a new ""Re-scan works missing
+  seiyuu"" that filters the scanner to works with zero voice actors and
+  forces metadata re-fetch.
+
+Switches DLsite/cover fetches to undici.fetch so the dispatcher option
+is honored (Node's global fetch silently ignores it).
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,3367895902fbfbdec84f3d4f52492c180790558b,2026-05-21T20:44:14+00:00,AI,Claude_Code,2,3,1,False,False,False,False,"docs: place mobile screenshot beside desktop in README
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,ea8d99d417a279fb74bab731fdcfb3866b378758,2026-05-21T20:43:37+00:00,AI,Claude_Code,6,0,3,False,False,False,False,"docs: add desktop and mobile screenshots to README
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,5ae4ddd4422c0076bffc6317d07271b6605d3b9c,2026-05-21T20:39:39+00:00,AI,Claude_Code,7,2,3,False,True,False,False,"player: fix iOS seek bar alignment and safe-area padding
+
+Center the seek track and add safe-area inset padding so the player bar
+clears the home indicator on iOS. Also disables iOS auto-detection of
+phone numbers/dates in the layout and suppresses a hydration warning on
+the search input.
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,fb5330baa3557707bc95bba8a81e4d16b516090d,2026-05-21T20:10:02+00:00,AI,Claude_Code,5,2076,16,False,False,False,False,"chore: stop tracking local agent/MCP config
+
+Remove .claude/, .mcp.json, AGENTS.md, and CLAUDE.md files from the
+repo and gitignore them — these are local tooling config, not project
+artifacts.
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,a0b10e034cd4256ba03ae07f249d33f1bd8e935a,2026-05-21T20:08:05+00:00,AI,Claude_Code,17,12,3,False,False,False,False,"auth: auto-generate session secret on first run
+
+Removes the manual session-secret setup step. If KIKOERU_SESSION_SECRET
+is unset, a random 32-byte secret is generated and persisted to
+<DATA_DIR>/session-secret on first boot, matching the pattern used by
+Jellyfin, Vaultwarden, and similar self-hosted apps.
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
+https://www.github.com/4890a/mimiuchi,2e3f3f2b9ff50db4fe0f40eaf613a10c1d6b4f27,2026-05-21T19:45:00+00:00,Human,,3,2,1,False,False,False,False,"docs: scan runs from in-app button, not CLI"
+https://www.github.com/4890a/mimiuchi,10248fc648a45a58e9eb4772efa4d31ed41b51ec,2026-05-21T19:43:03+00:00,Human,,82,36,4,False,False,False,False,"docs: move README to root with setup instructions
+
+Move web/README.md to repo root with real setup instructions covering env vars (KIKOERU_PASSWORD, KIKOERU_SESSION_SECRET), scan + dev workflow. Remove hard-coded user paths from web/.env.example and un-ignore it so it ships in the repo."
+https://www.github.com/4890a/mimiuchi,6189d62b1a5dab88e2d2e7a40dfaf18454d75e43,2026-05-21T19:39:55+00:00,Human,,22324,0,103,False,False,False,False,"Initial commit
+
+Next.js 15 + shadcn audio library app (kikoeru-nouveau / mimiuchi) with SQLite + Drizzle, DLsite/HVDB metadata, fuzzy search, and password auth."

@@ -1,0 +1,8 @@
+github_url,source_sha,source_date,source_type,source_author_type,target_sha,target_date,target_author_type,days_to_action,day_bucket,link_method
+https://www.github.com/559889a/emotichat,905709fc31208375955b88ab9dc53778b1716e85,2025-11-26T10:40:23+00:00,fix,Human,20bacf0636b61e2a392c65aaf20e7b9335dcb80b,2025-11-25T13:05:03+00:00,Human,0.9,0-1,blame
+https://www.github.com/559889a/emotichat,a6ab9b05465bd89067cf23444bc9287966df1694,2025-11-24T14:33:39+00:00,fix,Human,4afac48e24ac870a479cc480eb920529d5f76b43,2025-11-23T15:11:34+00:00,Human,0.974,0-1,blame
+https://www.github.com/559889a/emotichat,22bad903cb7295d8df256b17b365bea3d30d141b,2025-11-24T14:29:28+00:00,fix,Human,9ff2c877896183b3374eae9898ab284a4d7414c3,2025-11-24T14:23:17+00:00,Human,0.004,0-1,blame
+https://www.github.com/559889a/emotichat,ce3b8cb25da3ef11bc582d53de7f775172884cb1,2025-11-24T08:15:01+00:00,fix,Human,50599e418ed797106a695574e15bf100605a187c,2025-11-23T04:35:23+00:00,Human,1.153,1-3,blame
+https://www.github.com/559889a/emotichat,2f43e6f956bd5cc995ec4726e39fad83ee6968ec,2025-11-24T07:50:36+00:00,fix,Human,4afac48e24ac870a479cc480eb920529d5f76b43,2025-11-23T15:11:34+00:00,Human,0.694,0-1,blame
+https://www.github.com/559889a/emotichat,1ba4485497a7569da582ae247ead25bbba5fc4a7,2025-11-23T03:56:43+00:00,fix,Human,2fc9e2cf9f8d45e3bbac53392787076f42c2362f,2025-11-22T23:32:44+00:00,Human,0.183,0-1,blame
+https://www.github.com/559889a/emotichat,54ce9fc635d283cb3db8309dd242575bf11210be,2025-11-22T19:26:59+00:00,fix,Human,cb9f4ea325932ec758c7d6e5aede620fe5ce7407,2025-11-22T18:49:54+00:00,Human,0.026,0-1,blame

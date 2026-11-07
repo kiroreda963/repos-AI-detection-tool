@@ -1,0 +1,86 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/2930134478/ai-cs,19b298db1d7e47f5532ddcea6051c2e9e3f2988d,2026-07-13T08:29:14+00:00,Human,,358,335,26,False,False,False,False,鉴权修复
+https://www.github.com/2930134478/ai-cs,aa3bfc126bef62ea220c1f2cc30777621943c859,2026-07-01T05:25:41+00:00,Human,,5233,360,67,False,False,False,False,"feat: 2026-06-11 批次 — 安全、RAG、离线邮件与工作台增强
+
+- 访客会话 access_token，修复 IDOR
+
+- 对话列表分页与性能优化、自动关闭 stale 会话
+
+- 知识库：PDF/DOCX 导入、Chunk 分段、FAQ 优先
+
+- 访客邮箱采集与离线 SMTP 邮件推送
+
+- 修复 RAG 检索阈值与创建文档 X-User-Id
+
+- 更新 README 与 .env.example"
+https://www.github.com/2930134478/ai-cs,891141fa59bb0975b6afa2004e24a04b0d8c6f6a,2026-05-21T08:44:16+00:00,Human,,1,1,1,False,False,False,False,Update README.md
+https://www.github.com/2930134478/ai-cs,5491dcaa5bb29e45de4edef5aed2191aefe3822c,2026-05-21T08:37:37+00:00,Human,,59,22,4,False,False,False,False,修复bug
+https://www.github.com/2930134478/ai-cs,6f5ac66c55f4988b808f793071a5aa001617a214,2026-05-20T14:07:03+00:00,Human,,47,1,6,False,False,False,False,新增交流群
+https://www.github.com/2930134478/ai-cs,8effb7e1787544dcd3c8228f247e901ed1f5b8a8,2026-05-18T11:26:16+00:00,Human,,65,33,6,False,False,False,False,新增IP地址显示
+https://www.github.com/2930134478/ai-cs,f1e488e660e429a3530cce5aa8c8e1af8a4ecad9,2026-05-18T11:14:59+00:00,Human,,1,2,1,False,False,False,False,"Update README.en.md
+
+update"
+https://www.github.com/2930134478/ai-cs,5b60f3bb1c35efa4250b8eb78ee7ea4555426f58,2026-05-18T11:13:31+00:00,Human,,1,2,1,False,False,False,False,"Update README.md
+
+更新"
+https://www.github.com/2930134478/ai-cs,f86143d12366e2c2ff45c9de21fced6259c98bc6,2026-05-18T09:34:48+00:00,Human,,311,20,2,False,False,False,False,说明更新
+https://www.github.com/2930134478/ai-cs,a9c28a4d0b89d52892bfbd34d23894b64c935e14,2026-05-18T08:02:34+00:00,Human,,300,9,12,False,False,False,False,新增位置
+https://www.github.com/2930134478/ai-cs,ad0c9fddc9ce741122b1c65ab0f956c035333969,2026-05-18T05:19:46+00:00,Human,,80,22,5,False,False,False,False,修复嵌入双按钮问题
+https://www.github.com/2930134478/ai-cs,505322911e64a01c50017012d8c3945d987c706c,2026-04-05T09:24:44+00:00,Human,,1,3,1,False,False,False,False,readme更新
+https://www.github.com/2930134478/ai-cs,2cf7316b00f033b0d0240323961fa483888d893d,2026-04-03T03:08:32+00:00,Human,,3517,1190,33,False,False,False,False,多语言+移动端适配
+https://www.github.com/2930134478/ai-cs,241de158bfe03ecc8133df3e53943e80b3a004ae,2026-04-02T06:55:06+00:00,Human,,962,86,29,False,False,False,False,共享草稿+日志级别+ui优化+bug修复
+https://www.github.com/2930134478/ai-cs,e84d8be21f4275150e65a795aa3272b25df58872,2026-04-01T05:40:42+00:00,Human,,883,194,31,False,False,False,False,新增redis+bug修复
+https://www.github.com/2930134478/ai-cs,b5407a28c774eda018a8494a60a166926dbf7d23,2026-03-31T09:24:37+00:00,Human,,78,19,1,False,False,False,False,actions提速
+https://www.github.com/2930134478/ai-cs,f864064d11805a5f5cf5a08d02957a9c32cad8f9,2026-03-31T09:14:49+00:00,Human,,30,8,2,False,False,False,False,ip过长修复
+https://www.github.com/2930134478/ai-cs,124e30a7b25e93e113fe4bd1cab2b790b024b0bf,2026-03-31T08:40:29+00:00,Human,,32,10,3,False,False,False,False,管理员权限更新
+https://www.github.com/2930134478/ai-cs,25c7e5464865f42996c7334fdc3f0767c8502aec,2026-03-31T06:01:31+00:00,Human,,192,97,8,False,False,False,False,修复会话丢失bug
+https://www.github.com/2930134478/ai-cs,a60ea15148c91e9ac38f29d33bb2c1b5529a5425,2026-03-30T11:49:37+00:00,Human,,227,30,14,False,False,False,False,新增会话关闭
+https://www.github.com/2930134478/ai-cs,a65e22c81a94c85fcc1fdbe17eedb264b15e93d9,2026-03-30T10:24:17+00:00,Human,,667,144,32,False,False,False,False,用户管理增强
+https://www.github.com/2930134478/ai-cs,03c23e0880d8eb7540e11471a58479ea1934f3db,2026-03-30T05:46:29+00:00,Human,,230,107,15,False,False,False,False,更新功能展示
+https://www.github.com/2930134478/ai-cs,a28cab2a48acb3918586fff1d4b3e48ad0baba7e,2026-03-25T12:37:12+00:00,Human,,3,0,1,False,False,False,False,修复头像不显示问题
+https://www.github.com/2930134478/ai-cs,0fc7147821306b8ae47ac2533048650ed8b71ccd,2026-03-25T10:50:58+00:00,Human,,5975,1746,99,False,False,False,False,提示词工程+UI更新+日志+可视化
+https://www.github.com/2930134478/ai-cs,1693f8b8fb8e9de19c1c5bc05061eaf277c05fa7,2026-02-27T14:50:05+00:00,Human,,5,5,3,False,False,False,False,next更新
+https://www.github.com/2930134478/ai-cs,73bddeaa95ca1b1f9db47aedc49242dbd66ef706,2026-02-27T14:36:54+00:00,Human,,836,376,6,False,False,False,False,next版本更新
+https://www.github.com/2930134478/ai-cs,48cfccf422c7ca12d5584d7c1ed9148a74ca1652,2026-02-27T04:49:18+00:00,Human,,249,29,5,False,False,False,False,修复文件上传接口
+https://www.github.com/2930134478/ai-cs,9c981dd20b022d66c3aa7fc42206b506f1b66a39,2026-02-03T13:27:57+00:00,Human,,22,8,1,False,False,False,False,增加新建文档向量化日志
+https://www.github.com/2930134478/ai-cs,e69c162d3e72b73bdcd051116efe7639d36b78df,2026-02-03T12:51:36+00:00,Human,,43,0,3,False,False,False,False,新增向量日志打印
+https://www.github.com/2930134478/ai-cs,3cf250911f57dd8bb8c289264ce8d9f8e3961d24,2026-02-03T08:35:47+00:00,Human,,69,5,2,False,False,False,False,新增mjs
+https://www.github.com/2930134478/ai-cs,dba39e4e96cccc9e87655b489c0ef563c61ab8d3,2026-02-03T08:05:24+00:00,Human,,5,69,2,False,False,False,False,docker新增ts部署
+https://www.github.com/2930134478/ai-cs,33cf3fcc5888a5bb78d82278cfa266c60310ab0b,2026-02-03T08:01:04+00:00,Human,,69,5,2,False,False,False,False,新增mjs
+https://www.github.com/2930134478/ai-cs,31245e1f3374934e9d8b97b79b55113da27c4340,2026-02-03T06:12:48+00:00,Human,,2,2,1,False,False,False,False,安装 typescript 以加载 next.config.ts
+https://www.github.com/2930134478/ai-cs,a99c04006557128246fbe2ebc307c8ffdf717cc9,2026-02-03T06:07:05+00:00,Human,,0,8,1,False,False,False,False,prod: 移除 mysql 容器的 security_opt/cap 以修复 setgid 报错
+https://www.github.com/2930134478/ai-cs,518172a08044f92bf95a13493d56c0f4d305648e,2026-02-03T05:59:50+00:00,Human,,0,21,1,False,False,False,False,prod: 移除 resources
+https://www.github.com/2930134478/ai-cs,225ed5c1570658f9785f763290ad0c21194a4fbc,2026-02-03T04:51:17+00:00,Human,,75,0,1,False,False,False,False,docker新增Milvus服务
+https://www.github.com/2930134478/ai-cs,07e7287a00b3d84af3713d20c6f4e5041f75813f,2026-02-02T14:33:45+00:00,Human,,17,8,4,False,False,False,False,修复类型匹配问题
+https://www.github.com/2930134478/ai-cs,5497c485eaecc66ef6231da90f70a0a5f7ab44e3,2026-02-02T14:17:14+00:00,Human,,21,17,3,False,False,False,False,知识库及UI更新
+https://www.github.com/2930134478/ai-cs,f2b66857c7e15e99e0b4fa23ed790d889179638b,2026-02-02T13:41:47+00:00,Human,,8971,1066,107,False,False,False,False,知识库及UI更新
+https://www.github.com/2930134478/ai-cs,3af462ec4588cca0d14dfcc5fa95e201cea843f9,2026-02-01T12:24:38+00:00,Human,,41,0,2,True,True,False,False,fix: 修复 master 分支缺少 framer-motion 依赖的构建问题
+https://www.github.com/2930134478/ai-cs,2acc8e99f7a7405adba1137d8c9112c0a17f81d5,2026-02-01T12:18:20+00:00,Human,,18,2,1,False,False,False,False,feat: 添加 frontend 容器安全配置
+https://www.github.com/2930134478/ai-cs,336a58667980c2963da96ce8d23e0366569816b7,2026-01-07T10:00:19+00:00,Human,,63,9,8,False,False,False,False,统一部署配置文件规范
+https://www.github.com/2930134478/ai-cs,ed97b62eb3e08a2e0ff3834cc5a8975428c39ffe,2026-01-06T05:39:14+00:00,Human,,4,3,1,False,False,False,False,修复传空字符串问题
+https://www.github.com/2930134478/ai-cs,cfc40973d5d744a54e8b90a66af14dfece4e162e,2026-01-05T14:52:56+00:00,Human,,9,33,4,False,False,False,False,修复配置项冲突错误
+https://www.github.com/2930134478/ai-cs,a6929dbee09f98451ae0c0b02c43e4b2f0f6ce43,2026-01-05T05:03:30+00:00,Human,,7,0,1,False,False,False,False,修复ts类型错误
+https://www.github.com/2930134478/ai-cs,d658eb88cf0f835675efaadcc9d5b752ba861f03,2026-01-05T04:50:13+00:00,Human,,6,3,3,False,False,False,False,修复ts类型错误
+https://www.github.com/2930134478/ai-cs,39726fedf438129b549132f43441d7eb640a08a7,2026-01-04T13:38:23+00:00,Human,,3,15,3,False,False,False,False,修复ts类型错误
+https://www.github.com/2930134478/ai-cs,b3863d68de23ed46cba64b8dd87dd0497ca9e692,2026-01-04T13:07:18+00:00,Human,,1,1,1,False,False,False,False,修改前端构建方式
+https://www.github.com/2930134478/ai-cs,b778eccd61fdfcfa89be314d7df0a2f521028345,2026-01-04T12:59:31+00:00,Human,,1,0,1,False,False,False,False,Add Docker deployment support and GitHub Actions
+https://www.github.com/2930134478/ai-cs,915c75887365818741f5a404e7a750f4b2aa17aa,2026-01-04T12:51:57+00:00,Human,,42,5,1,False,True,False,False,Fix workflow: change branch from main to master
+https://www.github.com/2930134478/ai-cs,c95acfab339de6c6741d6a3b814c0144ac808e9e,2026-01-04T12:40:07+00:00,Human,,1,1,1,False,True,False,False,Fix workflow: change branch from main to master
+https://www.github.com/2930134478/ai-cs,09c67e8158ff4d7fbf94cae5ed8fd83164870a0d,2026-01-04T11:26:20+00:00,Human,,624,108,14,False,False,False,False,Add Docker deployment support and GitHub Actions
+https://www.github.com/2930134478/ai-cs,fcfe5aa4174983e8b073643405505089c9e5c617,2025-12-13T05:57:17+00:00,Human,,1,1,1,False,False,False,False,readme更新
+https://www.github.com/2930134478/ai-cs,b98bc0237911b62bab88067de307a68f7e44b5d4,2025-12-13T05:54:59+00:00,Human,,34,5,1,False,False,False,False,readme更新
+https://www.github.com/2930134478/ai-cs,35212547f87bc5b6d27fa7a13335433c9ec3d84e,2025-12-12T03:06:18+00:00,Human,,1,1,1,True,True,False,False,fix: 修复所有 TypeScript 类型错误，确保构建成功
+https://www.github.com/2930134478/ai-cs,5afa9624c9c895353ea86575f80cee4b44bee6b1,2025-12-12T02:44:58+00:00,Human,,1,1,1,True,True,False,False,fix: 修复 TypeScript 类型错误 - selectConversation 支持 null
+https://www.github.com/2930134478/ai-cs,31553f85ef067cbceb8f30f44bd29e0df7662585,2025-12-12T02:39:02+00:00,Human,,1,1,1,True,True,False,False,fix: 修复 TypeScript 类型错误 - receive_ai_conversations 表达式
+https://www.github.com/2930134478/ai-cs,c1153108d09f9c20d6d15b1976c4efc48a5560e9,2025-12-12T02:32:42+00:00,Human,,4,1,2,True,True,False,False,fix: 修复引号错误并临时禁用 ESLint 检查
+https://www.github.com/2930134478/ai-cs,42e58bdcc7e9443986715105d9d28820d8c0e7a2,2025-12-12T02:21:12+00:00,Human,,16,0,2,True,True,False,False,fix: 修复 faqs 和 users 页面缺少默认 return 的问题
+https://www.github.com/2930134478/ai-cs,2f922aa7b484f22c353e8cc28af3305b8c93442f,2025-12-11T14:08:01+00:00,Human,,3,3,3,True,True,False,False,fix: 修复构建错误 - 函数参数语法和引号转义
+https://www.github.com/2930134478/ai-cs,48f9c5f71be1dea0bfd33e92ba97999e0471e20d,2025-12-11T13:53:36+00:00,Human,,2,4,2,False,False,False,False,修复ESLint 错误
+https://www.github.com/2930134478/ai-cs,b640f99e87d2b2e12a2a0a4e107551123f905a42,2025-12-10T13:15:15+00:00,Human,,142,87,2,False,False,False,False,readme更新
+https://www.github.com/2930134478/ai-cs,1f1cf27af5bf708baad2f44699cb5dfe1e88ff72,2025-12-08T08:17:56+00:00,Human,,57,29,6,False,False,False,False,增加github按钮
+https://www.github.com/2930134478/ai-cs,acab51be98b68639d69dece69bbd3a780ff2a145,2025-12-08T07:55:41+00:00,Human,,23,1,2,False,False,False,False,docs: 添加 MIT 许可证
+https://www.github.com/2930134478/ai-cs,d3d7eace4a00574396cae793b2b669282f2c2201,2025-12-02T12:16:50+00:00,Human,,0,0,21,False,False,False,False,chore: 从 Git 追踪中移除 uploads 目录
+https://www.github.com/2930134478/ai-cs,109e92715253c0dac148819c33f19d3ea2e3c039,2025-12-02T12:03:39+00:00,Human,,11686,1366,130,False,False,False,False,v1.0.0
+https://www.github.com/2930134478/ai-cs,c72086dfb6d2e73807dc73f66bf20ad3faa66d75,2025-12-02T11:55:54+00:00,Human,,0,3621,7,False,False,False,False,chore: 从仓库中移除 doc 目录，后续不再追踪
+https://www.github.com/2930134478/ai-cs,5640fe7ae1bb5def400ea55753336e6da3e40f69,2025-11-17T10:05:00+00:00,Human,,10890,125,73,False,False,False,False,迁移shadcn ui前版本
+https://www.github.com/2930134478/ai-cs,397c324ac7e13eb67dfe75d97e64c75f71136962,2025-09-16T07:58:23+00:00,Human,,6213,0,21,False,False,False,False,http响应测试

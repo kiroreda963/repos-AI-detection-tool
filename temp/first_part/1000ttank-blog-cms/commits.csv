@@ -1,0 +1,145 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1000ttank/blog-cms,f911ff19ee73d4ba5d2b0faa222c6f54e08551a8,2026-03-28T06:56:54+00:00,Human,,249,0,2,True,True,False,False,fix: add mathjax
+https://www.github.com/1000ttank/blog-cms,1791388c1d578fd8f83435bd0ccdc79f6003538e,2026-03-28T00:41:35+00:00,AI,Claude_Code,10,10,3,True,True,False,False,"fix: change katex field to math for Fluid theme compatibility
+
+Fluid theme uses 'math' field in frontmatter, not 'katex'
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1000ttank/blog-cms,3a669d37d9b0b40f2a8a6246a448798b824bd3e7,2026-03-28T00:18:15+00:00,AI,Claude_Code,1,1,1,True,True,False,False,"fix: remove unused error variable in catch block
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1000ttank/blog-cms,dfe113935c76070de2bd0b9c4ff6881f1dda2218,2026-03-28T00:12:41+00:00,AI,Claude_Code,0,0,0,False,False,False,False,"chore: verify build passes
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/1000ttank/blog-cms,820311c2c42f3eaf19f291a8a79b7bb158ab4df1,2026-03-28T00:07:39+00:00,Human,,8,2,1,False,False,False,False,feat: add dynamic katex control in PostEditor
+https://www.github.com/1000ttank/blog-cms,d95e270cd9eff986f382dae40806d6c86dc0b673,2026-03-28T00:05:26+00:00,Human,,15,0,1,False,False,False,False,feat: add katex toggle to FrontmatterForm
+https://www.github.com/1000ttank/blog-cms,46dccf9eae9a5bb90eee8bbf79d5b463d4fc0e4d,2026-03-28T00:02:46+00:00,Human,,1,0,1,False,False,False,False,feat: add katex field to PostInput type
+https://www.github.com/1000ttank/blog-cms,d5ffd01b44a2135890982e8363e56c0f26e3bff6,2026-03-19T15:22:25+00:00,Human,,323,0,1,False,False,False,False,docs: add editor features implementation plan
+https://www.github.com/1000ttank/blog-cms,ff69faf88db9382f59a2378508e5b1c7259212ee,2026-03-19T15:21:24+00:00,Human,,163,0,1,False,False,False,False,docs: add editor features design document
+https://www.github.com/1000ttank/blog-cms,61e72c8f16b1b208d08f3cbba991d976cf199211,2026-03-08T07:32:29+00:00,Human,,524,0,1,False,False,False,False,docs: add CDN configuration system design document
+https://www.github.com/1000ttank/blog-cms,19908b2f748af31f4ab0b969bc9b1f4d91d98343,2026-03-07T13:14:17+00:00,Human,,65,136,4,False,True,False,False,"feat: add Cloudflare CDN routing configuration
+
+- Support custom CDN domain with Cloudflare Workers
+- Add CDN config management page at /cdn-config
+- Support jsdelivr, statically, github-raw, and custom routes
+- Save CDN config to blog repo as JSON
+- Add custom domain input for Cloudflare Workers
+- Update CDN route types to include github-raw and custom
+- Fix GitHubClient method calls in CDN config page
+- Include Cloudflare Workers example code in comments"
+https://www.github.com/1000ttank/blog-cms,4a7f430b05eccda1af5135cbc9ca027edc16eb99,2026-03-07T12:51:45+00:00,Human,,382,24,3,False,False,False,False,"feat: add CDN route configuration management
+
+- Add CDN config service for reading/writing config
+- Support jsdelivr and statically CDN routes
+- Load custom config from blog repo
+- Add CDN config management page
+- Export config to JSON file
+- Save config to GitHub repo"
+https://www.github.com/1000ttank/blog-cms,ae059378a389e3ad49a34a2973267f01cf2a69f6,2026-03-07T12:10:10+00:00,Human,,19,3,1,False,False,False,False,"debug: add comprehensive paste event logging
+
+- Add stopImmediatePropagation for images
+- Listen on both domNode and document level
+- Add detailed logging for event targets
+- Add cleanup function for event listeners
+- Log DOM node and document attachment"
+https://www.github.com/1000ttank/blog-cms,b3e31d1124b6fdb88684974be115bc871e79c6c4,2026-03-07T12:00:34+00:00,Human,,24,9,1,False,False,False,False,"feat: support pasting image files from file explorer
+
+- Detect files by kind === 'file' first
+- Check MIME type (image/*) for direct image paste
+- Check file extension (.jpg, .png, etc.) for copied files
+- Support both screenshot tools and file manager copy
+- Add detailed logging for file detection"
+https://www.github.com/1000ttank/blog-cms,dab1a2082eae264f7497d93a8574954d2cd80df4,2026-03-07T11:59:08+00:00,Human,,37,66,1,True,True,False,False,"fix: revert to DOM paste event with capture phase
+
+- Remove Ctrl+V command override (Clipboard API types[] issue)
+- Use DOM paste event with clipboardData.items
+- Capture phase (true) to intercept before Monaco
+- Only preventDefault when image is detected"
+https://www.github.com/1000ttank/blog-cms,c6857853680484acb1959b0028162a16606b33a6,2026-03-07T11:39:39+00:00,Human,,34,5,1,True,True,False,False,"fix: manually handle text paste instead of triggering Monaco action
+
+- Use navigator.clipboard.readText() for text content
+- Use editor.executeEdits() to insert text manually
+- Calculate and set cursor position after paste
+- Avoid Monaco internal service errors"
+https://www.github.com/1000ttank/blog-cms,c9e2ce2a398e73fe608489cf40b2ed679f340bda,2026-03-07T11:31:09+00:00,Human,,31,35,1,True,True,False,False,"fix: override paste command to intercept before Monaco
+
+- Use addCommand to override Ctrl+V completely
+- Read clipboard using navigator.clipboard.read() API
+- Check for image types in clipboard items
+- Convert blob to File and upload if image found
+- Fallback to default paste for text content"
+https://www.github.com/1000ttank/blog-cms,052fbb81618fe6dea4f2e2971e8f4d1983bd9aca,2026-03-07T11:26:17+00:00,Human,,38,42,1,True,True,False,False,"fix: use Monaco onDidPaste event for image handling
+
+- Switch from DOM capture to Monaco's native onDidPaste event
+- Access clipboardEvent from Monaco's paste event
+- Use editor.trigger('undo') to remove Monaco's default paste
+- Remove redundant DOM paste listener
+- Keep drag&drop functionality intact"
+https://www.github.com/1000ttank/blog-cms,3ce4e4c198ddadd17eba15d9c38c25a777ee9ea0,2026-03-07T09:55:08+00:00,Human,,15,11,1,True,True,False,False,"fix: prevent Monaco from intercepting paste events
+
+- Add stopImmediatePropagation to paste handler
+- Add Monaco onDidPaste event for debugging
+- Use capture phase to intercept before Monaco
+- Comprehensive logging for troubleshooting"
+https://www.github.com/1000ttank/blog-cms,adb6b6e839dd55d5d408e3fb9c2375fdbd143398,2026-03-07T08:43:29+00:00,Human,,1,1,1,True,True,False,False,"fix: move paste event listener to editor mount callback
+
+  - Fix event listener timing issue
+  - Add listeners directly in onMount callback
+  - Remove unused useEffect hook
+  - Add detailed debug logging for paste events
+  - Ensure listeners are attached after editor is ready"
+https://www.github.com/1000ttank/blog-cms,3032e54d95a10658e45fd50cdc4d50cde0208213,2026-03-07T08:36:42+00:00,Human,,71,91,1,True,True,False,False,fix: paste
+https://www.github.com/1000ttank/blog-cms,a3b84ff1ae80423537e1a5abc7d81e2c822ba590,2026-03-07T08:26:31+00:00,Human,,17,3,1,True,True,False,False,fix: paste
+https://www.github.com/1000ttank/blog-cms,51ec12c56aee3e7b9e869a798b19f14bfe9570d9,2026-03-07T08:03:21+00:00,Human,,46,79,1,True,True,False,False,"fix: use native paste event for reliable image detection
+
+  - Remove Monaco command override for Ctrl+V
+  - Use native paste event listener with capture phase
+  - Access clipboardData.items directly without permissions
+  - Fix clipboard.read() API permission issues
+  - Improve paste event handling reliability"
+https://www.github.com/1000ttank/blog-cms,1273d1ef59e62cbdc7fa839238301424d2fcd637,2026-03-07T07:44:01+00:00,Human,,52,12,1,False,True,False,False,"feat: improve image paste detection with dual strategy
+
+  - Add fallback paste event listener for better image detection
+  - Use both clipboard.read() API and paste event handler
+  - Add detailed debug logging for troubleshooting
+  - Fix clipboard items detection issue"
+https://www.github.com/1000ttank/blog-cms,788ec5ee6f95271aa75d8c39ea99a3edffc0517a,2026-03-07T07:07:39+00:00,Human,,27,6,3,False,True,False,False,"feat: improve image hosting and fix UI issues
+
+  - Add independent image hosting menu in sidebar
+  - Fix image paste functionality in Monaco Editor with Ctrl+V
+  - Fix image drag-and-drop to prevent browser preview
+  - Remove manifest reference to fix 404 errors
+  - Replace Google Fonts with system font stack
+  - Add debug logging for paste and drop events
+  - Improve settings page layout with full width"
+https://www.github.com/1000ttank/blog-cms,7af910a7fa06191219219bf3f8f95d777b77d689,2026-03-07T06:54:55+00:00,Human,,1,2,1,True,True,False,False,fix: remove manifest to fix 404 errors and improve paste functionality
+https://www.github.com/1000ttank/blog-cms,f6410f69b7e7cc07444e692d1cfc961f1ca62389,2026-03-07T03:35:01+00:00,Human,,0,1,1,True,True,False,False,fix: copy image
+https://www.github.com/1000ttank/blog-cms,3bdf3959c7cf55d1dde666abf3accbcf0c984481,2026-03-07T03:13:12+00:00,Human,,33,57,1,True,True,False,False,fix: copy image
+https://www.github.com/1000ttank/blog-cms,ae1ce8fef8f7001d271ad382a98d829c1dd9c5f9,2026-03-07T02:47:10+00:00,Human,,35,2,1,False,False,False,False,feat: copy image
+https://www.github.com/1000ttank/blog-cms,3cbbcea3fb46b6560c0f1eb167969f5e88a5a3c5,2026-03-06T15:15:08+00:00,Human,,22,20,4,False,False,False,False,feat: New menu
+https://www.github.com/1000ttank/blog-cms,a6cfab6ef3d798aaa1ad2446b1c5e31ee8abb25c,2026-03-06T14:55:51+00:00,Human,,41,43,2,True,True,False,False,fix: The weight maxium error
+https://www.github.com/1000ttank/blog-cms,85303e0118bc8e3443f6ad432f7f9e1357635066,2026-03-06T13:37:01+00:00,Human,,9,7,3,True,True,False,False,fix: Lint error
+https://www.github.com/1000ttank/blog-cms,9fc54b590b92a9f45ca331c24f4e0057f10bfb9c,2026-03-06T13:28:55+00:00,Human,,95,93,3,True,True,False,False,fix: Build error
+https://www.github.com/1000ttank/blog-cms,96e2af92e4dd4366a04a23562c9ac32424b803fe,2026-03-06T13:14:48+00:00,Human,,59,0,1,True,True,False,False,fix: Type error
+https://www.github.com/1000ttank/blog-cms,96f7f4cf2ee81ef58dca1899fa07b1b2873a0f87,2026-03-06T13:10:05+00:00,Human,,2577,20,15,False,False,False,False,feat: image for cloud
+https://www.github.com/1000ttank/blog-cms,c9c9daf7e656198a75c7a34a73152dbf7c444849,2026-03-06T12:26:07+00:00,Human,,240,3,6,False,False,False,False,feat: Latex by Katex
+https://www.github.com/1000ttank/blog-cms,364f80caeea651d154e6b6738ac5882bf6a079fa,2026-03-04T15:04:53+00:00,Human,,215,4,2,False,False,False,False,Function: Beautify markdown rendering
+https://www.github.com/1000ttank/blog-cms,021a15930b7c02be63ddeffe6ccca669d140d648,2026-02-24T14:50:03+00:00,Human,,33,5,3,True,True,False,False,fix: Support dark mode for markdown editor
+https://www.github.com/1000ttank/blog-cms,152e7dbd57e5db7069422648823fc448bf40d860,2026-02-24T14:19:05+00:00,Human,,126,79,15,True,True,False,False,fix: Fix the lint error
+https://www.github.com/1000ttank/blog-cms,cf9f511d21f6a9921b29b8b62b1fc6edf3c57815,2026-02-24T09:19:27+00:00,Human,,29,4,4,True,True,False,False,fix: Delete the limit of main weight
+https://www.github.com/1000ttank/blog-cms,e719456efa2205e323094fbea230450be5c8173e,2026-02-24T03:33:31+00:00,Human,,334,0,2,False,False,False,False,update: Add README.md and LICENSE
+https://www.github.com/1000ttank/blog-cms,b6c38238e5473a2a37a77edeb0ca9ace876d5010,2026-02-24T03:32:06+00:00,Human,,13,13,5,False,False,False,False,feat: rename app to Blogo CMS and update bilingual README
+https://www.github.com/1000ttank/blog-cms,796023c8402c8c11e6c0283469167fb29e3d417e,2026-02-24T03:23:28+00:00,Human,,0,0,1,True,True,False,False,Fix: Delete the erroneous folder caused by merging
+https://www.github.com/1000ttank/blog-cms,7be3db3d7c0c84a5ad7178efd7b2be14b09c79ca,2026-02-24T03:20:27+00:00,Human,,32,0,1,False,False,False,False,Merge branch 'main' of https://github.com/1000ttank/blog-cms into main
+https://www.github.com/1000ttank/blog-cms,67fffb911900c9e16840024c92b2f9361d214ea7,2026-02-24T03:20:20+00:00,Human,,32,0,1,False,False,False,False,feat: Add CI workflow for Node.js project
+https://www.github.com/1000ttank/blog-cms,d254d62102f8d72e420eb0cf8fb56cd77d7c630d,2026-02-24T02:56:44+00:00,Human,,385,52,2,False,False,False,False,feat: add CMS deployment guide and split QA tabs in getting-started
+https://www.github.com/1000ttank/blog-cms,2e25734da528d2ce0ef022bf331991510f3c0826,2026-02-24T02:43:45+00:00,Human,,25,2,3,True,True,False,False,Fix: Fix the issue where drafts cannot be created
+https://www.github.com/1000ttank/blog-cms,cc5b88377edc3600bf0ad64aebf0c7db1be9bb1b,2026-02-24T02:08:57+00:00,Human,,65,48,6,False,False,False,False,"删除了 app/editor/[path]/（动态路由，导致 output: 'export' 构建失败的根源）
+新建 app/editor/page.tsx：纯静态路由，用 useSearchParams() 读取 ?path=xxx 来加载对应文章
+用 <Suspense> 包裹 useSearchParams()（Next.js 15 要求）
+三处导航全部从 `` ${ROUTES.EDITOR}/${encodeURIComponent(path)} `` 改为 `` ${ROUTES.EDITOR}?path=${encodeURIComponent(path)} ``"
+https://www.github.com/1000ttank/blog-cms,32a3a447447979813bdca69ddf92598485c7282c,2026-02-24T01:56:41+00:00,Human,,0,0,3,False,False,False,False,Supplementary
+https://www.github.com/1000ttank/blog-cms,b355fbbfcf872b7e127931e2d75cfc170c7d9c4a,2026-02-24T01:27:01+00:00,Human,,35,30,2,True,True,False,False,fix: split editor dynamic route into server/client components for static export
+https://www.github.com/1000ttank/blog-cms,a28cc214792483a208817bf09a62b7db97782523,2026-02-24T01:15:19+00:00,Human,,75,0,4,True,True,False,False,fix: fix dynamic route build error for output: export + SPA fallback for GitHub Pages
+https://www.github.com/1000ttank/blog-cms,3e9d8981d366a0ed1a26ebb676b321b60826b382,2026-02-24T01:09:09+00:00,Human,,50,0,1,False,False,False,False,feat: add static export config and GitHub Actions for Pages
+https://www.github.com/1000ttank/blog-cms,b5f1fe25e04cb0ec3e1824c62dd69dbc1c79ee06,2026-02-24T01:05:03+00:00,Human,,16509,0,67,False,False,False,False,feat: initial commit

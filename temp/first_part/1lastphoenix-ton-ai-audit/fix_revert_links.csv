@@ -1,0 +1,13 @@
+github_url,source_sha,source_date,source_type,source_author_type,target_sha,target_date,target_author_type,days_to_action,day_bucket,link_method
+https://www.github.com/1lastphoenix/ton-ai-audit,4beac2e7c479e7b8ab1c0f838da6ac018af6052c,2026-02-26T20:45:55+00:00,fix,Human,,,Unknown,,unresolved,unresolved
+https://www.github.com/1lastphoenix/ton-ai-audit,2103d5435810e64a22afe524c26f866d5fb2bc35,2026-02-26T20:16:26+00:00,fix,Human,181fda17fb110d3a64b3b5b2002ced3f6853dd31,2026-02-23T21:18:59+00:00,Human,2.957,1-3,blame
+https://www.github.com/1lastphoenix/ton-ai-audit,40e74e832e45b4287ee94c5de6e4c51a5d3c067b,2026-02-26T17:41:59+00:00,fix,Human,181fda17fb110d3a64b3b5b2002ced3f6853dd31,2026-02-23T21:18:59+00:00,Human,2.849,1-3,blame
+https://www.github.com/1lastphoenix/ton-ai-audit,e12ec28c0b0a61d355a129cfe597dad436675b17,2026-02-25T18:18:42+00:00,fix,Human,5cbfe96a67716f0b8de0698a6dbe91aca6adec6c,2026-02-24T12:23:07+00:00,Human,1.247,1-3,blame
+https://www.github.com/1lastphoenix/ton-ai-audit,66631a638337031dc5c376fbd7f3bf4a37b5392c,2026-02-25T13:55:53+00:00,fix,Human,b93adfc4aa9d55bb0f27b4fe510730a468f9c264,2026-02-25T11:50:41+00:00,Human,0.087,0-1,blame
+https://www.github.com/1lastphoenix/ton-ai-audit,78780d0b5275c793ddf1d0bac706a8e623b3345a,2026-02-25T12:09:01+00:00,fix,Human,b93adfc4aa9d55bb0f27b4fe510730a468f9c264,2026-02-25T11:50:41+00:00,Human,0.013,0-1,blame
+https://www.github.com/1lastphoenix/ton-ai-audit,a9a21df8771207b88881573091702b291434e2fb,2026-02-24T18:26:14+00:00,fix,Human,ae8ad3b479f98fcbf37b12fec21252ef04a8c55d,2026-02-23T13:32:27+00:00,Human,1.204,1-3,blame
+https://www.github.com/1lastphoenix/ton-ai-audit,56149f02f1949706f19ac4175d5df12bb4395d88,2026-02-24T17:21:19+00:00,fix,Human,b375f338884d3c346ccc2444675fd58aaa2954f0,2026-02-24T17:04:49+00:00,Human,0.011,0-1,blame
+https://www.github.com/1lastphoenix/ton-ai-audit,915cc3170c1e1a102cd7d5141a5ba7adfc24d19f,2026-02-24T16:14:42+00:00,fix,Human,ba4a77909334ca3291b216c7c649bd44a2e4b642,2026-02-24T15:47:23+00:00,Human,0.019,0-1,blame
+https://www.github.com/1lastphoenix/ton-ai-audit,86cec526ccad5b15d565fd8325ee8a0c2b20fb13,2026-02-24T16:05:41+00:00,fix,Human,181fda17fb110d3a64b3b5b2002ced3f6853dd31,2026-02-23T21:18:59+00:00,Human,0.782,0-1,blame
+https://www.github.com/1lastphoenix/ton-ai-audit,884358171474cff88ab8fad5d02b47612c544560,2026-02-24T11:03:41+00:00,fix,Human,a0ab87f0f663b456151d58c039741db88fe0d20b,2026-02-23T23:30:52+00:00,Human,0.481,0-1,blame
+https://www.github.com/1lastphoenix/ton-ai-audit,4c744d9e018e6724fc8283e3ed46915b4aabbfab,2026-02-23T23:56:17+00:00,fix,Human,83219d6c1964efc9080bd9291a00cd04012939eb,2026-02-18T13:41:40+00:00,Human,5.427,3-7,blame

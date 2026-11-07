@@ -1,0 +1,6 @@
+github_url,source_sha,source_date,source_type,source_author_type,target_sha,target_date,target_author_type,days_to_action,day_bucket,link_method
+https://www.github.com/07-iceven/enderevac,011a46bb1dac10eb983fe2898a0f06bb4d513d40,2026-03-28T11:53:13+00:00,revert,Human,a9d0ff8bd7cc87239137a250c41d993039be544b,2026-03-28T11:17:47+00:00,Human,0.025,0-1,revert-trailer
+https://www.github.com/07-iceven/enderevac,e339a2c66f33a851fafdf0cf5c6fce64c122fbd6,2026-03-28T11:52:18+00:00,revert,Human,ba565af3e1ea2609f0c41c19f3a05c0e1a177aed,2026-03-28T11:35:59+00:00,Human,0.011,0-1,revert-trailer
+https://www.github.com/07-iceven/enderevac,cc82e58d024473a6da96ecbf20593225a56cd133,2026-03-28T11:51:24+00:00,revert,Human,00ad15fda861c14096260f65c06912674a2d77a2,2026-03-28T11:41:28+00:00,Human,0.007,0-1,revert-trailer
+https://www.github.com/07-iceven/enderevac,d9c23d2bdd6f46c36789a86ae834a804ba4cba22,2026-03-28T11:50:32+00:00,revert,Human,8bf3a43c0951711d6dc320a36ce3a1ac688ae7b0,2026-03-28T11:48:15+00:00,Human,0.002,0-1,revert-trailer
+https://www.github.com/07-iceven/enderevac,8bf3a43c0951711d6dc320a36ce3a1ac688ae7b0,2026-03-28T11:48:15+00:00,revert,Human,9c6faa1af383458daa328bfed16c1c642bc2ace5,2026-03-28T08:42:58+00:00,Human,0.129,0-1,revert-trailer

@@ -1,0 +1,1617 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xshikhar/pressprotocol,c1a1eaf14cbf094d750151adbcd648e06dee7af3,2026-11-03T22:20:50+00:00,Human,,6772,4592,131,False,True,False,False,"Merge pull request #176 from 0xshikhar/fix/hardening-and-protocol-v2
+
+Hardening + protocol v2: content-bound signatures, node deploy readiness, worker/web security"
+https://www.github.com/0xshikhar/pressprotocol,0bad90d4996068cd040223169981ef0bebbe48d3,2026-11-03T22:03:21+00:00,Human,,4,0,1,False,False,False,False,docs: Add commit and PR conventions for project contributors
+https://www.github.com/0xshikhar/pressprotocol,30ca061bffacae5e7ea39c185ab988cfe2cd215c,2026-11-03T21:56:51+00:00,Human,,11,1,1,False,False,False,False,feat(node): Include canonical edge resolver in Tor/IPFS gateway race
+https://www.github.com/0xshikhar/pressprotocol,db4035544b789be4be5649eca115c60d3f3322d5,2026-11-03T21:44:28+00:00,Human,,70,17,12,False,False,False,False,"feat(tor): Configure live AWS Fargate Tor v3 .onion address across all surfaces
+
+- Point default .onion host across web, worker, node, SDK CLI, browser
+  extension, publish-action, and WordPress plugin to the persistent Tor v3
+  hidden service running on AWS ECS Fargate + EFS (ap-southeast-2):
+  6wst2skhjdkaltwvy37clw2mzk75lteq66qu5qzg3ujhresdhloy63yd.onion
+- Bind Tor SocksPort to 127.0.0.1:9050 inside the container and initialize
+  all /data subdirectories on EFS mount
+- Add AGENTS.md with AWS Agent Toolkit configuration for ap-southeast-2"
+https://www.github.com/0xshikhar/pressprotocol,6105b93117c18a67202a9ed9c534d673e9ac7dfd,2026-11-03T21:30:43+00:00,Human,,2,2,2,False,False,False,False,sec(node): Use scrypt KDF for API key hashing to resolve CodeQL alert #88
+https://www.github.com/0xshikhar/pressprotocol,d1d7ec67696ec28c121def65deb5fd5cb7e11a09,2026-11-03T21:27:16+00:00,Human,,2,0,1,False,False,False,False,ci: Pass toolchain: stable to pinned dtolnay/rust-toolchain action
+https://www.github.com/0xshikhar/pressprotocol,915cfe5a5d4f21bb70250b22ecd52c8ff165cb23,2026-11-03T21:26:10+00:00,Human,,437,294,36,True,True,False,False,"fix: Restore .onion routing, ensure backwards compatibility, and resolve CodeQL/CI alerts
+
+- Restore active .onion routing across web, worker, node, SDK CLI, extension,
+  publish-action, and WordPress plugin for the AWS node deployment
+- Ensure backwards compatibility with existing v1 SDK clients and unauthenticated
+  community-node callers (accept valid v1 signatures as legacy alongside v2;
+  use optionalScope on publish/raw, upload, bridge, and webhook routes unless
+  REQUIRE_API_KEY=true; preserve non-null ipfsUrl/gatewayUrl and webhook response
+  fields)
+- Resolve CodeQL clear-text storage alerts (#153, #154, #155) by keeping
+  encrypted key records inside IndexedDB and writing only public metadata to
+  localStorage
+- Resolve CodeQL missing-rate-limiting alerts (#156-#160) by registering
+  @fastify/rate-limit globally and caching Tor hostname discovery outside
+  request handlers
+- Fix CI action SHAs in sdk-conformance job and enable loopback webhook test
+  delivery in test-webhook-subscriptions.ts"
+https://www.github.com/0xshikhar/pressprotocol,4d2784e326f8a983df16f261c8fafafda9dcc04c,2026-11-01T08:49:56+00:00,Human,,6,0,1,False,False,False,False,docs(deploy): Note required fly secrets for node operators
+https://www.github.com/0xshikhar/pressprotocol,d22eba7ffeb43b9e7b7822ca68e12184fa096147,2026-11-01T07:39:36+00:00,Human,,2244,796,40,False,False,False,False,"feat(node): harden sovereign community node for first deployment
+
+Infrastructure & persistence:
+- Persistent Ed25519 node identity (DATA_DIR/identity), surfaced in status
+- Embedded JSON store fallback when DATABASE_URL is unset, with a
+  Prisma-shaped compat layer so routes/services work in sovereign mode
+- Helia fs blockstore/datastore + stable libp2p peer key under DATA_DIR
+- Unified content cache under DATA_DIR; atomic JSON stores for API keys
+  and webhook subscriptions
+- Repo-root Dockerfile via pnpm deploy --legacy (vendors workspace SDK),
+  persistent /data volume incl. Tor hidden-service keys; fly/render/
+  compose contexts updated
+
+Auth & scoping:
+- No hardcoded admin key: bootstrap via ADMIN_API_KEY or generated key
+- Scoped keys (publish:raw/publish:signed/resolve/pin/federate/admin)
+  gate operator routes: federation peers/policy/gated, admin keys,
+  uploads, bridge medium/substack/cms, publish/raw
+- Signed publish requires protocol v2; v1 rejected with legacy notice
+- /api/v1/verify returns verified/legacy/invalid status
+
+Federation & webhooks:
+- Gossip verifies the content-bound signature against fetched content;
+  unsigned gossip rejected by default; timing-safe PSK; whitelists
+- Webhook subs authenticated, owner-scoped, SSRF-validated at create and
+  delivery; secret returned only at creation
+- Ghost/Strapi ingress requires configured env secrets (raw-body HMAC,
+  constant-time compare); bridge keys can no longer be caller-supplied
+
+Honesty:
+- Storage reports 'local' vs 'ipfs' tier; no fake ipfs:// URLs when
+  content was only written to the local store
+- Tor reader sanitizes article HTML, escapes metadata, sends CSP, and
+  shows a real verification result instead of a decorative badge
+- All generated URLs use PUBLIC_NODE_URL / PUBLIC_APP_URL
+
+Tests: fastify.inject route suite (13), federated suites updated for
+signed gossip; CI gains node/worker/route suites + SDK conformance job"
+https://www.github.com/0xshikhar/pressprotocol,f3845d1cc7725cf3ca34b7b5d5c3e4d3ca5a63aa,2026-11-01T07:08:10+00:00,Human,,1591,380,51,False,True,False,False,"feat(protocol): Content-bound v2 signatures across all signers and SDKs (#152, #167)
+
+Signatures previously covered only {title, tags, timestamp}, so an article body
+could be swapped while keeping a valid signature, and readers accepted even
+title-only signatures. Every signer now produces protocol v2 signatures: Ed25519
+over the RFC 8785 canonical JSON of {proto, title, tags, timestamp, contentSha256}.
+Verifiers report v2 as ""verified"" and v1 as ""legacy (metadata only)"", never
+verified; title-only candidates are gone.
+
+- web: editor, proof export and API explorer sign v2; reader/embed/provenance UI
+  show the legacy state; verification delegates to @pressprotocol/sdk/protocol
+- importers (URL, Notion, bulk RSS) sign in the browser via a shared helper; the
+  server import routes no longer accept private keys (also fixes the URL import
+  preview, which read a field the API never returned)
+- SDK client/CLI, widget, browser extension (previously key-sorted v1 that never
+  verified) and publish action sign v2; proof decoder reports legacy signatures
+- WordPress: signs locally with libsodium; the key is generated on first use,
+  stored encrypted with a key derived from the SECURE_AUTH salt, and migrated from
+  the old plaintext option; private keys are no longer sent to the API; tags are
+  sent as a JSON list
+- worker: a public key without a signature is treated as unsigned
+- Python, Go and Rust SDKs implement v2 signing/verification
+- spec/test-vectors/signature-v2.json: shared conformance vectors (valid,
+  tampered, legacy) verified by TS, Python, Go, Rust and PHP implementations"
+https://www.github.com/0xshikhar/pressprotocol,36bc8268fc7f0dab14c81b22daa9827ca68e1fe7,2026-11-01T06:57:20+00:00,Human,,1661,3152,19,False,True,False,False,"deps(web): Upgrade to Next.js 15.5.28 and React 19; remove unused auth stack (#154)
+
+Next.js 14.1 (and the whole 14.2 line) carries unpatched critical advisories; all
+Next.js/React advisories are resolved on 15.5.28 + React 19.3.1. Migration:
+
+- async route/page params and searchParams (Next 15 request APIs)
+- serverComponentsExternalPackages -> serverExternalPackages
+- outputFileTracingRoot set to the monorepo root
+- React 19 ref typings in reader components
+- dompurify 3.4.17 (security fixes); drop deprecated @types/dompurify
+
+Removes code that was never called by the app: the hand-rolled SIWE/JWT login
+routes (/api/auth/login, /api/auth/validate, /api/protected, /api/user/check),
+the middleware that forwarded a user header to them, and the unused
+wagmi/viem/react-query/RainbowKit providers and siwe/jsonwebtoken deps. Privy
+remains the single auth provider; embed framing headers now come solely from
+next.config.js."
+https://www.github.com/0xshikhar/pressprotocol,fbffb5b67f09c838bf4bde1bdb31e77ae44a2e97,2026-11-01T06:50:46+00:00,Human,,48,29,4,True,True,False,False,"fix: Report real telemetry instead of placeholder values (#162)
+
+- worker /api/manifests/stats returned hardcoded counts (142/38/45); it now
+  derives totals, unique tags and publishers from the content index and returns
+  null with source ""unavailable"" when no index is attached
+- worker status/metrics no longer claim a PoP count
+- node status reports the real Helia peer id/peer count (null/0 when Helia is not
+  running) and only reports the DHT active when it has peers
+- node no longer reports a fixed 450 ms onion latency; latency is null until it
+  is actually measured"
+https://www.github.com/0xshikhar/pressprotocol,f9b7b9816c30c79ce6a6ae064767e53cc3befcb3,2026-11-01T06:49:06+00:00,Human,,161,43,4,True,True,False,False,"fix(worker): Add input validation, body size caps and rate limiting (#164)
+
+The edge API pinned anything it received to the project's Pinata account with no
+limits. Now:
+
+- zod schemas for /api/content and /api/v1/publish/* (title <= 500 chars,
+  body <= 1 MiB, <= 20 tags, hex-validated keys/signatures, parseable timestamps);
+  title/body are validated without being mutated so signatures still match
+- 2 MiB JSON and ~10 MiB upload body limits (413)
+- image uploads restricted to PNG/JPEG/GIF/WebP/AVIF
+- CID validation before any gateway fan-out on :cid routes
+- Cloudflare Rate Limiting bindings: 10 publishes/min and 120 reads/min per IP
+  (no-op when the binding is absent, e.g. local dev)"
+https://www.github.com/0xshikhar/pressprotocol,28a9a8983eabb3b79c7a8aac7044604f7541cbd6,2026-11-01T06:48:02+00:00,Human,,115,86,16,True,True,False,False,"fix: Disable Tor routes until a node hidden service is deployed (#153)
+
+Tor mirrors are served by the PressProtocol node, which is not deployed yet, but
+every surface advertised a placeholder .onion host that is not a valid v3 address
+(including an Onion-Location header on every web page). Tor is now advertised only
+when a real 56-character v3 address is configured (NEXT_PUBLIC_TOR_ONION_HOST,
+TOR_ONION_GATEWAY, TOR_ONION_ADDRESS):
+
+- web: no Onion-Location header or Tor mirror by default; reader shows
+  ""Tor Onion Mirror — coming soon""
+- worker: omits mirrors.tor / Onion-Location; placeholder removed from wrangler.toml
+- node: no fabricated dev onion; configured and on-disk hosts are validated
+- extension, SDK CLI, publish action, WordPress plugin: Tor links only when configured
+
+Also drops the unrelated content-route header comment churn from the proxy fix."
+https://www.github.com/0xshikhar/pressprotocol,b40a65bdcce397f27f81253f0d1148d1516747ba,2026-11-01T06:45:38+00:00,Human,,453,53,10,True,True,False,False,"fix(worker): Verify Ed25519 signatures at the edge; add shared signature protocol
+
+/api/v1/verify reported every input as verified and /api/v1/publish/signed pinned
+without checking signatures. Both now verify for real, as does /api/content when a
+key/signature is supplied; invalid signatures return 401 and unsigned content is
+labelled unsigned instead of carrying placeholder keys. /api/v1/resolve reports
+the actual verification status, and /api/v1/publish/raw signs with the operator
+key only when EDGE_SIGNING_KEY is configured.
+
+Adds @pressprotocol/sdk/protocol as the single implementation of signing and
+verification: v2 signs an RFC 8785 canonical payload that binds the body via
+SHA-256; v1 (metadata-only) signatures verify as ""legacy"", never ""verified"".
+Title and body are no longer trimmed after signing."
+https://www.github.com/0xshikhar/pressprotocol,7e8ea3d4e4270ec87959ead2a049f8ca54033bd7,2026-11-01T06:42:43+00:00,Human,,236,25,5,False,False,False,False,"feat(web,extension): Seal burner private keys at rest (#165)
+
+Burner identities no longer store the raw Ed25519 private key in localStorage or
+chrome.storage. The key is sealed with AES-GCM under a non-extractable CryptoKey
+held in IndexedDB; public fields stay readable for UI. Existing plaintext entries
+are migrated transparently on next load, with plaintext only as a fallback where
+WebCrypto/IndexedDB are unavailable. Profile key import now uses the same path and
+async key derivation."
+https://www.github.com/0xshikhar/pressprotocol,b9dffad6784676ab393d6ce07cd525af1f4f00eb,2026-11-01T06:41:32+00:00,Human,,80,9,8,True,True,False,False,"fix(web): Sanitize untrusted article HTML and add baseline security headers
+
+Article bodies resolve from arbitrary CIDs, so every dangerouslySetInnerHTML path
+(reader, embed, import and Notion previews, editor preview) now goes through one
+DOMPurify-based sanitizer that strips scripts, handlers, forms, frames and inline
+styles, hardens links and images, and never emits markup during SSR.
+
+Adds nosniff, Referrer-Policy, Permissions-Policy, frame-ancestors/X-Frame-Options
+for non-embed routes, and object-src/base-uri restrictions everywhere."
+https://www.github.com/0xshikhar/pressprotocol,9acd1be8d200358062c0e2002987cd9644d6dddd,2026-11-01T06:40:18+00:00,Human,,89,143,8,True,True,False,False,"fix(web): Return 502 when content backends are unreachable (#155)
+
+The publish proxy swallowed upstream failures, so its fallback branch never ran
+and the handler returned no response. Retry only on 5xx/network errors, pass 4xx
+through, and fail with an explicit 502. Dedicated IPFS gateway settings are now
+read from environment configuration in both the web app and the edge worker, and
+CIDs are validated before gateway fan-out."
+https://www.github.com/0xshikhar/pressprotocol,85014ec2859c2f69c5fbf911a53259f5d86416e5,2026-10-16T15:08:17+00:00,Human,,353,506,2,False,False,False,False,"Merge pull request #141 from 0xshikhar/dependabot/npm_and_yarn/fastify/multipart-10.1.3
+
+chore(deps): bump @fastify/multipart from 9.4.0 to 10.1.3"
+https://www.github.com/0xshikhar/pressprotocol,c2d1d910de5a5349b10347c6a497d0945b81e669,2026-10-12T01:51:20+00:00,Bot,dependabot,353,506,2,False,False,False,False,"chore(deps): bump @fastify/multipart from 9.4.0 to 10.1.3
+
+Bumps [@fastify/multipart](https://github.com/fastify/fastify-multipart) from 9.4.0 to 10.1.3.
+- [Release notes](https://github.com/fastify/fastify-multipart/releases)
+- [Commits](https://github.com/fastify/fastify-multipart/compare/v9.4.0...v10.1.3)
+
+---
+updated-dependencies:
+- dependency-name: ""@fastify/multipart""
+  dependency-version: 10.1.3
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/0xshikhar/pressprotocol,9aec0f99941c813bcca577f9e2a98c2a3488d96e,2026-10-06T09:46:59+00:00,Human,,386,431,15,False,False,False,False,"Merge pull request #125 from 0xshikhar/chore/release-prep
+
+chore: Release prep — version bumps + publish workflow hardening"
+https://www.github.com/0xshikhar/pressprotocol,84be0da254a7a3d0a4a6b13cb3e9194d69db3ba0,2026-10-06T09:43:31+00:00,Human,,3,3,2,False,False,False,False,"ci: Pin codeql-action to v4.38.2 for Node 24 runner support
+
+v3.28.11 declares runs.using: node20; GitHub removed Node 20 from
+Actions runners on 2026-09-23, so the pinned action is force-migrated
+onto Node 24. Bump init/analyze/upload-sarif together to the commit
+behind tag v4.38.2, whose action metadata natively declares node24."
+https://www.github.com/0xshikhar/pressprotocol,e78b41227a66a60e1b3e1dc8639833001d338497,2026-10-05T23:02:50+00:00,Human,,386,431,15,False,False,False,False,"chore: Release prep — version bumps, codeql pin sync, publish workflow hardening
+
+Versions: sdk 1.2.0, proof/widget/node 1.1.1, worker 1.0.7,
+extension 2.3.0, obsidian/publish-action 1.1.1.
+
+- Sync all three codeql-action refs to the same SHA (v3.28.11) — closes
+  the partial bump in PR #120.
+- Align @types/node to ^22.10.2 (Node 22 runtime baseline) — supersedes
+  the wrong-target @types/node@26 bump in PR #39.
+- Remove unused datastore-core dependency — supersedes PR #41.
+- publish-ecosystem.yml: fail loudly when registry tokens are missing
+  (silent skips previously produced green runs that published nothing),
+  skip already-published npm/crates versions for multi-tag reruns, and
+  derive the GHCR image tag from core/node/package.json instead of a
+  hardcoded version."
+https://www.github.com/0xshikhar/pressprotocol,5fe03e921117cf088743f8cc7f609b68946092b0,2026-10-05T22:31:33+00:00,Human,,42,10,6,False,True,False,False,"Merge pull request #124 from 0xshikhar/ci/self-host-fonts-audit
+
+ci: Dependency audit job + self-hosted fonts (fix flaky web builds)"
+https://www.github.com/0xshikhar/pressprotocol,608943e6622f908a94fb68b2d41dff0f644e33b2,2026-10-05T22:28:03+00:00,Human,,3,0,1,True,True,False,False,"fix(web): Declare variable font weight ranges for local fonts
+
+next/font/local does not inspect font files, so omitting the weight
+option emits @font-face without a font-weight descriptor — clamping the
+variable fonts to weight 400 and forcing faux-bold synthesis for
+semibold/bold text. Declare the actual wght ranges (Inter 100-900,
+Source Serif 4 200-900, JetBrains Mono 100-800) verified from each
+file's fvar table."
+https://www.github.com/0xshikhar/pressprotocol,91cb8f19ca5b667159b9af9bcbe190d66e17acd7,2026-10-05T21:57:06+00:00,Human,,39,10,6,False,True,False,False,"ci: Add dependency audit job and self-host fonts to fix flaky builds
+
+- Add non-blocking `pnpm audit --audit-level=high` job to CI; flip to
+  blocking once issue #65 is resolved.
+- Replace next/font/google with next/font/local for Inter, Source Serif 4,
+  Instrument Serif, and JetBrains Mono. The build-time Google Fonts fetch
+  was the root cause of intermittent ""Validate Web Portal"" failures on
+  unrelated PRs, and self-hosting removes a build-time network dependency
+  (and any runtime font-request surface) entirely."
+https://www.github.com/0xshikhar/pressprotocol,5927249a05bc69484566a8a1feab34387f21cd30,2026-10-05T21:04:44+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #115 from 0xshikhar/dependabot/github_actions/docker/setup-buildx-action-4.4.1
+
+chore(deps): bump docker/setup-buildx-action from 3.10.0 to 4.4.1"
+https://www.github.com/0xshikhar/pressprotocol,0ccf14ae974b3cde489f22a96a0c1ac7bd9b9fef,2026-10-05T20:17:45+00:00,Bot,dependabot,1,1,1,False,False,False,False,"chore(deps): bump docker/setup-buildx-action from 3.10.0 to 4.4.1
+
+Bumps [docker/setup-buildx-action](https://github.com/docker/setup-buildx-action) from 3.10.0 to 4.4.1.
+- [Release notes](https://github.com/docker/setup-buildx-action/releases)
+- [Commits](https://github.com/docker/setup-buildx-action/compare/b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2...f87e5991a6d7451dcb8d9637bfbc97413f497069)
+
+---
+updated-dependencies:
+- dependency-name: docker/setup-buildx-action
+  dependency-version: 4.4.1
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/0xshikhar/pressprotocol,b41b4cfbf0ee3817e78b4b954f4c59ec51bf25c3,2026-10-05T20:13:27+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #116 from 0xshikhar/dependabot/github_actions/ossf/scorecard-action-2d1146689b8cda280b9bc96326124645441f03bc
+
+chore(deps): bump ossf/scorecard-action from 55891bbd73f2425e97637d96e306fc9d491d0b21 to 2d1146689b8cda280b9bc96326124645441f03bc"
+https://www.github.com/0xshikhar/pressprotocol,a28bf1e67b46711ee4ed4c4a37fbae220648d826,2026-10-05T20:11:51+00:00,Human,,392,347,2,False,False,False,False,"Merge pull request #40 from 0xshikhar/dependabot/npm_and_yarn/tailwind-merge-3.7.0
+
+chore(deps): bump tailwind-merge from 3.6.0 to 3.7.0"
+https://www.github.com/0xshikhar/pressprotocol,ca6ce7bd860f3e19570b7719d9640d5fd49a62d8,2026-10-05T20:10:54+00:00,Human,,2,2,2,False,False,False,False,"Merge pull request #114 from 0xshikhar/dependabot/github_actions/actions/upload-artifact-7.0.1
+
+chore(deps): bump actions/upload-artifact from 4.6.1 to 7.0.1"
+https://www.github.com/0xshikhar/pressprotocol,cb97e1b89a659643ddf17253a2c90df6b3fa3ee6,2026-10-05T20:09:31+00:00,Human,,1,1,1,False,False,False,False,"Merge pull request #117 from 0xshikhar/dependabot/github_actions/docker/login-action-4.6.0
+
+chore(deps): bump docker/login-action from 3.3.0 to 4.6.0"
+https://www.github.com/0xshikhar/pressprotocol,0dd3c060c7a1bbd20f2165add036d618d8a0b4dc,2026-10-05T20:04:56+00:00,Human,,6,6,3,False,False,False,False,"Merge pull request #118 from 0xshikhar/dependabot/github_actions/pnpm/action-setup-a7487c7e89a18df4991f7f222e4898a00d66ddda
+
+chore(deps): bump pnpm/action-setup from 7088e561eb65bb68695d245aa206f005ef30921d to a7487c7e89a18df4991f7f222e4898a00d66ddda"
+https://www.github.com/0xshikhar/pressprotocol,e3e5aecc741571a3a369799f3ad6292252f065cc,2026-10-05T20:03:56+00:00,Human,,4,4,2,False,False,False,False,"Merge pull request #121 from 0xshikhar/dependabot/github_actions/actions/setup-node-7.0.0
+
+chore(deps): bump actions/setup-node from 4.2.0 to 7.0.0"
+https://www.github.com/0xshikhar/pressprotocol,af98ad4cd92fd83b1d6e42b5feb26d414c90a2d5,2026-10-05T20:03:09+00:00,Human,,11,11,5,False,False,False,False,"Merge pull request #123 from 0xshikhar/dependabot/github_actions/actions/checkout-7.0.1
+
+chore(deps): bump actions/checkout from 4.2.2 to 7.0.1"
+https://www.github.com/0xshikhar/pressprotocol,354f821441bcd652b00b09465a46f9f066cfb8d6,2026-10-05T00:28:45+00:00,Bot,dependabot,11,11,5,False,False,False,False,"chore(deps): bump actions/checkout from 4.2.2 to 7.0.1
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.2.2 to 7.0.1.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/11bd71901bbe5b1630ceea73d27597364c9af683...3d3c42e5aac5ba805825da76410c181273ba90b1)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-version: 7.0.1
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/0xshikhar/pressprotocol,cbea30b7df15c005a03fcd56233c7df0d480d225,2026-10-05T00:27:16+00:00,Bot,dependabot,4,4,2,False,False,False,False,"chore(deps): bump actions/setup-node from 4.2.0 to 7.0.0
+
+Bumps [actions/setup-node](https://github.com/actions/setup-node) from 4.2.0 to 7.0.0.
+- [Release notes](https://github.com/actions/setup-node/releases)
+- [Commits](https://github.com/actions/setup-node/compare/1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a...820762786026740c76f36085b0efc47a31fe5020)
+
+---
+updated-dependencies:
+- dependency-name: actions/setup-node
+  dependency-version: 7.0.0
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/0xshikhar/pressprotocol,60c711d0b415409bfe91b69696306a18b360f02b,2026-10-05T00:26:19+00:00,Bot,dependabot,6,6,3,False,False,False,False,"chore(deps): bump pnpm/action-setup
+
+Bumps [pnpm/action-setup](https://github.com/pnpm/action-setup) from 7088e561eb65bb68695d245aa206f005ef30921d to a7487c7e89a18df4991f7f222e4898a00d66ddda.
+- [Release notes](https://github.com/pnpm/action-setup/releases)
+- [Commits](https://github.com/pnpm/action-setup/compare/7088e561eb65bb68695d245aa206f005ef30921d...a7487c7e89a18df4991f7f222e4898a00d66ddda)
+
+---
+updated-dependencies:
+- dependency-name: pnpm/action-setup
+  dependency-version: a7487c7e89a18df4991f7f222e4898a00d66ddda
+  dependency-type: direct:production
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/0xshikhar/pressprotocol,3a8c39519cdef45230ef2436bb9dd9439c2357f8,2026-10-05T00:26:17+00:00,Bot,dependabot,1,1,1,False,False,False,False,"chore(deps): bump docker/login-action from 3.3.0 to 4.6.0
+
+Bumps [docker/login-action](https://github.com/docker/login-action) from 3.3.0 to 4.6.0.
+- [Release notes](https://github.com/docker/login-action/releases)
+- [Commits](https://github.com/docker/login-action/compare/9780b0c442fbb1117ed29e0efdff1e18412f7567...dbcb813823bdd20940b903addbd779551569679f)
+
+---
+updated-dependencies:
+- dependency-name: docker/login-action
+  dependency-version: 4.6.0
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/0xshikhar/pressprotocol,649eea7b21f5844d7f2c094fd22bb6e2eaeeaf91,2026-10-05T00:26:09+00:00,Bot,dependabot,1,1,1,False,False,False,False,"chore(deps): bump ossf/scorecard-action
+
+Bumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 55891bbd73f2425e97637d96e306fc9d491d0b21 to 2d1146689b8cda280b9bc96326124645441f03bc.
+- [Release notes](https://github.com/ossf/scorecard-action/releases)
+- [Changelog](https://github.com/ossf/scorecard-action/blob/main/RELEASE.md)
+- [Commits](https://github.com/ossf/scorecard-action/compare/55891bbd73f2425e97637d96e306fc9d491d0b21...2d1146689b8cda280b9bc96326124645441f03bc)
+
+---
+updated-dependencies:
+- dependency-name: ossf/scorecard-action
+  dependency-version: 2d1146689b8cda280b9bc96326124645441f03bc
+  dependency-type: direct:production
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/0xshikhar/pressprotocol,49fbb96a079c2e0bd6f6c7425c65aa26f0994622,2026-10-05T00:26:01+00:00,Bot,dependabot,2,2,2,False,False,False,False,"chore(deps): bump actions/upload-artifact from 4.6.1 to 7.0.1
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.6.1 to 7.0.1.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1...043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+
+---
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-version: 7.0.1
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/0xshikhar/pressprotocol,3dabf4a8959f5d0628c8380748987802c97b9559,2026-10-02T03:33:18+00:00,Human,,43,23,8,False,False,False,False,"Merge pull request #113 from 0xshikhar/chore/upgrade-node-22-and-gh-cli
+
+chore(deps): upgrade Node.js to v22 LTS"
+https://www.github.com/0xshikhar/pressprotocol,386ad68373405d6da737831b126f9bc3f596df8d,2026-10-02T03:23:30+00:00,Human,,43,23,8,False,False,False,False,"chore(deps): upgrade Node.js to v22 LTS
+
+Upgrade Node.js runtime from v20 to v22.23.3 (LTS).
+This update affects:
+- CI workflows (`.github/workflows/ci.yml`, `.github/workflows/publish-ecosystem.yml`)
+- Dockerfiles (`core/node/Dockerfile`)
+- Documentation (`core/node/README.md`, `scripts/setup.sh`)
+- Project configuration (`.node-version`, `.nvmrc`, `package.json` engines)
+
+Additionally, this commit integrates GitHub CLI for improved developer experience and automation:
+- Add `gh:` scripts to `package.json` for common GitHub CLI commands.
+- Update `scripts/setup.sh` to check for `gh` installation.
+- Begin transitioning GitHub Release creation in `publish-ecosystem.yml` to use `gh cli`.
+
+Standardize `pnpm install` in `core/node/README.md` setup instructions."
+https://www.github.com/0xshikhar/pressprotocol,0cc8bf885cf1752cd4d54cebcd89e248823dfa6c,2026-10-02T03:11:19+00:00,Human,,354,128,20,False,True,False,False,"Merge pull request #111 from 0xshikhar/feat/security-sanitization-fixes
+
+Feat/security fixes"
+https://www.github.com/0xshikhar/pressprotocol,2d653466bd9bcd9abac7ec792909837362f26a5e,2026-10-02T02:54:21+00:00,Human,,3,3,2,False,False,False,False,"refactor: Refine content excerpt generation and update Rails test
+
+This commit includes two minor refinements: In `scrubber.ts`, the content excerpt generation logic is cleaned up by removing redundant `|| description` fallbacks after `cheerio.load(...).text()`. `cheerio.load(...).text()` already returns an empty string if no text is found, making the fallback unnecessary and simplifying the code. In `test-universal-rails.ts`, a test assertion for the `torproject` URL is updated to include the `https://` prefix, making the assertion more precise and robust."
+https://www.github.com/0xshikhar/pressprotocol,008bae20769db6b7660917636268e6ac4c9d9225,2026-10-02T02:54:21+00:00,Human,,6,6,2,True,True,False,False,"fix: Harden Obsidian plugin regexes to prevent ReDoS
+
+This commit updates the regular expressions used in the Obsidian plugin for parsing wiki-links and embedded transclusions. The previous regexes could be vulnerable to Regex Denial of Service (ReDoS) attacks with crafted long inputs. The updated regexes include explicit length limits (e.g., `{1,300}`) to mitigate this risk, improving the plugin's resilience and preventing potential performance degradation or crashes when processing malformed or excessively long link syntax."
+https://www.github.com/0xshikhar/pressprotocol,213241ea6340876b8e7682e5c2651a7abf3929f0,2026-10-02T02:54:21+00:00,Human,,31,16,2,True,True,False,False,"fix: Improve privacy scanner and URL sanitization
+
+This commit enhances the privacy scanning utility and URL sanitization within the browser extension. The `scanContentPrivacy` function in `privacy-scanner.ts` now uses the `URL` object for more robust and accurate detection of surveillance domains, reducing false negatives compared to regex-only approaches. The browser extension's `sanitizeUrl` function is strengthened to explicitly purge `javascript:` and `data:` URIs earlier in the process, preventing potential XSS vectors. An additional check for the `srcdoc` attribute in iframes is added to prevent potential XSS through embedded content."
+https://www.github.com/0xshikhar/pressprotocol,14d85eab140a061efd548d2494d55ad3d80b027b,2026-10-02T02:54:21+00:00,Human,,157,62,5,True,True,False,False,"fix: Enhance HTML/Markdown sanitization and parsing logic
+
+This commit refines several areas of content processing to improve security and parsing accuracy. The `stripHtmlTags` function in `SovereignMirrorService` and the `widget` package is rewritten for safer, character-level stripping, mitigating potential XSS bypasses that could occur with `DOMParser` or simpler regex approaches. The `extractTitle` function in `widget.js` now avoids `DOMParser` for robustness and includes attribute sanitization within its regex-based `<h1>` extraction. Markdown callout parsing in `notion.ts` and `publisher.ts` is made more resilient to various emoji representations, including handling Unicode variation selectors. Inline markdown rendering in `publisher.ts` now explicitly replaces `on[a-zA-Z]` event handlers with a `data-purged` attribute, providing a clearer indication of sanitization."
+https://www.github.com/0xshikhar/pressprotocol,3e87a37a86f0bd056736c94e1420d25a2e997159,2026-10-02T02:54:21+00:00,Human,,2,0,1,False,False,False,False,chore: Pin Rust toolchain to stable in publish-ecosystem workflow
+https://www.github.com/0xshikhar/pressprotocol,58b1c7d6748b78ddc0564ed2816745a1cb58ccac,2026-10-02T02:54:21+00:00,Human,,2,2,2,False,False,False,False,ci: Include security branch in CodeQL and Scorecard workflows
+https://www.github.com/0xshikhar/pressprotocol,b10664584487ea5b9712bd0a8d54d7fda5a82044,2026-10-02T02:26:13+00:00,Human,,51,24,9,False,True,False,False,Merge branch 'master' into feat/security-sanitization-fixes
+https://www.github.com/0xshikhar/pressprotocol,d4124d842d38a41b5c04982d7136895cec2b9a6b,2026-10-02T02:19:17+00:00,Human,,17,12,2,True,True,False,False,"fix(security): improve markdown escaping and script purging in publish action
+
+This commit enhances the `publish-action` integration to improve the security of markdown processing. The `escapeMarkdown` function in `index.ts` is updated to escape a broader set of characters (`<`, `>`, `[`, `]`, `` ` ``) that could be used for injection attacks or markdown rendering issues.
+
+Additionally, `publisher.ts` now includes an explicit check to purge executable script tags during markdown transpilation, removing a less robust post-processing regex replacement. This ensures that any embedded scripts are removed early in the processing pipeline, further mitigating XSS risks."
+https://www.github.com/0xshikhar/pressprotocol,e2a0007b024af3577d01695451c16ac3591dc5aa,2026-10-02T02:19:17+00:00,Human,,8,3,1,True,True,False,False,"fix(security): sanitize cache file paths to prevent directory traversal
+
+This commit introduces path sanitization to the `StorageService` when reading from and writing to the content cache. Specifically, `path.basename` and `path.resolve` are used in conjunction with a `startsWith` check to ensure that cache file paths are strictly confined within the intended cache directory.
+
+This prevents potential directory traversal vulnerabilities where a malicious actor could craft a CID value containing path manipulation sequences (e.g., `../`) to access or write to arbitrary locations on the file system."
+https://www.github.com/0xshikhar/pressprotocol,6ad7e94d46cb8e2075be21f47919d3aef0397647,2026-10-02T02:19:17+00:00,Human,,48,23,3,True,True,False,False,"fix(security): enhance HTML tag stripping to prevent XSS
+
+This commit refactors the HTML tag stripping logic in several key areas to use a more robust character-by-character parsing approach instead of regular expressions. Regex-based stripping can be vulnerable to bypasses and edge cases, potentially leading to Cross-Site Scripting (XSS) vulnerabilities.
+
+The new implementation iterates through the HTML string, maintaining a state to determine if the current character is inside an HTML tag. This ensures that only actual text content is extracted, significantly improving the security of content sanitization."
+https://www.github.com/0xshikhar/pressprotocol,a736682dc39ca4b7882315a9ad2d111c6a134ce9,2026-10-02T02:19:17+00:00,Human,,33,33,5,False,False,False,False,"chore(deps): pin GitHub Actions to specific SHAs
+
+This commit updates all GitHub Actions used across various workflows to their specific commit SHAs instead of mutable tags (e.g., `v4`). This practice enhances security by preventing unexpected changes in action behavior if a tag is updated by the action maintainer, and improves reproducibility of builds.
+
+Each action is now referenced by its full SHA, ensuring that the exact version of the action that was tested and approved is always used."
+https://www.github.com/0xshikhar/pressprotocol,50821e5d517904877d7fd972662eddef10a7e79f,2026-10-02T01:05:54+00:00,Human,,3,4,2,False,False,False,False,"test(testing): Update CMS scrubber and universal Rails tests
+
+Updates existing test scripts for the CMS scrubber and universal Rails integration, ensuring comprehensive test coverage for recent changes or new features."
+https://www.github.com/0xshikhar/pressprotocol,27c5a2b271327a777000d1771de1e6d7f03dd6df,2026-10-02T01:05:54+00:00,Human,,1,1,1,False,False,False,False,"chore(publish-action): Update action entry point
+
+Adjusts the main entry point for the publish GitHub Action, potentially for dependency updates or minor configuration changes."
+https://www.github.com/0xshikhar/pressprotocol,542bf46727652ee34d018dba0e91d428403aa4b7,2026-10-02T01:05:54+00:00,Human,,2,1,1,False,False,False,False,"feat(privacy-scanner): feat(privacy): Implement privacy scanning utility
+
+Introduces a new utility for scanning and identifying privacy-sensitive information within content, enhancing data protection capabilities."
+https://www.github.com/0xshikhar/pressprotocol,bb64659bd60704529d26aecb6fd02d48c7171a59,2026-10-02T01:05:54+00:00,Human,,10,10,2,False,False,False,False,"refactor(obsidian-plugin): refactor(obsidian): Update Obsidian plugin structure
+
+Updates the core structure and logic of the Obsidian plugin, potentially for better maintainability or compatibility."
+https://www.github.com/0xshikhar/pressprotocol,8e756f7cc62e776ecff5513bf73c90d563af6fc8,2026-10-02T01:05:54+00:00,Human,,51,13,3,False,False,False,False,"refactor(browser-extension): refactor(extension): Improve content handling in browser extension
+
+Refactors how content is processed and displayed within the browser extension, potentially improving clipping accuracy or UI responsiveness."
+https://www.github.com/0xshikhar/pressprotocol,ca4551438a5f691796eedfc0f60d5702bcc62ea7,2026-10-02T01:05:54+00:00,Human,,87,33,5,False,False,False,False,"refactor(html-processing): Enhance HTML content extraction and sanitization
+
+This commit improves the robustness of HTML content extraction and sanitization across various parts of the application.Key changes include:More reliable H1 title extraction in the web widget and connectors, utilizing DOMParser or a multi-pass regex approach.Improved HTML stripping for Notion article titles and scrubber excerpts using Cheerio.Enhanced HTML sanitization in the publish action to repeatedly remove script tags and event handlers, ensuring complete removal."
+https://www.github.com/0xshikhar/pressprotocol,cd2495bba5a0d11088b5924bd9a223facd339d4e,2026-10-02T01:02:26+00:00,Bot,dependabot,392,347,2,False,False,False,False,"chore(deps): bump tailwind-merge from 3.6.0 to 3.7.0
+
+Bumps [tailwind-merge](https://github.com/dcastil/tailwind-merge/tree/HEAD/packages/tailwind-merge) from 3.6.0 to 3.7.0.
+- [Release notes](https://github.com/dcastil/tailwind-merge/releases)
+- [Commits](https://github.com/dcastil/tailwind-merge/commits/tailwind-merge@3.7.0/packages/tailwind-merge)
+
+---
+updated-dependencies:
+- dependency-name: tailwind-merge
+  dependency-version: 3.7.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>"
+https://www.github.com/0xshikhar/pressprotocol,9cde1ae6f711f53b853d65b898007b689578bbbb,2026-10-02T00:59:18+00:00,Human,,64,24,10,False,True,False,False,"Merge pull request #109 from 0xshikhar/fix/codeql-dom-text
+
+Fix/codeql dom text"
+https://www.github.com/0xshikhar/pressprotocol,64f5cd73d1a1feff1e2382c9f527983998bb3e21,2026-10-02T00:22:39+00:00,Human,,2,2,1,True,True,False,False,"fix(security): Apply safeFetch to archive API route
+
+Replace direct `fetch` calls with `safeFetch` in the `/api/archive` route. This ensures that all external HTTP requests made by this endpoint are subject to the application's Server-Side Request Forgery (SSRF) protection mechanisms, preventing the server from making requests to unauthorized internal or external resources."
+https://www.github.com/0xshikhar/pressprotocol,eb98c1cf6afd790463085b4ff1f28b6eb7eb6b0c,2026-10-02T00:22:39+00:00,Human,,20,15,5,True,True,False,False,"fix(security): Enhance URL and path encoding for CIDs
+
+Apply `encodeURIComponent` to CIDs when constructing URLs for internal navigation, external links (e.g., IPFS gateways), and file paths for content caching. This prevents potential issues with special characters in CIDs leading to malformed URLs or path traversal vulnerabilities in the file system, ensuring robust and secure handling of content identifiers."
+https://www.github.com/0xshikhar/pressprotocol,7c162ef40b4403aa07ac0a1b6e27fa44d2cc03fa,2026-10-02T00:22:39+00:00,Human,,42,7,4,True,True,False,False,"fix(security): Prevent DOM-based XSS vulnerabilities
+
+Introduce `dompurify` for sanitizing user-generated content before rendering with `dangerouslySetInnerHTML`. Additionally, refactor the browser extension's content clipping logic to use safer DOM manipulation methods (`textContent` and `appendChild`) instead of `innerHTML` to prevent potential injection of malicious scripts. The `pnpm-lock.yaml` update reflects the new `dompurify` dependency."
+https://www.github.com/0xshikhar/pressprotocol,d43b95dc2ba607d94a26593cb5e5a17509046f24,2026-10-01T23:41:53+00:00,Human,,691,70,17,False,True,False,False,"Merge pull request #101 from 0xshikhar/fix/security-ssrf
+
+Fix/security ssrf"
+https://www.github.com/0xshikhar/pressprotocol,35164ce13a3a792f8bccdd9a722d0a648dc9f51e,2026-10-01T23:32:43+00:00,Human,,293,272,6,False,False,False,False,"Merge pull request #107 from 0xshikhar/feat/buy-me-coffee
+
+Feat/buy me coffee"
+https://www.github.com/0xshikhar/pressprotocol,b296f3826c6933a5093d3f5c4b0f2933148e52bc,2026-10-01T23:29:52+00:00,Human,,228,196,2,False,False,False,False,"docs: Update support and terms pages content
+
+Updates the content for the support and terms of service pages to reflect current information or policies."
+https://www.github.com/0xshikhar/pressprotocol,051bf57953e096813569322f292927f7787ea75a,2026-10-01T23:29:52+00:00,Human,,65,76,4,False,False,False,False,"feat: Integrate Buy Me a Coffee and update support links
+
+Introduces ""Buy Me a Coffee"" as a new, user-friendly method for community members to support PressProtocol. This includes: Adding a dedicated QR code image for easy mobile access, updating the footer with the new support link, and configuring donation chains."
+https://www.github.com/0xshikhar/pressprotocol,fdaff10cffdbf29c167ab6c9c9b70b89f3fc65cf,2026-09-30T08:40:45+00:00,Human,,24,6,5,False,False,False,False,update: SSRF and test scripts
+https://www.github.com/0xshikhar/pressprotocol,046d44adeedb0fb55f5103b8ebbe557ca0d7ca67,2026-09-30T08:24:21+00:00,Human,,7,15,4,False,False,False,False,"chore: Update miscellaneous scripts and integrations
+
+General maintenance updates for the publish action integration, widget connectors, and various development/testing scripts."
+https://www.github.com/0xshikhar/pressprotocol,582617b234cafadb3183270cf245005ea5c3719b,2026-09-30T08:24:21+00:00,Human,,20,18,4,False,False,False,False,"refactor: Refactor import routes and core services
+
+Minor refactorings and dependency updates across import API routes and core node/worker services to improve maintainability and align with updated patterns."
+https://www.github.com/0xshikhar/pressprotocol,f3f199e1f2daf693e8bc83e1a3dac2196fc21118,2026-09-30T08:24:21+00:00,Human,,135,0,1,False,False,False,False,"test: Add tests for SSRF protection and CID validation
+
+Introduce new test cases to verify the effectiveness of the enhanced SSRF protection mechanisms and the strict CID validation logic implemented in core services and API routes."
+https://www.github.com/0xshikhar/pressprotocol,a2dbf36ae8fbd14433ae719197ead06096bf7feb,2026-09-30T08:24:21+00:00,Human,,198,23,5,False,False,False,False,"feat: Enhance SSRF protection and strict CID validation
+
+Implement robust Server-Side Request Forgery (SSRF) protection by introducing DNS resolution verification, IPv4-mapped IPv6 decoding, and comprehensive private/blocked host checks in `ssrf.ts`.Centralize and strengthen IPFS CID validation logic in `article-metadata.ts` and `cid.ts` with more precise regex patterns and dedicated `isValidCID` and `assertValidCID` utilities.Integrate these new validation mechanisms into the `/api/archive` route and `StorageService` to ensure all external fetches and CID-based operations adhere to strict security boundaries."
+https://www.github.com/0xshikhar/pressprotocol,b0814b073320af249b0bfba36044635ca739dd4f,2026-09-30T06:32:34+00:00,Human,,10,10,5,False,False,False,False,feat: browser extension v2.2.0 launch
+https://www.github.com/0xshikhar/pressprotocol,576a0ca377a40b9e3e0de1ecedbcba3bb6ed2573,2026-09-29T19:07:26+00:00,Human,,1116,700,23,False,False,False,False,"Merge pull request #106 from 0xshikhar/feat/extension-design-system-v2
+
+feat(extension): Migrate Sovereign Web Clipper to Design System v2 & authentic Press Burgundy identity and
+integrate sovereign web clipper from 0xshikhar/PressProtocol"
+https://www.github.com/0xshikhar/pressprotocol,da742fda6257dd9efcbaae6f174458750b7b75f9,2026-09-29T18:52:54+00:00,Human,,26,20,2,False,False,False,False,"style(browser-extension): improve popup UI accessibility and focus
+
+This commit enhances the browser extension's popup UI by improving accessibility and visual focus indicators.
+
+`aria-hidden=""true""` is added to decorative SVG icons to prevent screen readers from announcing them, improving the experience for visually impaired users. Additionally, focus styles for form inputs are updated to use `outline` for better visibility and consistency with the design system."
+https://www.github.com/0xshikhar/pressprotocol,f37e6f72b1a65d2db59a2b319f986b99c505e0a1,2026-09-29T18:52:54+00:00,Human,,69,15,5,False,False,False,False,"feat(core): extend content manifest with additional metadata
+
+This commit introduces new metadata fields to the content manifest and associated services, allowing for richer content descriptions.
+
+Specifically, `author`, `sourceUrl`, `excerpt`, `readingTime`, and `wordCount` can now be stored and discovered alongside content. This enables clients (like the browser extension) to provide more comprehensive information when publishing articles."
+https://www.github.com/0xshikhar/pressprotocol,81e171ff0b1281acba5385ea38f43ca1781f8e84,2026-09-29T18:37:05+00:00,Human,,40,15,5,False,False,False,False,update : navigation text and extension UI button component
+https://www.github.com/0xshikhar/pressprotocol,ae2dea8052a8f1ec6d921f1ea9e4c225dc62d8ea,2026-09-29T18:17:06+00:00,Human,,461,335,1,False,False,False,False,style(browser-extension): apply design system v2 variables
+https://www.github.com/0xshikhar/pressprotocol,c029be02d3a607804ec49b603c9901e8fd851717,2026-09-29T18:17:06+00:00,Human,,27,2,3,False,False,False,False,"feat(browser-extension): introduce centralized configuration
+
+Adds a new `config.ts` file to centralize default settings, storage keys, and API endpoints for the browser extension. This improves maintainability and provides a single source of truth for critical parameters.
+
+Bumps the extension version to 2.2.0 in `manifest.json` and `package.json`."
+https://www.github.com/0xshikhar/pressprotocol,a1fc49896970f14714afaaca4c5a9ab6110697e7,2026-09-29T18:17:06+00:00,Human,,519,339,12,False,False,False,False,"feat(browser-extension): overhaul popup UI and modularize code
+
+Redesigns the extension popup with a new tabbed interface, including sections for article clipping, a sovereign scrap vault, settings, and an about page.
+
+This commit also:
+- Extracts shared type definitions into `src/types.ts` for better organization.
+- Modularizes UI-related logic into dedicated files under `src/ui/` (e.g., `diagnostics.ts`, `pipeline.ts`, `scraps.ts`, `tabs.ts`).
+- Updates browser extension icons (`icon-16.png`, `icon-48.png`, `icon-128.png`).
+- Simplifies the `setup.sh` script by removing manual icon setup and clarifying load paths."
+https://www.github.com/0xshikhar/pressprotocol,f08c675c60e440cfbb82f8cdf1666018c2023ff0,2026-09-29T09:40:25+00:00,Human,,39,21,4,False,True,False,False,"chore: Update worker, publisher, widget, and article metadata utilities
+
+Performs general maintenance and updates across the core worker, publishing action, widget connectors, and article metadata utilities. These changes include minor bug fixes, dependency updates, or performance tweaks that don't warrant a dedicated feature or fix commit."
+https://www.github.com/0xshikhar/pressprotocol,a9b54407bd7967324ae255df02176ed48c4630ae,2026-09-29T09:40:25+00:00,Human,,54,16,4,False,False,False,False,"feat: Enhance IPFS and storage service capabilities
+
+Introduces enhancements to core IPFS and storage services, including updates to CID handling and improvements in DHT and Sovereign Mirror service operations. These changes aim to improve data integrity, retrieval efficiency, and overall robustness of the decentralized storage layer."
+https://www.github.com/0xshikhar/pressprotocol,bf183b442c30ff438117868cb9cefb74201bd029,2026-09-29T09:40:25+00:00,Human,,0,16,4,False,False,False,False,"refactor: Improve API route consistency and error handling
+
+Refactors various API routes to ensure consistent response structures, error handling, and adherence to API design principles. This improves maintainability and predictability for API consumers."
+https://www.github.com/0xshikhar/pressprotocol,86935b233bdac5ba7b60f0d0f021acda97626164,2026-09-29T09:40:25+00:00,Human,,277,18,5,False,False,False,False,"feat: Implement comprehensive SSRF protection for external URL
+
+Introduces robust Server-Side Request Forgery (SSRF) protection mechanisms across all external URL fetching endpoints. This includes validation of URLs, sanitization of inputs, and enforcement of strict network policies to prevent unauthorized access to internal resources or malicious external requests. The `scrubber.ts` file is updated to integrate with these new security measures."
+https://www.github.com/0xshikhar/pressprotocol,36dbc6c625a842f77dc455370e9a8ce745a27a57,2026-09-28T11:36:37+00:00,Human,,1018,598,3,False,False,False,False,"Merge pull request #96 from 0xshikhar/feat/improve-reading-mode
+
+Feat/improve reading mode"
+https://www.github.com/0xshikhar/pressprotocol,83faa6244bc54abd6baabf6f008caee4972d1d3b,2026-09-28T10:28:23+00:00,Human,,27,56,1,True,True,False,False,fix: update ReaderTypographyDrawer component
+https://www.github.com/0xshikhar/pressprotocol,1bf9cf138345d68730b05ffc7191599cdc4bf656,2026-09-28T08:39:16+00:00,Human,,87,25,6,False,False,False,False,Merge branch 'master' into feat/improve-reading-mode
+https://www.github.com/0xshikhar/pressprotocol,f4c11bdc2bfbc35176a8de56a792ae390db7aa7e,2026-09-27T22:38:02+00:00,Human,,861,190,7,False,False,False,False,"Merge pull request #93 from 0xshikhar/ui/e-ink-reading-mode
+
+UI/e ink reading mode"
+https://www.github.com/0xshikhar/pressprotocol,188ca3dcf0f1ac93535dbe9d2822eee2875fe7e5,2026-09-27T22:28:28+00:00,Human,,14,3,2,False,False,False,False,"feat(reader): (reader) allow typography adjustments in focus mode
+
+Integrate the `ReaderTypographyDrawer` component into the distraction-free focus mode controls. This allows users to adjust typography settings (font size, typeface, theme, line height, content width) without exiting the immersive reading experience. The drawer's trigger button can now also receive dynamic styling, specifically for E-Ink mode."
+https://www.github.com/0xshikhar/pressprotocol,52863122e5583db0575fb5f9d64683c0187363d3,2026-09-27T22:28:28+00:00,Human,,49,8,1,False,False,False,False,"feat(reader): (reader) add robust validation for reader preferences
+
+Implement a `sanitizeReaderSettings` function to validate and clean reader preferences loaded from local storage. This ensures that stored settings (like `fontSize`, `typeface`, `theme`, `lineHeight`, `contentWidth`) conform to expected values and ranges, preventing potential UI issues or unexpected behavior from corrupted or invalid stored data. Legacy `serif` typeface is also mapped to `charter`."
+https://www.github.com/0xshikhar/pressprotocol,3f7260aa3e5a48dca1aa2ec0cb73fd7a387cdac0,2026-09-27T22:28:28+00:00,Human,,5,9,3,False,False,False,False,"refactor(reader): (reader) streamline focus mode CSS selectors
+
+Consolidate the CSS selectors for hiding global site chrome (navbar, header, footer) in distraction-free focus mode. Instead of targeting individual elements, a new `global-site-chrome` class is introduced and applied to these elements. This simplifies the CSS and makes it more robust to future changes in site structure."
+https://www.github.com/0xshikhar/pressprotocol,75beb05a84b4b04c6d6fe515b19bf56a47cca6c1,2026-09-27T22:19:47+00:00,Human,,783,523,2,False,False,False,False,"feat(reader): implement advanced typography and display preferences
+
+Integrate `useReaderPreferences` and `useReaderStore` to enable dynamic control over article display. Add support for full-screen mode, compact layout, two-column view, sepia and E-Ink themes, serif and monospace fonts, and adjustable font size, line height, and letter spacing. The `ReaderTypographyDrawer` component is updated to provide the UI controls for these new settings."
+https://www.github.com/0xshikhar/pressprotocol,7980e3e286d01549dab008548818bc0c6506bb66,2026-09-27T22:19:46+00:00,Human,,250,75,1,False,False,False,False,"style(reader): update global styles for reader themes and typography
+
+Refactor global CSS variables to use lowercase hex values for consistency. Introduce new CSS variables and theme-specific styles for E-Ink and Sepia reading modes. Adjust selection and marker styles for improved readability across themes."
+https://www.github.com/0xshikhar/pressprotocol,d73e776c7c4124de644ed0272df834b0c58348e6,2026-09-27T21:15:53+00:00,Human,,386,0,2,False,False,False,False,"Merge pull request #92 from 0xshikhar/ui/branded-error-pages
+
+feat: add error and not-found pages"
+https://www.github.com/0xshikhar/pressprotocol,27149fc0f10ea232fc9f26c6547c5fd8f60d9279,2026-09-27T20:40:23+00:00,Human,,386,0,2,False,False,False,False,feat: add error and not-found pages
+https://www.github.com/0xshikhar/pressprotocol,cea33c165444c67b8843377137e2e36f0184ff63,2026-09-24T14:47:00+00:00,Human,,204,90,4,False,True,False,False,"Merge pull request #81 from 0xshikhar/fix/social-card
+
+fix: correct Twitter card rendering"
+https://www.github.com/0xshikhar/pressprotocol,f1d281575f70804fa2753aebedbe4d49b6d631b9,2026-09-24T14:35:31+00:00,Human,,1,0,1,False,False,False,False,update : OG API route
+https://www.github.com/0xshikhar/pressprotocol,a162dc7bad4834d79ab602c9dca4a3960d9b3d3b,2026-09-24T14:29:40+00:00,Human,,35,17,3,False,False,False,False,"feat(sharing): improve quote URL encoding and decoding
+
+Switches the URL query parameter for shared quotes from `quote` to `q` for brevity.
+Standardizes URL encoding of spaces to `+` instead of `%20` for more compact URLs, and adds corresponding decoding logic.
+Sanitizes selected quotes before URL encoding by replacing smart quotes with ASCII equivalents and normalizing whitespace.
+Truncates long quotes in the URL parameter to prevent excessively long URLs, ensuring better compatibility with social platforms and cleaner links.
+Ensures consistency across the quote sharing pill, article metadata generation, and OG image API."
+https://www.github.com/0xshikhar/pressprotocol,53d6caf7b98e14fb91511b43a4147107a145999e,2026-09-24T14:05:27+00:00,Human,,51,3,5,False,True,False,False,"Merge pull request #78 from fatihcvs/fix/cli-version
+
+feat(sdk): add CLI version flags"
+https://www.github.com/0xshikhar/pressprotocol,da9fdb8b542c0248e39e6c32142544d210147845,2026-09-24T13:57:44+00:00,Human,,78,89,2,False,False,False,False,"chore: update route.tsx and ReadArticleClient.tsx
+
+Files:
+- apps/web/src/app/api/og/[cid]/route.tsx
+- apps/web/src/app/read/[cid]/ReadArticleClient.tsx"
+https://www.github.com/0xshikhar/pressprotocol,c679b319f8e5862a0eb22eddaca4c894638692c5,2026-09-24T13:57:44+00:00,Human,,93,34,2,False,False,False,False,"feat(src): add page.tsx and QuoteSharePill.tsx
+
+Files:
+- apps/web/src/app/read/[cid]/page.tsx
+- apps/web/src/components/reader/QuoteSharePill.tsx"
+https://www.github.com/0xshikhar/pressprotocol,eeeafce9f786e2ed36d50b28c9dff50edfb0c294,2026-09-24T06:13:50+00:00,Human,,63,45,3,True,True,False,False,"fix(social-cards): refine social card metadata and quote sharing presentation
+
+This commit refines how article metadata is generated for social cards and improves the visual presentation of Open Graph images, especially for articles with selected quotes. It also adjusts the citation format for shared quotes to be more concise and accurate.
+
+- `apps/web/src/app/api/og/[cid]/route.tsx`: Enhances the layout and styling of the OG image, making the article heading more prominent and adjusting the quote box presentation.
+- `apps/web/src/app/read/[cid]/page.tsx`: Simplifies the `generateMetadata` logic to provide clearer and more consistent titles and descriptions for social cards, particularly when a quote is present in the URL.
+- `apps/web/src/components/reader/QuoteSharePill.tsx`: Adjusts the snippet length and citation format for selected quotes, improving their readability and accuracy when shared."
+https://www.github.com/0xshikhar/pressprotocol,a19b75393940a64bb80d0b5d345d934ebea7bd3e,2026-09-24T06:13:50+00:00,Human,,30,1,1,False,False,False,False,"feat(reader): add social sharing buttons for articles
+
+Introduces dedicated buttons within the article reader to facilitate sharing on Twitter (X) and Warpcast (Farcaster). This enhances the discoverability and shareability of verified articles."
+https://www.github.com/0xshikhar/pressprotocol,5e2311d622dc47ddd2e61b3c08a0b758a9e2e402,2026-09-24T05:22:02+00:00,Human,,1267,879,5,False,False,False,False,"Merge pull request #80 from 0xshikhar/feat/dynamic-quote-card
+
+Feat/dynamic quote card"
+https://www.github.com/0xshikhar/pressprotocol,1df748136013f37b5b3f4064548d472e72e7d5c0,2026-09-24T02:50:41+00:00,Human,,900,873,3,False,False,False,False,"refactor(reader-ui): refactor reader to client-side component architecture
+
+Moves the heavy reader UI logic from page.tsx into a new ReadArticleClient.tsx component. This cleans up the server-side layout and page files, delegating client-side interactivity to the new component."
+https://www.github.com/0xshikhar/pressprotocol,c4e2628d6d8315a44b1235b177577dbffb9e2d80,2026-09-24T02:50:41+00:00,Human,,367,6,2,False,False,False,False,"feat(og-images): implement dynamic quote-based OG image generation
+
+Adds support for a 'quote' search parameter in the OG route to render specific text snippets on the generated image. Updates the QuoteSharePill to generate URLs pointing to these dynamic cards."
+https://www.github.com/0xshikhar/pressprotocol,521ec36c0042645af0826aefe82cfa5e8788b0e1,2026-09-23T23:07:58+00:00,Human,,3,0,1,False,True,False,False,"chore(github): enhance pull request template with related issues section
+
+This commit updates the `.github/PULL_REQUEST_TEMPLATE.md` file to include a dedicated 'Related Issues' section. This section prompts contributors to link their pull requests to relevant GitHub issues using `Fixes #`.
+
+This enhancement aims to improve traceability between code changes and reported issues, streamlining the review process and project management."
+https://www.github.com/0xshikhar/pressprotocol,4b1dbea16e0a67c5f6f844913a66f83ab6711fcc,2026-09-23T23:07:58+00:00,Human,,146,65,1,False,False,False,False,"docs(web): update support page with transparent treasury allocation model
+
+This commit renames the 'Transparent Infrastructure Ledger Data' section to 'Transparent Treasury Allocation Model' on the support page. The content within this section is updated to provide more detailed and transparent information regarding how donations are utilized.
+
+Categories, purposes, and allocation details have been revised, and new fields such as 'share', 'priority', and 'status' have been added to offer a clearer breakdown of financial distribution. Additionally, new icons (`Clock`, `Mail`) are integrated to enhance visual presentation."
+https://www.github.com/0xshikhar/pressprotocol,d28ba5e939a7a51f713f7c3c8f5e10c133bcef58,2026-09-23T23:07:58+00:00,Human,,319,199,4,False,False,False,False,"feat(web): centralize article metadata fetching and enhance OG images
+
+This commit introduces a new utility library for fetching article metadata, centralizing the logic previously duplicated or embedded within components. This refactoring improves code reusability and maintainability.
+
+The Open Graph (OG) image generation route (`/api/og/[cid]/route.tsx`) is updated to leverage this new centralized metadata fetching, ensuring consistent data retrieval. Additionally, a base64 encoded logo is introduced for use in OG images, improving performance by embedding the asset directly.
+
+The article read page layout (`/read/[cid]/layout.tsx`) is also updated to use the new `fetchArticleMetadata` function, enabling dynamic and accurate SEO metadata (title, description) for shared articles."
+https://www.github.com/0xshikhar/pressprotocol,b44a25a933bc9b4c4ca3197d93eab48e2c437913,2026-09-23T23:06:19+00:00,Human,,83,45,1,False,False,False,False,"chore(config): update chain configurations
+
+Updates the list of supported donation chains or their configurations, ensuring the application can correctly process donations on various networks."
+https://www.github.com/0xshikhar/pressprotocol,e0c135831508dbb7d9ab72b90c4bb8b28dcb996b,2026-09-23T22:27:05+00:00,Human,,51,3,5,False,False,False,False,feat(sdk): add CLI version flags
+https://www.github.com/0xshikhar/pressprotocol,04143ada31008a4b0dd9a630c4d273729e91aae6,2026-09-21T13:37:49+00:00,Human,,4,1,1,False,True,False,False,"Merge pull request #64 from hashirsajid58200p/fix/export-pressprotocol-alias
+
+fix(sdk): export PressProtocol alias"
+https://www.github.com/0xshikhar/pressprotocol,773c1029e9bddfe4188ca1de8e1172f61c65b785,2026-09-21T13:35:51+00:00,Human,,2,0,1,False,False,False,False,"Merge pull request #63 from Voyagerroc-Lab/chore/root-gitattributes
+
+chore: normalize text files to LF across platforms"
+https://www.github.com/0xshikhar/pressprotocol,587548311493cfdd27f0269d43ae568279874bff,2026-09-21T10:47:35+00:00,Human,,4,1,1,True,True,False,False,fix(sdk): export PressProtocol alias
+https://www.github.com/0xshikhar/pressprotocol,214f357031d97c5745d09943f797b930a8977413,2026-09-21T10:35:59+00:00,Human,,2,0,1,False,False,False,False,chore: normalize text files to LF across platforms
+https://www.github.com/0xshikhar/pressprotocol,f444a8125e48f8b01ac0a3a09d7f82f0a937cfb7,2026-09-21T09:29:15+00:00,Human,,116,1,8,False,False,False,False,"Merge pull request #25 from 0xshikhar/security/openssf-hardening
+
+security: Hardening GitHub Actions, OpenSSF Scorecard, and Node Daemon Process Lifecycle"
+https://www.github.com/0xshikhar/pressprotocol,739640ab10e616708d71cb0572c920f4c8158d58,2026-09-21T09:13:35+00:00,Human,,49,0,3,False,False,False,False,update: core node entrypoint
+https://www.github.com/0xshikhar/pressprotocol,131158f8b6caf112a53d42a354301c0a10ebbbf9,2026-09-21T08:54:18+00:00,Human,,6,1,1,False,False,False,False,update: Enable CI test suite on all feature branch pushes and pull requests
+https://www.github.com/0xshikhar/pressprotocol,ee3a1996347dd496f9644e961e05ad24dc0771c7,2026-09-21T08:47:16+00:00,Human,,39,0,1,False,False,False,False,"ci(security): Add CodeQL SAST analysis workflow
+
+Introduces a new GitHub Actions workflow for CodeQL Static Application Security Testing (SAST). This workflow will automatically analyze the codebase for security vulnerabilities on pushes to master, pull requests, and a weekly schedule, enhancing the project's security posture."
+https://www.github.com/0xshikhar/pressprotocol,8c32aeca335b66d2c941ddcf3315c830a32131d6,2026-09-21T08:47:16+00:00,Human,,9,0,3,False,False,False,False,"ci(security): Add explicit read permissions to workflows
+
+Explicitly sets `permissions: contents: read` for several GitHub Actions workflows. This follows security best practices by limiting the default `GITHUB_TOKEN` scope to only what is necessary, reducing potential attack surface."
+https://www.github.com/0xshikhar/pressprotocol,2237c28e052695618fedee671cf0a925ea93432e,2026-09-21T08:47:16+00:00,Human,,13,0,1,False,False,False,False,"chore(deps): Add Dependabot configuration
+
+Introduces Dependabot to automate dependency updates for npm packages and GitHub Actions. This helps maintain up-to-date dependencies, reducing security vulnerabilities and ensuring compatibility."
+https://www.github.com/0xshikhar/pressprotocol,15d86adcfd7d257da2586e7a9f85fbbe6d7f7eb2,2026-09-21T08:25:14+00:00,Human,,1,1,1,False,True,False,False,chore(fix): updating scorecard-action to v2.4.4
+https://www.github.com/0xshikhar/pressprotocol,f0781f602c7887a779ece69b3a297c25053f474e,2026-09-21T08:08:31+00:00,Human,,10,9,9,False,False,False,False,"chore(release): Bump all package versions to 1.1.0
+
+Updates the version number across all core components, applications, integrations, and packages to `1.1.0`.
+
+This includes `package.json` files for various modules, the `manifest.json` for the Obsidian plugin, and the `Dockerfile` for the core node, ensuring consistent versioning across the ecosystem."
+https://www.github.com/0xshikhar/pressprotocol,676100b4ee3087ef9c56803c6568eb3f5201d441,2026-09-21T08:08:31+00:00,Human,,31,1,2,False,False,False,False,"feat(docker): Publish Sovereign Node Docker image to GHCR
+
+Adds a new job to the `publish-ecosystem.yml` workflow to build and push the Sovereign Node Docker image to GitHub Container Registry (GHCR).
+
+Updates the `README.md` to include instructions for pulling the Docker image from GHCR, making the node more accessible to users."
+https://www.github.com/0xshikhar/pressprotocol,fea60b2ce3151d577e4d440de7dce549948d1633,2026-09-21T08:08:30+00:00,Human,,118,0,2,False,False,False,False,"feat(security): Add OpenSSF Scorecard workflow and security policy
+
+Introduces a new OpenSSF Scorecard GitHub Actions workflow to automatically analyze the repository's security posture and generate SARIF results.
+
+Also adds a `SECURITY.md` file, providing clear guidelines for reporting vulnerabilities and outlining supported versions for security updates."
+https://www.github.com/0xshikhar/pressprotocol,78828a9c46a1d31207acd96b8c9db50cc12f0e44,2026-09-20T20:07:52+00:00,Human,,0,0,4,False,False,False,False,"chore: Add/update downloadable integration assets
+
+Adds or updates the zip files for the browser extension and WordPress plugin downloads on the web application."
+https://www.github.com/0xshikhar/pressprotocol,e2d5c5b699ddeff3110c55f36cb97d78d883db87,2026-09-20T20:07:52+00:00,Human,,26,7,4,False,False,False,False,"feat: Implement initial plugin structure and packaging
+
+Introduces the core files for the Press Protocol WordPress plugin, including the main plugin file, publisher class, packaging script, and readme."
+https://www.github.com/0xshikhar/pressprotocol,38642ad4e42db662f79fc478725d3695f64d7ac0,2026-09-20T20:07:52+00:00,Human,,2,2,2,False,False,False,False,"chore: Update manifest and package configuration
+
+Updates browser extension manifest for permissions or versioning, and package.json for dependencies or metadata."
+https://www.github.com/0xshikhar/pressprotocol,f953ad127854917635926888bb4178f32f510f8f,2026-09-20T20:07:52+00:00,Human,,20,4,2,False,False,False,False,"feat: Add Tor onion link copy and update API endpoint
+
+Adds a new 'Copy .onion' button to the browser extension popup, allowing users to easily copy the Tor onion service URL for the currently viewed sovereign article. Also updates the default backend API endpoint from 'http://localhost:4000' to 'https://api.pressprotocol.com' for production readiness."
+https://www.github.com/0xshikhar/pressprotocol,76701792c091c82358e9b74ce3427ebc29517c65,2026-09-20T15:39:31+00:00,Human,,117,35,6,False,False,False,False,"feat(nodedownloads): Provide local node setup and update core services
+
+Introduces a downloadable docker-compose.yml file and a dedicated client view (DownloadsClientView.tsx) to enable users to easily set up and run a local node instance. Updates core/node/Dockerfile for improved build and runtime environment. Refines core/node/src/index.ts, core/node/src/services/HeliaNode.ts, and core/node/src/services/StorageService.ts to ensure compatibility and optimal performance for local deployments and general node operations."
+https://www.github.com/0xshikhar/pressprotocol,13edf700ca1724fa0f0c872f5e54d2ad78834cd4,2026-09-20T15:39:31+00:00,Human,,54,13,6,False,False,False,False,"feat(tor): Implement Tor onion service discoverability
+
+Integrates Tor onion service discoverability by adding the Onion-Location header to web routes via next.config.js. Updates apps/web/src/app/api/content/[cid]/route.ts to handle content requests potentially coming from or routed through Tor. Enhances core/node/docker-entrypoint.sh and core/node/src/services/TorService.ts for robust Tor service management. Adjusts core/worker configuration (src/index.ts, wrangler.toml) to support Tor-aware operations."
+https://www.github.com/0xshikhar/pressprotocol,b8418c0340a89603d1dfb87db0ef51d03db3a1b0,2026-09-19T21:49:03+00:00,Human,,451,187,2,False,False,False,False,"feat(reader): integrate reader preferences and E-Ink mode
+
+This commit integrates the newly created ReaderPreferencesContext into the article reading experience. The ReadArticleClient now uses useEffect hooks to dynamically apply CSS classes (focus-mode, theme-eink-active) to the document root based on user preferences for distraction-free mode and the E-Ink theme. The ReaderTypographyDrawer is refactored to consume settings from the context and includes new controls for the E-Ink theme, distraction-free mode, and content width, along with the OpenDyslexic typeface option."
+https://www.github.com/0xshikhar/pressprotocol,2ecaee7c16ebfef6856eeb980e0185d67eff5273,2026-09-19T21:49:03+00:00,Human,,202,0,2,False,False,False,False,"feat(reader): add OpenDyslexic font and E-Ink theme styles
+
+This commit adds the OpenDyslexic font, an accessibility typeface, to the application's font stack. It also introduces a new high-contrast, monochrome CSS theme (.theme-eink) specifically designed for e-ink displays. This theme overrides various color and border properties to provide a sharp, zero-animation reading experience."
+https://www.github.com/0xshikhar/pressprotocol,a8fa34e5a0bea4f1a0882c1748c1b3bdd303d307,2026-09-19T21:49:03+00:00,Human,,157,0,1,False,False,False,False,"feat(reader): introduce reader preferences context
+
+This commit introduces a new React context (ReaderPreferencesContext) to manage and persist user-specific reading preferences. It defines types for various settings like typeface, font size, theme, line height, content width, and a distraction-free mode. Settings are stored in localStorage for persistence across sessions."
+https://www.github.com/0xshikhar/pressprotocol,f024c570b546eac272d11d493c0995e22176c709,2026-09-19T13:49:24+00:00,Human,,40,127,3,False,False,False,False,"chore: update .DS_Store, .gitignore, and test.sh
+
+Files:
+- .DS_Store
+- .gitignore
+- scripts/test.sh"
+https://www.github.com/0xshikhar/pressprotocol,6c75138216301538c2e469e06d1e8d3d96f55077,2026-09-19T13:49:23+00:00,Human,,44,10,2,False,False,False,False,"refactor: refactor tor-utils.ts and prisma.ts
+
+Files:
+- apps/web/src/lib/tor-utils.ts
+- core/node/src/lib/prisma.ts"
+https://www.github.com/0xshikhar/pressprotocol,844adb513a17603e3632a321a16413dccbad7944,2026-09-19T13:49:23+00:00,Human,,82,44,6,False,False,False,False,"feat(src): add page.tsx, BrokenWebComparison.tsx, and LandingFooter.tsx
+
+Files:
+- apps/web/src/app/read/[cid]/page.tsx
+- apps/web/src/components/landing/BrokenWebComparison.tsx
+- apps/web/src/components/landing/LandingFooter.tsx
+- apps/web/src/components/navigation/footer.tsx
+- apps/web/src/components/protocol/MirrorHealthDot.tsx
+- apps/web/src/components/tor/TorShareSection.tsx"
+https://www.github.com/0xshikhar/pressprotocol,f3fc71ef26cbceaf59c16eea13f4cb3bcdae89fc,2026-09-19T13:49:23+00:00,Human,,44,35,2,False,False,False,False,"docs: update docs for docs
+
+Files:
+- INTEGRATIONS.md
+- README.md"
+https://www.github.com/0xshikhar/pressprotocol,23a6cc304af5f05cf9ca8029a32c7dc34f5cf48f,2026-09-19T13:49:23+00:00,Human,,187,0,3,False,False,False,False,"chore: update ci.yml, docker-compose.yml, and docker-compose.yml
+
+Files:
+- .github/workflows/ci.yml
+- apps/web/public/downloads/docker-compose.yml
+- core/node/docker-compose.yml"
+https://www.github.com/0xshikhar/pressprotocol,07d1f89cdaca9eae46e4d924877058a54b35fb37,2026-09-18T13:47:27+00:00,Human,,102,30,2,False,False,False,False,"chore: Minor updates to existing API routes
+
+Applies minor adjustments to existing content and manifests API routes, ensuring general consistency within the API layer."
+https://www.github.com/0xshikhar/pressprotocol,9db889144c8b77bd53b4a9edbc46c261e2209544,2026-09-18T13:47:27+00:00,Human,,114,93,2,False,False,False,False,"feat: Integrate discovery into explore pages
+
+Updates the explore and explorer pages to utilize the newly implemented discovery and feed functionalities, displaying recent content and statistics."
+https://www.github.com/0xshikhar/pressprotocol,b217e22bb0c4f128afbe0aba1493d039febd463b,2026-09-18T13:47:27+00:00,Human,,136,62,2,False,False,False,False,"feat: Add discovery and feed utilities
+
+Implements client-side utility functions and types to interact with the new discovery and feed API routes, facilitating data fetching and processing for the UI."
+https://www.github.com/0xshikhar/pressprotocol,07614fae843c31a2c7fa7d323416057271cde47b,2026-09-18T13:47:27+00:00,Human,,95,0,2,False,False,False,False,"feat: Implement discovery and stats routes
+
+Introduces new Next.js API routes for content discovery and statistics, consuming the new worker endpoints. These routes serve as the public interface for the web application to access discovery features."
+https://www.github.com/0xshikhar/pressprotocol,8c4385a450751e16ce9332224de2c6a230843754,2026-09-18T13:47:27+00:00,Human,,93,0,1,False,False,False,False,"feat: Add discovery and stats API endpoints
+
+Introduces new API endpoints to the worker service for content discovery and statistics. The /api/discovery endpoint provides a feed of recent content, while /api/discovery/stats aggregates category-wise statistics. These endpoints leverage the attached database for data retrieval, falling back to empty results if no database is configured."
+https://www.github.com/0xshikhar/pressprotocol,860f24bc96f4ed26f869d7415971784aeabd6d21,2026-09-17T15:00:25+00:00,Human,,0,0,7,False,False,False,False,update: logo and image files
+https://www.github.com/0xshikhar/pressprotocol,27d376b338a42e42c6d611ee038d85dfba7ecdbb,2026-09-17T12:57:52+00:00,Human,,238,175,1,False,False,False,False,"refactor(navbar): Enhance navigation and add homepage conditional logic
+
+This commit refactors the main navigation bar to improve its structure and adapt to the new landing page design. It introduces conditional rendering for navigation items, specifically adjusting the display when on the homepage (/). It also updates existing navigation links and dropdown menus to align with the revised site structure and content."
+https://www.github.com/0xshikhar/pressprotocol,75f88e4559eca7356984188da0fdb64c2ba67603,2026-09-17T12:57:52+00:00,Human,,1035,232,11,False,False,False,False,"refactor(landing): Overhaul content and add new sections to landing page
+
+This commit introduces several new components and significantly updates existing ones to provide a more comprehensive and engaging landing page experience. New sections include comparisons, personas, how it works, integrations, privacy pillars, and protocol primitives. Existing sections like the Hero, Call To Action, Featured Dispatches, and Footer have been refined with updated messaging and structure."
+https://www.github.com/0xshikhar/pressprotocol,2eea4802b4485901ce20d1519b0808e005ca9221,2026-09-16T12:55:13+00:00,Human,,1,1,1,False,False,False,False,"docs(about): Refine wording on about page for clarity
+
+Updates a key sentence on the about page to more accurately reflect the protocol's mechanism for content preservation, changing 'broadcast it directly to the permanent Web3 swarm' to 'preserve it directly across a decentralized, censorship-resistant network'."
+https://www.github.com/0xshikhar/pressprotocol,e77918db259f2731bef4518ae10d0c0c3e93ae66,2026-09-16T12:55:13+00:00,Human,,295,201,1,False,False,False,False,"feat(spec): Add tabbed interface and integrate related components
+
+Introduces a tabbed navigation system to the `/spec` page, allowing users to easily switch between the core protocol specification, a sandbox environment, transport network details, and gateway telemetry. This change improves the organization and accessibility of technical information, reusing components previously found on the landing page."
+https://www.github.com/0xshikhar/pressprotocol,c89e0aaffaef6dff9a7db34ecd66c7922caa5d2a,2026-09-16T12:55:13+00:00,Human,,17,26,1,False,False,False,False,"refactor(landing): Revamp landing page content and structure
+
+Replaces several older landing page components with new, more focused sections. This update aims to improve the narrative flow and user experience by presenting information in a more structured and engaging manner, aligning with updated product messaging."
+https://www.github.com/0xshikhar/pressprotocol,72f213e3019a08528b1b88454917792d88dc7327,2026-09-15T10:22:56+00:00,Human,,13,3,2,False,False,False,False,"feat(worker): Add Tor onion gateway support for content mirrors
+
+This commit extends the worker's capabilities to include Tor v3 onion URLs when generating content mirror information. It introduces the TOR_ONION_GATEWAY environment variable to the worker's configuration, allowing it to dynamically construct and provide onion service links for newly published or retrieved content."
+https://www.github.com/0xshikhar/pressprotocol,7ab0d5e202b521319b8f7b2951af83489b302244,2026-09-15T10:22:56+00:00,Human,,153,110,4,False,False,False,False,"refactor(web): Enhance Tor onion URL generation and sharing UI
+
+This commit refactors the frontend logic for generating and displaying Tor v3 onion URLs. It updates API routes to dynamically construct onion URLs based on environment variables. The TorShareSection component is streamlined, removing QR code functionality and improving copy/share interactions. The tor-utils library is refactored to focus on detecting onion service access and providing robust URL formatting and copying utilities, moving away from unreliable Tor Browser detection."
+https://www.github.com/0xshikhar/pressprotocol,835326dca4434f16d43b103dbe5e03b9b387e45b,2026-09-15T10:22:56+00:00,Human,,210,118,2,False,False,False,False,"feat(tor): Implement dedicated Tor v3 onion reading pane
+
+This commit introduces a new, self-contained reading pane specifically designed for access via Tor v3 onion services. It ensures zero clearnet leaks and provides a robust way to serve content securely over Tor. The /ipfs/:cid route is repurposed, and a new /read/:cid alias is added to serve this pane. The TorService is updated to improve onion address discovery and provide a more reliable way to determine the node's own onion URL."
+https://www.github.com/0xshikhar/pressprotocol,a260b50078df0762f766fa2ab8b7f8baa1eb8f5d,2026-09-11T05:37:48+00:00,Human,,143,0,1,False,False,False,False,feat : add featured dispactches
+https://www.github.com/0xshikhar/pressprotocol,67383f7cf1c714bcaf2390273e9b726547697aa7,2026-09-11T05:37:08+00:00,Human,,210,175,1,False,False,False,False,"refactor(docs): Improve styling and responsiveness of DocsViewer
+
+Refactor the DocsViewer component to enhance its styling and ensure better responsiveness across various devices. This improves readability and user experience for documentation."
+https://www.github.com/0xshikhar/pressprotocol,06a8e9fb6ffb7b02db086c6e8f407459ae1169af,2026-09-11T05:37:08+00:00,Human,,732,933,5,False,False,False,False,"refactor(landing): Standardize styling and structure for landing page components
+
+Apply consistent styling and structural patterns to various landing page components. This ensures a cohesive brand presentation and simplifies future updates."
+https://www.github.com/0xshikhar/pressprotocol,178baa4aaa455d8a9d9b44433efd21a8944b114a,2026-09-11T05:37:08+00:00,Human,,259,259,6,False,False,False,False,"refactor(developers): Standardize styling across developer components
+
+Refactor styling and component structure to ensure a consistent look and feel across all developer-facing components. This improves maintainability and user experience."
+https://www.github.com/0xshikhar/pressprotocol,abe031411c25646b0c111e3be823a1b0ba6a52ea,2026-09-11T01:32:03+00:00,Human,,139,138,2,False,False,False,False,feat: Implement discovery feed and indexer settings
+https://www.github.com/0xshikhar/pressprotocol,eebd7d8ede9e287ae9a7a62a627e38986b14248a,2026-09-11T01:32:03+00:00,Human,,88,88,2,False,False,False,False,feat: Add bulk RSS and Notion import capabilities
+https://www.github.com/0xshikhar/pressprotocol,df05dbc3d242004d75034c6f484183652a8d988a,2026-09-11T01:32:03+00:00,Human,,250,313,3,False,False,False,False,feat: Update landing page content and telemetry
+https://www.github.com/0xshikhar/pressprotocol,652ac403aeb0a8a49280181fb790d29de7094d50,2026-09-11T01:32:03+00:00,Human,,240,248,4,False,False,False,False,feat: Update navigation and authentication flows
+https://www.github.com/0xshikhar/pressprotocol,9f3ae23fa8be296642ce20dcc7d1a5ba71e6bd3e,2026-09-11T01:32:03+00:00,Human,,58,30,4,False,False,False,False,refactor: Standardize and refine core UI components
+https://www.github.com/0xshikhar/pressprotocol,c323e75385a07b6355a7cdf6a3aa065acf6e3b0b,2026-09-11T01:32:03+00:00,Human,,166,183,5,False,False,False,False,feat: Display cryptographic provenance and manifest details
+https://www.github.com/0xshikhar/pressprotocol,d7518c10b9de92967c77a62b114b08b4689d1c0b,2026-09-11T01:32:03+00:00,Human,,108,111,5,False,False,False,False,feat: Improve reader experience with new features
+https://www.github.com/0xshikhar/pressprotocol,b741a7c7808838202d3260880bd18e7d07d9e854,2026-09-11T01:32:03+00:00,Human,,90,99,5,False,False,False,False,feat: Enhance editor functionality and UI components
+https://www.github.com/0xshikhar/pressprotocol,4d03170fcf9ce935fbf04de4a1c604eec275850d,2026-09-11T01:27:48+00:00,Human,,635,334,1,False,False,False,False,"feat(downloads): enhance UI with filtering, layout, and detailed views
+
+Significantly refactor and enhance the DownloadsClientView component. This update introduces new UI elements and functionality, including:
+- New icons for filtering, grid/table layout toggles, and detailed views.
+- Improved state management for UI interactions.
+- Potential for new display modes or filtering options for downloaded content.
+The large diff indicates a substantial overhaul of the page's presentation and interaction."
+https://www.github.com/0xshikhar/pressprotocol,32fa63d1c88f5a53980bd44d963a3c61068dabef,2026-09-11T01:27:48+00:00,Human,,153,148,3,False,False,False,False,"refactor(embed): adopt new design system tokens for embed pages
+
+Update the embed reader and builder pages to consume the newly defined design system color tokens. This includes adjusting background colors, text colors, border styles, badge styles, and button accents to align with the 'Editorial Sovereign Identity' theme. The embed builder also defaults to the 'dark' theme and updates iframe styling."
+https://www.github.com/0xshikhar/pressprotocol,35fe001b0108732ea387d6200746ac5e75f26e58,2026-09-11T01:27:48+00:00,Human,,219,134,1,False,False,False,False,"refactor(style): implement Editorial Sovereign Identity design system
+
+Overhaul the core CSS variables to introduce 'Design System v2: Editorial Sovereign Identity'. This update replaces the previous 'Sovereign Dark Theme' with a new color palette and foundational styling, aiming for a more distinct and cohesive visual language across the application."
+https://www.github.com/0xshikhar/pressprotocol,e5a2409a5e378802b2063b72391d10d9d2184168,2026-09-10T23:25:09+00:00,Human,,25,25,1,False,False,False,False,"refactor(api-reference): use design system tokens for styling
+
+Replaces hardcoded color values and utility classes with design system tokens (e.g., `bg-canvas`, `text-text-primary`, `bg-overlay`) to ensure consistent theming and easier maintenance."
+https://www.github.com/0xshikhar/pressprotocol,4adc63a9da3d72327e121b1acda24b9e903757c5,2026-09-10T23:25:09+00:00,Human,,985,928,13,False,False,False,False,"refactor(ui): adopt semantic color tokens
+
+Replaces hardcoded Tailwind CSS color values with semantic CSS variables and utility classes across the application. This improves consistency, maintainability, and prepares for future theming capabilities.
+
+Includes minor cleanup of unused Lucide icons and components in various pages."
+https://www.github.com/0xshikhar/pressprotocol,878941850ff7c5d46945b52c6d336a1969ea0a79,2026-09-09T23:20:15+00:00,Human,,39,39,1,False,False,False,False,"feat(lib): lib: Add Notion API integration utility
+
+Create a utility file (`notion.ts`) to handle interactions with the Notion API. This will be used for fetching and managing content from Notion databases."
+https://www.github.com/0xshikhar/pressprotocol,565fb002f301104d3fd0d5b3fd9f8c085c188830,2026-09-09T23:20:15+00:00,Human,,151,152,2,False,False,False,False,"feat(app): app: Implement trending and write post pages
+
+Introduce pages for displaying trending content and for users to compose new posts. These pages represent core interactive features of the application."
+https://www.github.com/0xshikhar/pressprotocol,144aac59d8ada5716a0cde736538f84faeaf46cc,2026-09-09T23:20:15+00:00,Human,,666,370,3,False,False,False,False,"feat(app): app: Add static pages for settings, support, and terms
+
+Create placeholder pages for 'Settings', 'Support', and 'Terms and Conditions'. These pages provide essential information and functionality, laying the groundwork for future content."
+https://www.github.com/0xshikhar/pressprotocol,4d3aa2252638babde45b5bcdbc064452e471a834,2026-09-09T23:20:15+00:00,Human,,10,6,2,False,False,False,False,"feat(app): app: Initialize core application layout and home page
+
+Set up the root layout for the web application, including basic HTML structure, metadata, and global styles. Implement the initial home page (`/`) with placeholder content to establish the main entry point."
+https://www.github.com/0xshikhar/pressprotocol,234de40f561a49a349176455672173a867f21fcb,2026-09-09T23:20:15+00:00,Human,,94,34,1,False,False,False,False,"refactor(style): style: Implement new design system color palette and typography
+
+Introduce a comprehensive set of semantic colors and refined font stacks in `tailwind.config.ts`. This update establishes a consistent visual language across the web application, improving maintainability and scalability of styling."
+https://www.github.com/0xshikhar/pressprotocol,518e2a3806a78a4a84148e7e3a7d5b260db7e5f2,2026-09-09T03:13:16+00:00,Human,,84,35,6,False,False,False,False,"feat: enhance sovereign mode, improve CI builds, and streamline web UI
+
+**Sovereign Mode**:
+*   Introduce a local content blockstore in `StorageService` to enable ""Pure Sovereign / CI / Offline Mode"" for content storage when Pinata credentials are not configured. This allows the node to operate without external IPFS pinning services.
+*   Update the landing page hero section to reflect ""Sovereign Infrastructure"" messaging and remove the dedicated support prompt, streamlining the user interface.
+
+**CI Build Improvements**:
+*   Ensure the browser extension is explicitly built during CI workflows.
+*   Enhance web clipper tests to automatically trigger a browser extension build if necessary, improving test reliability.
+
+**Refactor**:
+*   Refactor autonomous node tests to utilize `node:crypto` for ED25519 key generation and signing, replacing `@noble/ed25519`."
+https://www.github.com/0xshikhar/pressprotocol,3a1d4bb4c0bd6ec0db84f5982ea9740323920138,2026-09-08T01:20:07+00:00,Human,,76,57,4,False,False,False,False,refactor : git workflows
+https://www.github.com/0xshikhar/pressprotocol,6062ab07607e325011f9c08811e570aba1e85cd4,2026-09-07T20:55:44+00:00,Human,,12,1,1,False,False,False,False,chore(release): v1.0.8 Go SDK release
+https://www.github.com/0xshikhar/pressprotocol,140421c4c511203719b874f0dc5db37745e58bae,2026-09-06T20:48:36+00:00,Human,,644,223,14,False,False,False,False,"refactor: update project branding and documentation - across all repository URLs, module paths, and package metadata.
+Add comprehensive `README.md` files for `@pressprotocol/proof`, `@pressprotocol/sdk`, and `@pressprotocol/widget` packages.
+Update `README.md` for the Go SDK to reflect the new branding.
+Configure `NEXT_PUBLIC_APP_URL` in the CI workflow for the web application build."
+https://www.github.com/0xshikhar/pressprotocol,193f374b8ee14ebc24a0482cc08f40869cbd3a27,2026-09-06T19:11:14+00:00,Human,,68,7,1,False,False,False,False,"docs: Update README with live infrastructure and public goods info
+
+Updates the main `README.md` to reflect the project's current status and alignment. This includes adding new badges for the live web app and edge API, detailing the production infrastructure, and highlighting the project's participation in Octant Epoch 13 for public goods alignment, zero-custody guarantee, and multi-transport racing capabilities."
+https://www.github.com/0xshikhar/pressprotocol,5d5859f9c5624f3b2703aa0ad9e74e9943bed338,2026-09-06T19:11:14+00:00,Human,,5,0,1,False,False,False,False,"chore(worker): Add Cloudflare Worker CLI scripts
+
+Adds new `pnpm` scripts to the root `package.json` for streamlined management of the Cloudflare Worker. These scripts facilitate logging in, setting JWT and database secrets, running the worker in development, and deploying it to production."
+https://www.github.com/0xshikhar/pressprotocol,5e20cc94d76b33c351b03d1da6f6f10e2307293d,2026-09-06T19:11:14+00:00,Human,,380,106,3,False,False,False,False,"feat(extension): Improve web clipper and API reliability
+
+Enhances the browser extension's core functionality. The `clipper.ts` now provides more robust content extraction by purging additional noise like multi-chapter infinite scroll and video overlays. `background.ts` updates the default API URL to production and expands the list of candidate endpoints for improved resilience. The `popup.ts` now preloads article metadata (title, author, read time, word count) on tab inspection, offering instant feedback to the user."
+https://www.github.com/0xshikhar/pressprotocol,9365680ffebe62f6758c9f537b7c9b6e5816e600,2026-09-06T19:11:14+00:00,Human,,5,3,1,False,False,False,False,"refactor(web): Enhance typography with new font stacks
+
+Updates the `tailwind.config.ts` to introduce new font families, including 'Charter' for serif and 'Instrument Serif' for editorial/display, alongside refined system font stacks for sans and mono. This aims to improve readability and visual aesthetics across the web application, particularly for content display."
+https://www.github.com/0xshikhar/pressprotocol,3deb4b861fe7e4cabb67086d2690b29013209e5a,2026-09-06T19:11:14+00:00,Human,,612,0,3,False,False,False,False,"feat(web): Add project support and donation page
+
+Introduces a new `/support` page on the web application, allowing users to contribute to the project. This includes a redirect from `/donate` for convenience and a comprehensive configuration for various cryptocurrency donation chains and traditional payment methods."
+https://www.github.com/0xshikhar/pressprotocol,9c6f9278600ca9c194aa8ad6b2f6498c68193849,2026-09-06T06:09:30+00:00,Human,,1948,499,37,False,False,False,False,"feat: enhance content delivery resilience and reader typography
+
+Implement robust content delivery with additional IPFS gateways and direct Pinata pinning as a backend failover. Introduce resilient edge failover for API client requests, trying multiple backend endpoints.
+
+Significantly improve reader experience with new editorial typefaces (Charter, Instrument Serif) and comprehensive CSS styling for article content. Update default reader typeface to Charter.
+
+Update branding from ""AnonPress"" to ""PressProtocol"" across SDK snippets, Tor mirrors, and various UI elements. Emphasize the public goods mission with updated support prompts, footer links, and navigation.
+
+Refine UI text and conditional classnames for consistency and clarity. Bump package versions and update metadata for `@pressprotocol/proof`, `@pressprotocol/sdk`, and `@pressprotocol/widget`."
+https://www.github.com/0xshikhar/pressprotocol,c838f810baa699c9160102df1beffb6d87cc990b,2026-09-05T23:04:45+00:00,Human,,116,0,1,False,False,False,False,feat(worker): add prisma db client service
+https://www.github.com/0xshikhar/pressprotocol,528d8ccd74246557280534787b67d930782547b8,2026-09-05T23:04:45+00:00,Human,,71,0,3,False,False,False,False,feat(worker): initialize Cloudflare Worker project
+https://www.github.com/0xshikhar/pressprotocol,08b6c10df4a0fcb5d2769896734e1169f4d0b2c4,2026-09-05T23:04:45+00:00,Human,,800,0,4,False,False,False,False,"feat(worker): implement content publishing API
+
+This commit introduces the initial Cloudflare Worker application.
+It provides the core API for:
+- Publishing content to IPFS via Pinata.
+- Indexing published content in a database.
+- Retrieving recent content from the database.
+
+Key components include:
+- Hono-based API routes with global CORS.
+- `PinataService` for IPFS interactions.
+- Type definitions for environment variables and content data.
+- An example `.dev.vars.example` file for local development."
+https://www.github.com/0xshikhar/pressprotocol,0357fe1515a5392c514dbcee393a7fd1a018f899,2026-09-05T18:58:24+00:00,Human,,1,1,1,False,False,False,False,"chore(sdks-rust): Bump Rust SDK lockfile version to 1.0.7
+
+Updates the `Cargo.lock` file to reflect the `pressprotocol-rs` package version `1.0.7`, ensuring dependency consistency across builds."
+https://www.github.com/0xshikhar/pressprotocol,7b821f58412d14c7cafbb674d0d3b3b0c42add71,2026-09-05T18:58:24+00:00,Human,,51,25,2,False,False,False,False,"docs(sdks-rust): Enhance Rust SDK README and project metadata
+
+Updates the Rust SDK's `README.md` to include new badges, a detailed features section, and installation instructions. The `Cargo.toml` is updated to include a `documentation` URL for better discoverability."
+https://www.github.com/0xshikhar/pressprotocol,1edeb488575090a7b2d332b294925e8b85735c97,2026-09-05T18:58:24+00:00,Human,,2,2,2,False,False,False,False,"chore(sdks-python): Bump Python SDK version to 1.0.7
+
+Updates the internal version string in `pressprotocol/__init__.py` and the `User-Agent` header in `pressprotocol/client.py` to reflect the new `1.0.7` release."
+https://www.github.com/0xshikhar/pressprotocol,fb5599e1f19faa3568f2cf013dec14e1ea32f8b2,2026-09-05T18:58:24+00:00,Human,,182,18,6,False,False,False,False,"docs(sdks-python): Enhance Python SDK README and project metadata
+
+Updates the Python SDK's `README.md` to include new badges, a detailed features section, and alternative installation methods (e.g., `uv`). The `pyproject.toml` is updated with expanded classifiers, additional keywords, and explicit project URLs for better discoverability and package information. The `egg-info` files are generated artifacts reflecting these metadata and documentation changes."
+https://www.github.com/0xshikhar/pressprotocol,794c4a49681deb6c0e2b461efdfa5a6e0c9ee1a9,2026-09-05T18:58:23+00:00,Human,,81,0,1,False,False,False,False,"feat(sdks-go): Introduce Go SDK for PressProtocol
+
+This commit introduces the official Go SDK for PressProtocol, providing Go developers with tools for zero-custody signing, deterministic in-memory CIDv1 computation, and multi-transport content resolution across IPFS and Tor. The `README.md` provides comprehensive information on features, installation, and quickstart examples."
+https://www.github.com/0xshikhar/pressprotocol,6042b3fb341cb29907d011cabf6113830e855e3e,2026-09-05T05:42:51+00:00,Human,,2489,9,20,False,False,False,False,"update: add public downloads, integration guides and developer support"
+https://www.github.com/0xshikhar/pressprotocol,67b50b5dcd21a7bd9b5076b20f1585f875d1c339,2026-09-04T22:41:12+00:00,Human,,3239,2071,16,False,False,False,False,feat: web application enhancements
+https://www.github.com/0xshikhar/pressprotocol,c0deade1fb4126ad7bb4f24620076d0028a6f438,2026-09-04T05:39:47+00:00,Human,,8,6,1,False,False,False,False,"refactor(utils): optimize reading time calculation utility
+
+Optimizes the reading-time utility function for better performance and accuracy, potentially by refining word count logic or handling edge cases more robustly."
+https://www.github.com/0xshikhar/pressprotocol,262d8c676361cad0f997808f9e4b9ee52b3fbaa3,2026-09-04T05:39:47+00:00,Human,,7,9,1,False,False,False,False,"refactor(developers): improve SDK code snippet rendering
+
+Refactors the SDK code snippet component to improve syntax highlighting, copy-to-clipboard functionality, and overall presentation within developer documentation."
+https://www.github.com/0xshikhar/pressprotocol,6d113db411b9807505aca4430d3529eefe57b0ae,2026-09-04T05:39:47+00:00,Human,,56,58,4,False,False,False,False,"refactor(landing): enhance landing page UI and responsiveness
+
+Performs general improvements to landing page components, focusing on UI consistency, responsiveness across devices, and minor accessibility enhancements."
+https://www.github.com/0xshikhar/pressprotocol,e05346f9f84893451d6034f0b2c85b060a17628e,2026-09-04T05:39:47+00:00,Human,,36,16,3,False,False,False,False,"refactor(backend): enhance content retrieval and backend configuration
+
+Refactors the API client and backend configuration to improve robustness and content retrieval logic. This includes ignoring deprecated backend URLs, implementing a resilient fallback mechanism for fetching content (configured backend -> local daemon -> edge fallback), and ensuring the content field in API responses is always a string."
+https://www.github.com/0xshikhar/pressprotocol,86bbee512ced638bcaebfb6c7e8ffbda101b5a34,2026-09-04T05:39:47+00:00,Human,,45,8,1,False,False,False,False,"feat(core): implement local content caching for resilience
+
+Enhances the StorageService to include a local disk cache for published content. Content uploaded to IPFS will now also be persisted locally, and subsequent retrieval attempts will first check this local cache before querying IPFS gateways. This improves content access speed and provides offline resilience."
+https://www.github.com/0xshikhar/pressprotocol,4d11ed00f676a93a1180a7533269cd19232e3715,2026-09-04T05:39:47+00:00,Human,,106,0,1,False,False,False,False,"feat(discovery): add view mode switcher to feed
+
+Adds a new UI component to the Discovery Feed that allows users to switch between different content display modes, specifically 'Card View' and 'Table View'. This enhances user customization and improves the browsing experience for various content types."
+https://www.github.com/0xshikhar/pressprotocol,79ce82f3cbc5df2a7ab2575fb74c5f6b265e4167,2026-09-04T05:39:47+00:00,Human,,723,0,1,False,False,False,False,"feat(docs): implement comprehensive documentation viewer
+
+Introduces a new, dedicated component for viewing and navigating documentation within the web application. This viewer supports markdown rendering, code snippets, search functionality, and structured navigation, providing a centralized and interactive experience for users to access project documentation."
+https://www.github.com/0xshikhar/pressprotocol,9f1041ea174b7ae1f3885a8646f5292981208f04,2026-09-03T22:31:42+00:00,Human,,4,4,1,False,False,False,False,"refactor(publish-action): improve input parsing and logging in publish action
+
+This commit refactors the `getActionInputs` function in the GitHub Publish Action to improve the parsing of the `tags` input, making it more robust. Additionally, it updates the version string displayed in the action's logs for better traceability and debugging."
+https://www.github.com/0xshikhar/pressprotocol,d6ee054c184d87199541100ed3175441226fa4b9,2026-09-03T22:31:42+00:00,Human,,8,8,8,False,True,False,False,"chore(release): bump package versions to 1.0.6
+
+This commit synchronizes the version numbers across most core packages, integrations, and SDKs to `1.0.6`. This prepares the monorepo for a consistent release following recent feature developments and bug fixes."
+https://www.github.com/0xshikhar/pressprotocol,20f6116303a5d407cc3b4f1941077631cda5269b,2026-09-03T22:31:42+00:00,Human,,394,258,5,False,False,False,False,"feat(browser-extension): enhance content clipping and interaction
+
+This commit introduces a new content script for the browser extension, significantly enhancing its ability to extract and sanitize article content from web pages. It refines the context menu interactions, adds robust error handling for content extraction, and updates the build process to include the new content script."
+https://www.github.com/0xshikhar/pressprotocol,012b671af0802f4685bf5960031ae77766d77add,2026-09-03T17:22:16+00:00,Human,,493,139,2,False,False,False,False,"feat(developers): enhance developer hero and api explorer
+
+Refactor the DeveloperHero component to provide an interactive onboarding experience.
+Add code snippets for common API calls (curl, JS, Python) with copy-to-clipboard functionality.
+Introduce quick links in the hero section to specific API endpoints, which can pre-select the corresponding endpoint in the ApiExplorer.
+Update the ApiExplorer to accept an `initialEndpoint` prop, allowing it to be pre-configured.
+Integrate sample API responses into the ApiExplorer to offer immediate feedback and examples for each endpoint."
+https://www.github.com/0xshikhar/pressprotocol,a1f883d44a56a266e5e9265299531800bccfdc0a,2026-09-03T16:21:38+00:00,Human,,137,133,2,False,False,False,False,"feat(developer-portal): enhance SDK snippets and API explorer integration
+
+Updates the SDK code snippets component to include different installation methods (registry/git) for various languages. Integrates endpoint selection functionality with the API explorer, allowing for dynamic display of relevant code examples."
+https://www.github.com/0xshikhar/pressprotocol,c79fb44066e18ccd6f1e03207ee5e18cdfdc15b4,2026-09-03T16:21:38+00:00,Human,,71,68,3,False,False,False,False,"style(developer-portal): refine UI components for developer portal
+
+This commit applies consistent styling updates to various cards and sections within the developer portal, aligning with a new theme (e.g., dark background, cyan accents, updated text colors)."
+https://www.github.com/0xshikhar/pressprotocol,750a24ba5ada79ee61bec66dc3a5dbb0a5c27ad2,2026-09-03T16:21:38+00:00,Human,,113,0,2,False,False,False,False,docs(sdk): add READMEs for Python and Rust SDKs
+https://www.github.com/0xshikhar/pressprotocol,2e67824c6cc54796c65ae93281c325e69cc10343,2026-09-03T16:21:38+00:00,Human,,303,2,4,False,False,False,False,"feat(sdk): implement publish_signed and resolve methods for Go and Rust SDKs
+
+This commit introduces new client methods and corresponding data structures for 'publish_signed' and 'resolve' functionalities in both the Go and Rust SDKs. The Go SDK includes updates to go.mod for dependency management, and the Rust SDK also includes necessary HTTP client dependencies and Cargo.toml updates."
+https://www.github.com/0xshikhar/pressprotocol,7e0285060583ed2a29b55cb2e8bc229a50c3f3ee,2026-09-03T16:21:38+00:00,Human,,113,0,1,False,False,False,False,ci(ecosystem): add workflow to publish multi-language ecosystem
+https://www.github.com/0xshikhar/pressprotocol,1cc9b1962d880562af71ae8b4a9e1971a76516ab,2026-09-03T15:14:04+00:00,Human,,973,695,7,False,False,False,False,"style(app-pages): Refine UI across pages and integrate dark theme
+
+Applies extensive styling updates to various application pages (Dashboard, Profile, Read, Settings, Terms, Write) and the EnhancedEditor component. This includes adopting the new dark theme, adjusting layouts, typography, and color schemes to align with the design system.
+
+The `CidChip` component is integrated into the Dashboard and Profile pages. The `ReadPage` also gains a new reading mode switcher for enhanced user experience, and the `EnhancedEditor` receives a new floating toolbar."
+https://www.github.com/0xshikhar/pressprotocol,37ded2c9a2d3ce56327cff657d0106d4551d389a,2026-09-03T15:14:04+00:00,Human,,252,0,4,False,False,False,False,"feat(protocol-ui): Add protocol-specific UI components
+
+Introduces new reusable UI components for displaying protocol-related information:
+
+- `CidChip`: Displays truncated CIDs with copy-to-clipboard and explorer link functionality.
+- `SignatureBadge`: Shows content signature status, public keys, and verification details.
+- `MirrorHealthDot`: Indicates the health status of content mirrors.
+
+These components provide richer context and interaction for protocol data throughout the application."
+https://www.github.com/0xshikhar/pressprotocol,a1faf36fecfdfe5eea476f66ce450e0fa3ac816a,2026-09-03T13:12:54+00:00,Human,,10,1,1,False,False,False,False,"chore(config): update tailwind.config.ts
+
+Files:
+- apps/web/tailwind.config.ts"
+https://www.github.com/0xshikhar/pressprotocol,5c6737426b19bb2ba174eb472fd971bdc43bcd44,2026-09-03T13:12:54+00:00,Human,,61,13,1,False,False,False,False,feat(discovery): add fallback discovery content
+https://www.github.com/0xshikhar/pressprotocol,b52c144f5c04b160945521d04ab57d1a9fdf3f43,2026-09-03T13:12:54+00:00,Human,,14,6,1,False,False,False,False,"chore(auth): update AuthButton.tsx
+
+Files:
+- apps/web/src/components/AuthButton.tsx"
+https://www.github.com/0xshikhar/pressprotocol,d487c5949e9d3c4d3aa21a925fa3932eb53df7dd,2026-09-03T13:12:54+00:00,Human,,2,2,1,False,False,False,False,style(theme): configure dark theme and accent color
+https://www.github.com/0xshikhar/pressprotocol,e754a6f0d0337b2924faee6c7df777983eedbb75,2026-09-03T13:12:54+00:00,Human,,89,33,1,False,False,False,False,"feat(theme): implement sovereign dark theme
+
+Introduces the new ""Sovereign Dark Theme"" for the application.
+Updates global CSS variables to reflect the dark color palette and design principles (elevation, off-white hierarchy) as defined in `claude-design-system.md`."
+https://www.github.com/0xshikhar/pressprotocol,673504e6d955298c057fc9aaccfcd37e234ba3c0,2026-09-03T13:12:54+00:00,Human,,654,630,21,False,False,False,False,"feat(ui): implement new dark theme
+
+Set global dark background, text, and selection colors.
+Redesign various components including navigation, cards, buttons, and badges to align with the new dark aesthetic.
+Introduce ambient glow effects for a modern feel.
+Adjust font families in specific areas for improved consistency.
+Update theme options in the reader drawer."
+https://www.github.com/0xshikhar/pressprotocol,5601e26af2d42ab57c024512c0b3ba98e5667b90,2026-09-03T10:10:13+00:00,Human,,183,82,2,False,False,False,False,"style(landingpage): enhance landing page telemetry and sandbox UI
+
+This commit introduces minor UI enhancements to the landing page components. The `GatewayTelemetry` component receives new Lucide icons for richer visual representation and slight adjustments to data display. The `ProtocolSandbox` component adds a helpful hint for users and minor layout adjustments to improve usability."
+https://www.github.com/0xshikhar/pressprotocol,b79f262154083d16a9279eb785adcfc26ff72fd3,2026-09-03T10:10:13+00:00,Human,,410,443,1,False,False,False,False,"style(importpage): refactor import page UI to align with design system
+
+This commit refactors the user interface of the universal CMS importer page. It removes custom header elements and updates the overall layout and styling to integrate with the application's new design system, ensuring visual consistency across the platform."
+https://www.github.com/0xshikhar/pressprotocol,e2ba2e073b7db8ce13a822e422c0a5ae382b7b6a,2026-09-03T09:56:09+00:00,Human,,17,9,1,False,False,False,False,"chore(commitcomposition): include API gateway route in commit composition
+
+This commit ensures that the API gateway route file is included in the overall commit composition, as per the requirement that all files must appear exactly once. No functional changes are implied for this specific file without further context."
+https://www.github.com/0xshikhar/pressprotocol,3e43ae42af6c8719450533e4208db7db7fb0565e,2026-09-03T09:56:09+00:00,Human,,106,97,7,False,False,False,False,"style(landingpageui): update landing page UI to new design system
+
+Applies the new semantic color palette and design system updates to various landing page components, ensuring visual consistency with the rest of the application's refreshed UI."
+https://www.github.com/0xshikhar/pressprotocol,900bdae9380824bd58acb19062c8e24dd06d35a3,2026-09-03T09:56:09+00:00,Human,,249,276,6,False,False,False,False,"style(uidesignsystem): update UI to new design system with semantic colors
+
+This commit updates Tailwind CSS classes across various pages and components to align with a new, lighter design system. Changes include transitioning from a dark-themed, explicit color palette (e.g., bg-zinc-950, text-white) to a more semantic approach utilizing new utility classes (e.g., bg-background, text-foreground, bg-card, text-primary, border-border). This ensures visual consistency and prepares the application for broader theme support."
+https://www.github.com/0xshikhar/pressprotocol,93541719f27ceb1dbc7651594a81ee47a8ec03bc,2026-09-06T21:42:19+00:00,Human,,37,7,1,True,True,False,False,fix: github workflow issue
+https://www.github.com/0xshikhar/pressprotocol,165ad8a9b1fc0675c713e8f1f662a5ce2cac907b,2026-09-06T21:41:23+00:00,Human,,176,190,41,False,False,False,False,"docs: add comprehensive architecture, infrastructure, and integration documentation alongside project updates"
+https://www.github.com/0xshikhar/pressprotocol,463623ad8801dd8c0799555d1b8feeb792dd71bf,2026-09-05T20:44:39+00:00,Human,,1263,731,5,False,False,False,False,"docs: add extensive architecture, infrastructure roadmaps, and decentralization documentation"
+https://www.github.com/0xshikhar/pressprotocol,5398b751a9475995fe1acb4734888e59c5db13ac,2026-09-04T20:43:55+00:00,Human,,92,16,1,False,False,False,False,"chore(test): update test harness for new verification suites
+
+Updates the main 'test.sh' script to integrate the newly added 'Universal Publishing Rails' and 'Outbound Webhook Subscriptions' verification suites. The script now references 'test-cms-scrubber.ts' (renamed from 'test-universal-rails.ts' for clarity in the runner) and 'test-webhook-subscriptions.ts'.
+
+Additionally, the handling for unreachable service checks has been adjusted to 'SKIPPED' instead of 'FAIL', providing clearer feedback when optional services are not running."
+https://www.github.com/0xshikhar/pressprotocol,8b71335cc61f179a418878dbc48ef8ab5cd84594,2026-09-04T20:43:55+00:00,Human,,356,0,1,False,False,False,False,"test(webhooks): add outbound webhook subscriptions verification suite
+
+Introduces a new, dedicated test suite for outbound real-time webhook subscriptions and the event bus. This suite verifies:
+- Webhook secret generation and HMAC-SHA256 payload signing
+- Cryptographic verification and tamper detection
+- Replay attack protection and timestamp drift windows
+- WebhookSubscriptionService CRUD operations and in-memory store
+- Live HTTP event bus dispatch and receipt on a local receiver
+- Granular event filtering and live test ping triggers
+- Network/HTTP error handling and retry resilience
+- Cross-runtime parity between Node.js crypto and SDK noble/hashes engine."
+https://www.github.com/0xshikhar/pressprotocol,118d0c13a4c38a5552a8c5fece75a210f788c7ca,2026-09-04T20:43:55+00:00,Human,,405,135,2,False,False,False,False,"test(cms): add universal publishing rails verification suite
+
+Replaces the previous 'Milestone III' test suite with a comprehensive 'Universal Publishing Rails' verification suite. This new suite covers:
+- Web Component <pressprotocol-publish> & Universal Editor Connectors (TipTap, Lexical, Quill, etc.)
+- Deep surveillance tracker cleansing for platforms like Medium and Substack
+- Ingestion mirroring for various CMS platforms (Ghost, Strapi, Sanity, Contentful)
+- Deterministic CIDv1 and cryptographic receipt generation."
+https://www.github.com/0xshikhar/pressprotocol,47464791e00a281e3d68409b529aebf26d0451ce,2026-09-04T20:43:55+00:00,Human,,143,0,1,False,False,False,False,"feat(node): add 1-command sovereign node installer
+
+Introduces a new shell script for a streamlined, multi-architecture 1-command installation of the PressProtocol Sovereign Node. This aims to simplify deployment and achieve zero-SPOF autonomous community node setup in under 60 seconds."
+https://www.github.com/0xshikhar/pressprotocol,9f765667bf0946fd273351268395ade56974ec3f,2026-09-01T20:25:01+00:00,Human,,67,2,1,False,False,False,False,"chore(apps): update ApiExplorer.tsx
+
+Files:
+- apps/web/src/components/developers/ApiExplorer.tsx"
+https://www.github.com/0xshikhar/pressprotocol,2c51ae4738211d7802036c399a4df78ff2d262ac,2026-09-01T20:25:01+00:00,Human,,41,0,1,False,False,False,False,feat(webhooks): add subscriptions endpoint to openapi spec
+https://www.github.com/0xshikhar/pressprotocol,c4251243805a9adbd39629a2de6055d9d6d1d23e,2026-08-31T20:22:14+00:00,Human,,178,1,1,False,False,False,False,"feat(api): integrate webhook dispatch for article.published events
+
+Integrates the `WebhookSubscriptionService` into the `v1` API routes. This change introduces a new schema for webhook subscriptions and dispatches an `article.published` event whenever a new article is published through the API."
+https://www.github.com/0xshikhar/pressprotocol,1a14a90b7fd19c1614b3fc70a3997fab950ad4b9,2026-08-31T20:22:14+00:00,Human,,252,0,1,False,False,False,False,"feat(webhooks): add webhook subscription management service
+
+Implements the `WebhookSubscriptionService` responsible for managing webhook subscriptions, storing their details, and dispatching events to registered URLs. It leverages the `webhook-crypto` utilities for signing outgoing payloads."
+https://www.github.com/0xshikhar/pressprotocol,ea9386de97e9381b05a7812c4758d51daa5e3eed,2026-08-31T20:22:14+00:00,Human,,106,0,1,False,False,False,False,"feat(webhooks): add webhook signing and verification utilities
+
+Introduces `generateWebhookSecret`, `signWebhookPayload`, and `verifyWebhookPayload` functions. These utilities provide the cryptographic primitives necessary for securing webhook communications, ensuring authenticity and integrity of payloads."
+https://www.github.com/0xshikhar/pressprotocol,01a2ace12f30978eb7e156d6d94f18fca27d31f3,2026-08-29T20:19:53+00:00,Human,,151,0,2,False,False,False,False,"feat(webhooks): add webhook signing and verification utilities
+
+Introduce new types for webhook events, subscriptions, and verification results.
+Provide functions to sign outgoing webhook payloads using HMAC-SHA256.
+Add utilities to securely verify incoming webhook payloads and construct events."
+https://www.github.com/0xshikhar/pressprotocol,a696cdf315cf5e88820d9d69443bd99131d49f52,2026-08-29T20:19:53+00:00,Human,,167,0,2,False,False,False,False,"feat(sdk): add webhook client and utilities
+
+Implement webhook subscription management methods in the client and export utility functions for signing and verifying webhook payloads. This includes new types for webhook events, subscriptions, and verification results."
+https://www.github.com/0xshikhar/pressprotocol,49c35712ac4a2585962813e1d16192aedd3324d1,2026-08-29T20:08:54+00:00,Human,,219,0,1,False,False,False,False,test(web-clipper): add sovereign web clipper verification suite
+https://www.github.com/0xshikhar/pressprotocol,91981dac9d829891e7f4f4bc2790fb2777303c86,2026-08-29T20:08:54+00:00,Human,,319,0,1,False,False,False,False,test(publish-action): add developer publishing rails GitHub Action test suite
+https://www.github.com/0xshikhar/pressprotocol,71459ef4c2f612eff6bbb2ab9ad878dcd8556390,2026-08-29T20:08:54+00:00,Human,,220,0,1,False,False,False,False,test(offline-vault): add offline-first local vault and bookmarks test suite
+https://www.github.com/0xshikhar/pressprotocol,c9adeffb40fb3a0c78e8953b0cede8a8c5d04ec8,2026-08-29T20:08:54+00:00,Human,,260,0,1,False,False,False,False,test(notion-import): add Notion 1-Click Sovereign Importer test suite
+https://www.github.com/0xshikhar/pressprotocol,ab60ac679abd2ed3de3968db07fb899b3df14e8d,2026-08-28T20:07:32+00:00,Human,,4,1,2,False,False,False,False,"feat(navigation): add developer portal and OpenAPI links to navigation
+
+This commit integrates the newly created Developer Portal and OpenAPI specification into the site's navigation. Links are added to both the main navbar and the footer for improved discoverability and accessibility."
+https://www.github.com/0xshikhar/pressprotocol,a1a58f893f43ac880e250f01dd9080d189a54a03,2026-08-28T20:07:32+00:00,Human,,22,0,1,False,False,False,False,"feat(developer-portal): introduce main developer portal page
+
+This commit adds the primary page for the Developer Portal. It serves as the central entry point for developers to access API documentation, SDKs, and interactive tools, laying the groundwork for a comprehensive developer experience."
+https://www.github.com/0xshikhar/pressprotocol,49e783097dd67af315be68e3134d5090a54c0d48,2026-08-28T20:07:32+00:00,Human,,154,0,1,False,False,False,False,"feat(api): add OpenAPI 3.1 specification endpoint
+
+This commit introduces a new API endpoint that serves the OpenAPI 3.1 specification for the PressProtocol Open Infrastructure API. It provides a machine-readable description of the API, facilitating programmatic understanding and integration for developers."
+https://www.github.com/0xshikhar/pressprotocol,4204dc72cd0af46c924c2fd0d42fe26ad5818e45,2026-08-27T20:04:28+00:00,Human,,1198,0,4,False,False,False,False,"feat(developer-portal): add interactive API tools and SDK snippets
+
+This commit introduces the interactive components for the developer portal, enabling users to explore the API, manage sandbox keys, view SDK code examples, and experiment with web components. The ApiExplorer allows direct interaction with API endpoints, SandboxKeyCard provides a UI for key management, SdkCodeSnippets offers multi-language integration examples, and WidgetPlayground demonstrates the universal web component."
+https://www.github.com/0xshikhar/pressprotocol,c9e73de926692bfc3fae549af15fdf3120f42f00,2026-08-27T20:04:28+00:00,Human,,188,0,4,False,False,False,False,"feat(developer-portal): introduce core developer portal components
+
+This commit establishes the foundational structure for the new developer portal. It includes the main client component (DeveloperPortalClient), the hero section (DeveloperHero), a section detailing architectural guarantees (ArchitectureGuarantees), and a custom hook (useSandboxKey) for managing sandbox API keys. These components provide the basic layout and initial informational content for developers."
+https://www.github.com/0xshikhar/pressprotocol,cdb3cc33e3c7537cbb18e2bcd2daf594aee7bb62,2026-08-26T20:01:35+00:00,Human,,81,0,1,False,False,False,False,"test(transport-telemetry): add transport telemetry and gateway probe tests
+
+Verifies the API routes for gateway latency probing and manifest statistics within the web application layer."
+https://www.github.com/0xshikhar/pressprotocol,cada5b6c45072b7b0efa5ea91a9d02f045c23da4,2026-08-26T20:01:35+00:00,Human,,198,0,1,False,False,False,False,"test(node-infrastructure): add private node daemon tests
+
+Tests the self-sovereign private node implementation, including federation service interaction and deterministic CID generation."
+https://www.github.com/0xshikhar/pressprotocol,d8ad781ebcb6d2281a7eed5104d52d996e2aecd3,2026-08-26T20:01:35+00:00,Human,,129,0,1,False,False,False,False,"test(optical-mesh): add optical QR mesh reassembly tests
+
+Introduces tests for high-density optical QR chunking, packet reassembly, and cryptographic payload integrity verification for delay-tolerant mesh networks."
+https://www.github.com/0xshikhar/pressprotocol,5674cb6970dfbda8433da5293ed267e4f656f257,2026-08-25T19:59:14+00:00,Human,,361,0,2,False,False,False,False,"test(content-ingestion): add bulk RSS and CMS scrubber tests
+
+Tests the ingestion pipeline: RSS/Atom parsing, HTML sanitization, and surveillance-free content scrubbing."
+https://www.github.com/0xshikhar/pressprotocol,7b752c7154c40655ef79f7905e1a172071a4b680,2026-08-25T19:59:14+00:00,Human,,414,0,2,False,False,False,False,"test(node-infrastructure): add autonomous node and enterprise gateway tests
+
+Tests node health, federation services, Tor-based connectivity, and API-level gateway management (rate limiting, keys, and scopes)."
+https://www.github.com/0xshikhar/pressprotocol,d5df3e1ca9dc1d9310872bdba4acd86e072f6920,2026-08-25T19:59:14+00:00,Human,,147,0,1,False,False,False,False,"test(crypto-verification): add air-gapped proof verification tests
+
+Verifies RFC 4648 Base32, CIDv1 computation, and offline cryptographic manifest packaging."
+https://www.github.com/0xshikhar/pressprotocol,cdc534c4d974088ba2695c06b6a1193fc873a7e6,2026-08-24T19:36:20+00:00,Human,,43,0,1,False,False,False,False,feat(rust-sdk): introduce core module and types
+https://www.github.com/0xshikhar/pressprotocol,2de59d66fb315d98930c3401d4022d68b39584fb,2026-08-24T19:36:20+00:00,Human,,38,0,1,False,False,False,False,feat(rust-crypto): add base32 encoding
+https://www.github.com/0xshikhar/pressprotocol,52dc1371488027d6176444c0c73e02f35c2c5670,2026-08-24T19:36:20+00:00,Human,,12,0,1,False,False,False,False,feat(rust-sdk): add initial setup
+https://www.github.com/0xshikhar/pressprotocol,18eb26699641cd2a1930bcde6b8c3b865bf1a2ba,2026-08-23T19:36:00+00:00,Human,,18,0,1,False,False,False,False,feat(python-sdk): init project configuration
+https://www.github.com/0xshikhar/pressprotocol,3b91cd2b9d5bfeca38ecf6a7185e0ee2027167fa,2026-08-23T19:36:00+00:00,Human,,181,0,3,False,False,False,False,"feat(python-sdk): implement initial PressProtocol SDK
+
+This commit introduces the first version of the Python SDK for PressProtocol.
+It provides a comprehensive client for interacting with the PressProtocol API,
+including methods for publishing, resolving, and retrieving content and history.
+
+Key features include:
+- `PressProtocol` client for idiomatic REST and Swarm Gateway interactions.
+- Cryptographic utilities for deterministic CIDv1 calculation, canonical payload creation, and base32 encoding.
+- Initial package structure and versioning (1.0.0)."
+https://www.github.com/0xshikhar/pressprotocol,491072125127800e56a76fe4ed54fc2de4bdceb0,2026-08-22T19:35:12+00:00,Human,,223,0,3,False,False,False,False,"feat(go-sdk): add initial go sdk with client and crypto utilities
+
+Provides a Go-based client for interacting with the PressProtocol API, including base32 encoding and client-side request logic."
+https://www.github.com/0xshikhar/pressprotocol,28dee0b34177380ee6e84da1410051554665038b,2026-08-22T19:35:12+00:00,Human,,747,0,2,False,False,False,False,"feat(node-api): implement v1 api routes and api key service
+
+Introduces the core RESTful endpoints for the v1 API and the underlying service for managing API keys, rate limiting, and authentication scopes."
+https://www.github.com/0xshikhar/pressprotocol,8f18845fccc7b84e62c99e29c62178a51d8b4ee9,2026-08-21T19:30:36+00:00,Human,,121,0,2,False,False,False,False,"feat(sdk): sdk: add API key support and v1 publishing methods
+
+This commit introduces API key support to the `PressProtocolClient` configuration, allowing for authenticated interactions with the node. It also implements the `publishRaw` method, enabling developers to publish content directly via the new v1 REST API endpoints."
+https://www.github.com/0xshikhar/pressprotocol,ac0158d31cd19af75a90c2599c5d0578bc717c46,2026-08-21T19:30:36+00:00,Human,,12,2,1,False,False,False,False,"feat(node): node: register v1 API routes and update metadata
+
+This commit registers the new v1 API routes within the Fastify application, making them available for client interaction. It also updates the node's root endpoint response to reflect the new API specification and description, providing up-to-date information about the node's capabilities and available endpoints."
+https://www.github.com/0xshikhar/pressprotocol,bfc929dd852dbe60fdb7a458611caa3af54afdec,2026-08-19T19:15:18+00:00,Human,,55,0,2,False,False,False,False,feat(widget): initialize widget package with typescript configuration
+https://www.github.com/0xshikhar/pressprotocol,943b2d18ca5dc38ad44e481e9883c16b548a1db7,2026-08-19T19:15:18+00:00,Human,,319,0,1,False,False,False,False,"feat(web): add universal publishing widget component
+
+Introduce the `pressprotocol-publish` web component via a new drop-in widget script. This component enables users to publish content directly to the sovereign web by targeting editor elements and interacting with decentralized nodes."
+https://www.github.com/0xshikhar/pressprotocol,3ac09054addb849ee0f5037f62a456b57338e004,2026-08-18T19:10:06+00:00,Human,,72,0,1,False,False,False,False,"feat(deploy): add digitalocean cloud-init bootstrap script
+
+Add a shell script to automate the deployment of sovereign nodes on DigitalOcean droplets. The script handles package updates, Docker installation, and basic security configuration via cloud-init."
+https://www.github.com/0xshikhar/pressprotocol,215846e74862a84d87d4b6ded8c512984a9aee61,2026-08-18T19:10:06+00:00,Human,,127,0,3,False,False,False,False,"feat(deploy): add deployment configurations for Akash, Fly.io, and Render
+
+Add infrastructure-as-code files to support multi-cloud deployment of the PressProtocol node. This includes:
+- Akash Network SDL 2.0 for decentralized cloud deployment
+- Fly.io configuration for regional edge deployment
+- Render blueprint for managed web service deployment"
+https://www.github.com/0xshikhar/pressprotocol,cc22d34c90be6e4c191ab30e25b1c2d768f9cc3a,2026-08-17T19:07:16+00:00,Human,,212,2,3,False,False,False,False,"feat(node): integrate new content ingestion services and CID utility
+
+Integrates the newly introduced `CmsBridgeService` and `SovereignMirrorService` into the node's main application flow. This includes updating environment configurations, registering services, and defining API routes for webhook ingestion. Also ensures the `cid` utility is accessible where needed."
+https://www.github.com/0xshikhar/pressprotocol,71743224ebefa1361c9d2635ecf62a16357777bd,2026-08-17T19:07:16+00:00,Human,,343,0,1,False,False,False,False,"feat(node): introduce CMS bridge service for webhook ingestion
+
+Adds a new service to handle incoming webhooks from Content Management Systems (CMS) such as Ghost and Strapi. This service verifies webhook signatures, parses CMS-specific payloads, extracts content, and then processes it for storage on the sovereign node, generating deterministic CIDs. It acts as a bridge for automated content updates from external CMS platforms."
+https://www.github.com/0xshikhar/pressprotocol,51828319a6e49c5a52730c8d1172786653ebb9e0,2026-08-17T19:07:16+00:00,Human,,295,0,1,False,False,False,False,"feat(node): introduce sovereign mirror service for content ingestion
+
+Implements a new service responsible for ingesting content from external publishing platforms like Medium and Substack. This service processes incoming content, generates deterministic CIDs, and stores the content using existing storage and identity services. It provides a programmatic way to mirror content onto the sovereign node."
+https://www.github.com/0xshikhar/pressprotocol,bc7bf5fe232627ee0dea32798058a6b709539579,2026-08-17T19:07:16+00:00,Human,,43,0,1,False,False,False,False,"feat(lib): add deterministic CIDv1 calculation and base32 encoding
+
+Introduces a new utility module for generating deterministic IPFS CIDv1s. This includes a base32 encoding function and a function to calculate CIDv1 (raw-codec, sha2-256, base32) from content. This functionality is crucial for consistent content addressing across the node's services."
+https://www.github.com/0xshikhar/pressprotocol,030fa287ba259bd3a0d1024f4a8bbf52dc24e159,2026-08-16T19:03:31+00:00,Human,,488,0,2,False,False,False,False,"feat(widget): introduce widget package
+
+This commit introduces the core `widget` package.
+It provides functionality for:
+- Extracting article content from the DOM.
+- Cryptographic operations like keypair generation, signing, and CID calculation.
+- A `PublishResult` interface, indicating its role in content publishing."
+https://www.github.com/0xshikhar/pressprotocol,6f3b8d3dd3ad5485223eb88db7d48f36bd0ac054,2026-08-16T19:03:30+00:00,Human,,350,0,2,False,False,False,False,"feat(widget): introduce core components
+
+Add universal editor connectors to automatically detect and extract content from various editor types (e.g., TipTap, Lexical, Quill, TinyMCE, contenteditable).
+Implement cryptographic utilities for key pair generation, signing, and verification using `noble/ed25519` and `noble/hashes`."
+https://www.github.com/0xshikhar/pressprotocol,08c904cf3e6a58bf1bcb293f022b9be5f8e133ed,2026-08-15T18:46:57+00:00,Human,,150,3,1,False,False,False,False,"feat(cli): enhance CLI with daemon command and local-only publishing
+
+This commit significantly enhances the SDK's command-line interface. It introduces a new `daemon` command for inspecting or running a local sovereign headless micro-daemon. Furthermore, it adds `--local-only` and `--sign` options to the `publish` command. The `--local-only` option enables pure air-gapped publishing, allowing users to compute CIDv1 and sign content in-memory without any network interaction. The `--sign` option explicitly enforces cryptographic Ed25519 signature creation during publishing."
+https://www.github.com/0xshikhar/pressprotocol,edeef281de2ac05d50b94c21068339aa3548bf41,2026-08-15T18:46:57+00:00,Human,,47,1,2,False,False,False,False,"feat(sdk): add deterministic CIDv1 calculation and base32 encoding
+
+This commit introduces new cryptographic utilities to the SDK. It adds the `calculateDeterministicCIDv1` function, which allows for consistent and reproducible content addressing using CIDv1. Additionally, a `base32Encode` function is provided for standard Base32 encoding, which is often used in IPFS contexts. The `calculateDeterministicCIDv1` function is also exported from the main SDK index."
+https://www.github.com/0xshikhar/pressprotocol,9568f872a4c0b7043e14a6d4a9dba341dae27324,2026-08-15T18:46:57+00:00,Human,,115,2,3,False,False,False,False,"feat(federation): implement PSK and peer whitelisting for federation
+
+This commit introduces a new security layer for the node's federation service. It adds `FEDERATION_PSK` and `PEER_WHITELIST` environment variables to configure a Pre-Shared Key and a list of allowed peer addresses, respectively. The `/api/node/gossip` endpoint now validates incoming requests against the configured PSK, returning 401 for missing PSK and 403 for incorrect PSK or non-whitelisted peers. A new `/api/node/federation/gated` endpoint is added to allow inspection of the current federation security configuration.
+
+The `FederationService` is updated to manage these security parameters, including methods to set/get the PSK and peer whitelist, and to expose the status of these features (e.g., `gatedSwarm`, `pskProtected`, `whitelistActive`) in the node status response."
+https://www.github.com/0xshikhar/pressprotocol,443edcf128bbc14f150600238b4e24ee0506384e,2026-08-11T18:37:21+00:00,Human,,6,0,1,False,False,False,False,"chore: update gitignore for node module and build artifacts
+
+Adds new entries to the .gitignore file to exclude pnpm-specific artifacts, updated build outputs, and common development environment files. This ensures a cleaner repository and prevents unnecessary files from being committed."
+https://www.github.com/0xshikhar/pressprotocol,d54ad68fee896090f968afe337e4bb13b19e0392,2026-08-11T18:37:21+00:00,Human,,182,0,1,False,False,False,False,"feat: enhance node API routes and handlers
+
+Introduces new API endpoints and refines existing route handlers within 'node.ts'. These changes aim to expand the node's exposed functionality and improve the robustness of API interactions, supporting future client integrations."
+https://www.github.com/0xshikhar/pressprotocol,99c5b887b4d44c63460c94f22b96702a90914a9d,2026-08-11T18:37:21+00:00,Human,,556,4,3,False,False,False,False,"refactor: improve Federation, Tor, and embedded DB services
+
+Refactors the embedded database utility for better performance and reliability. Enhancements are also applied to the FederationService and TorService, focusing on improved error handling, logging, and resource management to ensure more stable operation."
+https://www.github.com/0xshikhar/pressprotocol,1d2e52d3604b9b80acca6ade16e3fe37ab010103,2026-08-11T18:37:21+00:00,Human,,114,21,3,False,False,False,False,"chore: update node entrypoint and environment configuration
+
+Adjusts the Docker entrypoint script for better startup sequence management and updates environment variable handling in 'env.ts'. The main 'index.ts' file is also updated to reflect these configuration changes, ensuring robust node initialization."
+https://www.github.com/0xshikhar/pressprotocol,3926c067cfe0ad89d5551cce5930839deb33097f,2026-08-11T18:37:21+00:00,Human,,62,33,1,False,False,False,False,"build: refactor Dockerfile for pnpm and multi-arch support
+
+Updates the Dockerfile to use pnpm for dependency management, leveraging Corepack. This change also adds essential build tools and prepares the image for multi-architecture builds (amd64, arm64), enhancing compatibility and build efficiency for the sovereign node."
+https://www.github.com/0xshikhar/pressprotocol,f3d6b684001fc90b67bffce0fc7e4f789069ad49,2026-08-08T18:07:22+00:00,Human,,520,0,1,False,False,False,False,"feat(web-app): implement bookmarks management page
+
+Adds a new dedicated page at `/bookmarks` for users to manage their offline-saved articles. This includes functionalities for viewing, searching, removing, exporting, and importing the offline vault, significantly enhancing the offline-first experience and content management capabilities."
+https://www.github.com/0xshikhar/pressprotocol,03022f13f9ddc8b1c9603600f9f1b5f853274931,2026-08-08T18:07:22+00:00,Human,,0,0,4,False,False,False,False,"chore(downloads): update downloadable browser extension and WordPress plugin zips
+
+Updates the downloadable ZIP archives for the Press Protocol browser extension and WordPress plugin to their latest versions. This ensures users can always access the most recent builds from the website's download section."
+https://www.github.com/0xshikhar/pressprotocol,86500a743e21508c009cf863337faab270b5569c,2026-08-08T18:07:22+00:00,Human,,0,0,3,False,False,False,False,"feat(browser-extension): add new icon assets for browser extension
+
+Introduces new icon assets for the browser extension, providing updated visuals across different sizes. This enhances the visual consistency and branding of the extension."
+https://www.github.com/0xshikhar/pressprotocol,e0a27b319dc2de9227717019c0d54806770a3e6b,2026-08-07T18:05:59+00:00,Human,,389,345,2,False,False,False,False,"feat(content-display): enhance content discovery for reading list integration
+
+Updates the explore page and discovery feed components to potentially integrate with or display content from the new offline reading list functionality, ensuring a cohesive user experience across content discovery and consumption."
+https://www.github.com/0xshikhar/pressprotocol,bf7285a2531f358cbaec1b363041a50379272af9,2026-08-07T18:05:59+00:00,Human,,4,4,1,False,False,False,False,"feat(navigation): update navigation with reading list and import links
+
+Adds new navigation links for ""Reading List"" and ""Import"" to improve user access to new features."
+https://www.github.com/0xshikhar/pressprotocol,881ef98714df0401352ac2d26fc701e1c0d72f53,2026-08-07T18:05:59+00:00,Human,,212,29,3,False,False,False,False,"feat(offline-storage): integrate offline article saving and bookmarking
+
+Enhances the article reading experience by automatically saving viewed articles to local offline storage.Refactors the bookmarking system to leverage the new offline storage engine, allowing users to explicitly save articles for offline access via the bookmark button.Updates the BookmarkItem interface to include additional article metadata for richer offline content."
+https://www.github.com/0xshikhar/pressprotocol,d70ee5b0f5a94cb55020c3c660661b358b6bd463,2026-08-06T18:02:44+00:00,Human,,396,0,1,False,False,False,False,"feat(offline-storage): implement offline-first storage engine
+
+This commit introduces the core client-side storage engine for an offline-first experience. It leverages browser IndexedDB with a localStorage fallback to store articles and bookmarks locally.
+
+The engine is designed with zero-telemetry principles, ensuring all data remains strictly on the user's device. It defines interfaces for `OfflineArticle` and `OfflineVaultBackup`, laying the groundwork for robust offline capabilities."
+https://www.github.com/0xshikhar/pressprotocol,310eb8e76e4858d45642574f38fbed4dcf76d82e,2026-07-24T17:58:05+00:00,Human,,106,0,3,False,False,False,False,feat(publish-action): add GitHub Action for sovereign publishing
+https://www.github.com/0xshikhar/pressprotocol,90695a3bc93b38e9c376a6f7b9edadfc53576c62,2026-07-24T17:58:05+00:00,Human,,173,0,1,False,False,False,False,"feat(publish-action): add README
+
+Introduces the documentation for the new PressProtocol Sovereign Publish Action.
+This README details its overview, features (frontmatter parsing, signing, syndication), and usage examples for various static site generators."
+https://www.github.com/0xshikhar/pressprotocol,94286309a67d5db8c0299f2082149e4908b5ce5f,2026-07-23T17:54:19+00:00,Human,,545,0,3,False,False,False,False,"feat(publish-action): introduce GitHub Action for content publishing
+
+This commit adds the foundational components for a new GitHub Action designed to publish content.
+
+Key features include:
+- **Content Scanning:** Recursively scans a specified directory for markdown articles, with an option to filter for recently modified or added files using Git.
+- **Article Publishing:** Handles the logic for processing articles, including cryptographic signing, generating IPFS CIDs, and interacting with a publishing gateway.
+- **Type Definitions:** Establishes interfaces for action inputs, outputs, parsed frontmatter, and article data structures.
+
+This action aims to automate the process of publishing articles from a repository."
+https://www.github.com/0xshikhar/pressprotocol,7c414f571122d23f41053ba85ceb989deff9a824,2026-07-23T17:54:19+00:00,Human,,541,0,3,False,False,False,False,"feat(publish-action): add github action for content publishing
+
+This commit introduces a new GitHub Action designed to automate the process of publishing content.
+The action scans a specified content directory, parses markdown files (supporting various frontmatter formats like Hugo, Astro, Jekyll, Nextra, and Docusaurus), and manages a publication manifest.
+It includes modules for:
+- Parsing markdown files and extracting frontmatter.
+- Scanning content directories for articles.
+- Loading, updating, and saving a publication manifest.
+- Interacting with the publishing API (though the publisher.ts file is not included in this diff, it's referenced by index.ts)."
+https://www.github.com/0xshikhar/pressprotocol,11f2bd4c78274741b2fc88e0a59cf1f06ba31549,2026-07-15T17:52:41+00:00,Human,,779,0,2,False,False,False,False,"feat(web-rss): implement bulk RSS import UI and API
+
+This commit adds the user interface component and API endpoint for bulk importing articles from RSS/Atom feeds. It utilizes the previously developed RSS/Atom feed parsing capabilities to fetch, parse, and publish multiple articles from a given feed URL."
+https://www.github.com/0xshikhar/pressprotocol,c3d129033171c08db39acab365f1ad260fda5be7,2026-07-15T17:52:41+00:00,Human,,681,0,3,False,False,False,False,"feat(web-notion): implement Notion import UI and API
+
+This commit introduces the user interface and API endpoint for importing content from Notion. It leverages the existing Notion block tree parser and converter to allow users to input Notion URLs, raw Markdown, or raw block JSON to publish articles to PressProtocol."
+https://www.github.com/0xshikhar/pressprotocol,69725f588d87c51b0808820b0b1837ce80bf2c68,2026-07-10T17:43:35+00:00,Human,,58,0,1,False,False,False,False,"chore(scripts): add new milestone test suites to test runner
+
+This commit updates the `test.sh` script to include execution of new milestone automated test suites. These suites cover 'Universal CMS Adapters', 'Real Multi-Transport Telemetry', 'Offline, Air-Gapped & Delay-Tolerant Engine', and 'Sovereign Web Clipper'. This ensures comprehensive testing for recent and ongoing feature development."
+https://www.github.com/0xshikhar/pressprotocol,cb1a382d50f3774cdab9ce2249490c1ac21ca39e,2026-07-10T17:43:35+00:00,Human,,50,9,1,False,False,False,False,"feat(import-page): integrate bulk RSS archiver and Notion importer UI
+
+This commit updates the `/import` page to include a tabbed interface for new content ingestion methods. It introduces UI components for a 'Bulk RSS Archiver' and a 'Notion Importer', allowing users to select between different import workflows. This leverages the underlying parsing logic introduced in previous commits."
+https://www.github.com/0xshikhar/pressprotocol,92f4cc573645fd437d8253cbec75793a017a8954,2026-07-10T17:43:35+00:00,Human,,134,0,1,False,False,False,False,"feat(rss-importer): add full RSS/Atom feed parsing capabilities
+
+This commit extends the existing `scrubber` utility to support parsing entire RSS or Atom publication feeds. It introduces new interfaces (`RssFeedItem`, `ParsedRssFeed`) and a function (`parseFullRssFeed`) to extract and scrub all articles from a given feed URL, preparing them for bulk archiving."
+https://www.github.com/0xshikhar/pressprotocol,71017d4fc828ca2b3ea4a54cf3f2860b7c4dfa10,2026-07-10T17:43:35+00:00,Human,,554,0,1,False,False,False,False,"feat(notion-importer): introduce Notion block tree parser and converter
+
+This commit adds the foundational logic for importing content from Notion. It includes a parser to convert public Notion block trees and Markdown exports into semantic HTML5, incorporating PressProtocol-specific callouts, editorial typography, and cryptographic telemetry. This lays the groundwork for integrating Notion as a content source."
+https://www.github.com/0xshikhar/pressprotocol,00150b81ada6b3ac4c0c848f3277afa9cf207d28,2026-06-28T17:29:15+00:00,Human,,126,0,1,False,False,False,False,"chore(scripts): scripts: add utility to generate browser extension icons
+
+This new utility script, `generate-icons.js`, is added to programmatically create PNG icons for the browser extension. It ensures consistent branding and simplifies the process of generating icons in various sizes required by the manifest."
+https://www.github.com/0xshikhar/pressprotocol,e1fd312833f0ec079f82542c9daa559edd29ea0f,2026-06-28T17:29:15+00:00,Human,,1081,145,2,False,False,False,False,"feat(browser-extension): browser-extension: implement sovereign web clipper UI
+
+This commit introduces a complete redesign of the browser extension's popup user interface. The `popup.html` file is overhauled to present a modern, functional layout for the web clipper, including sections for identity management and content clipping.
+
+The `popup.css` file provides a new, comprehensive design system inspired by Obsidian/Cyber UI, ensuring a sleek and consistent visual experience for the PressProtocol Sovereign Web Clipper."
+https://www.github.com/0xshikhar/pressprotocol,1272a1f1aa1eba9df76e426a6fc410ddde69705b,2026-06-28T17:29:15+00:00,Human,,20,14,3,False,False,False,False,"feat(browser-extension): browser-extension: introduce sovereign web clipper core functionality
+
+This commit lays the foundation for the new PressProtocol Sovereign Web Clipper. It updates the extension's manifest to reflect the new name, version, and description, and adds necessary permissions (`activeTab`, `scripting`, `clipboardWrite`) and host permissions (`<all_urls>`).
+
+The `package.json` is updated to version 2.0.0, includes `esbuild` for a modern build pipeline, and integrates `@noble/ed25519` for client-side cryptographic signing of clipped content. The `tsconfig.json` is adjusted to include `DOM.Iterable` for broader DOM API support."
+https://www.github.com/0xshikhar/pressprotocol,fa29850664fa43ea375f9bc85fd980d617061501,2026-06-25T17:27:27+00:00,Human,,700,190,2,False,False,False,False,"feat(browser-extension): integrate web clipper and burner identity features
+
+Overhauls the browser extension's background service and popup UI to integrate the new sovereign web clipper and burner identity features. This includes:
+- Renaming the extension from ""AnonPress"" to ""PressProtocol"".
+- Updating `background.ts` to manage context menus for clipping, handle burner identity creation/signing, and broadcast clipped content.
+- Refactoring `popup.ts` to provide an interactive interface for 1-click sovereign archival, displaying clipped articles, managing burner identities, and configuring extension settings.
+- Introducing `SovereignScrap` and `ExtensionSettings` interfaces for core data management."
+https://www.github.com/0xshikhar/pressprotocol,074dd63100f395e4bb3f050dc1c44aeced9eca41,2026-06-25T17:27:27+00:00,Human,,375,0,1,False,False,False,False,"feat(browser-extension): add sovereign web content clipper
+
+Implements a new module for extracting clean, de-surveilled article content from any webpage. This ""readability"" engine purges tracking scripts, pixels, and ads, providing pristine HTML and metadata suitable for sovereign archival. It includes telemetry for tracking purification effectiveness."
+https://www.github.com/0xshikhar/pressprotocol,5e3fd2d4b877fcd2484624ef7b104935301f15f4,2026-06-25T17:27:27+00:00,Human,,120,0,1,False,False,False,False,"feat(browser-extension): add burner identity and payload signing
+
+Introduces a new module for managing burner Ed25519 keypairs within the browser extension. This includes deterministic JSON canonicalization (RFC 8785) for consistent payload signing, secure storage of burner identities, and functions for generating, retrieving, and signing data. This lays the cryptographic foundation for sovereign content attribution."
+https://www.github.com/0xshikhar/pressprotocol,27324288f24fb70d53de1eb8ada454e2e58c7cf3,2026-06-12T19:21:42+00:00,Human,,250,0,2,False,False,False,False,"feat(integrations): add Gutenberg block for sovereign article embedding
+
+Enable WordPress authors to embed interactive, verified sovereign articles
+from IPFS and Tor directly into their posts using the new /press embed block.
+
+This adds native Gutenberg support that allows users to insert cryptographically-
+signed content without external links, improving discoverability and trust in
+sovereign journalism while reducing reliance on third-party embedding services."
+https://www.github.com/0xshikhar/pressprotocol,d4e51ac87a18d65d3b07da449a37ccb7db23e712,2026-06-12T19:21:42+00:00,Human,,106,0,1,False,False,False,False,"feat(web): add press-embed web component for sovereign article embedding
+
+Introduces a zero-dependency HTML web component that enables embedding
+decentralized, cryptographically-signed PressProtocol articles on any
+website with a single tag. The component supports theming and responsive
+layout options while maintaining full encapsulation through Shadow DOM."
+https://www.github.com/0xshikhar/pressprotocol,ae33996435bbee17ff4682577db8eed58ae90380,2026-05-11T19:15:41+00:00,Human,,46,0,1,False,False,False,False,"feat(obsidian-plugin): add CSS styles for PressProtocol community plugin
+
+Added comprehensive styling for modal content, success banners, and telemetry
+display components in the Obsidian integration. The styles establish consistent
+visual hierarchy with proper spacing, colors, and layout for user-facing UI elements."
+https://www.github.com/0xshikhar/pressprotocol,7f41474fdd5c2ef6afd920659c1f6d9c39ad5f32,2026-05-11T19:15:41+00:00,Human,,47,0,3,False,False,False,False,"feat(obsidian-plugin): add sovereign publishing integration for Obsidian
+
+Integrates PressProtocol functionality directly into Obsidian plugin to enable
+cryptographic signing and IPFS/Tor-based article publishing. This allows users
+to publish sovereign content with end-to-end encryption from their local notes,
+supporting the platform's privacy-first architecture without relying on external
+publishers or intermediaries."
+https://www.github.com/0xshikhar/pressprotocol,ab327c9dc3c68c086410bb2511151ed9768ba4c0,2026-05-11T19:15:41+00:00,Human,,608,0,2,False,False,False,False,"feat(integrations/obsidian-plugin): add press protocol integration plugin
+
+New Obsidian plugin that enables direct access to Press Protocol API content
+with features including:
+
+- YAML frontmatter removal for clean article rendering
+- Wiki-link transformation support (both simple and custom display text)
+- Automatic tag management with configurable defaults
+- Settings panel for API configuration, author pseudonym, and auto-copy link behavior
+
+The plugin provides a seamless way to research Press Protocol articles directly
+within Obsidian while maintaining proper markdown formatting."
+https://www.github.com/0xshikhar/pressprotocol,145431dd12570213099287ef634e434450d3d6a4,2026-05-11T19:15:41+00:00,Human,,35,0,1,False,False,False,False,"docs(obsidian-plugin): add README for community plugin
+
+Added comprehensive documentation for the PressProtocol Obsidian Community Plugin, including features like 1-click sovereign publishing, smart markdown cleaning (removing wiki-links and block identifiers), decentralized multi-transport support via IPFS and Tor, and instant clipboard permalinks. The README provides manual installation instructions to help users integrate the plugin into their Obsidian vaults for publishing articles directly from notes."
+https://www.github.com/0xshikhar/pressprotocol,78f6c7cb5e456ad59c2551661a9eb456a7f65ff9,2026-05-31T19:04:32+00:00,Human,,18,0,1,False,False,False,False,"feat(reader): add link to embed studio in embed dialog
+
+This commit enhances the existing embed dialog in the reader by adding a direct link to the new Embed Studio. This allows users to quickly transition from the basic embed options to the more advanced customization available in the studio."
+https://www.github.com/0xshikhar/pressprotocol,1f24f8de0f15ffec4f64d65f95da7e76cdcebcc5,2026-05-31T19:04:32+00:00,Human,,494,0,1,False,False,False,False,"feat(embed): add embed builder studio page
+
+This commit introduces a new standalone page for generating and customizing embed code snippets for Anonpress content. It provides options for different embed types (iframe, web component, React), responsive previews, and various configuration settings, offering a more powerful alternative to the basic embed dialog."
+https://www.github.com/0xshikhar/pressprotocol,d1c8f2a8694ad74e8bd4dd0dc0ece63c65268aea,2026-05-19T18:58:07+00:00,Human,,310,0,1,False,False,False,False,"feat(reader): add reader typography settings drawer
+
+Adds a new drawer component that provides controls for customizing the reader's typography settings, including typeface (serif, sans, mono), font size, and theme (dark, sepia, paper, cyber)."
+https://www.github.com/0xshikhar/pressprotocol,d1f18a6c23c0b9a9bdaf313df3622966f5265dec,2026-05-19T18:58:07+00:00,Human,,137,0,1,False,False,False,False,"feat(reader): add quote sharing pill to reader
+
+Implements a floating UI pill that appears when text is selected in the reader, allowing users to easily copy the selected quote or share it on social media (e.g., Twitter)."
+https://www.github.com/0xshikhar/pressprotocol,807f4c9f79d42bd883862562ef3b6f3bc43ebe93,2026-05-19T18:58:07+00:00,Human,,337,0,1,False,False,False,False,"feat(reader): add cryptographic provenance modal to reader
+
+Introduces a new modal component that displays cryptographic provenance details for an article. This allows users to verify the origin, integrity, and signing information of the content."
+https://www.github.com/0xshikhar/pressprotocol,619317700e8a8e76a3162eebe35a221fb912b110,2026-05-11T18:56:28+00:00,Human,,96,20,1,False,False,False,False,"feat(reader): add typography settings, cryptographic provenance, and quote sharing
+
+Enhances the article reading experience by introducing a customizable typography drawer, allowing readers to adjust font size, line height, and theme. A new Cryptographic Provenance Modal provides detailed information about the article's integrity and origin. Additionally, a Quote Share Pill enables easy sharing of selected text."
+https://www.github.com/0xshikhar/pressprotocol,e5ab27cbcce915a141984f6841d72c315b16ea26,2026-05-11T18:56:28+00:00,Human,,863,46,4,False,False,False,False,"feat(editor): add multi-draft vault with version history and Zen Mode integration
+
+Introduces a robust, offline-first multi-draft vault for the editor, allowing users to manage multiple articles concurrently. Each draft includes automatic version history snapshots, providing resilience against accidental changes and enabling restoration of previous states. This system is designed for zero-telemetry local persistence.The feature integrates seamlessly into the write page and offers quick access from Zen Mode."
+https://www.github.com/0xshikhar/pressprotocol,a3a78cba248ba8771a72646f4e688f0b50f63e3e,2026-05-09T18:46:34+00:00,Human,,123,0,1,False,False,False,False,"feat(editor): add Zen Mode overlay for focused writing
+
+Introduces a Zen Mode overlay for the editor, providing a distraction-free writing environment. This overlay can be toggled to hide non-essential UI elements, allowing users to focus solely on their content."
+https://www.github.com/0xshikhar/pressprotocol,3374484554a473d30d40d7f00e26a0c636e3b6b3,2026-05-09T18:46:34+00:00,Human,,482,0,2,False,False,False,False,"feat(editor): integrate privacy scanner into write page and HUD
+
+Integrates the new privacy scanner utility into the write page to analyze content before publication. Displays privacy insights and actionable suggestions within the Cryptographic Pre-Flight HUD, allowing users to review and address potential privacy risks."
+https://www.github.com/0xshikhar/pressprotocol,c7db31e4ddc83fab04edc84ad8db0d686eefaf96,2026-05-09T18:46:34+00:00,Human,,178,0,1,False,False,False,False,"feat: add content privacy scanner utility
+
+Introduces a client-side utility to scan user-generated content for common privacy and surveillance trackers, such as UTM parameters, social media tracking IDs (e.g., fbclid, gclid), and known tracker domains. It also identifies insecure HTTP links. This utility provides a privacy score and a list of actionable issues, and includes a function to cleanse content of identified trackers."
+https://www.github.com/0xshikhar/pressprotocol,2ac4031bc2194561baebee7ea2ef746be055ea5f,2026-05-05T18:33:04+00:00,Human,,887,158,5,False,False,False,False,"feat(editor): add bubble menu and slash commands
+
+Implement a Tiptap BubbleMenu for contextual text formatting (bold, italic, strikethrough, code, link, headings, callouts) when text is selected.
+Introduce a SlashCommandMenu to quickly insert blocks (headings, lists, quotes, images, horizontal rule, callouts) and apply formatting using the `/` command.
+Add a new Callout Tiptap extension, allowing users to create distinct info, warning, or whistleblower boxes.
+Update the editor placeholder text to guide users on how to use these new features.
+Enhance the overall writing experience by providing more intuitive and efficient ways to format content and insert elements."
+https://www.github.com/0xshikhar/pressprotocol,fb33c8f6225125be3ef60561cd5535fb66537342,2026-05-05T18:33:04+00:00,Human,,39,0,1,False,False,False,False,"feat(ui): add styles for tiptap editor placeholder and callouts
+
+Adds global CSS styles for:
+- The placeholder text in the TipTap editor when it's empty.
+- Various callout components (info, warning, success, error) to provide visual feedback."
+https://www.github.com/0xshikhar/pressprotocol,ea265ce73ac66ae4cf839c73a4afd9db1f8775fc,2026-05-02T18:21:28+00:00,Human,,2,1,1,False,False,False,False,"chore: add pressprotocol root script
+
+Adds a new `pressprotocol` script to the root `package.json`. This script acts as a convenient alias to run the CLI of the `@pressprotocol/sdk` package using `pnpm --filter @pressprotocol/sdk run cli`.This simplifies developer workflow by providing a direct command to interact with the SDK's command-line interface from the monorepo root."
+https://www.github.com/0xshikhar/pressprotocol,06b786a7e2328abacd4f22e1a6aa3783b6bed77b,2026-05-02T18:21:28+00:00,Human,,218,0,3,False,False,False,False,"feat(proof): add QR code splitting and reassembly utilities
+
+This commit introduces a new module for splitting large data into multiple QR code packets and reassembling them. This functionality is crucial for transferring data, such as Press Proofs, in offline or constrained environments where direct network access is not feasible.The new `qr.ts` module provides:`splitIntoQrPackets`: Divides a string into an array of QR packets, each suitable for encoding into a QR code.`parseQrPacket`: Parses a raw QR packet string into a structured object.`reassembleQrPackets`: Collects and reassembles QR packets back into the original payload.`computeChunkChecksum`: Generates a checksum for data chunks to ensure integrity.The `proof` package's `index.ts` now exports these utilities, and `package.json` is updated to expose the `./qr` module."
+https://www.github.com/0xshikhar/pressprotocol,967b1acc7709b1df59e3e7462cfdd0e9561d62bd,2026-05-02T17:49:57+00:00,Human,,187,3,2,False,False,False,False,"feat(proof): add press proof export and download
+
+Implement functionality to export an air-gapped proof file from the article editor.
+This proof includes the article content, metadata, and a deterministic CID,
+and can be downloaded by the user. Integrates the @pressprotocol/proof library."
+https://www.github.com/0xshikhar/pressprotocol,91f5424c86fd1e3eeac079cf2305af1338078855,2026-05-02T17:49:57+00:00,Human,,84,0,1,False,False,False,False,"feat(api): add web archiving endpoint
+
+Implements a new API route `/api/archive` that allows clients to request the archival of a given content ID (CID) or target URL. This endpoint interacts with the Wayback Machine to save snapshots of web content, providing a mechanism for long-term preservation.
+
+The endpoint accepts a POST request with either `cid` or `targetUrl` in the body. It returns the archival status and the URL of the created snapshot."
+https://www.github.com/0xshikhar/pressprotocol,cd12b34dbed003b637f127d8f0a7f99c4249b2b3,2026-05-02T17:49:57+00:00,Human,,1,0,1,False,False,False,False,feat(web): add proof package dependency
+https://www.github.com/0xshikhar/pressprotocol,43c64bdf83abbaf23f64c27a165a05ca0ac999fc,2026-05-01T17:48:27+00:00,Human,,390,0,3,False,False,False,False,"feat(proof): introduce @pressprotocol/proof package
+
+This new package provides an offline, air-gapped, and delay-tolerant engine for Press Protocol content. It includes:
+
+- Deterministic CIDv1 calculation for content.
+- Encoding and decoding `.pressproof.json` manifests.
+- Utilities for exporting content and its proof manifest into a downloadable file.
+- Offline verification of `.pressproof.json` packages, including checksum, CID, and signature validation."
+https://www.github.com/0xshikhar/pressprotocol,914804c73fee5235930a69c1405afd21f74c58b9,2026-05-01T17:48:27+00:00,Human,,52,0,2,False,False,False,False,"feat(proof): add proof package
+
+Adds a new package for deterministic in-browser CIDv1 multihash and an air-gapped .pressproof.json cryptographic codec.
+This includes the initial `package.json` with module exports and `tsconfig.json` for TypeScript compilation."
+https://www.github.com/0xshikhar/pressprotocol,9b80532b4449cb7fa80a29f25382816d5618c1a7,2026-04-25T17:28:02+00:00,Human,,130,1,2,False,False,False,False,"feat(web): web: Add network manifest stats API and integrate into UI
+
+Implements a new API endpoint `/api/manifests/stats` to provide aggregated statistics about network manifests, including manifest count, verification rates, and active nodes. The `ManifestStats` component is updated to fetch data from this new local API route instead of a direct backend call."
+https://www.github.com/0xshikhar/pressprotocol,5970449aa114e3e7b46b4a06db8595282e58fce4,2026-04-25T17:28:02+00:00,Human,,388,45,2,False,False,False,False,"feat(web): web: Add gateway telemetry API and update landing component
+
+Introduces a new API endpoint `/api/gateways` to fetch real-time status and performance metrics for network gateways. The `GatewayTelemetry` component on the landing page is updated to reflect the new data structure and prepare for consuming this API, including new icons."
+https://www.github.com/0xshikhar/pressprotocol,b5af01c0d2f35f5d264ada7b552f51f85ef997e8,2026-04-25T17:28:02+00:00,Human,,1,1,1,False,False,False,False,"refactor(web): web: Rename application from anonpress-web to pressprotocol-web
+
+The `package.json` name for the web application has been updated from `anonpress-web` to `pressprotocol-web` to align with the new project branding."
+https://www.github.com/0xshikhar/pressprotocol,dcc190c133bd51c9e303ca34e3d55047fc3e50c1,2026-04-12T17:18:46+00:00,Human,,18715,0,4,False,False,False,False,update: pnpm workspace configuration and update wordpress plugin files
+https://www.github.com/0xshikhar/pressprotocol,72f3f148f21bf614be199bea7f0f93b4a84a89e8,2026-04-11T17:17:25+00:00,Human,,8,0,1,False,False,False,False,"chore(root): root: Update gitignore for build artifacts and node_modules
+
+This commit updates the root `.gitignore` file to explicitly exclude common build output directories and `node_modules`.
+
+Specifically, it adds:
+- `node_modules`
+- `dist/` (for TypeScript compilation outputs)
+- `.next/` (for Next.js build outputs)
+- `*.tsbuildinfo` (TypeScript build info files)
+- `coverage/` (for test coverage reports)
+
+These additions ensure that transient files and build artifacts are not accidentally committed to the repository, keeping the codebase clean and focused on source files."
+https://www.github.com/0xshikhar/pressprotocol,afa1373cb1d523fa29010252eeb1a04aca716f6f,2026-04-11T17:17:25+00:00,Human,,141,1,3,False,False,False,False,"feat(web): web: Add content processing dependencies and tests
+
+This commit updates the web application to include necessary dependencies and configuration for advanced content processing and integrates the PressProtocol SDK.
+
+Key changes include:
+- **Dependency Addition**: Adds `@pressprotocol/sdk` for direct integration with the PressProtocol network and `cheerio` for robust HTML parsing and manipulation, crucial for content scrubbing.
+- **Next.js Configuration**: Configures `next.config.js` to allow `cheerio` and `undici` (an HTTP client, likely used by the SDK or related utilities) to be externalized for server components, optimizing server-side rendering.
+- **Milestone III Test Suite**: Introduces `scripts/test-milestone3.ts`, a new test script specifically designed to validate URL sanitization and deep HTML surveillance scrubbing functionality within the `apps/web` project. This ensures the content processing logic works as expected."
+https://www.github.com/0xshikhar/pressprotocol,e62201916488463a7dc2a22875bb01d325fdc825,2026-04-11T17:17:25+00:00,Human,,351,0,1,False,False,False,False,"feat(sdk): sdk: Introduce headless CLI binary
+
+This commit adds a new command-line interface (CLI) binary for the PressProtocol SDK. This CLI provides a headless interface for interacting with the PressProtocol network, enabling developers to publish content, resolve CIDs, and manage keys directly from their terminal.
+
+The CLI includes commands for:
+- `publish`: To publish content to the PressProtocol network.
+- `resolve`: To resolve content by its CID.
+- `key`: To manage cryptographic keys.
+- `config`: To manage CLI configuration."
+https://www.github.com/0xshikhar/pressprotocol,2b9b5efd37d140e59fcf722030a21328f62e1ae5,2026-04-11T17:17:25+00:00,Human,,69,0,3,False,False,False,False,"feat(wordpress-plugin): wordpress-plugin: Add sovereign embed code and content badge
+
+This commit introduces new functionality to the WordPress plugin:
+
+1.  **Sovereign Embed Code Storage**: When an article is published via PressProtocol, its unique Content Identifier (CID) is now stored as post metadata (`_pressprotocol_cid` and `_anonpress_cid`). An iframe embed code, pointing to the PressProtocol embed page, is also generated and stored (`_pressprotocol_embed_code`).
+2.  **Admin Meta Box Display**: The generated sovereign embed code is displayed in the AnonPress meta box on the post editing screen, allowing publishers to easily copy and use it.
+3.  **Frontend Content Badge**: A new filter `the_content` is added to automatically append a sovereign cryptographic verification badge to single posts that have a stored CID. This badge links to the PressProtocol read page, providing verifiable proof of publication."
+https://www.github.com/0xshikhar/pressprotocol,d04d155bc34f3077e9bf0fb359769ab654fa7bb6,2026-04-10T17:16:11+00:00,Human,,715,1,2,False,False,False,False,"feat(web): Introduce universal CMS importer page and navigation link
+
+Adds a new user-facing page at `/import` that provides a universal CMS importer interface. Users can input a URL, and the page will display the scrubbed article content along with detailed telemetry from the scrubbing process.
+
+Also updates the `LandingNavigation` component to include a prominent link to the new 'CMS Importer' page, making it easily discoverable for users."
+https://www.github.com/0xshikhar/pressprotocol,f4cccc6d3059aeb33a6b54a121395ced5aa3705f,2026-04-10T17:16:11+00:00,Human,,263,0,2,False,False,False,False,"feat(web): Implement article import API endpoints
+
+Adds two new API endpoints for importing articles:
+
+1.  `/api/import/url`: Allows importing an article by providing its URL. It leverages the new content scrubber to clean the article before processing.
+2.  `/api/webhooks/ghost`: Provides a webhook endpoint for Ghost CMS, enabling automatic article ingestion upon publication. Includes HMAC-SHA256 signature verification for security.
+
+Both endpoints integrate with the `@pressprotocol/sdk` to publish the scrubbed articles."
+https://www.github.com/0xshikhar/pressprotocol,423e19f7e247fb9be7ef0f0ba564536ccf710607,2026-04-10T17:16:11+00:00,Human,,542,0,1,False,False,False,False,"feat(web): Add article content scrubbing utility
+
+Introduces a new utility library for extracting and cleaning article content from HTML. This scrubber identifies and purges surveillance trackers, scripts, and other unwanted elements, providing telemetry on the cleaning process. It also calculates reading time and word count for the cleaned content."
+https://www.github.com/0xshikhar/pressprotocol,ead775a224ed5d5d871602925c438944be49d2be,2026-04-15T16:49:51+00:00,Human,,711,0,4,False,False,False,False,"feat(sdk): add initial SDK implementation
+
+Introduce the core SDK for PressProtocol, enabling headless publishing and multi-transport resolution.
+
+This includes:
+- `PressProtocolClient` for interacting with the protocol.
+- Cryptographic utilities for key generation, signing, and verification.
+- Core types and interfaces for SDK operations."
+https://www.github.com/0xshikhar/pressprotocol,85f3ce9e0bab8ade0f27fe057c58b4b52260aa97,2026-04-15T16:49:51+00:00,Human,,58,0,2,False,False,False,False,"feat(sdk): add headless developer SDK and CLI
+
+This commit introduces the initial setup for the `@pressprotocol/sdk` package.
+It includes the `package.json` with basic metadata, scripts, and a CLI entry point,
+along with the `tsconfig.json` for TypeScript compilation.
+This SDK aims to provide tools for censorship-resistant publishing and multi-transport resolution."
+https://www.github.com/0xshikhar/pressprotocol,362cb121a1b6be13d28835100ebbaaff926fb9e6,2026-04-07T16:22:32+00:00,Human,,486,0,1,False,False,False,False,feat(embed): add embeddable content viewer page
+https://www.github.com/0xshikhar/pressprotocol,2b790a021fee3008bd25d4b04d4a54cadb3b46c2,2026-04-07T16:22:32+00:00,Human,,53,0,1,False,False,False,False,"feat(embed): add embed page layout and metadata
+
+This commit introduces a new layout file for the embed feature.
+It defines the viewport settings and dynamically generates metadata (title, description, robots, OpenGraph) based on the content ID (CID).
+This ensures that embedded articles have proper SEO and social sharing information."
+https://www.github.com/0xshikhar/pressprotocol,c6afaa9f6320770eee611c5c4885065abcfd049b,2026-04-06T16:20:50+00:00,Human,,219,11,6,False,False,False,False,"feat(web): Add article embedding functionality
+
+Introduces the ability for users to embed PressProtocol articles directly into other websites using an iframe. This includes a new EmbedDialog component on the article read page, a dedicated /embed route, and necessary middleware and Next.js configuration to handle CORS and CSP headers for embedded content. Navigation components (navbar and footer) are hidden on embed pages to provide a clean, focused view."
+https://www.github.com/0xshikhar/pressprotocol,5c41e56499de6a592c7e84c3999639483125337c,2026-04-06T16:20:50+00:00,Human,,428,0,2,False,False,False,False,"feat(web): Generate dynamic Open Graph images for articles
+
+Implements a new API route /api/og/[cid] to dynamically generate Open Graph images for articles based on their content. This enhances the visual presentation of shared articles on social media platforms by providing rich, context-aware preview images. The article layout is updated to use these dynamic images for Open Graph and Twitter card metadata."
+https://www.github.com/0xshikhar/pressprotocol,560b3a2d93aabb6235ce6c2cb7100568325d9617,2026-04-06T16:20:50+00:00,Human,,286,0,4,False,False,False,False,"feat(web): Implement article syndication feeds (RSS/Atom)
+
+Introduces global and tag-specific RSS 2.0 and Atom 1.0 feeds for articles. These feeds are enriched with custom `press:` XML elements to include cryptographic metadata such as CID, public key, and signature, enabling sovereign verification directly from the feed."
+https://www.github.com/0xshikhar/pressprotocol,597f5cf3a6cde972e1b87b87a60f56ecf7734516,2026-03-03T14:27:17+00:00,Human,,14,10,1,False,False,False,False,"refactor(web): Update landing page footer navigation for improved discoverability
+
+Reorganizes and expands the footer navigation links to include the newly added informational pages (/about, /docs, /privacy, /spec, /terms).
+Also updates existing links for consistency and clarity, such as changing ""CID Explorer"" to ""Protocol Spec"" and ""Live Sandbox"" to ""Documentation"" to better reflect content."
+https://www.github.com/0xshikhar/pressprotocol,513204112fdba0ad399fceeb20eeb136db10eefd,2026-03-03T14:27:17+00:00,Human,,751,0,5,False,False,False,False,"feat(web): Add dedicated informational pages for project details
+
+Introduces new static pages to provide comprehensive information about PressProtocol:
+- About: Mission, public goods funding, and architecture.
+- Docs: Developer guides, node operation, and integration details.
+- Privacy: Zero-logging architecture and burner key isolation.
+- Spec: Technical specification covering Ed25519, CIDv1, Tor v3.
+- Terms: Terms of Service, disclaimers, and open-source licensing.
+These pages enhance transparency and provide essential resources for users and developers."
+https://www.github.com/0xshikhar/pressprotocol,8569f39d6740fd9c0bca95d54c6e770483b9f71d,2026-03-01T14:18:32+00:00,Human,,0,0,4,False,False,False,False,chore(web): Add pre-packaged integration binaries for direct download
+https://www.github.com/0xshikhar/pressprotocol,8946bef65ba1f01c42572b2e5574aa1b78e98dd2,2026-03-01T14:18:32+00:00,Human,,9,14,2,False,False,False,False,feat(web): Enable direct downloads for browser extension and WP plugin on web
+https://www.github.com/0xshikhar/pressprotocol,2ac75a41cf09e5b9b7137c89128c66392ec6c8ab,2026-03-01T14:18:32+00:00,Human,,70,1,3,False,False,False,False,build(scripts): Introduce packaging scripts for browser extension and WordPress plugin
+https://www.github.com/0xshikhar/pressprotocol,10b6817b36706d2102fd7fa2c6a7e5bfb2e6879d,2026-02-28T14:12:45+00:00,Human,,233,6,2,False,False,False,False,"feat(web): Implement in-browser article signature verification
+
+Introduces a new utility for performing authentic Ed25519 signature verification directly within the browser using `@noble/ed25519`. This functionality is integrated into the article reading page (`/read/[cid]`) to automatically verify the authenticity of published content and display the verification status to the user."
+https://www.github.com/0xshikhar/pressprotocol,99e48d18095e9e55a7b7950b48682a4fae5ab278,2026-02-28T14:12:45+00:00,Human,,36,13,2,False,False,False,False,"feat(core): Persist client-side signatures for content
+
+Updates the content publishing API to accept and persist client-generated Ed25519 signatures, public keys, and timestamps. This allows the backend to store the cryptographic proof of origin alongside the content. It also handles the creation of new sovereign burner identities based on client-provided public keys."
+https://www.github.com/0xshikhar/pressprotocol,b8e79bf78f2babfdcfe46255f2e7fec1d90c8138,2026-02-28T14:12:45+00:00,Human,,21,0,2,False,False,False,False,"feat(web): Enable client-side signing for anonymous articles
+
+Implements the logic to cryptographically sign anonymous articles using the burner wallet's private key before publishing. The canonical payload includes the article title, tags, and a timestamp. This signature, along with the public key and timestamp, is then sent to the backend for persistence, allowing for in-browser verification later."
+https://www.github.com/0xshikhar/pressprotocol,8f9d39ac3d8cef26d4efa8592a3d9afd54f1bf7f,2026-02-25T14:06:26+00:00,Human,,468,48,3,False,False,False,False,"feat(web): Introduce anonymous publishing with burner wallets
+
+This commit introduces the ability for users to publish content anonymously using ephemeral, client-side generated burner wallets.
+
+A new `burner-wallet.ts` utility provides functions for creating, managing, and burning these Ed25519 keypairs stored in localStorage.
+
+The `write/page.tsx` has been updated to integrate this functionality, allowing users to choose between publishing with their linked account or anonymously. It includes UI for managing the burner wallet, displaying the pseudonym, and publishing content signed by the burner key.
+
+The `read/[cid]/page.tsx` has been updated to correctly display publisher information for anonymous articles, showing a ""Anonymous Sovereign"" badge and a pseudonym derived from the public key."
+https://www.github.com/0xshikhar/pressprotocol,dedc1c3bb5c5422e1076dd8a9cb5be1a7d393f66,2026-02-25T14:06:26+00:00,Human,,184,20,2,False,False,False,False,"feat(web): Implement resilient multi-transport content retrieval
+
+This commit introduces a robust content retrieval mechanism for the web application.
+The `/api/content/[cid]` route now acts as a resilient gateway, attempting to fetch content from the configured backend, and if that fails or times out, concurrently racing against multiple public IPFS gateways. This ensures content availability and speed.
+
+The `ApiClient`'s `getContent` method has been updated to leverage this new proxy route. It first attempts to fetch from the primary backend with a timeout. If that fails or is slow, it falls back to querying the local Next.js `/api/content/[cid]` proxy, which then handles the multi-transport logic."
+https://www.github.com/0xshikhar/pressprotocol,681eed39400d3cae82da280d3362d232e4621bfe,2026-02-22T13:13:28+00:00,Human,,1,1,1,False,False,False,False,"chore(apps/web): Initialize package for pnpm monorepo
+
+Initializes `apps/web` package for integration into the pnpm monorepo, updating its `package.json` to align with the new workspace setup."
+https://www.github.com/0xshikhar/pressprotocol,c0c09bdab8b06666e6da1454910aa1c489c7f655,2026-02-22T13:13:28+00:00,Human,,7,4,4,False,False,False,False,"chore(core/node): Initialize package for pnpm monorepo
+
+Sets up `core/node` package for integration into the pnpm monorepo, including `package.json` for dependencies and scripts, `tsconfig.json` for TypeScript configuration, and initial `index.ts` and `prisma.ts` files."
+https://www.github.com/0xshikhar/pressprotocol,842e4f63cc58e1ea2d5d22467ed2f9b829645987,2026-02-22T13:13:28+00:00,Human,,23,23,1,False,False,False,False,"feat(core/node): Enable DiscoveryService statistics endpoint
+
+Uncomments the `getStats` method in `DiscoveryService`, making it an active part of the API. This endpoint provides statistics such as total content count and category breakdowns."
+https://www.github.com/0xshikhar/pressprotocol,56649d5fd1370f1712426207f9b624db30e788b3,2026-02-22T13:13:28+00:00,Human,,20,4,4,False,False,False,False,"chore(repo): Initialize pnpm monorepo and migrate browser extension
+
+Introduces a root `package.json` and `pnpm-workspace.yaml` to establish a monorepo structure for the project. Migrates the browser extension's build and setup scripts from `npm` to `pnpm` to align with the new workspace setup."
+https://www.github.com/0xshikhar/pressprotocol,d2e8bc96651581d9d698138ad181ff21b50d53f1,2026-02-21T13:00:01+00:00,Human,,20081,14487,30,False,False,False,False,chore: restructure repository into monorepo with updated documentation and CI/CD workflows
+https://www.github.com/0xshikhar/pressprotocol,74e16fc4e7aaf7bcbeb5a2ba41d2f886ace20c33,2026-02-11T12:49:46+00:00,Human,,703,1578,136,False,False,False,False,update: app restructuring
+https://www.github.com/0xshikhar/pressprotocol,e2b71eb876b349b7f7dc261684165b061634f649,2026-02-11T12:49:16+00:00,Human,,117,0,3,False,False,False,False,update: add scripts and tests
+https://www.github.com/0xshikhar/pressprotocol,db678b52db13a8f0fc899f1593ce0fa5300eda0d,2026-02-11T12:48:47+00:00,Human,,0,6479,12,False,False,False,False,update: docs cleanup
+https://www.github.com/0xshikhar/pressprotocol,ffba147d0feb609ad0100d2d2c93dcaf16d4875a,2026-02-11T12:48:29+00:00,Human,,0,0,21,False,False,False,False,update: wordpress plugin restructuring
+https://www.github.com/0xshikhar/pressprotocol,4745b0cec560b1e2e496394c360ce30fe4a2485c,2026-02-11T12:47:47+00:00,Human,,208,0,12,False,False,False,False,update: browser extension restructuring
+https://www.github.com/0xshikhar/pressprotocol,809e57eeaa0227262774cb8f82bcb320ef7a64a4,2026-02-11T12:47:15+00:00,Human,,0,109,35,False,False,False,False,update : backend restructuring
+https://www.github.com/0xshikhar/pressprotocol,4a985b6192712a625cf9721a46f5065cf1c53c13,2026-01-20T12:13:11+00:00,Human,,194,158,2,False,False,False,False,refactor(landing): update CallToAction and Footer components for new design
+https://www.github.com/0xshikhar/pressprotocol,cb65fc93d497df13866eb4398625817d5e102abf,2026-01-20T12:13:11+00:00,Human,,1835,19,8,False,False,False,False,feat(landing): introduce new modular content sections for landing page
+https://www.github.com/0xshikhar/pressprotocol,59f9667fe35b751194816d89ab4d48c21e15ce17,2026-01-20T12:13:11+00:00,Human,,45,13,1,False,False,False,False,feat(landing): overhaul Hero section with video background and dynamic text effects
+https://www.github.com/0xshikhar/pressprotocol,c1807d417110644173d3013b2d45b6520690e582,2026-01-20T12:13:11+00:00,Human,,45,0,1,False,False,False,False,feat(landing): introduce global utility styles for landing page
+https://www.github.com/0xshikhar/pressprotocol,775c9a0bbd0f37c8f5eb5930839132648a32cad9,2026-01-20T11:59:29+00:00,Human,,768,0,4,False,False,False,False,"feat(landing): add ecosystem, telemetry, privacy, and publishing sections
+
+Introduces new components for the landing page to provide comprehensive information about the platform.
+- `EcosystemBento`: Showcases the ecosystem, developer tools, and SDK integration.
+- `GatewayTelemetry`: Displays real-time network status and gateway telemetry.
+- `PrivacyThreatModel`: Explains privacy guarantees and threat mitigation strategies.
+- `ProcessStepper`: Details the step-by-step content publishing process."
+https://www.github.com/0xshikhar/pressprotocol,d589329f411c729726a20d94ac1b2555772fcef1,2026-01-20T11:59:29+00:00,Human,,0,0,1,False,False,False,False,chore(web-app): update bun lock file
+https://www.github.com/0xshikhar/pressprotocol,9ee5b1627d84e17cfd3eb8c70ef53aee917ff2d7,2026-01-06T11:58:26+00:00,Human,,1,1,1,False,False,False,False,"refactor(web-app): update authentication button text
+
+Changes the text of the `AuthButton` component from 'Connect Wallet' to 'Login / SignUp'. This update provides clearer guidance to users, indicating that the button serves both login and new user registration purposes, aligning with broader UX improvements."
+https://www.github.com/0xshikhar/pressprotocol,ddb98802d950f1c30c59af5636ac5917fff639c5,2026-01-06T11:58:26+00:00,Human,,7,0,2,False,False,False,False,"feat(web-app): hide global navigation on landing page
+
+Modifies the existing global `Navbar` and `Footer` components to conditionally render based on the current pathname. They will now be hidden when the user is on the root path (`/`), ensuring a clean and dedicated experience for the new landing page."
+https://www.github.com/0xshikhar/pressprotocol,2943caacd56613808d6ec5e3dbd288832a5b7dc5,2026-01-06T11:58:26+00:00,Human,,1213,0,6,False,False,False,False,"feat(web-app): introduce new modular landing page components
+
+Adds several new React components to form the web application's landing page. These components are designed to be modular and reusable, covering hero section, call to action, navigation, footer, protocol sandbox, and transport network sections."
+https://www.github.com/0xshikhar/pressprotocol,bfe477d0c8f52343cb47e96d19b2610b30751b9e,2026-01-05T11:56:54+00:00,Human,,1,1,1,False,True,False,False,"chore(web-app): update viem dependency to ^2.38.0
+
+Updates the `viem` package dependency in `web-app/package.json` from `2.x` to `^2.38.0`. This ensures compatibility with the latest features and bug fixes from the `viem` library."
+https://www.github.com/0xshikhar/pressprotocol,2b27678b0522b1d77c9e9617771f6c8580d72439,2026-01-05T11:56:54+00:00,Human,,1,1,1,False,False,False,False,"refactor(web-app): update dashboard login button text
+
+The text on the dashboard's wallet connection button has been updated from ""Connect Wallet"" to ""Login / SignUp"" to more accurately reflect the action's purpose, which encompasses both connecting an existing wallet and initiating a new user signup flow."
+https://www.github.com/0xshikhar/pressprotocol,c0a8a0652c6c1d215c5e35caa5c4b74f184639a0,2026-01-05T11:56:54+00:00,Human,,49,5,3,False,False,False,False,"feat(web-app): introduce custom fonts and global styling utilities
+
+This commit integrates new custom fonts (Instrument Serif, JetBrains Mono) into the web application and defines them as CSS variables. These fonts are then exposed via Tailwind CSS utility classes for consistent usage across the application. Additionally, new global CSS utilities for glassmorphism effects (`.glass-panel`, `.glass-panel-hover`) and a hairline grid background (`.hairline-grid`) are introduced to support a refreshed UI design language."
+https://www.github.com/0xshikhar/pressprotocol,8d7cc364f92c4cd41335486f4b11a25de3e6e0c9,2026-01-05T11:56:54+00:00,Human,,36,302,1,False,False,False,False,"feat(web-app): rework landing page with modular components
+
+The landing page has been completely refactored to use a modular component-based architecture. This improves maintainability, readability, and allows for easier future enhancements. The previous monolithic structure has been replaced with dedicated components for navigation, hero section, telemetry, process steps, network visualization, protocol sandbox, ecosystem overview, privacy model, and call to action."
+https://www.github.com/0xshikhar/pressprotocol,d776ebee96fc759099ecc8f345fcecb6573db972,2025-12-11T11:55:22+00:00,Human,,66,159,3,False,False,False,False,"chore(browser-extension): update build scripts and documentation
+
+This commit finalizes the transition to the vanilla TypeScript browser extension by updating supporting files.
+
+It cleans up the `.gitignore` file, adds a new `setup.sh` script to automate the build and setup process, and updates the `README.md` to reflect the new architecture, installation instructions, and features of the V2 extension."
+https://www.github.com/0xshikhar/pressprotocol,71745cf08ec9528a1d575e37cc9e95c23bc4c696,2025-12-11T11:55:22+00:00,Human,,172,0,2,False,False,False,False,"feat(browser-extension): implement vanilla popup UI and logic
+
+This commit adds the new HTML structure for the extension's popup (`popup.html`) and the corresponding pure TypeScript logic (`src/popup.ts`).
+
+The popup is responsible for displaying the current status of AnonPress content, including mirror health and recommended access points, when the user is on an AnonPress content page. It replaces the previous React-based popup component."
+https://www.github.com/0xshikhar/pressprotocol,a19bcf1ec561c84825685258a745053ee59828d4,2025-12-11T11:55:22+00:00,Human,,118,0,1,False,False,False,False,"feat(browser-extension): implement vanilla background service worker
+
+This commit introduces the new background service worker for the AnonPress browser extension, written entirely in pure TypeScript.
+
+It replaces the functionality previously handled by the Plasmo-based `background.ts`, including protocol handling for `anonpress://` links, API communication for content resolution, and context menu integration. The service worker is designed to be lightweight and efficient."
+https://www.github.com/0xshikhar/pressprotocol,bbe070a608b5cf14fe42f9d4805b3cd79dfc4f9d,2025-12-11T11:55:22+00:00,Human,,116,336,7,False,False,False,False,"refactor(browser-extension): migrate to vanilla TypeScript
+
+This commit initiates the complete rewrite of the browser extension, moving away from the Plasmo framework and React to a pure TypeScript, dependency-free architecture.
+
+It removes all Plasmo-related files and configurations, updates the `package.json` to reflect minimal dependencies, and introduces a standard `manifest.json` and `tsconfig.json` for a vanilla browser extension build."
+https://www.github.com/0xshikhar/pressprotocol,31b63b50856c0ebbbc08c5c4a222996d8644c397,2025-10-16T17:43:57+00:00,Human,,128,76,12,True,True,False,False,fix: ui update
+https://www.github.com/0xshikhar/pressprotocol,ecfa1994351862f3d4066ae43ca5dcac8011c13e,2025-10-17T01:04:54+00:00,Human,,109,1063,5,False,False,False,False,update: setting page
+https://www.github.com/0xshikhar/pressprotocol,8fbee1e58b85e568e74af225272d8d1aa5806c01,2025-10-16T00:43:02+00:00,Human,,543,629,24,False,False,False,False,feat: wordpress plugin update
+https://www.github.com/0xshikhar/pressprotocol,6079bed37cac54ca9450185cadbad8cdc1876b06,2025-10-16T20:34:37+00:00,Human,,553,152,1,True,True,False,False,fix: readme
+https://www.github.com/0xshikhar/pressprotocol,c12a3b45e801dcdc93a1b1ea1f6d9155195914a9,2025-10-16T20:26:51+00:00,Human,,36,36,15,True,True,False,False,fix: naming
+https://www.github.com/0xshikhar/pressprotocol,583ebc60e52389dc547f4e31e43316ec8aa04d68,2025-10-16T03:14:32+00:00,Human,,745,381,15,True,True,False,False,fix: docker & tor issue
+https://www.github.com/0xshikhar/pressprotocol,1d43b9e4e77907305a7fa54b09cba01049bbd7d5,2025-10-15T20:05:01+00:00,Human,,2718,4357,29,False,False,False,False,feat: tor onion routes integrated
+https://www.github.com/0xshikhar/pressprotocol,52735693ca04b36c7940dafc7f2a1a7f5aecf8ac,2025-10-16T17:41:32+00:00,Human,,124,110,9,False,False,False,False,update: app ui
+https://www.github.com/0xshikhar/pressprotocol,07b68368c06e476a643fefc09248facee40f0bc7,2025-10-16T17:25:18+00:00,Human,,0,1612,5,True,True,False,False,fix: clean template files
+https://www.github.com/0xshikhar/pressprotocol,e328f609d85354bebd717cb8d7cdb1cda455eb28,2025-10-16T17:23:52+00:00,Human,,11,1230,7,True,True,False,False,fix: navbar and pages
+https://www.github.com/0xshikhar/pressprotocol,615dd25fa1e7798c5cd617b3894ae10b861a716d,2025-10-16T09:09:57+00:00,Human,,125,22,5,False,False,False,False,feat: add bookmark functionality
+https://www.github.com/0xshikhar/pressprotocol,332f0d75284e36af079ad1aadb7632aac9269e50,2025-10-16T16:21:53+00:00,Human,,635,0,5,False,False,False,False,feat: image upload api
+https://www.github.com/0xshikhar/pressprotocol,80956a99029a8777cd451cc960bb9355da8fc2c6,2025-10-16T03:08:54+00:00,Human,,985,2918,12,True,True,False,False,fix: manifest viewer & helia node setup
+https://www.github.com/0xshikhar/pressprotocol,f116a1ef998f3a655fc093676cc86135a4a73e83,2025-10-15T02:22:09+00:00,Human,,19,121,8,True,True,False,False,fix: web-app auth & api flow
+https://www.github.com/0xshikhar/pressprotocol,f934345bcabe3f85ee47c08835eef2d332d4faf5,2025-10-15T14:06:29+00:00,Human,,2376,232,10,False,False,False,False,feat: DHT Network Integration with Helia
+https://www.github.com/0xshikhar/pressprotocol,02945380fa409cb2de7e4317bc7df7058708f2df,2025-10-14T07:55:52+00:00,Human,,3438,729,16,False,False,False,False,feat: full dht integration with manifests on ipfs
+https://www.github.com/0xshikhar/pressprotocol,1c3308f78bbfb8004e7fe34e7d6323c4d526064d,2025-10-15T07:02:27+00:00,Human,,1335,9,6,False,False,False,False,Add env debugging for Railway deployment
+https://www.github.com/0xshikhar/pressprotocol,6603599d9a6a82b1e12a39729a83571738a631e0,2025-10-13T10:56:04+00:00,Human,,244,29,3,False,False,False,False,feat: add ipfs image upload
+https://www.github.com/0xshikhar/pressprotocol,a7c92fb8555cdf58342b63d5458c27b8ff399606,2025-10-12T22:42:16+00:00,Human,,528,1,10,True,True,False,False,fix: lib
+https://www.github.com/0xshikhar/pressprotocol,0518a66ad67e479d90a995dbb2fe31fdcfe00b26,2025-10-12T21:20:01+00:00,Human,,1926,397,22,False,False,False,False,feat: integrated better reading and writing features
+https://www.github.com/0xshikhar/pressprotocol,c547fde2e6ffda12c3538ef4f27dda7e111b4532,2025-10-14T20:33:10+00:00,Human,,957,28,5,False,False,False,False,update: frontend API client
+https://www.github.com/0xshikhar/pressprotocol,303c323e831a8a51a410f631241ab197ef11a056,2025-10-11T17:51:04+00:00,Human,,1641,57,11,False,False,False,False,feat: wordpress plugin integration with anonpress backend
+https://www.github.com/0xshikhar/pressprotocol,b49f90e2b435d19ccf5143c5bf03331b4d646d06,2025-10-11T14:28:28+00:00,Human,,3076,40,10,False,False,False,False,feat: create wordpress plugin for integration
+https://www.github.com/0xshikhar/pressprotocol,1fc78ad643c09a8fc9aa588012f078ce86225e62,2025-10-10T06:14:13+00:00,Human,,237,7,3,False,False,False,False,feat: create tor integration flow
+https://www.github.com/0xshikhar/pressprotocol,7b6fef9bd13ccdc329a3602daa50cf397eeb2a6b,2025-10-09T22:59:48+00:00,Human,,484,15,6,False,False,False,False,test: server decentralization
+https://www.github.com/0xshikhar/pressprotocol,442bab4eec464c2b798472cea01714d89ce09485,2025-10-09T22:07:18+00:00,Human,,10493,149,16,False,False,False,False,feat: using database as cache layer
+https://www.github.com/0xshikhar/pressprotocol,b2672d63193515d5776326ff81c02caa5d1e5caa,2025-10-09T01:48:49+00:00,Human,,6568,2116,44,False,False,False,False,feat: create anonpress app
+https://www.github.com/0xshikhar/pressprotocol,6961770e655990b28ddb6094796d2341754f0b9b,2025-10-07T17:28:29+00:00,Human,,1469,0,13,False,False,False,False,feat: setup wordpress plugin
+https://www.github.com/0xshikhar/pressprotocol,a6972b2d7b623398334baf112940a30be2b7b420,2025-10-07T10:27:45+00:00,Human,,748,0,7,False,False,False,False,feat: browser extension setup
+https://www.github.com/0xshikhar/pressprotocol,f1f04f865e391a7141eae421fa9f3532aed362d1,2025-10-06T10:27:01+00:00,Human,,5121,0,34,False,False,False,False,feat: backend server setup
+https://www.github.com/0xshikhar/pressprotocol,c54085bfd2b00f127c52d6861a2f262472ab2248,2025-10-06T03:19:48+00:00,Human,,2191,151,10,False,False,False,False,feat: create pages
+https://www.github.com/0xshikhar/pressprotocol,65f0bf5326d1b023b53c1b8cd9aa585909d40820,2025-10-05T06:10:49+00:00,Human,,744,7,10,False,False,False,False,feat: add text editior
+https://www.github.com/0xshikhar/pressprotocol,95f3198582f2404e28828e1c599695d56ae69865,2025-10-05T02:56:09+00:00,Human,,5908,0,79,False,False,False,False,anonpress project setup

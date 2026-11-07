@@ -1,0 +1,1451 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/10play/expo-air,6553525df0d1429bef94702825842afa4e2ac2b3,2026-02-24T13:56:35+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.11
+https://www.github.com/10play/expo-air,4cdfc2adc181e65714f945cf1e6aac8eae69326a,2026-02-24T13:54:29+00:00,AI,Claude_Code,184,46,10,False,False,False,False,"Add custom action button to widget header (#79)
+
+Introduces a configurable action button in the floating widget header that allows
+host apps to trigger custom actions. Includes native module support for iOS and
+Android, with event callbacks and full UI integration. The WidgetBridge communication
+layer has been refactored to use NotificationCenter for cleaner cross-runtime messaging.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,03620b45849ceae45779c99073aaa98d81a05b09,2026-02-24T08:35:50+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.10
+https://www.github.com/10play/expo-air,97e0b8602c7b56f3b460b01bd59f1b1de7a25822,2026-02-24T08:32:07+00:00,Human,,6,2513,5,False,False,False,True,"Revert ""patch""
+
+This reverts commit 95ef20efba5a0a4825ee36a5d12ae63298d9fe9f."
+https://www.github.com/10play/expo-air,95ef20efba5a0a4825ee36a5d12ae63298d9fe9f,2026-02-24T08:31:29+00:00,Human,,2513,6,5,False,False,False,False,patch
+https://www.github.com/10play/expo-air,ce670476593381dc29155fdc891629b47c5adb9c,2026-02-19T13:50:57+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.9
+https://www.github.com/10play/expo-air,4a4a86fa806acddccb95ead2a7a999f534aecde6,2026-02-19T13:48:39+00:00,AI,Claude_Code,114,8,8,False,True,False,False,"Add dynamic WebSocket server URL switching (#77)
+
+* Add dynamic WebSocket server URL switching to expo-air widget
+
+Implement setServerUrl() native function on iOS and Android to allow changing the widget's WS server URL and secret at runtime. The widget automatically disconnects from the old server and reconnects to the new one via the existing useEffect dependency in useWebSocketMessages.
+
+Add example app UI with server URL and secret inputs to test the feature end-to-end.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* Fix Android updateServerUrl wiping all surface props
+
+updateSurfaceProps does a full replacement (not merge), so passing only
+serverUrl would drop size, color and expanded. Track current prop values
+and rebuild the complete Bundle on every update, matching the iOS pattern.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,19aaaf93c605520d2c06925e0cbf0151d6532a41,2026-02-19T12:18:09+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.8
+https://www.github.com/10play/expo-air,d0f21530b8600d998175fcb5b1ea8dd342d5cfc8,2026-02-19T12:16:00+00:00,AI,Claude_Code,3,3,3,False,False,False,False,"Allow WebSocket server secret to be overridden via EXPO_FLOW_SECRET environment variable (#76)
+
+This enables providing a stable, pre-known secret for the prompt server in scenarios where a persistent or pre-determined secret is needed, such as CI/CD pipelines or reproducible dev environments. When the environment variable is not set, the secret generation falls back to the existing random generation behavior.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,ab49eeff8fd23bdc856447778aa61c0f168afd7f,2026-02-12T13:07:05+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.7
+https://www.github.com/10play/expo-air,3d06d8427c16c1fdcdb901a68bc2637890614c99,2026-02-12T13:05:29+00:00,Human,,200,40,6,False,True,False,False,"Merge pull request #71 from 10play/fix-dev-build
+
+fix: patch sourceURL(for:) to prioritize tunnel URL over dev client"
+https://www.github.com/10play/expo-air,d049c5ddcd1ffceb0a1b8750093bfc72c751f14a,2026-02-12T12:57:41+00:00,Human,,63,38,11,False,True,False,False,Merge branch 'main' into fix-dev-build
+https://www.github.com/10play/expo-air,90481e6a4f6ee67227c776793d536e48abd48e53,2026-02-12T11:53:27+00:00,Human,,18,12,2,False,False,False,False,nits
+https://www.github.com/10play/expo-air,f11326613006258468d96eb3f9dc8840b7c50e98,2026-02-12T11:46:14+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.6
+https://www.github.com/10play/expo-air,92d2004f6fc7f11db0bdb8bb95aa878458546ff9,2026-02-12T11:44:44+00:00,Human,,14,14,1,False,False,False,False,"Merge pull request #73 from 10play/17Amir17/gitignore-images-init
+
+Add .expo-air-images to gitignore on init"
+https://www.github.com/10play/expo-air,94cb0d17774926d353a8ce4524f6ab17c3fc6c86,2026-02-12T11:23:09+00:00,AI,Claude_Code,0,308,2,False,False,False,False,"chore: remove dead AppDelegate patching code
+
+The expo-dev-client completely bypasses AppDelegate's bundleURL() and
+sourceURL(for:) via its own EXDevLauncherController. Remove ~300 lines
+of unused patchAppDelegate/patchSwiftAppDelegate/patchObjCAppDelegate
+and getAppScheme functions that had no effect.
+
+The working solution uses xcrun devicectl --initialUrl to pass the
+tunnel URL directly to the dev client at launch time.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,83d8a1139368c42270106c487c4dbe48f14acb84,2026-02-12T11:17:39+00:00,AI,Claude_Code,436,17,4,True,True,False,False,"fix: auto-connect dev client to tunnel URL via --initialUrl relaunch
+
+The expo-dev-client completely bypasses AppDelegate's bundleURL() and
+sourceURL(for:) methods via its own EXDevLauncherController. Instead of
+patching AppDelegate (which the dev client ignores), we now:
+
+1. Detect when expo run:ios finishes installing by watching build output
+2. Relaunch the app with `xcrun devicectl --initialUrl <tunnel-url>`
+3. The dev client reads --initialUrl from NSProcessInfo and auto-connects
+
+Also fixes:
+- Generate server secret in DevEnvironment constructor (not in
+  startPromptServer) so it's available when tunnels start before Metro
+- Pass EXPO_PACKAGER_PROXY_URL to the build process env
+- Add patchAppDelegate() CLI util for direct AppDelegate patching
+  (supports both Swift and ObjC) without requiring expo prebuild
+- Add getAppBundleId() and getAppScheme() helpers
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,357ccfbdd897c4bdf4f39e32923f0719cb7a136d,2026-02-12T10:45:36+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.5
+https://www.github.com/10play/expo-air,c192d4a64615e5a5fb29e40193870dacef3f4f5d,2026-02-12T10:44:05+00:00,Human,,8,4,2,False,True,False,False,"Merge pull request #74 from 10play/GuySerfaty/claude-md-sdk-support
+
+fix: enable CLAUDE.md file loading in SDK query"
+https://www.github.com/10play/expo-air,c54cb3d58fdc4dea2287d729c9593ffe581828d9,2026-02-12T10:39:42+00:00,AI,Claude_Code,8,4,2,True,True,False,False,"fix: enable CLAUDE.md file loading in SDK query
+
+Changed systemPrompt from a string (which replaces the entire default system prompt) to a preset with append format. This allows:
+- CLAUDE.md files to be loaded via settingSources: [""project""]
+- Default Claude Code system prompt to be preserved
+- Expo Flow-specific constraints to be appended on top
+
+The SDK now behaves identically to the CLI when a developer runs `npx expo-air fly` in their project.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,2485bee0d47c3054a80ebcb0f236bf6d7111bd52,2026-02-12T10:00:10+00:00,AI,Claude_Code,14,14,1,False,False,False,False,"feat(init): add .expo-air-images to gitignore
+
+Include .expo-air-images/ alongside .expo-air.local.json when initializing a project. This ensures temporary image files uploaded from the device widget are not accidentally committed.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,03df10635a05cdc5357aac56eead21bc0bc84fc7,2026-02-12T09:38:20+00:00,AI,Claude_Code,39,11,2,False,False,False,False,"feat: prompt user to select device when multiple are connected
+
+When fly detects multiple devices, it now shows a numbered list and
+prompts the user to choose instead of silently picking the first one.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,2bf559faf72d026de95f8cd1cdc094ecdbaf1ec4,2026-02-11T19:48:12+00:00,AI,Claude_Code,4,58,1,False,True,False,False,"chore: remove unnecessary iOS patches
+
+Now that EXPO_PACKAGER_PROXY_URL fixes Metro's URL construction,
+the sourceURL and didFinishLaunching patches are unnecessary.
+Revert to the original bundleURL-only patch.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,5a7c18a13f5b44bf8f266db23c231074a5a5705f,2026-02-11T19:37:00+00:00,AI,Claude_Code,26,11,3,True,True,False,False,"fix: pass EXPO_PACKAGER_PROXY_URL to Metro via tunnel URL
+
+Start tunnels before Metro so the tunnel URL is known, then pass it
+as EXPO_PACKAGER_PROXY_URL to the Metro process. Metro checks this
+env var first when constructing bundle URLs, bypassing the default
+behavior of appending the local port (8087) to the hostname.
+
+This fixes the malformed URL issue where Cloudflare tunnel hostname
+gets combined with the local Metro port (e.g., tunnel-host:8087).
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,d594041dd668492f80313a329b27c8535d7bc8f4,2026-02-11T19:33:44+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.4
+https://www.github.com/10play/expo-air,b3213ddebe7c6d207ea42b811edf5ae48f9f6e1a,2026-02-11T19:32:13+00:00,Human,,2,2,2,False,True,False,False,"Merge pull request #72 from 10play/17Amir17/fix-typing-lost-on-disconnect
+
+fix: preserve text input state when connection disconnects"
+https://www.github.com/10play/expo-air,84516e120299ff102fbfe5131eaee9e315d87f0f,2026-02-11T19:25:41+00:00,AI,Claude_Code,18,25,1,True,True,False,False,"fix: inject tunnel URL into dev launcher recently opened apps registry
+
+RCTBundleURLProvider approach doesn't work because packagerServerHost
+strips the port from jsLocation, then the compiled-in RCT_METRO_PORT
+(8087) gets appended, creating a malformed tunnel URL.
+
+Instead, register the tunnel URL directly in the dev launcher's
+recently opened apps registry (UserDefaults). The dev launcher checks
+this registry on startup and auto-connects to the most recent URL.
+This bypasses RCTBundleURLProvider entirely.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,332a786a0f6b9395e900ff414e8939e06a25c2c9,2026-02-11T19:25:18+00:00,AI,Claude_Code,2,2,2,True,True,False,False,"fix: preserve text input state when connection disconnects
+
+Keep PromptInput mounted when status is disconnected so user-typed text survives connection loss. The component is already disabled via the disabled prop, preventing interaction while disconnected.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,48a6035a71f2beda3264347ae5bc9cb669babe90,2026-02-11T19:08:08+00:00,AI,Claude_Code,30,2,1,True,True,False,False,"fix: configure RCTBundleURLProvider early in didFinishLaunching
+
+The expo-dev-launcher completely bypasses AppDelegate's sourceURL and
+bundleURL methods, so configuring RCTBundleURLProvider inside bundleURL
+never runs. Move the provider configuration to
+application(didFinishLaunchingWithOptions:) so it runs before the dev
+launcher starts and takes over URL construction.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,8eb63defa1a8aaa7ec3942d94e1eb1923dde886e,2026-02-11T18:58:13+00:00,AI,Claude_Code,12,3,1,True,True,False,False,"fix: configure RCTBundleURLProvider for tunnel URLs
+
+The expo-dev-client bypasses AppDelegate's sourceURL/bundleURL and
+reads from RCTBundleURLProvider directly, constructing a malformed URL
+by combining the tunnel hostname with the local Metro port. Now we
+also configure RCTBundleURLProvider with the tunnel host and HTTPS
+scheme so the dev client gets the correct URL.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,2cca6e8f112ed101128a1b87a39a45af096216a2,2026-02-11T18:27:41+00:00,AI,Claude_Code,28,4,1,True,True,False,False,"fix: patch sourceURL(for:) to prioritize tunnel URL over dev client
+
+When expo-dev-client is used, bridge.bundleURL takes priority over
+bundleURL(), creating a malformed URL that combines the tunnel hostname
+with the local Metro port. This patches sourceURL(for:) to call
+bundleURL() directly when a tunnel URL is configured in Info.plist.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,503a7aa8ce7301b4e37f9c7f869d52804c1568b1,2026-02-11T18:26:11+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.3
+https://www.github.com/10play/expo-air,a6896ecd6f833fd67e2071bb91fa3a9101625ead,2026-02-11T18:24:44+00:00,Human,,33,12,5,False,True,False,False,"Merge pull request #68 from 10play/GuySerfaty/fix-init-install
+
+fix: remove expo/react/react-native from dependencies"
+https://www.github.com/10play/expo-air,fc45661998a2bd4c7a5c5b10f4d476206955e108,2026-02-11T18:24:31+00:00,Human,,1,4,1,False,False,False,False,Update package-lock.json
+https://www.github.com/10play/expo-air,de91edb00fe66fbaecf8fd524863d0c987bb1ecb,2026-02-11T18:24:29+00:00,Human,,133,48,12,False,True,False,False,Merge branch 'main' into GuySerfaty/fix-init-install
+https://www.github.com/10play/expo-air,51b939c2a8d173766158118715a4761c7f132ce9,2026-02-11T17:32:10+00:00,AI,Claude_Code,34,4,4,True,True,False,False,"fix: enable microtask support for widget runtime on old-arch apps
+
+When the host app uses old architecture (bridge mode), React Native's
+global enableBridgelessArchitecture feature flag is false. This causes
+Hermes to create runtimes without microtask queue support, but our
+widget requires microtasks for React 19. Force-override the flag before
+creating the widget's Hermes runtime when it's not already enabled.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,44e7b716f836bec6551264f61e447da8f876f69c,2026-02-11T16:12:54+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.2
+https://www.github.com/10play/expo-air,ebc664b55ccb933658232765407767d60b56ab33,2026-02-11T16:11:19+00:00,Human,,8,6,2,False,True,False,False,"Merge pull request #70 from 10play/fix/support-app-config-ts
+
+fix(cli): support app.config.ts for project detection"
+https://www.github.com/10play/expo-air,dca8295052eab25e5c91aa460b83a7ea9b9156f5,2026-02-11T15:53:00+00:00,AI,Claude_Code,1,1,1,True,True,False,False,"fix(cli): use validateExpoProject in resolveProjectRoot
+
+resolveProjectRoot only checked for app.json when deciding whether to
+fall back to the example app, causing projects with app.config.ts to
+incorrectly use the example directory. Now uses validateExpoProject
+which checks all three config formats.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,c699ecba7570891d2c99e86a96819b39e57c135b,2026-02-11T15:50:35+00:00,AI,Claude_Code,7,5,2,True,True,False,False,"fix(cli): support app.config.ts for project detection
+
+Expo projects can use app.config.ts (TypeScript) in addition to
+app.json and app.config.js. Updated validateExpoProject and init
+command to recognize all three config formats.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,b5ac5842a32bfb31ce257963408c09235136d66b,2026-02-11T15:43:40+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.1
+https://www.github.com/10play/expo-air,3d05d4a0c9196c31a5f9cd3d31d8d9b2b39afecf,2026-02-11T15:41:58+00:00,Human,,21,11,1,False,True,False,False,"Merge pull request #69 from 10play/fix/detect-pm-monorepo
+
+fix(cli): detect package manager in monorepo setups"
+https://www.github.com/10play/expo-air,10c41934a0a37ccb6bab364b905cac0c80385849,2026-02-11T15:38:35+00:00,AI,Claude_Code,21,11,1,True,True,False,False,"fix(cli): traverse parent dirs for lock file detection in monorepos
+
+detectPackageManager only checked the immediate project directory for
+lock files, which fails in monorepo setups where the lock file lives
+at the workspace root. Now walks up the directory tree until a lock
+file is found, matching how Node itself resolves modules.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,262b771f327a5bc9236b4fa383977aef4a224d8b,2026-02-11T15:28:19+00:00,AI,Claude_Code,2,5,2,True,True,False,False,"fix: remove expo, react, react-native from dependencies
+
+These should only be in peerDependencies and devDependencies. When users
+install @10play/expo-air, yarn was trying to resolve full nested copies
+of these massive packages even though they already had them, causing OOM
+in large projects like Bluesky's social-app.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,7eb3e58d38f4d1d7d02d33d00c68445b9d3f1734,2026-02-11T15:27:14+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.13.0
+https://www.github.com/10play/expo-air,817bcd73b3b1a2e227258fc382e07752bf24d455,2026-02-11T15:25:34+00:00,Human,,107,31,7,False,True,False,False,"Merge pull request #67 from 10play/17Amir17/fix-non-npm-init
+
+feat(cli): support yarn, pnpm, and bun package managers"
+https://www.github.com/10play/expo-air,c390c51812b97f173a06d79da046fbd52c105ef2,2026-02-11T15:20:31+00:00,AI,Claude_Code,107,31,7,False,False,False,False,"feat(cli): support yarn, pnpm, and bun package managers
+
+All CLI commands previously hardcoded npx/npm for running expo commands,
+which fails with pnpm strict hoisting, yarn PnP, or bun. Detect the
+package manager from lock files and use the correct exec/run commands.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,a711ecadd4ac970b0bcb2755dfdd55a8736e60e9,2026-02-11T11:56:24+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.12.20
+https://www.github.com/10play/expo-air,1aeac5a90492a39fed77840162687d7dc44fe613,2026-02-11T11:54:50+00:00,Human,,231,73,2,False,False,False,False,"Merge pull request #66 from 10play/17Amir17/connect-device-step
+
+Add connect device step to hero animation"
+https://www.github.com/10play/expo-air,7d0d5abd983830c5a27e78568b191da74181c518,2026-02-11T11:41:13+00:00,AI,Claude_Code,109,42,1,False,False,False,False,"feat: add scroll snap pagination to hero animation
+
+Replace free-scroll with page-by-page snap navigation. Each scroll
+gesture advances exactly one step: hero, connect device, terminal,
+widget open, typing/send, features, and footer. Handles wheel, touch,
+and keyboard input.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,47e8c840278b28433b802a509e8e8464c37b5f28,2026-02-11T11:31:49+00:00,AI,Claude_Code,124,33,2,False,False,False,False,"feat: add connect device step to hero scroll animation
+
+Add a new ""Connect your device"" screen as Step 1 in the hero animation, showing a laptop illustration and animated USB cable connecting to the iPhone. Includes scroll snapping for smooth step-by-step navigation and cable drawing animation.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,ecfa9f381bc4a01ba2b16e161aa6a3198655d3fe,2026-02-10T16:18:05+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.12.19
+https://www.github.com/10play/expo-air,08174a6e2d9382cf6ff0a635eb7618094ddd5b0a,2026-02-10T16:16:30+00:00,AI,Claude_Code,260,1,2,False,False,False,False,"docs: add architecture diagram to README (#65)
+
+* docs: add architecture diagram to README
+
+Adds a visual diagram explaining how expo-air works — the five-step real-time feedback loop from prompt to live update on device. Includes the new assets/architecture.svg with dark theme matching existing brand visuals.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* docs: add link to original tweet in README
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+* docs: improve text formatting under architecture diagram
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,34dd62431d4a5df7a6500421b9484e6f0cb8e27f,2026-02-10T15:52:45+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.12.18
+https://www.github.com/10play/expo-air,22ea74397d5cf2e512afa6e1f40af1dceb028505,2026-02-10T15:51:06+00:00,AI,Claude_Code,102,147,3,False,False,False,False,"refactor: simplify README with cover image (#64)
+
+Replaced lengthy documentation with clean, minimal README featuring a branded cover image. Included new cover.svg asset with hat logo, tagline, and accent line for a polished GitHub presentation.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,1e0f442c97c48f72ea6ac37a9fc4cfe9391198f3,2026-02-10T14:37:54+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.12.17
+https://www.github.com/10play/expo-air,f179294f625c207456d41f9c7bd6ac55478b16c9,2026-02-10T14:36:09+00:00,AI,Claude_Code,4,4,1,True,True,False,False,"fix: use correct domain (expo-air.10play.dev) for og:image URLs
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,4d286740bae47a838387c2ab9bc863d97d67fb0d,2026-02-10T14:29:18+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.12.16
+https://www.github.com/10play/expo-air,7ac02423b369df03545b15d301154392c8610371,2026-02-10T14:27:45+00:00,AI,Claude_Code,3,2,1,True,True,False,False,"fix: add absolute URLs for og:image and og:url meta tags for WhatsApp previews (#63)
+
+WhatsApp link previews require absolute URLs for Open Graph image and url meta tags. Changed og:image from relative path to absolute URL (https://expo-air.dev/og-image.png) and added missing og:url tag. This fixes link preview images not appearing when sharing the website on WhatsApp.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,6424976c165c29dcf948da6ffee40dfbedfa909e,2026-02-10T14:25:55+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.12.15
+https://www.github.com/10play/expo-air,5982e6a1a2361c7fe41c68e398ad75540fcfe64e,2026-02-10T14:24:22+00:00,Human,,56,182,6,False,False,False,False,"Merge pull request #62 from 10play/17Amir17/docs-from-website
+
+docs: update CLI commands and simplify docs"
+https://www.github.com/10play/expo-air,02a33a851572afba97b2f3150dc2693544311772,2026-02-10T14:17:48+00:00,AI,Claude_Code,56,182,6,False,False,False,False,"docs: update CLI commands and simplify documentation
+
+- Update all CLI commands to use `npx expo-air@latest`
+- Simplify API reference by removing unused sections
+- Streamline quick-start to recommend `fly` as the default workflow
+- Clean up remote-development and CLI docs for clarity
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,e932a7071e34ae605470bae62a4295fe30c91e84,2026-02-10T14:16:45+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.12.14
+https://www.github.com/10play/expo-air,a4bbced25b162f2075721e5d475882f7b6f1eadc,2026-02-10T14:15:02+00:00,AI,Claude_Code,18,10,6,True,True,False,False,"fix(ci): prevent orphaned tags in release workflow (#60)
+
+* fix(ci): prevent orphaned tags in release workflow
+
+Split tag creation into a separate step after branch push succeeds.
+Previously `git push origin main --tags` could push the tag while
+the branch push was rejected (when main moved forward), leaving
+an orphan tag that blocked subsequent releases.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+* chore: bump version to 0.12.13 to skip orphaned tag
+
+The failed release left an orphan v0.12.13 tag (now deleted).
+Bumping the base version so the next release creates v0.12.14.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,d1a80458bdbb13bcab5cb25cd9e148175f81ad99,2026-02-10T12:57:49+00:00,Human,,8,15,2,False,True,False,False,"Merge pull request #58 from 10play/17Amir17/fix-attachment-button
+
+fix(widget): fix attachment button not working and improve styling"
+https://www.github.com/10play/expo-air,42f9d445508a8310b5a48c99dfee506b2aa9e761,2026-02-10T12:57:28+00:00,Human,,54,4,2,False,False,False,False,"Merge pull request #57 from 10play/wait-for-image
+
+Wait for image"
+https://www.github.com/10play/expo-air,2d75db80c9067557cbbce6833c4c7517f58b91e2,2026-02-10T12:55:13+00:00,AI,Claude_Code,1,1,1,False,False,False,False,"chore: update example lockfile version
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,296bdccba8fc747254c64e9d2985175a06684e88,2026-02-10T12:54:39+00:00,AI,Claude_Code,7,14,1,True,True,False,False,"fix(widget): fix attachment button not working and improve styling
+
+The attachment button was checking for expo-image-picker which fails to load in the widget runtime, causing handlePickImages to silently exit before calling the native picker. Changed the guard to check for NativeModules.WidgetBridge instead, which is the actual implementation used.
+
+Also improved the button styling to match the design system: added circular background and border radius to match the submit button, increased the plus icon color for better visibility, and replaced hardcoded margins with design system spacing values.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,0b3b6a346300314b0b78bdc1db6fd0b27eaf290c,2026-02-10T12:53:37+00:00,Human,,19,8,1,False,False,False,False,getUploadUrl
+https://www.github.com/10play/expo-air,41716d78973961b6c35dfee66c82d90e8596b9fd,2026-02-10T12:46:05+00:00,Human,,43,4,2,False,False,False,False,wait for image
+https://www.github.com/10play/expo-air,d2db8bfead82adc56f820bc4e5fa0f68032e6e11,2026-02-10T11:13:07+00:00,Bot,github_actions,8,8,5,False,False,False,False,chore: release v0.12.12
+https://www.github.com/10play/expo-air,6dca3b5dd964a5a3cd24a949f1f803f95ab07397,2026-02-10T11:11:33+00:00,AI,Claude_Code,31,19,12,True,True,False,False,"fix: npx expo-air init missing package installation (#55)
+
+* fix: npx expo-air init missing package installation
+
+The expo-air alias package was stuck at v0.2.1 with @10play/expo-air@^0.2.1.
+With 0.x semver, this pulled an old version without auto-install logic,
+causing init to fail when the package wasn't in node_modules.
+
+Changes:
+- Update alias package to v0.12.9 with @10play/expo-air@^0.12.9
+- Add moduleExists check in init command to install even when only in package.json
+- Sync alias version on release and publish both packages automatically
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* fix: change default bubble color from #007AFF to #000000
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,6f0ed465b0a49e39ca45b6571c58a6fd6d8bc889,2026-02-10T10:59:17+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.11
+https://www.github.com/10play/expo-air,95bb32f379d68013dabaddd6fb6026516fca70db,2026-02-10T10:57:44+00:00,Human,,1,308,7,False,False,False,False,"Merge pull request #56 from 10play/remove-notifications
+
+rm notifications"
+https://www.github.com/10play/expo-air,c2b384c359bbdea55ed252a3a8c1c51113004cae,2026-02-10T10:52:17+00:00,Human,,1,308,7,False,False,False,False,rm notifications
+https://www.github.com/10play/expo-air,5b93ec83fe12f854949c916133bb6f563461505a,2026-02-10T10:34:04+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.10
+https://www.github.com/10play/expo-air,b40638e2d67a28880bedcdb527049aa429f146ac,2026-02-10T10:32:30+00:00,AI,Claude_Code,105,40,4,True,True,False,False,"fix: improve hero mobile experience (#54)
+
+- Fix responsive phone frame sizing on mobile (constrain by both width and height)
+- Make logo scale consistent (0.38) on both mobile and desktop
+- Center hero content vertically on mobile accounting for header and scroll arrow
+- Remove logo shadow/border when docked on Dynamic Island via scroll-driven CSS
+- Fix scroll-down arrow visibility fade-out by nesting motion divs
+- Increase widget popup insets and padding for better spacing
+- Use 100svh for mobile Safari viewport handling
+- Position scroll arrow at 4svh + 30px from bottom for visibility
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,2cd1fcecd5d5bd3537c81774947bfcac6544a30c,2026-02-10T09:13:42+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.9
+https://www.github.com/10play/expo-air,0c82a64b8a8aeadc45424d7d17e1a4270ec4a95f,2026-02-10T09:12:17+00:00,Human,,49,4,4,False,False,False,False,"Merge pull request #53 from 10play/force-reload
+
+force-reload"
+https://www.github.com/10play/expo-air,f92000acccbdc0441e5613dd2b592a0bf791c8a9,2026-02-10T09:12:06+00:00,Human,,2,4,1,False,False,False,False,Update Header.tsx
+https://www.github.com/10play/expo-air,683334f115533570c88acf9203be210cd9bd9332,2026-02-10T09:10:35+00:00,Human,,51,4,4,False,False,False,False,force-reload
+https://www.github.com/10play/expo-air,b8095965c4d2970f03d4b7433d941a82591799a7,2026-02-09T18:05:46+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.8
+https://www.github.com/10play/expo-air,b78a6e769ae873e6f5ad179d86587693768a5794,2026-02-09T18:04:14+00:00,Human,,6,6,4,False,False,False,False,Merge branch 'main' of https://github.com/10play/expo-air
+https://www.github.com/10play/expo-air,d0dd9dde09d06fd1f93a8711a03504e54f5499f0,2026-02-09T18:04:07+00:00,Human,,6,2,2,False,False,False,False,nits
+https://www.github.com/10play/expo-air,18847a1e17d6e9bd959e860a6f4d67ac36ca72c3,2026-02-09T17:49:33+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.7
+https://www.github.com/10play/expo-air,982c7a5375896889bc98adac86c594466bfb2991,2026-02-09T17:47:59+00:00,Human,,49,20,2,False,False,False,False,defaults
+https://www.github.com/10play/expo-air,100a08a452cde3ef8a556a21cc2148b135b61d90,2026-02-09T17:33:27+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.6
+https://www.github.com/10play/expo-air,14b8af44e2e25d4773a8cc2539979bd70557d1b6,2026-02-09T17:31:58+00:00,Human,,9,3,1,False,True,False,False,"Merge pull request #52 from 10play/fix-hot-reload
+
+Fix Hot Reload"
+https://www.github.com/10play/expo-air,9a37b240c91917b6b157116f32bd045070795fbd,2026-02-09T17:31:15+00:00,Human,,9,3,1,False,False,False,False,Update promptServer.ts
+https://www.github.com/10play/expo-air,2da2351226084b1aa16365433e182893f393bd80,2026-02-09T17:14:54+00:00,Human,,34,3,3,False,False,False,False,"Merge pull request #51 from 10play/autoshow
+
+Autoshow"
+https://www.github.com/10play/expo-air,34270655ff308356cb4e9463d0ea1175c73ffac9,2026-02-09T17:04:11+00:00,Human,,87,55,7,False,False,False,False,"Merge pull request #50 from 10play/bundle-image-picker
+
+Bundle image picker"
+https://www.github.com/10play/expo-air,3c6e3f45e95aceaf7799c178e1b6747098e426cc,2026-02-09T17:04:01+00:00,Human,,2401,256,31,False,False,False,False,Merge branch 'main' into bundle-image-picker
+https://www.github.com/10play/expo-air,c7c2806f062caed2623f262f7d4ece95be1c7465,2026-02-09T16:48:40+00:00,Human,,2402,258,32,False,False,False,False,Merge branch 'main' into autoshow
+https://www.github.com/10play/expo-air,ef4d2997dd70937fe5f07e64b89c9f78e5e84874,2026-02-09T16:48:31+00:00,Human,,34,3,3,False,False,False,False,autoshow
+https://www.github.com/10play/expo-air,aa83628e872a06753b8d1f527158d57c157595eb,2026-02-09T16:38:54+00:00,AI,Claude_Code,1727,153,23,False,True,False,False,"feat: Full Android support for expo-air (#49)
+
+* feat: Full Android support for @10play/expo-air floating bubble widget
+
+Implements complete Android parity with iOS including:
+- Isolated React Native runtime for widget (separate ReactHost)
+- Fabric rendering fix: call onHostResume() to start choreographer
+- Modern WindowInsetsCompat keyboard detection and auto-resize
+- Floating trapezoid bubble with expand/collapse animations
+- Touch handling and keyboard-aware layout adjustments
+- CLI updates for Android device detection and metro config
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+* fix: remove dead ExpoAirView reference and duplicate event emission
+
+Remove leftover View(ExpoAirView::class) block that referenced the
+deleted ExpoAirView class, causing build failure. Also remove redundant
+emitExpandCollapse calls in FloatingBubbleManager.expand/collapse since
+the callbacks wired in show() already emit the event.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,35d1fdaf2f6e32bdaa9da856d879cccede712161,2026-02-09T16:38:09+00:00,AI,Claude_Code,666,57,6,False,False,False,False,"feat: add scroll-driven hero animation with iPhone frame (#46)
+
+* feat: add scroll-driven hero animation with iPhone frame
+
+Implement a cinematic scroll animation for the homepage where the caption and subtitle fade out, an iPhone 15 Pro frame with Dynamic Island rises from below, and the logo shrinks to nestle just under the Dynamic Island. Animation is fully responsive and GPU-accelerated using Framer Motion.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* feat: enhance hero scroll animation with widget, terminal, and features phases
+
+Add multi-phase scroll animation including terminal setup screen, interactive
+widget with typing animation and chat UI, and progressive feature cards reveal.
+Add blue dot animations for logo and status indicators during processing state.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+* feat: add blue glow effects, scroll snap zones, and bounce arrow
+
+- Enhanced blue glow on logo dot, header status dot, and typing indicator
+- Added scroll ""no-stop zone"" that auto-scrolls through hero→install transition
+- Added bouncing chevron arrow to prompt users to scroll down
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,cf4d0cd6ceec8686c6e17d10d606d610e31f7043,2026-02-09T16:36:27+00:00,AI,Claude_Code,9,48,3,True,True,False,False,"fix: use static og-image.png instead of dynamic opengraph-image.tsx
+
+The dynamic approach generated a file without a .png extension, which
+static hosts don't serve with the correct Content-Type header. Switch
+to a static PNG in public/ referenced directly in metadata.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,8140a442e97f865e346ef1e573c2323ba385fa78,2026-02-09T16:15:48+00:00,Human,,3,45,3,False,False,False,False,native picker
+https://www.github.com/10play/expo-air,960c87a4957f59578377f82ab603934d485ec7eb,2026-02-09T16:05:04+00:00,Human,,84,11,4,False,False,False,False,PHPickerViewControllerDelegate
+https://www.github.com/10play/expo-air,06d88778215ddfaaa4cab3b32378e9048b391a38,2026-02-09T14:54:10+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.5
+https://www.github.com/10play/expo-air,e8bd8b94ee146d87946258528860a71a53e27939,2026-02-09T14:50:52+00:00,Human,,94,28,7,False,False,False,False,"Merge pull request #48 from 10play/17Amir17/optimistic-messages
+
+Activity Indicator"
+https://www.github.com/10play/expo-air,d2f2800e065778aa07c94fb88d786978e7d21c78,2026-02-09T14:45:50+00:00,Human,,2,10,2,False,False,False,False,fx
+https://www.github.com/10play/expo-air,d45786af6277337ad518c53daff011106a77a832,2026-02-09T14:41:52+00:00,Human,,66,25,5,False,False,False,False,animation
+https://www.github.com/10play/expo-air,a816573faf9c6cbe6aba1a401f87802b0bc63c30,2026-02-09T14:33:47+00:00,Human,,10,4,3,False,False,False,False,sending
+https://www.github.com/10play/expo-air,1fa0d1569771e849a52acb735a4dc4542357f391,2026-02-09T14:31:38+00:00,Human,,30,3,3,False,False,False,False,pending
+https://www.github.com/10play/expo-air,d544a65aecaad9cd1b1972c5e27c1b87fccc9115,2026-02-09T14:29:03+00:00,Human,,13,13,1,False,False,False,False,Update useWebSocketMessages.ts
+https://www.github.com/10play/expo-air,40acab1f485cc10fa0e6ed5173312c18d966277f,2026-02-09T14:18:03+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.4
+https://www.github.com/10play/expo-air,c3458c5b3e66a3b2ca791488cf7a6987df7659ee,2026-02-09T14:15:38+00:00,Human,,41,12,1,False,True,False,False,"Merge pull request #45 from 10play/17Amir17/fix-widget-stream-resume
+
+Fix widget stream resume on reconnect"
+https://www.github.com/10play/expo-air,309342e3d906c9907e825f6331c9a97fd14729cc,2026-02-09T14:10:14+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.3
+https://www.github.com/10play/expo-air,6ba1758cb249043d0416bea77050530f5f202a36,2026-02-09T14:08:08+00:00,AI,Claude_Code,41,12,1,True,True,False,False,"fix: resume widget streaming when app reconnects mid-stream
+
+When the app closes during an active streaming response, reconnecting now resumes the stream from where it left off instead of losing accumulated messages.
+
+Changes:
+- Add activePromptId tracking to detect running queries
+- Implement broadcastToClients() to send messages to all connected clients instead of a single captured WebSocket reference
+- Replay accumulated streamed response + processing status to reconnecting clients
+- Update executeWithSDK and sendToolUpdate to use broadcast for real-time updates
+
+This ensures that reconnecting clients automatically receive the accumulated response and continue receiving new chunks as the query completes.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,e9dfa13626da865fb54e04abecfb14cc60511610,2026-02-09T14:06:04+00:00,Human,,85,19,5,False,True,False,False,"Merge pull request #43 from 10play/17Amir17/fix-chat-image-persist
+
+fix: persist chat images across app restarts"
+https://www.github.com/10play/expo-air,f7bf7fcd140090fd68f16c4dcacd6f74310845b4,2026-02-09T13:55:20+00:00,AI,Claude_Code,1563,1544,13,False,False,False,False,"merge: resolve conflicts with main
+
+Adapt image persistence to refactored codebase: move ChatImageThumb
+and history image reconstruction to new MessageItems.tsx and
+useWebSocketMessages.ts hook respectively.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,8ab935e312095ad770497747700fbdba93ca2033,2026-02-09T13:54:52+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.2
+https://www.github.com/10play/expo-air,a69731e05d85beece73d94a72779fd5a236e8b2c,2026-02-09T13:53:08+00:00,Human,,1525,1509,9,False,False,False,False,"Merge pull request #42 from 10play/17Amir17/refactor-tsx-files
+
+refactor(widget): split large components into focused modules"
+https://www.github.com/10play/expo-air,eb041a190a55f1fd1b5710ffdc8ec4f265a615da,2026-02-09T13:48:12+00:00,Human,,22,7,3,False,False,False,False,cached branch name
+https://www.github.com/10play/expo-air,4b64c95a2df9027bc0dd15e96fa5b857dea193ec,2026-02-09T13:42:19+00:00,AI,Claude_Code,2,4,1,False,False,False,False,"refactor: simplify result metadata display by removing cost info
+
+Remove the costUsd display from ResultItem component, keeping only
+the duration in milliseconds for a cleaner UI.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,912afb0cb210a85816957673443c4b1713fd14be,2026-02-09T13:34:48+00:00,Human,,6,6,4,False,False,False,False,Merge branch 'main' into 17Amir17/refactor-tsx-files
+https://www.github.com/10play/expo-air,fe881ba384b3fe801b1807f66eabab97caaca6d1,2026-02-09T13:34:08+00:00,Human,,1073,390,17,False,False,False,False,"Merge branch 'main' into 17Amir17/refactor-tsx-files
+
+Resolve conflicts keeping refactored structure while incorporating
+new features from main: DisconnectedView component, disconnected
+state rendering, updated handleCommit prompt with push to remote."
+https://www.github.com/10play/expo-air,c7cf89f45dec91c062c2c90c198d25f35cebe850,2026-02-09T13:32:02+00:00,AI,Claude_Code,1331,616,27,False,False,False,False,"merge: resolve conflicts with main
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,6a6c2a72b7860b6ddc2cdbfad565d1faeaa4584e,2026-02-09T13:32:02+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.1
+https://www.github.com/10play/expo-air,9002034a3a713eed5122971c199a24c723cd0464,2026-02-09T13:30:20+00:00,Human,,1103,434,8,False,False,False,False,"Merge pull request #39 from 10play/branches
+
+Smoother Branch Changes"
+https://www.github.com/10play/expo-air,7781cc12bf5233a1b2645903876589cd9d51f6f8,2026-02-09T13:29:43+00:00,Human,,122,3,2,False,True,False,False,"Merge pull request #40 from 10play/17Amir17/fix-cli-error-page
+
+Add disconnected state UI for offline CLI server"
+https://www.github.com/10play/expo-air,f504a23225c7eb02f49c61ecb6d53586db611e44,2026-02-09T13:28:25+00:00,Human,,27,27,1,False,False,False,False,Update FloatingBubbleManager.swift
+https://www.github.com/10play/expo-air,089c74715462f3e38026e0716783ae1fd37064c0,2026-02-09T13:25:02+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.12.0
+https://www.github.com/10play/expo-air,097c96bad5566879919c51a36e70eb4a3f57b8c3,2026-02-09T13:24:20+00:00,Human,,73,1,2,False,False,False,False,native fly
+https://www.github.com/10play/expo-air,beb8a89a9eb847403c2a911930f3b3bdf59ec938,2026-02-09T13:14:36+00:00,AI,Claude_Code,48,0,1,False,False,False,False,"feat: add og:image preview for document sharing (#44)
+
+Generate a 1200x630 Open Graph preview image showing the black hat logo with white border and shadow on a black background. This displays automatically when sharing links on WhatsApp and other social platforms.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,e39585ab75b2d3a17a9ca1e31bb97c6f9d7a13c3,2026-02-09T13:13:58+00:00,Human,,62,180,17,False,True,False,False,Merge branch 'main' into 17Amir17/fix-cli-error-page
+https://www.github.com/10play/expo-air,10af8f5f04d5313b7825c61fe9402dc1b384240a,2026-02-09T13:09:54+00:00,Human,,324,357,2,False,False,False,False,git cleanup
+https://www.github.com/10play/expo-air,b9f81901411b4933c7628611c4602980632e5baf,2026-02-09T12:56:28+00:00,Human,,3,3,1,False,False,False,False,Update promptServer.ts
+https://www.github.com/10play/expo-air,8de583babda6486e515940b7a9dafefbf55802fb,2026-02-09T12:55:44+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.11.2
+https://www.github.com/10play/expo-air,df071defd6c206355590be7b0bf017151bd3e6bc,2026-02-09T12:53:36+00:00,AI,Claude_Code,7,168,13,True,True,False,False,"fix: remove basePath for custom domain expo-air.10play.dev
+
+Custom domain serves from / so the /expo-air basePath causes asset 404s.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,5cb80d8d2abd0f6721e090db4ecb06a7503c6662,2026-02-09T12:53:11+00:00,AI,Claude_Code,84,18,5,True,True,False,False,"fix: persist chat images across app restarts
+
+Images attached to chat messages now survive app restarts. The fix separates the original user content from Claude-specific image instructions, persists image files to .expo-air-images/, and stores their paths in conversation history. On reload, images are reconstructed from persisted paths with loading placeholders and error handling.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,ff5a09affcd5b9744e1e3bf304c562d8c72d2971,2026-02-09T12:52:23+00:00,AI,Claude_Code,1512,1359,8,False,False,False,False,"refactor(widget): split large components into focused modules
+
+Break up oversized widget files (1,608 lines total) into 8 focused modules following single responsibility principle. BubbleContent reduced from 847→141 lines, ResponseArea from 761→159 lines.
+
+Split logic:
+- Extract WebSocket + message handling to useWebSocketMessages hook
+- Extract git/branch state + operations to useGitState hook
+- Extract markdown parsing to FormattedText component
+- Extract message rendering logic to MessageItems component
+- Extract header & status indicator to Header component
+- Extract tab bar & breathing button to TabBar component
+
+All files stay under 330 lines. No circular dependencies. Same public API. Zero new type errors.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,09f2eb80e6c3a8c6dd97776155bd9ce63d9b51ad,2026-02-09T12:52:11+00:00,AI,Claude_Code,0,3,2,True,True,False,False,"fix: remove basePath now that custom domain is configured
+
+Custom domain expo-air.10play.dev serves from / so the /expo-air basePath was causing asset 404s.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,06c43385c0b2cab3d273a339e7440c002711bbe2,2026-02-09T12:48:55+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.11.1
+https://www.github.com/10play/expo-air,31f62b08b7f3bd87b2392e6d88c40974fed75319,2026-02-09T12:46:33+00:00,Human,,1,162,9,False,False,False,False,"Merge pull request #36 from 10play/remove-boilerplate
+
+Remove Boilerplate"
+https://www.github.com/10play/expo-air,ae1b56e69e78f47da9b11282ed881f12689c2405,2026-02-09T12:45:44+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.11.0
+https://www.github.com/10play/expo-air,f10ff28762f889faae84a1b9d8d991eb35bd2aea,2026-02-09T12:44:11+00:00,AI,Claude_Code,58,12,4,False,False,False,False,"feat: add github pages CI/CD for documentation (#41)
+
+Configures automated builds and deployment of docs to GitHub Pages. Adds a deploy-docs workflow that builds on pushes to main when website/ changes. Exports docs as static HTML with basePath set to /expo-air for the correct GitHub Pages URL structure. Removes the server-side search API (incompatible with static export).
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,55b5f826b94dbace25bfcc98c4aac03f10448163,2026-02-09T12:41:31+00:00,AI,Claude_Code,58,12,4,False,False,False,False,"feat: add github pages CI/CD for documentation
+
+Configures automated builds and deployment of docs to GitHub Pages. Adds a deploy-docs workflow that builds on pushes to main when website/ changes. Exports docs as static HTML with basePath set to /expo-air for the correct GitHub Pages URL structure. Removes the server-side search API (incompatible with static export).
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,a852453ae4c1eb9bec594990d3585477b1867b6f,2026-02-09T12:33:58+00:00,Human,,5,2,1,False,False,False,False,Update promptServer.ts
+https://www.github.com/10play/expo-air,2d01170f2ec576696d00644b1364931d1914696a,2026-02-09T12:28:57+00:00,AI,Claude_Code,49,2,1,False,False,False,False,"feat: add disconnected state UI for widget when CLI server is offline
+
+Shows a centered message with the command to start the development server (npx expo-air start) in a dark-mode code block instead of a blank screen. The message appears only on fresh sessions with no prior messages, preserving context if the server disconnects during an active session.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,811e594664639d4b37c676c4e6bed4b6ab98776e,2026-02-09T12:27:34+00:00,Human,,10,6,1,False,False,False,False,Update promptServer.ts
+https://www.github.com/10play/expo-air,4d89b26819aaee096b73258904646827b2bf944c,2026-02-09T12:26:06+00:00,Human,,3,10,1,False,False,False,False,Update promptServer.ts
+https://www.github.com/10play/expo-air,397793f95734f1c19748e215acc5f3780034287f,2026-02-09T12:23:26+00:00,Human,,9,2,1,False,True,False,False,fix restash
+https://www.github.com/10play/expo-air,339446d3e640d82524dc712a27edc97945a56a5a,2026-02-09T12:21:33+00:00,Human,,333,43,1,False,False,False,False,Update App.tsx
+https://www.github.com/10play/expo-air,0f3296b7056a9b292f5fc69e27d9d7614a43557e,2026-02-09T12:20:47+00:00,Human,,11,0,1,False,False,False,False,restash
+https://www.github.com/10play/expo-air,dccb2ebae4e6ee95b1566cc34c19250c78d56563,2026-02-09T12:16:04+00:00,Human,,27,0,1,False,False,False,True,"Reapply ""feat: auto-restore stashed changes after branch switch""
+
+This reverts commit 7fbf33ddb3e832f92af074376fe6cd87a39c9ea3."
+https://www.github.com/10play/expo-air,a7d2faa4697229ea068afe501d52de0c7014f83d,2026-02-09T12:14:39+00:00,Human,,8636,132,60,False,True,False,False,"Merge remote-tracking branch 'origin/main' into 17Amir17/merge-main-fixes
+
+# Conflicts:
+#	example/package-lock.json
+#	ios/WidgetBridge.mm"
+https://www.github.com/10play/expo-air,ad1ae5bd3113664673ee3b0c844d3c8eb273e901,2026-02-09T12:12:52+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.10.3
+https://www.github.com/10play/expo-air,a914808eaab54811bcb5293747ae2c49595ee1f4,2026-02-09T12:12:51+00:00,Human,,1,1,1,False,False,False,False,Update BubbleContent.tsx
+https://www.github.com/10play/expo-air,9ff10457d714ee96342e5b18e92e1ff662c08900,2026-02-09T12:11:25+00:00,AI,Claude_Code,7093,1,40,False,True,False,False,"docs: add website documentation skeleton (#37)
+
+* docs: add website documentation skeleton
+
+Add initial documentation website setup with Next.js, including .gitignore entries for build artifacts and npm install scripts for managing the docs site.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* fix: sync example/package-lock.json after rebase
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,7fbf33ddb3e832f92af074376fe6cd87a39c9ea3,2026-02-09T12:07:55+00:00,Human,,0,27,1,False,False,False,True,"Revert ""feat: auto-restore stashed changes after branch switch""
+
+This reverts commit 0c97555cc4364680bb8970b4e3904d39f191143e."
+https://www.github.com/10play/expo-air,0c97555cc4364680bb8970b4e3904d39f191143e,2026-02-09T11:55:39+00:00,AI,Claude_Code,27,0,1,False,False,False,False,"feat: auto-restore stashed changes after branch switch
+
+Automatically pop stash entries with 'expo-air-auto-stash' marker when
+switching branches. This preserves work-in-progress when switching
+branches and seamlessly restores it upon return.
+
+Handles merge conflicts gracefully by preserving the stash if pop fails.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,be128be9905f90a1e00cdc66a5f0d98e8a69eb2e,2026-02-09T11:51:30+00:00,AI,Claude_Code,15,71,1,False,False,False,False,"Remove search filter from branch switcher
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,3944b29cdfd9b80c4110bc83139d86e23a0554bf,2026-02-09T11:14:20+00:00,Human,,215,42,4,False,False,False,False,remote branches
+https://www.github.com/10play/expo-air,d068f50058b97f9efdf01074e95ced2d4d301815,2026-02-09T10:56:37+00:00,Human,,1,12,1,False,False,False,False,Update BranchSwitcher.tsx
+https://www.github.com/10play/expo-air,3cfbb36563211d40ecf8dd2af9b5fa2c8c087448,2026-02-09T10:53:40+00:00,Human,,13,2,1,False,False,False,False,Update BranchSwitcher.tsx
+https://www.github.com/10play/expo-air,e1a7bdb99d109516046f64e89d5b6d947a73b566,2026-02-09T10:52:16+00:00,Human,,41,36,1,False,False,False,False,more wip
+https://www.github.com/10play/expo-air,9d883652f081adeafcaac8814d83943569fef301,2026-02-09T10:47:11+00:00,Human,,357,112,2,False,False,False,False,clean
+https://www.github.com/10play/expo-air,d73373dc3bf933fba02399c050d856fd0605f2eb,2026-02-09T10:26:09+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.10.2
+https://www.github.com/10play/expo-air,8330096560895fce768998e7c8e54f5a0f1a5852,2026-02-09T10:22:28+00:00,Human,,814,126,19,False,False,False,False,Merge branch 'main' into branches
+https://www.github.com/10play/expo-air,1a2e0267f30d5e7fbfb8d84f11e9d050d77e9101,2026-02-09T10:22:03+00:00,Human,,20,2,1,False,False,False,False,cleanrer ui
+https://www.github.com/10play/expo-air,f0e419bf43cd3adf0cc32c90fd8d755beeaf3dcd,2026-02-09T10:14:12+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.10.1
+https://www.github.com/10play/expo-air,ea582e92430d3478898a0fcbf33d492a905aab52,2026-02-09T10:06:31+00:00,AI,Claude_Code,808,120,15,False,True,False,False,"Images (#24)
+
+* wip
+
+* ignore on reload
+
+* ugly icon
+
+* feat: add native clipboard image paste support
+
+Swizzle UITextView paste: to intercept image paste events and
+emit them to JS via RCTEventEmitter. PromptInput listens for the
+event and adds pasted images as attachments.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+* fix: show paste menu for clipboard images and clean up remove button
+
+Swizzle canPerformAction:withSender: to return YES for paste when
+clipboard has images, so the native Paste option appears in the
+context menu. Also refine image remove button to use secondary gray.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+* refactor: replace custom PHPicker with expo-image-picker, remove native dead code
+
+Use expo-image-picker instead of custom PHPickerViewController implementation.
+This removes ~130 lines of native code and the PhotosUI framework dependency,
+keeping only the paste swizzle as custom native code.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+* fix: patch bridging header for RCTBridge in prebuilt React.framework
+
+The Expo prebuild template generates sourceURL(for bridge: RCTBridge)
+in AppDelegate.swift, but the prebuilt React.framework module map
+doesn't expose RCTBridge to Swift. Add #import <React/RCTBridge.h>
+to the bridging header via the config plugin.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: GuySerfaty <guy353@gmail.com>
+Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,71847c90f4178fdf9f7f03a88c34fe2fa9d3ca72,2026-02-09T09:56:49+00:00,AI,Claude_Code,678,1,3,False,False,False,False,"docs: add AGPL-3.0 and commercial licenses (#38)
+
+Add dual licensing: AGPL-3.0 for open-source use and commercial license option for proprietary applications.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,e65f6f502d3a40bbada3c7b9ee7badde0982e15e,2026-02-09T09:50:14+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.10.0
+https://www.github.com/10play/expo-air,1f1a6e2e481f052bd3b40fb794b14db4c10552f8,2026-02-09T09:48:32+00:00,AI,Claude_Code,30,6,2,False,False,False,False,"feat: auto-install @10play/expo-air in init command (#35)
+
+The init command now checks if @10play/expo-air is installed and automatically installs it if missing. This enables users to run a single command (npx expo-air init) instead of manually installing the package first. Package manager is auto-detected from lockfiles (bun, pnpm, yarn, npm).
+
+Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,6a0c4a177557e162336fc921b237d499169888fd,2026-02-09T09:41:04+00:00,Human,,1,11,1,False,False,False,False,Update WidgetBridge.mm
+https://www.github.com/10play/expo-air,0e3bfb8d5666fb6ee4de2bc7e1a6e0887ae060ec,2026-02-09T09:06:53+00:00,Human,,1,1,1,False,False,False,False,Update package-lock.json
+https://www.github.com/10play/expo-air,566735301d63d9b1bc75ea6fe2796751d4cb9869,2026-02-09T09:00:40+00:00,Human,,169,974,19,False,False,False,False,Merge branch 'main' into remove-boilerplate
+https://www.github.com/10play/expo-air,36a22bdc23c6a1a659137e2d0e1cbf4a1c64242b,2026-02-09T08:59:07+00:00,Human,,0,156,8,False,False,False,False,remove boilerplate
+https://www.github.com/10play/expo-air,0b8c938f1d31f1fd48528c73a49b5fb0acd57a03,2026-02-09T08:33:06+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.9.0
+https://www.github.com/10play/expo-air,cc1a676de43887870187880c577949e9451fa295,2026-02-09T08:31:36+00:00,AI,Claude_Code,91,24,9,False,True,False,False,"feat: Add WebSocket authentication via auto-generated secret (#34)
+
+* feat: Add WebSocket authentication via auto-generated secret
+
+Add cryptographic secret-based authentication to the prompt server to prevent unauthorized access when exposed via tunnels. The secret is generated at startup, embedded as a query parameter in the server URL, and validated on every connection attempt.
+
+Key changes:
+- PromptServer constructor accepts optional secret parameter
+- WebSocket connections and HTTP requests validated against secret
+- Secret generated in DevEnvironment.startPromptServer() and propagated through all flows
+- Secret embedded in server URLs: wss://tunnel?secret=<hex> or ws://localhost:port?secret=<hex>
+- Secret masked in all console logs to prevent leakage
+- HMR reconnect URL construction fixed to properly handle query parameters
+- All entry points verified: fly, start, server, dev commands
+
+This mitigates the critical vulnerability of unauthenticated access to a prompt server running Claude with bypassPermissions mode.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* refactor: Extract maskSecret/appendSecret utilities, remove duplication
+
+- Remove dead `randomBytes` import from promptServer.ts
+- Extract `maskSecret()` and `appendSecret()` to cli/utils/common.ts
+- Use shared helpers in fly.ts, devEnvironment.ts, server.ts, dev.ts
+- Define local `maskSecret()` in hmrReconnect.ts (separate build context)
+- Change PromptServer constructor to accept `string | null` for secret
+- Replace dynamic `await import(""crypto"")` with static imports
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,9e879ae368835c2b3fc75b5574897fdfcb26eb20,2026-02-09T07:58:44+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.8.0
+https://www.github.com/10play/expo-air,48de41d00807576e94e26963e23466e186ea07f0,2026-02-09T07:57:24+00:00,AI,Claude_Code,32,835,4,False,False,False,False,"feat: add native gray dot placeholder while RN bundle loads (#33)
+
+When the app cold starts or reopens, the collapsed widget now displays a gray indicator dot immediately on the native side. This persists until the React Native bundle loads and renders the colored status dot (blue/green/red), which naturally covers it via the view z-order. No bridge communication or active removal needed.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,a3f3c27248850f24ae8e0ce577cb8e7f36193ba4,2026-02-08T14:43:26+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.7.3
+https://www.github.com/10play/expo-air,e19e10bf2fc173a3bfc5421e1bdaeae26066e862,2026-02-08T14:41:55+00:00,Human,,0,0,0,False,False,False,False,chore: trigger release
+https://www.github.com/10play/expo-air,06bd5574c2db58321c96bf9f9d3cc18853deef6a,2026-02-08T14:39:44+00:00,Human,,6,6,4,False,False,False,False,chore: release v0.7.2
+https://www.github.com/10play/expo-air,8a84f919a2a5afc651fac44f933820e3e7c51838,2026-02-08T14:33:07+00:00,AI,Claude_Code,32,6,1,True,True,False,False,"fix: prevent release workflow race condition when multiple PRs merge simultaneously (#32)
+
+Add concurrency control to ensure only one release runs at a time, preventing parallel pushes to main that cause conflicts. Always checkout latest main branch (not trigger commit) to include all merged PRs. Skip duplicate releases when a queued workflow finds the release already completed. Move git push before npm publish so failed pushes don't result in unpublished packages.
+
+Fixes the issue where merging 2 PRs simultaneously caused the second release to fail with ""remote contains work you do not have locally"".
+
+Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,b82edc49cdb6d38bdcb0d5064c0825640e885796,2026-02-08T14:13:51+00:00,AI,Claude_Code,1,101,1,False,False,False,False,"Remove notifications prompt from init command (#30)
+
+The init command now runs non-interactively without prompting users about push notifications. Notifications are disabled by default—users can add them manually later if needed.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,cf3cec03b022d163381fa1439646adba575b0237,2026-02-08T14:12:10+00:00,AI,Claude_Code,8,3,3,True,True,False,False,"fix: suppress widget errors and warnings from appearing as modals (#31)
+
+Prevent console.error and console.warn from triggering React Native's red/yellow
+error modals in the published widget. These are expected operational issues (e.g.,
+WebSocket disconnect on airplane mode) that should never surface to end users.
+Downgrade console.error calls to console.warn and enable LogBox.ignoreAllLogs
+in the widget runtime only.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,ad7c7a51f2062136f717c25e92ee64daf69f8a9e,2026-02-08T10:19:14+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.7.1
+https://www.github.com/10play/expo-air,d6806f06448371238c3ce90c731662a8d72d3be1,2026-02-08T10:17:13+00:00,AI,Claude_Code,253,54,6,True,True,False,False,"fix: complete markdown rendering and dev command improvements (#29)
+
+- Add full markdown support: headings, bold, italic, strikethrough, links, blockquotes, task lists, nested lists, and horizontal rules
+- Fix React 19 compatibility for Animated.Text/Animated.View with proper type aliases
+- Add --device option to npm run dev with interactive simulator picker
+- Improve dev command shutdown handling: add reentrancy guard, capture buildProcess, remove duplicate killTree
+- Export killProcessTree from devEnvironment for reuse
+- Increase port search attempts from 10 to 50 to handle more concurrent sessions
+- Fix TypeScript issues: remove NativeSyntheticEvent, add key to component props
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,a9f143d891559b51c17c387587412887a0b88efd,2026-02-08T10:13:49+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.7.0
+https://www.github.com/10play/expo-air,a565cd9f381390fc20187ae94a0ec89f02148d8f,2026-02-08T10:11:52+00:00,AI,Claude_Code,809,12,7,False,True,False,False,"feat: add branch switcher widget with auto-stash support (#28)
+
+* Create BranchSwitcher.tsx
+
+* feat: add branch switcher widget with auto-stash support
+
+- Add branch switching UI dropdown in widget header (tappable branch name)
+- Implement server-side git operations: list branches, switch, create from origin/main
+- Auto-stash/restore uncommitted changes when switching branches
+- Enrich branch list with PR info (if gh CLI available)
+- Remove prebuilt widget bundle in dev command so Metro is used for development
+- Make ExpoAir.podspec resource conditional on bundle existence
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+* fix: harden branch switcher with input validation, safe exec, and error UX
+
+- Replace execSync template literals with execFileSync array args to prevent command injection
+- Add isValidBranchName() validation rejecting dangerous chars and patterns
+- Track didStash flag with isolated try/catch for stash push/pop operations
+- Restore stash on checkout failure instead of orphaning it
+- Remove risky post-checkout stash pop that could pop wrong stash
+- Include untracked files in stash (-u flag)
+- Keep dropdown open on error with inline error banner
+- Fix side effect in React state updater (moved requestBranches outside setter)
+- Add missing branchName field to client StatusMessage type
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,5d3abe6cde32c30226644064f16f195e629e6a5f,2026-02-08T09:45:40+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.6.1
+https://www.github.com/10play/expo-air,d84e367186c0d6d98953cabd1791899f9aa8089f,2026-02-08T09:43:40+00:00,AI,Claude_Code,482,10,5,False,True,False,False,"Implement Metro HMR auto-reconnect with protocol replay (#27)
+
+* Implement Metro HMR WebSocket auto-reconnect with protocol replay
+
+This fixes a critical bug where Metro HMR updates were lost after WiFi
+disconnection (airplane mode, tunnel drop, etc). The issue was that Metro's
+HMR server tears down the file-change listener when clients disconnect.
+Our wrapper now captures and replays the HMR protocol registration messages
+(register-entrypoints, log-opt-in) on reconnection, so Metro re-establishes
+file watchers. Combined with server-side file re-touching, this ensures HMR
+updates are delivered seamlessly without requiring app reload.
+
+Key changes:
+- New src/hmrReconnect.ts: WebSocket wrapper with auto-reconnect + protocol replay
+- Updated cli/server/promptServer.ts: Added HTTP /health and /hmr-retrigger endpoints,
+  git root path resolution for file re-touching, and auto-retrigger after Claude completion
+- Updated plugin/src/index.ts: Auto-inject hmrReconnect import via config plugin
+- Updated src/ExpoAirModule.ts: Expose getServerUrl() method for retrigger requests
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* Remove health check polling to prevent unnecessary HMR reloads
+
+The periodic /health polling caused spurious HMR reloads on network
+recovery even when no files changed. The WebSocket reconnect handler
+already handles retrigger on reconnection, making the health check
+redundant.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,8b8b82981f097f9a09cab2bc357d9253f222faca,2026-02-08T08:51:14+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.6.0
+https://www.github.com/10play/expo-air,279cbd343790c9e197d897c7dca559a8c49a2bd4,2026-02-08T08:49:17+00:00,AI,Claude_Code,119,2,4,False,False,False,False,"feat: add unified dev command for simulator development (#26)
+
+Adds a new `npm run dev` command that orchestrates all SDK development servers
+in a single invocation. Starts widget Metro, prompt server, example app Metro,
+and builds directly to iOS Simulator. Includes automatic port allocation and
+local config updates so the simulator finds the correct server addresses.
+Only available when running from source (not in published npm package).
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,e88a3b54feb56485c259d22d4512c81074d4e64f,2026-02-08T07:47:56+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.5.0
+https://www.github.com/10play/expo-air,7bb06093f590248ff0a66e374eec736f9d270afc,2026-02-08T07:46:00+00:00,AI,Claude_Code,54,0,4,False,False,False,False,"feat: add expo-air alias package for shorter npx command (#25)
+
+Create a lightweight wrapper package that enables `npx expo-air` to work as an alias for `npx @10play/expo-air`. Includes version sync and publish scripts for CI/CD integration.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,1f4975e9ea2768ffb0d925812c62a9f41591c710,2026-02-07T14:30:10+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.4.1
+https://www.github.com/10play/expo-air,3aa26e219ee8e5e465b4e100922a1115e294b132,2026-02-07T14:28:12+00:00,AI,Claude_Code,2799,309,11,False,True,False,False,"Improve chat streaming and add markdown formatting (#23)
+
+* fix: persist streamed responses and smooth scroll during streaming (Task 9)
+
+- Add currentStreamedResponse accumulator in promptServer.ts to capture
+  streamed text from text_delta and assistant message events
+- Save accumulated text (with message.result fallback) to conversation
+  history so agent responses persist across app restarts
+- Implement throttled auto-scroll in ResponseArea.tsx (max every 100ms)
+- Disable scroll animation during streaming to prevent jitter
+- Re-enable animated scroll for new complete messages
+
+Extended: Full tool message persistence
+- Add ToolConversationEntry type for persisting tool executions
+- Persist completed/failed tools in PostToolUse/PostToolUseFailure hooks
+- Tools now appear in chronological order with user/assistant messages
+- Reconstruct tool messages from history on app restart
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* fix: improve chat streaming, simplify hooks, and add markdown formatting
+
+- Fix duplicate streaming: only use stream_event for text (not assistant messages)
+- Simplify SDK hooks: remove verbose code, add try-catch error handling
+- Add formatted text rendering: support numbered lists, bullets, code blocks, inline code
+- Improve tool logging: show tool use with Cursor/Claude Code style (✓/✗ icons)
+- Add debug logging for SDK message types to diagnose issues
+- Remove ""started"" tool events from client updates (less noise)
+
+The app now displays task lists and code snippets nicely, similar to modern chat interfaces, while maintaining better error handling and code clarity.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* fix: add type narrowing for SDK hook inputs
+
+Add hook_event_name checks to narrow HookInput union types,
+fixing TypeScript errors in CI.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* fix: prevent duplicate message on stream completion and clean up logging
+
+Strip result.result from the result message when parts already contain the
+formatted content, fixing the duplicate message with bad formatting that
+appeared when streaming completed. Also refactor Swift safe area handling,
+improve server tool logging, and remove debug console.logs.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+
+* add review file
+
+---------
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,cce4178b363c96c143babaa4a159c1028674d554,2026-02-05T13:30:30+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.4.0
+https://www.github.com/10play/expo-air,bf04bb0d34de399074c2841893781b3c3daec78c,2026-02-05T13:28:33+00:00,AI,Claude_Code,1586,854,12,False,True,False,False,"refactor: consolidate commands and add extraTunnels support (#22)
+
+* refactor: consolidate start, fly, and fly-dev commands via DevEnvironment
+
+- Extracted common utilities to new modules (common.ts, metro.ts, devices.ts)
+- Created DevEnvironment class as shared stateful utility container for managing ports, processes, tunnels, and shutdown
+- Reduced fly.ts from 534 to ~160 lines and start.ts from 430 to ~75 lines
+- Eliminated ~964 lines of duplicate code while preserving all original functionality
+
+feat: implement extraTunnels for additional API server configuration
+
+- Added ExtraTunnelConfig to configure additional tunnels via .expo-air.json
+- Implemented startExtraTunnels() and updateEnvFile() methods
+- Extra tunnel URLs are automatically written to .env file for app consumption
+- Supports port, name, and custom env var configuration
+
+feat: add watch mode for prompt server development
+
+- Implemented file watching on cli/server directory with chokidar
+- Auto-restarts prompt server on file changes (300ms debounce)
+- Enabled only in dev mode (fly --dev / fly-dev)
+- Uses dynamic import cache busting for ESM module reloading
+- Added tree-kill dependency for proper process tree cleanup
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* fix: add explicit type annotation for tree-kill callback
+
+Fixes TypeScript error TS7006 for implicit 'any' type on the
+err parameter in the treeKill callback.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* feat: add dynamic bundle ID based on git branch for parallel worktree builds
+
+When running `fly --dev` or `fly-dev`, the CLI now:
+- Detects the current git branch name
+- Sanitizes it for use in bundle IDs (lowercase, alphanumeric + hyphens)
+- Passes EXPO_AIR_BUNDLE_SUFFIX and EXPO_AIR_APP_NAME_SUFFIX env vars to Expo
+
+This allows multiple worktrees (on different branches) to install as separate
+apps on the same iOS device, enabling parallel development workflows.
+
+Changes:
+- cli/utils/common.ts: Add getGitBranchSuffix() utility function
+- cli/commands/fly.ts: Pass bundle suffix env vars in dev mode
+- example/app.config.js: New file that uses env vars for dynamic bundle ID
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* fix: add type declaration for tree-kill module
+
+The tree-kill package doesn't include TypeScript types and there's
+no @types/tree-kill package available. Added a local type declaration
+file to satisfy TypeScript compilation in CI.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* fix: add tree-kill and chokidar to root package.json
+
+The CI runs `expo-module prepare` which compiles the CLI before
+the CLI's node_modules is installed. Adding these dependencies
+to the root package.json ensures they're available during the
+prepare step.
+
+Removed the custom type declaration since tree-kill has bundled types.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* fix: run expo prebuild --clean in fly-dev for bundle ID suffix
+
+The bundle identifier is baked into the Xcode project during prebuild.
+When using branch-specific bundle IDs in dev mode, we need to regenerate
+the native project with `expo prebuild --clean` before building.
+
+This ensures the app name and bundle ID correctly include the branch suffix
+so multiple worktrees can install separate apps on the same device.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* fix: remove automatic prebuild for branch suffix to avoid signing issues
+
+The automatic `expo prebuild --clean` was causing build failures because
+changing the bundle ID requires new provisioning profiles. This is a
+complex issue with iOS code signing.
+
+Now the env vars are set but prebuild is not run automatically. Users
+who want separate apps per branch can manually run:
+  npx expo prebuild --clean
+
+Then configure signing in Xcode before building.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,d1193f99bcb6282346cfa6a96fae5953dfb961a6,2026-02-04T19:04:26+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.3.3
+https://www.github.com/10play/expo-air,8c906a5317b5dd1d17fc49075e5ea38905d947d3,2026-02-04T19:02:30+00:00,AI,Claude_Code,176,79,3,False,True,False,False,"Guy serfaty/fix notification init (#20)
+
+* fix: enable push notifications in production widget bundle
+
+The pre-built widget bundle is created with `expo export` (production build),
+so __DEV__ is always false. Remove __DEV__ guards to allow notifications
+in the widget. The widget is already protected from showing in production
+by native-level DEBUG checks.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* fix not
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,95de9894d97145c09cb74d3be0164c067a21fc8f,2026-02-04T18:10:04+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.3.2
+https://www.github.com/10play/expo-air,8e9c05f31e458e2ba455507e2322666e7bde0841,2026-02-04T18:07:59+00:00,AI,Claude_Code,4,6,1,True,True,False,False,"fix: enable push notifications in production widget bundle (#19)
+
+The pre-built widget bundle is created with `expo export` (production build),
+so __DEV__ is always false. Remove __DEV__ guards to allow notifications
+in the widget. The widget is already protected from showing in production
+by native-level DEBUG checks.
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,e39d9549ce4844bae9554ca48f3b95398071d3ad,2026-02-04T16:30:08+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.3.1
+https://www.github.com/10play/expo-air,c0a8bc735a2cc7a20fc68f1983f30564edfd5e8f,2026-02-04T16:28:08+00:00,AI,Claude_Code,2,1,1,True,True,False,False,"fix: use env var for commit message in release workflow (#18)
+
+Pass commit message through env block instead of direct interpolation
+to prevent shell injection when message contains newlines or special chars.
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,76c4f1a61eaf9f14590ffae942a11368e87d9a51,2026-02-04T16:08:19+00:00,AI,Claude_Code,244,116,5,False,False,False,False,"feat: improved Changes tab with file list and smart CTA (#17)
+
+* feat: add Commit and Create PR buttons to Changes tab (Task 6)
+
+Add ""Commit"" and ""Create PR"" buttons to GitChangesTab that send prompts
+to the existing Claude session:
+- Commit: asks Claude to stage changes and commit with a good message
+- Create PR: asks Claude to generate title/description and run gh pr create
+
+The widget switches to Chat tab to show Claude's response as it executes.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* refactor: simplify Changes tab to single smart button
+
+- Server now checks PR status via `gh pr view`
+- GitStatusMessage includes hasPR and prUrl
+- Changes tab shows single contextual button:
+  - No PR → ""Create PR"" (blue)
+  - PR exists + changes → ""Commit"" (green)
+  - PR exists + clean → ""✓ Ready"" state
+- Removed file list and discard button for minimal UI
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* feat: move smart CTA to tab bar and show file list in Changes tab
+
+- Move Create PR/Commit/View PR button to tab bar header as breathing CTA
+- Show detailed file list with status icons (A/M/D/R/?) in Changes tab
+- Add discard all changes button with warning about memory persistence
+- Improve CLI logging with truncated input/output for debugging
+- Enable bypassPermissions mode for faster dev workflow
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,ee1204ed03cc968af5a2344ecd3ff22929b57929,2026-02-04T15:55:53+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.3.0
+https://www.github.com/10play/expo-air,369706915c21bbd5f3acbcb0ee18d48d162f80de,2026-02-04T15:53:58+00:00,AI,Claude_Code,1190,33,11,False,True,False,False,"feat: interactive push notifications setup for all developers (#16)
+
+* feat: add interactive notifications setup in init command
+
+Users can now choose to enable push notifications during init. If enabled, the command automatically installs expo-notifications, adds it to plugins with enableBackgroundRemoteNotifications, and configures everything. Free developers skip this step and the app builds without notification entitlements.
+
+- Add askYesNo prompt asking if user wants notifications (with note about paid account requirement)
+- If enabled: install expo-notifications, add to app.json plugins with proper config
+- Remove expo-notifications from widget dependencies (now opt-in only)
+- Simplify plugin to delegate entitlements to expo-notifications plugin
+- Both paid and free developers now have seamless, zero-friction setup
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* fix: remove redundant plugin entry from example app.json
+
+The example app should only use the local plugin path for development testing.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,ea9876f09977553af1ee3f8b70829c1f785c627e,2026-02-04T12:35:37+00:00,AI,Claude_Code,116,35,4,False,True,False,False,"feat: separate fly and fly-dev commands (#15)
+
+* fix: position expanded modal below Dynamic Island (Task 4)
+
+Add separate `expandedTopY` computed property for expanded modal positioning.
+The collapsed bubble stays tucked behind the Dynamic Island using `bubbleTopY`,
+while the expanded modal uses `expandedTopY` (safe area + 10pt) for proper spacing.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* feat: separate fly (production) and fly-dev (development) commands
+
+- Add fly-dev command (dev-only, not in npm package) for widget Metro + tunnel
+- Modify fly command to always use prebuilt widget bundle (no Metro/tunnel)
+- Add excludePorts parameter to findFreePort for multiple instances
+- Widget Metro and tunnel only start/create in dev mode
+- Dynamically allocate free ports for dev mode widget Metro
+- Reduce floating bubble top gap from 10pt to 6pt
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,e6604a0a7da1f39a321790e91e166cdecd3f45a3,2026-02-04T10:14:32+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.2.1
+https://www.github.com/10play/expo-air,3aa265cc89f0cf3aeb6f589793058256521e3cad,2026-02-04T10:12:41+00:00,AI,Claude_Code,2,2,1,True,True,False,False,"fix(widget): keep input editable when disconnected (#14)
+
+* feat(widget): keep input editable when disconnected
+
+Task 5: Keyboard Persistence on Disconnect
+
+Previously, when WebSocket disconnected, setting `editable={false}` on the
+TextInput would cause iOS to dismiss the keyboard.
+
+Now the input stays editable when disconnected (only becomes non-editable
+during processing), while the submit button is disabled. This keeps the
+keyboard open so users can continue typing.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* chore: add eslintrc generated by expo-module-scripts
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,95cfa6ae669dd893204e30b810c571eb98f90d3d,2026-02-04T10:01:17+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.2.0
+https://www.github.com/10play/expo-air,7b97de81dad969ef9b7f0dfce353122730eebbe7,2026-02-04T09:59:23+00:00,AI,Claude_Code,93,6,4,False,False,False,False,"feat: add free port selection to avoid startup failures (#13)
+
+* feat: add free port selection to avoid busy port failures (Task 3)
+
+When starting expo-air services, ports 8080/8081/8082 might already be
+in use by other processes, causing silent failures or errors. This adds
+automatic detection and fallback to the next available port.
+
+Changes:
+- Add cli/utils/ports.ts with isPortAvailable and findFreePort utilities
+- Update fly.ts to resolve available ports before starting services
+- Update start.ts with the same port resolution logic
+- Log warnings when a different port than requested is used
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* chore: add auto-generated eslintrc
+
+Generated by expo-module-scripts during npm install.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,594e4d390b07c382c7fb30e9dbb6ef3575508cf0,2026-02-04T09:34:12+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.1.6
+https://www.github.com/10play/expo-air,82b06b988dcc0983b33ef1ab0c1f96dd5ba21473,2026-02-04T09:32:16+00:00,AI,Claude_Code,1,1,1,True,True,False,False,"fix: show individual files in new folders in git status (#12)
+
+Task 2: Add -u flag to git status --porcelain to ensure all
+untracked files are shown individually, including files inside
+newly created directories. Previously, new folders would only
+show as a single entry, hiding their contents from the widget.
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,9b3471ca0b5e02dbd70cd97ee76ea310cf62f5fc,2026-02-04T09:29:55+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.1.5
+https://www.github.com/10play/expo-air,0b0c48bb3ac3e0e470f0601c273cef76d5aa2d0e,2026-02-04T09:27:54+00:00,AI,Claude_Code,4,1,2,True,True,False,False,"fix(init): show correct 'fly' command in next steps (#11)
+
+* fix(init): show correct 'fly' command in next steps
+
+After init, the CLI was showing 'npx expo-air start' but the correct
+command is 'npx expo-air fly'. This fixes the guidance shown to users.
+
+Task 1: Fix Init Next Steps
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* chore: ignore auto-generated .eslintrc.js file
+
+---------
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,c9156bc46ed0fd2da47c80c3deb564dae70168cd,2026-02-04T09:17:44+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.1.4
+https://www.github.com/10play/expo-air,f4d779cf472cc2c2b951f583fcb17be621ea36d6,2026-02-04T09:15:42+00:00,AI,Claude_Code,292,0,1,False,True,False,False,"docs: add 9-task implementation plan for expo-air (#10)
+
+* docs: add implementation plans for 6 expo-air tasks
+
+Tasks planned:
+1. Fix init next steps message (trivial)
+2. Folder watch bug fix (trivial)
+3. Free port selection (small)
+4. Smart commit & PR with LLM (medium)
+5. Production validation (medium)
+6. Extra tunnels feature (medium)
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* docs: add 3 more widget UX tasks to plan
+
+New tasks:
+7. History & streaming fix (plan mode needed)
+8. Modal position for Dynamic Island spacing
+9. Keyboard persistence on WS disconnect
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* docs: reorder tasks - last 4 need plan mode
+
+Tasks 1-5: No approval needed (immediate)
+Tasks 6-9: Plan mode required
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,d1aeb33d780f721d0cce1acdc187b5561d9fdbee,2026-02-03T20:03:28+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.1.3
+https://www.github.com/10play/expo-air,71a05a1d389e33c317a684da2a55d1a0d7dd822d,2026-02-03T20:01:30+00:00,AI,Claude_Code,1446,3164,1,True,True,False,False,"fix: regenerate widget package-lock.json to include fsevents (#9)
+
+The widget lockfile was missing the fsevents@2.3.3 entry which
+caused npm ci to fail on CI. Regenerated the lockfile to properly
+include all optional dependencies.
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,188e14b0e65f0daf05d33985e0d51cd9d0f8a48b,2026-02-03T19:56:28+00:00,AI,Claude_Code,3574,396,15,False,False,False,False,"feat: Make expo-air production-ready for npm installations (#8)
+
+- Generate pre-built widget bundle at build time (widget.jsbundle)
+- Skip widget Metro for npm users (uses pre-built bundle instead of localhost:8082)
+- Only create widget tunnel in SDK development mode (when widgetProcess exists)
+- Add Metro port readiness checks to prevent connection refused errors
+- Add friendly error message for Cloudflare rate limit (429) errors
+- Update ExpoAirModule.swift to resolve widget bundle: pre-built → env var → Info.plist → DEBUG fallback
+- Remove hardcoded localhost defaults from native code and plugin
+- Update CI/release workflows to install widget dependencies and verify bundle
+
+This enables production-grade npm package experience where:
+1. npx expo-air init + npx expo-air fly works without dev servers
+2. Widget uses pre-built bundle instead of requiring Metro
+3. Tunnels only created for servers that exist
+4. Better error messages when rate-limited by Cloudflare
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,bbf16dc340092cb11f8da27b4aabd79003a00599,2026-02-03T18:02:31+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.1.2
+https://www.github.com/10play/expo-air,aeb4a357fe3e5afa1f8d73c2135380c1ab32fa99,2026-02-03T18:01:18+00:00,Human,,1,1,1,False,False,False,False,Update release.yml (#7)
+https://www.github.com/10play/expo-air,a8e55dfa5f53708fe91b4198e88d7d54fc2b9b60,2026-02-03T17:56:20+00:00,Human,,6,1,1,False,True,False,False,"Guy serfaty/fix cicd simulator (#6)
+
+* chore: configure auto-release workflow and fix iOS simulator destination
+
+* fix: upgrade npm for OIDC trusted publishing support"
+https://www.github.com/10play/expo-air,797ff457eb099628d576c4784eb3c5f1d0b56d8d,2026-02-03T17:46:11+00:00,AI,Claude_Code,1,1,1,False,False,False,False,"Update example homepage title to 123456 (#5)
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,d80334192c991a901460be7ca3bc6fd2d9cfc246,2026-02-03T17:39:55+00:00,Human,,13,28,2,False,True,False,False,chore: configure auto-release workflow and fix iOS simulator destination (#4)
+https://www.github.com/10play/expo-air,a23b0b47ee284b75db9c98d88f48db7c8790953e,2026-02-03T17:39:30+00:00,Bot,github_actions,6,6,4,False,False,False,False,chore: release v0.1.1
+https://www.github.com/10play/expo-air,3ca939ca912a532392efddd4526920057d9f41da,2026-02-03T17:33:11+00:00,AI,Claude_Code,29,24,9,False,True,False,False,"Update example homepage title to 12333 (#3)
+
+* Update example homepage title to 12333
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* Migrate ESLint to v9 flat config format
+
+ESLint 9.x requires the new flat config format. This replaces the old
+.eslintrc.js with eslint.config.js using eslint-config-universe/flat.
+Also applies prettier formatting fixes to source files.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,b9ddb0c56dac53a26272afe6a56a3bc39cae3e36,2026-02-03T17:25:36+00:00,AI,Claude_Code,1616,252,49,False,True,False,False,"Complete rebrand to expo-air + CI/CD + fly command (#2)
+
+* Rename expo-flow to expo-air + CI/CD + fly command
+
+Complete rebrand from expo-flow to expo-air:
+- Rename all source files (iOS, Android, TypeScript)
+- Update module names (ExpoFlow -> ExpoAir)
+- Update config plugin and native module registration
+- Update package name to @10play/expo-air
+
+New CLI commands:
+- `expo-air fly` - One command to start servers + build + install on device
+- `expo-air init` - Initialize expo-air in an existing Expo project
+
+CI/CD:
+- Add GitHub Actions CI workflow (lint, typecheck, build, iOS test)
+- Add Release workflow (npm publish on tag)
+
+Infrastructure:
+- Update .npmignore for clean npm publish
+- Fix path resolution in CLI (cli/dist/commands -> package root)
+- Update repository URLs to 10play/expo-air
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* Update release.yml
+
+* fix: use direct tsc instead of expo-module build to avoid watch mode
+
+The expo-module build command was entering watch mode during npm publish,
+blocking the prepublishOnly script.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* chore: switch to OIDC trusted publishing (no token needed)
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/10play/expo-air,8f07990b57cfee99406e26c7d45d924ee6a10e5b,2026-02-03T12:19:48+00:00,AI,Claude_Code,5379,241,34,False,True,False,False,"Phase 1: CLI foundation with Claude Agent SDK (#1)
+
+* Phase 1: CLI foundation with Claude Agent SDK integration
+
+- Add expo-flow CLI package with TypeScript setup
+- WebSocket prompt server for widget communication
+- Claude Agent SDK integration with streaming responses
+- Tool execution hooks for real-time feedback
+- Type-safe message protocol for phase 4 widget
+- Zero-code Expo native module integration ready
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+
+* Phase 2: bore tunnel integration for remote access
+
+- Add bore.ts with auto-download and version management
+- Support BORE_SERVER and BORE_SECRET env vars
+- Optional fixed remote port and HMAC authentication
+- Graceful fallback to local-only mode on tunnel failure
+- Clean terminal output with local and remote URLs
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* Phase 3: Auto-injection with config plugin
+
+- Add ExpoFlowAppDelegateSubscriber for zero-code bubble injection
+- Add Expo config plugin to bridge .expo-flow.json to Info.plist
+- Support autoShow, bubbleSize, bubbleColor configuration
+- DEBUG builds only with applicationDidBecomeActive lifecycle
+- Example app with config plugin integration
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* Phase 4: Cloudflare tunnel + full remote development support
+
+- Replace bore.pub with Cloudflare Quick Tunnels (works on cellular)
+- Add tunnel support for all three services: prompt server, widget Metro, app Metro
+- Fix widget WebSocket by passing serverUrl via props instead of native module
+- Patch AppDelegate to load main app bundle from tunnel URL
+- Update config plugin to write tunnel URLs to Info.plist
+- Add PromptInput and ResponseArea components for widget UI
+- Add WebSocket client service for prompt server connection
+- Tunnels enabled by default (use --no-tunnel to disable)
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* fix webview
+
+* Split config: UI settings (.expo-flow.json) vs tunnel URLs (.expo-flow.local.json)
+
+- CLI now writes tunnel URLs to .expo-flow.local.json (gitignored)
+- CLI directly updates Info.plist - no prebuild needed, just rebuild (Cmd+R)
+- Config plugin merges both config files during prebuild
+- Added plist package for Info.plist parsing/writing
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* Polish floating bubble UI and add WidgetBridge native module
+
+- Redesign bubble as Dynamic Island extension with trapezoid shape
+- Add native close button and smooth expand/collapse animations
+- Add WidgetBridge module for collapse/expand from React Native
+- Update widget components with improved styling and animations
+- Add pulsing indicator for connection status
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* open animation
+
+* Widget UI redesign with tabs and real-time git status
+
+- Redesign header: branch name + color status dot (no text)
+- Add Chat/Changes tabs with ""New"" button in Chat tab only
+- Create GitChangesTab component showing uncommitted files
+- Add real-time git status polling (2s interval) on server
+- Update widget width to full-width with 6px margins
+- Change stop button to muted gray (#8E8E93)
+- Support git_status message type for branch/changes updates
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* Implement discard changes button functionality
+
+Adds WebSocket message handling to discard all git changes when
+the ""Discard All Changes"" button is pressed in the Changes tab.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+
+* add system prompt
+
+---------
+
+Co-authored-by: Claude Haiku 4.5 <noreply@anthropic.com>
+Co-authored-by: Amir Angel <36531255+17Amir17@users.noreply.github.com>"
+https://www.github.com/10play/expo-air,46e89d2b74b0b871edd34f771c3235341b4cb0a0,2026-01-31T16:14:57+00:00,Human,,52,3,2,False,False,False,False,floating bubble
+https://www.github.com/10play/expo-air,225575c65e28feb6a222a09df4a15ceeb695368f,2026-01-31T16:04:17+00:00,Human,,20,17,2,False,False,False,False,state within widget
+https://www.github.com/10play/expo-air,1358c643f36831a70305ea83766b5b65aef90c09,2026-01-31T15:47:44+00:00,Human,,2,1,2,False,False,False,False,devmode
+https://www.github.com/10play/expo-air,eedb8c72c67dbcf19b07cb3b0f0577523f64f04f,2026-01-31T15:41:38+00:00,Human,,8904,40,10,False,False,False,False,use expo
+https://www.github.com/10play/expo-air,e56d1a18e48b886fa9459ccadee7b04505b8b448,2026-01-31T15:27:58+00:00,Human,,312,58,11,False,False,False,False,widget wip
+https://www.github.com/10play/expo-air,d14611d75aeaa4a8b212524e34492d5d85122167,2026-01-31T13:13:37+00:00,Human,,0,92,1,False,False,False,False,Remove Floating Bubble
+https://www.github.com/10play/expo-air,e832850fd9c6e9e1ea935a1c625d062ab56ebffb,2026-01-31T13:12:36+00:00,Human,,481,17,8,False,False,False,False,native widget
+https://www.github.com/10play/expo-air,0295b2597c54f965d1834e300813da2a89c68c83,2026-01-31T12:42:06+00:00,Human,,25093,0,34,False,False,False,False,init
+https://www.github.com/10play/expo-air,702b59b5ca2a43e48c2059a975df628665c5e9fb,2026-01-31T12:36:26+00:00,Human,,2,0,1,False,False,False,False,Initial commit

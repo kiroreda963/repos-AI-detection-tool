@@ -1,0 +1,327 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,8d14d1b083258d26159d8d884c70bcf8a05a9786,2026-09-13T07:39:51+00:00,Human,,15,0,2,False,False,False,False,docs: open-source repo link + author credit (0xtrou) on site footer and README
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,ff245c67f8e97243d8e828aeb46abd3a0abec7da,2026-09-13T04:51:37+00:00,Human,,11,5,3,True,True,False,False,"fix: thinking animation — brighter active nodes, desynced holds, no swap flicker
+
+- active color 1.5x brighter than default area color (clear thinking pop)
+- per-node active hold varies 1.0-1.5s (deterministic) — mass color
+  switches never align, so the organ cannot pulse as a whole
+- glow buffer memcpy'd into a persistent attribute (BufferAttribute
+  object swaps re-created the GL buffer and dropped frames)
+- recruitment clamp 3000/substep — livelier participation, still bounded"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,52c64c72b6d57c1b74d82318167ddee92a390ede,2026-09-13T04:45:19+00:00,Human,,49,33,4,False,False,False,False,"feat: from->to signal-flow animation, discrete node colors, no flash
+
+- from->to: core tracks real synaptic deliveries (inStamp per node);
+  the worker marks neurons that just RECEIVED a signal from a spiking
+  upstream neuron — signal flow along actual connectome edges, no lines
+- discrete node colors only, brightness NEVER pulses:
+  DEFAULT (area color, low) / TO (received, brief tint) /
+  FROM (spiked, highlighted area color ~1s, then reverts)
+- flash envelope, size pulses, brightness ramps: removed
+- hard recruitment clamp in core: a substep can fire at most 2000
+  neurons (over-capped neurons knocked sub-threshold, stay recruitable)
+  — live peaks bounded at ~31% lit (was 79-100% whole-organ waves),
+  util now 20% honest; wave budget/fatigue kept as backstop
+- dev chunk caching: no-store (dev chunk URLs are not content-hashed;
+  heuristic caching kept serving stale worker/core bundles)"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,d96ed28408ca539e2821b35c94d2613a046031ce,2026-09-13T04:30:51+00:00,Human,,46,14,5,True,True,False,False,"fix: cascade guard bounds wave size — regional flashes, no whole-organ pulses
+
+the video showed a third behavior: whole-brain synchronized bright/dim.
+root = global recruitment waves. guard now:
+- fan-out cap: an over-recruiting substep delivers from its first 1500
+  spikers only (was: unbounded within the substep)
+- wave budget counts EVERY substep (sub-ceiling sweeps slipped through):
+  25k cumulative recruits -> forced ~2.6s rest; a wave stays regional
+- per-fly hum retuned offline against the opening records with the guard
+  (wire 2500, janelia 1600): beat-lock intact (on/off up to 44:0),
+  lit peaks bounded, DATA_VERSION 16
+- loading overlay fully opaque (pipeline: loading -> idle -> active)"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,07c8425e79f10f792da31c90fbaffe4620e3ba00,2026-09-13T03:21:45+00:00,Human,,15,12,1,True,True,False,False,"fix: brain render reduced to exactly two states
+
+DEFAULT: every node shows its brain-area color at low brightness
+ACTIVE:  nodes the brain drives get a highlighted flash of the same
+         area color (worker envelope: ~1s smooth rise/plateau/release)
+
+Removed everything else: activity-driven size pulses, whitening color
+shifts, extra glow paths. Brightness is the only activity signal."
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,0faa7bfaded7c04b01d817ec9b7abb808afcf1b3,2026-09-12T18:43:59+00:00,Human,,733,548,19,True,True,False,False,"fix: brain visuals honest + beats alive — single worker-owned animation
+
+ROOT CAUSES fixed:
+- worker imported its own DATA_VERSION (11 vs 13): fetched a stale cached
+  ambient.json and ran the brain at hum 4000 instead of the tuned density —
+  the whole connectome seized (permanent-active render, util pinned 100%,
+  sync 1.00 → drop spam). One source of truth now (data-version.ts).
+- trained runtime ignored the calibrated regime: delivery ran at wGain 1
+  (30% weaker than trained, silent) OR was over-driven (3-4x stimulus, 4x
+  hum → seizure). Runtime now mirrors training exactly; tuned per-fly hum
+  via offline sweeps (wire 1900, janelia 1600), probe scripts included.
+- CASCADE GUARD (core): the metastable whole-brain network periodically
+  recruited the entire connectome within a substep. Real-tissue-style
+  fatigue: a substep recruiting >1500 neurons extends that wave's
+  refractory pause — runaway recruitment collapses, beat-locked sparse
+  firing survives (on/off selectivity up to 23x).
+
+VISUALS — one unified animation, brain is the root of truth:
+- worker computes the flash envelope at 10 Hz (smooth rise, ~1s plateau,
+  smooth release, dark otherwise) and transfers the glow buffer; the main
+  thread never loops over 139k nodes — it swaps the GPU attribute.
+- pulses, injects, cascades, act-spread, drive-driven effects all removed:
+  a neuron lights when and only when its real neuron spikes.
+- brain-area colors (optic lobe amber / central teal / cord violet); idle
+  = dark silhouette whisper; no connection lines (user call).
+- per-fly morphology-shaped render: all 139,255 real neurons placed inside
+  the fly-CNS morphology envelope, stratified by donor density.
+
+ALSO:
+- bar close (counts/sync/util/record switch) now async via worker
+  requestBar — bar-boundary reads were stale cache (util 0% bug).
+- BPM 128; per-bar util window = one bar (honest number).
+- caching: no-cache + ETag revalidation on /data and shell; leftover
+  foreign service worker auto-unregistered; stale chunk URL formality.
+- stage rewards: tail-poll audit (index tracking died at ring-buffer
+  wrap) + floats expire by age (nothing freezes on screen)."
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,c9e1f3bfbceb6d0f2b8e551c77bf054423b48740,2026-09-12T16:02:08+00:00,Human,,72,25,3,True,True,False,False,"fix: sanitize brain render positions + pin bounding spheres
+
+one non-finite position NaN'd computeBoundingSphere and killed the whole
+render loop (user-reported on localhost). positions are now sanitized at
+scene build (non-finite zeroed + warned) and all geometries carry
+precomputed bounding spheres so the renderer never recomputes over dirty
+data. local bundle verified: 0 NaN, organ-shaped (136,805 brain band +
+1,842 VNC column)."
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,86dbdc16a17515a31f42daf103a348651da9da06,2026-09-12T15:51:28+00:00,Human,,12,8,2,True,True,False,False,"fix: runtime brain gain — trained wGain never reached the worker
+
+calibration escalates wGain (1.4-1.8) and the final brain plays at that
+gain, but the FlyWire runtime hardcoded wGain=1: every delivery 30-45%
+weaker, motor pools below threshold, zero beats. wGain now ships in
+flywire-ambient.json next to the calibrated hum and the worker applies it."
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,9b5cb23caa56710a768fbed88a2554f9ccdfe22b,2026-09-12T15:47:36+00:00,Human,,614,304,6,False,False,False,False,"perf: brain compute moves to a Web Worker — main thread renders only
+
+- brain-worker.ts owns both trained FlyWire brains, crates, stepping,
+  voicing gates, bar bookkeeping, participation, and 10Hz lastFire
+  snapshots (transferred, zero-copy)
+- brain-bridge.ts: main-thread handle — cached drive/spikes/util/track
+  telemetry for UI, promise-based step/bar requests
+- audio-engine: per-16th stepping now a worker request; voices schedule
+  from the response at the step's audio time (150ms lookahead absorbs
+  worker latency; late responses play immediately)
+- neural-sim: adopts worker-shipped visual topology (real positions +
+  sampled real connections); pulses ride real connections
+- main thread left with: AudioContext synthesis, Three.js, React state"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,b4c0fd65286defeed38b995a531222ea580ef2b0,2026-09-12T15:22:30+00:00,Human,,2,1,1,True,True,False,False,fix: probe-ei typing broke vercel builds since 268c5b2 — prod was stale
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,f238038a5981f06b601ace9071c87b8d807cf56d,2026-09-12T15:13:38+00:00,Human,,26,6,4,True,True,False,False,"fix: restore organ-shaped brain render — place neurons inside real neuropils
+
+the first FlyWire bundle scattered unplaced neurons across a +/-0.5 cube
+and collapsed placed ones onto neuropil centroids: the render was a square
+slab with a hot center. builder now places each neuron inside its dominant
+real neuropil's ellipsoid (seeded, deterministic) and unplaced ones into
+the VNC column below the brain — 136,805 in the brain band, 1,842 in the
+VNC column. data-only fix: zero UI changes (verified vs 268c5b2).
+DATA_VERSION 11."
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,e942dc98d45c6aff48c7950a2f5445ca93687871,2026-09-12T15:03:24+00:00,Human,,50,1395924,6,False,False,False,False,"feat: ship whole-brain flies — trained FlyWire weights + honest report
+
+- both DJs trained on the real FAFB v783 connectome (15.07M synapses):
+  wire genF1 0.410 / sel 1.33 / util 100%; janelia genF1 0.369 / sel 1.20
+- gates: passed=false on onsetSelectivity (1.2-1.3 < 1.8) — the whole-
+  brain v1 sits in a cascade-dominant attractor; scored-channel voicing
+  keeps melodies on-score, rhythm channels voice the IDM wall
+- DATA_VERSION 10; ambient calibrated (4k/step each); per-fly reports"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,268c5b223f6c0fda59bf3ddd218b44a56152a0fa,2026-09-12T13:28:44+00:00,Human,,81,14,2,False,False,False,False,"feat: whole-brain training pipeline hardened + cascade-delay diagnosis
+
+- train-flywire.ts: per-fly FLY=env entry, parallel-safe merged reports,
+  snapshot/resume every 5 epochs (67MB, killed-run recovery)
+- core: learning flag, bounded ring-buffered active eligibility lists,
+  reverse CSR builder, instrumented epoch timing
+- probe-ei.ts: E/I sweep + cascade lag histogram. FINDING: voiced bursts
+  sit only at lag 0-2 of scored onsets (lag0 fully voiced, lag1 = the
+  one-16th cascade delay) — the score IS being played, one grid slot
+  behind, which is what 'doesnt sound like beethoven' was
+- E/I sweep: inhibitory multiplier has no effect on burst placement —
+  direct sensory->motor excitation dominates; cascade delay is the
+  remaining audible artifact"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,c4749404c3c2af7dbeb4b220395a37cb1c6c80dd,2026-09-12T10:17:05+00:00,Human,,1396240,219,12,False,False,False,False,"docs: TRAINING.md — full FlyWire whole-brain pipeline documentation
+
+data flow, measured-vs-modeled table, training protocol with the three
+hard-won lessons (random pools -> silence, unbounded eligibility ->
+115s epochs, motor elevation vs wall-of-sound), snapshot/resume, pass
+gates, runtime voicing rules, extension guide, provenance"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,053cad804f30074d6269d519286721a7937d22ed,2026-09-11T18:22:56+00:00,Human,,1006,82,15,False,False,False,False,"feat: whole-brain flies — FlyWire FAFB v783 proofread connectome
+
+- scripts/build-flywire.py: v783 -> binary CSR. 139,255 proofread
+  neurons, 15,071,499 measured connections, E/I signs from measured
+  neurotransmitter mix (19% inhibitory), positions from real input
+  neuropils (79.5%), sensory inputs = real AL/optic/MB+LH/CX
+  populations, outputs = high-output descending proxies
+- core: learning flag (live playback skips STDP bookkeeping),
+  active-edge eligibility decay + active-list plasticity (identical
+  update set, O(active) not O(E)), buildReverseCSR for adopted
+  topologies, lastFire always recorded
+- lib/flywire-brain.ts: binary loader + whole-brain adoption (shared
+  topology, per-fly int8 weights, motor threshold elevation)
+- audio-engine: both DJs load the same real brain, different training
+- neural-sim: adoptFlywire — panels render real neurons at real
+  JRC2018 positions; pulses ride real axons
+- scripts/train-flywire.ts: full protocol on the real connectome"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,dcbe2dc700913889beb06690f8f39d6ca1f32b78,2026-09-11T17:23:57+00:00,Human,,18,3,1,False,False,False,False,docs: README provenance — verified all 70 neuron IDs against NeuroMorpho API; cite Zheng 2018 volume; note 400-point resample caveat
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,e586657cfc72011f194834b2a2e48854d006e177,2026-09-11T17:14:46+00:00,Human,,19,11,1,False,False,False,False,docs: scale check — the full real-fly-vs-FLYTAPE table
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,d7767cbdb780170919aed69d1eaf821a55389ac3,2026-09-11T17:10:13+00:00,Human,,55,6,3,False,False,False,False,"feat: enable Vercel Analytics (@vercel/analytics v2, /next entry in root layout)"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,65997e68585e08befe5a8d2234f52737609d5d2a,2026-09-11T16:57:49+00:00,Human,,4,4,3,False,False,False,False,"chore: move site to flytape.solo.engineer
+
+metadataBase, OG url, OG image, README links, repo homepage — domain
+already attached to the Vercel project and serving"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,060014b0704abe71971f09fbf696c4adac17465f,2026-09-11T16:49:28+00:00,Human,,6,0,1,False,False,False,False,docs: declare GLM-5.3-Flash + ZCode harness as the build stack
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,9365b3b86fc326193690ff1ff60671020ef6a0fb,2026-09-11T16:48:14+00:00,Human,,116,120,1,False,False,False,False,"docs: README rewrite — starts from the fly-neuron dataset
+
+no badges, no emoji headers, no hype. the story runs in the order it
+happened: 70 traced neurons -> cable trees -> grafted structure (declared)
+-> R-STDP training with honest numbers (0.41 F1 and divergence shipped
+as-is) -> runtime voicing gates -> the live set"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,207c3c3bb6425588916d1d1eca8d01abfbaeea68,2026-09-11T16:42:36+00:00,Human,,15,1,2,False,False,False,False,"feat: scored channels voice only near the score — the motif was buried
+
+offline emulation of the runtime showed the bass channel voicing a burst
+on EVERY step (19-48 spikes vs the >=3 gate): 64 notes per 2 bars buried
+the 11-note fate motif in a continuous drone — that is what 'sounds
+nothing like beethoven' was. scored channels (corpus channels with
+written pitches) now voice bursts only within +/-1 step of a scored
+onset; rhythm channels keep free bursts (the IDM character). fate motif
+also lifted an octave (55-92Hz sub-rumble -> audible line)"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,85198e0529e4a7be93af400c48ad09bc505c0aaa,2026-09-11T15:21:58+00:00,Human,,7,3,1,True,True,False,False,"fix: track rotation covered only 3 records — cycle full crate, open on IDM records
+
+- switchTrack hardcoded %3 from the 3-track era: every record after
+  slot 2 never played; now cycles tracks.length
+- the set now opens on the new IDM records (beethoven 5 idm / ode to
+  idm) instead of the primary corpora; primaries rotate back later"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,ca2434cf0fe6ed3a3dd08c57d5c1351cd1cb75d6,2026-09-11T15:16:55+00:00,Human,,83,3,2,False,False,False,False,"feat: IDM records — classical themes cut into glitched breaks
+
+- FLYWIRE: 'beethoven 5 (idm)' — fate motif over irregular kick clusters,
+  ghost snares, stutter hats
+- JANELIA: 'ode to idm (beethoven)', 'für elise (idm cut)', and an IDM
+  cut of the original 'river of lights'
+- crates reordered: IDM records rotate right after each brain's
+  primary corpus; River Flows in You remains omitted (copyrighted 2001)"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,3f69639e385bbdea9aead285cfac7534b5826dc6,2026-09-11T15:10:28+00:00,Human,,118,6,2,False,True,False,False,"feat: classical + original records — melodic corpora with real scales
+
+- Corpus.scale: per-corpus semitone lookup (chromatic for melodies,
+  A-minor pentatonic default unchanged)
+- new public-domain records: Für Elise (JANELIA, opening theme in A
+  minor), Gymnopédie (both), Moonlight arpeggio (FLYWIRE)
+- original composition 'river of lights' — emotional arpeggio ballad
+  (no external melody; River Flows in You itself is copyrighted 2001)
+- fix: bass/lead pitch now follows the track CURRENTLY on the decks
+  (was always track A); JANELIA's lead sits an octave up, clear of
+  FLYWIRE's bass register"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,17ecc1c5eceae98a0e78ce74da697ef7091037d3,2026-09-11T14:49:50+00:00,Human,,10,9,1,True,True,False,False,"fix: edge glow actually visible — additive blending, hotter traversal, longer window"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,9688007e33f283710d9bf6b3f1f0a10005563528,2026-09-11T14:47:03+00:00,Human,,67,9,1,False,False,False,False,"feat: brain visual — connections glow too, all glow smoothed
+
+- cable edges (= real two-way synapses in the trained graph) now carry
+  per-edge utilization: an edge brightens silver→fire-white when a spike
+  traversed either endpoint in the fresh window (per-vertex colors,
+  smoothed attack/release, frame-rate independent)
+- node glow smoothed the same way — blooms rise fast, fade gently, no
+  more hard sawtooth; somata read the smoothed field too"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,1472d9ae934a57cc28e1dabcedc6156d089602f8,2026-09-11T14:45:32+00:00,Human,,1,1,1,False,False,False,False,feat: mobile full-width stacked panels + touch-scrollable brain canvases
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,46e8f252743b75b8633d974be024a31305c61789,2026-09-11T14:43:28+00:00,Human,,155,25,3,False,False,False,False,"docs: public launch — README rewrite, MIT license, package metadata
+
+- README: live demo, pipeline diagram, honest-data pledge, measured
+  metrics table, local run + retrain guide, full data provenance
+- LICENSE: MIT (morphology data remains CC BY 4.0, attributed)
+- package.json: flytape 1.0.0 + description + license
+- repo description + homepage set"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,ce6bac0bc7f05672d1c4a0366cb414f58b014832,2026-09-11T14:39:12+00:00,Human,,34,4,3,False,False,False,False,"feat: brain 3D animation renders real node utilization
+
+- panel glow now blends the TRAINED brain's actual per-node firings
+  (lastFire via public clock getter — node indices match the mesh 1:1):
+  fresh spikes bloom bright (24-substep decay), nodes fired within the
+  512-substep util window hold a sustained lift — the organ visibly shows
+  the same ~80%+ utilization the %util readout and audit log report
+- NeuralBrain3D takes fly prop; BrainModeController.brainOf() accessor
+- runtime only: no core, training, or weights changes"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,52756d5c118d370a43088df7372da2bf5fcf9065,2026-09-11T14:31:18+00:00,Human,,41,15,7,False,False,False,False,"feat: 96 BPM + live util % on brain visuals
+
+- tempo 128 → 96 BPM, single source (audio-engine BPM export); flies,
+  crowd speed, and all display strings derive from it
+- CNS panels: new 'util' footer cell per fly — real participation(512)
+  of that fly's TRAINED brain, emerald ≥80% / amber below
+- fader panel: util % under each DJ's bars, same signal
+- audit log already carried util; visuals now agree with it"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,a572e7829385443340e01fa93dc24e0e8545e807,2026-09-11T14:17:55+00:00,Human,,70,48,7,False,False,False,False,"feat: audit log reports node utilization — calibration now targets ≥80%
+
+- audit log bar entries: 'util X%+Y%' — fraction of each brain's nodes that
+  fired within the last 4 bars (512 substeps), matching the calibration metric
+- calibration targets 0.80 participation: hum energy 0.18 (double sub-threshold
+  hits can just cross the minimum threshold), hum cap 2000, 512-substep window
+- motor pools keep +0.35 elevation, so recruitment cannot flatten the beat:
+  WIRE 83% util / sel 1.89, JANELIA 81% / sel 2.32, both pass all gates
+- pass gate: participation >= 0.80 (was 0.10); DATA_VERSION 9"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,ed583d16fa9a4458c8ef4405795c3ab15f705d0a,2026-09-11T14:06:44+00:00,Human,,5748,3142,10,True,True,False,False,"fix: brains play rhythm — channel-specific descending lines, paired STDP, anti-seizure calibration
+
+- buildGraphFromDataset: replace 200x25 random brain→VNC spray with
+  channel-specific descending pathways (560 input nodes ×3 edges to their
+  own motor pool) — onset info now has a route; STDP tunes per-line gain
+- core: motor pools +0.35 threshold elevation (tonic drive can't fire them);
+  rebuildRevPair() pairs causal/anti-causal eligibility per synapse
+  (adjE[k]+revE[k] was summing unrelated synapses — learning cancelled)
+- train: genProbe counts false positives (was always 1.0 — checkpoint
+  selection meaningless); quiet-brain calibration (hum 300@0.15
+  sub-threshold, gain ≤1.8, participation target 25%); onsetSelectivity
+  metric + honest gates (genF1≥0.35 && sel≥1.8 && participation≥0.10);
+  export calibrated ambient
+- audio-engine: sub-threshold runtime hum, restore boostFor wiring,
+  audit log reads counts after synchrony (was off by one bar)
+- probes: use trained wGain/ambient, fix double stepDetailed
+- retrained: WIRE sel 4.39 / JANELIA 5.74 (was 1.2 = flat noise),
+  kick bursts 28-41 spikes on onset steps, both pass; DATA_VERSION 8"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,eb6463990f7174e79a96cdd7e959c1ae0cf2f053,2026-09-11T13:22:48+00:00,Human,,1,3,1,False,False,False,False,chore: drop probe rand sample
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,0ba7cffb1ee20dacfae99836a4df35618434b82d,2026-09-11T13:21:33+00:00,Human,,3626,4364,12,False,False,False,False,"docs: TRAINING.md — full operator guide for brains, training, calibration, extension"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,0b2ef254554edf995abb5ed3286f1c7e59708cb7,2026-09-11T12:55:46+00:00,Human,,0,1,1,False,False,False,False,"chore: audit log — drop routine sensory injections, keep meaningful events only"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,a4104f650f03e0bbd8949bb5c386918faf121317,2026-09-11T12:53:01+00:00,Human,,0,2,1,True,True,False,False,fix: dedupe partValue
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,5f2f86b98fe7a2cb81504adae93307310f7d3dba,2026-09-11T12:51:33+00:00,Human,,59,6,3,False,False,False,False,"feat: ambient hum for full-volume participation (80-100% active nodes), voice gate on coordinated bursts"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,d226dddeba827cb60e6ca59bfd69b49cb26cdca7,2026-09-11T12:24:39+00:00,Human,,142,1,3,False,False,False,False,feat: TikTok-style reward animations — audit events float icons up from the stage
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,8b744179f777d58339bc6632b81d99df940a4b4f,2026-09-11T12:22:52+00:00,Human,,31,6,3,False,False,False,False,feat: live track names in DECKS header + status strip; brains driven at full engagement
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,8fc1d91e7c6969c39b7b5c91635a5b53ea11f321,2026-09-11T12:18:14+00:00,Human,,94,8,3,False,False,False,False,"feat: multiple tracks per brain (3 corpora each, auto-switch every 16 bars), both DJs hotter, zoom out 2x"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,52cfe75e3934a30a8f041e774a2b1bf77b543fbd,2026-09-11T12:12:54+00:00,Human,,5,6,1,True,True,False,False,"fix: synchrony = joint motor activity, not output equality — drops now reachable"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,65f86574584d913d7b6167f017981da0f537c39a,2026-09-11T12:09:09+00:00,Human,,17,11,2,False,False,False,False,feat: reward pulse on stage per audit event — ring flash + laser tick at each bar summary
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,6a0ba754b9d6e3f40603597bf207c48db155a505,2026-09-11T12:05:44+00:00,Human,,5558,2451,7,False,False,False,False,"feat: best-checkpoint training (wire gen f1 0.82), zoom-out, runtime boosts"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,3f36158d07a01ef6091f5ce3ee450d372bbf3518,2026-09-11T11:52:57+00:00,Human,,76,7,4,False,False,False,False,"feat: wire brain drive boost 1.3x (lower trained recall), brain render top-down, stage drop burst synced to audit"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,3eb7e0eb728a5cd2f9cbb96b2d3bc6b0d7e3fc4c,2026-09-11T11:38:31+00:00,Human,,0,19,1,False,False,False,False,chore: remove starfield backdrop
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,27bc5b6c71e09f50f14fab3ac448c8276cd6131d,2026-09-11T11:36:11+00:00,Human,,4,30,2,True,True,False,False,fix: restore training-level sensory drive — brains cascade to motor pools again
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,114cf638349edee73e807a3a8d9e034c0c1b58af,2026-09-11T11:32:00+00:00,Human,,7,7,3,True,True,False,False,"fix: activation now wipes after spikes — harder decay, lower clamp, gentler context, stricter bright gate"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,6fecee5edf775817d3125b8db0f6a6b91555b61e,2026-09-11T11:30:27+00:00,Human,,0,36,1,True,True,False,False,"fix: remove neuropil wireframe rings — nodes colored by default, brighter when firing"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,840436b1446ca43690dece90619131af56b25aa7,2026-09-11T11:28:16+00:00,Human,,7,6,1,True,True,False,False,"fix: nodes always colored by neuron hue, brighter when firing"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,22b7e5a2c7cec361e7920076d4fc39d0dae0554e,2026-09-11T11:26:45+00:00,Human,,64,13,1,False,False,False,False,feat: brain panels navigable (drag orbit + wheel zoom) + per-neuropil area colors
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,34e1fcf6cca7f235dcfb427a9043aaab3f66f649,2026-09-11T11:22:54+00:00,Human,,7,8,1,True,True,False,False,"fix: live-only node flashes (no permanent lights), dim identity somata"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,fcd0dc84977586d1a7009816e2d330bd3ec95be8,2026-09-11T11:18:20+00:00,Human,,286,3,5,False,False,False,False,"feat: 3D rounded-square logo, lucide icon pass, SEO/OG metadata with ImageResponse, audit log under main panel"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,e67aa03463b54756fcc874f23500025318a548ce,2026-09-11T11:05:23+00:00,Human,,81,2,2,False,False,False,False,"feat: live audit log stream under the main panel — chronological, per-fly colored, auto-scroll"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,d7e963f0355b49ba1567a22855bd6d97f35344ba,2026-09-11T11:02:02+00:00,Human,,23,10,3,False,False,False,False,style: replace all emojis with lucide icons
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,5c4b725997b5d2d1c5c8ff29cdf0439bcd16f2e1,2026-09-11T11:00:01+00:00,Human,,26,26,4,False,False,False,False,feat: tighter organ (v7) + camera zoom-in
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,7394cf37bc46e596ba74cf37eec406aa2b2e7aab,2026-09-11T10:56:41+00:00,Human,,81,36,7,False,False,False,False,"feat: compact atlas (v6), dim-until-firing somata, per-brain audit log + export button"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,405851703887646d53c120bb4c3e91903f264635,2026-09-11T10:46:28+00:00,Human,,3,2,1,True,True,False,False,"fix: fullscreen actually works — sectionRef was never attached; tighter area spacing, live context, webkit fullscreen (v5 datasets)"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,5f0e5338bda4d950ac0a3752959517f0ba6aa7eb,2026-09-11T10:44:39+00:00,Human,,51,15,6,False,False,False,False,"feat: tighter brain-area spacing, cross-browser fullscreen, live non-repeating sensory context for the brains"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,dc0134fe8e96ac8f7c81a85ac63b2c1223c8d4f1,2026-09-11T10:40:28+00:00,Human,,27,1,1,False,False,False,False,feat: fullscreen toggle per CNS brain panel
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,43d6513d65767c5c1dd6e798e38b28cb01cc1c33,2026-09-11T10:36:04+00:00,Human,,1,1,1,False,False,False,False,feat: zoom CNS cameras — brains fill the panel
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,97c912969d8ba2d9b263c25671bd34e6b322d9c7,2026-09-11T10:33:41+00:00,Human,,11,50,1,True,True,False,False,"fix: static camera, tiny starfield, hard point-size clamps, minimal neuropil rings, remove drift bounce — nodes pinned to brain graph"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,a130184f3151ae69be9d39786e52ed78b2c9b309,2026-09-11T10:27:46+00:00,Human,,374,3,6,False,False,False,False,"feat: scientific neuropil atlas layout + cosmic globe — JRC2018-relative neuropils, wireframe ellipsoids, globe shell, starfield, gravity drift"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,ad11c0cdfd6ecd04482c18413e881f9ec94430e2,2026-09-11T10:13:19+00:00,Human,,0,1,1,True,True,False,False,fix: drop stale bloomPass dispose
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,b5f9018cd650f4b4f8ac2b7fa5712a53dd5d6ba8,2026-09-11T10:12:12+00:00,Human,,7,17,1,True,True,False,False,"fix: solid-color brain render — drop bloom/post, normal blending"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,8e947dce141d32f818f473bcdbe4c1866e3c1916,2026-09-11T10:09:54+00:00,Human,,5,5,1,True,True,False,False,"fix: tame bloom blowout — visible cells, connections, vibration"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,cb273df606bc08fe878367fbad34cb28b7de984f,2026-09-11T10:06:54+00:00,Human,,634,217,2,False,False,False,False,"feat: rebuild CNS panels as Three.js living brains — shader activity ramp, bloom, pulses, orbit cam"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,7bda91dcd98a967df0fc01110e6b15f160e22d9f,2026-09-11T09:36:45+00:00,Human,,103,113,1,False,False,False,False,"feat: organ-grade CNS render — filled lobe bodies, curved neurites, local synapses, somata"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,f89498d7f1b63333e042d003fe288f4283a6f601,2026-09-11T08:30:26+00:00,Human,,101,40,5,False,False,False,False,"feat: FlyWire-style brain render — rainbow neuron hues, fused lobe masses, synapse web, tissue layer, traveling pulses"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,a50f6d48e244354d0b4e016cba769358414f9b67,2026-09-11T08:09:45+00:00,Human,,155,27,2,False,False,False,False,"feat: brain render upgrade — layered cable skeletons, somata, glow sprites, traveling pulses
+
+- Skeleton strokes split by node degree: thick trunks vs thin branches
+- Halo pass + organ silhouettes under brain band and VNC
+- Real cell bodies (soma roots) drawn per neuron
+- Firing nodes bloom via cached radial-gradient sprites (additive)
+- Traveling pulses ride actual cable edges when neurons fire
+- Shorter reveal sweep; honest loading captions; /data immutable cache"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,3d8efc998ca6e963e8b637e1587c1785fd3da0e6,2026-09-11T08:04:45+00:00,Human,,2,0,1,False,False,False,False,chore: ignore .vercel local settings
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,59784bd76523a084f6b6010fa58f7b05d0da5028,2026-09-11T08:02:46+00:00,Human,,11891,285,37,False,False,False,False,"feat: FLYTAPE — two trained fly-brain spiking networks generate live music
+
+- Real Drosophila neuron morphologies (NeuroMorpho.org, Bock/Williams labs)
+  drive two independent LIF spiking simulations rendered as CNS point clouds
+- Trained via reward-modulated STDP (R-STDP) on separate corpora:
+  FLYWIRE on 4/4 techno, MC JANELIA on syncopated breaks
+- Music is 100% spike-generated at runtime; motor synchrony triggers drops
+- Fly bodies animate from their own brain's spike EMAs
+- CJS-style FLYTAPE dashboard: live CNS panels, brain activity bars,
+  sim clock, telemetry status strip"
+https://www.github.com/0xtrou/glm-5.3-flash-fruitfly,cdc3213a5fc98653a1e1cff6dd6433d8dcb01a8d,2026-09-11T04:23:45+00:00,Human,,7090,0,19,False,False,False,False,Initial commit from Create Next App

@@ -1,0 +1,15 @@
+github_url,source_sha,source_date,source_type,source_author_type,target_sha,target_date,target_author_type,days_to_action,day_bucket,link_method
+https://www.github.com/25sunrindicon/vyce_frontend,f4ebcaca7ab7403238c193e856222b9bfbebaa19,2025-11-21T01:10:56+00:00,fix,Human,91d856a1475e4667141e07e494abf0781c8d5489,2025-11-14T10:53:44+00:00,Human,6.595,3-7,blame
+https://www.github.com/25sunrindicon/vyce_frontend,6e420dd528a1caa32b878e3d4c7ee1afa9666a1f,2025-11-20T08:36:04+00:00,fix,Human,d3a2989502cb83f91b3adf491972cc88c706dbac,2025-11-14T13:14:18+00:00,Human,5.807,3-7,blame
+https://www.github.com/25sunrindicon/vyce_frontend,73829d5ccd6486843780845923f52199bab5decf,2025-11-20T05:34:27+00:00,fix,Human,,,Unknown,,unresolved,unresolved
+https://www.github.com/25sunrindicon/vyce_frontend,b070b2a281da16976848f588640626dfd54f949b,2025-11-19T05:16:50+00:00,fix,Human,a5b633f6ce95821f1225603e863775b5ce98cde1,2025-11-13T18:12:15+00:00,Human,5.462,3-7,blame
+https://www.github.com/25sunrindicon/vyce_frontend,047435efbe18f651f02f430682ececd3b6cde7ce,2025-11-10T07:45:06+00:00,fix,Human,dddee56269855dc8d2e8ba0be8d5640d7c84506c,2025-11-09T06:25:50+00:00,Human,1.055,1-3,blame
+https://www.github.com/25sunrindicon/vyce_frontend,e18eef0af8e56748cc2a05f3cb71a48c80497ea3,2025-11-10T07:37:07+00:00,fix,Human,461803f6a8b112c42d5e14a9ab8927a7005625e8,2025-11-07T13:32:37+00:00,Human,2.753,1-3,blame
+https://www.github.com/25sunrindicon/vyce_frontend,5298e4a9713611d76334e20e8d344122c7b6052a,2025-11-10T07:12:55+00:00,fix,Human,dddee56269855dc8d2e8ba0be8d5640d7c84506c,2025-11-09T06:25:50+00:00,Human,1.033,1-3,blame
+https://www.github.com/25sunrindicon/vyce_frontend,92c19c81b6b566964c2df30ca0e314e78fb0e13d,2025-11-10T06:17:02+00:00,fix,Human,44ebaa30586e6d5a1c8c15fe418b7d79f2933275,2025-11-07T05:31:35+00:00,Human,3.032,3-7,blame
+https://www.github.com/25sunrindicon/vyce_frontend,1c5a388ad201ef50915e502b7ecc3c9d2b2e6832,2025-11-10T03:13:33+00:00,fix,Human,0ff4c1869b55f3dd8e804b38b2ee5e89f3c082a5,2025-11-07T03:00:03+00:00,Human,3.009,3-7,blame
+https://www.github.com/25sunrindicon/vyce_frontend,badd3137c5b6bbc5231a4c4f814d52c53e3df6d1,2025-11-09T08:27:12+00:00,fix,Human,44ebaa30586e6d5a1c8c15fe418b7d79f2933275,2025-11-07T05:31:35+00:00,Human,2.122,1-3,blame
+https://www.github.com/25sunrindicon/vyce_frontend,f34fad03b77561ef9e2d69cedbc9dcb06bf9005a,2025-11-09T08:05:11+00:00,fix,Human,b79e0e1c02250dc1f9a35690d6070bc284d840ef,2025-11-09T07:25:54+00:00,Human,0.027,0-1,blame
+https://www.github.com/25sunrindicon/vyce_frontend,b79e0e1c02250dc1f9a35690d6070bc284d840ef,2025-11-09T07:25:54+00:00,fix,Human,dddee56269855dc8d2e8ba0be8d5640d7c84506c,2025-11-09T06:25:50+00:00,Human,0.042,0-1,blame
+https://www.github.com/25sunrindicon/vyce_frontend,16b9a9f8700a6521300864c4534ba6c3afab2fb4,2025-11-09T05:06:48+00:00,fix,Human,fdef23f564dbaf94af6037106bbd14df6c2137b9,2025-11-04T14:32:19+00:00,Human,4.607,3-7,blame
+https://www.github.com/25sunrindicon/vyce_frontend,e26370061de1b29f806ec92819b929072cecd99e,2025-10-27T12:23:55+00:00,fix,Human,0e9ac6674804edd4968a90c34e496e7580f13331,2025-10-27T07:58:56+00:00,Human,0.184,0-1,blame

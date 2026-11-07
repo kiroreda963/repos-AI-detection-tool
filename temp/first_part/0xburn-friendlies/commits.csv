@@ -1,0 +1,1611 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xburn/friendlies,0ecb56aac3cda52c33568a05c3abb9fcafc536f8,2026-04-27T22:23:22+00:00,Human,,29,32,2,False,False,False,False,"bump to v1.0.42 — hide Patreon promo for existing supporters
+
+Skip rendering the Patreon promo banner in Navigation entirely when the
+signed-in user's connect code is in patreon_public_supporters, so we
+don't keep asking active supporters to support. Drop the now-unused
+'patreon_public_supporter' analytics branch and in-banner thanks line.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2d05bb90686320e7ab883de333af265f2f636c0a,2026-04-20T16:38:05+00:00,Human,,271,1,2,False,False,False,False,"bump to v1.0.41 — mutual friends filter, logging & diagnostics
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,de6b7cd194c6d43052c8329009bcf222d5cd07b6,2026-04-20T16:36:39+00:00,Human,,2361,762,28,False,False,False,False,"Merge pull request #12 from Daniel-Edminster/feature/mutuals
+
+adds Has Mutual Friends filter to Discover page"
+https://www.github.com/0xburn/friendlies,d7067ac06e44ce623ec3b257f7bebf892d4e2f16,2026-04-20T16:27:28+00:00,Human,,3,1,2,False,True,False,False,"Merge pull request #13 from gcpreston/duplicate-migration-fix
+
+Fix duplicate migration error"
+https://www.github.com/0xburn/friendlies,97ee43500084f41920b3b3f829bbcf24269f1e42,2026-04-20T13:18:10+00:00,Human,,3,1,2,False,True,False,False,Fix duplicate migration error
+https://www.github.com/0xburn/friendlies,8d7900c565606138abac4ba9c16388d526c78640,2026-04-19T16:28:37+00:00,Human,,33,0,1,False,False,False,False,adds detailed time/space complexity docs to migration file
+https://www.github.com/0xburn/friendlies,46fd78ea7a009a209a93e317cdc8d7fb0d0390ff,2026-04-19T15:34:41+00:00,Human,,1250,491,11,False,False,False,False,Has Mutual Friends Discover filter
+https://www.github.com/0xburn/friendlies,9f86b89a48338c5d74840a2ed55faa20f878315c,2026-04-18T17:15:14+00:00,Human,,12,1,3,False,False,False,False,Merge remote-tracking branch 'upstream/master'
+https://www.github.com/0xburn/friendlies,014181e92117094f4a727684e70b0dae942285ca,2026-04-18T17:14:32+00:00,Human,,1,1,1,False,False,False,False,dev command that is x-platform for windows dev
+https://www.github.com/0xburn/friendlies,94d323eb503a86f978e18ce70054c885d11161f8,2026-04-15T15:43:33+00:00,Human,,14,3,5,False,False,False,False,"Proximity tier sorting for Discover, bump to v1.0.40
+
+Discover sort now groups players by proximity tier before
+sorting by LFG/online status within each tier, preventing
+far-away players from leapfrogging nearby ones just because
+of their online status.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,cc68fce8bbd3388018fece4f6c043445b82ef348,2026-04-12T03:50:13+00:00,Human,,657,242,2,False,False,False,False,finished adding files
+https://www.github.com/0xburn/friendlies,9b56e9bdb52a4e007f5db499960ecc3671535f98,2026-04-12T03:41:54+00:00,Human,,467,78,18,False,False,False,False,feature: adds application-level logging and metadata export
+https://www.github.com/0xburn/friendlies,4a47372d155654240d8aa50e6fb9eef4fd303086,2026-04-12T01:35:54+00:00,Human,,2,1,1,False,False,False,False,chore: hide electron toolbar on windows
+https://www.github.com/0xburn/friendlies,2ba7ed6e2aab53d2248375d72a66710d7ebeb775,2026-04-12T01:06:41+00:00,Human,,4,2,2,False,False,False,False,chore: UI pulls versioning from package json
+https://www.github.com/0xburn/friendlies,014310aff1ecef455170584a6f98e1b5ab113116,2026-04-11T23:19:11+00:00,Human,,22,58,4,False,True,False,False,"Fix high CPU: remove dual chokidar watcher, eliminate awaitWriteFinish polling
+
+Single watcher using native FS events only — no polling, no duplicate watchers.
+Presence peek on file add, full processing deferred to game-end drain.
+Add performance-first rule to AGENTS.md. Bump to v1.0.39.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,83ec522d62a8a486dbe99e8aba06998f20d11b18,2026-04-11T22:37:22+00:00,Human,,8,10,4,False,True,False,False,"Fix flashing game mode, Friends sort matches Discover, bump to v1.0.38
+
+- Preserve gameMode from Realtime presence sync (was being wiped each tick)
+- Friends list sort: active status > online > in-game > idle > offline
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,423966ff8db041168987f609e5a000f087bac479,2026-04-11T22:27:25+00:00,Human,,111,27,7,False,False,False,False,"Quit-out tracking, Discover idle sort, bump to v1.0.37
+
+- Track game_end_method and quit_out_by in matches table (migration 048)
+- Detect LRAS quits via slippi-js gameEndMethod/lrasInitiatorIndex
+- Show opponent quit count on Opponents session rows
+- Discover page sorts by status: active > online > in-game > idle > offline
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2a264f7c5e0b3f73b3cc1c8400a3014bba519be6,2026-04-11T22:09:51+00:00,Human,,3,3,3,False,False,False,False,"Bump to v1.0.36
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c077c10a39e2a4a1f09d54d661a1018a8bee3f5a,2026-04-11T22:07:39+00:00,Human,,6,2,1,False,True,False,False,"Merge pull request #9 from chrisinajar/chat-layout-changes-on-hover
+
+Fix chat message layout shift on hover"
+https://www.github.com/0xburn/friendlies,6e6da11f035f04321eeb5e91096826b5dc48b22e,2026-04-11T22:06:12+00:00,Human,,933,34,19,False,False,False,False,"Add live game mode detection (Ranked/Unranked/Direct), LFG filters, bump to v1.0.35
+
+- Two-tier file watcher: fast watcher for instant in-game presence, main watcher for post-game processing
+- Game mode extracted from .slp matchId prefix and displayed on player cards
+- New presence_log.game_mode column (migration 047)
+- LFG filters migration (046)
+- CONTRIBUTING.md added
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,565fce399eef58d21fc966305c38a5c6b9d909cb,2026-04-10T22:11:30+00:00,Human,,6,2,1,False,True,False,False,"Fix chat message layout shift on hover
+
+Use visibility toggling instead of display toggling for the hover
+timestamp and menu button so they always reserve layout space.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,e033c93be977ec5f6646c20ffeba12d4224d31f6,2026-04-10T21:03:37+00:00,Human,,13,8,5,False,True,False,False,"Fix patron self card clipping status dropdowns, web nav tweak, bump to v1.0.34
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,869f764cceab1f25f8831079513174b98e12327e,2026-04-10T20:55:19+00:00,Human,,245,25,12,False,False,False,False,"Patreon public thanks list, patron UI on Friends and Discover, promo banner, bump to v1.0.33
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,1f0d179ce5c55c9eda2f53bebe34f5fd4f3ec58d,2026-04-10T16:08:29+00:00,Human,,4,0,1,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,0c8d53d6298449a4ae4308164b202b3ef91c386c,2026-04-10T15:38:29+00:00,Human,,30,10,7,False,False,False,False,"Disable identity blacklist enforcement (false positives), bump to v1.0.32
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,76c8b915c48801d765cdd07cd6e3700d6e254aad,2026-04-09T20:18:59+00:00,Human,,50,26,9,False,True,False,False,"perf: non-blocking ratings, fix chat re-render cascade, reduce polling; bump to v1.0.31
+
+- friends:list no longer blocks on Slippi API (2s → ~100ms): return DB-cached
+  ratings immediately, refresh via background fetch
+- same fix for friends:incoming, invite:pending, invite:sent
+- add in-flight dedup guard to batchFetchRatings
+- fix ensureProfile callback instability in Chat (used ref instead of state dep)
+- reduce syncFocusFromWindow interval from 5s to 60s
+- reduce invite fast-poll from 3s to 5s (Friends + Discover)
+- replace animate-pulse on online dots with static glow (OnlineIndicator, Chat, Nav)
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,521f901df0eb67b575679ce1532dda86720e4cd9,2026-04-09T13:58:07+00:00,Human,,356,86,16,False,True,False,False,"aggressive in-game performance throttling, defer replay parsing, fix chat init error handling; bump to v1.0.30
+
+- Broadcast game:active signal to renderer; all renderer polling (Friends, Discover, Settings, Opponents, GGs, Navigation) pauses during gameplay
+- Increase in-game presence poll from 60s to 120s, notification poll from 120s to 300s
+- Defer replay parsing while Dolphin is running (queue and drain when idle)
+- Reduce chokidar pollInterval from 500ms to 1500ms
+- Skip tray updates, focus sync, connection type detection, and stale cleanup during gameplay
+- Fix setGameThrottling to apply immediately on settings change
+- Chat: wrap init() in try/catch so loading skeleton doesn't hang forever on error
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,3d28f78a238bfd2acc2946d4efaf4cf02e855992,2026-04-08T23:34:55+00:00,Human,,341,20,8,False,False,False,False,"chat moderation: block filtering, auto-delete on 3 reports, auto-mute, word filter, heuristics, hover menu, RPC deletes; bump to v1.0.29
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,603ac29586c94f3af824d58ba77268ccb870b85a,2026-04-08T22:32:26+00:00,Human,,55,18,5,False,True,False,False,"chat: disable setting in Settings, fix scroll-to-bottom, fix input focus after send; bump to v1.0.28
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,e2f3cd046f9d11aceade2d656a454a7b4724fba7,2026-04-08T22:11:21+00:00,Human,,1136,3,9,False,False,False,False,"add public chat (BETA) with realtime messaging, presence, moderation, and kill switch; bump to v1.0.27
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,8ff9d3981e2d792a8df253f4277beeb4158c55db,2026-04-08T20:14:49+00:00,Human,,166,35,10,False,False,False,False,"add custom Slippi Launcher path setting for non-standard installs, bump to v1.0.26
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,874b4f03a8a69bd28f99f2da1e75fc40afb6c844,2026-04-08T11:04:29+00:00,Human,,152,13,6,False,False,False,False,"Hide Cashbox from sidebar and redirect /cashbox; placement on finished runs; bump to v1.0.25
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,0c56f983f2add2539da9ad4b89d99bc2f968725e,2026-04-07T22:37:16+00:00,Human,,83,616,5,False,False,False,False,"Cashbox: webview-only match tasks, hide legacy checklist, restore Cashbox imports; drop useWebTaskView; bump to v1.0.24
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c6cedfc68a04b7ffab970e822826233ec1bceef8,2026-04-07T22:15:28+00:00,Human,,227,34,4,False,True,False,False,"Cashbox: opponent connect code from embedded start.gg webview (iframe walk), fix REST lobby/entrant skew for admins; bump to v1.0.23
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,8c647ffe880c387609bc16ca25563958ed9d7c1e,2026-04-07T14:36:05+00:00,Human,,262,127,10,False,False,False,False,"per-user OAuth tokens for cashbox, LuckyStats Elo links, remove Discord lookup, bump to v1.0.22
+
+- Thread start.gg OAuth user tokens through all cashbox GraphQL calls for per-user rate limits
+- Add backend snapshot cache with stale-data fallback on rate limit errors
+- Reduce polling intervals and burst refresh aggressiveness
+- Make LuckyStats Elo clickable (links to luckystats.gg player profile using their internal ID)
+- Remove Discord username lookup widget from Friends page
+- Revert CASHBOX_DEV_EVENT_SLUG to null
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,305eaa28b9f128136d533d18872e609bd89fc421,2026-04-07T02:53:38+00:00,Human,,45,8,5,False,False,False,False,"cache entrant lookups (2min TTL), write startgg_user_id to Supabase on OAuth, diagnostic logging, bump to v1.0.21
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,fe0b59062392cfbffbff143a8af7f54851a76217,2026-04-06T22:26:17+00:00,Human,,17,8,6,False,False,False,False,"log cashbox_launch_melee to event_log with opponent code, bump to v1.0.20
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,cc0197e03acc069ef3db03f09900f253f5005dd8,2026-04-06T21:32:10+00:00,Human,,6,3,4,True,True,False,False,"fix: include STARTGG_CLIENT_ID in build .env so OAuth works in production, bump to v1.0.19
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,f391d92006e2e738e257b4e2d84dab5c723cfafe,2026-04-06T21:23:04+00:00,Human,,3,36,4,False,False,False,False,"remove Cashbox time gate and admin bypass, public for all users, bump to v1.0.18
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,6baaca8b6757013dfcda413378486c12162abc91,2026-04-06T21:02:27+00:00,Human,,4,3,4,False,False,False,False,"add *.har to gitignore, bump to v1.0.17
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,f005c07bee9bc1622cd2309287c1e8fe2915fd52,2026-04-06T20:46:09+00:00,Human,,1213,264,17,False,True,False,False,"Cashbox: embedded browser task view, pre-tournament UI, adaptive polling fixes, bump to v1.0.16
+
+- Add webview-based task completion (feature flag, default on) using persist:startgg session
+- Redesign Cashbox page flow: 4 states (no auth, auth+no reg, registered pre-start, live event)
+- Fix registration detection: fallback to local electron-store start.gg user ID
+- Move ""Open Melee"" button to Set Details card
+- Fetch user's own LuckyStats Elo for pre-tournament view
+- Improve eventNotStarted detection for events with no bracket data yet
+- Move Cashbox to 2nd nav position with subtle amber styling
+- Switch tournament to the-cashbox-21 for production
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,e2adece82e548597d995dca26ec2a972d7252801,2026-04-06T01:16:34+00:00,Human,,3,3,3,False,False,False,False,"bump to v1.0.15
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2162b851fee4722d5ad42fce82ba2b3c8aaf5ebc,2026-04-06T01:12:11+00:00,Human,,5252,43,22,False,False,False,False,"add Cashbox tab: start.gg integration with in-app check-in, stage striking, character select, and bracket view
+
+Time-gated until Apr 7 5:30 PM ET — shows promo graphic and coming-soon message until then.
+Includes start.gg OAuth flow, REST task moderation, GraphQL change detection,
+auto-advance through lobby/verification, persistent Open Melee button, and
+character pre-selection during opponent wait states.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,afd857cc4fb159a8263ab61c9a85b0d43290ce4b,2026-04-05T16:44:17+00:00,Human,,13,13,5,False,True,False,False,"Align Dolphin launch with Slippi (-b, non-detached spawn), fix duplicate classNames, npm build uses --publish never, bump to v1.0.14
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,63e1804664b828a2368d32499446ea1bf4685279,2026-04-02T19:36:30+00:00,Human,,325,48,19,False,False,False,False,"Release v1.0.13: app idle in presence, 30m threshold, discover mutual friends migrations.
+
+- Idle when friendlies is unfocused/hidden (with in-game + no recent opponent handling).
+- presence_log.app_idle, focus polling, idle boundary refresh, realtime track.
+- Restore APP_IDLE_AFTER_MS to 30 minutes for production.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,5b9c9b65de9282723a47bfb0af108bddfd53e042,2026-04-02T17:24:32+00:00,Human,,46,4,7,False,False,False,False,"add banner click tracking, show rank on recent opponents, bump to v1.0.12
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,714d77007f5adbf2e8c44eb491ad1498ca9897ca,2026-04-02T07:05:30+00:00,Human,,53,377,16,False,False,False,False,"remove April Fools Grinder rebrand, bump to v1.0.11
+
+- Delete aprilFools.ts feature flag, Armada fake player, toxic badge
+- Remove Grinder branding from App, Navigation, Settings
+- Remove /grinder web page and all associated images
+- Hardcode normal friendlies branding (green theme, logo.png)
+- Clean up PlayerCard toxic prop and ToxicBadge component
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,282bf7a76fb3447ed1e1c7daad0ad8d3f41b88b7,2026-04-01T21:06:49+00:00,Human,,15,2,1,False,False,False,False,"update downloads chart data through Apr 1
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,508eb2fb5fb5e60fc73285d719dc9643394b56fa,2026-04-01T17:10:13+00:00,Human,,62,18,4,False,False,False,False,"refresh friend ratings on startup, expand region picker, bump to v1.0.10
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,9e5226bdd6468c553a94e8894cb3e2dd95673117,2026-04-01T14:54:35+00:00,Human,,168,0,3,False,False,False,False,"add /grinder April Fools joke page to web app
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c1939934b27f95da54f9d80c51735f7f41c2468e,2026-04-01T14:22:54+00:00,Human,,238,70,14,False,True,False,False,"April Fools Grinder rebrand, fix rank 25-win minimum, fix incoming request ranks, bump to v1.0.9
+
+- Feature-flagged April Fools joke (April 1st only): app renamed to
+  ""Grinder"" with yellow theme, fake C&D announcement, Armada as fake
+  LFG friend on everyone's list (Master 4), ~25% of players get a
+  pulsing ""TOXIC"" badge, user always sees it on their own card
+- Fix effective_rating to require >=25 wins before using a season's
+  rating (was using placement rating after 1 game)
+- Fix incoming friend requests not showing rank (was reading from
+  deprecated slippi_cache instead of player_ratings)
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,fc6fb1b01976dc7f816297840fddfdb9c8c41aa0,2026-04-01T00:11:20+00:00,Human,,28,4,5,False,False,False,False,"add connect code linking warning on auth screen, bump to v1.0.8
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,57121ac8b5cd827d39d1513d70985f7850c91b5b,2026-03-31T23:48:59+00:00,Human,,109,69,8,False,False,False,False,"configurable LFG expiry, consolidate status button, bump to v1.0.7
+
+Merge ""Set status"" and ""Looking to play?"" into a single dropdown button.
+Add expire-after picker (30m / 1h / 2h / ∞) inside the dropdown.
+Remove hardcoded 1-hour LFG expiry from reader side.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,680351dd27c7239a3e5665423dda6ab0c2cfb5b1,2026-03-31T17:30:21+00:00,Human,,34,11,5,False,False,False,False,"fallback to localhost auth on Windows when deep link fails, bump to v1.0.6
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,b076024b05f36c3b5eb2a98871515a75d22c7e38,2026-03-31T16:51:25+00:00,Human,,21,4,4,False,False,False,False,"lock down player_ratings RLS, unhide connection type toggle, bump to v1.0.5
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,1480c657962aeb5d83b9aa45e800c997d2565b37,2026-03-31T11:20:19+00:00,Human,,35,6,6,False,True,False,False,"fix expired invites blocking new sends, accurate presence stats, bump to v1.0.4
+
+- invite:send now cleans up expired play_invites before checking MAX_OUTGOING cap
+- startup cleanup deletes stale invite rows on app launch
+- online/in-game stats use 24h window instead of counting all-time stale rows
+- in-game count requires non-null opponent_code for accuracy
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,7974566c2fde881b302e39907933f9912045173d,2026-03-31T05:12:55+00:00,Human,,53,25,1,False,False,False,False,"consolidate daily stats into single combined query
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,07f210b497555b048db979d26f8aedaf59735039,2026-03-31T05:09:28+00:00,Human,,9,0,1,False,False,False,False,"add presence-based DAU query
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,79eebf59ea62a1007c0e7f7f23509cfbd929cc1f,2026-03-31T05:07:11+00:00,Human,,17,0,1,False,False,False,False,"add daily feature usage stats query
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,e205d7ed3731c2dafce7b0c3c44625e6b5ae0e77,2026-03-31T04:07:22+00:00,Human,,16,6,6,False,True,False,False,"fix duplicate nudge notification and stale badge, bump to v1.0.3
+
+Three fixes:
+- Move knownNudgeIds.add() before the async profile lookup to close
+  the race window where overlapping polls could both see the same
+  nudge as ""new""
+- Add 60s cooldown to showNudgeNotification (matching friend-online
+  notifications) so even if dedup fails, the same toast can't fire twice
+- Add getUnreadNudgeCount to Navigation refreshStats so the badge
+  self-heals on visibility change instead of relying solely on the
+  push event from sendToRenderer
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,41d79deddda78d186ac19e1d32ba644f1fcc062a,2026-03-31T03:57:36+00:00,Human,,65,5,5,False,False,False,False,"decline invite nudge modal, bump to v1.0.2
+
+Decline button on incoming play invites now opens a modal offering
+optional nudge messages (down in 5-15 min, sorry another time,
+looking for different matchup, message me on Discord) before declining.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,8d21b41172c5f7c9b1de7b9fa2de787f93af896a,2026-03-31T03:20:32+00:00,Human,,75,22,5,False,False,False,False,"optimize discover tab rendering, memoize PlayerCard, bump to v1.0.1
+
+- React.memo PlayerCard with custom comparator (skips re-render when data unchanged)
+- stabilize discover list order on background polls (merge instead of replace)
+- skip no-op setState in invite polling to prevent unnecessary re-renders
+- useMemo on filtered list, useCallback on handlers
+- bump to v1.0.1
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,10ed16a77821c47b4fda9083a546a50e0806ef3c,2026-03-31T03:06:16+00:00,Human,,645,62,11,False,True,False,False,"fix discover scroll reset, settings search, bench logging, bump to v1.0.0
+
+- fix discover ""Load More"" resetting scroll on 30s poll / tab focus
+- add in-flight dedup for discover:list (renderer + IPC)
+- add [bench] timing to discover:list for diagnosing slowness
+- add search bar to settings page
+- move display region to first settings section, style green
+- v1.0.0 — out of beta
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,cfbcba13c3cf9cf611e64e99a7048eba7ee270b0,2026-03-31T01:19:08+00:00,Human,,6,4,2,False,False,False,False,"require 25 wins minimum for a season to count toward rank
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,aebd5bee86dfa5c5fa0332d4b4e4ab3dcfafd7bb,2026-03-30T22:28:37+00:00,Human,,138,97,13,False,True,False,False,"fix rank thresholds to match slippi.gg, use last season rating as fallback, bump to v0.2.34
+
+- Updated all rank thresholds from slippi.gg production JS (2026-03)
+- Added Master 1/2/3 sub-tiers (was single Master tier)
+- Fixed Diamond 2 boundary (was 2136 → now 2073)
+- Changed effective_rating fallback from all-time peak to most recent
+  completed season (prevents inflated ranks for inactive players)
+- Updated rank colors: Diamond → royal blue, Master → magenta,
+  Bronze/Silver/Gold/Platinum → official Slippi palette
+- Backfilled all 1212 player_ratings rows with corrected values
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,e8f2fefca8b2e06c471794eb81885953d08e1d97,2026-03-30T20:34:22+00:00,Human,,177,74,9,False,False,False,False,"improved geo IP accuracy, manual region chooser, collapsible incoming requests, 2x2 player card layout, bump to v0.2.33
+
+- query 3 IP geo providers in parallel and use median for better accuracy
+- add chosen_region column + Melee-region dropdown in Settings
+- display chosen_region on all player cards (proximity still uses lat/lng)
+- add hide/show toggle for incoming friend requests
+- stack player card info in 2x2 grid instead of single row
+- show rank + avatarUrl on invite banners (Friends + Discover)
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,802d654ad2c3315935dff852629dea2f9fe4c865,2026-03-30T19:44:31+00:00,Human,,83,26,15,False,False,False,False,"show rank + discord on player card, unhide Roy, deprecate slippi_cache, bump to v0.2.32
+
+- Player card on Friends/Dashboard now shows RankBadge and Discord badge
+- Rating sourced from player_ratings instead of slippi_cache
+- Roy restored to character picker and Discover filter
+- Added DEPRECATED comments to all slippi_cache references
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,5ba9e658a32fdda4182794e11a175d76c2e68304,2026-03-30T17:17:17+00:00,Human,,9,5,4,False,False,False,False,"cap proximity boost to ~NY-to-FL range, reduce LFG buff by 25%, bump to v0.2.31
+
+Status/LFG boosts no longer apply to players beyond ~1,800 km (250 sq-deg).
+LFG multiplier weakened from 0.4 to 0.5.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,377187f09106fc0f1912ecc7fb7085d1290e366f,2026-03-30T13:09:49+00:00,Human,,0,0,3,False,False,False,False,"update demo video and gif (trimmed to 0:32)
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,aec78c642d0813959d5993e45142c07ef3c899e6,2026-03-30T12:57:35+00:00,Human,,78,29,6,False,False,False,False,"show profile data on invite banners (avatar, rank, main), bump to v0.2.30
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,7efdd4278af664c3194a9b06954d40a172883dfb,2026-03-30T04:08:05+00:00,Human,,7,7,5,False,True,False,False,"fix accepted invite banner persisting after Open Melee, bump to v0.2.29
+
+The display filters had `|| d.status === 'accepted'` which caused accepted
+invites to show even after the user opened Melee (opened flag was set but
+the status check overrode it). Removed so the banner hides once you've
+opened Melee. Affects all 4 filter locations (Discover + Friends,
+sent + received).
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,f4a4de663fcd1418b07a9626dcf499a9c3d1e2bf,2026-03-30T04:05:11+00:00,Human,,37,5,6,False,False,False,False,"clear stale Sent! state when invite is declined/expired, log decline events, bump to v0.2.28
+
+- loadSentInvites() now syncs inviteSent UI state with server data: if an
+  invite row is gone (declined/expired), the ""Sent!"" label and disabled
+  button clear on the next poll cycle (3s) in both Discover and Friends
+- invite:dismiss now logs invite_cancelled (sender) or invite_declined
+  (receiver) to event_log
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,fb2b2daab35b11d19fdca35762c65eb48278b79d,2026-03-30T03:51:33+00:00,Human,,8,3,4,False,False,False,False,"invite expiry at 5 minutes instead of 60s, bump to v0.2.27
+
+Separate INVITE_COOLDOWN_MS (60s, per-pair send throttle) from
+INVITE_EXPIRY_MS (5 min, display window). v0.2.25 removed the time
+filter entirely causing stale invites to pile up. Now invites stay
+visible for 5 minutes — long enough to not miss an acceptance, short
+enough that old invites don't linger.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,752fdf7578ac4b06c68c50b5ffad95e8de040a2b,2026-03-30T03:49:44+00:00,Human,,31,3,5,False,False,False,False,"add dismiss button next to Open Melee on accepted invites, bump to v0.2.26
+
+Adds an ✕ button next to ""Open Melee"" on all 4 accepted invite banners
+(sent + received, Discover + Friends) so users can gracefully close an
+accepted invite if they change their mind.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,068b220d6ad2e2f2e1163189c4d414a714cdf428,2026-03-30T03:47:16+00:00,Human,,4,9,4,False,True,False,False,"fix accepted invites disappearing after 60s, bump to v0.2.25
+
+The invite:sent and invite:pending display queries used the 60s cooldown
+as their time window, so accepted invites could age out before the sender
+noticed. Now display queries use row existence (rows are cleaned up by
+dismiss/complete), while the per-pair send cooldown still uses 60s.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,685f711b3edd34625aa921ca3b1b7bf26e0df22a,2026-03-30T03:39:31+00:00,Human,,23,15,7,False,True,False,False,"multi-invite support, fix warning text cutoff, bump to v0.2.24
+
+- Allow multiple simultaneous outgoing invites (per-pair cooldown instead of global block)
+- Cap at 5 outgoing pending invites
+- All other pending invites auto-dismissed when user opens Melee
+- Widen truncated warning text on PlayerCard (max-w-[80px] -> max-w-[140px]) with title hover
+- Friends page invite button now per-friend disable instead of global gate
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,9d653a1e5e837b3920f2583a27788a823e39c18a,2026-03-30T03:16:35+00:00,Human,,0,0,3,False,False,False,False,"update demo video and gif (demo3)
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,a7e23a7e2974125535dabb931000732d5a2660e4,2026-03-30T03:06:55+00:00,Human,,540,127,12,False,False,False,False,"Elo filter on Discover, player_ratings table, migrate to internal.slippi.gg/graphql, hide W-L on Opponents, bump to v0.2.23
+
+- Add rank-tier Elo filter (Bronze–Master) on Discover page with proximity bypass when filtering by skill
+- New player_ratings table with effective_rating (current season or peak past season fallback)
+- Migrate all Slippi API calls from dead gql-gateway to internal.slippi.gg/graphql using rankedNetplayProfileHistory
+- Backfill script for player_ratings using direct Postgres via DATABASE_URL
+- Daily refresh of logged-in user's rating, opportunistic upsert for missing players
+- Hide win-loss record on Recent Opponents tab
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,7698eb39f9ca6354b14a2a2a30b6aaf2049aff16,2026-03-30T01:18:38+00:00,Human,,16,10,7,False,True,False,False,"fix invite notification + display bugs: reset opened flags on upsert, track id:created_at for re-invites, show pending/accepted invites regardless of stale opened flag, bump to v0.2.22
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,29ba00d8430d5ffc77e5ceac0db5515d678a5025,2026-03-30T00:57:38+00:00,Human,,184,9,4,False,False,False,False,"full invite flow on Discover page with Open Melee, DC status, fast polling, bump to v0.2.21
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,f8d6744937da6c5ee572adbbcc48104c82f5fd77,2026-03-30T00:14:13+00:00,Human,,169,33,6,False,False,False,False,"sent invites on Discover page, main char + connection type on sent invites, bump to v0.2.20
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,232b6e6134467f0f823cfaaa72559a3e888e3e3e,2026-03-29T22:19:45+00:00,Human,,19,5,6,False,False,False,False,"siege banner, persist pending hidden state, bump to v0.2.19
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,24e772c7d0de89684f7238dfa5edc83e919190a4,2026-03-29T21:59:48+00:00,Human,,180,81,37,False,False,False,False,"friend request notes, stock icons, UI polish, bump to v0.2.18
+
+- Add optional note tags to friend requests (modal popup on Add with presets)
+- Works on both Friends and Discover pages
+- Show note on incoming request cards
+- Replace character renders with Melee stock icons
+- Improve pending requests collapse button visibility
+- Pre-fill connect code hint on Open Melee button
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,a3c395eef48ce32e2f3a59a29e85124950424910,2026-03-29T19:58:39+00:00,Human,,3,22,4,False,False,False,False,"remove friend requests toggle from profile card, keep in settings only, bump to v0.2.17
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,1290bd80a1dc759d70d6a3e07f1eb4f4e3b7d8b5,2026-03-29T19:49:14+00:00,Human,,52,11,7,False,False,False,False,"block button on incoming requests, disable friend requests privacy toggle, bump to v0.2.16
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,15f7fb1f80630d39a42ff3b7c216504ca813b2d9,2026-03-29T19:07:27+00:00,Human,,16,7,4,False,False,False,False,"add hide/show toggle for pending friend requests, bump to v0.2.15
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,987d23061d4bfc16f6545da99297aee86cef3a9b,2026-03-28T21:43:57+00:00,Human,,83,18,7,False,False,False,False,"leaderboard shows rank change not time delta, proper yesterday backfill, bump to v0.2.14
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,83a7134eda2cd0208afce3598404ba161eaaae30,2026-03-28T21:41:01+00:00,Human,,77,6,8,False,False,False,False,"add today column to leaderboard, bump to v0.2.13
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,5551da3635fcd5848bb8fc2250d297f62345657d,2026-03-28T21:06:55+00:00,Human,,19,76,7,False,False,False,False,"leaderboard tracks in-game time with opponent only, bump to v0.2.12
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,28d16e85b6dae47a8bdf846d2b4c72766406a0d3,2026-03-28T20:59:18+00:00,Human,,400,57,12,False,False,False,False,"add Leaderboard tab, Discover search, remove online notification sound, bump to v0.2.11
+
+- Leaderboard tab tracks hours on app via presence heartbeats (user_activity table)
+- Search bar on Discover tab filters by code/name/Discord
+- Online notification now shows popup only (no sound)
+- Migration 029: user_activity table + increment_activity RPC
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,3c992a832afc48265dd6a38f8dff97cd237ef5d8,2026-03-28T03:29:22+00:00,Human,,20,7,6,False,True,False,False,"fix Discover for hidden-location users, use local geo cache, bump to v0.2.10
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,52d7d155789aa38373c4ffa6a85ea985504f9e9e,2026-03-28T03:21:16+00:00,Human,,53,32,9,False,False,False,False,"add Hide Online Status privacy toggle, reduce invite cooldown, bump to v0.2.9
+
+- new ""Hide Online Status"" setting: appear offline to all other players
+- own card reflects hidden status locally
+- invite cooldown reduced from 5min to 60s
+- removed HTTP geolocation fallback (HTTPS only)
+- updated ""Hide Location"" description to mention Discover impact
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,5144facc694ba853da9e33e68adacbfaa3c378b8,2026-03-27T23:10:23+00:00,Human,,3,3,3,False,False,False,False,"bump to v0.2.8
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,df01947f8395eb03db04f7bf9285629f81ebcd2e,2026-03-27T23:09:56+00:00,Human,,5,5,4,False,False,False,False,"yellow border for status cards, status badge pill, warmer bg tint, bump to v0.2.7
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,46026bb870bae5904870a96fa69ea13edd5a0c9d,2026-03-27T23:08:49+00:00,Human,,7,7,4,False,False,False,False,"yellow border for status cards, thicker border-2 for contrast, bump to v0.2.6
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,92116d591382d7592bde675b9e98b6fe9cd3d497,2026-03-27T23:00:15+00:00,Human,,40,11,5,False,False,False,False,"add ranked/unranked filter to match history, detect game mode from replay matchId, bump to v0.2.5
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d50fa8a03025b04fa495238fc6eeb1750f04b606,2026-03-27T22:35:08+00:00,Human,,9,12,5,False,False,False,False,"increase status proximity boost to 1.3x, remove yellow highlights (all green), bump to v0.2.4
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c55fc237504d856f3ac0d5b87c9deba85a5b669a,2026-03-27T22:16:36+00:00,Human,,4,4,4,False,False,False,False,"tighten picker horizontal padding, bump to v0.2.3
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,443fd609c0573ec07c599f9bd9cfc101fe1fe06a,2026-03-27T22:16:08+00:00,Human,,8,7,5,False,False,False,False,"match character icon sizes between picker and cards, bump to v0.2.2
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,7d83a6f3f6892fbfe05071c3bca093744f7eb38a,2026-03-27T22:10:41+00:00,Human,,8,68,7,False,False,False,False,"show main character only, remove secondary from cards and picker, bump to v0.2.1
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,b4558a0a486c94e1628222667d20114697e387f4,2026-03-27T22:05:39+00:00,Human,,204,32,13,False,False,False,False,"main/secondary character picker, UI polish, max-w-4xl layout, bump to v0.2.0
+
+- Add main_character and secondary_character columns to profiles
+- Character picker dropdowns on Friends page player card
+- Chosen characters override Slippi ranked data on friend/discover cards
+- Main/Sec labels above character icons on PlayerCards
+- ""Ranked Characters"" label in expanded stats panel
+- Neutral grey Add Friend button to reduce green overload
+- Status card borders only (no background tint) for green/yellow highlights
+- Wider max-w-4xl layout across all pages
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,9e658e9082fb2e51858d1db2ebba3e1de620a05a,2026-03-27T21:31:45+00:00,Human,,78,80,8,False,True,False,False,"green/yellow status cards, suppress Windows in-game notifications, fix ethernet detection, distance cutoff, bump to v0.1.99
+
+- Green card for status + available, yellow for status + in-game with opponent
+- Sort green cards above yellow in Friends and Discover
+- Suppress Windows toast notifications while in-game (sound still plays)
+- Fix Windows ethernet detection when both wifi and ethernet are active
+- Add max distance cutoff to Discover to filter unplayable connections
+- Move status text to its own line to prevent truncation
+- Reduce LFG proximity boost by 50%
+- Remove unused showOpponentNotification dead code
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,7e819a209108c329b6a1be727e77ff86de55931b,2026-03-27T20:38:07+00:00,Human,,0,0,3,False,False,False,False,"update demo video and gif
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,7351eae5bb3125eeaa3cfdf4fc4f49476a024331,2026-03-27T19:19:08+00:00,Human,,73,21,6,False,False,False,False,"cache auth, benchmark IPC, paginate friends list, bump to v0.1.98
+
+- Cache getCurrentUser() with 5s TTL + in-flight dedup (eliminates 5 parallel auth roundtrips on tab load)
+- Add [bench] timing logs to friends:list, friends:incoming, presence:friendStatuses, invite:pending, invite:sent
+- Paginate accepted friends list (15 at a time with Load More)
+- Renderer-side benchmark log for Friends tab initial load
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,6953669b7ab640346f0a0743f557a1c9f6c920f5,2026-03-27T19:13:29+00:00,Human,,3,3,3,False,False,False,False,"bump to v0.1.97
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,8c3ec9da66ba5135960981729b52d45a31de34e5,2026-03-27T19:09:58+00:00,Human,,61,23,3,False,True,False,False,"fix Linux Mainline user.json detection, ship connection type to all users, bump to v0.1.96
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,ed204f69cf6812f770ec426856885a0e27de899a,2026-03-27T18:57:05+00:00,Human,,206,18,13,False,False,False,False,"detect wifi vs ethernet connection type, display on player cards (admin-only), bump to v0.1.96
+
+- Auto-detect connection type via os.networkInterfaces() (macOS, Windows, Linux)
+- Broadcast via presence (realtime + DB) so it appears on player cards
+- Add ConnectionTypeIcon component (wifi=yellow, ethernet=green)
+- Add privacy setting to hide connection type
+- Gate UI display behind admin flag; data collects for all users
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d0cb8d1a14a8bb549c789ddcb1bd228b8422b4f6,2026-03-27T17:51:23+00:00,Human,,32,13,5,False,False,False,False,"add unread nudge badge to GGs tab, bump to v0.1.95
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,34a86548d7498bbf3cc73a47567c8539515c037b,2026-03-27T17:15:54+00:00,Human,,3,3,3,False,False,False,False,"consolidate launcher settings, bump to v0.1.94
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d6cb0303a1dd1e0db1808f5f54b361cdf0079a58,2026-03-27T17:15:34+00:00,Human,,60,72,2,False,False,False,False,"Merge pull request #6 from 0xburn/consolidate-launcher-settings
+
+Consolidate duplicated launcher settings logic"
+https://www.github.com/0xburn/friendlies,2b5ceb0081fc37923e8ae206027f2370d3afc9fa,2026-03-27T17:13:47+00:00,Human,,60,72,2,False,False,False,False,"consolidate duplicated launcher settings logic into dolphin-config
+
+getLauncherDir, readLauncherSettings, and detectDolphinVariant were
+independently defined in both dolphin-config.ts and dolphin-launcher.ts.
+Move the canonical versions to dolphin-config and import them in
+dolphin-launcher, eliminating three copies of the same logic.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,5a94e94a60a0875901e01b5ce707cbeeba55e972,2026-03-27T16:43:45+00:00,Human,,94,4,3,False,False,False,False,"honor Slippi Launcher settings for Dolphin version, add debug launch panel, bump to v0.1.93
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c56e533e66dc113b99b7b699d5fb2de099c910dc,2026-03-27T16:37:33+00:00,Human,,224,107,2,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,fe9d8b7144e5b278e0a5ec2db9dbc44b67d52b6d,2026-03-27T02:00:16+00:00,Human,,3,3,3,False,False,False,False,"boost LFG/status users in discover sort, bump to v0.1.92
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,4b77bb965b76f8ba8bc01467601f294b96a8a916,2026-03-27T01:56:20+00:00,Human,,6,0,1,False,False,False,False,"boost LFG/status users in discover sort and distance
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,ecda0d83ec5db551962f7921cf173a7ad9227099,2026-03-27T01:00:48+00:00,Human,,38,7,5,False,False,False,False,"add notification volume slider in settings, bump to v0.1.91
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c9bd65cc875d2b9c3f27ae533a26371083b5657f,2026-03-26T18:47:17+00:00,Human,,11,3,6,False,True,False,False,"fix late nudge notifications, bump to v0.1.90
+
+GGs tab now marks fetched nudge IDs as seen in the main process, preventing
+duplicate/late OS notifications for nudges the user already read in the tab.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,98332d1939631a3f793d8717c5390e78086bbbeb,2026-03-26T18:35:09+00:00,Human,,4,4,4,False,False,False,False,"lower notification volume 30%, bump to v0.1.89
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,81badf25e3d5724d1161b11dd03e9f660e7f829e,2026-03-26T18:27:26+00:00,Human,,116,38,6,False,True,False,False,"mainline dolphin support, macOS execFile, ISO fix, discover UX, bump to v0.1.88
+
+Direct connect:
+- Support mainline (beta) Dolphin paths on all platforms (netplay-beta dirs,
+  Slippi_Dolphin.app underscored binary, Slippi_Netplay AppImages)
+- macOS: use execFile instead of spawn to avoid Dolphin rendering deadlocks
+- ISO resolution: read from Slippi Launcher settings first, prefer ISOPath0
+  over LastFilename, skip non-Melee ISOs (Uncle Punch, training packs)
+
+Discover:
+- Load more button (no count shown, caps at 100, end message)
+- Settings page visibility catchup on foreground
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,4ba7b8d8fc1663cc8af47d3b211742e5aac81901,2026-03-26T17:46:23+00:00,Human,,89,29,6,False,True,False,False,"fix discover proximity sort, stale stats, geo fallback, bump to v0.1.87
+
+- Proximity sort: region/country fallback when geo is missing, small variance
+  for shuffle, return 50 results instead of 10, removed in-game sort priority
+- Geo lookup: fallback chain (ip-api.com → ipwho.is → freeipapi.com) with
+  5s timeouts so users behind HTTP-blocking firewalls still get coordinates
+- Stats/broadcast refresh on visibilitychange across all pages so data
+  updates immediately when the app comes back to the foreground
+- Discover: ""Load more"" button for pagination (15 at a time)
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,3e1b21db1e341cfadd442ffd1289a528925bc326,2026-03-26T15:54:01+00:00,Human,,37,4,6,False,True,False,False,"fix close-then-can't-reopen bug, add Linux dolphin paths, bump to v0.1.86
+
+- window-all-closed now properly quits when closeToTray is off (fixes zombie app)
+- Add macOS activate handler so Dock icon re-shows hidden window
+- Add Linux Dolphin exe candidates: AUR, system pkg, Flatpak, AppImage scan
+- Add Linux Dolphin config dir candidates for dolphin-emu/slippi-dolphin
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,bebf731371a28fc557e10591887e5da8d613f275,2026-03-26T15:33:23+00:00,Human,,3,3,5,False,True,False,False,"fix dock icon sizing, add hi nudge, update patreon link, bump to v0.1.85
+
+- Add transparent padding to app icon so it matches other Dock/taskbar icons
+- Add ""hi"" nudge preset
+- Broadcast message now refreshes every 5min (was only on mount)
+- Update Patreon link to membership page
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,587b81370e765a153443a534be4fdd87e9da46fa,2026-03-26T15:26:33+00:00,Human,,8,7,7,False,True,False,False,"add hi nudge, fix broadcast polling, update patreon link, bump to v0.1.84
+
+- Add ""hi"" nudge preset
+- Broadcast message now refreshes every 5min (was only fetched on mount)
+- Update Patreon link to membership page
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2123ee51c883cdf116d0693b9dbe5afd3a69f88d,2026-03-26T04:48:39+00:00,Human,,20,5,6,False,False,False,False,"close-to-tray opt-in, default to full close, bump to v0.1.83
+
+- Default behavior: clicking X now quits the app (was always close-to-tray)
+- New ""Close to Tray"" toggle in Settings to restore minimize-to-tray behavior
+- Tray icon still always shows for status display
+- Also adds notes.md to gitignore
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,1aa2c4fd9657fe5eaad5044bba5559880cc7e09b,2026-03-26T04:26:16+00:00,Human,,7,7,6,False,False,False,False,"add new status presets and nudges, bump to v0.1.82
+
+- Status presets: Will play anyone, Labbing tech, Need spacie practice, Need floatie practice
+- Nudges: that was sick, you're cracked, i'm cracked, i'm so high, check discord
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,57a62989a734b0a81b96de17502272ed6750ab83,2026-03-26T04:08:35+00:00,Human,,863,175,17,False,False,False,False,"status presets, nudges, player card UI overhaul, bump to v0.1.81
+
+- Add status presets paired with LFG (Down for friendlies, Ranked grind, etc.)
+- Add nudge system with GGs tab, preset messages, cooldowns, block checks
+- Move Invite, Add Friend, Unsend into PlayerCard header
+- Move Remove/Block into PlayerCard expanded dropdown
+- Add Nudge picker in expanded dropdown
+- Yellow highlight + sort for LFG players
+- Add/pending/friends states on Discover match Opponents page
+- Social Features settings toggles (disable nudges, disable statuses)
+- Comment out DC admin gate
+- Migration 020: status_preset column + nudges table with RLS
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,04bc4712fc5ae79804c5b813843f53aa06952485,2026-03-26T03:13:34+00:00,Human,,4,7,4,False,False,False,False,"remove post-game opponent notification, bump to v0.1.80
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,21bf2d9b0cea243d6abd5f82fb4674b3de189864,2026-03-26T02:27:41+00:00,Human,,8,8,2,False,False,False,False,A
+https://www.github.com/0xburn/friendlies,f58ee788ae4e953d42ecdc7519ee23596141775f,2026-03-26T02:25:09+00:00,Human,,47,39,8,False,True,False,False,"fix player card responsiveness at narrow window sizes, bump to v0.1.79
+
+- remove shrink-0 from discord badge and region so they truncate gracefully
+- make OnlineIndicator in-game text truncatable instead of forcing nowrap
+- limit top characters to 2 in card row (expanded panel shows all)
+- stack action buttons (Invite/DC/Remove/Add) vertically to save horizontal space
+- connect code stays rigid, display name/discord/region truncate in priority order
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,0187fa0fb99654a482dbe1b693020fc900bb4063,2026-03-26T02:00:46+00:00,Human,,31,26,7,False,False,False,False,"perf throttling, public online/in-game counts, bump to v0.1.78
+
+- Batch process scanning (1 ps/tasklist call instead of 10)
+- Slow presence poll from 10s to 60s during gameplay
+- Slow notification polling from 30s to 120s during gameplay
+- Throttle tray refresh from 5s to 30s during gameplay
+- Pause renderer polling when window is hidden (document.hidden)
+- Immediate data refresh when window becomes visible again
+- Add ""Reduce Background Activity"" toggle in Settings (on by default)
+- Add performance metrics panel (CPU/RAM per process) for debug codes
+- Make online/in-game player counts visible to all users
+- Bump to v0.1.78
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,07aaf0c2b531c281cc0d609f8b75cd1af5543f98,2026-03-26T01:45:15+00:00,Human,,177,31,11,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,63923c32dc6fbe1ba9f66271857beeeed0f20311,2026-03-26T01:17:59+00:00,Human,,145,32,11,False,False,False,False,"add notification sounds, hide discord photo privacy setting, multiline broadcast, bump to v0.1.77
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d68137bfe7d6335207e94654759466d7747b5a65,2026-03-25T22:09:36+00:00,Human,,321,36,10,False,False,False,False,"add block/unblock users feature, bump to v0.1.76
+
+- blocked_users table with RLS policies
+- block button on expanded player cards (Discover + Friends)
+- confirmation modals before blocking
+- blocked users filtered from Discover, friend requests, notifications, play invites
+- blocked users list with unblock in Settings
+- blocking also removes existing friendship in both directions
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2856e283c0e1ab34fdfabd62f319237d14bd3808,2026-03-25T21:55:38+00:00,Human,,11,6,5,False,False,False,False,"sync overcard/undercard characters in PlayerStatsPanel, bump v0.1.75
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,6c05d7b89687feeec62b143ab0f62c60f9c07ec2,2026-03-25T21:41:27+00:00,Human,,7,5,4,False,True,False,False,"fix Discover character filter losing state on poll, bump v0.1.74
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c39fe09c06c39b9828c1fe2a62b35e672f2a1762,2026-03-25T21:32:47+00:00,Human,,161,11,6,False,False,False,False,"add Discover character filter, bump v0.1.73
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c851a7445457d759ced086d188a0be9aad4a0197,2026-03-25T20:23:32+00:00,Human,,14,11,4,False,False,False,False,"admin-gate DC button, bump v0.1.72
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,72a49ea7daa73fe9c042e36b8cbd87eccd1bf3fb,2026-03-25T20:19:59+00:00,Human,,23,31,7,False,True,False,False,"fix direct-codes path on Windows (reuse user.json discovery), refresh invites on notification click, fix scroll-to-top, bump v0.1.71
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,eae9938683078f742a6ca3e146682949fda565d5,2026-03-25T20:06:46+00:00,Human,,51,64,4,False,True,False,False,"add remove confirmation modal, fix invite scroll-to-top, un-gate invite/DC for all users, bump v0.1.70
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,33151bccd8c7fe4d82c950fa81b32fd3c458cbd6,2026-03-25T20:01:25+00:00,Human,,0,842,4,False,False,False,False,"remove unused pipe-controller, blind-input, menu-navigator, game-state-reader
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,06cb9529c49d63f35b3f32df72d9f3c2975b4d1d,2026-03-25T19:57:33+00:00,Human,,91,425,7,False,False,False,False,"simplify direct connect: inject code into Slippi's autocomplete instead of blind input, bump to v0.1.69
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2c27305fa480ffbe6fd76334a42a1b1597ac6211,2026-03-25T18:56:35+00:00,Human,,110,69,9,False,True,False,False,"fix Open Melee visibility, revert Boxx/homing changes, admin presence counters, bump v0.1.68
+
+- Open Melee now only hides from YOUR side when you click it; other player
+  still sees it. Both clicking (or 5min expiry) deletes from DB.
+  New sender_opened/receiver_opened flags on play_invites (migration 018).
+- Revert combinedExpr changes — back to original backtick-strip approach
+- Revert cursor homing sequence (was breaking inputs)
+- Admin live presence counters (online + in-game) in nav bar for SMOK#1,
+  BF#0, BURN#0, BURN#1
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,821de1c7f0aa6e44eb75b7e1a258db8569d608db,2026-03-25T18:10:36+00:00,Human,,181,42,11,False,True,False,False,"fix invite lifecycle, cursor homing, Boxx compat, configurable hotkey, bump v0.1.67
+
+- Single active invite: block new invites when one exists
+- Expire invite on Open Melee click (deletes from DB, resets flow)
+- Auto-expire: 5min cutoff already in queries, now also prevents stale invites
+- event_log table for usage tracking and debugging (migration 017)
+- Cursor homing: navigate to top-left (A) before typing to prevent mistyped codes
+- Fix combined input expressions for Boxx/GCC: properly handle backtick-quoted
+  refs and expression operators, preserve user's deadzone/radius/threshold settings
+- Trigger key configurable in Settings (default M instead of F2)
+- Log invite_sent, invite_accepted, invite_opened_melee events
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d7539b91cece228c16ffb0dae8c5f027499641a0,2026-03-25T17:20:07+00:00,Human,,1841,55,17,False,False,False,False,Merge branch 'draftForSlippiIntegration'
+https://www.github.com/0xburn/friendlies,30ef890e55146208561f7b079944a16ab6fb0be7,2026-03-25T17:20:01+00:00,Human,,3,3,3,False,False,False,False,"invite-to-play flow, direct connect code entry, tray resize, bump to v0.1.66
+
+- Invite/accept flow: sender invites, receiver accepts, both see ""Ready"" + Open Melee
+- Direct connect types code on virtual keyboard after user presses F2
+- Fast 3s polling when active invites, 30s otherwise
+- Feature-gated to SMOK#1 and BF#0
+- Tray icon resized to 16x16 for proper system tray sizing
+- New migration 016_invite_accept.sql (already applied)
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,5d1c07b9703d58e78cb9915345e5bb55f7fe041d,2026-03-25T17:16:32+00:00,Human,,216,58,5,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,ddba297285220fcc1809b8cdb6d8f5cd43f93faa,2026-03-25T17:04:16+00:00,Human,,112,146,4,False,False,False,False,stable
+https://www.github.com/0xburn/friendlies,3ed0cde602d94fff0546aa10f8b1c8793ddc5516,2026-03-25T15:05:21+00:00,Human,,217,521,4,False,False,False,False,A
+https://www.github.com/0xburn/friendlies,5c0c476d48732b509265548655516a13d0db616e,2026-03-25T14:15:39+00:00,Human,,2,7,1,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,6b958b8e22eb356e7771a739f924ed069f1a61d5,2026-03-25T04:10:09+00:00,Human,,1,0,2,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,40b25e59f9f4450138366c95e6ac19bd039ab2a1,2026-03-25T04:07:06+00:00,Human,,10,9,3,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,5b6a8a111082a3c2615966fe01f5a15719be3d67,2026-03-25T03:59:25+00:00,Human,,5,4,3,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,08a6ef6fa36a525bf0f3d36bef6755bbf4f68dac,2026-03-25T01:49:48+00:00,Human,,1998,32,13,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,11ff50b078bcf9e94240ceb7e4b70a2673f5c324,2026-03-24T21:07:33+00:00,Human,,20,3,5,False,False,False,False,"v0.1.65: prevent false bans from Slippi account switches
+
+- Block services from starting when identity is stale (Launcher
+  activeId ≠ user.json uid)
+- Re-read user.json before spoof detection so mid-session account
+  switches are recognized instead of flagged as spoofing
+- Search friends by Discord username
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,cf489cb044b9d42dd1ceedac0ea2089672f0bbf9,2026-03-24T20:44:18+00:00,Human,,5,4,4,False,False,False,False,"v0.1.64: search friends by Discord username
+
+Friends list search bar now matches by Discord username in addition
+to connect code and Slippi display name.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,bcb9d7d5010d880cdb40cab03af1b1d06339273f,2026-03-24T20:30:11+00:00,Human,,16,7,4,False,True,False,False,"v0.1.63: fix false positive spoof bans from downloaded replays
+
+Only trigger identity mismatch detection when the replay filename
+timestamp is within the last 5 minutes. Replays moved or copied
+into the watched directory from VOD reviews or downloads will have
+old timestamps and are safely ignored by the spoof check.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2d6bf261fea9ff21a4f715de0019e6ed991343e4,2026-03-24T20:06:37+00:00,Human,,16,25,4,False,False,False,False,"v0.1.62: async Discord protocol detection, no UI freeze
+
+Check Windows registry for discord:// handler asynchronously at startup
+instead of synchronously on click. Eliminates main thread blocking and
+rainbow wheel. macOS defaults to protocol, Linux defaults to HTTPS.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,17ab0ef2bfa38ee8c5d224387ffc32fce1c8b4c5,2026-03-24T20:04:19+00:00,Human,,37,4,6,False,False,False,False,"v0.1.61: detect Discord protocol support before opening profile links
+
+On Windows, checks the registry (HKCR\discord) for the discord:// handler.
+On macOS, checks LaunchServices. If the protocol is registered, opens
+discord://-/users/{id} directly in the app. Otherwise falls back to the
+HTTPS URL in the browser. Result is cached for the session.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2ad89509e8c17cd7794d9cc3ea2a8e722b0a5a49,2026-03-24T20:00:31+00:00,Human,,4,6,4,False,False,False,False,"v0.1.60: use HTTPS Discord links instead of discord:// protocol
+
+The discord:// protocol isn't reliably registered on Windows, causing
+""Get an app to open this link"" errors. HTTPS discord.com URLs work
+universally — Discord's desktop app intercepts them from the browser.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d41cdcd7200bbfe05c76015eab8e551033f40bb2,2026-03-24T19:52:35+00:00,Human,,21,3,4,False,False,False,False,"v0.1.59: add periodic stale presence cleanup
+
+When users force-quit, crash, or their machine sleeps, pushOfflineAndStop
+never fires and their DB row stays stuck at status='online'. Now each
+running client sweeps stale rows (>5min old) to offline every 5 minutes.
+Also cleaned up 124 existing stale rows in production.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,0bd934dfcc83683e81227626f4c640dc71a15611,2026-03-24T19:40:43+00:00,Human,,15,12,4,False,True,False,False,"v0.1.58: fix LFG toggle flickering on friends list
+
+Realtime presence sync was overwriting the DB-polled lookingToPlay state
+with undefined, causing the badge to flicker on/off. Now preserves the
+existing lookingToPlay value when merging Realtime updates.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,e1787b409d7f7623d07bfef3d85c93fa77330370,2026-03-24T19:12:04+00:00,Human,,11,0,1,False,False,False,False,"add YouTube link to web header nav
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,26773500167bc9336ac9237352144ee9c8d5f1b6,2026-03-24T19:11:25+00:00,Human,,11,0,1,False,False,False,False,"add Patreon link to web header nav
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,a0d10a2b5c96127ce257d32c657f142a62d897b0,2026-03-24T18:59:51+00:00,Human,,4,4,4,False,True,False,False,"v0.1.57: fix Discord deep link format to discord://-/users/{id}
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,ec877c9c6b0e082e806aac329dcf845b044f23b9,2026-03-24T18:53:24+00:00,Human,,6,4,4,False,False,False,False,"v0.1.56: try Discord app protocol before falling back to browser
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,3ac00ea7e888a0e74d19706cdbdd80f8a8d4b3aa,2026-03-24T18:49:53+00:00,Human,,34,8,9,False,False,False,False,"v0.1.55: clickable Discord badges open Discord profile for DM/friend request
+
+- Discord badge on PlayerCard now opens discord.com/users/{id} deep link
+- Syncs discord_id and discord_username from OAuth metadata on every agent start
+- discord_id included in discover/friends/incoming handlers (respects privacy)
+- Deep link opens Discord app where user can DM (if friends) or send request
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,4a213dd32f864a9ea11fa0d14fed7855e27f787a,2026-03-24T18:38:01+00:00,Human,,64,7,4,False,False,False,False,"add Discord invite link to web header nav, install Vercel Analytics
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,78939df9639c6844fb766382445f65d2f51e8f70,2026-03-24T18:26:52+00:00,Human,,6,4,4,False,False,False,False,"v0.1.54: hide region from own card when Hide Location is enabled
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,09aefcff0d320303ed1da8a46f0e377010b30cde,2026-03-24T18:20:42+00:00,Human,,5,5,4,False,False,False,False,"v0.1.53: show state/country instead of city for region display
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,b4844b745cb69aca3186eb59f4e2afc2fb2913c9,2026-03-24T18:17:31+00:00,Human,,75,10,7,False,False,False,False,"v0.1.52: add privacy settings for region and Discord visibility
+
+- New Settings toggles: ""Hide Location"" and ""Hide Discord from Non-Friends""
+- Privacy flags stored in profiles DB, honored in discover/friends/incoming handlers
+- Discover cards now show Discord username (when allowed by privacy settings)
+- Discord hidden from non-friends when setting enabled; region hidden globally when enabled
+- New migration: 014_privacy_settings.sql
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,37e0cb7a314613c21d2c2d06e00fc22c911b6c37,2026-03-24T18:04:19+00:00,Human,,218,49,14,False,False,False,False,"v0.1.51: add region display, match history flags, LFG toggle, web nav links
+
+- Display player region (City, State) on Discover, Friends, and own card
+- Add ""You played this person X days ago"" flags on Discover with sort priority
+- Add ""Looking to play"" toggle on Friends page (30min expiry, promotes in sort)
+- Add X/Twitter and Lucky Stats links to web app header nav
+- New migrations: 012_looking_to_play.sql, 013_region.sql
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,73c6e9d7e379ed88704d0c07ac6af7cd34b5f7a7,2026-03-24T17:02:47+00:00,Human,,18,8,5,False,False,False,False,"v0.1.50: show Discord username on play invite cards
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,fd51868246b592a7a98926c5f24acf6e20318e95,2026-03-24T16:52:16+00:00,Human,,19,4,4,False,True,False,False,"v0.1.49: fix character icons in stats panel (Slippi API returns strings, not IDs)
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,269b92abcad7298526933b41c3ceb916db02aa47,2026-03-24T16:26:48+00:00,Human,,75,7,7,False,False,False,False,"v0.1.48: add top characters to Discover cards from match history
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,88ab4dd96f2588689840ffe1e5334b1d774abef1,2026-03-24T15:46:39+00:00,Human,,4,4,3,False,True,False,False,"v0.1.47: fix Discover tab icon to match other nav items
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,62a84ace5b975334dc5098566baab1c9cc996894,2026-03-24T15:44:25+00:00,Human,,294,5,10,False,False,False,False,"v0.1.46: add Discover tab, broadcast banner, geolocation sorting
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,850546f877eff547b2dad552bc90c7811c48113e,2026-03-24T12:26:44+00:00,Human,,46,6,6,False,False,False,False,"v0.1.45: update README with screenshot and landing page style
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,5d18acbcb361f4f90f8878682271fcf982542d66,2026-03-24T12:22:58+00:00,Human,,4,4,4,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,dd6c88c6d4560577f7d27b67c2e591f9c20bf138,2026-03-24T12:20:57+00:00,Human,,3,3,3,False,False,False,False,"v0.1.44: unit tests, credential cleanup, gitignore updates
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,208abb91d2d3c27fe69ad615315dcd3117df6665,2026-03-24T12:15:00+00:00,Human,,1,54,2,False,False,False,False,"remove AGENTS.md from repo, add to gitignore
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,e26b94bc6d68ffea9501e3acb07d17b3ce307523,2026-03-24T12:13:09+00:00,Human,,4,1,2,False,False,False,False,"remove db password from AGENTS.md, add supabase .temp to gitignore
+
+Connection string was committed in plain text. Replaced with reference
+to .env file. Password should be rotated in Supabase dashboard.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,621809370d51f630912328b9ed24e7ffbcd3d0bf,2026-03-24T12:11:27+00:00,Human,,3472,1250,8,False,False,False,False,"add unit test suite with vitest (26 tests)
+
+Extract pure logic into presence-logic.ts so it's testable without
+Electron/Supabase mocks. Tests cover:
+
+- resolvePresenceStatus (process state → status mapping)
+- isDirty (when to push Realtime updates)
+- shouldWriteDb (dirty check + heartbeat interval)
+- isPresenceStale / resolvePresenceRow (crash detection)
+- isOpponentRecent (opponent timestamp threshold)
+- normalizeConnectCode (input sanitization)
+
+Run with: cd apps/agent && npm test
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,40fcc6b19383f00f488f0b6471c18ce4ba7773bc,2026-03-24T12:04:23+00:00,Human,,3,3,3,False,False,False,False,"v0.1.43: Realtime presence via ws, heartbeat tuning
+
+- Install ws package for WebSocket in Electron main process
+- Realtime Presence now connects (was broken since launch)
+- DB heartbeat every 2.5min, staleness threshold 5min
+- Debug panel gated to SMOK#1
+- Generation guard prevents stale subscribe callbacks
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,58fd06912cbd6b51a2a9e55776390c5a93ea72b1,2026-03-24T12:03:20+00:00,Human,,2,2,2,False,False,False,False,"tune: staleness threshold 5min, heartbeat 2.5min
+
+Crash detection doesn't need to be instant. Gives plenty of margin
+while reducing DB writes further.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,9d3a08c7171203e5a101e025a96680dd44c4768d,2026-03-24T12:00:31+00:00,Human,,52,46,1,True,True,False,False,"fix: DB write on dirty OR 60s heartbeat, not every tick
+
+Writes to presence_log when status changes (dirty) or when 60s has
+elapsed since the last write (heartbeat). This keeps updated_at fresh
+enough to avoid false staleness without hammering the DB every 10s.
+
+Realtime track still only fires on actual status change.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,12c817c7189a989550d3ad79515645012f7cf605,2026-03-24T11:58:40+00:00,Human,,12,6,1,True,True,False,False,"fix: always write DB heartbeat, only track Realtime on status change
+
+DB upsert now runs every tick (heartbeat) to keep updated_at fresh —
+prevents other clients from falsely marking users as stale/offline.
+
+Realtime track still only fires when status/character/opponent actually
+changes (efficient push-based updates for connected clients).
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c1827c4c728d6a05b3eb06defd81904ea5b1b0b9,2026-03-24T11:50:27+00:00,Human,,8,0,1,True,True,False,False,"fix: prevent double startAgentServices call that kills Realtime channel
+
+Boot sequence calls refreshAgentState, then renderer triggers agent:refresh
+shortly after. The second call tears down the already-connected Realtime
+channel and the re-subscribe times out. Track activeServiceKey to skip
+restart when services are already running for the same user/identity.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,72d1114fdd8a2f2fd678f477be8a0a33c83eaab6,2026-03-24T11:41:36+00:00,Human,,12,4,5,True,True,False,False,"fix: prevent double refreshAgentState race killing Realtime channel
+
+Root cause: main process calls refreshAgentState() on startup, and the
+renderer also calls it via agent:refresh IPC when it reaches ready state.
+Both run concurrently, causing two subscribeChannel calls. The second
+tears down the channel the first just connected.
+
+Fix: add refreshLock mutex to refreshAgentState(). Also detect
+post-subscribe CLOSED events so the retry logic can kick in if the
+connection drops after being established.
+
+v0.1.42
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,df124d0f27ff6eb5b974f02e27a785191e54dcae,2026-03-24T11:37:02+00:00,Human,,18,7,1,True,True,False,False,"fix: race condition in Realtime subscribe causing teardown after connect
+
+startPresenceLoop is called twice during init. The first call's pending
+subscribe timeout would fire after the second call successfully connected,
+tearing down the working channel. Added a generation counter so stale
+subscribe callbacks and timeouts are silently ignored.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,02e61447178facdbdde8050bb8cbbab01f67db6f,2026-03-24T11:34:00+00:00,Human,,197,34,11,True,True,False,False,"fix: add ws WebSocket transport for Realtime, gate debug panel to SMOK#1
+
+Realtime presence never worked because Electron's main process (Node.js)
+has no native WebSocket. Install ws package and configure it as the
+transport for Supabase Realtime. Also set globalThis.WebSocket polyfill.
+
+Debug Connection Health panel in Settings now only renders for SMOK#1.
+Added diagnostic logging to Realtime subscribe flow.
+
+v0.1.41
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,eb75a76fc4bca965d58ff155d4ee5d6e16314e69,2026-03-24T11:13:33+00:00,Human,,118,13,5,True,True,False,False,"fix: localhost callback server for Linux auth, bump to v0.1.40
+
+Instead of relying on slippi-friends:// protocol handler (broken on most
+Linux DEs), spin up a temporary localhost HTTP server on port 18457.
+After Discord auth, Supabase redirects to the local server which serves
+an HTML page that extracts tokens from the URL hash and posts them back.
+Completely eliminates the need for manual URL pasting on Linux.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,e7063ff8c6f8de0c5078af41d4755c629ad89149,2026-03-24T11:07:20+00:00,Human,,28,10,3,True,True,False,False,"fix: mobile layout for landing page
+
+- Fix description text running together on mobile
+- Stack setup steps vertically on small screens
+- Fix MacNote code overflow on mobile
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2b9d728ec9a55dbf5ec4d9b028d5750fb156ec38,2026-03-24T10:52:38+00:00,Human,,152,46,7,True,True,False,False,"fix: Linux auth UX, connect code validation, search box bug, bump to v0.1.39
+
+- Auto-show manual paste input on Linux for auth flow
+- Show error/success feedback on manual auth paste
+- Make auth callback URL parsing more resilient
+- Require # in connect codes before accepting
+- Fix search box disappearing when typing (use unfiltered count)
+- Add AGENTS.md with release process docs
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,0f33b66024eed0ee945a3e364f9a7130f9beea9f,2026-03-24T10:20:05+00:00,Human,,81,21,10,True,True,False,False,"fix: Linux auth, Windows update gridlock, notif spam, backfill limit
+
+1. Linux auth: add xdg-open fallback + manual URL paste input for
+   DEs where the custom protocol handler doesn't work
+2. Windows update: set isQuitting flag and force exit after 3s so
+   NSIS installer can replace the running binary
+3. Notification spam: suppress all notifications on first poll cycle
+   after startup so old friend requests/statuses don't spam
+4. Backfill: cap at 10 replays per Load More press to prevent the
+   app from grinding to a halt on large replay libraries
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,3ffe34873974dd1407a6a7e377a8dd60392b41b4,2026-03-24T02:01:23+00:00,Human,,33,2174,44,False,False,False,False,"add player count indicator, gitignore .agents, bump to v0.1.37
+
+- Show ""X players on friendlies"" in top-right of desktop app
+- Polls profile count every 60s
+- Remove .agents/ from repo, add to .gitignore
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,f9204721ad439e4e89d745791454c5acceb01bcf,2026-03-24T01:12:04+00:00,Human,,3,3,3,False,False,False,False,"bump to v0.1.36
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,0d23f6dad7e957c1d6f4d42a8a004f81542f2a17,2026-03-24T01:10:59+00:00,Human,,6,5,1,True,True,False,False,"fix: only check identity spoofing on live replays, not backfill
+
+Historical replays from different connect codes were triggering
+false-positive bans during backfill. The mismatch detection now
+only runs for new replays detected by the live file watcher.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,a50fac7d99581f989822006576f3dc19866a85f2,2026-03-24T00:49:58+00:00,Human,,25,7,2,False,False,False,False,"show xattr note only on macOS
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,a693a05deb0b338301264dc403a8525b87f60357,2026-03-24T00:47:02+00:00,Human,,8,0,1,False,False,False,False,"add macOS xattr note on landing page
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,9924bb6941efd5b44ef638c1c44dbf0438a89e49,2026-03-24T00:35:55+00:00,Human,,5,1565,2,False,False,False,False,"add README linking to luckystats.gg/friendlies, remove spec.md
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,937803cfcbe16bd5ec2b0c4d56817c66a6a134a5,2026-03-24T00:17:12+00:00,Human,,3,3,3,False,False,False,False,"bump to v0.1.35
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,084d353817eec387c4d5297c5e3eb3bfd1533e74,2026-03-24T00:10:44+00:00,Human,,26,23,2,True,True,False,False,"fix: hydration mismatch in nav, step layout uses CSS grid
+
+- Use useEffect for home href to avoid SSR/client mismatch
+- Steps use explicit 5-column CSS grid (1fr auto 1fr auto 1fr) so
+  text columns get equal space and arrows sit between them
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,215a1bd93b3cdefb7ceb267007f49950b93b4356,2026-03-24T00:09:39+00:00,Human,,29,26,2,True,True,False,False,"fix: step layout uses fixed-width columns with arrows, logo links to /friendlies
+
+- Each step has a fixed-width column so text never gets squished
+- Arrows (→) between steps instead of finicky connector lines
+- Logo links to /friendlies when on luckystats.gg, / otherwise
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,a5484f1c6338c9c9a5e25ab1b55e87a2b80e5449,2026-03-24T00:06:43+00:00,Human,,30,145,2,False,True,False,False,"remove Discord sign-in from web, fix step layout
+
+- Strip all auth UI from web Navigation (app-only feature now)
+- Separate step circles/connectors from labels so text doesn't wrap
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,19406393619c91f43d503eca7f7922e3890f1a40,2026-03-24T00:03:57+00:00,Human,,16,6,3,True,True,False,False,"fix: redirect back to user's origin after OAuth
+
+Pass return_to param through the auth flow so users on luckystats.gg
+land back on luckystats.gg/friendlies/friends after Discord auth,
+not on the raw Vercel deployment URL.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,4bc0c1722dd3e6317e677a5c3cb4947ca0749961,2026-03-24T00:02:39+00:00,Human,,4,4,2,True,True,False,False,"fix: use NEXT_PUBLIC_APP_URL for OAuth redirect to avoid proxy 404
+
+When accessed via luckystats.gg/friendlies, the /auth/callback path
+isn't covered by the rewrite proxy. Redirect auth callbacks to the
+Vercel deployment URL directly.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,8c35296ba5e709ec11c76f47156dacefcab2b8aa,2026-03-24T00:00:13+00:00,Human,,8,8,1,True,True,False,False,"fix: remove trailing connector line after step 3
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,ca22147fb48162e632d7c80c405b370fbb28eaae,2026-03-23T23:56:41+00:00,Human,,21,37,3,True,True,False,False,"fix: Windows download uses installer, remove portable, redesign setup steps
+
+- DownloadButtons now prioritizes Setup .exe over portable for Windows
+- Removed portable target from electron-builder config
+- Fixed publish.repo from slippi-friends to friendlies in electron-builder
+- Replaced feature card grid with horizontal 1 → 2 → 3 setup flow
+- Favicon already using asset prefix for luckystats.gg compatibility
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,cf4d217c69f7cc85d690b66fce2fb2c8e891c0c8,2026-03-23T23:54:47+00:00,Human,,11,5,4,True,True,False,False,"fix: resolve image loading through luckystats.gg rewrite
+
+Disable Next.js image optimization and prefix all static image paths
+with NEXT_PUBLIC_ASSET_PREFIX so images load from the Vercel deployment
+when accessed through the luckystats.gg/friendlies proxy.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,db47008040977bdef466278f157ffd95e00149fe,2026-03-23T23:51:28+00:00,Human,,9,0,1,False,False,False,False,"Suppress presence RLS error spam to once per minute
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,3fb0e90ec0dde9ec922959446758cb4d7b44a8a6,2026-03-23T23:50:41+00:00,Human,,4,0,1,False,False,False,False,"Use l7 logo as favicon
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c95a44c300520b04b94d76bebcb4c5af51dab7a7,2026-03-23T23:49:02+00:00,Human,,5,5,1,False,False,False,False,"Landing: widen content, tighten vertical spacing
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,9f09494de4b78cf68fafb29b9db1fd221ca8e71b,2026-03-23T23:48:18+00:00,Human,,51,55,5,False,False,False,False,"Landing: add app screenshot, rework features with setup steps
+
+- App screenshot from appexample.png below the hero.
+- Setup steps (1. Install, 2. Sync Discord, 3. Play) nested
+  inside the Live presence feature card.
+- Removed standalone ""How it works"" section.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,414bd48705e01d4c9096a8be01752f9d3a0502b0,2026-03-23T23:39:32+00:00,Human,,4,1,2,False,True,False,False,"Add assetPrefix for cross-domain rewrite support
+
+When NEXT_PUBLIC_ASSET_PREFIX is set, CSS/JS assets load directly
+from the Friendlies Vercel deployment instead of the proxying host.
+Fixes unstyled page when accessed via luckystats.gg/friendlies rewrite.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,8061bab262ab74f83a4677990537423046dd0825,2026-03-23T23:37:16+00:00,Human,,33,33,16,False,False,False,False,a
+https://www.github.com/0xburn/friendlies,af16eb0c5ab47713313b1fd3b479ac943a16a2ff,2026-03-23T23:31:02+00:00,Human,,2,3,3,False,False,False,False,"Revert basePath — Vercel rewrites handle prefix stripping
+
+basePath is unnecessary; luckystats.gg rewrites will proxy
+/friendlies/* to the Vercel app root. Reverts OAuth redirectTo
+paths to non-prefixed. Updates NEXT_PUBLIC_APP_URL to new domain.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,33a31b17329a65bf174dc7dc58cc8dc523947058,2026-03-23T23:26:17+00:00,Human,,28,27,7,False,True,False,False,"Web: rebrand nav, basePath /friendlies, fix OAuth redirect, remove settings
+
+- Nav: l7logo, lowercase white ""friendlies"", remove Settings link.
+- Add basePath: '/friendlies' to next.config.js for luckystats.gg hosting.
+- Fix Discord OAuth redirect using localhost — now uses NEXT_PUBLIC_APP_URL.
+- Update OAuth redirectTo to include /friendlies prefix.
+- Update GitHub release links to 0xburn/friendlies.
+- Share blurb now points to luckystats.gg/friendlies.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,0f0c505f1ab3c3325d41e3d7233acada7f0fd7e9,2026-03-23T23:16:55+00:00,Human,,5,5,3,False,False,False,False,"v0.1.34: Lowercase branding, clean slate release
+
+- Sidebar branding: lowercase ""friendlies"" in white.
+- Deleted all prior releases — fresh start.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,5506896bef91e4e22f5a50e9398f0ed97b5c4328,2026-03-23T23:11:54+00:00,Human,,162,157,23,False,False,False,False,"v0.1.33: Rename to Friendlies, merge online states, add status filter, redesign landing
+
+- Rename app from ""Slippi Friends"" to ""Friendlies"" across all UI,
+  notifications, tray, build config, electron-builder, and web app.
+- Merge 'waiting' into 'online' — app open = online (green dot).
+- Sort friends by activity: in-game with character > in-game > online > offline.
+- Add status filter buttons (All / Online / In Game / Offline) to friends list.
+- Redesign Next.js landing page: minimal, clean layout with no fluff.
+- Update artifact names to Friendlies-Setup / Friendlies-portable.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d50808613b04847b8711cc880ef20e88c0256d66,2026-03-23T22:51:27+00:00,Human,,46,15,8,False,False,False,False,"v0.1.32: Add 'waiting' status, anti-spam invite notifications, share button
+
+- New 'waiting' presence state (yellow dot) when app is open but Slippi
+  Launcher is not running. Sits between offline and online.
+- Play invite notifications suppressed for invites sent before the app
+  was opened (prevents notification spam on login).
+- Friend online notifications now trigger for waiting state too.
+- ""Share with a Friend!"" button in sidebar copies download link to clipboard.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,c78ad1e1016e97ed8804be90d343e028e8562b2c,2026-03-23T22:44:59+00:00,Human,,56,4,4,False,False,False,False,"v0.1.31: Play invite inbox on Friends page
+
+Shows up to 3 recent play invites in an amber banner at the top of
+the Friends page with relative timestamps. ""Clear all"" button
+deletes all invites from DB. Polls every 10s so invites appear
+even if the user was offline when the invite was sent.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,468e48506883e1d5c923a2f3d90699bb4aeff8ec,2026-03-23T22:40:34+00:00,Human,,14,9,4,False,True,False,False,"v0.1.30: Fix play invite notifications not firing independently
+
+pollPlayInvites was nested inside pollFriendOnlineStatuses, so any
+early return (no friends, friend-online toggle off) would skip the
+invite poll entirely. Now all three polls run independently in parallel.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2fd3eb4d31a566609040a8e8a4bb3501121e4317,2026-03-23T22:34:16+00:00,Human,,9,4,4,False,False,False,False,"v0.1.29: Suppress transient 404 updater errors
+
+Don't show scary error banners for 404s (build in progress) or
+network errors — just log and retry next cycle.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,ee305643c769be8108ccd601a16bf3ca9c5e1535,2026-03-23T22:23:55+00:00,Human,,54,24,7,False,True,False,False,"v0.1.28: Fix invite-to-play — use connect code instead of friend_id
+
+friend_id can be null for friends added before they joined the app.
+Now resolves the receiver by connect code → profile lookup instead.
+Also removed FK join queries that could fail silently.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2e124531f6a0724bf71c45fae8479cfa200f6a14,2026-03-23T22:18:08+00:00,Human,,0,2,1,True,True,False,False,"Fix: remove GH_TOKEN from electron-builder step
+
+electron-builder was creating draft releases even with --publish never
+because it had access to GH_TOKEN. Only softprops/action-gh-release
+should create releases.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,e1ba9be7226f60e0ba8012c1162b71c23291d126,2026-03-23T22:13:42+00:00,Human,,242,36,10,False,False,False,False,"v0.1.27: Invite to Play + granular notification settings
+
+- ""Invite to Play"" button on accepted friend cards (5min cooldown)
+- Receiver gets native desktop notification ""[code] wants to play!""
+- Notification settings split into: master toggle, Friend Online, Play Invites
+- Sub-toggles disabled when master is off
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,216b9f33a3c10ad8786dcd29be0825ec1ea03562,2026-03-23T22:05:37+00:00,Human,,20,9,3,False,False,False,False,"v0.1.26: Show ""Up to date"" after manual update check
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,16d9dba36b3354089c72af1fe3ddd9134368f2f6,2026-03-23T22:00:39+00:00,Human,,37,10,4,False,False,False,False,"v0.1.25: Show update errors, add manual check button
+
+Update errors are now displayed instead of silently hidden.
+Added ""Check for Updates"" button in Settings for manual triggering.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,671e872fbb023e4d9912dceff7b0e4bfb3a4a368,2026-03-23T21:54:41+00:00,Human,,12,4,4,False,False,False,False,"v0.1.24: Check for updates more frequently
+
+Poll every 10min instead of 60min, and also check on window focus
+(throttled to once per 5min) so users see updates sooner.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,02b3f3e7f54834a899eaef0f3f326d8cc4609810,2026-03-23T21:51:37+00:00,Human,,14,7,5,False,True,False,False,"v0.1.23: Fix logout — stop services and reload app
+
+Logout now stops all background services (presence, watcher, polling)
+before clearing the session. Renderer reloads to re-run boot instead
+of navigating to a non-existent route.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,b47801b55957461fb98edfa283b65c55702dc253,2026-03-23T21:48:41+00:00,Human,,18,4,5,False,False,False,False,"v0.1.22: Persist refreshed auth tokens to prevent re-login
+
+Supabase auto-refreshes JWT tokens every ~1h, but the new tokens
+were never saved to electron-store. On next app restart the old
+(revoked) refresh token would fail, forcing a full Discord re-auth.
+Now listens for TOKEN_REFRESHED events and persists updated tokens.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,3186fa944fba97f8dcd761f406bd77cebee0c778,2026-03-23T19:59:46+00:00,Human,,26,3,4,False,True,False,False,"v0.1.21: Fix one-sided friend removal
+
+friends:remove now deletes both the user's row and the reciprocal
+row so unfriending/rejecting is symmetric.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,3cdd377deee9d70a93f89313e50199f907664a0b,2026-03-23T19:55:50+00:00,Human,,3,3,3,False,False,False,False,"v0.1.20: Version bump to test auto-update flow
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,96e6f4cc43393dda31962283f1be7ada76b5e9ae,2026-03-23T19:52:14+00:00,Human,,4,3,4,False,True,False,False,"v0.1.19: Fix auto-update download — NSIS artifact name mismatch
+
+The latest.yml referenced 'Slippi-Friends-Setup-x.y.z.exe' but the
+actual file was 'Slippi Friends Setup x.y.z.exe' (spaces → dots on
+GitHub). Set explicit artifactName to ensure they match.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,cffdefacddd74f049889611e72de941f3cd90315,2026-03-23T19:49:20+00:00,Human,,3,3,3,False,True,False,False,"v0.1.18: Fix one-sided friendship bug, persistent update banner
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,3d2904994299effab345065c6ff4c6ca6e90da53,2026-03-23T19:48:40+00:00,Human,,27,11,1,False,True,False,False,"Fix one-sided friendship bug: auto-accept any existing row, not just pending
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d7f3974d91fe69eed10cf2b437188ca0254e0ff7,2026-03-23T19:43:55+00:00,Human,,3,3,3,False,False,False,False,"v0.1.17: Version bump to test auto-update flow
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,1fcf299bfb5db562c83e82081665d19108004554,2026-03-23T19:37:25+00:00,Human,,37,45,1,False,False,False,False,"Keep update banner visible during download with progress bar
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,a89d826120f7b042d09288f5daae0d99a1792f9c,2026-03-23T19:36:50+00:00,Human,,4,24,4,False,True,False,False,"v0.1.16: Fix duplicate update banners, preserve character in-game
+
+- Remove duplicate blue update banner from Friends page; only the
+  floating UpdateBanner (with progress bar + restart) remains
+- Preserve user character across in-game transitions so it shows
+  during gameplay instead of being null
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,dcff559f2449fdce87e36275747fe306d516c4fb,2026-03-23T19:29:06+00:00,Human,,0,1,1,False,False,False,False,"Preserve user character across in-game sessions
+
+Don't reset lastCharacterId when transitioning to in-game. The .slp
+file is only written after a game ends, so character info was always
+null during the first game. Now the previous game's character carries
+forward until a new replay overwrites it.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,ab4b95c380176bf600c18f060641cf111fe0020a,2026-03-23T19:24:45+00:00,Human,,3,3,3,False,True,False,False,"v0.1.15: Windows fixes — notifications, clean quit, destroyed window crash
+
+- Set AppUserModelId so Windows notifications actually display
+- Quit app on window close (Windows/Linux) to stop background tasks
+- Guard against 'Object has been destroyed' crash on window close
+- Auto-updater yml manifests now uploaded to releases
+- Releases marked as non-prerelease so auto-updater detects them
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,24648e63b319a00a4b418cdc8da2374327e7dbe6,2026-03-23T19:24:06+00:00,Human,,4,0,1,False,True,False,False,"Fix Windows notifications by setting AppUserModelId
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,05396de494c125ada78cae729629d80dde249159,2026-03-23T19:22:26+00:00,Human,,6,1,1,False,False,False,False,"Quit app on window close (Windows/Linux) to stop background tasks
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,3936608f08c770e2608475a46ea872991a77fb65,2026-03-23T19:21:14+00:00,Human,,2,2,2,False,True,False,False,"Fix 'Object has been destroyed' crash on Windows close
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,1cf03a54b29d11630fa1bd44ed527995cd2ba6be,2026-03-23T19:18:53+00:00,Human,,9,4,5,False,True,False,False,"v0.1.14: Fix auto-updater — publish yml manifests, mark releases as non-prerelease
+
+electron-updater needs latest.yml/latest-mac.yml in GitHub release assets
+to detect updates. The workflow was not uploading these files, and all
+releases were marked as pre-release (which electron-updater ignores).
+Also added allowPrerelease as a safety net.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,afa74e9e8d25f0eada534f42cf12c50db9ab47d2,2026-03-23T19:14:02+00:00,Human,,58,4,5,False,False,False,False,"v0.1.13: Add desktop notification for incoming friend requests
+
+Polls for new pending friend requests every 15s alongside the existing
+friend status poll. Fires a native notification when a new request
+arrives; clicking it brings the app window to the foreground.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,cc88ad8a305924493546390896316a5312ff6df0,2026-03-23T18:57:00+00:00,Human,,301,82,10,False,False,False,False,"v0.1.12: Remove Dashboard, Friends as default, controller icon, loading skeletons, smart pagination
+
+- Remove Dashboard page; Friends is now the default tab
+- Add player status card with live in-game state to top of Friends
+- Replace in-game checkmark with Lucide gamepad controller icon (30% larger)
+- Add skeleton loading states to Friends and Opponents pages
+- DB-first pagination for Load More with background disk scanning
+- Async file collection to avoid blocking main process
+- Move update banner into Friends page
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,aa370dea35eb04e0192ae3bc1a47fa810c20f1fb,2026-03-23T18:05:04+00:00,Human,,3,3,3,False,True,False,False,"v0.1.11: Fix friend online notifications firing from any page
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,7e4a89327f6cc50231f6c24477d60a2dc08ea925,2026-03-23T18:04:29+00:00,Human,,43,11,2,False,False,False,False,"Move friend online notifications to main process poll
+
+Notifications only fired when the Friends page was active because the
+polling lived in the renderer-triggered IPC handler. Now a 15s interval
+in the main process polls friend statuses independently, so notifications
+work regardless of which page is open.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,fddb281816a32a5c10e330bf56103b9f6b25a265,2026-03-23T17:47:00+00:00,Human,,25,2,2,False,True,False,False,"Add update banner to Dashboard, fix stale version in Settings
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,db989f98eb27d61b82aaa9f3659359720df02bad,2026-03-23T17:27:33+00:00,Human,,3,0,2,False,False,False,False,"Track app_version in profiles table on each boot
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d6e4c0c41ed0f353ba13fa0e4cdd602d53627a79,2026-03-23T17:19:04+00:00,Human,,322,84,14,False,True,False,False,"v0.1.10: Fix connect code matching, perf, notifications, and identity flow
+
+- Fix critical normalizeConnectCode bug: \u8194 (wrong char) → strip all
+  non-alphanumeric. Was causing connect code matching to always fail,
+  wrong character assignment (port1 assumption), and potential false bans.
+- Add encoding-mismatch safeguard to prevent false identity bans
+- Windows X button now properly quits (macOS-only hide-to-tray)
+- Backfill reduced from 7 days to 2 days with batched yielding to
+  prevent window freeze
+- Smart opponent polling: loads DB first, only scans files newer than
+  latest DB record or last 2 days
+- Friend online/in-game desktop notifications (Steam-style)
+- Friends page polls friends list + incoming requests every 10s for
+  real-time state updates without tab switching
+- Friends in-game status now shows character + opponent (was missing
+  current_character from DB query)
+- Process checks run in parallel (Promise.all) instead of sequential
+- Removed unused hasRecentReplayActivity dir walker
+- Presence logging only on status transitions
+- Realtime channel: 1 retry at 4s timeout, then DB-only polling
+- Profile auto-sync on boot with claim protection
+- Code-claimed UI screen when connect code owned by another user
+- Stale account detection: cross-references Slippi Launcher active
+  account with user.json
+- Auto-detect replay dir from Slippi Launcher settings
+- Self-add friend prevention
+- Version bump to 0.1.10
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,b33235fb62a1048fcd5da99285be69ac4b1260cf,2026-03-23T15:50:21+00:00,Human,,193,54,9,False,True,False,False,"Fix opponent detection, in-game display, and friend status polling
+
+- Fix watcher: use directory watching instead of glob pattern (chokidar
+  macOS compatibility), add ready/error/detection logging
+- Fix friend statuses: query 'friends' table instead of 'friendships',
+  add user_id filter, bump stale threshold to 45s
+- Add opponent character tracking: setLastOpponent now accepts characterId,
+  propagated through LocalStatus to UI
+- Add in-game banner on Dashboard showing ""Playing Fox vs CODE (Marth)""
+  with character icons
+- OnlineIndicator shows character short names in vs text
+- Clear character/opponent data on in-game session start and on
+  transition to online/offline
+- Opponents page: auto-refresh on tab visit, rescan button, use file
+  mtime for played_at timestamps
+- Bump version to 0.1.9
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,57eabf125af4b8cd10490d0ec96576ba519489d9,2026-03-23T15:03:22+00:00,Human,,2,4,1,False,False,False,False,"In-game = Dolphin running, not Dolphin + hot replay
+
+Dolphin open means you're in-game, period. Replay file activity
+is only for enriching who you're playing against (opponent info),
+not for determining the in-game state itself.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2e67b2a81405deb16f8fd0af050340ebc46291a2,2026-03-23T15:02:33+00:00,Human,,109,20,6,False,True,False,False,"Fix all presence issues: speed, quit, in-game, friend DB polling
+
+1. Poll interval 15s → 5s for snappier status transitions
+2. Scan replay subdirectories (dated folders like 2026-03/) for
+   in-game detection — was only checking top-level dir
+3. Properly await offline DB write on quit — was fire-and-forget
+   so app exited before the write completed
+4. Friends page polls presence_log DB every 10s as fallback since
+   Realtime channel keeps timing out. Treats rows >20s stale as
+   offline so force-quit users don't stay online forever
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,f845195780e63a739ce5a969e49309d1079453af,2026-03-23T14:50:51+00:00,Human,,28,9,1,False,True,False,False,"Fix presence DB upsert: log errors, fallback without new columns
+
+The upsert was silently failing because opponent_code/playing_since
+columns from migration 007 haven't been applied yet. Now:
+- Logs the actual error to console
+- Falls back to upsert without new columns if they don't exist
+- DB will update even before migration is applied
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,46953ac65b66645ae1c6a2930c775a6369e9aeff,2026-03-23T14:49:51+00:00,Human,,7,2,2,False,False,False,False,"Re-add Slippi Launcher process check for online status
+
+Status logic restored to match requirements:
+- Launcher OR Dolphin running → Online (green)
+- Dolphin + active replay → In-Game (checkmark)
+- Neither running → Offline (gray)
+
+Now uses non-strict (substring) matching so process detection
+actually works across platforms. Skips replay check when Dolphin
+isn't running to avoid unnecessary filesystem reads.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,6e972d85cb778c0203f201c1836c2db51ceef5da,2026-03-23T14:47:59+00:00,Human,,14,3,5,False,True,False,False,"Fix presence bugs: tab switching, process detection, immediate status
+
+1. Status resets to offline on tab switch — Dashboard now fetches
+   current status immediately on mount via getLocalStatus IPC call,
+   so navigating away and back doesn't flash gray
+
+2. In-game not detected on macOS — find-process was using strict
+   name matching which missed Dolphin. Switched to substring match
+   and added more process name variants (Slippi_Dolphin, Dolphin)
+
+3. Added process detection logging to diagnose future issues
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,9097bf21ae3b4fc4d7cbf3a8e8308f250b0b9f8d,2026-03-23T14:43:52+00:00,Human,,55,17,4,False,True,False,False,"Fix presence: direct local status push + channel retry
+
+The Dashboard status dot was gray because it depended on seeing
+itself through the Supabase Realtime channel, which was timing out.
+
+- Add direct localStatus IPC event pushed every tick from main process
+  so the Dashboard always knows its own status without Realtime
+- Add 30s retry logic when channel subscription fails
+- Dashboard now subscribes to onLocalStatus instead of searching
+  for itself in the Realtime users list
+- Fixes stale closure issue (no longer needs identity ref)
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d4a7cd5eb6df3f394eee7c9fd6f2c99aa31b723a,2026-03-23T14:39:03+00:00,Human,,29,12,1,False,False,False,False,"In-game indicator: green circle with checkmark instead of yellow dot
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,b7b95f62d0450b78c6361e9129f962083d4827b7,2026-03-23T14:38:06+00:00,Human,,3,7,3,False,True,False,False,"Fix presence: agent running = online, no launcher process check
+
+The presence loop running is the online signal — no need to detect
+Slippi Launcher as a separate process. Status is now symmetrical:
+what you see on your Dashboard is exactly what friends see.
+
+- Online (green): agent is running
+- In-Game (yellow): Dolphin running + active replay
+- Offline (gray): agent closed / stale heartbeat
+
+Bump to v0.1.8
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,8f287ee3d640238da44a755c632a881eeda4d987,2026-03-23T14:35:08+00:00,Human,,159,38,10,False,True,False,False,"Overhaul presence system: Launcher-based online, opponent tracking
+
+Status logic:
+- Slippi Launcher running → Online
+- Launcher + Dolphin + active replay → In-Game
+- Launcher not running → Offline (was: Dolphin-only)
+
+New features:
+- Track current opponent from watcher, show ""vs ABCD#123 5m"" on
+  friend cards and dashboard when in-game within last 10 minutes
+- Add opponent_code and playing_since to presence_log and Realtime payload
+- Fix Dashboard stale closure bug (identity ref was null on first render)
+- Presence stale threshold (45s) for web app TTL convention
+
+Bump to v0.1.7
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,429a97f4b7a8669ab44aaee508253d09c074fbfd,2026-03-23T14:24:15+00:00,Human,,19,11,1,False,False,False,False,"Add prominent Discord icon badge to PlayerCard
+
+Discord username now shows as a styled pill with the Discord logo
+in brand purple, making it immediately visible for accepted friends.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,84df413c21438a81d25f398c284bb748ea2ea60f,2026-03-23T14:20:34+00:00,Human,,30,17,3,False,False,False,False,"Limit session character icons to top 2 by volume, bump to v0.1.6
+
+- Track character play counts per session instead of just unique IDs
+- Show only the 2 most-played characters per side, sorted by game count
+- Bump version to 0.1.6
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,630efb34a6673e474d9742d78588b120badc8618,2026-03-23T14:19:10+00:00,Human,,260,7,9,False,False,False,False,"Add in-app auto-updater via electron-updater
+
+- New updater module checks GitHub Releases on launch and hourly
+- Windows/Linux: full download-and-install flow
+- macOS: works if code-signed, gracefully degrades otherwise
+- Floating banner UI shows update available / downloading / ready states
+- electron-builder.yml configured with GitHub publish target
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,f82e3cf3e2fd4ebf1e69fb36b7e8e458a766dc96,2026-03-23T14:15:19+00:00,Human,,197,1,7,False,False,False,False,"Add blacklist system for identity spoofers
+
+- New `blacklist` DB table with user_id, discord_id, reason, and evidence
+- Watcher inserts a ban record when identity mismatch is detected
+- Boot flow checks blacklist and shows ""Account Suspended"" screen
+- verify-slippi edge function rejects banned users with 403
+- Mismatch screen updated to inform user their account has been flagged
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,8accf9374aa338a9c73ced10a67b64ed554eeb2d,2026-03-23T14:07:16+00:00,Human,,268,24,5,False,False,False,False,"Add connect code claiming, opponent session grouping, character matchups
+
+- Migration 005: unique partial index on profiles.connect_code
+- verify-slippi: reject if connect code already claimed by another verified
+  user, with recovery email instructions
+- Opponents page: group games into sessions (30min gap), show W-L record,
+  player vs opponent character matchup icons
+- Show Discord username (with icon) only for accepted friends
+- Bump v0.1.5
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,90fd2f1da64d5a940b2a526cdcaf6da19511ae75,2026-03-23T01:55:36+00:00,Human,,74,13,5,False,True,False,False,"Fix auth browser not opening on Windows
+
+- Add Windows fallback using exec('start') when shell.openExternal fails
+- Copy auth URL to clipboard as last resort
+- Return auth URL to renderer so user can open/copy manually
+- Add ""Browser didn't open?"" fallback links in AuthPrompt UI
+- Bump v0.1.4
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,90f5533138ed98521316c1b8088c78dd8b834002,2026-03-23T01:45:11+00:00,Human,,14,11,5,False,True,False,False,"Fix Discord auth on Windows: use Supabase URL fallbacks in auth flow
+
+The packaged app didn't bundle .env, so process.env.SUPABASE_URL was
+empty and getAuthorizeUrl() threw silently — browser never opened.
+Also skip single-instance lock in dev mode, add rounded logo, bump v0.1.3.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,f076f4da4635d554f4c22e17c7c90ad416a279e4,2026-03-23T01:25:15+00:00,Human,,29,7,2,False,False,False,False,"Add more Windows Slippi Launcher paths and deeper scan for user.json
+
+The Slippi Launcher 2.x+ stores user.json in nested User/Slippi/ dirs
+that we weren't checking. Also broadens scan depth and directory filters.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,7a46f1b612563329a75c105691289709e40c612c,2026-03-23T01:20:12+00:00,Human,,5,5,3,False,True,False,False,"Fix production asset paths: use relative paths for file:// protocol
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,05812ae6f46ac998231da59afd37b50ecdf07901,2026-03-23T01:15:55+00:00,Human,,5,5,9,False,False,False,False,"Rounded logo corners for app icon, tray, and UI
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,613576f8f2f6abc8d7dc57bcb5437d5faf054277,2026-03-23T01:04:44+00:00,Human,,1,0,1,False,True,False,False,"Add repository field to fix electron-builder publish detection
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,b10d15793ed23fa926565882f41f7d7d3b8d2e41,2026-03-23T01:01:36+00:00,Human,,1,1,1,False,True,False,False,"Fix CI: use nested install strategy to fix binary dep resolution
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,9daafcaef4b2a931fa9566429b2e905c559c2e96,2026-03-23T00:56:59+00:00,Human,,4,1,2,False,True,False,False,"Fix CI: hoist 7zip-bin to root for cross-platform binary resolution
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,2c3fcd224f238edeb6f15a111769256d8f19a67c,2026-03-23T00:53:17+00:00,Human,,692,1681,3,False,True,False,False,"Fix CI: downgrade electron-builder to v24 and hoist app-builder-bin to root
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,4f3cd971efade4609830a66cd07ddf6e292f6d06,2026-03-23T00:47:55+00:00,Human,,4,1,1,False,True,False,False,"Fix CI: delete lockfile before install to resolve cross-platform optional deps
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,42ba112309d73d70910b77b1afc77c0713d89fa1,2026-03-23T00:45:25+00:00,Human,,1,7,1,False,True,False,False,"Fix CI: use npm install instead of npm ci for cross-platform deps
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,6a040b0f611e7dfbb0f2f560ec304c72ab6ef060,2026-03-23T00:43:22+00:00,Human,,30,2141,2,False,True,False,False,"Fix CI: force reinstall app-builder-bin and regenerate lockfile
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,d300a720e63e79e3c8c7f805890d79ae8e0dcf93,2026-03-23T00:40:58+00:00,Human,,14,2,1,False,True,False,False,"Fix CI: rebuild native deps before electron-builder package step
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,32cfafba092031f5c076a5271e0981bcb400bc69,2026-03-23T00:33:39+00:00,Human,,0,0,0,False,False,False,False,"trigger workflow detection
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,0904e868e7250b279875291215b0ce318f35fdd5,2026-03-23T00:27:50+00:00,Human,,301,38,4,False,False,False,False,"Add download landing page and release workflow
+
+Replaces the web app homepage with a platform-aware download page
+that pulls latest release assets from GitHub. Updates CI to create
+GitHub Releases with build artifacts for Windows, macOS, and Linux.
+
+Made-with: Cursor"
+https://www.github.com/0xburn/friendlies,912f0ad10a0c87879587ce0eab98d9126e294bdc,2026-03-23T00:25:26+00:00,Human,,20506,0,174,False,False,False,False,"Initial commit: Slippi Friends monorepo
+
+Electron desktop agent with React UI, Next.js web app, Supabase backend,
+shared API package, and CI workflow.
+
+Made-with: Cursor"

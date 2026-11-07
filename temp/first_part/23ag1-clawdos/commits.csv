@@ -1,0 +1,974 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/23ag1/clawdos,818fd56e12ab935d036721d8aa2ceeed245f4aef,2026-03-02T15:12:11+00:00,Human,,27,12,5,False,False,False,False,"docs: update README for v0.2.2, add notes/editor to all docs
+
+- Bump version badge to 0.2.2
+- Add notes section and editor components to file indexes
+- Update migrations list (001-015) across all docs
+- Add note.repository to repositories list (now 13)
+- Add /api/uploads to API routes table
+- Add editor/ to shared components table in frontend rules"
+https://www.github.com/23ag1/clawdos,84782d8abee99959ca4b58edad41d3241868b5cd,2026-03-02T15:07:04+00:00,Human,,215,81,7,True,True,False,False,"fix: table rendering, DnD in tables, card covers + emoji patterns
+
+- Fix table HTML structure (PlateElement as=tr/td/th) and floating toolbar
+- Disable DnD for elements inside table cells (useIsInsideTable hook)
+- Add cover gradient display on NoteCard with emoji tiled SVG pattern
+- Add emoji pattern overlay on NoteDetailView cover image
+- Normalize card heights (fixed 200px) with CSS mask-image fade
+- Fix EmojiPicker positioning (remove absolute from root)
+- Use official insertTable() API in slash commands"
+https://www.github.com/23ag1/clawdos,e8db7f47ed4510cac2b9cb9c04877c2e53a44d29,2026-03-02T09:44:42+00:00,Human,,14,5,1,False,False,False,False,"docs: update README for v0.2.1 — add Notes section, editor, auto-migrate"
+https://www.github.com/23ag1/clawdos,c3010c1d0fbb9a8ae6d58ceeec69080b19ec3d02,2026-03-02T01:34:45+00:00,Human,,6677,173,64,False,False,False,False,"feat: Notes section with Plate v52 rich editor + 8 Notion-level features
+
+New section: /notes — full-featured note-taking with rich text editor
+
+Rich Editor (Plate v52):
+- Headings (H1-H3), lists (bulleted, numbered), blockquotes
+- Code blocks, tables, toggle blocks, callouts, todo checkboxes
+- Slash command menu (/ to insert any block type)
+- Markdown file editor for settings/files section
+
+8 Notion-level features:
+1. Undo/Redo — toolbar buttons with disabled state tracking
+2. Drag & Drop — grip handle on hover, drop line indicator (@platejs/dnd)
+3. Images — upload, paste, drag from desktop, resize (@platejs/media)
+4. Multi-column layout — /2cols and /3cols slash commands (@platejs/layout)
+5. Cover image + emoji icon — gradient presets, emoji picker, per-note
+6. Favorites in sidebar — pinned notes quick-access section (auto-refresh)
+7. Full-text search — PostgreSQL tsvector + GIN index with relevance ranking
+8. Mobile editor — bottom toolbar with 44px touch targets, swipe actions
+
+Infrastructure:
+- Auto-migrate on server startup (instrumentation.ts + auto-migrate.ts)
+- Image upload API (POST /api/uploads, 5MB max, jpg/png/gif/webp)
+- 3 DB migrations (013-015): notes schema, cover/icon, fulltext search
+- Slate-to-markdown export for note content
+- AI chat integration: note.create, note.update, note.list actions
+
+Also includes:
+- Dashboard widget improvements (DashboardCard component)
+- Settings/files editor enhancements
+- Delivery actions cleanup
+
+v0.2.1"
+https://www.github.com/23ag1/clawdos,9b2f067bf4b6d6093c36e913ec84fbe68efe5eef,2026-02-28T19:05:14+00:00,Human,,304,188,7,False,False,False,False,"feat: wire agent metrics + AI-driven process creation
+
+AgentMetricsWidget:
+- Real message count from core.message (today, via RLS)
+- Gateway health check (ping /health with 2s timeout)
+- Last activity relative time
+
+ProcessesWidget + ProcessForm:
+- Schedule presets (chips) instead of raw cron input
+- Action type chips instead of dropdown
+- ""Ask Clawd"" button in empty state (opens AI panel)
+- Human-readable cron labels on process cards
+
+Clawdbot actions-executor:
+- process.create, process.list, process.toggle, process.delete
+- Updated system prompt with actions 14-17 + cron examples
+- Revision bump for settings domain on process mutations"
+https://www.github.com/23ag1/clawdos,dad12d563809d9d8cda2ae034d3541b8e218fbb5,2026-02-28T18:18:18+00:00,Human,,152,17,5,True,True,False,False,"fix: deduplicate delivery status mapping, add webhook secret, tests
+
+- actions-executor: use mapTmStatus() + extractEvents() instead of
+  inline duplicate statusMap and event extraction
+- webhook: verify TRACKINGMORE_WEBHOOK_SECRET via x-webhook-secret
+  header or Authorization Bearer (optional, backwards-compatible)
+- tests: revision-store (4 tests), webhook secret verification (5 tests)
+- CLAUDE.md: update outdated ""Known gaps"" — all three are resolved"
+https://www.github.com/23ag1/clawdos,3e51575cb699c005fba3ae7ccc9abc89396d0c49,2026-02-28T17:56:55+00:00,Human,,170,1,12,False,False,False,False,"feat: real-time external sync via revision polling
+
+Adds revision-based polling (3s) so that mutations from Telegram,
+webhooks, cron, and other tabs are reflected in the UI without
+manual page refresh.
+
+- revision-store.ts: in-memory atomic counters per domain
+- /api/revision: lightweight endpoint (~80 bytes, no DB)
+- useExternalSync hook: polls, compares, calls router.refresh()
+- bumpRevision() wired into all 12 mutation paths"
+https://www.github.com/23ag1/clawdos,48231b173741abb8ef1795ae1dca6bcd9a77c1ac,2026-02-28T16:50:16+00:00,Human,,577,251,5,False,False,False,False,"feat: settings/files — 7-category file browser with create support
+
+Redesigned Agent Files page with meaningful categories:
+- Agent Core, Agent Rules, ClawdOS Rules, Skills, Memory, Config, Claude Rules
+- New File button with category picker and content editor
+- Grouped view with colored category chips
+- Decomposed into FilePanel + CreateFileModal (< 300 lines each)"
+https://www.github.com/23ag1/clawdos,dfa63f3735f1db2bb5a8593a3e69fb7904396984,2026-02-28T04:00:27+00:00,Human,,164,0,4,False,False,False,False,"chore: add issue templates, PR template, FUNDING.yml"
+https://www.github.com/23ag1/clawdos,c7550eaba04c87cb686b8321a8ed224204a493f4,2026-02-28T03:56:17+00:00,Human,,4,3,1,True,True,False,False,fix: revert embeddings.ts to eslint-disable for xenova types
+https://www.github.com/23ag1/clawdos,26b3a986609610df45c956e8023b4f0fb8114c06,2026-02-28T03:49:05+00:00,Human,,47,18,10,True,True,False,False,"fix: lint errors, add LICENSE, distribute README screenshots"
+https://www.github.com/23ag1/clawdos,ff20f93f2f45d8ce566d96432bac6c426c4f058d,2026-02-28T03:13:56+00:00,Human,,21,0,1,False,False,False,False,add MIT license
+https://www.github.com/23ag1/clawdos,360daffd2ab37d69ab41491ca2f5c72e55a3ba26,2026-02-28T02:59:09+00:00,Human,,1,1,2,False,False,False,False,move VISION.md to repo root for GitHub visibility
+https://www.github.com/23ag1/clawdos,741f1e0d82bd7749696f49dc62623aff80b591a1,2026-02-28T02:38:05+00:00,AI,Claude_Code,4617,689,76,False,True,False,False,"feat: ClawdOS v0.2.0
+
+Major release — deliveries/package tracking, mobile-responsive shell,
+auth session isolation, and comprehensive documentation overhaul.
+
+New features:
+- Deliveries section — TrackingMore API integration, webhook receiver,
+  carrier auto-detect, add via UI or Telegram chat
+- Mobile-responsive shell — drawer navigation, chat sheet, touch gestures
+- Currency widget, news search, task filters/date picker improvements
+
+Security & auth:
+- Fix session/workspace cookie isolation between user accounts
+- Add /api/auth/logout endpoint (was missing — logout was a no-op)
+- signIn() now sets workspace cookie explicitly on login
+- signOut() clears workspace cookie to prevent cross-user leakage
+- Layout guards against orphaned users (0 workspaces → redirect to login)
+- create-user.mjs auto-creates personal workspace + membership
+
+Infrastructure:
+- Remove .planning/ from tracking (gitignored)
+- Update CLAUDE.md, DEPLOY.md, INSTALL.md, README.md
+- Add CONTRIBUTING.md, docs/VISION.md, screenshots
+- Agent rules loader for dynamic RULES/ injection
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,599cec6b0aff7203a2dd808b11ad134c18f0b43c,2026-02-26T14:40:37+00:00,Human,,198,73,4,False,True,False,False,"docs(quick-1): update architecture & operations docs (06, 07, 08, 09)
+
+- 06-CLAWDBOT: all 11 action keys with correct file paths (actions-executor.ts, stream-processor.ts), 3-layer intent router, complete SSE event types, circuit breaker mention
+- 07-GOLDEN-RULES: update to 6 rules, add systemd deploy rule, webhook RLS exception, fix action whitelist to 11 keys
+- 08-DEPLOY-CONTRACT: add TRACKINGMORE_API_KEY/WEATHER_CITY/LOG_LEVEL to ENV table, rewrite health check as existing endpoint, add systemd deploy contract + post-deploy verification
+- 09-OBRATNAYA: add deliveries example to agent task list"
+https://www.github.com/23ag1/clawdos,971c4d5b2fc63d97bcaf7ac74ea6ff160803937d,2026-02-26T14:37:21+00:00,Human,,296,41,2,False,True,False,False,"docs(quick-1): update frontend & design docs (01, 03)
+
+- 01-STYLE-GUIDE: add mobile layout tokens (--tab-bar-h, --mobile-safe-bottom), mobile media overrides, replace abstract component patterns with 10 real copy-paste patterns from actual codebase
+- 03-FRONTEND: fix server component pattern (redirect not return null), add mobile layout section (BottomTabBar, useIsMobile, breakpoints), AI event listener pattern, view switching, update component/hooks tables"
+https://www.github.com/23ag1/clawdos,ecbb2234155e6f1380434906c3c3f9f67bbf255a,2026-02-26T14:35:06+00:00,Human,,420,113,4,False,True,False,False,"docs(quick-1): update foundation & structure docs (00, 02, 04, 05)
+
+- 00-OVERVIEW: complete project tree with 16 API routes, 12 migrations, 12 repos, all component/hook/lib dirs
+- 02-NEW-SECTION: fix page pattern (redirect not return null), add loading/error step, correct nav/AI file paths
+- 04-API: list all 16 routes grouped by domain, add webhook pattern, add centralized validation-schemas section
+- 05-DATABASE: add migrations 008-012, all 12 repos, deliveries/processes in namespace, webhook DB access note"
+https://www.github.com/23ag1/clawdos,15d02f8904c0ff5c4935d5d8244f2d0ffeeeb07a,2026-02-26T02:13:36+00:00,Human,,2595,889,65,False,False,False,False,"refactor+feat: audit hardening — architecture, security, frontend, backend
+
+Architecture (8.0→8.5):
+- Split fast-path-builders.ts (348→217), extracted sse-utils.ts + fast-path-news.ts
+- Split TaskItem.tsx (313→275), extracted PriorityEditor.tsx
+- Split parser.ts (314→200), extracted parser-utils.ts
+
+Security (8.0→8.5):
+- Remove unsafe-eval from CSP (not needed in production)
+- Add request ID tracing (x-request-id) on all middleware responses
+- Rate limiter: MAX_STORE_SIZE=10k cap with eviction for bounded memory
+
+Backend (8.0→8.5):
+- Add Zod validation for currencies + weather API routes
+
+Frontend (7.5→8.5):
+- Convert 147 inline styles to Tailwind classes across 32 files
+- Lazy load NewsSourcesPanel, TaskDetailPanel, ProcessModal (next/dynamic)
+- Rewrite loading skeletons: today, tasks, settings, news"
+https://www.github.com/23ag1/clawdos,41d8eb9e5b7fabd064055b872f4c71749de1f25b,2026-02-25T13:01:19+00:00,Human,,179,35,5,False,False,False,False,"feat: add BuildGuard stale-client detection + auto-reload
+
+BuildGuard polls /api/build-id every 3min and on window focus.
+If the build ID changed (server rebuilt), forces a full page
+reload so the client picks up new JS chunks and action IDs.
+
+Error boundaries (global-error, RouteErrorFallback) detect
+stale-client errors (ChunkLoadError, stale Server Action) and
+auto-reload instead of showing a cryptic error."
+https://www.github.com/23ag1/clawdos,94f39ffe5ab91ae7b7e7d073774810aa111b336d,2026-02-24T23:48:01+00:00,Human,,2903,742,45,False,False,False,True,"Reapply ""refactor+feat: quality hardening, optimistic UI, skill marketplace, agent files""
+
+This reverts commit 98c3ecbf1c553b31b7229326c36b908640ff8c97."
+https://www.github.com/23ag1/clawdos,98c3ecbf1c553b31b7229326c36b908640ff8c97,2026-02-24T23:38:11+00:00,Human,,742,2903,45,False,False,False,True,"Revert ""refactor+feat: quality hardening, optimistic UI, skill marketplace, agent files""
+
+This reverts commit adbe3d34d869200ae95f8b7c3f856802992cc2ff."
+https://www.github.com/23ag1/clawdos,0a9d963da43d500ceb7fcc442edd60ee25594189,2026-02-24T21:15:43+00:00,Human,,40,2,1,False,False,False,False,"docs: add build & deploy golden rule (systemd procedure)
+
+Document the critical build/deploy procedure: stop systemd service
+before rebuilding, never kill processes directly. Systemd restarts
+the server in 2s with Restart=always, which causes chunk 404s when
+.next is deleted during rebuild."
+https://www.github.com/23ag1/clawdos,8610d3238a1fd7b69ffd7efc692c9e057acc4ac8,2026-02-24T21:00:28+00:00,Human,,336,21,11,False,False,False,False,"chore: docs, CI, husky, eslint config, migration, backup script
+
+- Update CLAUDE.md with quality gates, dev notes, infra context
+- Update RULES (overview, API, clawdbot integration)
+- Add GitHub Actions CI workflow (lint + typecheck + build)
+- Add husky pre-commit hooks (lint-staged)
+- Add ESLint no-console rule with logger file exemptions
+- Add task_duration migration (009)
+- Add pg_dump backup script with retention
+- Update next.config.ts security headers
+- Update .gitignore"
+https://www.github.com/23ag1/clawdos,adbe3d34d869200ae95f8b7c3f856802992cc2ff,2026-02-24T21:00:02+00:00,Human,,2903,742,45,False,True,False,False,"refactor+feat: quality hardening, optimistic UI, skill marketplace, agent files
+
+Quality hardening:
+- Split large components into <300 line files (TaskFilters, TaskItem,
+  NewsSourcesPanel, SkillsList, actions files)
+- Extract reusable components (SourceCard, FilterDropdown, ViewModeSlider,
+  InstalledSkillCard, MarketplaceCard, SubtasksPanel, DueDate)
+- Replace hardcoded HEX colors with CSS variables (today page, etc.)
+- Add client-safe logger (no-console ESLint compliance)
+- Fix any types in RSS parser, AI stream processor, actions executor
+- Fix React 19 lint issues (refs during render, setState in effects)
+- Fix pre-existing test issues (missing dep, type narrowing)
+
+Features:
+- Optimistic task CRUD (create/delete/complete appear instantly)
+- HTML entity decoding in RSS news titles
+- Skill Marketplace tab with ClawdTM API integration
+- Agent Files browser at /settings/files (read-only workspace viewer)
+- Fast-path AI action builders for common operations
+- Clawdbot section on settings page with links to skills & files
+
+Infrastructure:
+- CSRF exempt /_next paths in middleware
+- Rate limiting on API routes (sliding window)
+- Nav sections updated for command palette searchability"
+https://www.github.com/23ag1/clawdos,d4e3f1397d1b6c477f890031715aaa68d7445afb,2026-02-24T01:06:53+00:00,Human,,325,75,8,False,False,False,False,"feat(15-01): wire Zod validation into all server actions
+
+- tasks/actions.ts: 12 actions validated (createTask, updateTask, deleteTask, completeTask, reopenTask, updateTaskPriority, updateTaskDate, fetchSubtasks, createProject, updateRecurrence, deleteProject)
+- today/actions.ts: 4 actions validated (createProcess, toggleProcess, updateProcess, deleteProcess)
+- news/actions.ts: 9 actions validated (addSource, removeSource, toggleSource, createTab, deleteTab, reorderTabs, assignSourceToTab, removeSourceFromTab, setupNewsTopics)
+- actions.ts: setActiveWorkspace uses workspaceIdSchema (replaces manual UUID regex)
+- auth/actions.ts: signIn uses signInSchema (replaces manual regex+length checks)
+- settings/files/actions.ts: readAgentFile validates path
+- skills-actions.ts: installSkill + updateSkill use skillSlugSchema
+- marketplace-actions.ts: searchMarketplaceSkills validates query+limit"
+https://www.github.com/23ag1/clawdos,a3c9ea1f8d06a3ad1bd78dc0068a684967721f4a,2026-02-24T00:55:33+00:00,Human,,61,69,5,False,False,False,False,"feat(15-01): wire Zod validation into all API routes
+
+- ai/chat POST+DELETE: chatMessageSchema + chatDeleteSchema
+- assistant POST: assistantMessageSchema
+- consult POST: consultQuestionSchema
+- settings PUT+DELETE: settingsPutSchema + settingsDeleteKeySchema
+- workspaces/switch POST: workspaceSwitchSchema
+- All return 400 with { error, fields } on invalid input"
+https://www.github.com/23ag1/clawdos,eb53c3a209795b866ba85a32cfd9f6907847bcab,2026-02-24T00:50:20+00:00,Human,,212,0,2,False,False,False,False,"feat(15-01): add shared validation helpers and Zod schemas
+
+- withValidation() wrapper for API route body validation
+- validateAction() helper for server action parameter validation
+- formatZodErrors() converts ZodError to field-level error map
+- 25+ Zod schemas covering all routes and actions"
+https://www.github.com/23ag1/clawdos,117702d5581aeafb83aaad873af1e9e236ac3b23,2026-02-24T00:32:58+00:00,Human,,23,3,1,False,False,False,False,"perf(14-01): lazy-load CalendarView, KanbanView, TimelineView via next/dynamic
+
+- Replace static imports with dynamic() + ssr:false for 3 heavy views
+- ListView remains static (default view, loads immediately)
+- Add ViewSkeleton placeholder shown while chunks load
+- Separate JS chunks created for each view, loaded on demand"
+https://www.github.com/23ag1/clawdos,50d35d49d45d7ec028ffa06c45d8514ae04d37e4,2026-02-24T00:30:47+00:00,Human,,88,47,6,False,False,False,False,"feat(14-01): add route-specific error boundaries with shared fallback UI
+
+- Create RouteErrorFallback shared component with styled error card
+- Upgrade parent error.tsx from inline styles to Tailwind + shared component
+- Add today/error.tsx, tasks/error.tsx, news/error.tsx, settings/error.tsx
+- Error message shown (not stack trace), Try again button calls reset()
+- Console.error for debugging, digest displayed when present"
+https://www.github.com/23ag1/clawdos,51c56a9bbb80f841deb427cafb25344a8845a2eb,2026-02-24T00:27:15+00:00,Human,,96,15,5,False,False,False,False,"feat(14-01): add route-specific loading skeletons for all app routes
+
+- Upgrade parent loading.tsx to minimal centered pulse fallback
+- Add today/loading.tsx matching dashboard widget grid layout
+- Add tasks/loading.tsx matching heading + filters + task rows layout
+- Add news/loading.tsx matching header + 3-column card grid layout
+- Add settings/loading.tsx matching heading + 4 section cards layout"
+https://www.github.com/23ag1/clawdos,6608613f803e6f5a713bceb44954e39abb6ade6c,2026-02-24T00:15:14+00:00,Human,,56,0,1,False,False,False,False,"feat(13-01): add slow query logging wrapper in DB layer
+
+- Queries >100ms produce structured WARN log with durationMs and query text
+- Wraps both pool.query() and pool.connect() client.query()
+- All RLS-wrapped queries via withUser() are instrumented transparently
+- Query text truncated to 200 chars to prevent log bloat"
+https://www.github.com/23ag1/clawdos,c30864d0b0c1cd7bd8fbaa045d08908e980d8fde,2026-02-24T00:12:06+00:00,Human,,15,0,1,False,False,False,False,"feat(13-01): expose pool metrics in GET /api/health
+
+- Add pool.totalCount, pool.idleCount, pool.waitingCount, pool.max
+- Metrics included alongside existing health checks
+- Graceful fallback if pool not available"
+https://www.github.com/23ag1/clawdos,eadea82441e77eeb6c02b2a9787582a971a82084,2026-02-24T00:10:00+00:00,Human,,44,0,2,False,False,False,False,"feat(13-01): add graceful shutdown via instrumentation hook
+
+- Create src/instrumentation.ts with register() for SIGTERM/SIGINT
+- Add drainPool() export to src/lib/db/index.ts
+- Dynamic import of db module to avoid Edge bundling issues
+- NEXT_RUNTIME guard ensures server-only execution
+- Pool drains gracefully before process exits with code 0"
+https://www.github.com/23ag1/clawdos,fd55db8e4f281812d81283f72dad078d520aba68,2026-02-24T00:07:32+00:00,Human,,375,49,12,False,False,False,False,"refactor(13-01): migrate all console.* calls to structured logger
+
+- Replace 47 raw console.log/error/warn calls across 12 files
+- Server-side files use createLogger() from @/lib/logger
+- Client-side components use createClientLogger() from @/lib/client-logger
+- Strip [Module] prefixes, pass structured data as second argument
+- Zero console.* calls remain in src/ outside logger files"
+https://www.github.com/23ag1/clawdos,1291ebcd26082251fb4593fadb6fd7521d70e50f,2026-02-23T22:52:56+00:00,Human,,296,254,4,False,False,False,False,"refactor(12-01): decompose SidebarClient.tsx into 4 focused modules
+
+- Extract NAV_ICONS record to sidebar/nav-icons.tsx (29 lines)
+- Extract workspace dropdown + portal to sidebar/WorkspaceDropdown.tsx (137 lines)
+- Extract user menu + avatar to sidebar/UserMenu.tsx (94 lines)
+- Slim SidebarClient.tsx from 417 to 199 lines as orchestrator"
+https://www.github.com/23ag1/clawdos,f662b0a91b188d187ead776b83ee7596f981e97a,2026-02-23T22:44:56+00:00,Human,,192,300,3,False,False,False,False,"refactor(12-01): decompose AIPanel.tsx into 3 focused modules
+
+- Extract MessageBubble + ToolCallDisplay to ai-panel/MessageBubble.tsx (93 lines)
+- Extract EmptyState + HintChip to ai-panel/EmptyState.tsx (70 lines)
+- Slim AIPanel.tsx from 468 to 197 lines as panel orchestrator"
+https://www.github.com/23ag1/clawdos,ca1c77200bb545f2770bc25d3398b0cbdecd7e69,2026-02-23T22:38:59+00:00,Human,,578,543,5,False,False,False,False,"refactor(12-01): decompose TaskDetailPanel.tsx into 5 focused modules
+
+- Extract STATUS_OPTIONS, PRIORITY_OPTIONS, RECURRENCE_PRESETS to constants.ts (25 lines)
+- Extract RecurrencePicker to standalone component with typed props (97 lines)
+- Extract SubtaskRow + SubtaskSection to standalone components (106 lines)
+- Extract all handlers + state to useTaskDetailHandlers hook (273 lines)
+- Slim TaskDetailPanel.tsx from 766 to 294 lines as orchestrator"
+https://www.github.com/23ag1/clawdos,d84e6f378142d849343e9cfd4a2bbe197847f57f,2026-02-23T22:28:57+00:00,Human,,329,276,3,False,False,False,False,"refactor(12-01): decompose useChat.ts into 3 focused modules
+
+- Extract ChatMessage, UseChatOptions, MAX_MESSAGES to chat-types.ts (26 lines)
+- Extract display filter, SSE parser, event dispatch to chat-stream-parser.ts (250 lines)
+- Slim useChat.ts from 456 to 233 lines as hook orchestrator
+- Re-export ChatMessage from useChat.ts for backwards compatibility"
+https://www.github.com/23ag1/clawdos,92e64d268b362cece304b65208ec0d4dbe4623b5,2026-02-23T22:22:55+00:00,Human,,580,585,6,False,False,False,False,"refactor(12-01): decompose repository.ts into 5 domain modules
+
+- Extract types to types.ts (66 lines)
+- Extract conversation CRUD to conversation.repository.ts (151 lines)
+- Extract message CRUD to message.repository.ts (98 lines)
+- Extract tool call CRUD to tool-call.repository.ts (105 lines)
+- Extract artifact + memory CRUD to artifact-memory.repository.ts (153 lines)
+- Original repository.ts becomes 7-line barrel re-export"
+https://www.github.com/23ag1/clawdos,0547c170f2464182d002eeb4dae8c7f06fbbbd4f,2026-02-23T21:54:27+00:00,Human,,61,4,1,False,False,False,False,"feat(11-02): integrate rate limiter into middleware for API routes
+
+- Rate limiting on all /api/* routes (10 req/sec per IP)
+- Exempt /api/health from rate limiting (monitoring probes)
+- 429 Too Many Requests with Retry-After header when exceeded
+- X-RateLimit-Limit/Remaining/Reset headers on all API responses
+- IP extraction from x-forwarded-for, x-real-ip, fallback to 'unknown'
+- Uses new Response() for 429 (consistent with CSRF pattern)
+- Page routes unaffected by rate limiting"
+https://www.github.com/23ag1/clawdos,e26d6759820ed865615f7a4109d4d3e35a26fd95,2026-02-23T21:52:39+00:00,Human,,78,0,1,False,False,False,False,"feat(11-02): create in-memory sliding window rate limiter
+
+- Sliding window algorithm tracking request timestamps per IP
+- Configurable MAX_REQUESTS (10) and WINDOW_MS (1000ms)
+- Self-cleaning: prunes expired entries every 60 seconds
+- Edge-runtime compatible (Map, Date.now(), setInterval only)
+- Exports checkRateLimit() and RateLimitResult type"
+https://www.github.com/23ag1/clawdos,4150a3c4a3e1fb79aa5d4119028fe334399931c6,2026-02-23T21:44:41+00:00,Human,,40,1,1,False,False,False,False,"feat(11-01): add CSRF origin validation to middleware
+
+- Reject POST/PUT/PATCH/DELETE with mismatched or missing Origin header
+- CSRF check runs before auth (blocks forged requests early)
+- Exempt paths: /api/health, /api/version, /access, /_next/*
+- CSRF protection active regardless of ACCESS_TOKEN config
+- Uses new Response() for reliable middleware short-circuit"
+https://www.github.com/23ag1/clawdos,a1473561019a12770cdae04bf91cfbc1fed8016b,2026-02-23T21:39:25+00:00,Human,,16,0,1,False,False,False,False,"feat(11-01): add security response headers to all routes
+
+- Content-Security-Policy with safe defaults for Next.js RSC
+- Strict-Transport-Security (HSTS) 1-year max-age
+- X-Frame-Options DENY, X-Content-Type-Options nosniff
+- Referrer-Policy strict-origin-when-cross-origin
+- Permissions-Policy restricts camera/mic/geolocation
+- X-DNS-Prefetch-Control for performance"
+https://www.github.com/23ag1/clawdos,5fbb167ac49f4a41d6fe3acc647bdb31c7b61a37,2026-02-23T16:09:38+00:00,Human,,51,0,1,False,False,False,False,docs(rules): add backward compatibility guidance for AI actions
+https://www.github.com/23ag1/clawdos,06a59680d29e846abfd1ce79243f0b4391b173a0,2026-02-23T02:19:19+00:00,Human,,352,8,7,False,False,False,False,"feat(10): add recurring tasks with auto-creation and repeat indicators
+
+- Add recurrence_rule JSONB column to task table (migration 011)
+- Add RecurrenceRule type + recurrenceRule field to Task interface
+- Create src/lib/recurrence.ts (computeNextDate, recurrenceLabel)
+- Auto-create next occurrence when completing a recurring task (REC-02)
+- Add updateRecurrence server action (REC-03)
+- Add recurrence picker in TaskDetailPanel (daily/weekly/monthly/custom weekdays)
+- Show repeat indicator in TaskItem and TaskCard (compact + full) (REC-04)"
+https://www.github.com/23ag1/clawdos,589461b49256297e5d82d97e728fff0c324aed43,2026-02-23T02:13:22+00:00,Human,,394,0,2,False,False,False,False,"feat(09): add smart date input with RU + EN natural language parsing
+
+- Create src/lib/smart-date.ts parser (today/tomorrow/weekdays/in N days)
+- Supports Russian (завтра, пятница, через 3 дня) and English
+- Show parsed date preview chip below create form input
+- Auto-apply detected date on submit, strip phrase from title
+- User can manually apply or dismiss detection"
+https://www.github.com/23ag1/clawdos,42c3beade84b33388c145e74a10b8b7972314e35,2026-02-23T02:11:09+00:00,Human,,554,20,12,False,False,False,False,"feat(08): add projects & grouping with filter, detail panel, and all views
+
+- Create core.project table with RLS policies and FK from task.project_id
+- Add project repository (CRUD) and server actions
+- Add project picker + inline create in TaskDetailPanel
+- Add project filter dropdown in TaskFilters
+- Thread projectMap through all 4 view components (List, Kanban, Calendar, Timeline)
+- Show project name badges in TaskCard and TaskItem"
+https://www.github.com/23ag1/clawdos,75e79687bad023ac44ac31115a46a0fa9155ae5a,2026-02-23T02:02:11+00:00,Human,,6,2,2,False,False,False,False,"feat(07): extend search to description and subtask titles
+
+SRCH-01: Search now matches task description text in addition to title.
+SRCH-02: Search finds parent tasks when subtask titles match the query.
+Uses existing tasks array to check subtask titles client-side."
+https://www.github.com/23ag1/clawdos,3a8579caffccbfc2e3d1bbcd9670082fdf89b6fc,2026-02-23T02:01:13+00:00,Human,,424,438,8,False,False,False,False,"feat(06): add tags & labels with filtering across all views
+
+TAG-01: Add colored tags to tasks via TaskDetailPanel tag editor
+with autocomplete from existing workspace tags.
+TAG-02: Remove tags via X button on tag pills in TaskDetailPanel.
+TAG-03: Filter tasks by tag in TaskFilters dropdown. Multi-select
+with checkmarks, integrates with status/priority/search filters.
+TAG-04: Tag pills visible on TaskCard (kanban/calendar/timeline)
+and TaskItem (list view) with hash-based color assignment.
+
+New files: src/lib/tag-colors.ts (6-color palette with hash mapping)
+New: getUniqueTags repo query, fetchAllTags server action"
+https://www.github.com/23ag1/clawdos,00d16f7dd0f61a5668df27fee7542d8388e90dcd,2026-02-23T01:52:02+00:00,Human,,2085,0,9,False,False,False,False,"feat(05): extract shared date-utils, persist timeline zoom
+
+UTIL-01: Create src/lib/date-utils.ts with normalizeDate, pad, toDateStr,
+addDays, getMonday, getMonthGrid, formatShortDate, formatTaskDate,
+getDateColor. Remove 6 duplicate implementations across TaskItem,
+TaskDetailPanel, TaskCard, CalendarView, TimelineView, TimelineTaskBar.
+CalendarSpanBars now imports from date-utils instead of CalendarView.
+
+UTIL-02: Timeline zoom level (week/month) persists in localStorage
+using key 'clawdos:timeline-zoom', following useViewMode() pattern."
+https://www.github.com/23ag1/clawdos,a66a29853f56d57d451becc3c4853f6f21ae048a,2026-02-22T13:24:41+00:00,Human,,244,796,2,False,False,False,False,"feat(03-02): add task.priority action for Clawdbot integration
+
+- Add task.priority handler in actions-executor.ts
+- Validate priority range (0-4) with error handling
+- Update system prompt with new action documentation
+- Enable AI to change task priority via chat commands"
+https://www.github.com/23ag1/clawdos,0caac9f41f579c5fc7c0ec6bee0f78580279ad9a,2026-02-22T13:23:13+00:00,Human,,82,7,1,False,False,False,False,"feat(03-02): add priority edit UI with dropdown selector
+
+- Add priority edit button (pencil icon) on task rows
+- Show dropdown with 5 priority levels (0-4) on click
+- Implement optimistic updates with rollback on error
+- Add click-outside handler to close dropdown
+- Use design tokens for styling (--card, --border, --neon)
+- Edit button appears on hover only"
+https://www.github.com/23ag1/clawdos,fae4e6db8022be5c4399b674a39a9bf27aeed6b1,2026-02-22T13:05:48+00:00,Human,,45,0,1,False,False,False,False,"feat(03-02): add updateTaskPriority server action
+
+- Validates priority is integer 0-4
+- Uses withUser() for RLS context
+- Verifies task belongs to current workspace
+- Returns full Task object on success for optimistic updates
+- Follows existing action patterns"
+https://www.github.com/23ag1/clawdos,5469b49b4dc57d0fc7cad284c43413562f0e9bd8,2026-02-22T12:35:17+00:00,Human,,91,50,1,False,False,False,False,"feat(03-01): integrate TaskFilters with multi-dimensional filtering and enhanced deadline rendering
+
+- Replace old filter tabs with TaskFilters component
+- Implement 3D filtering: status + priority + search
+- Add enhanced DueDate component with time support
+- Color-code deadlines: overdue/today (red), this week (warm), this month (cyan), later (muted)
+- Format dates as 'MMM D, YYYY' with optional time
+- Preserve all existing task operations (create, complete, delete)
+- Update chat event listener to work with new filter state
+- All styling uses design tokens only"
+https://www.github.com/23ag1/clawdos,07ae182b8286858634165a8e226f4fd5224b9be3,2026-02-22T12:35:16+00:00,Human,,156,0,3,False,False,False,False,"feat(04-01): build skills catalog UI with search and category filtering
+
+- Create page.tsx: server component displaying skills count and description
+- Create SkillsList.tsx: client component with search input and category tabs
+- Create SkillCard.tsx: presentational component for individual skill display
+- Implement real-time search filtering by name/description/examples
+- Implement category tabs: All, Productivity, Content, System, Navigation
+- Use design tokens from RULES/01-STYLE-GUIDE.md (no hardcoded colors)
+- Responsive grid: 1 column on mobile, 2 on tablet, 3 on desktop
+- Empty state for no search results"
+https://www.github.com/23ag1/clawdos,803b39a26f7cb2af098beb079ffc1d73d70007cf,2026-02-22T12:31:16+00:00,Human,,7,7,1,True,True,False,False,"fix(04-01): add explicit type to PRIORITY_OPTIONS to resolve TypeScript error
+
+- Rule 3 deviation: blocking issue preventing build verification
+- Added explicit type annotation: Array<{ value: number | 'all'; label: string; color?: string }>
+- Resolves type mismatch in TaskFilters.tsx line 141"
+https://www.github.com/23ag1/clawdos,09fb4c19dc4260638c53290e4be433f319bc4480,2026-02-22T12:09:39+00:00,Human,,291,0,1,False,False,False,False,"feat(04-01): create skills registry with 23 Clawdbot commands
+
+- Define SkillCategory and Skill interfaces
+- Create SKILLS array with 23 commands across 4 categories
+- Productivity: 9 commands (task CRUD, process management)
+- Content: 6 commands (news sources, tabs, quick setups)
+- System: 3 commands (health, settings, telegram)
+- Navigation: 4 commands (today, tasks, news, settings)
+- All commands include Russian examples and action types"
+https://www.github.com/23ag1/clawdos,bc093d086d23dddb8b30fd4ded6ae5c6bf5958fb,2026-02-22T12:08:40+00:00,Human,,180,0,1,False,False,False,False,"feat(03-01): create TaskFilters component with status/priority/search controls
+
+- Add status filter tabs (All, Active, Completed)
+- Add priority dropdown filter (All, Urgent, High, Medium, Low, None)
+- Add search input with clear button
+- All styling uses design tokens (no hardcoded colors)
+- Component accepts onFilterChange and onSearchChange callbacks"
+https://www.github.com/23ag1/clawdos,4da3fd18d8049432a53e5dd061a6a1d3669e5041,2026-02-22T11:16:34+00:00,Human,,15,4,2,False,False,False,False,"feat(02-03): integrate ProcessesWidget into dashboard
+
+- Export ProcessesWidget from dashboard components index
+- Import findProcessesByWorkspace repository function
+- Fetch processes in parallel with tasks
+- Add ProcessesWidget below AgentMetricsWidget
+- Pass initialProcesses and workspaceId props"
+https://www.github.com/23ag1/clawdos,bba16c6f44a07b281c9a3122434197ec1e592c06,2026-02-22T11:14:53+00:00,Human,,273,0,1,False,False,False,False,"feat(02-03): create ProcessModal component
+
+- Full-screen modal with backdrop and close on ESC
+- Display all processes with enabled/disabled badges
+- Create new process via embedded form
+- Edit existing process inline
+- Delete process with confirmation
+- Close on backdrop click or X button
+- Update local state and notify parent on changes"
+https://www.github.com/23ag1/clawdos,a818db5f6361210a54320a36dd535eb9c2c5f37b,2026-02-22T11:12:16+00:00,Human,,250,0,1,False,False,False,False,"feat(02-03): create ProcessForm component
+
+- Handle both create and edit modes
+- Validate required fields (title, schedule, actionType)
+- Parse and validate JSON for actionConfig
+- Use controlled inputs with useState
+- Use useTransition for pending state
+- Display validation errors inline
+- Clear form after successful creation"
+https://www.github.com/23ag1/clawdos,69b7c585a5164c6464fdb849d23d4b3c9b3ab969,2026-02-22T11:10:52+00:00,Human,,127,0,1,False,False,False,False,"feat(02-03): create ProcessesWidget component
+
+- Display up to 5 enabled processes on dashboard
+- Toggle process enabled/disabled with optimistic UI
+- Open modal for full process management
+- Follow GreetingWidget styling pattern
+- Use ClawdOS design tokens for all colors"
+https://www.github.com/23ag1/clawdos,15bcad2d9ac45aeaf29142b7b8a165798f533e97,2026-02-22T11:09:37+00:00,Human,,115,0,1,False,False,False,False,"feat(02-03): create server actions for process CRUD
+
+- Add createProcessAction with workspace validation
+- Add toggleProcessAction for enabling/disabling processes
+- Add updateProcessAction for editing process fields
+- Add deleteProcessAction with RLS via withUser
+- All actions return {data}/{error} pattern
+- Revalidate /today path after mutations"
+https://www.github.com/23ag1/clawdos,f240b74652de2b7d5bb845e7bcf1e7939204b55a,2026-02-22T10:56:33+00:00,Human,,226,0,1,False,False,False,False,"feat(02-01): create process repository with full CRUD
+
+- Implement createProcess with core.current_user_id() for RLS
+- Add findProcessesByWorkspace with DESC ordering
+- Add findProcessById, updateProcess with dynamic SET builder
+- Add toggleProcess for enabled state flipping
+- Add deleteProcess returning boolean
+- All queries use parameterized syntax and camelCase aliases"
+https://www.github.com/23ag1/clawdos,38fd40cb95b01dd2c04e162435b2312a84ae4dc6,2026-02-22T10:56:15+00:00,Human,,6,0,1,False,False,False,False,"feat(02-02): integrate AgentMetricsWidget into dashboard page
+
+- Import AgentMetricsWidget from dashboard components
+- Add widget in new grid row below Greeting + Currency
+- Maintain proper order: Greeting/Currency -> Agent Metrics -> Quick Links -> Tasks
+- Preserve existing spacing with space-y-5"
+https://www.github.com/23ag1/clawdos,7eee77b9d86074d2074176baa73e56484dda5157,2026-02-22T10:54:15+00:00,Human,,43,4,2,False,False,False,False,"feat(02-01): update schema registry for processes table
+
+- Bump content schema version from 2 to 3
+- Add processes to content.tables array in registry
+- Add full processes table definition to content/schema.yaml
+- Document all columns, indexes, and RLS policies"
+https://www.github.com/23ag1/clawdos,51d8ec392c6a755ebe5ed78dc63bb17022570c94,2026-02-22T10:52:44+00:00,Human,,2,1,1,False,False,False,False,"feat(02-02): export AgentMetricsWidget from dashboard index
+
+- Add AgentMetricsWidget to barrel export file
+- Maintain alphabetical order with existing exports"
+https://www.github.com/23ag1/clawdos,39abeef9f0f481f7d958f682ed5415bf1a12e8b6,2026-02-22T10:51:09+00:00,Human,,67,0,1,False,False,False,False,"feat(02-02): create AgentMetricsWidget component
+
+- Add 'use client' directive for client-side rendering
+- Display 4 metrics: Status, Messages Today, Uptime, Last Activity
+- Use ClawdOS design tokens (--card, --border, --fg, --muted, --green)
+- Implement responsive grid layout (mobile-first, 1 col -> 2 cols on md)
+- Add placeholder data with TODO for Phase 3 integration"
+https://www.github.com/23ag1/clawdos,db7d224bb203165a6b405f14d52eae8cdefe560e,2026-02-22T10:51:08+00:00,Human,,79,0,1,False,False,False,False,"feat(02-01): create processes schema migration
+
+- Add content.processes table with cron scheduling support
+- Include RLS policies for workspace isolation
+- Add indexes for efficient querying (workspace, enabled, next_run)
+- Support action types: send_digest, send_reminder, run_backup"
+https://www.github.com/23ag1/clawdos,5a5bb66e236ef95004fae18793eac1c1e4f35a28,2026-02-21T19:07:47+00:00,AI,Claude_Code,446,47,9,False,False,False,False,"Add monitoring, health endpoint, circuit breaker, and cache layer
+
+- Add /api/health endpoint checking DB and Clawdbot connectivity
+- Add structured JSON logger (src/lib/logger.ts) replacing console.log/error
+- Add circuit breaker for Clawdbot upstream (5 failures → 30s open)
+- Add generic in-memory cache with TTL (src/lib/cache.ts)
+- Wire query embedding cache (10min TTL) into intent router
+- Wire parsed feed cache (5min TTL) into RSS fetcher
+- Migrate chat route, intent router, RSS to structured logging
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,55276a5613602be6934cc6417204ebb6f412474e,2026-02-18T01:30:30+00:00,Human,,152,103,1,False,False,False,False,"Redesign README: human-first, add updates & settings sections
+
+- Remove AGENT AUTO-DEPLOY block from top (moved to collapsible details)
+- Add version badge, navigation links
+- Add Updates section (git merge strategy, auto-updates, rollback)
+- Add User Settings section (DB-stored customizations)
+- Add testing to tech stack and scripts
+- Collapse AI agent instructions into <details> tag
+- Update project structure with new api routes and components
+- Clean up formatting for better readability
+
+Co-Authored-By: AG <hasanator3000@users.noreply.github.com>"
+https://www.github.com/23ag1/clawdos,5d10525dc3f066da11883499ac9dad4456993636,2026-02-18T00:55:00+00:00,AI,Claude_Code,4491,690,18,False,False,False,False,"Add auto-update system + user settings + test infrastructure
+
+- scripts/update.sh: git merge based updater with backup/rollback
+- /api/version, /api/system/update, /api/settings API routes
+- UpdateBanner component in app layout
+- user-setting.repository.ts for core.user_setting table
+- vitest setup with 48 tests
+- systemd timer in auto-host.sh (every 6h)
+- Version: 0.1.0-alpha
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,767bbdb04c6c379bba69a02208dfa2396f6cc4bc,2026-02-15T20:51:19+00:00,AI,Claude_Code,77,45,2,False,True,False,False,"Fix workspace switcher display when sidebar is collapsed
+
+Problem: When sidebar was collapsed, workspace dropdown didn't show
+because of overflow clipping issues.
+
+Solution: Use React Portal with fixed positioning
+- Dropdown now renders directly in document.body via createPortal
+- Positioned using getBoundingClientRect() for accurate placement
+- Expanded sidebar: dropdown above button, spanning full width
+- Collapsed sidebar: dropdown to the right of button, 224px width
+- No overflow issues since dropdown is outside nav hierarchy
+
+This is the most robust solution - portal ensures dropdown is never
+clipped by parent containers regardless of overflow settings.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,4bd465928dd375b89be84c7f0aa280bdb07158d9,2026-02-15T17:03:49+00:00,AI,Claude_Code,39,2,4,False,True,False,False,"Fix AI chat: prevent false intent matches + add debug logging
+
+Problems fixed:
+1. Generic queries (""привет"", ""какая ты модель"") were incorrectly matched
+   to tasks.filter intent, showing ""Показываю все задачи"" instead of
+   actual AI responses
+
+2. Embedding matcher was too aggressive with low thresholds
+
+Changes:
+- Added conversation.general intent card to catch greetings/small talk
+  and fall through to LLM for natural conversation
+- Increased MIN_SCORE threshold: 0.83 → 0.85
+- Increased MIN_GAP threshold: 0.008 → 0.015
+- Added debug logging to track intent matching scores
+- Added debug logging to track fast-path triggers
+
+The conversation intent card includes examples for:
+- Greetings (привет, hello, hi)
+- Questions about the assistant (кто ты, what model are you)
+- Small talk (как дела, how are you)
+- Thanks and help requests
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,ec7cbd0d2ac69f89192dc0f93d697220bd8c7c54,2026-02-15T16:40:06+00:00,AI,Claude_Code,12,12,2,False,True,False,False,"Fix db/schema.sql dependency order + add psql error handling
+
+Problem 1: Function core.is_workspace_member() referenced table
+core.membership before it was created, causing silent failures on
+fresh installs.
+
+Solution: Moved function definition AFTER CREATE TABLE core.membership
+
+Problem 2: psql ran without ON_ERROR_STOP, hiding SQL errors
+
+Solution: Added -v ON_ERROR_STOP=1 and removed output redirection
+to show errors
+
+Now fresh deployments will work correctly and fail fast on errors.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,3aed13ed9d0342f8c63dd765769fb7045edeeabf,2026-02-15T16:19:22+00:00,AI,Claude_Code,18,0,1,False,False,False,False,"Add explicit AGENT AUTO-DEPLOY block at top of README
+
+Problem: Agents still just explain instead of executing.
+
+Solution: Added MASSIVE OBVIOUS block at the very top of README that:
+- Addresses AI agents directly
+- Says ""EXECUTE THESE COMMANDS NOW (don't just explain)""
+- Provides exact commands to run
+- Grants explicit permissions
+
+This cannot be missed by any agent reading the README.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,4617ac268691b4c2f84750fe621178650a0d2491,2026-02-15T16:17:55+00:00,AI,Claude_Code,56,1,2,False,False,False,False,"Add .clawdbot-deploy protocol for autonomous deployment
+
+Problem: Clawdbot requires explicit permission to execute commands.
+User wants to just say ""<url> настрой"" without detailed instructions.
+
+Solution: Created .clawdbot-deploy file with:
+- Auto-deploy protocol (clone → cd → npm run deploy)
+- Explicit permissions (Docker, sudo for systemd, filesystem access)
+- Expected behavior and error handling
+- Safety guarantees
+
+Updated README to point agents to this protocol file.
+
+Now agents can read the protocol and execute autonomously when
+user says ""настрой"" or ""deploy"".
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,666988e15d90a2d023eeb97c62629aa6600a1195,2026-02-15T16:14:16+00:00,AI,Claude_Code,3,3,1,False,True,False,False,"Fix docker-compose command for older Docker versions
+
+Problem: Script used ""docker compose"" which doesn't work on Docker 28.2.2
+Error: ""unknown shorthand flag: 'd' in -d"" (exit code 125)
+
+Solution: Replace all ""docker compose"" → ""docker-compose"" (hyphenated)
+
+This works with both old and new Docker versions.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,e2ab8a30bea2e3034b1eedc33f5fd89181769472,2026-02-15T16:07:49+00:00,AI,Claude_Code,23,6,3,False,True,False,False,"Add npm run deploy script to fix Clawdbot confusion
+
+Problem: Clawdbot saw old ""npm run setup"" in package.json and tried to use
+it, but that script only creates .env.local (not full deployment).
+
+Solution:
+- Added ""deploy"": ""bash ./setup"" to package.json scripts
+- Updated README.md to show all 3 deploy methods (npm/bash/make)
+- Updated AI.md to recommend ""npm run deploy"" as primary method
+
+Now agents will see familiar ""npm run deploy"" command and it will trigger
+the full auto-host.sh deployment flow.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,1a83565d59aa12befde97f5b6b8999d1092f9b61,2026-02-15T15:54:43+00:00,AI,Claude_Code,182,14,2,False,False,False,False,"Add Makefile + comprehensive AI.md based on Clawdbot feedback
+
+Per Clawdbot's recommendations after actually cloning and reviewing the repo:
+
+- Added Makefile with `make install` target (most standard entrypoint)
+- Completely rewrote AI.md with:
+  * Prerequisites (Docker, Node ≥22, optional systemd)
+  * Step-by-step of what script does
+  * Explanation of ~/.clawdbot/clawdbot.json format
+  * Scenarios matrix (with/without tokens)
+  * Ports and healthcheck
+  * Troubleshooting table
+  * Update/remove instructions
+
+Now agents can use either ./setup OR make install, and have complete
+context about what to expect, what's required, and how to debug.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,49599c04fbe3a97dea6ee5e46a1b3fe809c000fb,2026-02-15T15:40:58+00:00,AI,Claude_Code,46,5,4,False,False,False,False,"Add ./setup wrapper for zero-config deployment
+
+- Created ./setup script in repo root (no arguments needed)
+- Created AI.md with minimal instructions for AI agents
+- Updated README.md to point to ./setup
+- Updated DEPLOY.md to show ./setup as simplest option
+
+Now agents can just: git clone <URL> <DIR> && cd <DIR> && ./setup
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,f5bd053fbf38b21e5a28f794fd6510fdb2cdb444,2026-02-15T15:33:50+00:00,AI,Claude_Code,8,0,1,False,False,False,False,"Add AI agent quick-start section to README
+
+- Added prominent section for AI agents (Clawdbot, Claude, etc.) at top
+- Links to DEPLOY.md for one-command deployment
+- Makes it obvious what to do when agent reads the repo
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,1e601ad6c9061f936bec277fe6c37273090fb47c,2026-02-15T15:21:16+00:00,AI,Claude_Code,32,7,1,False,True,False,False,"auto-host.sh: always update Clawdbot tokens on re-run + better config search
+
+- Search for Clawdbot config in multiple locations ($HOME, /root)
+- ALWAYS update tokens if auto-detected (fixes stale tokens from previous runs)
+- Restart systemd service after token update so new .env.local is loaded
+- Handle case where agent runs from non-root user
+- Better diagnostics: show token prefix instead of full token in logs
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,7470e9fedfc3e4260ebb120c00cc9937c9af6d5a,2026-02-15T15:11:33+00:00,AI,Claude_Code,108,126,2,False,False,False,False,"auto-host.sh: auto-detect Clawdbot tokens from ~/.clawdbot/clawdbot.json
+
+- Reads gateway.auth.token, gateway.port, channels.telegram.botToken
+  automatically when Clawdbot config exists on the same machine
+- No manual token passing needed — just run the script
+- Warns clearly if tokens can't be found (AI chat won't work)
+- Adds Clawdbot connectivity check after deployment
+- Simplified DEPLOY.md to single-command flow
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,c5beed7eaae374eaf2f76e49c788435ee7c553e1,2026-02-15T14:28:19+00:00,AI,Claude_Code,704,118,32,False,True,False,False,"Complete lifeos→clawdos rename + auto-host with agent deploy support
+
+- Fix login redirect: cookie/session keys lifeos.session → clawdos.session
+- Rename all events lifeos:* → clawdos:*, XML protocol <lifeos> → <clawdos>
+- Rename env vars LIFEOS_CONSULT_TOKEN → CLAWDOS_CONSULT_TOKEN
+- Update docker-compose, config templates, docs (10 files)
+- Fix auto-sync.sh broken path
+- New: scripts/auto-host.sh — one-command deploy with auto port detection
+  - Accepts --clawdbot-token, --telegram-token for agent-driven deploys
+  - --json flag for machine-readable output
+  - --systemd for persistent service creation
+- New: DEPLOY.md — step-by-step instructions for Clawdbot auto-deploy
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,7a2366055a4f712ecc58eb76c20f9d29b174d930,2026-02-13T01:45:21+00:00,AI,Claude_Code,51,51,28,False,False,False,False,"Rename LifeOS → ClawdOS across all files
+
+Rebrand project from LifeOS to ClawdOS: package name, docs, golden rules,
+agent instructions, log messages, and UI system prompts.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,5f3b0754f1954ee3422232447b776f54e423488c,2026-02-13T01:29:20+00:00,Human,,775,60,7,False,False,False,False,Auto-sync: 2026-02-13 01:29:20
+https://www.github.com/23ag1/clawdos,26a09309e47be391999766f2068d0662a20e41da,2026-02-13T01:14:19+00:00,Human,,1608,136,7,False,False,False,False,Auto-sync: 2026-02-13 01:14:19
+https://www.github.com/23ag1/clawdos,68342d77b3e105a52411ac1804deff7a93b8e7aa,2026-02-13T00:59:19+00:00,Human,,1468,2070,24,False,False,False,False,Auto-sync: 2026-02-13 00:59:19
+https://www.github.com/23ag1/clawdos,751315235c1bd3df82e85a81ef6a1fb94b22890a,2026-02-13T00:44:17+00:00,Human,,47,41,7,False,False,False,False,Auto-sync: 2026-02-13 00:44:17
+https://www.github.com/23ag1/clawdos,32a42167a32acb5dc927256506c299c9206603d9,2026-02-13T00:29:17+00:00,Human,,0,1838,13,False,False,False,False,Auto-sync: 2026-02-13 00:29:17
+https://www.github.com/23ag1/clawdos,728c5f00f61ff1b467c54b1fc16e784f1a615907,2026-02-12T23:59:16+00:00,Human,,62,82,7,False,False,False,False,Auto-sync: 2026-02-12 23:59:16
+https://www.github.com/23ag1/clawdos,aea6769a13141de4bbb4de04832aa56af06660d6,2026-02-12T23:44:16+00:00,Human,,83,16,5,False,False,False,False,Auto-sync: 2026-02-12 23:44:16
+https://www.github.com/23ag1/clawdos,0ff4e276460c6e4c1b653b64d981b9f6d52de458,2026-02-12T23:29:15+00:00,Human,,38,7,3,False,False,False,False,Auto-sync: 2026-02-12 23:29:15
+https://www.github.com/23ag1/clawdos,14f2b2a3c35c210dbaf8d0acc4334626a9dd8730,2026-02-12T23:14:13+00:00,Human,,67,46,8,False,False,False,False,Auto-sync: 2026-02-12 23:14:13
+https://www.github.com/23ag1/clawdos,b2a46c52b5196f35c8bce5837584c8e6ec3d40e3,2026-02-12T22:59:13+00:00,Human,,32,12,1,False,False,False,False,Auto-sync: 2026-02-12 22:59:13
+https://www.github.com/23ag1/clawdos,f0e80c5e7129f4726b9b2d079b9d509fdafb5d3f,2026-02-12T21:44:11+00:00,Human,,17,4,1,False,False,False,False,Auto-sync: 2026-02-12 21:44:11
+https://www.github.com/23ag1/clawdos,cb9be5f1ea290c77cc2d8213f306c55dc8338799,2026-02-11T23:28:17+00:00,Human,,25,317,12,False,False,False,False,Auto-sync: 2026-02-11 23:28:17
+https://www.github.com/23ag1/clawdos,a70def83baca15a57b84fb8a34bbbbaa76e0d621,2026-02-11T23:13:16+00:00,Human,,0,21,2,False,False,False,False,Auto-sync: 2026-02-11 23:13:16
+https://www.github.com/23ag1/clawdos,a7155fc50203a7d95bf4bf5fb874204ef9345387,2026-02-11T22:58:15+00:00,Human,,10,31,5,False,False,False,False,Auto-sync: 2026-02-11 22:58:15
+https://www.github.com/23ag1/clawdos,c21bfc26fbd0724ddc8153076da54bd1000d3b2c,2026-02-11T22:43:14+00:00,Human,,40,51,4,False,False,False,False,Auto-sync: 2026-02-11 22:43:14
+https://www.github.com/23ag1/clawdos,273c4d9932a4f28f2e2b58a14a0adf7ff5106312,2026-02-11T22:28:13+00:00,Human,,201,23,6,False,False,False,False,Auto-sync: 2026-02-11 22:28:13
+https://www.github.com/23ag1/clawdos,66c5c3afdcf1de1ab7253a896d9daed06ea45210,2026-02-11T22:13:13+00:00,Human,,6,3,2,False,False,False,False,Auto-sync: 2026-02-11 22:13:13
+https://www.github.com/23ag1/clawdos,dc9aa0b883694f7fdef917440c9703fb17bc3205,2026-02-11T21:58:12+00:00,Human,,85,34,5,False,False,False,False,Auto-sync: 2026-02-11 21:58:12
+https://www.github.com/23ag1/clawdos,7cebd2aed3513cbeef00e76ff9b0f43501e36236,2026-02-11T21:28:10+00:00,Human,,81,55,4,False,False,False,False,Auto-sync: 2026-02-11 21:28:10
+https://www.github.com/23ag1/clawdos,7a2abfffa177012ab0bba015c179da21ce096ba9,2026-02-11T21:13:10+00:00,Human,,1,4,1,False,False,False,False,Auto-sync: 2026-02-11 21:13:10
+https://www.github.com/23ag1/clawdos,1054c40739477a93e24e62a29c8a3c796d453b2a,2026-02-11T20:58:10+00:00,Human,,889,380,13,False,False,False,False,Auto-sync: 2026-02-11 20:58:10
+https://www.github.com/23ag1/clawdos,48919eab03d8d9290102512045f04681f154610c,2026-02-11T20:43:00+00:00,Human,,215,64,4,False,False,False,False,Auto-sync: 2026-02-11 20:43:00
+https://www.github.com/23ag1/clawdos,45a35d999a260ee7c734afaa7303ac9a17c5cae2,2026-02-11T20:27:28+00:00,Human,,263,107,6,False,False,False,False,Auto-sync: 2026-02-11 20:27:28
+https://www.github.com/23ag1/clawdos,86064653a2959a669f718d31eb22ffad6aeefe19,2026-02-11T16:56:34+00:00,Human,,55,50,2,False,False,False,False,Auto-sync: 2026-02-11 16:56:34
+https://www.github.com/23ag1/clawdos,7af01e12e7634e3efd7e49e78789da12ef2aca2f,2026-02-11T16:41:17+00:00,Human,,60,1,3,False,False,False,False,Auto-sync: 2026-02-11 16:41:17
+https://www.github.com/23ag1/clawdos,7472173bec25b8baa6376bcb22db7d7c3b92bf05,2026-02-11T11:39:23+00:00,Human,,78,65,11,False,False,False,False,Auto-sync: 2026-02-11 11:39:23
+https://www.github.com/23ag1/clawdos,80e87d451aa73df654032f44747c9cecd776fa10,2026-02-11T11:24:23+00:00,Human,,78,47,8,False,False,False,False,Auto-sync: 2026-02-11 11:24:23
+https://www.github.com/23ag1/clawdos,7ce5ed79038ac058802fdce0b0cc30e8db65b967,2026-02-11T01:53:56+00:00,Human,,44,18,4,False,False,False,False,Auto-sync: 2026-02-11 01:53:56
+https://www.github.com/23ag1/clawdos,46cfc4a8d78cce1c0bad7e5dbd49d3e491a9daf3,2026-02-11T01:38:55+00:00,Human,,2,4,2,False,False,False,False,Auto-sync: 2026-02-11 01:38:55
+https://www.github.com/23ag1/clawdos,11c01d7e1773d5dd4d344a110c573383ce7c4c7c,2026-02-11T01:23:55+00:00,Human,,171,144,2,False,False,False,False,Auto-sync: 2026-02-11 01:23:55
+https://www.github.com/23ag1/clawdos,2b89a6d1b93b38af6ebb8a1cdad60f4d23a72617,2026-02-11T01:08:54+00:00,Human,,257,24,4,False,False,False,False,Auto-sync: 2026-02-11 01:08:54
+https://www.github.com/23ag1/clawdos,8c6697decff31d2cacfc127f7ff76102479e28e5,2026-02-11T00:23:53+00:00,Human,,4,2,1,False,False,False,False,Auto-sync: 2026-02-11 00:23:53
+https://www.github.com/23ag1/clawdos,3bb5e62116e61f8ef9ea7273a0046758fb9366ab,2026-02-11T00:08:53+00:00,Human,,145,49,4,False,False,False,False,Auto-sync: 2026-02-11 00:08:53
+https://www.github.com/23ag1/clawdos,404ee78b85c966a836f893f1abe882992b389f6a,2026-02-10T23:53:51+00:00,Human,,137,37,6,False,False,False,False,Auto-sync: 2026-02-10 23:53:51
+https://www.github.com/23ag1/clawdos,07ba0df368d55a36e167f2b002f18a7fe12615a9,2026-02-10T23:38:49+00:00,Human,,198,32,10,False,False,False,False,Auto-sync: 2026-02-10 23:38:49
+https://www.github.com/23ag1/clawdos,4e1b284b0ebecc07cd4b0622c10276c2146072ee,2026-02-10T23:23:39+00:00,Human,,1,1,1,False,False,False,False,Auto-sync: 2026-02-10 23:23:39
+https://www.github.com/23ag1/clawdos,6375e7356d8a7b6e522f0f688e5b395fded0b11c,2026-02-10T23:08:38+00:00,Human,,59,8,3,False,False,False,False,Auto-sync: 2026-02-10 23:08:38
+https://www.github.com/23ag1/clawdos,07946cf214f93da51c8d15fc18464904e3985bce,2026-02-10T22:53:38+00:00,Human,,26,19,2,False,False,False,False,Auto-sync: 2026-02-10 22:53:38
+https://www.github.com/23ag1/clawdos,8021a2fe0d34cbfe8c7308faf42ab88c3cbb9b64,2026-02-10T22:38:19+00:00,Human,,5,0,1,False,False,False,False,Auto-sync: 2026-02-10 22:38:19
+https://www.github.com/23ag1/clawdos,07224a87bff95991cf242d21752f607c603f7899,2026-02-10T22:23:17+00:00,Human,,107,10,4,False,False,False,False,Auto-sync: 2026-02-10 22:23:17
+https://www.github.com/23ag1/clawdos,8776d912145a0d8a3533ae9d280ba01cbd7a21af,2026-02-10T22:08:17+00:00,Human,,2180,74,21,False,False,False,False,Auto-sync: 2026-02-10 22:08:17
+https://www.github.com/23ag1/clawdos,7d306d107c79243e021e7bb7a541edbfdf0de829,2026-02-10T21:53:14+00:00,Human,,373,3,5,False,False,False,False,Auto-sync: 2026-02-10 21:53:14
+https://www.github.com/23ag1/clawdos,5a4c9dca4cb287cb994f934393fcbb0c802a8f68,2026-02-10T17:36:41+00:00,Human,,13,6,1,False,False,False,False,Auto-sync: 2026-02-10 17:36:41
+https://www.github.com/23ag1/clawdos,48db5ba1a1380b80c678e31911ad0fe5330638e6,2026-02-10T02:00:46+00:00,Human,,1268,13,7,False,False,False,False,Auto-sync: 2026-02-10 02:00:46
+https://www.github.com/23ag1/clawdos,78421bbdcd4a588301d85290a791e17e3e7174b5,2026-02-10T00:45:09+00:00,Human,,232,132,3,False,False,False,False,Auto-sync: 2026-02-10 00:45:09
+https://www.github.com/23ag1/clawdos,95ca8fc72446c6105503efce5918bd7dbc8f01e4,2026-02-10T00:30:06+00:00,Human,,311,383,7,False,False,False,False,Auto-sync: 2026-02-10 00:30:06
+https://www.github.com/23ag1/clawdos,70d6182433eaa68c8fc7fc8c2b5a4aef5d0103e9,2026-02-10T00:15:06+00:00,Human,,114,14,3,False,False,False,False,Auto-sync: 2026-02-10 00:15:06
+https://www.github.com/23ag1/clawdos,fcf20683171c9b458937ea5432597a364b497887,2026-02-09T23:45:01+00:00,Human,,14,1,1,False,False,False,False,Auto-sync: 2026-02-09 23:45:01
+https://www.github.com/23ag1/clawdos,9fcc257dd682455319c2ca8b02767eb4308c5381,2026-02-09T23:30:00+00:00,Human,,9,0,2,False,False,False,False,Auto-sync: 2026-02-09 23:30:00
+https://www.github.com/23ag1/clawdos,0d48c293dc83048e997160fe6a0b2826b5fd1f4f,2026-02-09T23:24:36+00:00,AI,Claude_Code,107,3,2,False,False,False,False,"Replace Clawdbot telegram_outbox with direct Telegram Bot API
+
+- Add src/lib/telegram/send.ts - direct sendTelegramMessage via Bot API
+- Replace enqueueTelegram to call api.telegram.org directly
+- Remove dependency on core.telegram_outbox table for 2FA codes
+- Requires TELEGRAM_BOT_TOKEN in .env.local
+
+This removes LLM dependency for sending Telegram codes.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,767fd5eb1b92f14084fe1b0c82216ee7ec1a3a8f,2026-02-06T06:44:14+00:00,Human,,4,1,1,False,True,False,False,Fix login session cookie on HTTP (do not force secure cookies in production)
+https://www.github.com/23ag1/clawdos,2a30a5c4b7cde4c2f17a15fc081325901cbc6920,2026-02-05T22:28:09+00:00,AI,Claude_Code,17,14,1,True,True,False,False,"fix: Replace useTransition with manual state to prevent stuck pending
+
+The useTransition hook's pending state would get stuck after calling
+router.refresh() inside startTransition, due to a known Next.js bug
+(https://github.com/vercel/next.js/issues/86055). This prevented users
+from switching workspaces more than once.
+
+Debug session: .planning/debug/resolved/workspace-switch-stuck.md
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,4ad109c3f45341a0654ab7b7f6847754e22b9ca3,2026-02-05T20:46:06+00:00,AI,Claude_Code,12,19,1,False,True,False,False,"Fix Cyrillic word boundary detection in workspace switch
+
+The \b regex word boundary doesn't work with Cyrillic characters.
+Simplified the detection to use simple includes-style patterns
+that work correctly with both Russian and English text.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,d0f76595f9ec704a0515e4cf34a174b066b079f5,2026-02-05T19:50:12+00:00,AI,Claude_Code,8,0,2,False,True,False,False,"Fix task list not updating when switching workspace in sidebar
+
+- Add router.refresh() after setActiveWorkspace() to force server re-render
+- Add useEffect to sync TaskList state when initialTasks prop changes
+- Skip redundant workspace switch if already active
+
+This ensures tasks update immediately when user switches workspace.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,36cd0df37d8747f9104bdde053809d9d65d6dd27,2026-02-05T19:33:14+00:00,AI,Claude_Code,139,1,2,False,True,False,False,"Add workspace type switching via chat fast-path
+
+- Add POST /api/workspaces/switch endpoint to switch by type (personal/shared)
+- Add detectWorkspaceSwitch() in useChat for patterns like:
+  - ""личные задачи"", ""мои таски"", ""personal tasks"", ""my tasks""
+  - ""общие задачи"", ""командные таски"", ""shared tasks"", ""team tasks""
+- Automatically navigate to /tasks after switching workspace
+
+This fixes the issue where ""открой таски"" would randomly open personal
+or shared workspace - now users can explicitly specify which one.
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,261d49cc7a853e96b570163b271bc352b45b7bdf,2026-02-05T19:15:52+00:00,AI,Claude_Code,33,15,2,False,True,False,False,"Add defensive error handling for regex operations and null checks
+
+- Add null checks to extractClientTaskTitle to prevent crashes
+- Wrap regex matching in try-catch blocks with silent failure fallback
+- Add null checks to matchesAsWord and improve error handling
+- Add input validation to resolveSectionPath to prevent crashes
+- Wrap ACTION_VERBS_RE.test() in try-catch to prevent regex errors
+
+Fixes the ""client-side exception has occurred"" crash that occurred
+when regex patterns encountered unexpected input or edge cases.
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,f3bd9909c66986628eddd6a92a534a5c64b3a1e8,2026-02-05T19:07:46+00:00,Human,,37,8,3,False,False,False,False,Auto-sync: 2026-02-05 19:07:46
+https://www.github.com/23ag1/clawdos,aea4792fd4524542a56f2c53af6d470e6b7ae81b,2026-02-05T18:37:16+00:00,Human,,32,27,2,False,False,False,False,Auto-sync: 2026-02-05 18:37:16
+https://www.github.com/23ag1/clawdos,27110aceac85e13c6c4729b5aef8a70b68475e1b,2026-02-05T18:22:14+00:00,Human,,62,24,3,False,False,False,False,Auto-sync: 2026-02-05 18:22:14
+https://www.github.com/23ag1/clawdos,20f2e8d20a820d4407fa4f1bb9a7dabfea99f3a2,2026-02-05T17:06:16+00:00,Human,,1,1,1,False,False,False,False,Auto-sync: 2026-02-05 17:06:16
+https://www.github.com/23ag1/clawdos,d2f39ee34003b1950ad90a3a6f33d79f6b747026,2026-02-05T16:51:12+00:00,Human,,67,23,7,False,False,False,False,Auto-sync: 2026-02-05 16:51:12
+https://www.github.com/23ag1/clawdos,3815c0184edd8ee8aa9944af3c1b8c46d3243cb5,2026-02-04T23:35:59+00:00,Human,,18,0,1,False,False,False,False,Prefetch section routes to speed up tab navigation
+https://www.github.com/23ag1/clawdos,17a9e831d27868ff250276751db5891d7c07768f,2026-02-04T23:34:32+00:00,Human,,3,3,2,False,False,False,False,Do not auto-navigate to /tasks when creating tasks
+https://www.github.com/23ag1/clawdos,f37cc404ad405df7a121a8e925feb57836ac7d6a,2026-02-04T23:33:40+00:00,Human,,5,3,1,False,False,False,False,Reduce perceived latency: avoid immediate router.refresh on fast-path actions
+https://www.github.com/23ag1/clawdos,496e85a42953f0c59e468dc4b385c517a998e17f,2026-02-04T23:30:06+00:00,Human,,209,113,5,False,False,False,False,Add sections registry + shared resolver for navigation (sidebar + chat)
+https://www.github.com/23ag1/clawdos,909c7766c874f4e8d11e456d4d3d5d2b4acc0a2c,2026-02-04T23:21:55+00:00,Human,,105,0,1,False,False,False,False,Client fast-path for navigation and quick task creation (instant UI actions)
+https://www.github.com/23ag1/clawdos,c5dc9f1ddd4d6c4a3727317e935a34bfca9e070f,2026-02-04T23:17:28+00:00,Human,,30,0,1,False,False,False,False,Add Ctrl/Cmd+J shortcut to toggle AI panel
+https://www.github.com/23ag1/clawdos,3b7ff20aeebba865b1184b9f658ee19539e40dec,2026-02-04T23:15:33+00:00,Human,,13,9,1,False,True,False,False,Fix RUB fiat rates by switching to jsdelivr currency feed (Frankfurter lacks RUB)
+https://www.github.com/23ag1/clawdos,d55d70494fd1a8febac3797f455f55865dc7e7e2,2026-02-04T23:14:38+00:00,Human,,4,3,1,False,True,False,False,Fix fiat rates: migrate Frankfurter endpoint to api.frankfurter.dev
+https://www.github.com/23ag1/clawdos,562e92d6c43d9407b38c9d83a49310c65b075b4c,2026-02-04T23:13:44+00:00,Human,,11,3,1,False,False,False,False,Replace glitch logo with static mark for consistent rendering
+https://www.github.com/23ag1/clawdos,643fef9586c38cab8f0ea0bb40360424941ce947,2026-02-04T23:09:46+00:00,Human,,126,2,3,False,False,False,False,Add deterministic quick task creation + tasks filter events + task.delete action
+https://www.github.com/23ag1/clawdos,295b3d86ceff241ab7ff5057727132ac882e254b,2026-02-04T23:07:26+00:00,Human,,29,7,3,False,False,False,False,Improve navigation detection incl settings; allow chat interruption while streaming
+https://www.github.com/23ag1/clawdos,59b5a1e51cebfb792ae364b2af7ad58327d63123,2026-02-04T23:05:33+00:00,Human,,83,2,1,False,False,False,False,Make navigation commands reliable + always acknowledge actions
+https://www.github.com/23ag1/clawdos,9b55288d4bf3e1d0b2f2c781cf2cbc0bf1ccbce6,2026-02-04T23:00:09+00:00,Human,,24,1,1,False,False,False,False,Auto-sync: 2026-02-04 23:00:09
+https://www.github.com/23ag1/clawdos,a7172ea799b2e8711ec2541427d6df38e81a54e9,2026-02-04T22:59:48+00:00,Human,,21,3,2,False,False,False,False,Refresh server components on AI task updates; pass real pathname to chat context
+https://www.github.com/23ag1/clawdos,52cfb010842b45154f8f476f554bb2df40dba3f9,2026-02-04T22:54:44+00:00,Human,,15,2,1,False,False,False,False,Defer navigation events until stream end to avoid losing task updates
+https://www.github.com/23ag1/clawdos,74e27f1b97e3c5bfeefcc4281877efd912ad90a3,2026-02-04T22:45:08+00:00,Human,,126,59,5,False,False,False,False,Auto-sync: 2026-02-04 22:45:08
+https://www.github.com/23ag1/clawdos,aed5aa7c0451bacb76f39f788d3b5779afd292c6,2026-02-04T22:30:07+00:00,Human,,155,179,5,False,False,False,False,Auto-sync: 2026-02-04 22:30:07
+https://www.github.com/23ag1/clawdos,d56f0ee28268c3848ee935a31a2dce704b99d32a,2026-02-04T22:26:51+00:00,Human,,3,3,3,False,False,False,False,Standardize LifeOS port to 3000 (stop defaulting to 3100)
+https://www.github.com/23ag1/clawdos,97d789551729d5b84370054c6292ebfd55594df7,2026-02-04T22:22:54+00:00,Human,,71,0,1,False,True,False,False,Fix GlitchText useRef init for Next build
+https://www.github.com/23ag1/clawdos,cd23e3baff8f0c55873d028275c6b614188970fc,2026-02-04T22:15:06+00:00,Human,,347,78,2,False,False,False,False,Auto-sync: 2026-02-04 22:15:06
+https://www.github.com/23ag1/clawdos,08337e09a20926e19f8cb6e6638508f02f5da3e0,2026-02-04T22:00:05+00:00,Human,,164,12,2,False,False,False,False,Auto-sync: 2026-02-04 22:00:05
+https://www.github.com/23ag1/clawdos,daee7f9d93bbea06c6ef5e0210db179bd15d4c14,2026-02-04T21:44:59+00:00,Human,,99,17,1,False,False,False,False,Auto-sync: 2026-02-04 21:44:59
+https://www.github.com/23ag1/clawdos,4145f259cf8b1f1d047da8a37a4eefd7c79996b6,2026-02-04T21:29:58+00:00,Human,,2,0,1,False,False,False,False,Auto-sync: 2026-02-04 21:29:58
+https://www.github.com/23ag1/clawdos,979368ed540531d0bc065ba62106306c53f4a8e9,2026-02-04T21:14:55+00:00,Human,,0,266,1,False,False,False,False,Auto-sync: 2026-02-04 21:14:55
+https://www.github.com/23ag1/clawdos,9e03ce2a1cbdf71190b01c2432b50ad51ea7ac2c,2026-02-04T21:11:08+00:00,Human,,93,0,1,False,False,False,False,Add /api/consult endpoint for Claude Code to query Clawdbot
+https://www.github.com/23ag1/clawdos,cce58c2d391d234c005bae79a8087a7d37e3bc65,2026-02-04T21:06:50+00:00,Human,,24,5,1,False,False,False,False,Execute <lifeos> actions reliably (use accumulated stream text)
+https://www.github.com/23ag1/clawdos,28b9b61da4545cb5af799e14ae99265f940ed534,2026-02-04T20:59:18+00:00,Human,,211,0,4,False,False,False,False,Add agent manifest + capabilities map for Claude Code
+https://www.github.com/23ag1/clawdos,387729e4af9c496456ac14bc596cff4c40d82390,2026-02-04T20:48:53+00:00,Human,,146,0,3,False,False,False,False,Enable agent-driven navigation and task actions via safe <lifeos> blocks
+https://www.github.com/23ag1/clawdos,d989b31fa9d1e081bdf4f38caa93c42844fc5f9d,2026-02-04T20:41:07+00:00,Human,,32,5,1,False,False,False,False,Integrate Telegram identity into web chat context (no webhook)
+https://www.github.com/23ag1/clawdos,9c6b2609f8b1ea2168cb657ded39fb654a93baed,2026-02-04T19:14:10+00:00,Human,,3,5,1,False,False,False,False,Auto-sync: 2026-02-04 19:14:10
+https://www.github.com/23ag1/clawdos,542780a7a1e99a30486f2ac61bf821176d0028d6,2026-02-04T19:03:44+00:00,Human,,51,91,1,False,True,False,False,Fix LifeOS chat UI to parse SSE streaming from Clawdbot
+https://www.github.com/23ag1/clawdos,7227db14a7fd569a669a5a8afc07d04de7a0c555,2026-02-04T18:59:07+00:00,Human,,1006,366,12,False,False,False,False,Auto-sync: 2026-02-04 18:59:07
+https://www.github.com/23ag1/clawdos,59ab8896232ef4698a321b07d8e404cd2458f2e6,2026-02-04T18:44:06+00:00,Human,,46,3,2,False,False,False,False,Auto-sync: 2026-02-04 18:44:06
+https://www.github.com/23ag1/clawdos,9d2f2a6885c881bab3272eaf5e3c4ba7db54ecf4,2026-02-04T18:28:51+00:00,Human,,248,77,2,False,False,False,False,Auto-sync: 2026-02-04 18:28:51
+https://www.github.com/23ag1/clawdos,6c7baaad7881d567f37155519e9b6754d2753399,2026-02-04T18:13:50+00:00,Human,,66,62,2,False,False,False,False,Auto-sync: 2026-02-04 18:13:50
+https://www.github.com/23ag1/clawdos,35a8053c41b93d28b23ffe6d3fd816484f2bc629,2026-02-04T17:58:47+00:00,Human,,1506,37,11,False,False,False,False,Auto-sync: 2026-02-04 17:58:47
+https://www.github.com/23ag1/clawdos,4ca9ddd5cf5a7d1dc16de32d83779bdb8a0cd202,2026-02-04T17:43:29+00:00,Human,,546,46,6,False,False,False,False,Auto-sync: 2026-02-04 17:43:29
+https://www.github.com/23ag1/clawdos,ccf04d9203552387863452f5d6909efe08c4725d,2026-02-04T17:35:01+00:00,AI,Claude_Code,346,91,18,False,False,False,False,"chore: reorganize repository structure
+
+- Move documentation to docs/ folder
+  - ARCHITECTURE.md, PRINCIPLES.md, OPS.md, ROADMAP.md
+- Move development planning files to docs/development/
+  - PRD.md, IMPLEMENTATION_PLAN.md, AGENTS.md, PROGRESS.md, specs/
+- Remove unused default Next.js SVGs from public/
+- Update README.md with cleaner GitHub-friendly format
+- Add Anthropic SDK for AI chat (Phase 3)
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,e838e0c8e5d1355a7d0d9c4b0748b7c16ba5f72a,2026-02-04T17:28:46+00:00,Human,,7,0,1,False,False,False,False,Auto-sync: 2026-02-04 17:28:46
+https://www.github.com/23ag1/clawdos,4454f03430cd934346eb864c7fcb1bfb6a2569b0,2026-02-04T17:28:21+00:00,Human,,11972,643,82,False,False,False,False,Auto-sync: 2026-02-04 17:28:21
+https://www.github.com/23ag1/clawdos,fc44505b5c1b4cfeb3e081cdb7af74a89f3d5050,2026-02-04T17:25:30+00:00,AI,Claude_Code,72,10,10,True,True,False,False,"fix(ui): button hover effects and access page error styling
+
+- Add hover:opacity-90 transition to all primary buttons
+- Fix hardcoded error colors in access page
+- Consistent button UX across all auth flows
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,1bd07965240970f0bb437c2d9f71c799547e3925,2026-02-04T17:21:45+00:00,AI,Claude_Code,53,16,10,True,True,False,False,"fix(ui): dark mode error/success message styling
+
+- Add CSS variables for error/success states in globals.css
+- Update all auth pages to use theme-aware error styling
+- Add success message styling for recovery flow
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,ad1088f69ba637fa3a67ff1229cd00d1be064a66,2026-02-04T17:16:14+00:00,AI,Claude_Code,201,42,5,True,True,False,False,"fix(ui): polish design issues - toggle overlap, colors, borders
+
+- Fix AIPanelToggle overlapping with AIPanel when open
+- Fix hardcoded text-slate-300 color in Today page
+- Add consistent border-[var(--border)] and bg-[var(--card)] to cards
+- Update PROGRESS.md with changes
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+https://www.github.com/23ag1/clawdos,d324d6bf7af1f97101c903786d9c7e143aa47a26,2026-02-04T00:10:31+00:00,Human,,147,52,4,False,False,False,False,Make sidebar client-driven to speed up navigation
+https://www.github.com/23ag1/clawdos,fbc6652beea93103e40594c73c1e124b26487455,2026-02-04T00:04:58+00:00,Human,,31,0,1,False,False,False,False,Run Next.js start on 0.0.0.0:3100 for faster navigation
+https://www.github.com/23ag1/clawdos,3364522323dfd6305faf48fa8b5e7b44e73e85f9,2026-02-03T23:59:17+00:00,Human,,20,10,2,False,False,False,False,Move sign out into Settings and use Settings button in sidebar
+https://www.github.com/23ag1/clawdos,dd9699486e3f080d52e243c037571c68f22e9020,2026-02-03T23:54:25+00:00,Human,,398,2,9,False,False,False,False,Add settings UI (password change + telegram linking)
+https://www.github.com/23ag1/clawdos,60731799548f0645dc0f854fa46563604a4fc5bb,2026-02-03T23:25:43+00:00,Human,,404,3,8,False,False,False,False,Add Telegram-based 2FA and password recovery
+https://www.github.com/23ag1/clawdos,33a12c05a9026d97d0abb1c840f920ab96c7c616,2026-02-03T23:11:32+00:00,Human,,24,5,3,False,True,False,False,Fix theme contrast: remove hardcoded white backgrounds
+https://www.github.com/23ag1/clawdos,a95958d956618a0f648b1621a93e78e695e42e23,2026-02-03T23:05:53+00:00,Human,,0,0,1,False,False,False,False,Move token gate middleware to src/ and remove debug header
+https://www.github.com/23ag1/clawdos,4d96d0d05669979d318067096736d7b47f9a5ebb,2026-02-03T23:02:40+00:00,Human,,168,29,4,False,False,False,False,Add IP access token gate (middleware + /access)
+https://www.github.com/23ag1/clawdos,14cf3fc179e7e3bcb2b080b269f654768e5bb579,2026-02-03T23:00:07+00:00,Human,,2,2,1,False,False,False,False,Use theme variables for news page text
+https://www.github.com/23ag1/clawdos,35b0b3d24e334f92545b2e938896bbaf3dd95a67,2026-02-03T22:59:34+00:00,Human,,67,20,6,False,False,False,False,Add light/dark theme variables and improve contrast
+https://www.github.com/23ag1/clawdos,3574074d5d10e5bef4af771e55cf251208c4d28c,2026-02-03T22:55:56+00:00,Human,,8,4,1,False,True,False,False,Fix news_item columns (topic/summary)
+https://www.github.com/23ag1/clawdos,00dec564ac16b82ae9c5c9d9abf5bad9b7d79e1d,2026-02-03T22:55:17+00:00,Human,,77,10,4,False,False,False,False,Improve text contrast across app UI
+https://www.github.com/23ag1/clawdos,284e1290efe1cf78bebfcf1862606755ee365a3c,2026-02-03T22:53:13+00:00,Human,,7,2,1,False,True,False,False,Fix digest query: use body and derive summary
+https://www.github.com/23ag1/clawdos,fdcc943bc6a62a29477d4e0a2123f34970554520,2026-02-03T22:52:26+00:00,Human,,73,2,2,False,True,False,False,Fix news query schema and improve login input contrast
+https://www.github.com/23ag1/clawdos,b63678429d20bf417ae613492fc4256d84a34b2b,2026-02-03T22:50:32+00:00,Human,,54,0,1,False,True,False,False,Fix today page to query content.digest
+https://www.github.com/23ag1/clawdos,0c873ea5a298188a683ee198fc144af1930c6571,2026-02-03T22:49:32+00:00,Human,,33,0,1,False,True,False,False,Fix workspaces query to use core.workspace/core.membership
+https://www.github.com/23ag1/clawdos,96db37342b3ef456843f53eb1f44c300854c41c0,2026-02-03T22:47:41+00:00,Human,,21,0,1,False,True,False,False,Fix auth to query core.user table
+https://www.github.com/23ag1/clawdos,c5af9d348cc5e1ed8b17c509d6c101bf53da674b,2026-02-03T22:43:17+00:00,Human,,133,0,2,False,False,False,False,Change LifeOS default port to 3100
+https://www.github.com/23ag1/clawdos,5c8f55d0622cb71acd5cd997ff9fb30a1a0629cf,2026-02-03T22:40:19+00:00,Human,,55,0,1,False,True,False,False,Fix Next.js searchParams async usage on login page
+https://www.github.com/23ag1/clawdos,2c053c3d621fb7606c76b092a42f858b3c366d2a,2026-02-03T22:36:24+00:00,Human,,55,0,1,False,False,False,False,Add dev seed for default workspaces and memberships
+https://www.github.com/23ag1/clawdos,fba6bfc71d01a9ab9085969065b9f7cff6cb14ac,2026-02-03T22:34:53+00:00,Human,,9,6,1,False,False,False,False,Allow bootstrap-workspaces to use env usernames
+https://www.github.com/23ag1/clawdos,3edf3a82523301fb240853e734e5d1cf6dd5789e,2026-02-03T22:34:04+00:00,Human,,118,0,3,False,False,False,False,Add scripts to create users and bootstrap workspaces
+https://www.github.com/23ag1/clawdos,221b7942b273c6e7f9d3d6f344d4486cfecdaf2c,2026-02-03T22:32:09+00:00,Human,,33,0,1,False,True,False,False,Add migration 0003 to fix membership RLS recursion
+https://www.github.com/23ag1/clawdos,d3174a78fb9db098c39ebdb312d7a81615d579cf,2026-02-03T22:30:35+00:00,Human,,8,8,1,False,True,False,False,Fix DO EXECUTE quoting in migration 0002
+https://www.github.com/23ag1/clawdos,0e1b03d4967f381e2bc9df9a5a1db914b72cc867,2026-02-03T22:29:23+00:00,Human,,16,1,1,False,False,False,False,Add compatibility views and grants to core migration 0002
+https://www.github.com/23ag1/clawdos,19291510a58b09b243e73045068bec4dbee8fed1,2026-02-03T22:28:01+00:00,Human,,363,0,1,False,False,False,False,Backup schema before applying core migration 0001
+https://www.github.com/23ag1/clawdos,5806fed8f9c6c7a6fae1c798d0108729e4ea1e84,2026-02-03T22:25:35+00:00,Human,,237,0,3,False,False,False,False,Add planned migrations for namespace schemas and table move
+https://www.github.com/23ag1/clawdos,53a33a7c35dd35de7193f4032cace0ff5914d528,2026-02-03T22:22:32+00:00,Human,,139,9,3,False,False,False,False,Document current DB schema in module schema.yaml files
+https://www.github.com/23ag1/clawdos,f33edc81df002bd6c0ef3e4feaf530b82bf263f2,2026-02-03T22:06:48+00:00,Human,,82,0,10,False,False,False,False,Add db schema registry and module yaml skeletons

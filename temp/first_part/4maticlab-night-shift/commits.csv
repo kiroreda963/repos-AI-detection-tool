@@ -1,0 +1,1197 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/4maticlab/night-shift,01197472be11c117188a349a790cbe12e019dea4,2026-07-28T11:33:57+00:00,Human,,10,4,1,False,False,False,False,enhanced Night Shift details
+https://www.github.com/4maticlab/night-shift,c0a7a7f80613a1e772aba62a297b707df803b801,2026-07-28T11:20:17+00:00,Human,,1,1,1,False,True,False,False,fix typo
+https://www.github.com/4maticlab/night-shift,ea9de83414eb287753213392be08eb19145969c3,2026-07-28T11:19:07+00:00,Human,,21,21,1,False,False,False,False,add english version
+https://www.github.com/4maticlab/night-shift,b509814bbb5806340fc568e576e056180b739f4e,2026-07-28T11:03:55+00:00,Human,,1,0,1,False,False,False,False,"add image
+
+Added image for AdventureX 2026 event in README."
+https://www.github.com/4maticlab/night-shift,dec24c4f9ab1639704a7ec4c4d44296063d93394,2026-07-28T11:01:37+00:00,Human,,69,56,4,False,False,False,False,"Merge pull request #155 from 4MaticLab/docs/readme-tech-stack-and-links
+
+docs(readme): clickable links"
+https://www.github.com/4maticlab/night-shift,5573e2b85d7c1413f35c33a97875cfdba8a31299,2026-07-28T10:59:02+00:00,Human,,69,56,4,False,False,False,False,docs(readme): clickable links
+https://www.github.com/4maticlab/night-shift,d2be6141992342d314e4c9151407d78b5d49a661,2026-07-28T08:38:40+00:00,Human,,1,1,1,False,True,False,False,"Merge pull request #154 from 4MaticLab/fix/newspaper-masthead-clearance
+
+fix(report): keep morning broadsheet clear of the top chrome"
+https://www.github.com/4maticlab/night-shift,cc50f37a4a97faa6bd3dc2d0ab36dd911c8f52ab,2026-07-28T08:35:22+00:00,Human,,1,1,1,True,True,False,False,fix(report): keep morning broadsheet clear of the top chrome
+https://www.github.com/4maticlab/night-shift,f9de845eb12e62945dc5ef1a5e3059b198f1f548,2026-07-26T13:40:43+00:00,Human,,47,26,3,False,True,False,False,"Merge pull request #153 from 4MaticLab/fix/evidence-loupe-magnification
+
+fix(loupe): 放大镜恢复放大（#152）"
+https://www.github.com/4maticlab/night-shift,5c8eca113b3747e616508642e58108ce39345308,2026-07-26T13:35:34+00:00,Human,,47,26,3,True,True,True,False,"fix(loupe): magnify against frame size instead of lens box
+
+镜片背景此前用 background-size: zoom×100%，百分比相对 156px 镜片盒子，
+实际图像只有 ~343px 宽，比屏上原图还小——放大镜变缩小镜（#152）。
+
+- 背景尺寸改为 frame × zoom 的像素值，镜片内恒为真放大
+- 背景定位改为像素级：指针下的图像点精确保持在指针下（原百分比
+  定位在非中心位置有最大 ±lensSize/(2×zoom) 的漂移）
+- 测试重写为新几何契约，新增指针跟随不变量用例
+
+Fixes #152"
+https://www.github.com/4maticlab/night-shift,555cfa7207c017574e1495da698a9b56cf07c5c9,2026-07-26T02:12:22+00:00,Human,,103,90,13,False,True,False,False,"Merge pull request #151 from 4MaticLab/codex/mini-lindo-demo-copy
+
+fix: clarify Mini Lindo demo claims"
+https://www.github.com/4maticlab/night-shift,0f7253bdd7fabe32ab71dafcc812d3b1896f6b60,2026-07-26T02:08:56+00:00,Human,,103,90,13,True,True,False,False,fix: clarify Mini Lindo demo claims
+https://www.github.com/4maticlab/night-shift,4fdf6b19a7698efa3fe08e9387dd1e8ad6ef599b,2026-07-26T01:42:21+00:00,Human,,62,62,9,False,False,False,False,"Merge pull request #150 from 4MaticLab/feat/estimation-engine-copy
+
+feat(desk-pet): 占位/虚空文案全面替换为本地估算引擎表述"
+https://www.github.com/4maticlab/night-shift,ebcc34eecc118e113e96f06f7fe1c85ef6c55f70,2026-07-26T01:36:51+00:00,Human,,62,62,9,False,False,False,False,"feat(desk-pet): rebrand placeholder copy as local estimation engine
+
+- 占位数据 → 本地估算引擎：传感器卡、哨站状态、报告叙述全套改用中性工程表述
+- 虚空摄像头 → 夜间录像分析（本地 v0），导入对话框与报告标题同步
+- 降级态措辞统一：部分降级→部分估算、缺席硬件→估算通道、占位补齐→估算补齐
+- mock 徽标改为「在线 · 联调模式」，数据源模式仍如实区分实测/估算
+- 同步测试断言与 rdk-x5 哨站、传感器手册两篇文档"
+https://www.github.com/4maticlab/night-shift,0386a69c80126b706a7337fdba5fdb5e321f55e0,2026-07-25T19:34:40+00:00,Human,,508,36,5,False,False,False,False,"feat: single-canvas case board with pin threads (#147)
+
+* plan: style-caseboard-single-canvas
+
+Track the single-canvas evidence board layout plan on the morning-paper branch.
+
+* feat: single-canvas case board with pin threads
+
+Lay out unlocked clues on one evidence canvas with stable slot placement,
+dark-red pin-to-pin threads for archived inferences, and an on-demand
+inference drawer so archived conclusions no longer crowd the board.
+
+* feat: measure pin centers and refine evidence board layout
+
+Anchor inference threads to live pin positions, widen the canvas, tighten
+card density, hide dossier scrollbars, and apply crumpled paper texture
+to the letter surface."
+https://www.github.com/4maticlab/night-shift,48efa165b142156211b105b77a2db18f928eb74b,2026-07-25T18:58:17+00:00,Human,,81,38,3,False,False,False,False,"Merge pull request #149 from 4MaticLab/docs/readme-overhaul
+
+docs: 系统性重写 README，对齐五案与全部子系统现状"
+https://www.github.com/4maticlab/night-shift,acc089b422342fb0ba91570b27dc26bb4dc20bca,2026-07-25T18:55:11+00:00,Human,,40,21,3,False,False,False,False,docs: integrate ShiftX intro and rescope Mini Lindo as the sleep suite
+https://www.github.com/4maticlab/night-shift,79531b7fa6a95864819de72543411f3737b12f3a,2026-07-25T18:47:56+00:00,Human,,51,27,1,False,False,False,False,docs: overhaul README to reflect current product surface
+https://www.github.com/4maticlab/night-shift,11f0ae52a563dd48dba415c7418c217801f5dfe9,2026-07-25T18:40:24+00:00,Human,,399,210,11,False,True,False,False,"Merge pull request #144 from 4MaticLab/fix/tonight-scene-stable-layout
+
+Fix/tonight scene stable layout"
+https://www.github.com/4maticlab/night-shift,3df1eff83a58e2a2207ab7aeb8ca05cae48ae4e3,2026-07-25T18:33:30+00:00,Human,,166,26,11,False,True,False,False,Merge remote-tracking branch 'origin/main' into fix/tonight-scene-stable-layout
+https://www.github.com/4maticlab/night-shift,b88379dce5daf80ba2eb55b2a8e970062e4fd718,2026-07-25T18:20:53+00:00,Human,,3,16,1,False,False,False,False,style(booth): remove fog and seam; city fades in via a long smooth veil ramp
+https://www.github.com/4maticlab/night-shift,bd669f5533ffeb9eb484d985fe8e824af619fa4a,2026-07-25T18:17:28+00:00,Human,,10,9,1,False,False,False,False,"style(booth): stronger misty fog so the city emerges through haze, not a line"
+https://www.github.com/4maticlab/night-shift,c7b93bd666be3b792d044554343755c21fc97e69,2026-07-25T18:10:48+00:00,Human,,166,26,11,False,False,False,False,"Merge pull request #148 from 4MaticLab/feat/mini-lindo-identity
+
+feat: Mini Lindo 名分与传感器手册（补交 #146 漏合提交）"
+https://www.github.com/4maticlab/night-shift,494e9377a707dc850a871ad9ec01fd75a7f491be,2026-07-25T18:06:56+00:00,Human,,4,1,1,False,False,False,False,"style(booth): soften city-to-footer into a gradual vignette, remove seam line"
+https://www.github.com/4maticlab/night-shift,e483f2aa6e372531b6fc4dc832e97c6ab1ced129,2026-07-25T18:01:08+00:00,Human,,20,7,1,False,False,False,False,style(booth): softer hazy dreamlike transition between person and city
+https://www.github.com/4maticlab/night-shift,4b120fd5d0ecd516db3397173b974d4e6d287af7,2026-07-25T17:58:14+00:00,Human,,126,1,3,False,False,False,False,docs: add Mini Lindo sensor guide
+https://www.github.com/4maticlab/night-shift,5dd907f322c4c465274aa73129ec0436e0aee0e0,2026-07-25T17:58:14+00:00,Human,,40,25,10,False,False,False,False,"feat: name the sentry + desk-pet duo Mini Lindo
+
+Product identity for the bedside RDK X5 + desk-pet solution:
+- board: PRODUCT_NAME constant, health payload product field, banner copy
+- desk-pet: dashboard sentry card, status lines, report title and
+  live narratives now speak of Mini Lindo (小林渡)
+- docs: 名分 section (naming, lore identity, naming rules); technical
+  IDs (rdk-x5 protocol/contract, apps/rdk-sentry dir) stay unchanged"
+https://www.github.com/4maticlab/night-shift,9064597964f7ba8d820364ffb17760aab56b721d,2026-07-25T17:56:40+00:00,Human,,13,20,1,False,False,False,False,"style(booth): dissolve person into city with masked crossfade, remove seam line"
+https://www.github.com/4maticlab/night-shift,9bd34ae057319b9843d29af1079a745d5cf42717,2026-07-25T17:52:05+00:00,Human,,1,1,1,False,False,False,False,style(booth): nudge proposition person image further right
+https://www.github.com/4maticlab/night-shift,ac389a30ce4a18660948c57b51fde3a699cb34dd,2026-07-25T17:38:38+00:00,Human,,9878,310,183,False,True,False,False,"Merge remote-tracking branch 'origin/main' into fix/tonight-scene-stable-layout
+
+# Conflicts:
+#	app/banners/[id]/page.tsx
+#	app/banners/banners.css
+#	app/banners/page.tsx
+#	app/posters/page.tsx
+#	src/components/banners/banner-sheet.tsx
+#	src/components/banners/banner-toolbar.tsx
+#	src/content/banners.ts"
+https://www.github.com/4maticlab/night-shift,237c3d7bb751fc9cd8e3cd3c5ca341431da0773e,2026-07-25T17:32:20+00:00,Human,,18,28,1,False,False,False,False,"style(booth): drop top fog, soften mid-seam fog into a smooth transition"
+https://www.github.com/4maticlab/night-shift,442c0af7a8fa902bcd248bcee182ece8d12cc91e,2026-07-25T17:22:34+00:00,Human,,166,95,5,False,False,False,False,"feat(booth): refine roll-up into single cinematic proposition banner
+
+Reduce the booth kit to one命题款 banner: stitched林渡 portrait (top) + lantern-wharf city night scene (bottom) with foggy mist transitions at the top edge and mid-seam; staircase headline 熄灯之后/真相苏醒; right-aligned lead, frameless pull with ellipsis; NIGHT SHIFT kicker; no frame lines, no QR."
+https://www.github.com/4maticlab/night-shift,af4e3ec0dbc5e2b2ad1fa526e2b2250e39fa4e02,2026-07-25T17:21:36+00:00,Human,,1236,31,18,False,False,False,False,"Merge pull request #146 from 4MaticLab/feat/rdk-x5-sentry
+
+feat: RDK X5 床头睡眠哨站与桌宠通讯端"
+https://www.github.com/4maticlab/night-shift,3d0ece11b9fa7af20adfdad50a1449d357f43865,2026-07-25T16:36:21+00:00,Human,,0,77,2,False,False,False,False,plan: retire feat-rdk-x5-sentry
+https://www.github.com/4maticlab/night-shift,4c4bece36fb6413fc138d783fe74b57dde8d3282,2026-07-25T16:35:52+00:00,Human,,9,1,1,False,False,False,False,plan: complete feat-rdk-x5-sentry
+https://www.github.com/4maticlab/night-shift,4ecf0a8fb42242ae1833e81eb2b1f11841252935,2026-07-25T16:35:03+00:00,Human,,1243,38,19,False,False,False,False,"feat: RDK X5 bedside sleep sentry with desk-pet bridge
+
+- apps/rdk-sentry: Python agent for RDK X5 (frame-diff motion analysis,
+  SHT3x/SGP30/PMS5003 probe-degrade drivers, stdlib HTTP/JSON API, --mock)
+- apps/desk-pet: rdk-bridge parsing/fallback logic, sentry polling in main,
+  connect/disconnect IPC + persisted config, dashboard sentry card and
+  source-aware sensor badges, live-source sleep report narratives
+- tests/rdk-bridge.test.ts: 13 cases for config/parse/degrade/mapping/narrative
+- docs/rdk-x5-sleep-sentry.md: hardware, protocol, privacy guardrails"
+https://www.github.com/4maticlab/night-shift,0be200f4fe1b27fdf68843b7a0fa03cb0a77f1d3,2026-07-25T16:15:24+00:00,Human,,69,0,2,False,False,False,False,plan: feat-rdk-x5-sentry
+https://www.github.com/4maticlab/night-shift,6c0bf59a7aabe99a284db50feac370af664b7ac5,2026-07-25T15:44:23+00:00,Human,,2341,0,21,False,False,False,False,"Merge pull request #145 from 4MaticLab/feat/desk-pet
+
+feat: Night Shift 桌宠（Electron）— 林渡值更台"
+https://www.github.com/4maticlab/night-shift,88a9fb904d9c136aedc858f59de0ebd992c9d5ea,2026-07-25T15:28:32+00:00,Human,,0,75,2,False,False,False,False,plan: retire feat-desk-pet
+https://www.github.com/4maticlab/night-shift,25c15af5d955778dec289f06b04518cc0bfa89ab,2026-07-25T15:26:06+00:00,Human,,10,2,2,False,False,False,False,plan: complete feat-desk-pet
+https://www.github.com/4maticlab/night-shift,654cf064841274368c8ae6a4f4c85b0e4fa31135,2026-07-25T15:25:08+00:00,Human,,2347,6,23,False,False,False,False,"feat: night shift desk pet (Electron) with Lin Du idle points, mattress sleep, placeholder sensors"
+https://www.github.com/4maticlab/night-shift,e351fc13ec15ccf9e666f62164e4d4aa86096563,2026-07-25T15:14:34+00:00,Human,,952,7,9,False,False,False,False,"feat(booth): add five QR-free roll-up banner previews for hackathon
+
+Add /banners preview kit (800x2000mm, 2:5) with five on-brand roll-up designs: proposition, async loop, five cases, hack-the-rest manifesto, and judge value points. Reuses approved art assets and audited copy; noir styling mirrors the poster sheet. Includes overview + per-banner routes, print/export toolbar, and an entry card from the posters preview. No QR codes."
+https://www.github.com/4maticlab/night-shift,b2607b7771fda387fe58562780dba8a0ef329308,2026-07-25T15:14:29+00:00,Human,,67,0,2,False,False,False,False,plan: feat-desk-pet
+https://www.github.com/4maticlab/night-shift,83d36d337bea463131eed0212ddc9033676cde30,2026-07-25T15:05:02+00:00,Human,,772,0,8,False,False,False,False,"Merge pull request #143 from 4MaticLab/feat/roll-up-banners
+
+feat: add booth roll-up banner print kit (易拉宝)"
+https://www.github.com/4maticlab/night-shift,3562e83e0220f79b5dec4467003a09ba72f5561f,2026-07-25T14:41:05+00:00,Human,,772,0,8,False,False,False,False,"feat: add booth roll-up banner print kit (易拉宝)
+
+Add an 800×2000 mm roll-up banner preview kit alongside the existing
+poster series, for booth printing.
+
+- Two designs: proposition (信号带 A 命题款) and loop (理解带 B 循环款).
+- Routes: /banners (both side by side) and /banners/[id] for a single
+  full-size preview; toolbar links back to the /posters overview.
+- QR codes are generated server-side from the request origin
+  (x-forwarded-host), so the printed code points at whatever public
+  URL the site is served from (mirrors the poster QR pattern).
+- Reuses only already-approved art assets; no source data changes."
+https://www.github.com/4maticlab/night-shift,47ff00f7020c409e8f909f62edb5c6cee9eee4b4,2026-07-25T14:02:47+00:00,Human,,26,18,5,False,False,False,False,"Merge pull request #142 from 4MaticLab/style/morning-paper-and-butterfly-seal
+
+style: morning paper texture + restore case board butterfly seal"
+https://www.github.com/4maticlab/night-shift,732860820beae121a08be1d0576ced50a332a839,2026-07-25T12:56:33+00:00,Human,,6,6,1,False,False,False,False,"style: warm morning paper wash one more yellow step
+
+Slightly deepen the broadsheet yellow soft-light wash while keeping the
+paper fiber texture as the base layer."
+https://www.github.com/4maticlab/night-shift,7771c3dcbc37bcc70570fe110c23198fa5876306,2026-07-25T12:53:16+00:00,Human,,42,75,1,False,False,False,False,"feat: 今晚页改为城市夜景背景 + 人物卡右下角布局，保持原美学
+
+- desk-scene 背景换为城市夜景(night-expedition-v1.webp)，压暗保证标题可读
+- 恢复经典 hero 布局：标题绝对左上、林渡人物卡绝对右下，人物不再遮挡标题
+- 全断点(>1100/901-1100/601-900/<600)统一为标题左上+人物右下的绝对定位
+- 收窄标题、缩放人物卡以适配各尺寸，实测桌面/笔记本/平板/手机无重叠、无裁剪
+- 保留拍立得+胶带的原有 noir 美学与右对齐姓名"
+https://www.github.com/4maticlab/night-shift,8b45b5f63fd932a6786f6c2c57b9f65f0f7dfca9,2026-07-25T12:44:12+00:00,Human,,5,5,1,False,False,False,False,"style: push morning paper wash further toward yellow
+
+Increase the broadsheet yellow wash one more step without replacing the
+paper fiber texture base."
+https://www.github.com/4maticlab/night-shift,3059980736e2a73b7fbdea37fbc8a43176cf1acc,2026-07-25T12:42:52+00:00,Human,,5,5,1,False,False,False,False,"style: nudge morning paper wash a bit more yellow
+
+Warm the broadsheet soft-light filter one more step while keeping the
+paper fiber texture as the base layer."
+https://www.github.com/4maticlab/night-shift,16648be3da7f4db9646c10db9ace131212e91477,2026-07-25T12:40:42+00:00,Human,,6,6,1,False,False,False,False,"style: warm the morning paper wash slightly more yellow
+
+Nudge the broadsheet soft-light filter toward a clearer yellow while
+keeping the paper fiber texture as the base layer."
+https://www.github.com/4maticlab/night-shift,9bfe2a6c83034f2355393914ff33eee073563258,2026-07-25T12:39:22+00:00,Human,,18,11,1,False,False,False,False,"style: keep morning paper fiber texture fully visible
+
+Layer the white-yellow wash with soft-light over the unchanged paper
+texture so the fiber material remains the broadsheet base, including the
+under-sheet."
+https://www.github.com/4maticlab/night-shift,0e571efbec47f30279019facbf4ef0bab1c1047c,2026-07-25T12:33:54+00:00,Human,,2,2,3,True,True,False,False,"fix: restore butterfly seal on case board evidence cards
+
+Bring back the original butterfly dossier mark for the case-board corner
+badge, and point the asset list at the restored UI seal file."
+https://www.github.com/4maticlab/night-shift,4d509bce05f616ff14862309953ccfb9815f3286,2026-07-25T12:32:55+00:00,Human,,14,12,1,False,False,False,False,"style: use paper texture alone as morning broadsheet base
+
+Keep foglight-morning-paper-texture-v3 as the only background image and
+tint white-yellow only via base color multiply, without gradient overlays
+that hide the fiber material."
+https://www.github.com/4maticlab/night-shift,edf4b8a46c722ef36dce7e66c8f3a58de41b9f6e,2026-07-25T12:32:04+00:00,Human,,10,25,2,False,False,False,False,"feat: 今晚页交接卡精简为纯人物卡，全设备优雅适配
+
+按需精简 desk-scene 的人物区：
+- 移除下方""今晚交接单""方框(.handoff-docket)及其多余小字
+- 图注仅保留姓名并右对齐(justify-content:flex-end)，去掉 LIN DU 小标签与状态行
+- 移除方框后腾出空间，放大林渡人物卡(桌面 280px)让人物更贴近
+- 收紧 901-1100 平板定高布局的头像/间距，避免裁剪
+- 删除仅供方框使用的 selectedPreparation 变量
+- 全尺寸实测(1440/1366/1280/1100/1024/950/820/768/390)均无重叠、无裁剪"
+https://www.github.com/4maticlab/night-shift,70b8c181bb40df93b9a8bd4cdc8287d562b7e59d,2026-07-25T12:28:47+00:00,Human,,10,13,2,False,False,False,False,"style: keep morning paper fiber texture under white-yellow wash
+
+Restore the foglight morning paper texture as the broadsheet base and only
+tint it cream-white yellow, so the fiber material is unchanged."
+https://www.github.com/4maticlab/night-shift,a16d360845081397f46d5f0ee92499ceebb5f4c6,2026-07-25T12:25:27+00:00,Human,,12,10,1,False,False,False,False,"style: shift morning newspaper paper toward white-yellow
+
+Lighten the broadsheet base, under-sheet, grain, and photo mat so the
+morning report reads as cream-white newsprint rather than brown tea-stain."
+https://www.github.com/4maticlab/night-shift,39b0a1f243741c647e103277071161f0ccfe3af9,2026-07-25T11:48:21+00:00,Human,,3559,165,107,False,False,False,False,"Merge pull request #133 from 4MaticLab/codex/mobile-app-packaging
+
+feat: package Night Shift for Android and iOS"
+https://www.github.com/4maticlab/night-shift,ce948c6498a2f9e976bb71a241c58af212ce0578,2026-07-25T11:48:03+00:00,Human,,2783,304,49,False,False,False,False,"merge: sync origin/main into mobile packaging
+
+Keep mobile side-load boundary notes and main campaign title 面包奇谈."
+https://www.github.com/4maticlab/night-shift,f44aa6fde525fbe049268a2609579c5deaa04f2f,2026-07-25T11:46:46+00:00,Human,,149,63,23,False,False,False,False,"Merge pull request #139 from 4MaticLab/feat/landing-campaign-hero-copy
+
+feat: campaign-aware landing hero copy with fade and EN polish"
+https://www.github.com/4maticlab/night-shift,76ff744fab1f0027f70d380982f7e40c3d8f7fa3,2026-07-25T11:46:39+00:00,Human,,8,11,1,False,False,False,False,"Merge pull request #137 from 4MaticLab/revert/case-board-two-column
+
+Revert/case board two column"
+https://www.github.com/4maticlab/night-shift,236ee4a22415798dbeaafafd8d9d8bfbc1136270,2026-07-25T11:46:31+00:00,Human,,1549,37,15,False,False,False,False,"Merge pull request #132 from 4MaticLab/feat/booth-setup-and-printing
+
+docs: add booth setup and printing guide (#126)"
+https://www.github.com/4maticlab/night-shift,4a9739dbe9934a4c3c08d4f5c6bc8b6ecff22842,2026-07-25T11:46:25+00:00,Human,,626,0,7,False,False,False,False,"Merge pull request #131 from 4MaticLab/feat/keepsake-qr-exchange
+
+Feat/keepsake qr exchange"
+https://www.github.com/4maticlab/night-shift,8f62b1cffcc9be2032dd9a29ae838a41142a62be,2026-07-25T11:46:20+00:00,Human,,99,3,2,False,False,False,False,"Merge pull request #130 from 4MaticLab/feat/editorial-image-layout
+
+Feat/editorial image layout"
+https://www.github.com/4maticlab/night-shift,d6d1376ed10a43142bf9ecd9c9e4c91690f46589,2026-07-25T11:46:15+00:00,Human,,275,1,5,False,False,False,False,"Merge pull request #129 from 4MaticLab/feat/evidence-loupe-details
+
+Feat/evidence loupe details"
+https://www.github.com/4maticlab/night-shift,6d317f2ef083be41c0aa11f6d774833d6da76004,2026-07-25T11:45:43+00:00,Human,,85,197,4,False,False,False,False,"merge: resolve night-cycle imports with main
+
+Keep EvidenceLoupe from this branch and NightDiorama from main."
+https://www.github.com/4maticlab/night-shift,2e990942cfd967280559c65e5a101e83f3594881,2026-07-25T11:44:57+00:00,Human,,28,3,1,False,True,False,False,"Merge pull request #128 from 4MaticLab/fix/night-skip-bgm-overlap
+
+fix: keep night skip button clear of BGM control"
+https://www.github.com/4maticlab/night-shift,bef40610dc500b16f01236348e89acd0157a2e11,2026-07-25T11:44:51+00:00,Human,,5,5,1,False,True,False,False,"Merge pull request #127 from 4MaticLab/fix/collection-index-sticky-top
+
+fix: pin collection index sticky offset to top"
+https://www.github.com/4maticlab/night-shift,fa02730952c4fb038e13ea1712a32e7964967383,2026-07-25T10:47:47+00:00,Human,,23,21,1,True,True,False,False,"fix: 今晚页 desk-scene 桌面版式也改为纵向堆叠，彻底消除标题压卡片
+
+之前只改了 601–1100px，>1100px 桌面仍是绝对叠加导致标题压住林渡卡片。
+- 基础 .desk-scene 改为纵向 flex 堆叠（标题→林渡卡片→交接单），各宽度版式统一，
+  不再随浏览器宽度切换排版
+- 修正被遗漏的第二处 .tonight-page .handoff-stack{padding:180px} 幽灵内边距（正是它把卡片顶下裁剪）
+- 桌面收紧标题字号/边距、头像与间距，适配常见笔记本高度不裁剪
+- overflow-y:auto + justify-content:safe center 兜底极矮屏，避免硬裁剪顶部"
+https://www.github.com/4maticlab/night-shift,0f443b822fd2c9944b008a0f58ac7b3965b66559,2026-07-25T10:34:55+00:00,Human,,36,13,1,False,False,False,False,merge: sync origin/main into feat/hero-campaign-text-fade
+https://www.github.com/4maticlab/night-shift,eae0536654d110a768fe2a0ec2da6adcfe256b7b,2026-07-25T10:32:55+00:00,Human,,24,6,2,True,True,False,False,"fix: use compact English labels on the campaign wheel
+
+Shorten English script names in the landing option wheel and primary CTA
+so long titles no longer clip on the curved list."
+https://www.github.com/4maticlab/night-shift,c71716d620ebe0d3a994009cf7bc59aecf34dc57,2026-07-25T10:31:11+00:00,Human,,36,13,1,False,True,False,False,"Merge pull request #138 from 4MaticLab/fix/tonight-scene-stable-layout
+
+fix:Stabilize the desk-scene layout tonight, eliminating the overlap between the title and the Lindu card at medium widths."
+https://www.github.com/4maticlab/night-shift,eb7d91a7607c7f558373801ec488cab867ccef80,2026-07-25T10:31:02+00:00,Human,,51,20,3,True,True,False,False,"fix: complete English landing copy for all campaign scripts
+
+Translate every rotating headline, accent, teaser, and case title used on
+the home wheel. Keep landing chrome and hero copy on the preferred locale
+so browsing Chinese-only cases no longer drops untranslated Han strings
+into the English UI."
+https://www.github.com/4maticlab/night-shift,5f4038993a81a727756c43d32bb9c6e755ac8c47,2026-07-25T10:29:31+00:00,Human,,36,13,1,True,True,False,False,"fix: 稳定今晚页 desk-scene 排版，消除中间宽度下标题与林渡卡片重叠
+
+原本 .scene-copy(标题) 与 .handoff-stack(林渡卡片) 在 .desk-scene 上用绝对定位叠加，
+宽屏正常，但 601–1100px 拖拽时标题会压到卡片上，重排很丑。
+- 601–900px 与 901–1100px 断点改为纵向流式布局：scene-copy / handoff-stack 均 position:static，
+  标题在上、卡片在下，desk-scene 高度自适应、overflow 可见
+- 卡片与交接单左对齐、宽度上调，随列宽平滑缩放而非跳变
+- 未改动 >1100px 桌面叠加版式与移动端(<600px)"
+https://www.github.com/4maticlab/night-shift,767d963fbb3c096ebf06738a8f739afa902cd6a0,2026-07-25T10:17:31+00:00,Human,,6,13,1,True,True,False,False,"fix: 修复案件板右栏推论台在窄栏下的文字堆砌 + 两栏底部对齐
+
+- .ready-synthesis-list 从 3 列网格改回单列（窄右栏下 3 列会把等待框挤成 ~100px，
+  导致'暂时没有到齐的证物组合'等文字逐字竖排）；恢复卡片间距 margin-top:12px
+- 移除 @media(1080px) 里给 ready-synthesis-list 设 2 列的规则
+- .evidence-archive-layout align-items 改为 stretch，让档案库与推论台等高、底部对齐
+- .synthesis-desk 取消粘性/限高（relative + overflow:visible），随左栏撑满高度"
+https://www.github.com/4maticlab/night-shift,b7f6662ddd5b9a003d6c1495b58eae83634fe639,2026-07-25T10:15:06+00:00,Human,,2,2,1,False,False,False,False,"style: also shrink mobile hero headline another step
+
+Keep the phone-scale title consistent with the latest desktop reduction."
+https://www.github.com/4maticlab/night-shift,7c9d4c302cc46db6535bdc737fd70cdadc431e31,2026-07-25T10:14:52+00:00,Human,,2,2,1,False,False,False,False,"style: reduce hero campaign headline size another step
+
+Nudge the rotating left-side title slightly smaller on desktop and mobile."
+https://www.github.com/4maticlab/night-shift,67732be8a892bf42090f5a9574579013500a740a,2026-07-25T10:11:02+00:00,Human,,2,2,1,False,False,False,False,"style: also shrink mobile hero campaign headline
+
+Apply the same slightly smaller responsive scale under 900px so the
+rotating left copy stays balanced on phones."
+https://www.github.com/4maticlab/night-shift,074655fdb0d4886608954a696ba86d70c7c64a1a,2026-07-25T10:10:48+00:00,Human,,3,2,1,False,False,False,False,"style: slightly reduce responsive hero campaign headline size
+
+Scale the rotating left-side h1 down a notch on desktop and mobile so
+longer campaign headlines fit more comfortably without changing color or copy."
+https://www.github.com/4maticlab/night-shift,cc431a13eda6fb2563fc0435248d50c1cb8b954f,2026-07-25T10:10:14+00:00,Human,,10,6,1,False,False,False,True,"revert: 案件板回退为左右两栏排版（桌面端）
+
+将案件板（证物档案 + 推论台）从上下堆叠改回 ef1e765 引入时的左右两栏：
+- .evidence-archive-layout 桌面基础规则恢复两栏 grid（档案库左 1fr，推论台右 330–370px），宽度回到 1280px
+- .synthesis-desk 恢复为右侧粘性栏（sticky top:78px，限高滚动）
+- 移动端保持单栏堆叠（@900px 重置粘性），未改动移动端布局"
+https://www.github.com/4maticlab/night-shift,0f288397c89c8308c51817731d90ecb2a162c04b,2026-07-25T10:08:19+00:00,Human,,18,32,2,True,True,False,False,"fix: keep hero type styles; fade copy with opacity only
+
+Preserve campaign headlines/teasers and original h1/lede size and color.
+Drop layout min-heights and vertical motion so only opacity fades on swap."
+https://www.github.com/4maticlab/night-shift,8cb76780eac6a3e35a729fabaa882b953d2d44f1,2026-07-25T10:06:50+00:00,Human,,92,42,23,False,False,False,False,"feat: fade hero copy when switching campaign scripts
+
+Give each campaign its own left-side headline and teaser, and animate the
+swap with AnimatePresence so outgoing copy fades out before the next
+script fades in. Keep the hero layout stable during the transition and
+update i18n plus tests for the rotating copy."
+https://www.github.com/4maticlab/night-shift,9657fe02aa8190881860f2215d3f702d70735486,2026-07-25T09:21:00+00:00,Human,,2,13,1,False,False,False,False,"Merge pull request #135 from 4MaticLab/revert/night-stage-3d-diorama
+
+Night shift center stage for 3D paper art street lamp diorama"
+https://www.github.com/4maticlab/night-shift,ccf6457e8e43e49f900c5c1dbd499da1906813f5,2026-07-25T09:18:54+00:00,Human,,2,13,1,False,False,False,True,"revert: 夜班中心舞台回退为 3D 纸艺路灯 diorama
+
+将夜班进行页中心的 2D 地图（night-map-frame + 罗盘 + 夜印 + Cartographia 图注）
+换回 NightDiorama（提灯穿行雾灯城街道、前景路灯逐盏发光的 3D 纸艺透视）。
+- 复用既有 night-diorama.tsx 组件与 .night-diorama 样式（此前在合并中被 drop）
+- 保留两侧 Dispatch/Field notes 栏、夜线电报条与夜班进度条，仅回退中心视觉"
+https://www.github.com/4maticlab/night-shift,f4596c0c41309d944b3511d1e07c826892d76e20,2026-07-25T08:53:53+00:00,Human,,14,163,3,False,True,False,False,"Merge pull request #134 from 4MaticLab/fix/revert-handwritten-hero
+
+revert: Home page hero fallback to handwritten layout, restore original serif title"
+https://www.github.com/4maticlab/night-shift,b8d9ee8e0eedf9fcb40747eeee92ab278fbb2aa2,2026-07-25T08:51:07+00:00,Human,,14,163,3,False,False,False,True,"revert: 首页 hero 回退手写体版式，恢复原始衬线标题
+
+- 移除毛笔手写字体 Ma_Shan_Zheng 及 --font-handwriting 挂载
+- landing 恢复 eyebrow 副标题 + 轮班规则条 + 普通衬线标题与完整导语
+- 清理 .hero-title-hand / .hero-lede-note / 纸张装饰 / 按钮旋转缺口等手写体样式（桌面端与移动端）
+- 保留剧本选择滚轮 OptionWheel（滚动切换文字）不变"
+https://www.github.com/4maticlab/night-shift,2a55072043605504e92756bbec55e4baf96f8d9e,2026-07-25T08:36:08+00:00,Human,,0,82,2,False,False,False,False,plan: retire codex-mobile-app-packaging
+https://www.github.com/4maticlab/night-shift,7419d9298482c1f4fbb5f5f91c4b3eec203c4dcb,2026-07-25T08:35:58+00:00,Human,,13,12,2,False,False,False,False,plan: complete codex-mobile-app-packaging
+https://www.github.com/4maticlab/night-shift,f47686db9ff4925a64003d1d01891ab2a6994e98,2026-07-25T08:26:58+00:00,Human,,1395,37,11,False,False,False,False,"i18n: complete English for cases 004–006 and the poster kit
+
+Add English dictionaries for the three remaining campaigns and the
+print-poster series so switching to the English locale renders every
+page fully in English.
+
+- Add thirteenth-loaf.en.ts (case-004), chihaya-noa.en.ts (case-005)
+  and fog-without-wolves.en.ts (case-006) translations, merged into
+  englishText.
+- Enable en for case-004/005/006 in campaignSupportsLocale.
+- Add posters.en.ts and route the /posters pages, poster sheet and
+  toolbar through translateText, keyed off the request locale.
+- Update the content test to expect en support for all campaigns."
+https://www.github.com/4maticlab/night-shift,0c8aa590799aef7250e8db6b630587de4c167db5,2026-07-25T08:26:31+00:00,Human,,147,14,8,False,False,False,False,docs: add mobile installation guide
+https://www.github.com/4maticlab/night-shift,abb358a62457f3a74c7d46ae14c39a188a9370dc,2026-07-25T08:20:47+00:00,Human,,3424,162,103,False,False,False,False,feat: package Night Shift for mobile
+https://www.github.com/4maticlab/night-shift,2685a53dbfa151769dc46d65d9ef350f78513483,2026-07-25T08:20:04+00:00,Human,,80,0,2,False,False,False,False,plan: codex-mobile-app-packaging
+https://www.github.com/4maticlab/night-shift,c40dba863554ee82bee4bbbd53c7df794e4b9d7a,2026-07-25T08:03:15+00:00,Human,,154,0,4,False,False,False,False,"docs: add booth setup and printing guide (#126)
+
+Add docs/booth-setup-and-printing.md covering booth zoning, materials, approved copy drafts, art asset usage, roll-up/backdrop print specs, and pre-print/on-site checklists. Register in docs/index and cross-link from poster-series-guide and hackathon-submission-kit."
+https://www.github.com/4maticlab/night-shift,03b4da434b8dca1ccb361125a0c77c2195afb9a5,2026-07-25T07:51:30+00:00,Human,,0,62,2,False,False,False,False,plan: retire feat-keepsake-qr-exchange
+https://www.github.com/4maticlab/night-shift,844067326293fd5b50450f03951c87470246710a,2026-07-25T07:51:30+00:00,Human,,7,6,1,False,False,False,False,plan: complete feat-keepsake-qr-exchange
+https://www.github.com/4maticlab/night-shift,4c85d1e63929c46e112f14455704444dcb047364,2026-07-25T07:50:32+00:00,Human,,626,0,7,False,False,False,False,"feat: local-first keepsake QR exchange (/keepsake)
+
+- keepsake-sharing: encode/decode + validate souvenir share links (unit tested)
+- keepsake-store: separate localStorage (night-shift-keepsakes-v1), no game-save migration
+- /keepsake page: scan-to-collect receive flow + shareable QR/poster cards per souvenir
+- doc: architecture note on the local-first keepsake exchange"
+https://www.github.com/4maticlab/night-shift,cefe2819cba7cbab2a1538580674cd736a2069b0,2026-07-25T07:50:32+00:00,Human,,61,0,2,False,False,False,False,plan: feat-keepsake-qr-exchange
+https://www.github.com/4maticlab/night-shift,7ccaa9cd15624d4c910507a0c080653d6437c2bf,2026-07-25T07:46:18+00:00,Human,,12,3,1,True,True,False,False,"fix: align night skip button with BGM control height
+
+Match the night-run header top, min-height, and skip button size to the
+global volume control so both sit on one horizontal line at all widths."
+https://www.github.com/4maticlab/night-shift,aedcebd050d3a685570fb5d75c2826bb6eaf9704,2026-07-25T07:43:26+00:00,Human,,17,1,1,True,True,False,False,"fix: keep night skip button clear of BGM control
+
+Reserve right-side space in the night-run header so the skip/wake action
+no longer sits under the global volume control on desktop and mobile."
+https://www.github.com/4maticlab/night-shift,f8d30b9c950d5ef501bf6dd95afbbb037285e8cb,2026-07-25T07:34:20+00:00,Human,,0,58,2,False,False,False,False,plan: retire feat-evidence-loupe-details
+https://www.github.com/4maticlab/night-shift,14c6200981688428c7ce6f73f912604292fc7668,2026-07-25T07:34:20+00:00,Human,,6,5,1,False,False,False,False,plan: complete feat-evidence-loupe-details
+https://www.github.com/4maticlab/night-shift,03c89f3921efe26b84ebb42ee93915a370ba00af,2026-07-25T07:33:47+00:00,Human,,5,5,1,True,True,False,False,"fix: pin collection index sticky offset to top
+
+Set the collection index sticky top to 0 across breakpoints so it no longer
+floats under chrome, and tighten section scroll-margin to match."
+https://www.github.com/4maticlab/night-shift,c4e41739b0dc6850201bf4c04c61ca6e3ab2e454,2026-07-25T07:33:40+00:00,Human,,275,1,5,False,False,False,False,"feat: investigative evidence loupe on the morning report
+
+- computeLoupe pure helper (lens position + magnified background), unit tested
+- EvidenceLoupe client component: hover (desktop) / press-drag (touch) to inspect
+  a magnified circular detail; screen-only, print + reduced-motion safe
+- wire the morning report broadsheet lead figure through the loupe"
+https://www.github.com/4maticlab/night-shift,339b2f739959b46ace08b0f2685681944a249849,2026-07-25T07:33:26+00:00,Human,,57,0,2,False,False,False,False,plan: feat-evidence-loupe-details
+https://www.github.com/4maticlab/night-shift,721077cd71e28165c5fd9de6061a3aabcab266be,2026-07-25T07:23:52+00:00,Human,,0,59,2,False,False,False,False,plan: retire feat-editorial-image-layout
+https://www.github.com/4maticlab/night-shift,60f0b400b7d08d71dfafa095824ceea2ef94fcd6,2026-07-25T07:23:29+00:00,Human,,6,5,1,False,False,False,False,plan: complete feat-editorial-image-layout
+https://www.github.com/4maticlab/night-shift,ee5150d07fe9a5a05c55019fe4ff617a881edcf4,2026-07-25T07:23:00+00:00,Human,,99,3,2,False,False,False,False,"feat: editorial asymmetric layout for collection gallery and poster preview
+
+- collection grid: featured plate every 7 fragments (2x2 span) + faint
+  pinned-clipping tilt/stagger, hover straightens; single-column flatten on phones
+- posters preview: lay the five sheets off-axis with a subtle tilt spread;
+  print + phones reset to a clean centered stack (print A3 dimensions unchanged)"
+https://www.github.com/4maticlab/night-shift,d5b8c35a42bfacd0a297c497a599ac40c83a393d,2026-07-25T07:13:15+00:00,Human,,58,0,2,False,False,False,False,plan: feat-editorial-image-layout
+https://www.github.com/4maticlab/night-shift,f2cb45426e16ff898d9efe8e80082b4b7cf62334,2026-07-25T06:58:27+00:00,Human,,10,10,10,False,False,False,False,"Merge pull request #124 from 4MaticLab/art/misfiled-registry-key-crest-v2
+
+art: swap misfiled registry crest to key crest v2"
+https://www.github.com/4maticlab/night-shift,3f16d2be2ae6f43f3831b14c6bb3c5b0b31c0c2b,2026-07-25T06:56:53+00:00,Human,,1771,408,11,False,False,False,False,"Merge pull request #122 from 4MaticLab/feat/tonight-stepped-prep-and-motion
+
+feat: polish tonight prep steps, morning broadsheet, and hardware motion"
+https://www.github.com/4maticlab/night-shift,ca4c59e0f40d7b759367597d02feb906dfb031e0,2026-07-25T06:55:55+00:00,Human,,1324,160,17,False,False,False,False,merge: resolve globals.css conflict — adopt #122 stepped preparation mobile layout
+https://www.github.com/4maticlab/night-shift,f00ad2cb5c64835451390db17c342ff8ce53f686,2026-07-25T06:51:37+00:00,Human,,10,10,10,False,False,False,False,"art: swap misfiled registry crest to key crest v2
+
+Replace the old society crest, index moth wing souvenir, and butterfly
+dossier seal with the shared misfiled-registry-key-crest-v2 asset, and
+keep docs plus runtime asset maps in sync."
+https://www.github.com/4maticlab/night-shift,f5077346ce98cd8440268ab5d33f377f4a13b4c2,2026-07-25T06:45:53+00:00,Human,,1139,130,13,False,False,False,False,"Merge pull request #120 from 4MaticLab/feat/cipher-case-notebook
+
+Feat/cipher case notebook"
+https://www.github.com/4maticlab/night-shift,98d19bfb932f57ef6166d76f16407e431ada9fb0,2026-07-25T06:44:29+00:00,Human,,1271,178,16,False,False,False,False,"merge: integrate cipher chain into notebook; keep notebook + hints + reference folio, both e2e tests"
+https://www.github.com/4maticlab/night-shift,00df02d861cb22e63cfb22067000740e77bb36fb,2026-07-25T06:39:48+00:00,Human,,1100,148,13,False,False,False,False,merge: integrate night-run chain into progressive hints; keep both cipher hints and reference folio
+https://www.github.com/4maticlab/night-shift,7cdca396fafeb9f77cb1b2977ddc52ee8376d246,2026-07-25T06:35:10+00:00,Human,,9497,724,134,False,False,False,False,"merge: resolve main into night-run maximalist layout (keep map-centric stage, drop NightDiorama)"
+https://www.github.com/4maticlab/night-shift,3877c6f5201ad8192b85818a67566243a19b1e39,2026-07-25T06:27:09+00:00,Human,,185,22,5,False,False,False,False,"Merge pull request #121 from 4MaticLab/feat/landing-shift-rule-and-chrome
+
+Feat/landing shift rule and chrome"
+https://www.github.com/4maticlab/night-shift,da2ce8a4e383b369768c428cc384ff8a28410978,2026-07-25T06:02:38+00:00,Human,,1,0,1,True,True,False,False,fix: 标题手写体禁止换行保持两行
+https://www.github.com/4maticlab/night-shift,eebff2924f66e879f75a0d4d5026827a089e1a7a,2026-07-25T05:53:34+00:00,Human,,18,4,1,True,True,False,False,fix: 横排手机端随身物卡片
+https://www.github.com/4maticlab/night-shift,a910c3f9e44af0de0490ea3d483b79161c20a4d2,2026-07-25T05:46:55+00:00,Human,,1770,399,11,False,False,False,False,"feat: polish tonight prep steps, morning broadsheet, and hardware motion
+
+Restructure the tonight panel into numbered steps with optional rest
+ritual collapsed, render morning report as a newspaper broadsheet,
+and add GSAP / lucide-animated micro-interactions for sleep hardware
+status and collection archive tabs."
+https://www.github.com/4maticlab/night-shift,651924850e49a180273c2a6a2b1315c40614e4f8,2026-07-25T05:40:19+00:00,Human,,11,42,2,False,False,False,False,feat: 精简首页 hero — 全手写标题、精简导语、去除副标题胶囊与外框
+https://www.github.com/4maticlab/night-shift,2beeda64cb8042f3549d8b99577579ee6fef4eb7,2026-07-25T05:21:32+00:00,Human,,196,17,5,False,False,False,False,feat: give landing copy a handwritten editorial layout
+https://www.github.com/4maticlab/night-shift,914c232098a28922baf0c95e1fecb6752788f802,2026-07-25T05:13:51+00:00,Human,,670,165,24,False,False,False,False,Merge remote-tracking branch 'origin/main' into feat/landing-shift-rule-and-chrome
+https://www.github.com/4maticlab/night-shift,96900bd5869e4d07a0223398f83a93edc4ea0a09,2026-07-25T05:12:45+00:00,Human,,215,2,7,False,False,False,False,"Merge pull request #119 from 4MaticLab/feat/cipher-reference-folio
+
+Feat/cipher reference folio"
+https://www.github.com/4maticlab/night-shift,0e3c6d82ebe7f6d52941b284ea8ceb510a3af818,2026-07-25T04:53:53+00:00,Human,,0,63,2,False,False,False,False,plan: retire feat-cipher-case-notebook
+https://www.github.com/4maticlab/night-shift,dfb471704e27965595d7157f626708e157967efd,2026-07-25T04:53:24+00:00,Human,,11,11,2,False,False,False,False,plan: complete feat-cipher-case-notebook
+https://www.github.com/4maticlab/night-shift,b79aab9176bb369ce88f82c00e2cef06493648ec,2026-07-25T04:52:56+00:00,Human,,294,2,9,False,False,False,False,feat: add local case cipher notebook
+https://www.github.com/4maticlab/night-shift,180076a7576930f8e2865dd4d02051c4261724b7,2026-07-25T04:47:45+00:00,Human,,63,0,2,False,False,False,False,plan: feat-cipher-case-notebook
+https://www.github.com/4maticlab/night-shift,c8d20e6a5088ca2434a50499cd01c5594538048d,2026-07-25T04:46:39+00:00,Human,,0,62,2,False,False,False,False,plan: retire feat-cipher-reference-folio
+https://www.github.com/4maticlab/night-shift,642f5fca3f45aeb131572b246abf623036a4b133,2026-07-25T04:46:11+00:00,Human,,11,11,2,False,False,False,False,plan: complete feat-cipher-reference-folio
+https://www.github.com/4maticlab/night-shift,c07c9819823e56a799b4d86ea0ee61efbdc42d3f,2026-07-25T04:45:38+00:00,Human,,215,2,7,False,False,False,False,feat: add cipher reference folio
+https://www.github.com/4maticlab/night-shift,a16af667b636f8be8dad8c4c006263e7e1a3279e,2026-07-25T04:41:54+00:00,Human,,62,0,2,False,False,False,False,plan: feat-cipher-reference-folio
+https://www.github.com/4maticlab/night-shift,2c4934513ef74b019292811c35c39d6e7db499f2,2026-07-25T04:40:41+00:00,Human,,0,62,2,False,False,False,False,plan: retire feat-cipher-progressive-hints
+https://www.github.com/4maticlab/night-shift,09acae66278620f2703a0c13c948157be00b399a,2026-07-25T04:40:13+00:00,Human,,11,11,2,False,False,False,False,plan: complete feat-cipher-progressive-hints
+https://www.github.com/4maticlab/night-shift,586c1cbe121a6a37a7da31d3799e61bcc31f36bc,2026-07-25T04:39:43+00:00,Human,,147,6,7,False,False,False,False,feat: reveal cipher hints progressively
+https://www.github.com/4maticlab/night-shift,a79e216478b005b0e2a079f2a04edac3f014f6f3,2026-07-25T04:34:56+00:00,Human,,62,0,2,False,False,False,False,plan: feat-cipher-progressive-hints
+https://www.github.com/4maticlab/night-shift,e29d19051dda0f11e9b9ce06573f418851a15b8e,2026-07-25T04:25:22+00:00,Human,,47,38,13,False,True,False,False,"Merge pull request #66 from 4MaticLab/feat/case-board-letter-popups
+
+fix: case board layout, edge layering, and soft mismatch notice"
+https://www.github.com/4maticlab/night-shift,531fe1b07e868d55244b2cc85d0d56241b38f80d,2026-07-25T04:23:47+00:00,Human,,0,0,0,False,False,False,False,Merge remote-tracking branch 'origin/main' into feat/case-board-letter-popups
+https://www.github.com/4maticlab/night-shift,de55d3b47136666c523baae06e4f8375704d2d1d,2026-07-25T04:22:18+00:00,Human,,18818,5230,198,False,False,False,False,merge: resolve case board conflicts with latest main
+https://www.github.com/4maticlab/night-shift,9c1a622f62dddfc4fd470b3aee8ecc57805cbb33,2026-07-25T04:15:27+00:00,Human,,7,1,2,False,True,False,False,"Merge pull request #117 from 4MaticLab/fix/rain-radio-prologue-image-116
+
+fix: use distinct rain radio prologue art"
+https://www.github.com/4maticlab/night-shift,d972a85a56a2fe2c468e145e1990b3cec5be9fc0,2026-07-25T04:04:31+00:00,Human,,7,1,2,True,True,False,False,fix: use distinct rain radio prologue art
+https://www.github.com/4maticlab/night-shift,9ab87805d4e8368098ff39656c9c486c8cbeed05,2026-07-25T04:01:58+00:00,Human,,401,124,7,False,True,False,False,"Merge pull request #102 from 4MaticLab/fix/collection-index-scroll-and-clipping-type
+
+fix: collection index scroll-spy and foglight gazette type"
+https://www.github.com/4maticlab/night-shift,f97778226880a7d909a22f97132c10ea1b0038e5,2026-07-25T02:08:05+00:00,Human,,252,32,5,False,False,False,False,"feat: polish landing shift-rule, BGM control, and chrome layout (#115)
+
+Move the day/night shift rule into a hoverable pill on the hero eyebrow,
+switch BGM to an animated volume icon with absolute chrome positioning,
+add soft click feedback on the campaign wheel, and drop placeholder cases."
+https://www.github.com/4maticlab/night-shift,5222cb40ea327c8862cc3ecc5fafa96d1e126452,2026-07-25T02:04:49+00:00,Human,,252,32,5,False,False,False,False,"feat: polish landing shift-rule, BGM control, and chrome layout
+
+Move the day/night shift rule into a hoverable pill on the hero eyebrow,
+switch BGM to an animated volume icon with absolute chrome positioning,
+add soft click feedback on the campaign wheel, and drop placeholder cases."
+https://www.github.com/4maticlab/night-shift,49bbdf02d125388ea1b821fd9947ca9efcf9f293,2026-07-25T00:36:11+00:00,Human,,98,33,6,False,True,False,False,"feat: 全局共享品牌头并移除游戏页 topbar 条 (#105)
+
+* feat: keep landing brand fixed across pages and drop game topbar
+
+Lift the landing brand mark into the shared runtime so the icon and
+name stay at the same top-left position when entering a case, remove
+the topbar's own brand button and bar container, and float the case
+title and hardware actions without the bar.
+
+* feat: lift game content into the removed topbar space
+
+Drop the reserved top padding so views move up into the old topbar
+band, keeping only a small clearance under the floating chrome, and
+size the full-height grids off the bottom nav clearance alone.
+
+* feat: overlay game content to the viewport top under floating chrome
+
+Remove the remaining top reservation so views reach the viewport top
+edge, and introduce --chrome-clearance so first-row content (scene
+copy, page titles, plan panel) clears the floating brand, centered
+title, and hardware button at every breakpoint."
+https://www.github.com/4maticlab/night-shift,e0d14d77a9580cf2ecba37aacf10f14a060056a4,2026-07-24T17:46:11+00:00,Human,,430,0,1,False,False,False,False,"Merge pull request #114 from 4MaticLab/docs/project-promo-video-91
+
+docs: add project intro and promo video script"
+https://www.github.com/4maticlab/night-shift,1ca3f20b086c5d164e240f526bc57537e2e4754b,2026-07-24T17:43:35+00:00,Human,,1,273,3,False,False,False,False,"Merge pull request #112 from 4MaticLab/revert/smooth-cursor
+
+Revert ""feat: add global white smooth cursor"""
+https://www.github.com/4maticlab/night-shift,fb2083d452773df420db998cde3904ac768bb065,2026-07-24T17:41:07+00:00,Human,,430,0,1,False,False,False,False,docs: add project intro and promo video script
+https://www.github.com/4maticlab/night-shift,70a8b20bacb5d61f8e87b82d56751166d9a08ae8,2026-07-24T17:40:14+00:00,Human,,436,2,13,False,False,False,False,"Merge remote-tracking branch 'origin/main' into revert/smooth-cursor
+
+# Conflicts:
+#	app/layout.tsx"
+https://www.github.com/4maticlab/night-shift,479ff877f2a1cdfb8ab027ea0b4b31a53cfa9079,2026-07-24T17:34:54+00:00,Human,,1,1,1,False,True,False,False,Fix formatting issues in README.md
+https://www.github.com/4maticlab/night-shift,c635414e30d0924c7e16762d2be963f06bc392aa,2026-07-24T17:32:55+00:00,Human,,435,1,12,False,False,False,False,"Merge pull request #113 from 4MaticLab/feat/global-bgm-84
+
+Feat/global bgm 84"
+https://www.github.com/4maticlab/night-shift,e4196853224023e439b6d3bb84122b5735ae66f8,2026-07-24T17:29:23+00:00,Human,,1,273,3,False,False,False,True,"Revert ""feat: add global white smooth cursor""
+
+This reverts commit c9b42445f5c7eafc33c3f6ffbd4c65f8e50b6fcf."
+https://www.github.com/4maticlab/night-shift,529670be32389bfbfa894828a1ac57c03ad08072,2026-07-24T17:27:12+00:00,Human,,31,133,5,True,True,False,False,fix: simplify global music control
+https://www.github.com/4maticlab/night-shift,b9d0b7806bca538dd0a8afb2b7d614144e84a0b7,2026-07-24T17:19:04+00:00,Human,,1897,2,9,False,False,False,False,merge: sync origin/main into collection index scroll branch
+https://www.github.com/4maticlab/night-shift,13e523d10c67dbfd50d6585c9a27186a83a263ef,2026-07-24T16:53:14+00:00,Human,,0,76,2,False,False,False,False,plan: retire feat-global-bgm-84
+https://www.github.com/4maticlab/night-shift,f4383ee682716791e1d78e2224ef9ffafefbcd4b,2026-07-24T16:53:14+00:00,Human,,19,15,2,False,False,False,False,plan: complete feat-global-bgm-84
+https://www.github.com/4maticlab/night-shift,df60d06a2de2a79d1753cf2eaa6dee788cbbb54f,2026-07-24T16:53:14+00:00,Human,,537,1,12,False,False,False,False,feat: add global background music
+https://www.github.com/4maticlab/night-shift,48147176d0d716b26e9efa355d86dd9b02c078b6,2026-07-24T16:53:14+00:00,Human,,72,0,2,False,False,False,False,plan: feat-global-bgm-84
+https://www.github.com/4maticlab/night-shift,95e181433e085700caff1c518eb4fd2fa434b7b9,2026-07-24T16:52:46+00:00,Human,,1130,1,6,False,False,False,False,"Merge pull request #80 from 4MaticLab/codex/injective-testnet-deploy
+
+Deploy Night Shift Keepsake to Injective EVM Testnet"
+https://www.github.com/4maticlab/night-shift,f7e396eea01eee8b1a2def2f4693b3f78c2dfbbf,2026-07-24T16:52:11+00:00,Human,,767,1,3,False,False,False,False,"Merge pull request #111 from 4MaticLab/feat/night-diorama
+
+feat: 夜行立体纸剧场——推车穿行 2.5D 夜行图景试点"
+https://www.github.com/4maticlab/night-shift,06e5dd96bba9774b6a573997e4da8296ed720505,2026-07-24T16:48:26+00:00,Human,,4763,68,82,False,False,False,False,"merge: sync origin/main into collection index scroll branch
+
+Bring in night omens, posters, fog-without-wolves, and smooth cursor from main.
+Keep continuous collection scroll-spy with hysteresis, and wire tarot as a fifth archive drawer."
+https://www.github.com/4maticlab/night-shift,0f51224201d7ffbae1a1adf4344067bc3dfa0060,2026-07-24T16:45:48+00:00,Human,,0,72,2,False,False,False,False,plan: retire feat-night-diorama
+https://www.github.com/4maticlab/night-shift,86e82acb8eea9c0d8edcfbebc827157d17ec8802,2026-07-24T16:45:08+00:00,Human,,4,2,1,False,False,False,False,plan: complete feat-night-diorama
+https://www.github.com/4maticlab/night-shift,6cc29992168815dfc22ad2748792feb19228e529,2026-07-24T16:37:11+00:00,Human,,1295,21,53,False,False,False,False,"Merge pull request #109 from 4MaticLab/codex/lost-property-case
+
+feat: 新增第五案《雾中无狼》"
+https://www.github.com/4maticlab/night-shift,7a99da3887a5e0fb0210e9688e315644b65cdecd,2026-07-24T16:36:54+00:00,Human,,273,1,3,False,False,False,False,"Merge pull request #108 from 4MaticLab/feat/smooth-cursor
+
+feat: add global white smooth cursor"
+https://www.github.com/4maticlab/night-shift,895b434ab3b042993ba53a421802402389291f8c,2026-07-24T16:35:15+00:00,Human,,0,110,2,False,False,False,False,plan: retire codex-lost-property-case
+https://www.github.com/4maticlab/night-shift,93d947c16d612adc59a0299c34c85fe9ea0a89b9,2026-07-24T16:35:06+00:00,Human,,15,5,2,False,False,False,False,plan: complete codex-lost-property-case
+https://www.github.com/4maticlab/night-shift,a6735a909ce0fa05e1f0be5312084feb3c541a98,2026-07-24T16:34:07+00:00,Human,,149,0,2,False,False,False,False,test: cover fog without wolves lifecycle
+https://www.github.com/4maticlab/night-shift,2499acace63bc2a0118e6c383755c814dd1938ac,2026-07-24T16:34:07+00:00,Human,,41,19,10,False,False,False,False,docs: document fog without wolves campaign
+https://www.github.com/4maticlab/night-shift,4a596b2514ed73c17a671aa6c58c4f335b8db632,2026-07-24T16:34:07+00:00,Human,,626,7,6,False,False,False,False,feat: add fog without wolves campaign
+https://www.github.com/4maticlab/night-shift,2246486f14fad10713b10fd6856135554dadeef8,2026-07-24T16:34:07+00:00,Human,,257,10,39,False,False,False,False,art: add fog without wolves visual archive
+https://www.github.com/4maticlab/night-shift,a4df302b871d9c616f5b7cdab95a1d4af59b6d61,2026-07-24T16:34:07+00:00,Human,,96,2,4,False,False,False,False,docs: map fog without wolves visual archive
+https://www.github.com/4maticlab/night-shift,5aa4530afccc82dcedc6083edb367032cb034c19,2026-07-24T16:34:07+00:00,Human,,164,12,4,False,False,False,False,docs: define fog without wolves story bible
+https://www.github.com/4maticlab/night-shift,019a33a5510d36b535bbc3268e73b0dcb92693be,2026-07-24T16:34:07+00:00,Human,,91,0,2,False,False,False,False,plan: codex-lost-property-case
+https://www.github.com/4maticlab/night-shift,c9b42445f5c7eafc33c3f6ffbd4c65f8e50b6fcf,2026-07-24T16:31:29+00:00,Human,,273,1,3,False,False,False,False,"feat: add global white smooth cursor
+
+Mount a physics-based SmoothCursor (magicui) in the root layout with a
+white arrow variant, and hide the native cursor on fine-pointer devices
+via a global media query while keeping the text cursor in form fields."
+https://www.github.com/4maticlab/night-shift,f31e6f9db52250b357f660378554dc0609db6335,2026-07-24T16:21:34+00:00,Human,,767,1,3,False,False,False,False,"feat: night journey paper diorama — dolly-through pilot
+
+Layered SVG paper theatre for the night phase: camera dollies through
+scrolling world strips (far/mid/signposts/foreground) as night progress
+advances. Stops are roadside signposts (ahead/near/passed), windows light
+after the camera passes, lamp posts sweep past, the moon drifts and sets.
+Ambient sway + far-window twinkle keep the street alive between ticks.
+All palette-locked, pure function of progress, reduced-motion safe.
+
+NightRun swaps CityRoute for NightDiorama; morning report keeps the
+flat archive map."
+https://www.github.com/4maticlab/night-shift,54bd9a2a8bba30af2210252426413ecb3be454c1,2026-07-24T16:11:15+00:00,Human,,70,0,2,False,False,False,False,plan: feat-night-diorama
+https://www.github.com/4maticlab/night-shift,68c1d908b592937672005022987553d9a8ce872c,2026-07-24T16:00:24+00:00,Human,,816,36,9,False,False,False,False,"Merge pull request #104 from 4MaticLab/feat/dock-bottom-nav
+
+feat: restyle bottom nav as a macOS-style dock"
+https://www.github.com/4maticlab/night-shift,78b89f89001cd9ae26afd7e5e3a245b82ba8a96a,2026-07-24T15:59:59+00:00,Human,,1150,8,11,False,False,False,False,"Merge pull request #107 from 4MaticLab/feat/tarot-card-draw-92
+
+Feat/tarot card draw 92"
+https://www.github.com/4maticlab/night-shift,fca63f75460ed426f8feb001e373096a5946cad2,2026-07-24T15:54:25+00:00,Human,,0,74,2,False,False,False,False,plan: retire feat-tarot-card-draw-92
+https://www.github.com/4maticlab/night-shift,2c9c10961b9be3a6b2eb46363cb476770c21c9ae,2026-07-24T15:53:53+00:00,Human,,17,13,2,False,False,False,False,plan: complete feat-tarot-card-draw-92
+https://www.github.com/4maticlab/night-shift,b17eee37f9db615865056e610f54f3c785684013,2026-07-24T15:53:15+00:00,Human,,1150,8,11,False,False,False,False,feat: add daily tarot night omen draw
+https://www.github.com/4maticlab/night-shift,21098fbce50b773f49e01e4979c39b99fc3722c2,2026-07-24T15:48:23+00:00,Human,,610,3,8,False,False,False,False,"feat: swap dock icons for lucide-animated set
+
+Replace the five static lucide glyphs in the bottom dock with the
+animated lucide-animated components (coffee, search, moon,
+receipt-euro for collection, archive) so icons animate on hover while
+the dock magnifies. Adds the shadcn config used to scaffold them and
+lets the icon wrapper fill the round box so glyphs keep scaling with
+magnification."
+https://www.github.com/4maticlab/night-shift,5e9ee95c9890b1da75253804ef9b80f68730dfeb,2026-07-24T15:33:40+00:00,Human,,3,9,1,False,False,False,False,"feat: refine dock pill proportions
+
+Drop the active item's top indicator line, widen the icon gap, add
+horizontal padding to lengthen the pill, and soften its corner radius."
+https://www.github.com/4maticlab/night-shift,37eef37233e182591027e77c03f5a60d3b72f008,2026-07-24T15:32:07+00:00,Human,,70,0,2,False,False,False,False,plan: feat-tarot-card-draw-92
+https://www.github.com/4maticlab/night-shift,8e613b266fc1a993c0d18f5263d5da634b1ef121,2026-07-24T15:17:03+00:00,Human,,207,28,3,False,False,False,False,"feat: restyle bottom nav as a macOS-style dock
+
+Replace the full-width grid bottom nav with a hug-content glassy pill
+dock (MagicUI Dock/DockIcon): icons magnify on cursor proximity via a
+shared spring, while each item keeps its text label below the icon.
+Navigation links, aria-current, scroll-to-top on re-click, the board
+ready badge, and the 44px tap-target guardrail are unchanged."
+https://www.github.com/4maticlab/night-shift,db1b29a2f70659a8eaf5130676efda6645991074,2026-07-24T15:15:24+00:00,Human,,1225,0,13,False,False,False,False,"Merge pull request #103 from 4MaticLab/feat/five-day-print-posters
+
+Acquisition via QR code scanning between two users"
+https://www.github.com/4maticlab/night-shift,65f2b45b5bb4f671a007b38bd4c691074054dfd2,2026-07-24T14:52:43+00:00,Human,,398,123,6,True,True,False,False,"fix: stabilize collection index scroll and refine foglight gazette type
+
+Track the sticky archive index from a stable activation band with category
+anchors and hysteresis, keep all collection shelves continuous, and tighten
+the city morning-paper masthead and body type with paper textures."
+https://www.github.com/4maticlab/night-shift,c730870daf0f068f843986a1498935fcae807c3b,2026-07-24T14:40:09+00:00,Human,,170,32,7,False,False,False,False,"Merge pull request #100 from 4MaticLab/feat/landing-language-icon
+
+feat: replace landing language toggle with animated icon"
+https://www.github.com/4maticlab/night-shift,2765b986a0145f6bde409b82981db2fcb48bb739,2026-07-24T14:24:53+00:00,Human,,173,43,7,False,False,False,False,docs: add poster entry and trigger guide
+https://www.github.com/4maticlab/night-shift,de9df6831c46c0692e10f724374e95361aa0d974,2026-07-24T14:08:35+00:00,Human,,1055,220,29,False,False,False,False,"Merge origin/main into feat/landing-language-icon: adopt routed app shell, keep demo buttons removed"
+https://www.github.com/4maticlab/night-shift,f97cdc7992e146c5f888de77ea441cc858d4f5f5,2026-07-24T14:03:02+00:00,Human,,0,71,2,False,False,False,False,plan: retire feat-five-day-print-posters
+https://www.github.com/4maticlab/night-shift,d985bf1721115e9326707d6f989f5ab2b384ed54,2026-07-24T14:02:16+00:00,Human,,1111,13,14,False,False,False,False,feat: add five-day print poster series
+https://www.github.com/4maticlab/night-shift,b76711ddea4a06824360bbd0e8058c6255ff45b8,2026-07-24T13:42:27+00:00,Human,,68,0,2,False,False,False,False,plan: feat-five-day-print-posters
+https://www.github.com/4maticlab/night-shift,fb991df5625945fa5cdf12170c2a5b39b1eea8dc,2026-07-24T13:42:17+00:00,Human,,5,22,3,False,False,False,False,feat: remove demo pill from game topbar
+https://www.github.com/4maticlab/night-shift,2b8e0d743cbdb844b323972405d400bd15819f1f,2026-07-24T13:26:52+00:00,Human,,700,131,3,False,False,False,False,"feat: rebuild night run page as map-centric maximalist stage
+
+The night exploration page now gives the city map the center stage:
+a framed cartouche-style map viewport flanked by two collapsible
+archive rails (dispatch / field notes), a perforated telegraph tape
+for night events, and a surveyor-ruler progress bar. CityRoute and
+.city-map internals are intentionally untouched so the map animation
+rework can land in the reserved viewport."
+https://www.github.com/4maticlab/night-shift,c49d078a06f75da6d7b21cf62d7b155a2bdc0e7e,2026-07-24T13:21:55+00:00,Human,,4,5,2,False,False,False,False,feat: enlarge landing language icon and remove demo button
+https://www.github.com/4maticlab/night-shift,b1b4786f87497a228f8ad5b02b190144154b4e10,2026-07-24T13:17:48+00:00,Human,,715,220,25,False,False,False,False,"Merge pull request #98 from 4MaticLab/codex/game-surface-routing
+
+feat: route game surfaces with App Router"
+https://www.github.com/4maticlab/night-shift,f3e40382ed920568961cb4c8e77a7f2fac0ee91c,2026-07-24T13:11:01+00:00,Human,,2,2,2,False,False,False,False,feat: drop language button frame and enlarge icon
+https://www.github.com/4maticlab/night-shift,d25a4ce2a77a7ac4c185c829b5b4b462f5c61e7d,2026-07-24T13:04:55+00:00,Human,,343,0,4,False,False,False,False,"Merge pull request #99 from 4MaticLab/docs/xiaomi-watch-hardware-test
+
+docs: add Xiaomi watch hardware test guide"
+https://www.github.com/4maticlab/night-shift,b34f6632ba70b6687a894dc48e801ea55b5a5f4b,2026-07-24T13:04:52+00:00,Human,,162,3,3,False,False,False,False,feat: replace landing language toggle with animated languages icon
+https://www.github.com/4maticlab/night-shift,0216e52abab6527efcc33d1af45e9c1db68a2466,2026-07-24T12:52:23+00:00,Human,,343,0,4,False,False,False,False,docs: add Xiaomi watch hardware test guide
+https://www.github.com/4maticlab/night-shift,cd2ccc1fc907b2e1d491d5516fd5f5fccefe3bc7,2026-07-24T12:48:07+00:00,Human,,48,93,5,False,False,False,False,Merge remote-tracking branch 'origin/main' into codex/game-surface-routing
+https://www.github.com/4maticlab/night-shift,d558738b721146aa8e05b787473cf387ac5af3d7,2026-07-24T12:47:22+00:00,Human,,0,76,2,False,False,False,False,plan: retire codex-game-surface-routing
+https://www.github.com/4maticlab/night-shift,92b228a2634e128221dcf08cbfc7a8eb03c76b3a,2026-07-24T12:47:10+00:00,Human,,4,3,2,False,False,False,False,plan: complete codex-game-surface-routing
+https://www.github.com/4maticlab/night-shift,c69199dee293a88984ab074a8be0a8510278f8c4,2026-07-24T12:41:22+00:00,Human,,3,2,1,False,True,False,False,"Merge pull request #95 from 4MaticLab/fix/landing-rain-loop
+
+fix: 首页雨丝动画无缝循环"
+https://www.github.com/4maticlab/night-shift,de89301685fd60b7c74477bdccb7f877cb5cd010,2026-07-24T12:37:29+00:00,Human,,34,16,4,False,False,False,False,test: cover routed game surfaces
+https://www.github.com/4maticlab/night-shift,6edc45e86198890c1828f2b2b4a2541b7419a27d,2026-07-24T12:30:27+00:00,Human,,3,2,1,True,True,False,False,"fix: make landing rain stripes loop seamlessly
+
+The keyframe translated by (-50px, 100px), whose projection onto the
+105deg gradient normal is ~22px — not a multiple of the 67px stripe
+period, so the pattern snapped back at every loop restart. Translate
+by exactly one period along the gradient normal and stretch duration
+to 5.4s to keep the previous perceived drift speed."
+https://www.github.com/4maticlab/night-shift,fd8d7463a1e9b6b61e30ca683041b7bf9d243669,2026-07-24T12:23:49+00:00,Human,,690,211,26,False,False,False,False,feat: route game surfaces
+https://www.github.com/4maticlab/night-shift,2b00ee83d9d6862dcef6a6457a029680e4195ddc,2026-07-24T12:23:47+00:00,Human,,45,91,5,False,True,False,False,"Merge pull request #94 from 4MaticLab/fix/dim-uncollected-art
+
+fix: replace locked placeholders with dimmed art"
+https://www.github.com/4maticlab/night-shift,a1d0fc446b9c3e8d9ec0dae3b832ea2e79aa3b97,2026-07-24T12:17:44+00:00,Human,,45,91,5,True,True,False,False,fix: replace locked placeholders with dimmed art
+https://www.github.com/4maticlab/night-shift,1242494704cd5b01a902f093be335fab8c56eca2,2026-07-24T12:09:12+00:00,Human,,73,0,2,False,False,False,False,plan: codex-game-surface-routing
+https://www.github.com/4maticlab/night-shift,0e3afc7dcc14ba70f00e269b2ba5cd375cc242e4,2026-07-24T12:04:34+00:00,Human,,58,70,22,False,False,False,False,"Merge pull request #93 from 4MaticLab/codex/responsive-image-delivery
+
+perf: enable responsive image delivery"
+https://www.github.com/4maticlab/night-shift,944de742775f0a3836abf7520bbd9ceb8b1848e4,2026-07-24T11:58:15+00:00,Human,,58,70,22,False,False,False,False,perf: enable responsive image delivery
+https://www.github.com/4maticlab/night-shift,7bd6c4f469688a2462fbfd072e93a3c0429257e8,2026-07-24T11:33:04+00:00,Human,,422,58,9,False,False,False,False,"Merge pull request #86 from 4MaticLab/codex/wagmi-wallet-connection
+
+Connect Injective wallets with wagmi 3"
+https://www.github.com/4maticlab/night-shift,14f2180a8803be0b8a7a6c04f7a5f4d97fa12352,2026-07-24T11:30:33+00:00,Human,,4050,19,38,False,False,False,False,"Merge remote-tracking branch 'origin/main' into codex/wagmi-wallet-connection
+
+# Conflicts:
+#	package-lock.json
+#	package.json"
+https://www.github.com/4maticlab/night-shift,c86c54ca275aa354d4be3383a487de75b3cdd157,2026-07-24T11:29:34+00:00,Human,,16,16,15,False,False,False,False,"Merge pull request #90 from 4MaticLab/codex/compress-evidence-paper-textures
+
+perf: compress evidence paper textures"
+https://www.github.com/4maticlab/night-shift,c027024d2f2717f1e91a5115c5c15109466b9959,2026-07-24T11:25:24+00:00,Human,,3846,17,35,False,False,False,False,"Merge pull request #89 from 4MaticLab/codex/home-assistant-connector
+
+Package the local Home Assistant Connector, Chrome loopback pairing, cross-platform artifacts, tests, and documentation.\n\nSupersedes #77."
+https://www.github.com/4maticlab/night-shift,4cb37a4a9eca633ae31a2ac28dd32c07fac22acc,2026-07-24T10:34:35+00:00,Human,,16,16,15,False,False,False,False,perf: compress evidence paper textures
+https://www.github.com/4maticlab/night-shift,c3877cb2e2e2ed97832f696600734465dc6c9ea9,2026-07-24T10:33:50+00:00,Human,,0,99,2,False,False,False,False,plan: retire codex-home-assistant-connector
+https://www.github.com/4maticlab/night-shift,231ac210b87c2c38182028877f1a3330d87477ca,2026-07-24T10:33:30+00:00,Human,,19,5,1,False,False,False,False,plan: complete codex-home-assistant-connector
+https://www.github.com/4maticlab/night-shift,af61cee055208316c255e3cf286bfbfd47055628,2026-07-24T10:30:10+00:00,Human,,205,3,5,False,True,False,False,"Merge pull request #85 from 4MaticLab/fix/sleep-gap-ledger-layout
+
+fix: integrate sleep gap echo ledger"
+https://www.github.com/4maticlab/night-shift,e3cf28d01950887c3ed02cef4219ec0095712a72,2026-07-24T10:27:54+00:00,Human,,1398,111,25,False,False,False,False,feat: package Home Assistant connector
+https://www.github.com/4maticlab/night-shift,b3a542e5d75834ba80560901bbe45b435417c739,2026-07-24T10:26:50+00:00,Human,,205,3,5,True,True,False,False,fix: integrate sleep gap echo ledger
+https://www.github.com/4maticlab/night-shift,3954c71b74e8fafbf93dac4de051f7fa1c5533f2,2026-07-24T10:23:38+00:00,Human,,0,80,2,False,False,False,False,plan: retire codex-wagmi-wallet-connection
+https://www.github.com/4maticlab/night-shift,5081d0949d039500e679da4848fb84a70d16999c,2026-07-24T10:23:18+00:00,Human,,14,3,2,False,False,False,False,plan: complete codex-wagmi-wallet-connection
+https://www.github.com/4maticlab/night-shift,b89814cffe7e2a0e17baded44d50b6804142da4e,2026-07-24T10:22:12+00:00,Human,,429,64,11,False,False,False,False,feat: connect Injective wallets with wagmi 3
+https://www.github.com/4maticlab/night-shift,57984dfe97ac1038e8bf8e8e992f15818329ad8f,2026-07-24T10:12:28+00:00,Human,,2560,16,27,False,False,False,False,feat: add Home Assistant ambient bridge
+https://www.github.com/4maticlab/night-shift,36675324a40d3502077b02a8b60d8104824f4015,2026-07-24T10:10:55+00:00,Human,,68,0,2,False,False,False,False,plan: codex-wagmi-wallet-connection
+https://www.github.com/4maticlab/night-shift,b2e15b6d66373af249a01570b6a19237d7e59700,2026-07-24T10:10:03+00:00,Human,,83,0,2,False,False,False,False,plan: codex-home-assistant-connector
+https://www.github.com/4maticlab/night-shift,eb31513c39bba15e24e28f9116cf4e393f8838d7,2026-07-24T09:55:19+00:00,Human,,1366,1014,33,False,False,False,False,"Merge pull request #81 from 4MaticLab/codex/evidence-synthesis-archive
+
+feat: replace evidence board with synthesis archive"
+https://www.github.com/4maticlab/night-shift,8ccf566e59962c9acb90761889045cbcaaaa1ba8,2026-07-24T09:53:10+00:00,Human,,0,80,2,False,False,False,False,plan: retire codex-injective-vercel-enable
+https://www.github.com/4maticlab/night-shift,1b48abad7ea51ca0abd8818acad6f3dd732ff4c7,2026-07-24T09:53:02+00:00,Human,,0,1,1,False,True,False,False,"Merge pull request #79 from 4MaticLab/fix/remove-demo-button
+
+fix: remove demo button from landing page"
+https://www.github.com/4maticlab/night-shift,3975559d47888b394323aec95a7ff3f995102a30,2026-07-24T09:52:59+00:00,Human,,20,7,2,False,False,False,False,plan: complete codex-injective-vercel-enable
+https://www.github.com/4maticlab/night-shift,df47fb0e3b976c98d4ac1de779f7848673f69364,2026-07-24T09:52:35+00:00,Human,,5,0,1,False,False,False,False,docs: record Vercel Injective activation
+https://www.github.com/4maticlab/night-shift,7cc1d28d016a8c1dae55f6bc8a79260ecb30c0b0,2026-07-24T09:47:53+00:00,Human,,0,96,2,False,False,False,False,plan: retire codex-evidence-synthesis-archive
+https://www.github.com/4maticlab/night-shift,64d425176dcd1357c8acd769f2244a59fa89037c,2026-07-24T09:47:53+00:00,Human,,2,1,1,False,False,False,False,plan: complete codex-evidence-synthesis-archive
+https://www.github.com/4maticlab/night-shift,ef1e765620b0d3fad300788286a10f80b8736f2c,2026-07-24T09:47:53+00:00,Human,,1387,1021,34,False,False,False,False,feat: replace evidence board with synthesis archive
+https://www.github.com/4maticlab/night-shift,ae32d25b2c698a6bd47c2f8acc50384d588464c9,2026-07-24T09:47:06+00:00,Human,,67,0,2,False,False,False,False,plan: codex-injective-vercel-enable
+https://www.github.com/4maticlab/night-shift,dace923da3ce6e9a522c937317b0fef86a651617,2026-07-24T09:46:52+00:00,Human,,81,0,2,False,False,False,False,plan: codex-evidence-synthesis-archive
+https://www.github.com/4maticlab/night-shift,9e46a80c03a99e87b0beb6e3b9f69fcab4c119e5,2026-07-24T09:37:20+00:00,Human,,0,86,2,False,False,False,False,plan: retire codex-injective-testnet-deploy
+https://www.github.com/4maticlab/night-shift,44fb8481571130c2c784cec5c39806c92ee86f34,2026-07-24T09:37:20+00:00,Human,,25,7,2,False,False,False,False,plan: complete codex-injective-testnet-deploy
+https://www.github.com/4maticlab/night-shift,8329a546c794006920515afb5b35cb9fef6fdbf6,2026-07-24T09:37:20+00:00,Human,,1125,1,6,False,False,False,False,chore: deploy Injective keepsake testnet
+https://www.github.com/4maticlab/night-shift,83339dccbcdc8240a48a00899b8a938aafca66b8,2026-07-24T09:37:20+00:00,Human,,3,2,2,False,False,False,False,plan: record injective testnet wallet
+https://www.github.com/4maticlab/night-shift,a3eec5f0687c3428bf251edc9b8b1b0a45991508,2026-07-24T09:37:20+00:00,Human,,67,0,2,False,False,False,False,plan: codex-injective-testnet-deploy
+https://www.github.com/4maticlab/night-shift,8ab8a4c04efbd07700fa8d85b615136261fd271f,2026-07-24T09:31:55+00:00,Human,,0,1,1,True,True,False,False,fix: remove demo button from landing page
+https://www.github.com/4maticlab/night-shift,ec8d199f6dae251c492a0094a9cdb6fa32d0c84f,2026-07-24T09:26:22+00:00,Human,,668,81,18,False,False,False,False,"Merge pull request #76 from 4MaticLab/codex/campaign-entry-prologue
+
+feat: add campaign-specific case prologues"
+https://www.github.com/4maticlab/night-shift,369f077dfafc447f2143d994990f0b8841046b2a,2026-07-24T09:11:27+00:00,Human,,0,79,2,False,False,False,False,plan: retire codex-campaign-entry-prologue
+https://www.github.com/4maticlab/night-shift,f94ea98d6bf229157992229358b06a71813f955e,2026-07-24T09:11:08+00:00,Human,,17,15,2,False,False,False,False,plan: complete codex-campaign-entry-prologue
+https://www.github.com/4maticlab/night-shift,070f301e6e1f9760de3c5a1dfbed480bbbc05d3a,2026-07-24T09:10:34+00:00,Human,,668,81,18,False,False,False,False,feat: add campaign-specific case prologues
+https://www.github.com/4maticlab/night-shift,7e90eb98a76134f21a22c9f94b252259f2e4118a,2026-07-24T09:00:59+00:00,Human,,0,0,0,False,True,False,False,"Merge pull request #75 from 4MaticLab/fix/remove-agency-watch-timer
+
+Fix/remove agency watch timer"
+https://www.github.com/4maticlab/night-shift,2a4d00304e3ab53dccb62462b7b8e45ba7c3cdd2,2026-07-24T09:00:22+00:00,Human,,0,7,1,False,False,False,False,chore: remove wrangler.toml to avoid config conflict
+https://www.github.com/4maticlab/night-shift,a3ea99f70b4ee17baf2871b15be446e146512616,2026-07-24T09:00:22+00:00,Human,,1,0,1,False,False,False,False,feat: add deploy:sites script with explicit wrangler config
+https://www.github.com/4maticlab/night-shift,11a3841ba934899a1c60ef4d6a05e34bcd5425c9,2026-07-24T09:00:22+00:00,Human,,7,0,1,False,False,False,False,feat: add wrangler config for Cloudflare Workers deployment
+https://www.github.com/4maticlab/night-shift,31cb687a21f5977bb8080b36a3b3a6050658a9a4,2026-07-24T09:00:22+00:00,Human,,0,38,1,False,False,False,False,chore: remove PR screenshots workflow
+https://www.github.com/4maticlab/night-shift,77d816753d97094d3fa802f55d23d0032612fd6b,2026-07-24T09:00:22+00:00,Human,,9,19,1,False,False,False,False,feat: screenshot Cloudflare Pages preview instead of local build
+https://www.github.com/4maticlab/night-shift,7e8afa5598baf209ce3da5999f18614e81b362b0,2026-07-24T08:52:56+00:00,Human,,0,7,1,False,False,False,False,chore: remove wrangler.toml to avoid config conflict
+https://www.github.com/4maticlab/night-shift,7281255be3925ba34387443dddb7c0498623b68d,2026-07-24T08:52:51+00:00,Human,,175,23,5,False,True,False,False,"Merge pull request #74 from 4MaticLab/fix/city-clipping-envelope
+
+fix: redesign city clipping archive"
+https://www.github.com/4maticlab/night-shift,cb1c82141c402014cb9112ff3755c2b715846bfb,2026-07-24T08:44:26+00:00,Human,,175,23,5,True,True,False,False,fix: redesign city clipping archive
+https://www.github.com/4maticlab/night-shift,1efe0e0eeb6a1dde2f17234381a6727996a8763d,2026-07-24T08:31:04+00:00,Human,,15207,9774,71,False,False,False,False,merge: sync origin/main into feat/case-board-letter-popups
+https://www.github.com/4maticlab/night-shift,aaaa29f895b37ca4870fe0dc622a07b2104731d5,2026-07-24T08:29:28+00:00,Human,,83,34,2,True,True,False,False,"fix: draw preview pair threads behind evidence cards
+
+Render compatible dashed hints in a viewport portal under the node layer,
+while confirmed solid red edges stay above the cards."
+https://www.github.com/4maticlab/night-shift,fb47fd7bd76f648275254a9366e10a6227d5f495,2026-07-24T08:29:15+00:00,Human,,1,0,1,False,False,False,False,feat: add deploy:sites script with explicit wrangler config
+https://www.github.com/4maticlab/night-shift,0d148b90eae8d996cad449c7d74328c7a3c621be,2026-07-24T08:28:10+00:00,Human,,77,0,2,False,False,False,False,plan: codex-campaign-entry-prologue
+https://www.github.com/4maticlab/night-shift,a1941014b7679c6844e349fe40732c9950c55032,2026-07-24T08:24:33+00:00,Human,,7,0,1,False,False,False,False,feat: add wrangler config for Cloudflare Workers deployment
+https://www.github.com/4maticlab/night-shift,c040ee499e7df0254a4c7c17fc562748a5e25211,2026-07-24T08:22:36+00:00,Human,,1200,59,57,False,False,False,False,"Merge pull request #72 from 4MaticLab/codex/unified-campaign-intake
+
+feat: add Chihaya Noa five-night campaign"
+https://www.github.com/4maticlab/night-shift,5bec0c8dfed1d97b8af450e0265e671d0201f1e6,2026-07-24T08:21:52+00:00,Human,,42,6,2,True,True,False,False,"fix: keep case-board relation threads above evidence cards
+
+Raise the React Flow edges layer over nodes, disable select elevation, and
+leave edge pointer-events off so cards stay clickable under the red threads."
+https://www.github.com/4maticlab/night-shift,676d071a20eb8913ada5f90eef955161b2040efd,2026-07-24T08:18:23+00:00,Human,,258,37,4,True,True,False,False,"fix: soften unmatched evidence notice as a desk note
+
+Replace the harsh red NO MATCH toast with a brass/paper notice that names
+both cards, explains they cannot yet testify together, and keeps the first."
+https://www.github.com/4maticlab/night-shift,53b69534660a0f29cf831b7c9fda7ca8f2287a04,2026-07-24T08:17:55+00:00,Human,,43,35,1,False,False,False,False,test: follow campaign wheel navigation
+https://www.github.com/4maticlab/night-shift,9140a42215608b84269eacb0883aca377cb1f356,2026-07-24T08:10:41+00:00,Human,,0,263,2,False,False,False,False,plan: retire completed campaign intake
+https://www.github.com/4maticlab/night-shift,e71c76f350022c0eb56539626dd1ca79a7cb9a3b,2026-07-24T08:10:41+00:00,Human,,24,11,2,False,False,False,False,plan: complete Chihaya Noa campaign delivery
+https://www.github.com/4maticlab/night-shift,233b6b695a7b26e63f46c9361b333f904300f4f1,2026-07-24T08:10:40+00:00,Human,,1169,33,58,False,False,False,False,feat: add Chihaya Noa five-night campaign
+https://www.github.com/4maticlab/night-shift,c4b154ca2c014f8cd9ec3944bf6e230df6bb202b,2026-07-24T08:10:40+00:00,Human,,52,26,2,False,False,False,False,plan: scope unified campaign intake to script one
+https://www.github.com/4maticlab/night-shift,690b19699b43d3797394b559d338cb7fff66f4a7,2026-07-24T08:10:40+00:00,Human,,222,1,2,False,False,False,False,plan: codex-unified-campaign-intake
+https://www.github.com/4maticlab/night-shift,d13956abb11ba25a773fe7840634b31bfbce037e,2026-07-24T08:08:33+00:00,Human,,27,11,6,False,True,False,False,"Merge pull request #70 from 4MaticLab/fix/morning-report-image-balance
+
+fix: balance society artwork and letter"
+https://www.github.com/4maticlab/night-shift,b89a36196b233c8b0c21cf2ac488afb70d24bc12,2026-07-24T08:04:41+00:00,Human,,27,11,6,True,True,False,False,fix: balance society artwork and letter
+https://www.github.com/4maticlab/night-shift,28409e5f88cb5bbf614be452718cd07177f6b9e6,2026-07-24T08:00:43+00:00,Human,,0,38,1,False,False,False,False,chore: remove PR screenshots workflow
+https://www.github.com/4maticlab/night-shift,9cda857e2321fffe8e1f60a3f5eb87f99d075dea,2026-07-24T07:59:48+00:00,Human,,9,19,1,False,False,False,False,feat: screenshot Cloudflare Pages preview instead of local build
+https://www.github.com/4maticlab/night-shift,99ec18d15a726c536e9b4fe59e6c8c2b2890687d,2026-07-24T07:56:14+00:00,Human,,13976,9603,7,False,False,False,False,"Merge pull request #68 from 4MaticLab/cloudflare/workers-autoconfig
+
+Add Cloudflare Workers configuration"
+https://www.github.com/4maticlab/night-shift,d1a76a9aa7b2d3bce3f05d8fd3c4b4db975d3a35,2026-07-24T07:54:46+00:00,Human,,4,101,3,False,False,False,False,"Merge pull request #69 from 4MaticLab/codex/clean-plan-pollution
+
+chore: clean polluted legacy plans"
+https://www.github.com/4maticlab/night-shift,a7085b028efba992498f5e7e8ce98c2e3c2bdd46,2026-07-24T07:53:24+00:00,Human,,13976,9603,7,False,False,False,False,Add Cloudflare Workers configuration
+https://www.github.com/4maticlab/night-shift,c885373b83233f9ee334a2a1891b48c8bc686dc6,2026-07-24T07:52:48+00:00,Human,,4,101,3,False,False,False,False,chore: clean polluted legacy plans
+https://www.github.com/4maticlab/night-shift,0635ee69587bc2373708e9928c7a13d1f435dd44,2026-07-24T07:48:28+00:00,Human,,1783,269,25,False,False,False,False,merge: sync origin/main into feat/case-board-letter-popups
+https://www.github.com/4maticlab/night-shift,eb975b9582b420a8e98502873181623d72cf06d2,2026-07-24T07:48:23+00:00,Human,,0,0,14,False,False,False,False,"assets: swap case-board evidence papers to clean v2 set
+
+Replace the original evidence-card textures with the cleaner v2 assets
+already referenced by board-node CSS."
+https://www.github.com/4maticlab/night-shift,96f267056148bf6e85aba5b762b07d47d466e6fc,2026-07-24T07:44:25+00:00,Human,,238,223,5,True,True,False,False,"fix: float core inferences below a centered solo case board
+
+Remove the right-hand joint-inference UI, keep auto-pair silent on the board,
+and show confirmed statements in a bottom floating dock over the nav."
+https://www.github.com/4maticlab/night-shift,c3812183ba84b64e2654696110ef2c78189c74a7,2026-07-24T07:41:39+00:00,Human,,127,124,2,False,False,False,False,"Merge pull request #44 from 4MaticLab/feat/british-vintage-fonts-clean
+
+feat: optimize typography with British vintage fonts"
+https://www.github.com/4maticlab/night-shift,8eb2021017ed4067388cd9572f951eea52e92645,2026-07-24T07:41:19+00:00,Human,,3874,300,53,False,False,False,False,"merge: sync main into british vintage fonts
+
+Resolve layout.tsx conflict by keeping Playfair/Libre Baskerville/Noto
+Serif SC and the main ClickSpark shell. Replace residual --font-newsreader
+references from newer main CSS with the new heading stack."
+https://www.github.com/4maticlab/night-shift,213fd20b5ee8d724e80cac31f86e0029b0577eb0,2026-07-24T07:41:02+00:00,Human,,258,86,3,True,True,False,False,"fix: restore visual core-inference panel and center board stage
+
+Rebuild the right-hand panel as a full inference template with A/B slots,
+auto-pair status, and card-style ledger entries; center the board stage."
+https://www.github.com/4maticlab/night-shift,4562def4e4ac6b570d85b84f72d68a4d46145ddb,2026-07-24T07:40:04+00:00,Human,,852,3,8,False,False,False,False,"Merge pull request #58 from 4MaticLab/feat/rain-radio-english-i18n
+
+feat: English projection for case-002 rain radio"
+https://www.github.com/4maticlab/night-shift,042f98b66141115df7f950bd372c1ae9d9113d8b,2026-07-24T07:39:59+00:00,Human,,154,4,5,False,True,False,False,"Merge pull request #59 from 4MaticLab/fix/tonight-medium-layout
+
+fix: refine pre-investigation responsive layout"
+https://www.github.com/4maticlab/night-shift,17d8ea35a253d872cd1fc79e6888c26be462983e,2026-07-24T07:39:54+00:00,Human,,48,1,2,False,True,False,False,"Merge pull request #60 from 4MaticLab/fix/remove-agency-watch-timer
+
+fix: remove AGENCY WATCH timer from landing page"
+https://www.github.com/4maticlab/night-shift,278ba313e75cf40955caf90777ae43d3c3745f5a,2026-07-24T07:38:10+00:00,Human,,37,87,4,False,False,False,False,"Merge pull request #62 from 4MaticLab/codex/lean-pr-ci
+
+ci: lean PR gate — Quality only, e2e optional for merger"
+https://www.github.com/4maticlab/night-shift,6eb70bd4ede62289c1a9813daa8c5ee3ad717f01,2026-07-24T07:38:03+00:00,Human,,98,65,5,True,True,False,False,"fix: center case board and restore core-inference panel
+
+Return the case board to the shared centered content column and move core
+inferences back into the right-hand relation ledger instead of the fixed dock."
+https://www.github.com/4maticlab/night-shift,260458593a03c8454eb087295e6732d84edf80cc,2026-07-24T07:36:15+00:00,Human,,3,2,1,False,False,False,False,docs: document Quality-only PR gate in AGENTS.md
+https://www.github.com/4maticlab/night-shift,52fa8d325fbcaa7a19fd1fe6871e635a0919fe3e,2026-07-24T07:35:57+00:00,Human,,1,60,2,False,False,False,False,plan: retire codex-lean-pr-ci
+https://www.github.com/4maticlab/night-shift,1f2d29a740c35a80baf0f9d4c4ccd3bab522683e,2026-07-24T07:35:57+00:00,Human,,0,0,0,False,False,False,False,plan: complete codex-lean-pr-ci
+https://www.github.com/4maticlab/night-shift,337cd518d5d24cca74c2a2ba1181480e10b6dfe6,2026-07-24T07:35:57+00:00,Human,,48,93,4,False,False,False,False,"ci: gate PRs on Quality only for hackathon velocity
+
+Drop Platform and full Playwright from the required CI Gate so
+four parallel AI PRs stop ping-ponging on ~8 minute browser suites.
+Keep unit/lint/build/docs as the fast required check; move Sites,
+contracts, and e2e behind npm run test:robustness for the merger."
+https://www.github.com/4maticlab/night-shift,fb1bde120539c96780ad706cf304c63fa0210672,2026-07-24T07:34:56+00:00,Human,,54,1,2,False,False,False,False,plan: codex-lean-pr-ci
+https://www.github.com/4maticlab/night-shift,48065fbeeffcaf1c7ea3ea6634660e184bf78522,2026-07-24T07:34:52+00:00,Human,,48,0,1,False,False,False,False,feat: add PR screenshots workflow
+https://www.github.com/4maticlab/night-shift,4a8652eef07958ce0bedc25752971b443a5cec48,2026-07-24T07:21:24+00:00,Human,,558,47,7,False,False,False,False,"Merge pull request #57 from 4MaticLab/feat/landing-option-wheel-33
+
+feat: add option wheel and shiny button to landing page"
+https://www.github.com/4maticlab/night-shift,d1032a9b8463b54cce141886e5ba08fbdb463ff1,2026-07-24T07:20:51+00:00,Human,,2258,191,40,False,False,False,False,merge: sync main into landing option wheel
+https://www.github.com/4maticlab/night-shift,1790f25f7b908d2b9a8509f5c51a995e5afabe6f,2026-07-24T07:17:41+00:00,Human,,778,438,19,False,False,False,False,"Merge pull request #56 from 4MaticLab/feat/case-board-letter-popups
+
+feat: case board auto-pair letters and paper board polish"
+https://www.github.com/4maticlab/night-shift,6f3542e0523ade0d5cd97c716a31bbe1669669b6,2026-07-24T07:08:25+00:00,Human,,1,64,2,False,False,False,False,plan: retire feat-rain-radio-english-i18n
+https://www.github.com/4maticlab/night-shift,7e47938b83eec984d0c3b7d40e0df8045d9fda46,2026-07-24T07:08:10+00:00,Human,,154,4,5,True,True,False,False,fix: refine pre-investigation responsive layout
+https://www.github.com/4maticlab/night-shift,2e220f430b5f895f68b7cc249a1c225ad9675223,2026-07-24T07:07:52+00:00,Human,,9,1,1,False,False,False,False,plan: complete feat-rain-radio-english-i18n
+https://www.github.com/4maticlab/night-shift,bfcd3a4c656a468c9b48e615741fd66eaf0d8014,2026-07-24T07:07:43+00:00,Human,,0,1,1,True,True,False,False,fix: remove AGENCY WATCH timer from landing page
+https://www.github.com/4maticlab/night-shift,28e47a7d84fb789e6f9ec7c1c8c3aa151fd5cfe9,2026-07-24T07:06:37+00:00,Human,,852,3,8,False,False,False,False,"feat: English projection for case-002 rain radio
+
+- Add src/i18n/campaigns/rain-radio.en.ts (366 entries, generated)
+- Deterministic generator scripts preserve Chinese curly-quote keys
+- Merge campaign dictionary in en.ts between catalog and overrides
+- Enable campaignSupportsLocale for case-002
+- Add rain-radio English projection test suite (IDs, rules, no Han chars)
+- Sync docs/architecture.md locale paragraph"
+https://www.github.com/4maticlab/night-shift,cc10ab1222b55a03a880fd2059edf497e28049d5,2026-07-24T07:06:37+00:00,Human,,56,1,2,False,False,False,False,plan: feat-rain-radio-english-i18n
+https://www.github.com/4maticlab/night-shift,9e193be42a7d4432d18b09fb1e9b30bdba0d7e18,2026-07-24T06:52:43+00:00,Human,,523,42,5,False,True,True,False,"feat: add option wheel and shiny button to landing page
+
+- Add OptionWheel component with curved scrollable campaign selector
+- Replace primary button with ShinyButton component for shine effect
+- Add --primary CSS variable for button animations
+- Add cn utility function for conditional classNames
+- Remove campaign shelf card layout in favor of right-side wheel
+- Fix wheel text colors for visibility on dark background
+
+Closes #33"
+https://www.github.com/4maticlab/night-shift,6072585567e819740be061d50a1325d57ac42ed5,2026-07-24T06:49:44+00:00,Human,,1446,825,25,False,False,False,False,"merge: sync origin/main into feat/case-board-letter-popups
+
+Resolve case-board conflicts by keeping auto-pair letter popups and paper
+texture polish while adopting main evidence-letter dialogs, CI, and docs."
+https://www.github.com/4maticlab/night-shift,8ad08cc4c2e98928040484dc93352eb55d7ef47e,2026-07-24T06:46:23+00:00,Human,,7,3,1,False,True,False,False,"Merge pull request #55 from 4MaticLab/codex/windows-wikilinks
+
+fix: make wiki link checks cross-platform"
+https://www.github.com/4maticlab/night-shift,093ddef4f780d438e83a9af5deaec18958d97c97,2026-07-24T06:44:06+00:00,Human,,185,66,13,False,False,False,False,"feat: polish case board paper texture and relation threads
+
+Use crumpled-board and evidence-card textures, solid pairing threads with
+preview edges, butterfly dossier seals, and normalize ticket-paper as object."
+https://www.github.com/4maticlab/night-shift,b4edd945b82ba52aa0cab6a62e6d811f32cbabf8,2026-07-24T06:37:08+00:00,Human,,7,3,1,True,True,False,False,fix: make wiki link checks cross-platform
+https://www.github.com/4maticlab/night-shift,9e74a444ae102b579bc530475041ec0f96aea331,2026-07-24T06:31:36+00:00,Human,,205,4,6,False,False,False,False,"Merge pull request #54 from 4MaticLab/codex/ci-quality-gate
+
+ci: add pull request quality gate"
+https://www.github.com/4maticlab/night-shift,bc8ba496bc5d301c9396c543824f00a656dce668,2026-07-24T06:21:24+00:00,Human,,150,2,5,False,False,False,False,"Merge pull request #53 from 4MaticLab/feat/global-click-spark
+
+feat: add global click spark effect"
+https://www.github.com/4maticlab/night-shift,f1b99d5888b625fb1f900235a1739015d2bbeaa1,2026-07-24T06:19:19+00:00,Human,,35,5,2,True,True,False,False,"fix: preserve case library after reload (issue #35)
+
+- Persist navigation intent to sessionStorage ('library' vs 'game')
+- Derive libraryOpen from sessionStorage + game.started state
+- Add E2E test for issue #35 (reload on landing stays on landing)
+- Preserve existing behavior: 3 in-game reload tests still pass
+
+Addresses reviewer feedback: narrow fix to distinguish 'stopped at library'
+vs 'in-game recoverable views' without breaking existing reload tests."
+https://www.github.com/4maticlab/night-shift,7b9dc7f0d37ec5dc688d3be26c57a2afc315171c,2026-07-24T06:18:58+00:00,Human,,1,85,2,False,False,False,False,plan: retire codex-ci-quality-gate
+https://www.github.com/4maticlab/night-shift,808ff9c9fdb34a47604ec0b5a3c1e3d2af6e4961,2026-07-24T06:18:39+00:00,Human,,16,16,2,False,False,False,False,plan: complete codex-ci-quality-gate
+https://www.github.com/4maticlab/night-shift,011afaf8e322736b0f117daf9af898974991e154,2026-07-24T06:17:52+00:00,Human,,215,10,8,False,False,False,False,ci: add pull request quality gate
+https://www.github.com/4maticlab/night-shift,257a472581f9708dcca13ab90ccf226fb84db2ab,2026-07-24T06:16:01+00:00,Human,,150,2,5,False,False,False,False,feat: add global click spark effect
+https://www.github.com/4maticlab/night-shift,2b05a6a0aa4e57fd5c01035dca468357afa89e1d,2026-07-24T05:59:26+00:00,Human,,81,1,2,False,False,False,False,plan: codex-ci-quality-gate
+https://www.github.com/4maticlab/night-shift,a2b09b5e400965e9af7d39e919aa8d9e28d22675,2026-07-24T05:41:45+00:00,Human,,1,1,1,True,True,False,False,"fix: replace residual --font-manrope in collection intro
+
+The PR removed --font-manrope but .collection-evidence-intro still
+referenced it via the font shorthand, which invalidated the whole
+declaration and made the collection intro fall back to body font.
+
+Replace with the new body font chain (Libre Baskerville + Noto Serif SC).
+Confirmed no --font-manrope / --font-newsreader references remain.
+
+Addresses review feedback on #44"
+https://www.github.com/4maticlab/night-shift,da9a138573eef902a9b528c0371e7ff79eac01be,2026-07-24T05:24:20+00:00,Human,,267,23,10,False,True,False,False,"Merge pull request #52 from 4MaticLab/fix/preserve-latest-morning-report
+
+Fix latest morning report preservation"
+https://www.github.com/4maticlab/night-shift,647332e22f065901d3de16c8abfdb1587eccc79e,2026-07-24T05:22:35+00:00,Human,,1152,22,14,False,False,False,False,merge: resolve latest main conflicts
+https://www.github.com/4maticlab/night-shift,0a4493bdaf2c296b24a54124c92f67cee288a4ee,2026-07-24T04:55:22+00:00,Human,,1,83,2,False,True,False,False,plan: retire fix-preserve-latest-morning-report
+https://www.github.com/4maticlab/night-shift,f67f605371a04da524205af05072f4105062982e,2026-07-24T04:46:17+00:00,Human,,17,7,1,False,True,False,False,plan: complete fix-preserve-latest-morning-report
+https://www.github.com/4maticlab/night-shift,1e6a9ed8e34f320fb864ba30b29535f45582cba5,2026-07-24T04:45:09+00:00,Human,,266,22,9,True,True,False,False,fix: preserve the latest morning report
+https://www.github.com/4maticlab/night-shift,b691e71c1ddbe95e3a98b9e184626ef110d89fa9,2026-07-24T04:38:37+00:00,Human,,915,21,10,False,False,False,False,"Merge pull request #38 from 4MaticLab/codex/case-board-letter-reveal
+
+feat: add guided case-board letters"
+https://www.github.com/4maticlab/night-shift,67bfd5b2f5fd5d1108daeb6097b2a67dc055eed5,2026-07-24T04:38:15+00:00,Human,,237,1,4,False,False,False,False,"Merge pull request #49 from 4MaticLab/codex/translation-workflow
+
+docs: add campaign translation workflow"
+https://www.github.com/4maticlab/night-shift,848e7239e0fd36308fca9885114f44bdf4991422,2026-07-24T04:35:35+00:00,Human,,1,66,2,False,False,False,False,plan: retire codex-translation-workflow
+https://www.github.com/4maticlab/night-shift,6d7932348e89e6efbc028daa933f98b04039a2df,2026-07-24T04:35:18+00:00,Human,,7,6,2,False,False,False,False,plan: complete codex-translation-workflow
+https://www.github.com/4maticlab/night-shift,b9e837254ada23f0cbefcfe0e627f2e70f160ae8,2026-07-24T04:34:53+00:00,Human,,244,6,6,False,False,False,False,docs: add campaign translation workflow
+https://www.github.com/4maticlab/night-shift,14908b24a1baba5bc073fc62de84444b3dd165eb,2026-07-24T04:31:39+00:00,Human,,63,1,2,False,False,False,False,plan: codex-translation-workflow
+https://www.github.com/4maticlab/night-shift,bf8c153df3d5348cdecbc4afadc92a7aa8f04b66,2026-07-24T04:23:16+00:00,Human,,1,1,1,True,True,True,False,"fix: keep landing page on refresh instead of jumping into case
+
+When the page is refreshed, libraryOpen defaulted to false while
+game.started was restored from localStorage as true, so the app
+skipped the Hero landing and rendered the in-game view directly.
+Default libraryOpen to true so a refresh always lands on the case
+selection screen; users enter the game by clicking start/continue.
+
+Fixes #35"
+https://www.github.com/4maticlab/night-shift,2ef4091eaaa46a22b06fe507a41aca3ec77b7398,2026-07-24T04:09:00+00:00,Human,,119,116,2,False,False,True,False,"feat: optimize typography with British vintage fonts
+
+Replace modern sans-serif with classic serif fonts for an authentic British vintage aesthetic:
+
+Typography changes:
+- Headings: Newsreader → Playfair Display (display serif)
+- Body: Manrope → Libre Baskerville (humanist serif)
+- Chinese: Add Noto Serif SC fallback for both contexts
+- Improve readability with line-height 1.7 (body) and 1.3 (headings)
+- Increase heading weight from 500 to 600 for better hierarchy
+
+This change enhances the noir detective atmosphere with period-appropriate typefaces that evoke British mystery novels and vintage newspapers from the foggy Edwardian era.
+
+Closes #36"
+https://www.github.com/4maticlab/night-shift,dc339818399b96dac45e0f9c6fb7f0a0a8b4d02d,2026-07-24T03:43:40+00:00,Human,,73,1,2,False,True,False,False,plan: fix preserve latest morning report
+https://www.github.com/4maticlab/night-shift,94a69f0b58d56b89eade9e0b295d6a24b8114395,2026-07-24T03:33:45+00:00,Human,,13053,7910,126,False,False,False,False,"Merge origin/main into feat/case-board-letter-popups
+
+Integrate latest GitHub main (thirteenth loaf, ciphers, injective mint,
+viewport/docs updates) while keeping lettered case-board pairing UX."
+https://www.github.com/4maticlab/night-shift,1b7529b9ae707e734f3ba273facad12e05565a6b,2026-07-24T03:17:25+00:00,Human,,1,73,2,False,False,False,False,plan: retire codex-case-board-letter-reveal
+https://www.github.com/4maticlab/night-shift,7a0d31d2b66aeb7541ec61578e08cdcecc879fc8,2026-07-24T03:17:01+00:00,Human,,10,9,2,False,False,False,False,plan: complete codex-case-board-letter-reveal
+https://www.github.com/4maticlab/night-shift,326657599629de64b090459524a2c505e818f4fe,2026-07-24T03:15:37+00:00,Human,,922,28,12,False,False,False,False,feat: add guided case-board letters
+https://www.github.com/4maticlab/night-shift,a15f838a8cffdb88ce85c40fcc5c9d9fbea1a11d,2026-07-24T03:00:11+00:00,Human,,72,1,2,False,False,False,False,plan: codex-case-board-letter-reveal
+https://www.github.com/4maticlab/night-shift,42b967ca2b1497faaaa7f20df13f5e7760eeb9e1,2026-07-24T02:38:17+00:00,Human,,35,1,2,False,True,False,False,"Merge pull request #32 from 4MaticLab/codex/fix-demo-close-view
+
+fix: keep demo close on its opening surface"
+https://www.github.com/4maticlab/night-shift,23704a41e595e1f4dc2312410f61e97365331467,2026-07-24T02:06:35+00:00,Human,,35,1,2,True,True,False,False,fix: keep demo close on its opening surface
+https://www.github.com/4maticlab/night-shift,22e7167fc4e3e93ce5a50145e722665f75eda472,2026-07-24T02:03:13+00:00,Human,,1137,29,61,False,False,False,False,"Merge pull request #24 from 4MaticLab/feat/thirteenth-loaf-case
+
+feat: add The Thirteenth Loaf as a complete third case"
+https://www.github.com/4maticlab/night-shift,c25530f041af6146a1fd9eda5a4b1e1f1d75d9d1,2026-07-24T01:59:56+00:00,Human,,26,2,3,True,True,False,False,fix: sanitize legacy choices for third case
+https://www.github.com/4maticlab/night-shift,d90d69d9a928d832fd5bd3050cb8e831c85c9c86,2026-07-24T01:52:53+00:00,Human,,966,88,16,False,False,False,False,merge: sync main into thirteenth loaf case
+https://www.github.com/4maticlab/night-shift,9cb5405fb4c45b24bba8cfe20eacee4de0dba1e9,2026-07-24T01:52:30+00:00,Human,,382,13,7,False,True,False,False,"Merge pull request #26 from 4MaticLab/codex/collection-information-architecture
+
+fix: give the collection archive a clear hierarchy"
+https://www.github.com/4maticlab/night-shift,bf780f7eefbc5e0eb41d9080144c9d3c61f48e1a,2026-07-24T01:42:25+00:00,Human,,436,66,13,False,False,False,False,"merge: sync main into collection information architecture
+
+# Conflicts:
+#	docs/architecture.md"
+https://www.github.com/4maticlab/night-shift,b4aa8e058a3af939cf3fd60904b5bb0942786fe3,2026-07-24T01:41:23+00:00,Human,,436,66,13,False,True,False,False,"Merge pull request #27 from 4MaticLab/codex/overlay-accessibility-demo-safety
+
+fix: make overlays and demo actions trustworthy"
+https://www.github.com/4maticlab/night-shift,ce16717d9e74179e2be44be3656048653efb27e6,2026-07-23T23:45:17+00:00,Human,,0,85,2,False,False,False,False,plan: retire overlay accessibility and demo safety
+https://www.github.com/4maticlab/night-shift,ea82bca2eaa30950f8167f27527288bf2ef9a2bc,2026-07-23T23:44:59+00:00,Human,,18,13,2,False,False,False,False,plan: complete overlay accessibility and demo safety
+https://www.github.com/4maticlab/night-shift,2b90fe7f566155d58c5e5bf915d39197ee45b6fa,2026-07-23T23:44:34+00:00,Human,,2,0,1,True,True,False,False,fix: meet overlay touch target baseline
+https://www.github.com/4maticlab/night-shift,481fa7ffe01e6db6a3d0751a5f71eae7226b06a4,2026-07-23T23:34:39+00:00,Human,,442,72,15,True,True,False,False,fix: make overlays and demo actions trustworthy
+https://www.github.com/4maticlab/night-shift,ac52349af38bb5736907e81143493efb56f5eea2,2026-07-23T23:15:53+00:00,Human,,78,0,2,False,False,False,False,plan: overlay accessibility and demo safety
+https://www.github.com/4maticlab/night-shift,94fd907d75671b7bb90b4321b30340c33bf358f4,2026-07-23T23:13:14+00:00,Human,,0,79,2,False,False,False,False,plan: retire collection information architecture
+https://www.github.com/4maticlab/night-shift,9a36cd7a040a6768fc13bbb560f1e694f749e3a3,2026-07-23T23:12:57+00:00,Human,,14,13,2,False,False,False,False,plan: complete collection information architecture
+https://www.github.com/4maticlab/night-shift,99ae65f0a87e9bde9fe29f3aa23dc3e9502e11eb,2026-07-23T23:09:46+00:00,Human,,390,19,9,True,True,False,False,fix: organize the collection archive
+https://www.github.com/4maticlab/night-shift,121c2dd411a2f2634615a576ba3447f11da459b7,2026-07-23T23:00:16+00:00,Human,,76,0,2,False,False,False,False,plan: collection information architecture
+https://www.github.com/4maticlab/night-shift,8d7636271c4fbf0b559d439650d36c22a584094a,2026-07-23T22:57:56+00:00,Human,,149,10,9,False,True,False,False,"Merge pull request #25 from 4MaticLab/fix/core-loop-reading-hierarchy
+
+fix: prioritize the core report and evidence flow"
+https://www.github.com/4maticlab/night-shift,2282fcfe92cb465bc223be8aed051370facd1bfe,2026-07-23T22:56:26+00:00,Human,,1,0,1,True,True,False,False,fix: isolate contract tests from app builds
+https://www.github.com/4maticlab/night-shift,28c86c39eed54b76d33e7302d386d6badbc9b141,2026-07-23T22:52:49+00:00,Human,,0,77,2,False,False,False,False,plan: retire core loop reading hierarchy
+https://www.github.com/4maticlab/night-shift,5dceccb3cdf8c0cf95cc73d5d068d064a367767a,2026-07-23T22:52:31+00:00,Human,,14,13,2,False,False,False,False,plan: complete core loop reading hierarchy
+https://www.github.com/4maticlab/night-shift,7fee511e00e5fe45133c5a8bc51778ab5405e3b2,2026-07-23T22:47:27+00:00,Human,,2,2,2,True,True,False,False,fix: localize progressive disclosure labels
+https://www.github.com/4maticlab/night-shift,845f2a32707fbb4f73e04f7c77241c11b3a932aa,2026-07-23T22:43:21+00:00,Human,,156,17,10,True,True,False,False,fix: prioritize the core report and evidence flow
+https://www.github.com/4maticlab/night-shift,2169c776243078c0569ae9f4540478c799b4c1a6,2026-07-23T22:37:43+00:00,Human,,75,0,2,False,True,False,False,plan: fix-core-loop-reading-hierarchy
+https://www.github.com/4maticlab/night-shift,28bd288a6eac7d13f5dcffae1f58c731f0bf4c06,2026-07-23T22:34:38+00:00,Human,,1,102,2,False,False,False,False,plan: retire feat-thirteenth-loaf-case
+https://www.github.com/4maticlab/night-shift,fc89ff8e613b595ce37700d7024a26c4949aeea9,2026-07-23T22:34:25+00:00,Human,,18,4,2,False,False,False,False,plan: complete feat-thirteenth-loaf-case
+https://www.github.com/4maticlab/night-shift,cb7dd16fa2d8e73f356b38d602fc446b38bae5c0,2026-07-23T22:27:41+00:00,Human,,7,4,1,False,False,False,False,test: cover the third case journey
+https://www.github.com/4maticlab/night-shift,32ddbe605009e3258080214c0561072d2c49f7c8,2026-07-23T22:25:30+00:00,Human,,1116,36,60,False,False,False,False,feat: add the thirteenth loaf case
+https://www.github.com/4maticlab/night-shift,6692f5500859e79865d35c16582ff200e533b592,2026-07-23T20:46:30+00:00,Human,,88,0,2,False,False,False,False,plan: feat-thirteenth-loaf-case
+https://www.github.com/4maticlab/night-shift,e6e0200d08741f066c3ec08500cfbd14f984a68c,2026-07-23T20:44:02+00:00,Human,,4466,368,28,False,False,False,False,"Merge pull request #23 from 4MaticLab/feat/injective-keepsake-mint
+
+feat: add Injective keepsake minting"
+https://www.github.com/4maticlab/night-shift,eb32e16cf8bc49c9ddf2aac6f45d380c44da29f1,2026-07-23T20:40:31+00:00,Human,,0,102,2,False,False,False,False,plan: retire injective keepsake mint
+https://www.github.com/4maticlab/night-shift,6f0cc9efa851dfea9fccbb944cb01b3501dcb5f3,2026-07-23T20:40:17+00:00,Human,,8,4,2,False,False,False,False,plan: complete injective keepsake mint
+https://www.github.com/4maticlab/night-shift,9d84029c4c3219e1ba444fc4a8c2e0399070e110,2026-07-23T20:37:17+00:00,Human,,4490,379,29,False,False,False,False,feat: add Injective keepsake minting
+https://www.github.com/4maticlab/night-shift,c7f36a6a826e6ce305ad4a965cfc74c61a1b3081,2026-07-23T20:03:37+00:00,Human,,86,1,2,False,False,False,False,plan: feat-injective-keepsake-mint
+https://www.github.com/4maticlab/night-shift,2f6da4c3d84948a26bd8964da91b31d5c71bad07,2026-07-23T19:52:02+00:00,Human,,83,4546,25,False,False,False,False,"Merge pull request #22 from 4MaticLab/refactor/remove-blackwater-sandbox
+
+refactor: retire Blackwater sandbox and focus the Night Shift lifecycle"
+https://www.github.com/4maticlab/night-shift,ee1b936581e2fd4aed0e3cdb8ff908ae2c8afda8,2026-07-23T19:48:58+00:00,Human,,1,1,1,False,False,False,False,docs: default completed work to pull requests
+https://www.github.com/4maticlab/night-shift,4a322c10ec8f30fa097f8803273aa56decaf936a,2026-07-23T19:42:31+00:00,Human,,1,80,2,False,False,False,False,plan: retire remove-blackwater-sandbox
+https://www.github.com/4maticlab/night-shift,dbf164a55de22455050e71a4ee596c2cd7fdd619,2026-07-23T19:42:18+00:00,Human,,3,3,2,False,False,False,False,plan: complete remove-blackwater-sandbox
+https://www.github.com/4maticlab/night-shift,6eaf308a649a3fbd9b356ff221b9b0f30f97acee,2026-07-23T19:42:08+00:00,Human,,91,4548,26,False,False,False,False,refactor: remove Blackwater sandbox runtime
+https://www.github.com/4maticlab/night-shift,cff77852488a6e10726d2534a72744bf6e8e554c,2026-07-23T19:03:33+00:00,Human,,75,2,2,False,False,False,False,plan: remove-blackwater-sandbox
+https://www.github.com/4maticlab/night-shift,c269ff34d310d7788a68faa64376fce39a129439,2026-07-23T18:54:14+00:00,Human,,159,107,6,False,False,False,False,"Merge pull request #21 from 4MaticLab/docs/ephemeral-plan-lifecycle
+
+Adopt branch-scoped temporary plans and preserve their lifecycle in merge history."
+https://www.github.com/4maticlab/night-shift,e212c6321a1c6f6e387436ba947484bf1781323f,2026-07-23T18:51:38+00:00,Human,,2,77,2,False,False,False,False,plan: retire ephemeral-plan-lifecycle
+https://www.github.com/4maticlab/night-shift,8a74d8b37f5b6e7e1653e0bafe8acbe5b2d8a0ee,2026-07-23T18:51:25+00:00,Human,,15,4,2,False,False,False,False,plan: complete ephemeral-plan-lifecycle
+https://www.github.com/4maticlab/night-shift,f8344dff79290624e26875afae8f0c66a138de2a,2026-07-23T18:50:56+00:00,Human,,161,110,7,False,False,False,False,docs: adopt ephemeral plan lifecycle
+https://www.github.com/4maticlab/night-shift,17620073ed7b24d3ab871230de436de95efa7ed1,2026-07-23T18:47:36+00:00,Human,,66,1,2,False,False,False,False,plan: define ephemeral plan lifecycle
+https://www.github.com/4maticlab/night-shift,f660f11c5a27801e835b8a95bb3d6cfec8d5ecf0,2026-07-23T18:43:32+00:00,Human,,86,2,5,False,True,False,False,"Merge pull request #20 from 4MaticLab/fix/case-library-unstarted-entry
+
+Fix launching unopened cases after returning to the case library."
+https://www.github.com/4maticlab/night-shift,169d7d93d8c87a2d417a22ac4fbeb559d9434e6b,2026-07-23T18:41:28+00:00,Human,,86,2,5,True,True,False,False,fix: open unstarted cases from library
+https://www.github.com/4maticlab/night-shift,e2f8743127a219d974fdb06b064d5e0ee9a50d25,2026-07-23T18:33:34+00:00,Human,,1282,243,11,False,False,False,False,"feat: case board letter popups and auto-pair matching
+
+Remove the permanent right inference panel. Selecting two matching clues
+auto-pairs and opens a letter-style core-inference dialog; full dossiers
+open only from the open-book control. Confirmed inferences stay in a
+bottom dock. Update e2e, i18n, and viewport docs for the new flow."
+https://www.github.com/4maticlab/night-shift,dbd6b4e1dc970f260b4eaf51308d584f5d847e0b,2026-07-23T18:32:12+00:00,Human,,180,5,7,False,True,False,False,"Merge pull request #17 from 4MaticLab/fix/ipad-case-board-layout
+
+Fix iPad portrait case-board layout and touch inference flow."
+https://www.github.com/4maticlab/night-shift,a2feeeb0cd50761b66523893612730c55b777862,2026-07-23T18:29:36+00:00,Human,,180,5,7,True,True,False,False,fix: repair tablet case board layout
+https://www.github.com/4maticlab/night-shift,63e5c6badc98b56116fc4de33896a35346425ed2,2026-07-23T18:11:19+00:00,Human,,1436,171,34,False,False,False,False,"Merge pull request #16 from 4MaticLab/codex/pr-only-collaboration
+
+feat: polish first-load experience and browser localization"
+https://www.github.com/4maticlab/night-shift,8b8ee38bedf64073731e7a4bd28cfc74ae32ff9d,2026-07-23T18:08:56+00:00,Human,,8,0,1,False,False,False,False,docs: require pull requests for main
+https://www.github.com/4maticlab/night-shift,5e3762f55b295e89d94b91f2f9317eb5941b19d6,2026-07-23T18:07:20+00:00,Human,,88,8,9,True,True,False,False,fix: reconcile restored main integrations
+https://www.github.com/4maticlab/night-shift,9efacbb168cd6dd390f6b46b908aca14c4c00562,2026-07-23T17:52:12+00:00,Human,,284,29,16,False,False,False,False,feat: detect locale from cookie and browser
+https://www.github.com/4maticlab/night-shift,78e05084e89f09bb8577193e7c6e91a27337b0b2,2026-07-23T17:51:05+00:00,Human,,485,106,11,False,False,False,False,feat: refine default case landing page
+https://www.github.com/4maticlab/night-shift,b081ce8879d299ea30ea895ba555ea88259363ce,2026-07-23T17:50:14+00:00,Human,,579,36,15,False,False,False,False,feat: add resilient first-load experience
+https://www.github.com/4maticlab/night-shift,ee69d3b0654501380f9ca515739e630ad78e51e1,2026-07-23T16:26:43+00:00,Human,,922,59,19,False,False,False,False,"Merge pull request #15 from 4MaticLab/feat/interactive-cipher-dials
+
+feat: add interactive cipher dials"
+https://www.github.com/4maticlab/night-shift,9c6055e57b2b36b1366144e50d97594c1307a452,2026-07-23T16:23:19+00:00,Human,,436,50,15,False,False,False,False,feat: add interactive cipher dials
+https://www.github.com/4maticlab/night-shift,905500495424ea555ca6faf1a3ad9bfbd02d1754,2026-07-23T15:58:44+00:00,Human,,59,16,3,False,False,False,False,Merge remote-tracking branch 'origin/main' into feat/cipher-relay-sequencing
+https://www.github.com/4maticlab/night-shift,f0438e98efad670923e9d71b38b0e0980ca0d4ba,2026-07-23T15:56:03+00:00,Human,,292,16,13,False,False,False,False,"Merge pull request #11 from 4MaticLab/feat/rain-radio-signal-lab
+
+feat: add Rain Radio signal puzzles"
+https://www.github.com/4maticlab/night-shift,49e9f13d99bd6ca351d6aaa39204e7e177ebfe7a,2026-07-23T15:53:03+00:00,Human,,492,15,15,False,False,False,False,feat: add final cipher relay puzzles
+https://www.github.com/4maticlab/night-shift,be07593b883463b514e6ec1005a97b3a85a8da22,2026-07-23T15:50:22+00:00,Human,,219,0,5,False,False,False,False,"Merge remote-tracking branch 'origin/main' into agent/case-board-right-panel
+
+# Conflicts:
+#	PLANS.md"
+https://www.github.com/4maticlab/night-shift,5af2d4057788df396ed32b64af3ba5621334db1d,2026-07-23T15:44:48+00:00,Human,,59,16,3,False,False,False,False,"feat: redesign preparation items UI with custom icons (#12)
+
+- Replace lucide icons with custom image assets for all three preparation items
+- Redesign preparation item layout: center-align icon above title/description
+- Increase icon size from 19px to 80px with larger container (84x84px)
+- Reduce preparation item width to 110px and increase gap to 16px
+- Remove item description text below preparation list
+- Expand scene-copy max-width to improve title layout (460px)
+- Add line break to description text for better readability
+- Convert preparations.ts to .tsx to support Image components
+
+Preparation items now display:
+- 黄铜提灯 (Brass Lantern) with custom icon
+- 夜香花笺 (Flower Note) with custom icon
+- 旧制电车零钱 (Tram Fare) with custom icon"
+https://www.github.com/4maticlab/night-shift,ac62c02ec377ba562090adb8ed3379c8edd372c1,2026-07-23T15:28:39+00:00,Human,,292,16,13,False,False,False,False,feat: add rain radio signal puzzles
+https://www.github.com/4maticlab/night-shift,060437366b1c4a250a85074f6fb12ed4e0ce6157,2026-07-23T15:17:52+00:00,Human,,4857,1660,55,False,False,False,False,"Merge remote-tracking branch 'origin/main' into agent/case-board-right-panel
+
+# Conflicts:
+#	PLANS.md
+#	app/globals.css"
+https://www.github.com/4maticlab/night-shift,b704422b954b535bc741e6a312b2879ec8c8093d,2026-07-23T15:12:39+00:00,Human,,808,77,16,False,False,False,False,"Merge pull request #10 from 4MaticLab/feat/night-cipher-desk
+
+feat: add a three-stage night cipher desk"
+https://www.github.com/4maticlab/night-shift,b6314115fe895196869c1b928ea3ca69514be086,2026-07-23T15:09:15+00:00,Human,,0,0,0,False,False,False,False,Merge remote-tracking branch 'origin/main' into docs/hackathon-submission-kit
+https://www.github.com/4maticlab/night-shift,0ef7011995774e78afdcb27cd0ff49b96c2ebc9e,2026-07-23T15:07:55+00:00,Human,,808,77,16,False,False,False,False,feat: add night cipher desk
+https://www.github.com/4maticlab/night-shift,3c9fa9bf85b45e4da8b329cd2f68e2f146515f41,2026-07-23T14:58:53+00:00,Human,,220,1,5,False,False,False,False,"Merge pull request #9 from 4MaticLab/docs/hackathon-submission-kit
+
+docs: add Hack the Rest submission kit"
+https://www.github.com/4maticlab/night-shift,e499e5c34bdbc441271f63cff8c0861374ba798a,2026-07-23T14:36:53+00:00,Human,,220,1,5,False,False,False,False,docs: add hackathon submission kit
+https://www.github.com/4maticlab/night-shift,bca56d1ceb5881eaef3f2b0c47fb8f94ff4d7090,2026-07-23T14:15:00+00:00,Human,,1351,16,21,False,False,False,False,"Merge pull request #8 from 4MaticLab/feat/rest-intention-ritual
+
+feat: add AI rest intention ritual"
+https://www.github.com/4maticlab/night-shift,4e1aba7124fbaf557822cadbec3d39de467ac6b6,2026-07-23T14:14:15+00:00,Human,,3473,1564,45,False,False,False,False,"Merge remote-tracking branch 'origin/main' into feat/rest-intention-ritual
+
+# Conflicts:
+#	PLANS.md
+#	app/globals.css
+#	docs/decision-log.md
+#	docs/quality-baseline.md
+#	src/components/game/night-cycle.tsx"
+https://www.github.com/4maticlab/night-shift,84b718e6c295833d32cb93c390f85eafbcdb274d,2026-07-23T13:46:36+00:00,Human,,1312,23,21,False,False,False,False,feat: add AI rest intention ritual
+https://www.github.com/4maticlab/night-shift,9fed34e2cf644177a7705eb39bc25943d65b4b78,2026-07-23T13:17:53+00:00,Human,,123,36,17,False,False,False,False,Merge PR #7: add Night Shift brand logo
+https://www.github.com/4maticlab/night-shift,a95672735d1e2c556c4db21308a12320953f248b,2026-07-23T13:11:52+00:00,Human,,2398,664,27,False,False,False,False,Merge PR #6: add English edition
+https://www.github.com/4maticlab/night-shift,9a8e505e455c928d55fe2140271fb07dbdf5713e,2026-07-23T12:47:12+00:00,Bot,dependabot,3,3,1,False,False,False,False,"build(deps-dev): bump fast-uri from 3.1.2 to 3.1.4 (#5)
+
+Bumps [fast-uri](https://github.com/fastify/fast-uri) from 3.1.2 to 3.1.4.
+- [Release notes](https://github.com/fastify/fast-uri/releases)
+- [Commits](https://github.com/fastify/fast-uri/compare/v3.1.2...v3.1.4)
+
+---
+updated-dependencies:
+- dependency-name: fast-uri
+  dependency-version: 3.1.4
+  dependency-type: indirect
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>"
+https://www.github.com/4maticlab/night-shift,870be0e6ad89c825f86886138b37ff34eeea7c9f,2026-07-23T12:46:49+00:00,Bot,dependabot,170,649,2,False,False,False,False,"build(deps): bump undici, @cloudflare/vite-plugin and wrangler (#4)
+
+Bumps [undici](https://github.com/nodejs/undici) to 7.28.0 and updates ancestor dependencies [undici](https://github.com/nodejs/undici), [@cloudflare/vite-plugin](https://github.com/cloudflare/workers-sdk/tree/HEAD/packages/vite-plugin-cloudflare) and [wrangler](https://github.com/cloudflare/workers-sdk/tree/HEAD/packages/wrangler). These dependencies need to be updated together.
+
+
+Updates `undici` from 7.24.8 to 7.28.0
+- [Release notes](https://github.com/nodejs/undici/releases)
+- [Commits](https://github.com/nodejs/undici/compare/v7.24.8...v7.28.0)
+
+Updates `@cloudflare/vite-plugin` from 1.37.1 to 1.46.0
+- [Release notes](https://github.com/cloudflare/workers-sdk/releases)
+- [Changelog](https://github.com/cloudflare/workers-sdk/blob/main/packages/vite-plugin-cloudflare/CHANGELOG.md)
+- [Commits](https://github.com/cloudflare/workers-sdk/commits/@cloudflare/vite-plugin@1.46.0/packages/vite-plugin-cloudflare)
+
+Updates `wrangler` from 4.92.0 to 4.113.0
+- [Release notes](https://github.com/cloudflare/workers-sdk/releases)
+- [Commits](https://github.com/cloudflare/workers-sdk/commits/wrangler@4.113.0/packages/wrangler)
+
+---
+updated-dependencies:
+- dependency-name: ""@cloudflare/vite-plugin""
+  dependency-version: 1.46.0
+  dependency-type: direct:development
+- dependency-name: undici
+  dependency-version: 7.28.0
+  dependency-type: indirect
+- dependency-name: wrangler
+  dependency-version: 4.113.0
+  dependency-type: direct:development
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>"
+https://www.github.com/4maticlab/night-shift,1358419ea6b4332c48043aa89fb6604eae612663,2026-07-23T12:46:20+00:00,Bot,dependabot,53,41,2,False,False,False,False,"build(deps): bump next from 16.2.6 to 16.2.11 (#3)
+
+Bumps [next](https://github.com/vercel/next.js) from 16.2.6 to 16.2.11.
+- [Release notes](https://github.com/vercel/next.js/releases)
+- [Commits](https://github.com/vercel/next.js/compare/v16.2.6...v16.2.11)
+
+---
+updated-dependencies:
+- dependency-name: next
+  dependency-version: 16.2.11
+  dependency-type: direct:production
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>"
+https://www.github.com/4maticlab/night-shift,f6fbedda05af11df5b21acd7b2c896ea63c88931,2026-07-23T12:38:41+00:00,Human,,295,9,9,True,True,False,False,fix: contain case board inference panel
+https://www.github.com/4maticlab/night-shift,38766ecdbae464445ae3e545e2a86fec3088a841,2026-07-23T12:38:02+00:00,Bot,dependabot,125,132,2,False,False,False,False,"build(deps-dev): bump vite from 8.0.13 to 8.1.5 (#2)
+
+Bumps [vite](https://github.com/vitejs/vite/tree/HEAD/packages/vite) from 8.0.13 to 8.1.5.
+- [Release notes](https://github.com/vitejs/vite/releases)
+- [Changelog](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md)
+- [Commits](https://github.com/vitejs/vite/commits/v8.1.5/packages/vite)
+
+---
+updated-dependencies:
+- dependency-name: vite
+  dependency-version: 8.1.5
+  dependency-type: direct:development
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>"
+https://www.github.com/4maticlab/night-shift,eacee9f27bda8d9378dc4e98a65205ce90ffabbc,2026-07-23T12:16:28+00:00,Human,,5,4,2,False,False,False,False,Complete English edition plan
+https://www.github.com/4maticlab/night-shift,56019c5cae8bea9ac088d434dab00aeac3619b0a,2026-07-23T12:15:17+00:00,Human,,2226,244,27,False,False,False,False,Add English edition for the last tram case
+https://www.github.com/4maticlab/night-shift,1dc06a7ee1422fe478ab8a496029004bc24424e7,2026-07-23T12:09:13+00:00,Human,,119,22,17,False,False,False,False,add Night Shift logo and favicon
+https://www.github.com/4maticlab/night-shift,ac98211221b7a43e1b9c120f0cbfba3464fc6aad,2026-07-23T12:08:30+00:00,Human,,565,49,10,False,False,False,False,feat: refine sleep hardware experience
+https://www.github.com/4maticlab/night-shift,b4e7806e3cf3ba46286c29bbf4496e25dcef6ef1,2026-07-23T11:12:36+00:00,Human,,2134,20,32,False,False,False,False,Merge branch 'main' of https://github.com/4MaticLab/night-shift
+https://www.github.com/4maticlab/night-shift,9ab9509fd5d9503d100679c041a20939ff52d99c,2026-07-23T11:09:53+00:00,Human,,11692,323,24,False,False,False,False,Merge branch 'main' of https://github.com/4MaticLab/night-shift
+https://www.github.com/4maticlab/night-shift,f9808127c7cff8b27c2d3a7920c8c3940e9affba,2026-07-23T11:01:11+00:00,Human,,1233,19,32,False,False,False,False,feat: connect sleep hardware to night shifts
+https://www.github.com/4maticlab/night-shift,e512f6999946239f5f838e804b78258c5568ca8d,2026-07-23T11:01:06+00:00,Human,,272,29,11,False,False,False,False,UI modify
+https://www.github.com/4maticlab/night-shift,fb3c1422b81c2ac04095b2805555cc448442b85c,2026-07-23T09:56:20+00:00,Human,,3,2,3,False,False,False,False,docs: approve learning deployment
+https://www.github.com/4maticlab/night-shift,4277027c6af7cb59bbb654530341e20ff679ebd8,2026-07-23T09:54:19+00:00,Human,,3,2,3,False,False,False,False,docs: record Blackwater source release approval
+https://www.github.com/4maticlab/night-shift,06fc59bb3f8c981a9179c77738f67d1f19e6f59e,2026-07-23T09:49:55+00:00,Human,,4,2,1,True,True,False,False,fix: remove opaque map decoration blocks
+https://www.github.com/4maticlab/night-shift,50465c168a74c654e91d51c06fc21d97e2808120,2026-07-23T09:43:02+00:00,Human,,674,31,16,False,False,False,False,feat: align sandbox with delayed night loop
+https://www.github.com/4maticlab/night-shift,8a79886903e6e9f2685cca6d88bcc4eca8e64c8a,2026-07-23T09:23:25+00:00,Human,,5,5,2,False,False,False,False,Merge remote-tracking branch 'origin/main'
+https://www.github.com/4maticlab/night-shift,4afc191488791154264e9c8cd5509beb9856123a,2026-07-23T09:03:50+00:00,Human,,5,5,2,False,True,False,False,"Merge pull request #1 from 4MaticLab/fix/sync-map-marker-with-progress
+
+fix: sync detective marker with progress bar on investigation map"
+https://www.github.com/4maticlab/night-shift,dd727d566221de1f89f7951b6583853c97902c7e,2026-07-23T08:50:34+00:00,Human,,5,5,2,True,True,False,False,"fix: sync detective marker with progress bar on investigation map
+
+- Nest detective marker inside tram-line container so it inherits position and rotation
+- Add smooth 1s linear transition to marker movement matching progress bar
+- Remove variant-specific top positioning as marker now follows parent container
+- Change tram-line overflow to visible to show marker
+- Use transform translate for proper centering on the progress line
+
+Fixes the issue where the orange circular footprint marker moved independently
+from the yellow progress bar during night investigation, causing desync."
+https://www.github.com/4maticlab/night-shift,3fd9de044f2aeaaacc74c4e5475bebf2baaa9390,2026-07-23T08:44:32+00:00,Human,,1459,25,23,False,False,False,False,feat: add Blackwater Creek sandbox campaign
+https://www.github.com/4maticlab/night-shift,633621ce600d23d41dce5ddbbbbea872d634be08,2026-07-23T07:13:48+00:00,Human,,8,4,3,False,False,False,False,docs: close multi-campaign runtime plan
+https://www.github.com/4maticlab/night-shift,25732bb04fb799cb6944aa88b18c9c6f9758ee18,2026-07-23T07:08:47+00:00,Human,,1515,261,39,False,False,False,False,feat: add multi-campaign runtime
+https://www.github.com/4maticlab/night-shift,759c15dc744473378d89d40c3236628379d74485,2026-07-23T05:25:30+00:00,Human,,9,4,3,False,False,False,False,docs: close friend clue sharing plan
+https://www.github.com/4maticlab/night-shift,ce8e890d10b8e329cd0d4162d3f91c9c4429d961,2026-07-23T05:23:57+00:00,Human,,648,44,18,False,False,False,False,feat: share clues with friends
+https://www.github.com/4maticlab/night-shift,9021d2b275b56e42d9afcfb898cb733fb9d99061,2026-07-23T04:59:24+00:00,Human,,238,32,10,False,False,False,False,feat: clarify mobile case board inference
+https://www.github.com/4maticlab/night-shift,cd76531a447eaee709057b8e5988530bfaf2b2f9,2026-07-23T02:41:25+00:00,Human,,8,5,3,False,False,False,False,docs: close Vercel deployment plan
+https://www.github.com/4maticlab/night-shift,d12984edeab0e038d7f6c86b828ec5781f3a2785,2026-07-23T02:38:40+00:00,Human,,101,13,8,True,True,False,False,fix: support Vercel and Sites builds
+https://www.github.com/4maticlab/night-shift,5284207c9d86e846dff62e2e41a565ab55bb4461,2026-07-23T02:00:22+00:00,Human,,8,5,3,False,False,False,False,docs: close interaction pass
+https://www.github.com/4maticlab/night-shift,edc291161ba506c0b99371b69da19c4144847157,2026-07-23T01:28:49+00:00,Human,,182,40,10,False,False,False,False,feat: refine cross-device interactions
+https://www.github.com/4maticlab/night-shift,ca2afa2d5fce6501856c8bc34851114e99190169,2026-07-23T00:56:22+00:00,Human,,5,4,2,False,False,False,False,docs: close sleep gap echoes plan
+https://www.github.com/4maticlab/night-shift,ef716c2e7181b2245f54746ddc278831c341786d,2026-07-23T00:54:33+00:00,Human,,292,28,19,False,False,False,False,feat: remember one waking between dreams
+https://www.github.com/4maticlab/night-shift,13b1fcbbcf2527f18739d090761c626c11dc9170,2026-07-23T00:41:12+00:00,Human,,5,4,2,False,False,False,False,docs: close city watches plan
+https://www.github.com/4maticlab/night-shift,5a8cfc3fada1318f807ea752622a60ed04eeba95,2026-07-23T00:39:00+00:00,Human,,322,29,19,False,False,False,False,feat: let the city keep four watches
+https://www.github.com/4maticlab/night-shift,dbbb046265196c6d7b3592c63b132c22d5318fc3,2026-07-23T00:23:48+00:00,Human,,5,4,2,False,False,False,False,docs: close Lin Du handoff portrait plan
+https://www.github.com/4maticlab/night-shift,12c9ad48b67943be906a84e27f80c440c193a844,2026-07-23T00:21:44+00:00,Human,,175,20,18,False,False,False,False,feat: bring Lin Du to the handoff desk
+https://www.github.com/4maticlab/night-shift,a0db316af38f1eeca44e977a82eea2e309a6874a,2026-07-23T00:03:52+00:00,Human,,5,4,2,False,False,False,False,docs: close five-night dossier plan
+https://www.github.com/4maticlab/night-shift,357ed70ebb46ca6b35b662f669d4f7aadd1105e1,2026-07-23T00:01:37+00:00,Human,,228,27,14,False,False,False,False,feat: turn endings into five-night dossiers
+https://www.github.com/4maticlab/night-shift,307c86625c1b3bbd8259775e83105c1ec48e94b0,2026-07-22T23:51:38+00:00,Human,,5,4,2,False,False,False,False,docs: close remembered evidence desk plan
+https://www.github.com/4maticlab/night-shift,af6b84ce449dd9861c7e2ea47bbc459b7ecf7049,2026-07-22T23:49:52+00:00,Human,,269,47,16,False,False,False,False,feat: make the evidence desk remember
+https://www.github.com/4maticlab/night-shift,9f5486f9fd309837cfcb9202036b5f2e46a67dfc,2026-07-22T23:29:02+00:00,Human,,5,4,2,False,False,False,False,docs: close full-cycle mobile proof plan
+https://www.github.com/4maticlab/night-shift,b750096d0325f6bf70d217c9a8678355678d1c0f,2026-07-22T23:26:02+00:00,Human,,150,8,9,False,False,False,False,test: prove full-cycle and mobile flows
+https://www.github.com/4maticlab/night-shift,cd91add0361b1f8a93beeb569575ea4715d5d069,2026-07-22T23:14:32+00:00,Human,,7,4,3,False,False,False,False,docs: close four-act header plan
+https://www.github.com/4maticlab/night-shift,53c2de9d38163595d171cf8fbe79ef72088c3203,2026-07-22T23:11:53+00:00,Human,,166,15,19,False,False,False,False,feat: add four-act narrative headers
+https://www.github.com/4maticlab/night-shift,a3f923f718d4df0513fe2f159b56de4ecf9444b1,2026-07-22T22:50:05+00:00,Human,,7,4,3,False,False,False,False,docs: close foglight district atlas plan
+https://www.github.com/4maticlab/night-shift,06dc131359af3b5d167a56810cfb2dbe500ed930,2026-07-22T22:48:08+00:00,Human,,206,7,19,False,False,False,False,feat: add foglight district atlas
+https://www.github.com/4maticlab/night-shift,a20c66761e734845aec1e2ddda411a4e7b68ab35,2026-07-22T22:35:24+00:00,Human,,7,4,3,False,False,False,False,docs: close city witness portrait plan
+https://www.github.com/4maticlab/night-shift,3a41c03c10b72af652b58f6b4e56b81072232bfa,2026-07-22T22:33:00+00:00,Human,,255,9,22,False,False,False,False,feat: add city witness portraits and dossiers
+https://www.github.com/4maticlab/night-shift,001619ca89b43bad8fe974774c9a8d47da58dd74,2026-07-22T22:11:49+00:00,Human,,5,4,2,False,False,False,False,Close daytime notices release
+https://www.github.com/4maticlab/night-shift,3ebfd11349bd1d2e5d7e7bc7e3da5cdfa457ed79,2026-07-22T22:09:25+00:00,Human,,349,15,14,False,False,False,False,Add daytime city opportunity notices
+https://www.github.com/4maticlab/night-shift,d7986c170ff501fa242d7a3fd5c9611d9a4c153d,2026-07-22T21:56:05+00:00,Human,,78,4,4,False,False,False,False,Close souvenir release and plan city notices
+https://www.github.com/4maticlab/night-shift,2036965fa74eeed9cdac37b3136899ff97a3518f,2026-07-22T21:50:19+00:00,Human,,470,31,27,False,False,False,False,Add deterministic pocket souvenirs
+https://www.github.com/4maticlab/night-shift,e21c0ca7a665da584577bf788511c9d887d35a31,2026-07-22T21:24:14+00:00,Human,,78,4,4,False,False,False,False,Close reply release and plan pocket souvenirs
+https://www.github.com/4maticlab/night-shift,e50489f6f61c4b55c8af422b36992793af91db9b,2026-07-22T21:21:38+00:00,Human,,364,25,17,False,False,False,False,Add city correspondence reply echoes
+https://www.github.com/4maticlab/night-shift,23db8a1be8565a2450a3c416373698910451dd16,2026-07-22T21:11:29+00:00,Human,,77,4,4,False,False,False,False,Close society release and plan reply echoes
+https://www.github.com/4maticlab/night-shift,a8018066719a62ce0435165719deda1eb2767335,2026-07-22T21:08:32+00:00,Human,,370,33,26,False,False,False,False,Add city societies and remembered favors
+https://www.github.com/4maticlab/night-shift,81349b4c92e48e6cb8f1a0403e0ad22808ce105d,2026-07-22T20:52:02+00:00,Human,,78,4,4,False,False,False,False,Close greenhouse release and plan city societies
+https://www.github.com/4maticlab/night-shift,b2f2903347f87d9a4eed2429a2f1c3c8965692f1,2026-07-22T20:49:19+00:00,Human,,303,32,25,False,False,False,False,Add night greenhouse time growth
+https://www.github.com/4maticlab/night-shift,d31ecdbeb9a4be6b1eaa7f7cb34ee44b6406e695,2026-07-22T20:33:53+00:00,Human,,77,4,4,False,False,False,False,Record direction release and night greenhouse plan
+https://www.github.com/4maticlab/night-shift,f05d1733f6b346df60bb3b410bf5e766d8e412c4,2026-07-22T20:31:54+00:00,Human,,255,36,17,False,False,False,False,Make investigation directions shape each journey
+https://www.github.com/4maticlab/night-shift,192da590dcb6555428bf6ce42d954ce7e5a2ed65,2026-07-22T20:22:40+00:00,Human,,76,4,4,False,False,False,False,Record postcard release and next plan
+https://www.github.com/4maticlab/night-shift,3828cf3cb3664d0a7f9a1080c4732d554b0ddd79,2026-07-22T20:20:05+00:00,Human,,273,32,23,False,False,False,False,Add city postcard return ritual
+https://www.github.com/4maticlab/night-shift,0884418f97054de64e97504fae2eaad35aab9855,2026-07-22T20:00:01+00:00,Human,,3,0,2,False,False,False,False,Record quality hardening release
+https://www.github.com/4maticlab/night-shift,0c050de3589260b2142363aa8cb5dcebf05bc604,2026-07-22T19:57:58+00:00,Human,,278,22,11,False,False,False,False,Complete MVP quality hardening
+https://www.github.com/4maticlab/night-shift,7f17576c136b49a2fd1041fb9675146b892152b3,2026-07-22T19:51:40+00:00,Human,,128,22,13,False,False,False,False,Require evidence pairs for core inferences
+https://www.github.com/4maticlab/night-shift,f445bee35688a9c3357a6719fea7cf0a75b13f26,2026-07-22T19:45:27+00:00,Human,,326,259,11,False,False,False,False,Split game UI into feature domains
+https://www.github.com/4maticlab/night-shift,1f02d946be252a4ad261fd146cf12d5d4653d30c,2026-07-22T19:39:59+00:00,Human,,4,1,2,False,False,False,False,Record real night session release
+https://www.github.com/4maticlab/night-shift,5473d377d402b6c3713f705017ad06defb88cc0a,2026-07-22T19:37:24+00:00,Human,,278,49,17,False,False,False,False,Add recoverable real night sessions
+https://www.github.com/4maticlab/night-shift,04e897a6393e0c21e96a375cbdfc26d66faf4a9b,2026-07-22T19:22:11+00:00,Human,,23,7,4,False,False,False,False,Close first narrative and art iteration
+https://www.github.com/4maticlab/night-shift,ddb8260fdd65da7c3c2831765b5c2bc3011720af,2026-07-22T19:20:05+00:00,Human,,1137,86,47,False,False,False,False,Deepen Night Shift narrative and waiting loop
+https://www.github.com/4maticlab/night-shift,b1be0536772128874fc30f343f33e7f03d485692,2026-07-22T18:43:03+00:00,Human,,13357,0,44,False,False,False,False,Build Night Shift hackathon MVP

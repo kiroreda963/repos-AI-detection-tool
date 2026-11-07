@@ -1,0 +1,1039 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xradikal/foam-sanat,0a260311f007212d29e55d17a4ab117b3c4ded29,2026-07-14T14:17:50+00:00,Human,,0,0,0,False,False,False,False,"Merge production-hardened & Next.js 15 release into main
+
+Consolidate the fully audited, Next.js 15 upgraded codebase as the
+authoritative main branch. Supersedes the previous main content."
+https://www.github.com/0xradikal/foam-sanat,9290355b129be328ff0ecf60a11bfdab4b6ad475,2026-07-14T13:48:27+00:00,Human,,672,213,13,False,True,False,False,"chore(deps): upgrade to Next.js 15.5.20 and migrate async request APIs
+
+- Bump next 14.2.35 -> 15.5.20, eslint-config-next & @next/bundle-analyzer to ^15
+- Await async dynamic APIs and route inputs (Next 15 breaking changes):
+  - headers() is now async in layout.tsx / products page
+  - route params are now Promise (comments [id], replies, replies/[replyId])
+  - page searchParams are now Promise (home, about, products)
+- Remove NextRequest.ip (removed in Next 15); derive client IP from
+  x-real-ip / x-forwarded-for proxy headers in comments auth
+- Tighten route handler context typing to match the strict generated
+  .next/types RouteContext (drop | undefined on second handler arg;
+  withRequestLogging now propagates a non-optional context)
+- Fix latent bug: await deleteStoredReply in DELETE replies route
+  (Promise was always truthy, so 404 branch was unreachable)
+- Update contact route tests to pass explicit context argument
+
+Verified: tsc --noEmit clean (incl. generated route types),
+npm test 49/49 pass, gitleaks no leaks, next build compiles.
+High-severity Next.js DoS advisory resolved by 15.5.20."
+https://www.github.com/0xradikal/foam-sanat,1e961186278c78e4a3048109f96bd7d342a180a8,2026-07-14T14:02:41+00:00,Human,,240,1483,2,False,True,False,False,"chore(deps): remove junk/unused deps, patch Next, fix transitive CVEs
+
+Supply-chain hygiene (Phase 7):
+- Remove `docker@1.0.0`: not Docker at all but an abandoned 2015 'docco'
+  documentation generator, never imported — a dependency-confusion /
+  accidental install. Its tree carried 6 critical + many high CVEs.
+- Remove `chromedriver`: unused. Playwright manages its own Chromium
+  (see scripts/ensure-chromium.mjs); the standalone driver only added
+  attack surface.
+- `npm audit fix` (non-breaking) for transitive advisories (ws, yaml,
+  postcss, etc.).
+- Bump next / eslint-config-next / @next/bundle-analyzer 14.2.33 -> 14.2.35
+  (latest patch in the 14.2.x line; no breaking changes).
+
+Result: npm audit 60 -> 22 total, prod-only 28 -> 2. Remaining 2 prod
+advisories are Next.js issues fixed only in 15.x/16.x (breaking major),
+intentionally deferred to a dedicated upgrade with full regression
+testing. Build (next 14.2.35) compiles; tsc clean; 49/49 tests pass."
+https://www.github.com/0xradikal/foam-sanat,78c94022fc53cf2e2f97a17f54f445a591876188,2026-07-14T14:02:41+00:00,Human,,2,1,1,False,False,False,False,"docs(middleware): replace decorative author note with CSP rationale
+
+Line 51 carried a leftover Persian author marker ('only the real change
+happened here') with no technical meaning. Replace it with a comment
+explaining why styleSrc differs between dev (unsafe-inline for HMR) and
+production (nonce-pinned)."
+https://www.github.com/0xradikal/foam-sanat,86ca603ac46008d294fa7d0644017d19d31623ac,2026-07-14T14:02:41+00:00,Human,,18,0,1,True,True,False,False,"fix(env): stop fabricating placeholder values for URL/connection vars
+
+The build-time env fallback injected a synthetic `auto-<key>-<rand>`
+value for every missing recommended variable. For connection-string /
+URL keys this was actively harmful: the storage layer treats
+COMMENTS_DATABASE_URL/DATABASE_URL as a SQLite file path, so the bogus
+value produced stray `auto-comments_database_url-*` (+ -wal/-shm)
+database files in the working directory on every lint/test/dev build,
+and would fail the new Zod connection-URL validation.
+
+These keys are all 'recommended' (never required), so leaving them
+unset is safe — db.ts falls back to the default SQLite path / read-only
+guard and the rate limiter falls back to its in-memory store. Only
+presence-check them; never fabricate a fake connection string."
+https://www.github.com/0xradikal/foam-sanat,f5f13c094aa2a841c5dda9efc2cf348363cd8404,2026-07-14T14:02:41+00:00,Human,,73,3,3,False,False,False,False,"security(P1): constant-time compare for admin session key
+
+The admin-session issuance route compared the provided session key to
+the configured secret with a plain `!==`, which short-circuits on the
+first differing byte and leaks key-prefix length via response timing.
+Reuse the existing HMAC-grade timingSafeEqual (now exported) so session
+minting is not distinguishable by a timing side channel.
+
+Adds auth.test.ts covering timingSafeEqual edge cases (equal, unequal,
+length-mismatch, empty) and signed-session round-trip / missing-secret."
+https://www.github.com/0xradikal/foam-sanat,cbf9ba2175e0ee539ce8b744270457e068e28dce,2026-07-14T14:02:41+00:00,Human,,3,1,1,False,False,False,False,"ci(secret-scan): allowlist synthetic test fixtures in gitleaks rule
+
+The comments-admin-token rule flagged the deterministic fixture value
+used by app/lib/env-schema.test.ts. Test fixtures are not real
+credentials, so allowlist them narrowly (fixture regex + *.test.ts
+path scope) rather than weakening the detection regex."
+https://www.github.com/0xradikal/foam-sanat,cd9e6a062558939ab7b1c2577bc58aa41edd9c15,2026-07-14T14:02:41+00:00,Human,,218,3,5,False,False,False,False,"feat(env): add Zod value-level validation with production fail-fast
+
+The existing env layer only checked variable *presence*. A malformed
+NEXT_PUBLIC_SITE_URL, an invalid COMMENTS_STORAGE_BACKEND, a placeholder
+admin secret, or a non-numeric TTL would all pass unnoticed and fail
+deep inside request handling instead.
+
+Add app/lib/env-schema.ts: a Zod schema that validates the *format* of
+whatever variables are present (absolute http(s) URLs, emails, connection
+URLs, the storage-backend enum, strong non-placeholder secrets, positive
+integer TTL, Resend key prefix). Wire validateEnvSchema() into the
+existing validateEnv() bootstrap so it fails fast in production and warns
+in dev/test. Promote zod to an explicit dependency.
+
+Adds 6 unit tests (valid set, invalid URL, invalid enum, placeholder
+secret, dev-does-not-throw, unset-optional). 43/43 tests pass; tsc clean."
+https://www.github.com/0xradikal/foam-sanat,ddd6a870b676f91155546ba3f965210bc4853e5a,2026-07-14T14:02:41+00:00,Human,,17,0,1,False,False,False,False,"perf(middleware): scope matcher to documents and API, skip static assets
+
+The middleware had no `config.matcher`, so Next.js ran it on every request
+— including _next/static chunks, optimized images, fonts and other public
+assets — generating a fresh CSP nonce and running the env-bootstrap import
+each time. None of those static responses need a per-request nonce.
+
+Add a matcher that excludes build output (_next/static, _next/image), the
+root metadata files (favicon, robots.txt, sitemap*.xml, site.webmanifest)
+and common static asset extensions, while still covering all page/document
+and API routes that must carry the security headers.
+
+Verified: production build compiles and the matcher is emitted into
+middleware-manifest.json; 37/37 tests pass; tsc clean."
+https://www.github.com/0xradikal/foam-sanat,6bcec685a780648165affd2a9e23f20bcf1fb897,2026-07-14T14:02:41+00:00,Human,,127,1,2,False,True,False,False,"security(P1): reject unverifiable cross-origin mutations (CSRF)
+
+validateRequestOrigin previously returned ""allowed"" whenever a request
+carried neither an Origin nor a Referer header, so a state-changing POST
+(contact form, comment submission) with both headers stripped bypassed
+the same-origin allowlist entirely.
+
+Fix: for mutating methods (non GET/HEAD/OPTIONS) in production, require at
+least one of Origin/Referer and reject when both are absent. Safe methods
+and non-production environments (local dev, tests, server-to-server tools)
+are unaffected, preserving existing developer and CI workflows.
+
+Adds regression tests covering: allowed/blocked Origin, allowed/blocked
+Referer, Referer-only success, the new no-headers production rejection,
+the non-production allowance, safe-method allowance, plus characterization
+tests for verifyTurnstileToken (test short-circuit, fail-closed on missing
+secret, token-required in prod). 37/37 tests pass; tsc clean."
+https://www.github.com/0xradikal/foam-sanat,ab53af49c182f1f024f5c75bc671ada15dd9002f,2026-07-14T14:02:41+00:00,Human,,6,0,1,False,False,False,False,"ci: add activation note to relocated secret-scan workflow
+
+Bot lacks GitHub App 'workflows' permission, so the gitleaks workflow
+ships in .github/pending-workflows/. A repo owner must move it to
+.github/workflows/secret-scan.yml to activate it (one git mv)."
+https://www.github.com/0xradikal/foam-sanat,f6df7caabc441fa1e16943f6b6499c0049db91e6,2026-07-14T14:02:41+00:00,Human,,89,1,2,False,False,False,False,"test(env): commit placeholder-only .env.test template
+
+Allow-list .env.test in .gitignore and commit it. It contains ONLY safe
+placeholders and Cloudflare official test keys (no real secrets, verified
+by gitleaks), so CI and contributors can run `npm test` without access to
+production credentials."
+https://www.github.com/0xradikal/foam-sanat,2847e9ff41cf479a12c3b074f73df17cbb60e065,2026-07-14T14:02:41+00:00,Human,,1,1,1,False,False,False,False,"test(env): decouple test suite from real secrets file
+
+Point the test script at the committed, placeholder-only `.env.test`
+instead of the gitignored `.env.local` (which holds real production
+secrets). Allow override via DOTENV_CONFIG_PATH for local debugging.
+
+All 25 tests pass against `.env.test` (Cloudflare official test keys +
+safe placeholders); tests set their own env values internally, so no
+real secret is required to run them."
+https://www.github.com/0xradikal/foam-sanat,fb6fd614915d813c5e4ee7922b967d4a6701d713,2026-07-14T14:02:41+00:00,Human,,218,29,4,False,True,False,False,"security(P0): remediate committed secrets and DB artifacts
+
+Security-incident remediation only. No functional/refactor changes.
+
+- Untrack .env.local (real production secrets) — file kept on disk, now
+  gitignored so it can never be re-committed.
+- Untrack SQLite runtime artifacts (auto-comments_database_url-3ngrfn
+  {,-shm,-wal}) — build/runtime output, kept on disk, now gitignored.
+- Harden .gitignore: database artifacts (*.db/-wal/-shm/*.sqlite*, data/*)
+  and env variants (.env.*, keep only .env.example).
+- Sanitize .env.example: replace the real leaked Cloudflare Turnstile
+  secret (hash-identical to .env.local) and remove its duplicate; use
+  Cloudflare official TEST keys and documented placeholders; fix Redis
+  port (3000 -> 6379).
+- Add gitleaks config (.gitleaks.toml) with project detectors for
+  Turnstile / Resend / comments-admin-token / DB+Redis DSNs, allowlisting
+  documented placeholders and the gitignored .env.local.
+- Add Secret Scan CI workflow (gitleaks on push/PR/weekly).
+
+NOTE: exposed secrets in prior history are purged in a subsequent history
+rewrite; the values must be rotated out-of-band (owner action, confirmed)."
+https://www.github.com/0xradikal/foam-sanat,933bbc2353d53c20729313c2e55921fc44efc8a8,2025-12-04T10:59:41+00:00,Human,,290,617,10,False,False,False,False,"Merge pull request #103 from 0xRadikal/codex/integrate-gtm-and-ga4-with-csp-compliance
+
+Refactor analytics integration with CSP-compatible provider"
+https://www.github.com/0xradikal/foam-sanat,a4e3783041c61d190d88081f39527096e97b3e68,2025-12-04T10:59:41+00:00,Human,,290,617,10,False,False,False,False,"Merge pull request #103 from 0xRadikal/codex/integrate-gtm-and-ga4-with-csp-compliance
+
+Refactor analytics integration with CSP-compatible provider"
+https://www.github.com/0xradikal/foam-sanat,0612143e728921384b5f7b945bc7c9cfebc726f1,2025-12-04T10:57:25+00:00,Human,,99,473,5,False,True,False,False,Fix analytics typings and align lint tooling
+https://www.github.com/0xradikal/foam-sanat,b7afdfea0a2ba7b5a634c4865197e154caf3bd1f,2025-12-04T10:57:25+00:00,Human,,99,473,5,False,True,False,False,Fix analytics typings and align lint tooling
+https://www.github.com/0xradikal/foam-sanat,6eb89c8b690890d977c043e88de8e21c88378d5a,2025-12-04T10:31:52+00:00,Human,,194,147,6,False,False,False,False,Refactor analytics integration with CSP-compatible provider
+https://www.github.com/0xradikal/foam-sanat,95ee4ea4543a543a8450978e4cecfbcad4e98e79,2025-12-04T10:31:52+00:00,Human,,194,147,6,False,False,False,False,Refactor analytics integration with CSP-compatible provider
+https://www.github.com/0xradikal/foam-sanat,e7a3e060d8af5ed6675d3e754ac26952665bf817,2025-12-04T10:06:55+00:00,Human,,3,6,1,False,False,False,False,mid
+https://www.github.com/0xradikal/foam-sanat,848b1d2d38a865a163735cf11279afe32da18d27,2025-12-04T10:06:55+00:00,Human,,3,6,1,False,False,False,False,mid
+https://www.github.com/0xradikal/foam-sanat,2fe001054d46973dc1014aa5bc7aa8b2a7c7d33d,2025-12-04T10:04:52+00:00,Human,,10,1,2,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,29e0836a9350c8ecb78eecfe74f6c585113b3b44,2025-12-04T10:04:52+00:00,Human,,10,1,2,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,519d94f1a9ab83e09e617ac9c6f2ca33e54da9d0,2025-12-04T10:04:47+00:00,Human,,1801,413,4,False,False,False,False,mid
+https://www.github.com/0xradikal/foam-sanat,3347195e342289dfa6ac64cd236844fce6b5e55a,2025-12-04T10:04:47+00:00,Human,,1801,413,4,False,False,False,False,mid
+https://www.github.com/0xradikal/foam-sanat,c744b1b8d7c961aacf951179433fed9f7bb5ecc8,2025-12-04T10:04:13+00:00,Human,,10,1,2,False,True,False,False,"Merge pull request #102 from 0xRadikal/codex/fix-and-complete-ssr
+
+Prevent theme hydration mismatch"
+https://www.github.com/0xradikal/foam-sanat,16b22cbf710f6ef410c2027982d351cf48e00a56,2025-12-04T10:04:13+00:00,Human,,10,1,2,False,True,False,False,"Merge pull request #102 from 0xRadikal/codex/fix-and-complete-ssr
+
+Prevent theme hydration mismatch"
+https://www.github.com/0xradikal/foam-sanat,a7c4af8f48e0a4d8be05b5944050b3014630aa80,2025-12-04T09:41:54+00:00,Human,,10,1,2,False,False,False,False,Prevent theme hydration mismatch
+https://www.github.com/0xradikal/foam-sanat,7e91a9cef49a41490a6ded494aacc2daee6f9428,2025-12-04T09:41:54+00:00,Human,,10,1,2,False,False,False,False,Prevent theme hydration mismatch
+https://www.github.com/0xradikal/foam-sanat,7000c914f30f4ef4ec2104d2a1b9e2a04b0019c7,2025-12-02T13:19:52+00:00,Human,,407,196,11,False,True,False,False,fix
+https://www.github.com/0xradikal/foam-sanat,898ea6a4c49e799186e1a80f92dd860887b76d78,2025-12-02T13:19:52+00:00,Human,,406,195,10,False,True,False,False,fix
+https://www.github.com/0xradikal/foam-sanat,985747544dccd3220934c4c4537144334b430beb,2025-12-01T13:04:56+00:00,Human,,170,190,3,False,True,False,False,"Merge pull request #101 from 0xRadikal/codex/fix-console-errors-and-warnings
+
+Improve accessibility and CSP compliance"
+https://www.github.com/0xradikal/foam-sanat,0312dc68baa349bcba65743e223dc81c566106b9,2025-12-01T13:04:56+00:00,Human,,170,190,3,False,True,False,False,"Merge pull request #101 from 0xRadikal/codex/fix-console-errors-and-warnings
+
+Improve accessibility and CSP compliance"
+https://www.github.com/0xradikal/foam-sanat,2994a5c433fe5064376f8c2c9bb58f62ad642db9,2025-12-01T13:03:53+00:00,Human,,170,190,3,False,False,False,False,Improve accessibility and CSP compliance
+https://www.github.com/0xradikal/foam-sanat,5777d712e94e57e1f186af72511367bdf711ec49,2025-12-01T13:03:53+00:00,Human,,170,190,3,False,False,False,False,Improve accessibility and CSP compliance
+https://www.github.com/0xradikal/foam-sanat,3600e10d34b4e9cc53608b4994b94963a450c67f,2025-12-01T12:23:04+00:00,Human,,430,253,12,False,True,False,False,"Merge pull request #99 from 0xRadikal/codex/fix-seeded-random-state-leak
+
+Codex/fix seeded random state leak"
+https://www.github.com/0xradikal/foam-sanat,61d6da7b5546ff374b2870fd93281cc3baa2c259,2025-12-01T12:23:04+00:00,Human,,430,253,12,False,True,False,False,"Merge pull request #99 from 0xRadikal/codex/fix-seeded-random-state-leak
+
+Codex/fix seeded random state leak"
+https://www.github.com/0xradikal/foam-sanat,b52e9fd8e8382471f7119afaef51fe2f81485e5b,2025-12-01T12:20:10+00:00,Human,,27,7,2,False,True,False,False,"Merge pull request #100 from 0xRadikal/codex/fix-admin-token-expiry-validation
+
+Harden payload sanitization against bidi overrides"
+https://www.github.com/0xradikal/foam-sanat,acedef84e2a6ca970fd9bd727007feb912aba388,2025-12-01T12:20:10+00:00,Human,,27,7,2,False,True,False,False,"Merge pull request #100 from 0xRadikal/codex/fix-admin-token-expiry-validation
+
+Harden payload sanitization against bidi overrides"
+https://www.github.com/0xradikal/foam-sanat,949a7cc2a871039fdce0d0305b9f15d940df0f8e,2025-12-01T12:07:39+00:00,Human,,27,7,2,False,False,False,False,Harden payload sanitization against bidi overrides
+https://www.github.com/0xradikal/foam-sanat,52b2646341166e80d84605ad0352a7665229053f,2025-12-01T12:07:39+00:00,Human,,27,7,2,False,False,False,False,Harden payload sanitization against bidi overrides
+https://www.github.com/0xradikal/foam-sanat,d5d8e6ece1562aefecc7958b7c27419b161d92f1,2025-12-01T11:59:46+00:00,Human,,293,170,8,False,True,False,False,"Merge pull request #98 from 0xRadikal/codex/fix-product-modal-close-behavior
+
+Fix type-check regressions"
+https://www.github.com/0xradikal/foam-sanat,ab9b78f3c08e93aebc5f81ac02095da7a1997b24,2025-12-01T11:59:46+00:00,Human,,293,170,8,False,True,False,False,"Merge pull request #98 from 0xRadikal/codex/fix-product-modal-close-behavior
+
+Fix type-check regressions"
+https://www.github.com/0xradikal/foam-sanat,11e3fbeb57a77d204f5404acf0047299343bd5a8,2025-12-01T11:58:37+00:00,Human,,293,170,8,False,True,False,False,Fix type-check regressions
+https://www.github.com/0xradikal/foam-sanat,192733ebea05a26f4798d6a4cc24d3fef0c68a0b,2025-12-01T11:58:37+00:00,Human,,293,170,8,False,True,False,False,Fix type-check regressions
+https://www.github.com/0xradikal/foam-sanat,2395893706d520301ef66b217dbb7140c6dd2004,2025-12-01T11:19:46+00:00,Human,,110,76,5,False,False,False,False,Guard comment routes against missing context
+https://www.github.com/0xradikal/foam-sanat,c2603440ef6f129acc536c18bec4021550e7ddd0,2025-12-01T11:19:46+00:00,Human,,110,76,5,False,False,False,False,Guard comment routes against missing context
+https://www.github.com/0xradikal/foam-sanat,eee3b96f4ac1e6344315b6006337a9210567d359,2025-11-30T18:40:19+00:00,Human,,0,66,2,False,False,False,False,del
+https://www.github.com/0xradikal/foam-sanat,a831c2863b9ea3af373397a81b5a3470883f09c2,2025-11-30T18:40:19+00:00,Human,,0,66,2,False,False,False,False,del
+https://www.github.com/0xradikal/foam-sanat,46988068bfddc367358f7a2a7931b0f943608c1e,2025-11-30T18:05:06+00:00,Human,,226,151,6,False,True,False,False,"Merge pull request #95 from 0xRadikal/codex/fix-turnstile-token-not-sent-to-server-p8cqp1
+
+Harden admin token and comment validations"
+https://www.github.com/0xradikal/foam-sanat,fd429cd0fffa9437af9d4feb150996a9942ec282,2025-11-30T18:05:06+00:00,Human,,226,151,6,False,True,False,False,"Merge pull request #95 from 0xRadikal/codex/fix-turnstile-token-not-sent-to-server-p8cqp1
+
+Harden admin token and comment validations"
+https://www.github.com/0xradikal/foam-sanat,e495a5da83e459bbdf98ca80d545a60bef7747c0,2025-11-30T18:03:31+00:00,Human,,2,36,1,False,True,False,False,"Merge pull request #96 from 0xRadikal/codex/run-and-fix-all-npm-scripts
+
+Fix product page rendering build errors"
+https://www.github.com/0xradikal/foam-sanat,494884a4fe2f463e090a66542051488e0fd096fb,2025-11-30T18:03:31+00:00,Human,,2,36,1,False,True,False,False,"Merge pull request #96 from 0xRadikal/codex/run-and-fix-all-npm-scripts
+
+Fix product page rendering build errors"
+https://www.github.com/0xradikal/foam-sanat,563c5a8ac140914a073d52b5026b2138634c435c,2025-11-30T18:01:35+00:00,Human,,2,36,1,False,True,False,False,Fix product page rendering build errors
+https://www.github.com/0xradikal/foam-sanat,fc27214261977830e567128ff29ba377b1767a39,2025-11-30T18:01:35+00:00,Human,,2,36,1,False,True,False,False,Fix product page rendering build errors
+https://www.github.com/0xradikal/foam-sanat,058c32290c8f30f7c8cb3cb975d8bec7a5c09e42,2025-11-30T17:24:54+00:00,Human,,34,0,1,False,True,False,False,Merge branch 'main' into codex/fix-turnstile-token-not-sent-to-server-p8cqp1
+https://www.github.com/0xradikal/foam-sanat,c5dba6e5944c4134754f7018dffe49bfa9802e60,2025-11-30T17:24:54+00:00,Human,,34,0,1,False,True,False,False,Merge branch 'main' into codex/fix-turnstile-token-not-sent-to-server-p8cqp1
+https://www.github.com/0xradikal/foam-sanat,102ec925f951de28dbd49437da2119aa1c150bf5,2025-11-30T17:15:17+00:00,Human,,3,3,1,False,True,False,False,Run npm scripts and fix conditional hook
+https://www.github.com/0xradikal/foam-sanat,1395d41b378fc0026a25eed45174836c5bdbbdf1,2025-11-30T17:15:17+00:00,Human,,3,3,1,False,True,False,False,Run npm scripts and fix conditional hook
+https://www.github.com/0xradikal/foam-sanat,1c412e4d782cb078a513de78757d2242041289ee,2025-11-30T17:04:08+00:00,Human,,185,143,4,False,False,False,False,Optimize blobs and virtualize comments list
+https://www.github.com/0xradikal/foam-sanat,93fdbd480b41b5ac32c76a8a8932699952580f12,2025-11-30T17:04:08+00:00,Human,,185,143,4,False,False,False,False,Optimize blobs and virtualize comments list
+https://www.github.com/0xradikal/foam-sanat,95f0686987e40be2464cffd7c0f3ca28d138c3ce,2025-11-30T16:56:53+00:00,Human,,292,98,16,False,False,False,False,Harden admin token and comment validations
+https://www.github.com/0xradikal/foam-sanat,17b00362051171dd5fce6d3265f7b47659b88c13,2025-11-30T16:56:53+00:00,Human,,292,98,16,False,False,False,False,Harden admin token and comment validations
+https://www.github.com/0xradikal/foam-sanat,5dfae0664146a93c7a127e2ceeb39d932bfd8635,2025-11-30T16:43:03+00:00,Human,,229,80,13,False,True,False,False,"Merge pull request #94 from 0xRadikal/codex/fix-turnstile-token-not-sent-to-server-j4h0am
+
+Improve rate limit fallback and CSP style nonce"
+https://www.github.com/0xradikal/foam-sanat,f23976c6203ca3f48583a2de30e77e069598aa02,2025-11-30T16:43:03+00:00,Human,,229,80,13,False,True,False,False,"Merge pull request #94 from 0xRadikal/codex/fix-turnstile-token-not-sent-to-server-j4h0am
+
+Improve rate limit fallback and CSP style nonce"
+https://www.github.com/0xradikal/foam-sanat,a8be25ed274a9198e71e63fabb5e8d4f56a7f949,2025-11-30T16:39:10+00:00,Human,,18,12,2,False,False,False,False,Improve image rendering and sqlite error handling
+https://www.github.com/0xradikal/foam-sanat,c06965590eedefa71a008221f9d001dc6be6db0e,2025-11-30T16:39:10+00:00,Human,,18,12,2,False,False,False,False,Improve image rendering and sqlite error handling
+https://www.github.com/0xradikal/foam-sanat,faad23d77c538b8de55dccf60bf1c29a37cffcca,2025-11-30T16:39:04+00:00,Human,,213,71,10,False,False,False,False,Harden comment handling and UI stability
+https://www.github.com/0xradikal/foam-sanat,c46115c23f30726782bfa22e8e00a995d1439c7b,2025-11-30T16:39:04+00:00,Human,,213,71,10,False,False,False,False,Harden comment handling and UI stability
+https://www.github.com/0xradikal/foam-sanat,e4af5d5fdf887c0402c619c4dc17e1ac91f7667f,2025-11-30T15:55:41+00:00,Human,,34,21,7,False,False,False,False,Improve fallback handling and CSP style nonce
+https://www.github.com/0xradikal/foam-sanat,279c8fb119eb8281756e0167f3a5d9ef23570545,2025-11-30T15:55:41+00:00,Human,,34,21,7,False,False,False,False,Improve fallback handling and CSP style nonce
+https://www.github.com/0xradikal/foam-sanat,f4b983faba7b51000bdb80adb171f887acb34dcf,2025-11-30T15:47:55+00:00,Human,,24,12,4,False,True,False,False,"Merge pull request #93 from 0xRadikal/codex/fix-turnstile-token-not-sent-to-server
+
+Fix security regressions"
+https://www.github.com/0xradikal/foam-sanat,962898967a3bc3a6cfbe3ba84140052ecdbad755,2025-11-30T15:47:55+00:00,Human,,24,12,4,False,True,False,False,"Merge pull request #93 from 0xRadikal/codex/fix-turnstile-token-not-sent-to-server
+
+Fix security regressions"
+https://www.github.com/0xradikal/foam-sanat,a01f72d7e1a9f145c34265cb410cdf87891bc0a6,2025-11-30T15:44:45+00:00,Human,,24,12,4,False,True,False,False,Fix security regressions
+https://www.github.com/0xradikal/foam-sanat,e701b13395bab72f8ebf751767262d3a2e3c3585,2025-11-30T15:44:45+00:00,Human,,24,12,4,False,True,False,False,Fix security regressions
+https://www.github.com/0xradikal/foam-sanat,fc632448a938cac3911328d1c570593ccdd891a4,2025-11-29T21:02:36+00:00,Human,,9,0,2,False,False,False,False,"Merge pull request #92 from 0xRadikal/codex/add-id-or-name-attribute-to-form-fields
+
+Add missing name attributes to form inputs"
+https://www.github.com/0xradikal/foam-sanat,2829651a7f4d65e7538c716f3d1d21a67220a610,2025-11-29T21:02:36+00:00,Human,,9,0,2,False,False,False,False,"Merge pull request #92 from 0xRadikal/codex/add-id-or-name-attribute-to-form-fields
+
+Add missing name attributes to form inputs"
+https://www.github.com/0xradikal/foam-sanat,209a6e70582f371dccb7d6b422c2c23b262287e8,2025-11-29T21:01:35+00:00,Human,,9,0,2,False,False,False,False,Add missing name attributes to form inputs
+https://www.github.com/0xradikal/foam-sanat,0f65067c0624090b78c64ecfc4f01c2caf932442,2025-11-29T21:01:35+00:00,Human,,9,0,2,False,False,False,False,Add missing name attributes to form inputs
+https://www.github.com/0xradikal/foam-sanat,1a8b4096e20a0509233cca71262a0a0ca245c6cd,2025-11-29T20:46:56+00:00,Human,,6,0,1,False,True,False,False,"Merge pull request #91 from 0xRadikal/codex/fix-content-security-policy-error
+
+Allow unsafe eval in dev CSP"
+https://www.github.com/0xradikal/foam-sanat,423675df78411df42de3d4377f2cd291f84078a0,2025-11-29T20:46:56+00:00,Human,,6,0,1,False,True,False,False,"Merge pull request #91 from 0xRadikal/codex/fix-content-security-policy-error
+
+Allow unsafe eval in dev CSP"
+https://www.github.com/0xradikal/foam-sanat,b80e41a2fadabb4f532851cedc8d540444d5bd5e,2025-11-29T20:45:44+00:00,Human,,6,0,1,False,False,False,False,Allow unsafe eval in dev CSP
+https://www.github.com/0xradikal/foam-sanat,f4f511b7bf9b5668a84d08538bd022bd168821a9,2025-11-29T20:45:44+00:00,Human,,6,0,1,False,False,False,False,Allow unsafe eval in dev CSP
+https://www.github.com/0xradikal/foam-sanat,965979a724c54a5c96769b0cc80fdfbc88e7b4b3,2025-11-29T20:17:54+00:00,Human,,731,558,24,False,True,False,False,"Merge pull request #89 from 0xRadikal/codex/apply-phase-1-functional-and-ux-fixes
+
+Fix TypeScript safety for contact errors and comment updates"
+https://www.github.com/0xradikal/foam-sanat,6788ee7553a012df7d71d53c60d3bb709285c55d,2025-11-29T20:17:54+00:00,Human,,731,558,24,False,True,False,False,"Merge pull request #89 from 0xRadikal/codex/apply-phase-1-functional-and-ux-fixes
+
+Fix TypeScript safety for contact errors and comment updates"
+https://www.github.com/0xradikal/foam-sanat,72af1520c3684d633e2ecc22513ea15d6f21b58e,2025-11-29T20:16:30+00:00,Human,,240,193,13,False,False,False,False,"Merge pull request #90 from 0xRadikal/codex/map-unused-error-message-in-contactform
+
+Improve accessibility, harden input handling, and refine contact errors"
+https://www.github.com/0xradikal/foam-sanat,2bf22cfb3e8074cc3e58b291bbcbcbee7f42ae84,2025-11-29T20:16:30+00:00,Human,,240,193,13,False,False,False,False,"Merge pull request #90 from 0xRadikal/codex/map-unused-error-message-in-contactform
+
+Improve accessibility, harden input handling, and refine contact errors"
+https://www.github.com/0xradikal/foam-sanat,25eb4410d8bae8a0f892819c360de32140a371c9,2025-11-29T20:15:32+00:00,Human,,240,193,13,False,False,False,False,Improve contact error logging
+https://www.github.com/0xradikal/foam-sanat,0563e7470561fd416b545b03755b3dddfb48996a,2025-11-29T20:15:32+00:00,Human,,240,193,13,False,False,False,False,Improve contact error logging
+https://www.github.com/0xradikal/foam-sanat,0fc428904a9db28e1d1c70cc4a603e69ac01bb2e,2025-11-29T18:57:31+00:00,Human,,546,420,19,False,True,False,False,Fix captcha error typing and comment update inference
+https://www.github.com/0xradikal/foam-sanat,84064b2f35496302a73c2f576c0f1f2b34fcca96,2025-11-29T18:57:31+00:00,Human,,546,420,19,False,True,False,False,Fix captcha error typing and comment update inference
+https://www.github.com/0xradikal/foam-sanat,74da89ce22360b16d7bc76a2d789581b74deafb1,2025-11-29T14:51:17+00:00,Human,,1,1,1,False,False,False,False,clear env
+https://www.github.com/0xradikal/foam-sanat,bbc665e7bf191b31dcc5bcb552bdc933bee6d840,2025-11-29T14:50:49+00:00,Human,,2,15,1,False,False,False,False,clear env
+https://www.github.com/0xradikal/foam-sanat,646f084777b2e84cad1cfcb67d1c3a8b18fb7a25,2025-11-29T14:50:49+00:00,Human,,2,19,2,False,False,False,False,clear env
+https://www.github.com/0xradikal/foam-sanat,b87d681aba608116ba537b144d2e9056dd12f59b,2025-11-29T14:20:26+00:00,Human,,454,276,9,False,True,False,False,"Merge pull request #88 from 0xRadikal/codex/refine-error-handling-in-contact-form
+
+Fix contact error message typing"
+https://www.github.com/0xradikal/foam-sanat,5edd979658892b5d0314c596c2918dddd143fb11,2025-11-29T14:20:26+00:00,Human,,454,276,9,False,True,False,False,"Merge pull request #88 from 0xRadikal/codex/refine-error-handling-in-contact-form
+
+Fix contact error message typing"
+https://www.github.com/0xradikal/foam-sanat,3579d80a77de9b1cac43d343f9076326fbc0b06f,2025-11-29T14:19:14+00:00,Human,,454,276,9,False,True,False,False,Fix contact error message typing
+https://www.github.com/0xradikal/foam-sanat,8083f8408daa85680b37f1170a62ec81977bd302,2025-11-29T14:19:14+00:00,Human,,454,276,9,False,True,False,False,Fix contact error message typing
+https://www.github.com/0xradikal/foam-sanat,84fa81d0f6a10d2be14e3605d1a39f573ba39c69,2025-11-29T13:43:34+00:00,Human,,92,104,6,False,False,False,False,"Merge pull request #87 from 0xRadikal/codex/refactor-for-legacy-file-cleanup
+
+Clean legacy helpers and add product JSON-LD"
+https://www.github.com/0xradikal/foam-sanat,e378808a417124ca8d4a08dc4bdef8474a99ceb6,2025-11-29T13:43:34+00:00,Human,,92,104,6,False,False,False,False,"Merge pull request #87 from 0xRadikal/codex/refactor-for-legacy-file-cleanup
+
+Clean legacy helpers and add product JSON-LD"
+https://www.github.com/0xradikal/foam-sanat,310d80ed6d5c60a424e7eb2ed7a1073847a2954a,2025-11-29T13:41:02+00:00,Human,,92,104,6,False,False,False,False,Clean legacy duplicates and wire JSON-LD
+https://www.github.com/0xradikal/foam-sanat,f2932a88a427147a1577b7830e31310110c346f4,2025-11-29T13:41:02+00:00,Human,,92,104,6,False,False,False,False,Clean legacy duplicates and wire JSON-LD
+https://www.github.com/0xradikal/foam-sanat,e1d50feca5de9c8fd4d02811f427da25118a79c6,2025-11-29T12:43:27+00:00,Human,,353,80,13,False,False,False,False,"Merge pull request #86 from 0xRadikal/codex/refactor-legacy-schema-and-analytics-to-modules
+
+Add SEO schema and analytics integration"
+https://www.github.com/0xradikal/foam-sanat,713d7625e9d0d3793da6accf28313b60a1ed8f8b,2025-11-29T12:43:27+00:00,Human,,353,80,13,False,False,False,False,"Merge pull request #86 from 0xRadikal/codex/refactor-legacy-schema-and-analytics-to-modules
+
+Add SEO schema and analytics integration"
+https://www.github.com/0xradikal/foam-sanat,55cb4a33a478f6c8112e175d990ebd6021c26b58,2025-11-29T12:42:17+00:00,Human,,10,4,2,False,True,False,False,Fix schema typing and analytics types
+https://www.github.com/0xradikal/foam-sanat,f0c0a2ee0de7ad979d72c55c679ab818c4986e68,2025-11-29T12:42:17+00:00,Human,,10,4,2,False,True,False,False,Fix schema typing and analytics types
+https://www.github.com/0xradikal/foam-sanat,490d06df0e4dacecc488bfb8b301d2c274e9dda8,2025-11-29T12:34:37+00:00,Human,,347,80,13,False,False,False,False,Add SEO schema and analytics integration
+https://www.github.com/0xradikal/foam-sanat,262db99d542de856ee6eb183583db0265d5ff8bd,2025-11-29T12:34:37+00:00,Human,,347,80,13,False,False,False,False,Add SEO schema and analytics integration
+https://www.github.com/0xradikal/foam-sanat,788aed298ad58e25bdf252c9e8411125b9845a8d,2025-11-29T12:05:56+00:00,Human,,37,28,2,False,False,False,False,"Merge pull request #85 from 0xRadikal/codex/add-field-specific-validation-to-contact-form
+
+Add client-side field-specific validation for contact form"
+https://www.github.com/0xradikal/foam-sanat,d80f9160e161bfb9fca8e15f3733ab5642425fde,2025-11-29T12:05:56+00:00,Human,,37,28,2,False,False,False,False,"Merge pull request #85 from 0xRadikal/codex/add-field-specific-validation-to-contact-form
+
+Add client-side field-specific validation for contact form"
+https://www.github.com/0xradikal/foam-sanat,4ae3c3b3d385bebca162269aa78f1fa4537815db,2025-11-29T12:02:48+00:00,Human,,37,28,2,False,False,False,False,Add field-specific validation to contact form
+https://www.github.com/0xradikal/foam-sanat,b9e2572a191c42ca5aa65fa38a2ff65bca431b93,2025-11-29T12:02:48+00:00,Human,,37,28,2,False,False,False,False,Add field-specific validation to contact form
+https://www.github.com/0xradikal/foam-sanat,6e417abd51c9f8b68ffad6ea6e4e16ad4dada865,2025-11-29T11:55:15+00:00,Human,,14,2,2,False,False,False,False,"Merge pull request #84 from 0xRadikal/codex/refactor-react-key-props-for-stability-2c98s4
+
+Improve CSP guidance and sanitization docs"
+https://www.github.com/0xradikal/foam-sanat,5ea9d2bc2e5cc995a2edb6033a86d6d8d8bcb560,2025-11-29T11:55:15+00:00,Human,,14,2,2,False,False,False,False,"Merge pull request #84 from 0xRadikal/codex/refactor-react-key-props-for-stability-2c98s4
+
+Improve CSP guidance and sanitization docs"
+https://www.github.com/0xradikal/foam-sanat,88c7672be2880b69076e05b62bdcb342e8bf4b81,2025-11-29T11:54:24+00:00,Human,,119,19,7,False,False,False,False,Merge branch 'main' into codex/refactor-react-key-props-for-stability-2c98s4
+https://www.github.com/0xradikal/foam-sanat,47bab0c48fc26ccfebb2439a2d3bb4e12556702a,2025-11-29T11:54:24+00:00,Human,,120,19,11,False,False,False,False,Merge branch 'main' into codex/refactor-react-key-props-for-stability-2c98s4
+https://www.github.com/0xradikal/foam-sanat,0c03d6905329d07c8a653bd54b3bc05157474cfe,2025-11-29T11:52:45+00:00,Human,,92,70,10,False,False,False,False,Improve CSP guidance and sanitization docs
+https://www.github.com/0xradikal/foam-sanat,8bca7c68aeec9420b08b2880869b70f5e832817a,2025-11-29T11:52:45+00:00,Human,,92,70,10,False,False,False,False,Improve CSP guidance and sanitization docs
+https://www.github.com/0xradikal/foam-sanat,7c46fae64387dbefb261f81a9441858bd21e5524,2025-11-29T11:48:39+00:00,Human,,34,14,4,False,False,False,False,add img & vid
+https://www.github.com/0xradikal/foam-sanat,e903923b39e9fe824ad414bfce2cb306ecda0cfa,2025-11-29T11:48:39+00:00,Human,,34,14,4,False,False,False,False,add img & vid
+https://www.github.com/0xradikal/foam-sanat,02252053ce25073f536732ae8d2b0b86c4362ab4,2025-11-29T07:04:56+00:00,Human,,6,4,1,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,33d36889a6e3ee07e4ec65858975b34bfd2f53a5,2025-11-29T07:04:56+00:00,Human,,6,4,1,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,738a7ed7417ba34ff37689334b92b5034b74d32b,2025-11-29T07:04:24+00:00,Human,,6,4,1,False,False,False,False,"Merge pull request #83 from 0xRadikal/codex/refactor-react-key-props-for-stability-wbffou
+
+Harden CSP frame directives"
+https://www.github.com/0xradikal/foam-sanat,04e67ecbe2384ba0e655f74f586528c1a26412f0,2025-11-29T07:04:24+00:00,Human,,6,4,1,False,False,False,False,"Merge pull request #83 from 0xRadikal/codex/refactor-react-key-props-for-stability-wbffou
+
+Harden CSP frame directives"
+https://www.github.com/0xradikal/foam-sanat,0df926aa1d944a72c63f3238e47f7d3b15e7e05e,2025-11-28T21:45:29+00:00,Human,,78,68,9,False,False,False,False,Harden CSP frame directives
+https://www.github.com/0xradikal/foam-sanat,240dc857d36bef193fb1552a70ae5b90c83078b9,2025-11-28T21:45:29+00:00,Human,,78,68,9,False,False,False,False,Harden CSP frame directives
+https://www.github.com/0xradikal/foam-sanat,e71df91e76366c9a76cc1b5a2fe06e2cf47bbf4d,2025-11-28T21:25:58+00:00,Human,,72,64,8,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,24402cc69c4b1515f4cb4a03ba391dff962d6b26,2025-11-28T21:25:58+00:00,Human,,72,64,8,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,d356295be82386a534e85b760eb6bfe96adf9cf4,2025-11-28T21:24:19+00:00,Human,,72,64,8,False,False,False,False,"Merge pull request #82 from 0xRadikal/codex/refactor-react-key-props-for-stability
+
+Use stable list keys across UI"
+https://www.github.com/0xradikal/foam-sanat,931fc8e479dc950a22fb1694f5a954075a45789b,2025-11-28T21:24:19+00:00,Human,,72,64,8,False,False,False,False,"Merge pull request #82 from 0xRadikal/codex/refactor-react-key-props-for-stability
+
+Use stable list keys across UI"
+https://www.github.com/0xradikal/foam-sanat,ce58e82b1e2c935af6f6ef980b25781d0756d6df,2025-11-28T21:22:17+00:00,Human,,2,1,2,False,True,False,False,Fix lint error and provide DOMPurify types
+https://www.github.com/0xradikal/foam-sanat,cda4cf15ac5c06c35f17ff26dcb2886b0a78eb95,2025-11-28T21:22:17+00:00,Human,,2,1,2,False,True,False,False,Fix lint error and provide DOMPurify types
+https://www.github.com/0xradikal/foam-sanat,3c44adb41bcec9ed76e862f1f216c8e6a9e28c86,2025-11-28T21:06:51+00:00,Human,,71,64,7,False,False,False,False,Use stable keys for rendered lists
+https://www.github.com/0xradikal/foam-sanat,9f614a094cbfa4b5f08cec392458bada05a773fa,2025-11-28T21:06:51+00:00,Human,,71,64,7,False,False,False,False,Use stable keys for rendered lists
+https://www.github.com/0xradikal/foam-sanat,539bf38f041a041c7096750d9243c7a0f1bbe4f3,2025-11-28T17:01:43+00:00,Human,,5,0,1,False,False,False,False,s
+https://www.github.com/0xradikal/foam-sanat,30d21faf22fdc08985244067b5e2b2f163e7f9b9,2025-11-28T17:01:43+00:00,Human,,5,0,1,False,False,False,False,s
+https://www.github.com/0xradikal/foam-sanat,7fa6d18cae3e5974a8a5972bc5d87eec7c8fe8b5,2025-11-28T16:56:18+00:00,Human,,75,0,1,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,228d1e1573ba22e78d7daf4024c99cdbce4ae7d1,2025-11-28T16:56:18+00:00,Human,,75,0,1,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,1f62e06ad0b6aa96096d9f135a6aa7e129f9ad95,2025-11-28T16:55:55+00:00,Human,,75,0,1,False,True,False,False,"Merge pull request #81 from 0xRadikal/codex/fix-module-type-and-missing-dependency
+
+Fix missing DOMPurify dependency"
+https://www.github.com/0xradikal/foam-sanat,4d7252a52035a6bb176f2587acbcf9c6b54e39b4,2025-11-28T16:55:55+00:00,Human,,75,0,1,False,True,False,False,"Merge pull request #81 from 0xRadikal/codex/fix-module-type-and-missing-dependency
+
+Fix missing DOMPurify dependency"
+https://www.github.com/0xradikal/foam-sanat,bd94204138681920ab7612331e92737cbef8b4d1,2025-11-28T16:55:02+00:00,Human,,10,0,1,False,False,False,False,Sync package lockfile
+https://www.github.com/0xradikal/foam-sanat,f8f28df27c7e3c66c7d9f1ee205d2d511abf37e5,2025-11-28T16:55:02+00:00,Human,,10,0,1,False,False,False,False,Sync package lockfile
+https://www.github.com/0xradikal/foam-sanat,a7455131a9c5e0aadc1073d30005e093d213c27d,2025-11-28T16:39:30+00:00,Human,,65,0,1,False,False,False,False,Install isomorphic-dompurify dependency
+https://www.github.com/0xradikal/foam-sanat,2aff15c532ed668c5ff9796858dae9382bc254b5,2025-11-28T16:39:30+00:00,Human,,65,0,1,False,False,False,False,Install isomorphic-dompurify dependency
+https://www.github.com/0xradikal/foam-sanat,6f0cf9f2cafb6caad8fef2de68c0976de0b20381,2025-11-28T16:31:57+00:00,Human,,209,10,7,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,f2cc44dd5f06f6f0275e12c140aed4c3b18bbb06,2025-11-28T16:31:57+00:00,Human,,209,10,7,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,42c6c0ea1966f3b6380da452a81994dcfe8eabc5,2025-11-28T16:29:36+00:00,Human,,211,12,8,False,True,False,False,"Merge pull request #80 from 0xRadikal/codex/fix-content-security-policy-configuration-l1jmmy
+
+Simplify sanitizer to remove external dependency"
+https://www.github.com/0xradikal/foam-sanat,c64bebe3326a048239641bba4696510f53dd7010,2025-11-28T16:29:36+00:00,Human,,211,12,8,False,True,False,False,"Merge pull request #80 from 0xRadikal/codex/fix-content-security-policy-configuration-l1jmmy
+
+Simplify sanitizer to remove external dependency"
+https://www.github.com/0xradikal/foam-sanat,14e2043b47968c9be963b2de8b02b517e86742af,2025-11-28T16:29:29+00:00,Human,,0,75,1,False,True,False,False,Merge branch 'main' into codex/fix-content-security-policy-configuration-l1jmmy
+https://www.github.com/0xradikal/foam-sanat,98ba2751da675cb5b309dd4d01174f6960da62de,2025-11-28T16:29:29+00:00,Human,,0,75,1,False,True,False,False,Merge branch 'main' into codex/fix-content-security-policy-configuration-l1jmmy
+https://www.github.com/0xradikal/foam-sanat,810204b052f020d2ae031beae1d4e2f85bb863e6,2025-11-28T16:27:54+00:00,Human,,120,7,4,False,False,False,False,Automate Chromium setup for accessibility and Lighthouse audits
+https://www.github.com/0xradikal/foam-sanat,ffe2dfaf925b8e073dc9c3165948043194de3228,2025-11-28T16:27:54+00:00,Human,,120,7,4,False,False,False,False,Automate Chromium setup for accessibility and Lighthouse audits
+https://www.github.com/0xradikal/foam-sanat,2318fb9889bfa35af43110b924911c82fc79c3ea,2025-11-28T16:16:52+00:00,Human,,686,20,5,False,False,False,False,Restore DOMPurify sanitization and improve analysis tooling
+https://www.github.com/0xradikal/foam-sanat,2a5a83fc8c9e78d7cc788f085e6652444d3f3826,2025-11-28T16:16:52+00:00,Human,,686,20,5,False,False,False,False,Restore DOMPurify sanitization and improve analysis tooling
+https://www.github.com/0xradikal/foam-sanat,1208944d4f3b900babb78ea8ca3834a1522dc9e0,2025-11-28T16:05:01+00:00,Human,,6,1,1,False,False,False,False,Improve Turnstile accessibility labeling
+https://www.github.com/0xradikal/foam-sanat,82c107bf65cfea5294db2f8ad229ca9082f5b20e,2025-11-28T16:05:01+00:00,Human,,6,1,1,False,False,False,False,Improve Turnstile accessibility labeling
+https://www.github.com/0xradikal/foam-sanat,a208a4eda306ac4fe018dd5d017226fd28385731,2025-11-28T15:52:14+00:00,Human,,22,8,6,False,False,False,False,Inline sanitizer to avoid missing dependency
+https://www.github.com/0xradikal/foam-sanat,f3c61d364eb8ae174e216d717745aa4b0c428ee4,2025-11-28T15:52:14+00:00,Human,,22,8,6,False,False,False,False,Inline sanitizer to avoid missing dependency
+https://www.github.com/0xradikal/foam-sanat,c64528873a193770b98a01dff67a939cb00cb715,2025-11-28T15:47:20+00:00,Human,,540,16,7,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,99c5dc627274fca27e86df57c447280b5014cf65,2025-11-28T15:47:20+00:00,Human,,540,16,7,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,318e4eb3f6e580f95fbeb8b9ac2a73f0a3242763,2025-11-28T15:44:52+00:00,Human,,540,16,7,False,True,False,False,"Merge pull request #79 from 0xRadikal/codex/fix-content-security-policy-configuration
+
+Improve CSP handling and sanitize injected HTML"
+https://www.github.com/0xradikal/foam-sanat,28625b1dbf73dc96a1ee2a21533e31bda7f2f1be,2025-11-28T15:44:52+00:00,Human,,540,16,7,False,True,False,False,"Merge pull request #79 from 0xRadikal/codex/fix-content-security-policy-configuration
+
+Improve CSP handling and sanitize injected HTML"
+https://www.github.com/0xradikal/foam-sanat,13f4b7a216feeabbc9125ffaec3616006a4025d2,2025-11-28T15:43:58+00:00,Human,,540,16,7,False,False,False,False,Improve CSP handling and sanitize injected HTML
+https://www.github.com/0xradikal/foam-sanat,a2b9f5cc9e97d0cf58c75ea5a928f720a8fbb8b2,2025-11-28T15:43:58+00:00,Human,,540,16,7,False,False,False,False,Improve CSP handling and sanitize injected HTML
+https://www.github.com/0xradikal/foam-sanat,1a6ef804a7d17bfa2f11a7e13d7a69c3de082445,2025-11-28T14:22:20+00:00,Human,,205,10,3,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,d275318645c8287fe28fd313772da1e4acfacb19,2025-11-28T14:22:20+00:00,Human,,205,10,3,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,e5c3a86347113377ed44464c0855a7d83b6c2453,2025-11-28T14:22:12+00:00,Human,,205,10,3,False,False,False,False,"Merge pull request #78 from 0xRadikal/codex/perform-comprehensive-code-audit
+
+Add Turnstile verification to contact form"
+https://www.github.com/0xradikal/foam-sanat,7d3f024abc0a03214b43fa9fc62a84d9cfb7b88a,2025-11-28T14:22:12+00:00,Human,,205,10,3,False,False,False,False,"Merge pull request #78 from 0xRadikal/codex/perform-comprehensive-code-audit
+
+Add Turnstile verification to contact form"
+https://www.github.com/0xradikal/foam-sanat,478e8e6de6900d069a5747d2393803344ffbb89b,2025-11-28T14:18:50+00:00,Human,,205,10,3,False,False,False,False,Add Turnstile verification to contact form
+https://www.github.com/0xradikal/foam-sanat,fbff4e61cc1c208c57b72d0e7513259c09fb6a71,2025-11-28T14:18:50+00:00,Human,,205,10,3,False,False,False,False,Add Turnstile verification to contact form
+https://www.github.com/0xradikal/foam-sanat,59efefeb5ed437d79692063a5866daf04bdcea60,2025-11-28T14:09:49+00:00,Human,,15,1,2,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,d7e908d9cb049e5f9617338e331765ed99fb91f8,2025-11-28T14:09:49+00:00,Human,,15,1,2,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,00f3e8602b9fcfe336bf187f6b97f68f0efdaa3b,2025-11-28T13:43:17+00:00,Human,,15,1,2,False,False,False,False,"Merge pull request #77 from 0xRadikal/codex/implement-focused-frontend-code-improvements-krldoc
+
+Relax CSP for maps embeds and stub contact emails in dev"
+https://www.github.com/0xradikal/foam-sanat,9932f55ad87a1d538bf1afb8fbe840305510bc6e,2025-11-28T13:43:17+00:00,Human,,15,1,2,False,False,False,False,"Merge pull request #77 from 0xRadikal/codex/implement-focused-frontend-code-improvements-krldoc
+
+Relax CSP for maps embeds and stub contact emails in dev"
+https://www.github.com/0xradikal/foam-sanat,a912438d0199934d73436afa64f66c06348a7099,2025-11-28T13:25:12+00:00,Human,,427,257,16,False,False,False,False,Relax CSP for maps embeds and stub contact emails in dev
+https://www.github.com/0xradikal/foam-sanat,087a98a0ed0e30a374d9673c8fe2e6b5ad25bc99,2025-11-28T13:25:12+00:00,Human,,444,274,17,False,False,False,False,Relax CSP for maps embeds and stub contact emails in dev
+https://www.github.com/0xradikal/foam-sanat,444c272939db897879bb5a924062ce8603dfbbc8,2025-11-28T13:06:09+00:00,Human,,408,252,14,False,False,False,False,s
+https://www.github.com/0xradikal/foam-sanat,6d02bed434123e79f01bcb1b0caf33bce65f12de,2025-11-28T13:06:09+00:00,Human,,416,260,15,False,False,False,False,s
+https://www.github.com/0xradikal/foam-sanat,ecbc544ed3a2e65889971343465e07b4ad15ba2b,2025-11-28T13:04:45+00:00,Human,,6,4,1,False,False,False,False,s
+https://www.github.com/0xradikal/foam-sanat,cece42b660b69cc973f748c6a0b95e13280714b1,2025-11-28T13:04:45+00:00,Human,,19,18,2,False,False,False,False,s
+https://www.github.com/0xradikal/foam-sanat,04a77e6f4329d4e657494006c7ccbb82f84aed30,2025-11-28T13:03:49+00:00,Human,,412,256,14,False,False,False,False,"Merge pull request #76 from 0xRadikal/codex/implement-focused-frontend-code-improvements
+
+Refine about and products pages and extract shared footer"
+https://www.github.com/0xradikal/foam-sanat,d549af9866d8a6300e04cc24ffd5d6be159cbb5a,2025-11-28T13:03:49+00:00,Human,,429,273,15,False,False,False,False,"Merge pull request #76 from 0xRadikal/codex/implement-focused-frontend-code-improvements
+
+Refine about and products pages and extract shared footer"
+https://www.github.com/0xradikal/foam-sanat,72354c25bb1afea5a564031508d1bff1d620bc8a,2025-11-28T13:02:29+00:00,Human,,24,9,1,False,False,False,False,Merge environment presets
+https://www.github.com/0xradikal/foam-sanat,903483caf59ee5590215361c1b7027ce7d82ea27,2025-11-28T13:02:29+00:00,Human,,41,26,2,False,False,False,False,Merge environment presets
+https://www.github.com/0xradikal/foam-sanat,05dbbbd2b6e42a9b23dc42641ea2ba9dad46024b,2025-11-28T12:41:00+00:00,Human,,22,0,3,False,False,False,False,Reduce Turnstile strictness in dev and quiet optional env logs
+https://www.github.com/0xradikal/foam-sanat,bd4cef93a3cb087b98a915c827eafa9811d53d40,2025-11-28T12:41:00+00:00,Human,,22,0,3,False,False,False,False,Reduce Turnstile strictness in dev and quiet optional env logs
+https://www.github.com/0xradikal/foam-sanat,0f51de0fca5ac4fa08c5de6641870a967a1b960b,2025-11-28T12:40:52+00:00,Human,,7,2,4,False,False,False,False,Improve env fallbacks and accessibility for home experiences
+https://www.github.com/0xradikal/foam-sanat,71dd113b215d2a1231715f969ced6656f2d7096c,2025-11-28T12:40:52+00:00,Human,,7,2,4,False,False,False,False,Improve env fallbacks and accessibility for home experiences
+https://www.github.com/0xradikal/foam-sanat,50f964328ad9cad6e2c247eaae9f726db9084d3b,2025-11-28T12:13:09+00:00,Human,,360,246,7,False,False,False,False,Refine about and products pages and extract shared footer
+https://www.github.com/0xradikal/foam-sanat,b3565a43df8a27af5ba28166af3eb7a86ceda61d,2025-11-28T12:13:09+00:00,Human,,360,246,7,False,False,False,False,Refine about and products pages and extract shared footer
+https://www.github.com/0xradikal/foam-sanat,bdd9c95750526835d8781a33bc9d46bbea15e8ed,2025-11-27T14:32:10+00:00,Human,,7,2,2,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,cd466c8a03f600823230b80d3374bca8579d7b2c,2025-11-27T14:32:10+00:00,Human,,7,2,2,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,f6deef94857b1fbaa2af7af4e6c4c1a51a000f9c,2025-11-27T14:31:15+00:00,Human,,7,2,2,False,False,False,False,"Merge pull request #75 from 0xRadikal/codex/understand-content-security-policy-errors
+
+Harden CSP for development while keeping production strict"
+https://www.github.com/0xradikal/foam-sanat,09a3902cc6e09aff93aed7c7c3394c3620abc211,2025-11-27T14:31:15+00:00,Human,,7,2,2,False,False,False,False,"Merge pull request #75 from 0xRadikal/codex/understand-content-security-policy-errors
+
+Harden CSP for development while keeping production strict"
+https://www.github.com/0xradikal/foam-sanat,2b6e874c10d2e0dfe0c4599a7d7646d8bc0d1bdb,2025-11-27T14:30:12+00:00,Human,,7,2,2,False,False,False,False,Make CSP env-aware and remove meta policy
+https://www.github.com/0xradikal/foam-sanat,2f6cc034004b3753d72e289c09297fb9dbdfdacf,2025-11-27T14:30:12+00:00,Human,,7,2,2,False,False,False,False,Make CSP env-aware and remove meta policy
+https://www.github.com/0xradikal/foam-sanat,743fc56a33f8e29550a99be7db89c357157cbc4a,2025-11-27T13:55:57+00:00,Human,,58,0,1,False,True,False,False,fix
+https://www.github.com/0xradikal/foam-sanat,f0a9b866c3e2eac20343439030ce466a6e594348,2025-11-27T13:55:57+00:00,Human,,58,0,1,False,True,False,False,fix
+https://www.github.com/0xradikal/foam-sanat,74962b9fae4ecec9e4884a98806810870af0ed8d,2025-11-27T13:51:41+00:00,Human,,2,2,1,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,cde7cdb65e7934c787ede7d2ee6b067e3647ca09,2025-11-27T13:51:41+00:00,Human,,2,2,1,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,ebf722c5fd3aac65af5fa7a3bfbca30e927eeeeb,2025-11-27T13:49:57+00:00,Human,,2,2,1,False,True,False,False,"Merge pull request #74 from 0xRadikal/codex/fix-require-import-usage
+
+Convert Next.js config to ESM syntax"
+https://www.github.com/0xradikal/foam-sanat,cc2992ad7f75bddd7f090ba49920de6c06cd65b1,2025-11-27T13:49:57+00:00,Human,,2,2,1,False,True,False,False,"Merge pull request #74 from 0xRadikal/codex/fix-require-import-usage
+
+Convert Next.js config to ESM syntax"
+https://www.github.com/0xradikal/foam-sanat,b3929f15fe9189296ea7f9be1d71221e5349529d,2025-11-27T13:48:30+00:00,Human,,2,2,1,False,False,False,False,Convert Next config to ES module
+https://www.github.com/0xradikal/foam-sanat,2a6d999cf3bfe9958bee5b07057bcc9209e83e9b,2025-11-27T13:48:30+00:00,Human,,2,2,1,False,False,False,False,Convert Next config to ES module
+https://www.github.com/0xradikal/foam-sanat,8bb4d8d3816191e57a43466cb198a5aecf59071b,2025-11-27T13:36:10+00:00,Human,,63,9,4,False,False,False,False,s
+https://www.github.com/0xradikal/foam-sanat,dfa84c7f2c25e1524186a2d795c030d497ff420b,2025-11-27T13:36:10+00:00,Human,,97,36,5,False,False,False,False,s
+https://www.github.com/0xradikal/foam-sanat,50e0a5b53c6ab2eb878c9a5a7132c6c96e69e596,2025-11-27T13:29:44+00:00,Human,,63,10,5,False,True,False,False,"Merge pull request #73 from 0xRadikal/codex/run-all-npm-scripts
+
+Add stable env defaults and fix audit tooling"
+https://www.github.com/0xradikal/foam-sanat,e1f22333afa4e9b37ce3f3f18c4f750c5cce6e34,2025-11-27T13:29:44+00:00,Human,,95,36,6,False,True,False,False,"Merge pull request #73 from 0xRadikal/codex/run-all-npm-scripts
+
+Add stable env defaults and fix audit tooling"
+https://www.github.com/0xradikal/foam-sanat,063d4a12939ac90b9789621771df7c46a5ff0590,2025-11-27T13:28:45+00:00,Human,,63,10,5,False,True,False,False,Add stable env defaults and fix audit tooling
+https://www.github.com/0xradikal/foam-sanat,889a48c430d1a99f8128633ce77c42d74d0bd325,2025-11-27T13:28:45+00:00,Human,,95,36,6,False,True,False,False,Add stable env defaults and fix audit tooling
+https://www.github.com/0xradikal/foam-sanat,247a4b7f86d8dbb67e1edf8801a2b16e32d803cf,2025-11-27T13:00:04+00:00,Human,,341,240,12,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,39385c81738ab837b21fae7b3ad08ab7760cf8f2,2025-11-27T13:00:04+00:00,Human,,341,240,12,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,b33feff9591262303947be6610f6e32921050085,2025-11-27T12:59:27+00:00,Human,,341,240,12,False,False,False,False,"Merge pull request #71 from 0xRadikal/codex/conduct-deep-frontend-audit-and-dead-code-analysis
+
+Improve frontend stability and clean legacy helpers"
+https://www.github.com/0xradikal/foam-sanat,e392765346db96667e3d1fef72a409df0e06d6b9,2025-11-27T12:59:27+00:00,Human,,341,240,12,False,False,False,False,"Merge pull request #71 from 0xRadikal/codex/conduct-deep-frontend-audit-and-dead-code-analysis
+
+Improve frontend stability and clean legacy helpers"
+https://www.github.com/0xradikal/foam-sanat,5471cfab62ae088ae4e5f62c514ec578acf592ec,2025-11-27T12:58:31+00:00,Human,,5,4,1,False,True,False,False,"Merge pull request #72 from 0xRadikal/codex/run-lint,-build,-and-type-check
+
+Fix timeline icon memoization and type handling"
+https://www.github.com/0xradikal/foam-sanat,424e92e913cffee0346eec0e38cae50bad607c61,2025-11-27T12:58:31+00:00,Human,,5,4,1,False,True,False,False,"Merge pull request #72 from 0xRadikal/codex/run-lint,-build,-and-type-check
+
+Fix timeline icon memoization and type handling"
+https://www.github.com/0xradikal/foam-sanat,b25d51b526bd8363e46bebbc3f28676102a3f3d0,2025-11-27T12:57:35+00:00,Human,,5,4,1,False,True,False,False,Fix timeline icon memoization
+https://www.github.com/0xradikal/foam-sanat,ec8728f98b32a075324fb7ab48e623ee8d068a4d,2025-11-27T12:57:35+00:00,Human,,5,4,1,False,True,False,False,Fix timeline icon memoization
+https://www.github.com/0xradikal/foam-sanat,96c512a86d5586fa9b5797a14b107dc91636e875,2025-11-27T12:33:18+00:00,Human,,340,240,12,False,False,False,False,Stabilize frontend visuals and keys
+https://www.github.com/0xradikal/foam-sanat,ff3035c7cb289088d8e74439e23eb560feaf3fb2,2025-11-27T12:33:18+00:00,Human,,340,240,12,False,False,False,False,Stabilize frontend visuals and keys
+https://www.github.com/0xradikal/foam-sanat,d5992faae392cf4ac82c2b0dec7e5f00b766daf6,2025-11-27T11:28:38+00:00,Human,,1314,402,21,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,2ec5430b812e4e432dc816d9aadadca14aee39da,2025-11-27T11:28:38+00:00,Human,,1314,402,21,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,cc0e040a88d45bf4900ef175ede584c21a9dca3a,2025-11-27T11:28:34+00:00,Human,,21,7,3,False,False,False,False,s
+https://www.github.com/0xradikal/foam-sanat,da5258ab428fed60b13f726f57dd102a809ceb8b,2025-11-27T11:28:34+00:00,Human,,26,11,7,False,False,False,False,s
+https://www.github.com/0xradikal/foam-sanat,29e68b6071410f23217211ad15ac1d097b13bba9,2025-11-27T11:27:06+00:00,Human,,293,1,7,False,False,False,False,"Merge pull request #70 from 0xRadikal/codex/create-locale-switching-and-comment-submission-tests
+
+Add preview Playwright E2E coverage"
+https://www.github.com/0xradikal/foam-sanat,7fe769749819094400d4f31c809a88b014db2ec3,2025-11-27T11:27:06+00:00,Human,,293,1,7,False,False,False,False,"Merge pull request #70 from 0xRadikal/codex/create-locale-switching-and-comment-submission-tests
+
+Add preview Playwright E2E coverage"
+https://www.github.com/0xradikal/foam-sanat,07b59519b7a441c161e98fe7c315b834cf41cb58,2025-11-27T11:26:08+00:00,Human,,293,1,7,False,False,False,False,Add preview Playwright E2E coverage
+https://www.github.com/0xradikal/foam-sanat,167c6831e1069ca3142a4d0bf57c360749394e6e,2025-11-27T11:26:08+00:00,Human,,293,1,7,False,False,False,False,Add preview Playwright E2E coverage
+https://www.github.com/0xradikal/foam-sanat,600f0c81a6efae14ba39fc4490a053bacc03ef8e,2025-11-27T11:15:29+00:00,Human,,1021,401,16,False,False,False,False,"Merge pull request #69 from 0xRadikal/codex/abstract-storage-layer-for-postgres/sqlite
+
+Add configurable comments storage backend with migrations"
+https://www.github.com/0xradikal/foam-sanat,e2ceb1ab20d345d932003af75e154b133d1ebb01,2025-11-27T11:15:29+00:00,Human,,1021,401,16,False,False,False,False,"Merge pull request #69 from 0xRadikal/codex/abstract-storage-layer-for-postgres/sqlite
+
+Add configurable comments storage backend with migrations"
+https://www.github.com/0xradikal/foam-sanat,9d688e67fa6bcc71ca7952d69087d267962b9f11,2025-11-27T11:14:10+00:00,Human,,80,3,3,False,False,False,False,Ensure sqlite init errors log synchronously
+https://www.github.com/0xradikal/foam-sanat,f589dfd010745dd9f8076162d14701bf49853429,2025-11-27T11:14:10+00:00,Human,,80,3,3,False,False,False,False,Ensure sqlite init errors log synchronously
+https://www.github.com/0xradikal/foam-sanat,7fbd8e794fe443ccd096d8e07489e58382d24340,2025-11-27T11:06:18+00:00,Human,,8,4,1,False,True,False,False,Fix lint warnings in logging utility
+https://www.github.com/0xradikal/foam-sanat,8ea4af154fb61b90dc47c78b70e2b8f5934ea82d,2025-11-27T11:06:18+00:00,Human,,8,4,1,False,True,False,False,Fix lint warnings in logging utility
+https://www.github.com/0xradikal/foam-sanat,cec0bed18cb1aa9a02c4336635f51e24d9f12d74,2025-11-27T10:58:27+00:00,Human,,62,6,6,False,True,False,False,Fix comment storage type-check issues
+https://www.github.com/0xradikal/foam-sanat,9df30b2b110d1aeae970d163e783f5d7178b707c,2025-11-27T10:58:27+00:00,Human,,62,6,6,False,True,False,False,Fix comment storage type-check issues
+https://www.github.com/0xradikal/foam-sanat,f07c1def791881d152028224ccdd6e465611c73f,2025-11-27T10:45:54+00:00,Human,,905,422,15,False,False,False,False,Add pluggable comments storage with migrations and health metrics
+https://www.github.com/0xradikal/foam-sanat,cc2c68779f9497f853b826b669ec9ee6b90b4a4a,2025-11-27T10:45:54+00:00,Human,,905,422,15,False,False,False,False,Add pluggable comments storage with migrations and health metrics
+https://www.github.com/0xradikal/foam-sanat,f59edbcf670f34fa64dcd4a8262e2609eaf776e3,2025-11-27T10:38:38+00:00,Human,,338,11,9,False,False,False,False,"Merge pull request #68 from 0xRadikal/codex/introduce-signed-admin-sessions-and-jwts
+
+Add signed admin sessions and moderation audit logging"
+https://www.github.com/0xradikal/foam-sanat,ad5220990e16c98fbade58c0d403cb5aa955fe26,2025-11-27T10:38:38+00:00,Human,,338,11,9,False,False,False,False,"Merge pull request #68 from 0xRadikal/codex/introduce-signed-admin-sessions-and-jwts
+
+Add signed admin sessions and moderation audit logging"
+https://www.github.com/0xradikal/foam-sanat,975809aa4c06308db21c0ee964d98e3d1658c5b2,2025-11-27T10:37:44+00:00,Human,,338,11,9,False,False,False,False,Add signed admin sessions and moderation audit logs
+https://www.github.com/0xradikal/foam-sanat,7c9f65ab20c613383941d27b840fb9dda6252b8d,2025-11-27T10:37:44+00:00,Human,,338,11,9,False,False,False,False,Add signed admin sessions and moderation audit logs
+https://www.github.com/0xradikal/foam-sanat,cac6ca47f96455c7d2fddd17385eb079a8f855e8,2025-11-27T10:30:51+00:00,Human,,38,23,2,False,False,False,False,"Merge pull request #67 from 0xRadikal/codex/configure-github-actions-for-ci-tests
+
+Set up CI checks and preview audits"
+https://www.github.com/0xradikal/foam-sanat,61dc427bde27ea56a935d40d8f57c0d183ee1ed2,2025-11-27T10:30:51+00:00,Human,,38,23,2,False,False,False,False,"Merge pull request #67 from 0xRadikal/codex/configure-github-actions-for-ci-tests
+
+Set up CI checks and preview audits"
+https://www.github.com/0xradikal/foam-sanat,8ec07a6e9f63766c2bbf4733c50244dd07e8bca0,2025-11-27T10:30:01+00:00,Human,,38,23,2,False,False,False,False,Set up CI checks and preview audits
+https://www.github.com/0xradikal/foam-sanat,351f7001f14859e301e68b3c7f98c65b4dc30b34,2025-11-27T10:30:01+00:00,Human,,38,23,2,False,False,False,False,Set up CI checks and preview audits
+https://www.github.com/0xradikal/foam-sanat,e9856d45e38bd1dcfa029cf550b403efcbdbe6a8,2025-11-27T10:21:31+00:00,Human,,38,33,1,False,False,False,False,"Merge pull request #66 from 0xRadikal/codex/refactor-navigation-functions-into-resolver-map
+
+Refactor navigation resolver map"
+https://www.github.com/0xradikal/foam-sanat,2e7b7472822e01f648c22d3b7f45dc37329f842f,2025-11-27T10:21:31+00:00,Human,,38,33,1,False,False,False,False,"Merge pull request #66 from 0xRadikal/codex/refactor-navigation-functions-into-resolver-map
+
+Refactor navigation resolver map"
+https://www.github.com/0xradikal/foam-sanat,167011f7302a8155ecb462940663a6e4eab3ada6,2025-11-27T10:20:12+00:00,Human,,38,33,1,False,False,False,False,Refactor navigation resolver map
+https://www.github.com/0xradikal/foam-sanat,beef8531105b9be5e82c822afe8fa6c6107c576d,2025-11-27T10:20:12+00:00,Human,,38,33,1,False,False,False,False,Refactor navigation resolver map
+https://www.github.com/0xradikal/foam-sanat,c80c79c5eb1b62c0045655cd8154e34af153d8e3,2025-11-27T10:19:59+00:00,Human,,278,92,10,False,False,False,False,"Merge pull request #65 from 0xRadikal/codex/implement-structured-logging-and-metrics
+
+Add consent-gated fonts and storage health checks"
+https://www.github.com/0xradikal/foam-sanat,02ddebe4d0bfd6cc5047db612eb736ac8d871737,2025-11-27T10:19:59+00:00,Human,,278,92,10,False,False,False,False,"Merge pull request #65 from 0xRadikal/codex/implement-structured-logging-and-metrics
+
+Add consent-gated fonts and storage health checks"
+https://www.github.com/0xradikal/foam-sanat,2f71754303edfb84905094fd29ff02d5deb4a748,2025-11-27T10:18:38+00:00,Human,,278,92,10,False,False,False,False,Improve consent handling and health observability
+https://www.github.com/0xradikal/foam-sanat,0c5a06df5300ac7d0a6bc5c13ac8f77b454e120e,2025-11-27T10:18:38+00:00,Human,,278,92,10,False,False,False,False,Improve consent handling and health observability
+https://www.github.com/0xradikal/foam-sanat,69c4e505809c53fdb6c29cee02a7fff176d1ed71,2025-11-27T10:07:32+00:00,Human,,100,60,11,False,False,False,False,"Merge pull request #64 from 0xRadikal/codex/invoke-validateenv-during-server-bootstrap
+
+Add server bootstrap validation and unify navigation config"
+https://www.github.com/0xradikal/foam-sanat,3f8dfabd9f0e5b7a2916823b8c4ad80c07bfe2ed,2025-11-27T10:07:32+00:00,Human,,100,60,11,False,False,False,False,"Merge pull request #64 from 0xRadikal/codex/invoke-validateenv-during-server-bootstrap
+
+Add server bootstrap validation and unify navigation config"
+https://www.github.com/0xradikal/foam-sanat,585b8f83bf1f5eb09893ceaf68a3f6a9fe62a02e,2025-11-27T10:06:12+00:00,Human,,100,60,11,False,False,False,False,Add server bootstrap validation and unify navigation config
+https://www.github.com/0xradikal/foam-sanat,02e4054c23a4afe9caafe88677060b100ad790dd,2025-11-27T10:06:12+00:00,Human,,100,60,11,False,False,False,False,Add server bootstrap validation and unify navigation config
+https://www.github.com/0xradikal/foam-sanat,802dddf0a932dbe792cd52d7259a8524bd7b8f07,2025-11-27T09:55:37+00:00,Human,,498,101,14,False,False,False,False,"Merge pull request #63 from 0xRadikal/codex/wrap-api-handlers-with-logger
+
+Add request logging and preview audits"
+https://www.github.com/0xradikal/foam-sanat,ef323aaf6478c716a62dc0b46784a7a3e6a24af8,2025-11-27T09:55:37+00:00,Human,,498,101,14,False,False,False,False,"Merge pull request #63 from 0xRadikal/codex/wrap-api-handlers-with-logger
+
+Add request logging and preview audits"
+https://www.github.com/0xradikal/foam-sanat,33c43d647895c68a710137abf2708e8d44caa8a1,2025-11-27T09:54:11+00:00,Human,,7,2,2,False,False,False,False,Skip preview audits when preview URL is missing
+https://www.github.com/0xradikal/foam-sanat,c05d7e23925167c7d489678584ec107989b4af7d,2025-11-27T09:54:11+00:00,Human,,7,2,2,False,False,False,False,Skip preview audits when preview URL is missing
+https://www.github.com/0xradikal/foam-sanat,4393102f8aa73230097c8ebc0517bfe02bd8d728,2025-11-27T09:48:42+00:00,Human,,66,42,2,False,True,False,False,Fix request logging handler typings
+https://www.github.com/0xradikal/foam-sanat,4e23c775a77c2c4ed916684ff93c3664425ad996,2025-11-27T09:48:42+00:00,Human,,66,42,2,False,True,False,False,Fix request logging handler typings
+https://www.github.com/0xradikal/foam-sanat,dbb6c783beb97667d57f0107138939034707bb7f,2025-11-27T09:41:05+00:00,Human,,440,72,14,False,False,False,False,Add request logging and preview audits
+https://www.github.com/0xradikal/foam-sanat,6cecbe632e38093bcecbbf6ee6cde90c709fab4a,2025-11-27T09:41:05+00:00,Human,,440,72,14,False,False,False,False,Add request logging and preview audits
+https://www.github.com/0xradikal/foam-sanat,286a3f91faa6ddacc5895426b742c1da24a6826b,2025-11-27T09:23:17+00:00,Human,,151,13,7,False,False,False,False,"Merge pull request #62 from 0xRadikal/codex/add-retry-after-headers-and-client-side-backoff
+
+Add retry handling, CI checks, and validation tests"
+https://www.github.com/0xradikal/foam-sanat,4fcfceb7689738ffa8ed933b384c70bb680ac287,2025-11-27T09:23:17+00:00,Human,,151,13,7,False,False,False,False,"Merge pull request #62 from 0xRadikal/codex/add-retry-after-headers-and-client-side-backoff
+
+Add retry handling, CI checks, and validation tests"
+https://www.github.com/0xradikal/foam-sanat,a8c9da2c8d9bbc586e21be1e1cbd738f5aa08116,2025-11-27T09:22:19+00:00,Human,,151,13,7,False,False,False,False,"Add retry handling, CI checks, and validation tests"
+https://www.github.com/0xradikal/foam-sanat,3e9540d50d79aec9e04d570cc4270b1438b4913a,2025-11-27T09:22:19+00:00,Human,,151,13,7,False,False,False,False,"Add retry handling, CI checks, and validation tests"
+https://www.github.com/0xradikal/foam-sanat,0fb22e24e473b53cea9241ce614269d59db3eb3f,2025-11-27T09:16:36+00:00,Human,,207,82,9,False,False,False,False,"Merge pull request #60 from 0xRadikal/codex/add-security-headers-and-conditional-loading
+
+Add security headers and locale-aware fonts/analytics"
+https://www.github.com/0xradikal/foam-sanat,a9b00b566647be9fecab5b04a56e3b005ec8f6e2,2025-11-27T09:16:36+00:00,Human,,207,82,9,False,False,False,False,"Merge pull request #60 from 0xRadikal/codex/add-security-headers-and-conditional-loading
+
+Add security headers and locale-aware fonts/analytics"
+https://www.github.com/0xradikal/foam-sanat,b15aede88b9431b36b90debb296a4417d44a5452,2025-11-27T09:05:02+00:00,Human,,207,82,9,False,False,False,False,Add security headers and locale-aware fonts/analytics
+https://www.github.com/0xradikal/foam-sanat,e49f6d61df346b18b62a8ac9ac918ab44f8a8c4b,2025-11-27T09:05:02+00:00,Human,,207,82,9,False,False,False,False,Add security headers and locale-aware fonts/analytics
+https://www.github.com/0xradikal/foam-sanat,b9fd02916db274864ce87aa18f7ee0af0d9df8dd,2025-11-26T09:19:43+00:00,Human,,363,80,12,False,False,False,False,"Merge pull request #59 from 0xRadikal/codex/implement-origin-list-and-logging-features
+
+Strengthen origin controls and admin authentication"
+https://www.github.com/0xradikal/foam-sanat,1e666dbe33d50541b66f21dec3016717237ad947,2025-11-26T09:19:43+00:00,Human,,363,80,12,False,False,False,False,"Merge pull request #59 from 0xRadikal/codex/implement-origin-list-and-logging-features
+
+Strengthen origin controls and admin authentication"
+https://www.github.com/0xradikal/foam-sanat,8a65164148f98e1d12c463b21d9a28e0af9a0736,2025-11-26T09:17:47+00:00,Human,,363,80,12,False,False,False,False,Improve origin controls and admin auth
+https://www.github.com/0xradikal/foam-sanat,8a6e4f6cdaf8b278dbf5ea454d45c90c04d7f902,2025-11-26T09:17:47+00:00,Human,,363,80,12,False,False,False,False,Improve origin controls and admin auth
+https://www.github.com/0xradikal/foam-sanat,2b2c9f6e8d486c40de0f1642a41c906418e24133,2025-11-26T09:03:38+00:00,Human,,70,49,2,False,False,False,False,"Merge pull request #58 from 0xRadikal/codex/refactor-preconnect-and-analytics-script
+
+Refactor head resource helpers"
+https://www.github.com/0xradikal/foam-sanat,08bd20d0c2ae16f24d8c46b2f64bd5574424abcb,2025-11-26T09:03:38+00:00,Human,,70,49,2,False,False,False,False,"Merge pull request #58 from 0xRadikal/codex/refactor-preconnect-and-analytics-script
+
+Refactor head resource helpers"
+https://www.github.com/0xradikal/foam-sanat,d3c9e5041593afaea67edc4db0a3a4dadf8c556d,2025-11-26T09:00:16+00:00,Human,,70,49,2,False,False,False,False,Refactor head resources into helpers
+https://www.github.com/0xradikal/foam-sanat,aff684ebe3dc1c1700fa5ee1a79ede85817b0874,2025-11-26T09:00:16+00:00,Human,,70,49,2,False,False,False,False,Refactor head resources into helpers
+https://www.github.com/0xradikal/foam-sanat,b62d21d8ab82078e418b14118c6cfba97b49e917,2025-11-26T08:54:45+00:00,Human,,75,69,1,False,False,False,False,"Merge pull request #57 from 0xRadikal/codex/refactor-navigation-creation-into-a-factory
+
+Refactor navigation factory"
+https://www.github.com/0xradikal/foam-sanat,37baf528ee341151fae4d356463f311031d8860a,2025-11-26T08:54:45+00:00,Human,,75,69,1,False,False,False,False,"Merge pull request #57 from 0xRadikal/codex/refactor-navigation-creation-into-a-factory
+
+Refactor navigation factory"
+https://www.github.com/0xradikal/foam-sanat,b928b1aae71ca5825a2b22322753aefba2f86505,2025-11-26T08:54:11+00:00,Human,,75,69,1,False,False,False,False,Refactor navigation factory
+https://www.github.com/0xradikal/foam-sanat,4ec62b0ea2c6c2d8f89d2479580d3bb9f40985b1,2025-11-26T08:54:11+00:00,Human,,75,69,1,False,False,False,False,Refactor navigation factory
+https://www.github.com/0xradikal/foam-sanat,e7f00cdd236a8fe96ee2390ed2efb02374130d2e,2025-11-26T08:45:01+00:00,Human,,34,13,2,False,False,False,False,"Merge pull request #56 from 0xRadikal/codex/parse-bearer-token-for-admin-identity-qriuxa
+
+Improve env validation fallbacks for tooling"
+https://www.github.com/0xradikal/foam-sanat,cb8477e5539eff5cd7ebb1835f0ad7a14bac846d,2025-11-26T08:45:01+00:00,Human,,34,13,2,False,False,False,False,"Merge pull request #56 from 0xRadikal/codex/parse-bearer-token-for-admin-identity-qriuxa
+
+Improve env validation fallbacks for tooling"
+https://www.github.com/0xradikal/foam-sanat,20ed27693c41c08c59d6b95c6d4db3d34d30ec52,2025-11-26T08:44:07+00:00,Human,,232,41,11,False,False,False,False,Improve env validation fallbacks for tooling
+https://www.github.com/0xradikal/foam-sanat,dfb4888220bdbb23ec5e38fd8983bc28401c1a3e,2025-11-26T08:44:07+00:00,Human,,232,41,11,False,False,False,False,Improve env validation fallbacks for tooling
+https://www.github.com/0xradikal/foam-sanat,148dbc37bbd660581b2bcc4104e8534d7201dad2,2025-11-26T08:36:09+00:00,Human,,198,28,9,False,False,False,False,"Merge pull request #55 from 0xRadikal/codex/parse-bearer-token-for-admin-identity
+
+Add admin identity metadata and audit logging for comments"
+https://www.github.com/0xradikal/foam-sanat,b78b3f41a86b2100d150fcfe674b80af7f5a482b,2025-11-26T08:36:09+00:00,Human,,198,28,9,False,False,False,False,"Merge pull request #55 from 0xRadikal/codex/parse-bearer-token-for-admin-identity
+
+Add admin identity metadata and audit logging for comments"
+https://www.github.com/0xradikal/foam-sanat,33523375c64c83273c7fac611fb2a6535acbefe0,2025-11-26T08:35:32+00:00,Human,,198,28,9,False,False,False,False,Add admin identity metadata and audit logging for comments
+https://www.github.com/0xradikal/foam-sanat,0fd35c24aab7e13eaba97d07255041ab8c8afb43,2025-11-26T08:35:32+00:00,Human,,198,28,9,False,False,False,False,Add admin identity metadata and audit logging for comments
+https://www.github.com/0xradikal/foam-sanat,754f881e484196a8c1934f99d44446f3760a3846,2025-11-26T08:21:22+00:00,Human,,233,27,6,False,False,False,False,"Merge pull request #54 from 0xRadikal/codex/extend-getallowedorigins-for-preview-deployments
+
+Enhance locale handling and comments availability"
+https://www.github.com/0xradikal/foam-sanat,d353c10e61d233998b7bab74c18db3129d1b41b3,2025-11-26T08:21:22+00:00,Human,,233,27,6,False,False,False,False,"Merge pull request #54 from 0xRadikal/codex/extend-getallowedorigins-for-preview-deployments
+
+Enhance locale handling and comments availability"
+https://www.github.com/0xradikal/foam-sanat,577dfc4c7911dea6f1587118ba1e86b74445e733,2025-11-26T08:20:38+00:00,Human,,233,27,6,False,False,False,False,Enhance locale handling and comments availability
+https://www.github.com/0xradikal/foam-sanat,2239f7865a2595a6da1d600d4fe6d0c0753cc7c4,2025-11-26T08:20:38+00:00,Human,,233,27,6,False,False,False,False,Enhance locale handling and comments availability
+https://www.github.com/0xradikal/foam-sanat,b8882e20b05e4260a4b434de67d886b07c2ad013,2025-11-26T07:44:44+00:00,Human,,6,1,1,False,False,False,False,"Merge pull request #53 from 0xRadikal/codex/call-validateenv-in-server-entry-point
+
+Add server-only environment validation"
+https://www.github.com/0xradikal/foam-sanat,2534f8e561f8cd46dec0d3c6a1700b85999c40a8,2025-11-26T07:44:44+00:00,Human,,6,1,1,False,False,False,False,"Merge pull request #53 from 0xRadikal/codex/call-validateenv-in-server-entry-point
+
+Add server-only environment validation"
+https://www.github.com/0xradikal/foam-sanat,213afd5808954a1161f8b11ee9332a7cac5bd4ce,2025-11-26T07:43:25+00:00,Human,,6,1,1,False,False,False,False,Run env validation on server layout
+https://www.github.com/0xradikal/foam-sanat,02dd7df0248bf69f3c1aa6a4ad33b92a14e4d02f,2025-11-26T07:43:25+00:00,Human,,6,1,1,False,False,False,False,Run env validation on server layout
+https://www.github.com/0xradikal/foam-sanat,7bedb4c652f5f79edca8f4272f2a09217220aca1,2025-11-26T07:34:17+00:00,Human,,35,2,2,False,False,False,False,"Merge pull request #52 from 0xRadikal/codex/harden-redis-backed-rate-limiter-error-handling
+
+Improve rate limiter fallback handling"
+https://www.github.com/0xradikal/foam-sanat,1814f1a0eb1ea048b7b570a2eb813039243108f5,2025-11-26T07:34:17+00:00,Human,,35,2,2,False,False,False,False,"Merge pull request #52 from 0xRadikal/codex/harden-redis-backed-rate-limiter-error-handling
+
+Improve rate limiter fallback handling"
+https://www.github.com/0xradikal/foam-sanat,d9dca7ac15d9af6d8266bccf51841bef4805ced9,2025-11-26T07:33:21+00:00,Human,,35,2,2,False,False,False,False,Improve rate limiter fallback handling
+https://www.github.com/0xradikal/foam-sanat,ba69d320f0631c1146b1fbebce2d978ac5d5ced8,2025-11-26T07:33:21+00:00,Human,,35,2,2,False,False,False,False,Improve rate limiter fallback handling
+https://www.github.com/0xradikal/foam-sanat,6dc6ec02cfebb752747c19b53e5d953697c112dd,2025-11-26T07:15:10+00:00,Human,,30,2,2,False,False,False,False,"Merge pull request #51 from 0xRadikal/codex/conduct-comprehensive-codebase-audit-8ztsjo
+
+Improve rate limiter resilience"
+https://www.github.com/0xradikal/foam-sanat,a888b43acb996bc97cccaf6d20cdefbaef9cfdf9,2025-11-26T07:15:10+00:00,Human,,30,2,2,False,False,False,False,"Merge pull request #51 from 0xRadikal/codex/conduct-comprehensive-codebase-audit-8ztsjo
+
+Improve rate limiter resilience"
+https://www.github.com/0xradikal/foam-sanat,396574fc177b967c3d0ef8c1db96484c8490279e,2025-11-26T07:14:09+00:00,Human,,30,2,2,False,False,False,False,Improve rate limiter resilience
+https://www.github.com/0xradikal/foam-sanat,a65116f07ad7c47a48ce96a6dbb81ac7ef709eb9,2025-11-26T07:14:09+00:00,Human,,30,2,2,False,False,False,False,Improve rate limiter resilience
+https://www.github.com/0xradikal/foam-sanat,6f585559f1acd2844ab69ee2896f9c96520f5ccd,2025-11-26T06:50:10+00:00,Human,,356,156,17,False,True,False,False,"Merge pull request #50 from 0xRadikal/codex/fix-env-strategy-and-clean-up-code
+
+Refine env strategy and harden comments service"
+https://www.github.com/0xradikal/foam-sanat,b3f5413ad194769764e10507dad239476f679815,2025-11-26T06:50:10+00:00,Human,,356,156,17,False,True,False,False,"Merge pull request #50 from 0xRadikal/codex/fix-env-strategy-and-clean-up-code
+
+Refine env strategy and harden comments service"
+https://www.github.com/0xradikal/foam-sanat,597a69086866fbacce42168ed97a43027677d568,2025-11-26T06:49:50+00:00,Human,,356,156,17,False,False,False,False,Refine env strategy and harden comments service
+https://www.github.com/0xradikal/foam-sanat,fdfe239741033da5be56f122978e83f80ea3079e,2025-11-26T06:49:50+00:00,Human,,356,156,17,False,False,False,False,Refine env strategy and harden comments service
+https://www.github.com/0xradikal/foam-sanat,0044152a95dc3932094271c326a4edf15419ff14,2025-11-26T06:30:50+00:00,Human,,37,18,4,False,False,False,False,bug variables
+https://www.github.com/0xradikal/foam-sanat,8159f21545036cf1eff5356c8b093414d0a951e0,2025-11-26T06:30:50+00:00,Human,,41,22,5,False,False,False,False,bug variables
+https://www.github.com/0xradikal/foam-sanat,70d8522672e301311b4b1fb25e19ffd349a7222b,2025-11-26T05:50:49+00:00,Human,,4,0,1,False,False,False,False,add some variables
+https://www.github.com/0xradikal/foam-sanat,bc3f92ed0a5c92738a1af2b05a0ea6afef6d96ba,2025-11-25T20:23:17+00:00,Human,,249,57,5,False,False,False,False,"Merge pull request #49 from 0xRadikal/codex/refactor-database-initialization-with-logging
+
+Refactor comment database initialization"
+https://www.github.com/0xradikal/foam-sanat,68024be369d804751f03fd5b6d5b0e110cb1df37,2025-11-25T20:23:17+00:00,Human,,249,57,5,False,False,False,False,"Merge pull request #49 from 0xRadikal/codex/refactor-database-initialization-with-logging
+
+Refactor comment database initialization"
+https://www.github.com/0xradikal/foam-sanat,aa9d5043c9476046d0bc3aebe08cc162de1e20d4,2025-11-25T20:22:24+00:00,Human,,249,57,5,False,False,False,False,Refactor comment database initialization
+https://www.github.com/0xradikal/foam-sanat,afead6874784ada31658062093ba1e6bb48bee20,2025-11-25T20:22:24+00:00,Human,,249,57,5,False,False,False,False,Refactor comment database initialization
+https://www.github.com/0xradikal/foam-sanat,fd4473c4b35500f881e279e47ab74eec206a9084,2025-11-25T20:00:57+00:00,Human,,309,28,7,False,False,False,False,"Merge pull request #48 from 0xRadikal/codex/replace-map-based-limiter-with-redis
+
+Add Redis-backed rate limiting for comments"
+https://www.github.com/0xradikal/foam-sanat,ed98f9ba53a84aa3efe7e9c9e0be101cf1e419c8,2025-11-25T20:00:57+00:00,Human,,309,28,7,False,False,False,False,"Merge pull request #48 from 0xRadikal/codex/replace-map-based-limiter-with-redis
+
+Add Redis-backed rate limiting for comments"
+https://www.github.com/0xradikal/foam-sanat,dbb8b6b07113eb4274d95d87610cb0a2d74c238b,2025-11-25T19:59:26+00:00,Human,,309,28,7,False,False,False,False,Add Redis-backed comment rate limiting with tests
+https://www.github.com/0xradikal/foam-sanat,e2e31dc05086b3c11693eceec4fa61e255cd27fb,2025-11-25T19:59:26+00:00,Human,,309,28,7,False,False,False,False,Add Redis-backed comment rate limiting with tests
+https://www.github.com/0xradikal/foam-sanat,67474c36dbb558a6ed56f00f84f6ff8a35732e08,2025-11-25T19:45:45+00:00,Human,,37,12,5,False,False,False,False,"Merge pull request #47 from 0xRadikal/codex/add-production-time-guard-for-turnstile_secret_key
+
+Improve CAPTCHA verification error handling"
+https://www.github.com/0xradikal/foam-sanat,fff7a72852457d27674f7e569dd1c0501b503eca,2025-11-25T19:45:45+00:00,Human,,37,12,5,False,False,False,False,"Merge pull request #47 from 0xRadikal/codex/add-production-time-guard-for-turnstile_secret_key
+
+Improve CAPTCHA verification error handling"
+https://www.github.com/0xradikal/foam-sanat,ad3d7dd0a0201de7abf466ee1bc0607aef1fcf44,2025-11-25T19:44:39+00:00,Human,,37,12,5,False,False,False,False,Improve captcha verification robustness
+https://www.github.com/0xradikal/foam-sanat,5b511f97d4c921fd79a8bde1eaaec73a72032a14,2025-11-25T19:44:39+00:00,Human,,37,12,5,False,False,False,False,Improve captcha verification robustness
+https://www.github.com/0xradikal/foam-sanat,4e18aad7e92314f8e1bc31f385cc336e01099214,2025-11-25T19:41:54+00:00,Human,,6,2,3,False,True,False,False,"Merge pull request #46 from 0xRadikal/codex/conduct-comprehensive-codebase-audit
+
+Fix contact API tests by bypassing Turnstile during test runs"
+https://www.github.com/0xradikal/foam-sanat,338f6cd048d28e93d6b1b2abc6a4a64a289a411c,2025-11-25T19:41:54+00:00,Human,,6,2,3,False,True,False,False,"Merge pull request #46 from 0xRadikal/codex/conduct-comprehensive-codebase-audit
+
+Fix contact API tests by bypassing Turnstile during test runs"
+https://www.github.com/0xradikal/foam-sanat,0920aa449e60f88240ba674d0e6a35d19c59e9c8,2025-11-25T19:39:48+00:00,Human,,6,2,3,False,False,False,False,Improve contact route test execution
+https://www.github.com/0xradikal/foam-sanat,9f17095ba395ec9b1706a604bd93e8e4b0c15d1a,2025-11-25T19:39:48+00:00,Human,,6,2,3,False,False,False,False,Improve contact route test execution
+https://www.github.com/0xradikal/foam-sanat,4944229df8ab6f939d2e123d8ac3ff338c2024a6,2025-11-25T17:36:36+00:00,Human,,56,14,2,False,False,False,False,"Merge pull request #45 from 0xRadikal/codex/audit-and-upgrade-entire-codebase
+
+Improve CAPTCHA enforcement and contact form accessibility"
+https://www.github.com/0xradikal/foam-sanat,aaae3e195bbc15c255d3a4f3bd420b38860eb2d6,2025-11-25T17:36:36+00:00,Human,,56,14,2,False,False,False,False,"Merge pull request #45 from 0xRadikal/codex/audit-and-upgrade-entire-codebase
+
+Improve CAPTCHA enforcement and contact form accessibility"
+https://www.github.com/0xradikal/foam-sanat,1baa59f0cd0a688fdd0838ff7eb9ea09d610c581,2025-11-25T17:33:31+00:00,Human,,56,14,2,False,False,False,False,Enforce CAPTCHA token handling and improve contact form UX
+https://www.github.com/0xradikal/foam-sanat,b10d318eaeb4f7ff1701515264d6c4e95c0be12d,2025-11-25T17:33:31+00:00,Human,,56,14,2,False,False,False,False,Enforce CAPTCHA token handling and improve contact form UX
+https://www.github.com/0xradikal/foam-sanat,e693f77c92aa1549131f45326d2ce1c4e1daacb1,2025-11-18T20:36:06+00:00,Human,,25,81,1,False,False,False,False,"Merge pull request #44 from 0xRadikal/codex/refactor-components-to-use-theme-tokens-b2d3hz
+
+Refactor product modals to use shared component"
+https://www.github.com/0xradikal/foam-sanat,a971189f19717fd592f85de507b8f870e85873ae,2025-11-18T20:36:06+00:00,Human,,25,81,1,False,False,False,False,"Merge pull request #44 from 0xRadikal/codex/refactor-components-to-use-theme-tokens-b2d3hz
+
+Refactor product modals to use shared component"
+https://www.github.com/0xradikal/foam-sanat,0c132794fe387d2f016cf15802a48a98603c3179,2025-11-18T20:35:45+00:00,Human,,63,104,6,False,False,False,False,Refactor product modals to use shared component
+https://www.github.com/0xradikal/foam-sanat,e448dc555bb1a08d2c180ac287c12ca76bc8f51b,2025-11-18T20:35:45+00:00,Human,,63,104,6,False,False,False,False,Refactor product modals to use shared component
+https://www.github.com/0xradikal/foam-sanat,528b8fb787a9bce23f4bdb35d4df8aaaa870c8b0,2025-11-18T20:25:01+00:00,Human,,38,23,5,False,False,False,False,"Merge pull request #43 from 0xRadikal/codex/refactor-components-to-use-theme-tokens
+
+Refactor theme classes to centralized tokens"
+https://www.github.com/0xradikal/foam-sanat,b4bb37cccb49ad5103a3fd4d7c4b65ea38473645,2025-11-18T20:25:01+00:00,Human,,38,23,5,False,False,False,False,"Merge pull request #43 from 0xRadikal/codex/refactor-components-to-use-theme-tokens
+
+Refactor theme classes to centralized tokens"
+https://www.github.com/0xradikal/foam-sanat,6bc7aa302c162cb707062501fb769b5ef26c5da7,2025-11-18T20:24:42+00:00,Human,,38,23,5,False,False,False,False,Refactor theme classes to centralized tokens
+https://www.github.com/0xradikal/foam-sanat,90fbabcd0a41c23140d7cb5a870dee71bfd57d5b,2025-11-18T20:24:42+00:00,Human,,38,23,5,False,False,False,False,Refactor theme classes to centralized tokens
+https://www.github.com/0xradikal/foam-sanat,ee5d8ffa36d4a1aee4607a8be466d78db0d71b4f,2025-11-18T20:12:13+00:00,Human,,107,27,5,False,True,False,False,"Merge pull request #41 from 0xRadikal/codex/fix-environment-variable-security-issues-x4250f
+
+Centralize validation helpers"
+https://www.github.com/0xradikal/foam-sanat,258aca4f7c9461e14a47b475a9e7559aeef2c6dc,2025-11-18T20:12:13+00:00,Human,,107,27,5,False,True,False,False,"Merge pull request #41 from 0xRadikal/codex/fix-environment-variable-security-issues-x4250f
+
+Centralize validation helpers"
+https://www.github.com/0xradikal/foam-sanat,4c2e3d44d5c8a9111a1bcf8c432c8a42c6b93426,2025-11-18T20:11:40+00:00,Human,,810,183,18,False,False,False,False,Centralize validation helpers
+https://www.github.com/0xradikal/foam-sanat,19f2a7635aa9ace04a94c2c455c42de524672371,2025-11-18T20:11:40+00:00,Human,,810,183,18,False,False,False,False,Centralize validation helpers
+https://www.github.com/0xradikal/foam-sanat,283ab022257b2a1899794164b71db4862fed5020,2025-11-18T20:02:50+00:00,Human,,76,5,3,False,True,False,False,"Merge pull request #40 from 0xRadikal/codex/fix-environment-variable-security-issues-nj9a56
+
+Add global error handling and user feedback improvements"
+https://www.github.com/0xradikal/foam-sanat,755a46d6520336080f6608d88b5d4f2952ca7ad0,2025-11-18T20:02:50+00:00,Human,,76,5,3,False,True,False,False,"Merge pull request #40 from 0xRadikal/codex/fix-environment-variable-security-issues-nj9a56
+
+Add global error handling and user feedback improvements"
+https://www.github.com/0xradikal/foam-sanat,1674d59a762239349e5d5fa6a72e4748693b4a01,2025-11-18T20:01:33+00:00,Human,,703,156,15,False,False,False,False,Improve error handling and user feedback
+https://www.github.com/0xradikal/foam-sanat,8ac439a283c07878e33e8836206c518ac74d925a,2025-11-18T20:01:33+00:00,Human,,703,156,15,False,False,False,False,Improve error handling and user feedback
+https://www.github.com/0xradikal/foam-sanat,4ecdae1bbefd643a7d7badf1ad9ac3b1149e662c,2025-11-18T19:48:45+00:00,Human,,589,135,9,False,True,False,False,"Merge pull request #39 from 0xRadikal/codex/fix-environment-variable-security-issues-ncjp79
+
+Migrate comments API to SQLite backend"
+https://www.github.com/0xradikal/foam-sanat,baf212230dc6f6cac5c5cd0839ad64bf1bbdf31a,2025-11-18T19:48:45+00:00,Human,,589,135,9,False,True,False,False,"Merge pull request #39 from 0xRadikal/codex/fix-environment-variable-security-issues-ncjp79
+
+Migrate comments API to SQLite backend"
+https://www.github.com/0xradikal/foam-sanat,da22e4a6fa2bb4e2f35f04f02ec86766c66903c2,2025-11-18T19:48:33+00:00,Human,,627,151,12,False,False,False,False,Migrate comments storage to SQLite
+https://www.github.com/0xradikal/foam-sanat,4a7daa737bfdd08c68c6e092f91a5223cba0d423,2025-11-18T19:48:33+00:00,Human,,627,151,12,False,False,False,False,Migrate comments storage to SQLite
+https://www.github.com/0xradikal/foam-sanat,8ec9045b59a37e7e29a90d256500bb02688a2384,2025-11-18T19:42:39+00:00,Human,,38,16,3,False,True,False,False,"Merge pull request #38 from 0xRadikal/codex/fix-environment-variable-security-issues
+
+Add strict environment variable validation"
+https://www.github.com/0xradikal/foam-sanat,c0bf1dcb78333a506597b2b6dadd2ec0dee9d08d,2025-11-18T19:42:39+00:00,Human,,38,16,3,False,True,False,False,"Merge pull request #38 from 0xRadikal/codex/fix-environment-variable-security-issues
+
+Add strict environment variable validation"
+https://www.github.com/0xradikal/foam-sanat,a27223213f363cdd84f1913a94cffe44bb42e95a,2025-11-18T19:42:09+00:00,Human,,38,16,3,False,False,False,False,Add strict environment variable validation
+https://www.github.com/0xradikal/foam-sanat,1c50315e28965a08aa13b98df5ae71751505f0f4,2025-11-18T19:42:09+00:00,Human,,38,16,3,False,False,False,False,Add strict environment variable validation
+https://www.github.com/0xradikal/foam-sanat,950cf2ab0ce9259183c652389c2637e94ba70f55,2025-11-18T19:27:04+00:00,Human,,293,77,6,False,False,False,False,"Merge pull request #37 from 0xRadikal/codex/harden-public-post-endpoints-security
+
+Harden public endpoints and validation"
+https://www.github.com/0xradikal/foam-sanat,150b437315a1f6c829bf376d995c2ff6dc0ee8b3,2025-11-18T19:27:04+00:00,Human,,293,77,6,False,False,False,False,"Merge pull request #37 from 0xRadikal/codex/harden-public-post-endpoints-security
+
+Harden public endpoints and validation"
+https://www.github.com/0xradikal/foam-sanat,139a5c3b1db87256e67e220e1ba4f9d5e1ea4695,2025-11-18T19:25:01+00:00,Human,,293,77,6,False,False,False,False,Harden public endpoints and validation
+https://www.github.com/0xradikal/foam-sanat,3b1b07db5b6e47eea0720efdc177dd9088c1fcd3,2025-11-18T19:25:01+00:00,Human,,293,77,6,False,False,False,False,Harden public endpoints and validation
+https://www.github.com/0xradikal/foam-sanat,b5aaaccfcd93935056bcbb60adf9081e41d3418c,2025-11-14T13:16:20+00:00,Human,,108,35,5,False,False,False,False,"Merge pull request #36 from 0xRadikal/codex/refactor-navigation-clients-and-remove-duplicates
+
+Refactor navigation clients to use shared helpers"
+https://www.github.com/0xradikal/foam-sanat,672de706c0aaafa622fedaed8911adfe40a809dc,2025-11-14T13:16:20+00:00,Human,,108,35,5,False,False,False,False,"Merge pull request #36 from 0xRadikal/codex/refactor-navigation-clients-and-remove-duplicates
+
+Refactor navigation clients to use shared helpers"
+https://www.github.com/0xradikal/foam-sanat,d675b897c7caa191161f819e70c91d8bfe113fa8,2025-11-14T13:15:31+00:00,Human,,108,35,5,False,False,False,False,Refactor page navigation to use shared helpers
+https://www.github.com/0xradikal/foam-sanat,44429a57cb61579b2a727931a88518bd1c9e0f9f,2025-11-14T13:15:31+00:00,Human,,108,35,5,False,False,False,False,Refactor page navigation to use shared helpers
+https://www.github.com/0xradikal/foam-sanat,b3f6e72a8b8cd36e1a56032e311107e6cf6c1036,2025-11-14T13:01:04+00:00,Human,,356,847,8,False,False,False,False,"Merge pull request #35 from 0xRadikal/codex/add-locale-helper-and-refactor-usage
+
+Add locale resolver helper and tests"
+https://www.github.com/0xradikal/foam-sanat,84338024c9f8bdba8856534d7d8f46f37d767d2c,2025-11-14T13:01:04+00:00,Human,,356,847,8,False,False,False,False,"Merge pull request #35 from 0xRadikal/codex/add-locale-helper-and-refactor-usage
+
+Add locale resolver helper and tests"
+https://www.github.com/0xradikal/foam-sanat,8ee618e040faf70b954a38c99765f5d3ddd7ae91,2025-11-14T12:56:18+00:00,Human,,356,847,8,False,False,False,False,Add locale resolver helper and tests
+https://www.github.com/0xradikal/foam-sanat,9aa4c2f75d02d7e8a2e5e778a389bbf25642e122,2025-11-14T12:56:18+00:00,Human,,356,847,8,False,False,False,False,Add locale resolver helper and tests
+https://www.github.com/0xradikal/foam-sanat,1f3cd6c61556931f1b5141b3ef49611fcdd8fdf1,2025-11-14T12:07:03+00:00,Human,,47,17,3,False,False,False,False,"Merge pull request #34 from 0xRadikal/codex/provide-comprehensive-audit-report
+
+Improve comment env validation"
+https://www.github.com/0xradikal/foam-sanat,a75e6d98601f96710a56c30bcf68b2928f7ae470,2025-11-14T12:07:03+00:00,Human,,47,17,3,False,False,False,False,"Merge pull request #34 from 0xRadikal/codex/provide-comprehensive-audit-report
+
+Improve comment env validation"
+https://www.github.com/0xradikal/foam-sanat,36a48b3ca396fe883d3810e018166dfab233ea96,2025-11-14T12:05:12+00:00,Human,,47,17,3,False,False,False,False,Improve comment env validation
+https://www.github.com/0xradikal/foam-sanat,391538869e0a1c2e3b711bbb926ea84b77813a2e,2025-11-14T12:05:12+00:00,Human,,47,17,3,False,False,False,False,Improve comment env validation
+https://www.github.com/0xradikal/foam-sanat,80819c9c5bbf7ecabceff8171b847ba68a3b1824,2025-11-14T11:51:56+00:00,Human,,552,35,8,False,True,False,False,fix some bug
+https://www.github.com/0xradikal/foam-sanat,0338dda0784e8701d82a3586ceafdb76a52f0f83,2025-11-14T11:51:56+00:00,Human,,552,35,8,False,True,False,False,fix some bug
+https://www.github.com/0xradikal/foam-sanat,7de18937af96bfc39a3b942ca00b4c8492bf2eef,2025-11-13T21:43:05+00:00,Human,,2287,2163,7,False,False,False,False,"Merge pull request #33 from 0xRadikal/codex/refactor-pages-into-server-and-client-components
+
+Refactor pages into server-driven wrappers with client shells"
+https://www.github.com/0xradikal/foam-sanat,1e883609bd4436d347103c09a96e95144a96d28b,2025-11-13T21:43:05+00:00,Human,,2287,2163,7,False,False,False,False,"Merge pull request #33 from 0xRadikal/codex/refactor-pages-into-server-and-client-components
+
+Refactor pages into server-driven wrappers with client shells"
+https://www.github.com/0xradikal/foam-sanat,0fce4166720d0f7fd2a1f4878e14499f11299b37,2025-11-13T21:41:48+00:00,Human,,2287,2163,7,False,False,False,False,Refactor pages into server wrappers with client shells
+https://www.github.com/0xradikal/foam-sanat,1cc041dd7b479673490d1cf11fa85c29cf506540,2025-11-13T21:41:48+00:00,Human,,2287,2163,7,False,False,False,False,Refactor pages into server wrappers with client shells
+https://www.github.com/0xradikal/foam-sanat,4252b53a8873b3709dc6424247b6ce93755446a2,2025-11-13T21:31:59+00:00,Human,,80,27,5,False,False,False,False,"Merge pull request #32 from 0xRadikal/codex/add-navigation-utility-and-refactor-pages
+
+Refactor navigation item creation into shared helper"
+https://www.github.com/0xradikal/foam-sanat,331c231bbae434bc2ea0638f549ac90284f5b001,2025-11-13T21:31:59+00:00,Human,,80,27,5,False,False,False,False,"Merge pull request #32 from 0xRadikal/codex/add-navigation-utility-and-refactor-pages
+
+Refactor navigation item creation into shared helper"
+https://www.github.com/0xradikal/foam-sanat,3381d386e1aa6e20f5945a61059dd222b25e69d2,2025-11-13T21:29:48+00:00,Human,,80,27,5,False,False,False,False,refactor: centralize navigation item creation
+https://www.github.com/0xradikal/foam-sanat,6bfe3214a6b7170e34880fbdd58c03f6f7a29ef6,2025-11-13T21:29:48+00:00,Human,,80,27,5,False,False,False,False,refactor: centralize navigation item creation
+https://www.github.com/0xradikal/foam-sanat,c8b493d738542787d581c881f869eff25c5dd742,2025-11-13T21:25:03+00:00,Human,,100,41,5,False,False,False,False,"Merge pull request #31 from 0xRadikal/codex/refactor-app/page.tsx-to-usesitechrome
+
+Refactor shared chrome theming tokens"
+https://www.github.com/0xradikal/foam-sanat,5dfff860043643858ffe2d6baf90473f51b77f6f,2025-11-13T21:25:03+00:00,Human,,100,41,5,False,False,False,False,"Merge pull request #31 from 0xRadikal/codex/refactor-app/page.tsx-to-usesitechrome
+
+Refactor shared chrome theming tokens"
+https://www.github.com/0xradikal/foam-sanat,b985b0aac974b6b0eba84dc63c782178407bb362,2025-11-13T21:23:54+00:00,Human,,100,41,5,False,False,False,False,refactor: centralize chrome theming
+https://www.github.com/0xradikal/foam-sanat,73ce649bde57f80256817f3adedfd124d795cfee,2025-11-13T21:23:54+00:00,Human,,100,41,5,False,False,False,False,refactor: centralize chrome theming
+https://www.github.com/0xradikal/foam-sanat,d633aeec907e78bc4e32d3b9ad3fc98b3630225c,2025-11-13T21:17:34+00:00,Human,,104,97,3,False,False,False,False,"Merge pull request #30 from 0xRadikal/codex/create-sitechromeprovider-and-update-layout
+
+Add SiteChrome provider and centralize chrome state"
+https://www.github.com/0xradikal/foam-sanat,789c99d3600f292534d81ecae4ef9072b3254573,2025-11-13T21:17:34+00:00,Human,,104,97,3,False,False,False,False,"Merge pull request #30 from 0xRadikal/codex/create-sitechromeprovider-and-update-layout
+
+Add SiteChrome provider and centralize chrome state"
+https://www.github.com/0xradikal/foam-sanat,1e8664a2d5c4c45bf80d929c8416ce630ee4c12d,2025-11-13T21:16:33+00:00,Human,,104,97,3,False,False,False,False,refactor: centralize site chrome context
+https://www.github.com/0xradikal/foam-sanat,74918a684aeef8a342bfc6c894f6144483802b58,2025-11-13T21:16:33+00:00,Human,,104,97,3,False,False,False,False,refactor: centralize site chrome context
+https://www.github.com/0xradikal/foam-sanat,b3f741bbbe60f8a8f68c0baf53ee85d5c63761df,2025-11-13T20:53:55+00:00,Human,,210,32,5,False,False,False,False,"Merge pull request #29 from 0xRadikal/codex/integrate-email-provider-and-error-handling
+
+Integrate Resend forwarding for contact API"
+https://www.github.com/0xradikal/foam-sanat,79ad89c445e77b8c810c1be5feb91c198ea14649,2025-11-13T20:53:55+00:00,Human,,210,32,5,False,False,False,False,"Merge pull request #29 from 0xRadikal/codex/integrate-email-provider-and-error-handling
+
+Integrate Resend forwarding for contact API"
+https://www.github.com/0xradikal/foam-sanat,7d127ff292abb73a0850116e226ac376e43da58c,2025-11-13T20:53:07+00:00,Human,,210,32,5,False,False,False,False,Integrate Resend contact forwarding
+https://www.github.com/0xradikal/foam-sanat,bea0ae46888be87f84bc77ebcfc52131cc8d1b9c,2025-11-13T20:53:07+00:00,Human,,210,32,5,False,False,False,False,Integrate Resend contact forwarding
+https://www.github.com/0xradikal/foam-sanat,6ce346d91fc617ee78b679cc55086c123b2f4383,2025-11-13T20:50:57+00:00,Human,,1541,366,20,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,43adf6c83ceff8756ce2821f7c0205ed5090c80a,2025-11-13T20:50:57+00:00,Human,,1541,366,20,False,False,False,False,Merge branch 'main' of https://github.com/0xRadikal/Foam-Sanat
+https://www.github.com/0xradikal/foam-sanat,72b1e9defe157231d3a3e523adf14ea3a3cac137,2025-11-13T20:50:21+00:00,Human,,9969,1,2,False,False,False,False,lock.json
+https://www.github.com/0xradikal/foam-sanat,428acfcbb7db1b34f7df48edcd3718ee63d620c2,2025-11-13T20:50:21+00:00,Human,,9969,1,2,False,False,False,False,lock.json
+https://www.github.com/0xradikal/foam-sanat,26b5b53e8f9f07a1d1f9d2cea7c0e73012415a51,2025-11-13T20:26:28+00:00,Human,,32,17,1,False,False,False,False,"Merge pull request #27 from 0xRadikal/codex/implement-blob-styles-with-caching
+
+Guard about page blobs until client mount"
+https://www.github.com/0xradikal/foam-sanat,76e2dd6cf8cbcf2727e3bf66fd64ce4360cc1b63,2025-11-13T20:26:28+00:00,Human,,32,17,1,False,False,False,False,"Merge pull request #27 from 0xRadikal/codex/implement-blob-styles-with-caching
+
+Guard about page blobs until client mount"
+https://www.github.com/0xradikal/foam-sanat,4e44ec6e7b1f192e2d8bf918ed2998be7e31ebe3,2025-11-13T20:00:40+00:00,Human,,32,17,1,False,False,False,False,Guard about page blobs until client mount
+https://www.github.com/0xradikal/foam-sanat,ee79156810e70375394a64ec9c36fc0f55fe0988,2025-11-13T20:00:40+00:00,Human,,32,17,1,False,False,False,False,Guard about page blobs until client mount
+https://www.github.com/0xradikal/foam-sanat,50bff2534224d215cf32db9cdc0542a5962d1a05,2025-11-13T19:47:22+00:00,Human,,962,143,13,False,False,False,False,"Merge pull request #26 from 0xRadikal/codex/design-backend-for-product-comments
+
+Add moderated product comments API and UI integration"
+https://www.github.com/0xradikal/foam-sanat,2b6fbabe849c230ef7937eba48b92a6755912651,2025-11-13T19:47:22+00:00,Human,,962,143,13,False,False,False,False,"Merge pull request #26 from 0xRadikal/codex/design-backend-for-product-comments
+
+Add moderated product comments API and UI integration"
+https://www.github.com/0xradikal/foam-sanat,581d32678a5be7426b2f03eb51fa3f72aa934a72,2025-11-13T19:45:27+00:00,Human,,962,143,13,False,False,False,False,feat: add moderated product comments api
+https://www.github.com/0xradikal/foam-sanat,d47aecad95eb7b02446758ead8e77990e1ec082c,2025-11-13T19:45:27+00:00,Human,,962,143,13,False,False,False,False,feat: add moderated product comments api
+https://www.github.com/0xradikal/foam-sanat,f0c1c92d93e9d42c5912a836000c84a1b3ec734b,2025-11-13T17:46:24+00:00,Human,,547,206,9,False,False,False,False,"Merge pull request #25 from 0xRadikal/codex/extract-and-replace-contact-info-components
+
+Refactor contact sections into shared components"
+https://www.github.com/0xradikal/foam-sanat,bffc90c9154ddf01d7c0db8c026e456433d0bb44,2025-11-13T17:46:24+00:00,Human,,547,206,9,False,False,False,False,"Merge pull request #25 from 0xRadikal/codex/extract-and-replace-contact-info-components
+
+Refactor contact sections into shared components"
+https://www.github.com/0xradikal/foam-sanat,eba2d2e82663fd59a0ca6b3b16143d25c5d03e6d,2025-11-13T17:38:39+00:00,Human,,547,206,9,False,False,False,False,refactor: centralize contact ctas
+https://www.github.com/0xradikal/foam-sanat,321a029d9337f3a77ed0b41c8c3e0217400f2217,2025-11-13T17:38:39+00:00,Human,,547,206,9,False,False,False,False,refactor: centralize contact ctas
+https://www.github.com/0xradikal/foam-sanat,9d05c39a1f6fe3713c63518ee52ce5c870a5138b,2025-11-12T14:12:50+00:00,Human,,1,1,1,False,True,False,False,fix env.local file
+https://www.github.com/0xradikal/foam-sanat,90d6750885516c610c699490375d72c88d0dd4d5,2025-11-12T14:01:50+00:00,Human,,667,571,9,False,False,False,False,"Merge pull request #24 from 0xRadikal/codex/break-sections-into-components-and-optimize-loading
+
+Refactor home page sections into modular components"
+https://www.github.com/0xradikal/foam-sanat,a8149650f326cc548b424599f4e61f3220f335a6,2025-11-12T14:01:50+00:00,Human,,667,571,9,False,False,False,False,"Merge pull request #24 from 0xRadikal/codex/break-sections-into-components-and-optimize-loading
+
+Refactor home page sections into modular components"
+https://www.github.com/0xradikal/foam-sanat,e0ca3844a7f916e9433de327d9c6d87fa9d604da,2025-11-12T14:01:23+00:00,Human,,21,18,3,False,False,False,False,"Merge pull request #23 from 0xRadikal/codex/remove-vazirmatn-link-blocks-from-pages
+
+Centralize Vazirmatn font loading"
+https://www.github.com/0xradikal/foam-sanat,355ddf1d4d935acd5901b16cfd5199bcb15b723c,2025-11-12T14:01:23+00:00,Human,,21,18,3,False,False,False,False,"Merge pull request #23 from 0xRadikal/codex/remove-vazirmatn-link-blocks-from-pages
+
+Centralize Vazirmatn font loading"
+https://www.github.com/0xradikal/foam-sanat,5fd2789d44ddfea1c5fdd316c272ed2e4a38ec72,2025-11-12T14:00:28+00:00,Human,,667,571,9,False,False,False,False,Refactor home sections into modular components
+https://www.github.com/0xradikal/foam-sanat,ba5a00977fbb2ef3b51415c37950422782ce5e0f,2025-11-12T14:00:28+00:00,Human,,667,571,9,False,False,False,False,Refactor home sections into modular components
+https://www.github.com/0xradikal/foam-sanat,9d5788e13b1fa4748b4836ea26c658850afae418,2025-11-12T13:47:09+00:00,Human,,21,18,3,False,False,False,False,Centralize Vazirmatn font loading
+https://www.github.com/0xradikal/foam-sanat,3724e0e11a661ac3a876c20894fc03a2b19a52e0,2025-11-12T13:47:09+00:00,Human,,21,18,3,False,False,False,False,Centralize Vazirmatn font loading
+https://www.github.com/0xradikal/foam-sanat,907a02fea525c2912f4565df9304b3b6d8713d43,2025-11-12T13:32:53+00:00,Human,,1,1,1,False,True,False,False,"Merge pull request #22 from 0xRadikal/codex/no-prompt-provided
+
+Fix lint failure by pinning eslint-config-next to v14"
+https://www.github.com/0xradikal/foam-sanat,ee5b33759ef0fdb3d4718ce44dac40e8513d8658,2025-11-12T13:32:53+00:00,Human,,1,1,1,False,True,False,False,"Merge pull request #22 from 0xRadikal/codex/no-prompt-provided
+
+Fix lint failure by pinning eslint-config-next to v14"
+https://www.github.com/0xradikal/foam-sanat,44d35437fad5a92737d05a5edcf96296b28e08fe,2025-11-12T13:30:39+00:00,Human,,1,1,1,False,False,False,False,chore: align eslint config with next version
+https://www.github.com/0xradikal/foam-sanat,3dd5f6a141582436d4c3c0f5c4f5ab70b62da598,2025-11-12T13:30:39+00:00,Human,,1,1,1,False,False,False,False,chore: align eslint config with next version
+https://www.github.com/0xradikal/foam-sanat,1a8de074332ba7477458664291e9cd8977bd6e4b,2025-11-12T13:21:19+00:00,Human,,81,16,2,False,True,False,False,"Merge pull request #21 from 0xRadikal/codex/fix-missing-database-connection-error
+
+Improve contact API error handling"
+https://www.github.com/0xradikal/foam-sanat,93de14d05e7c7d45a79431718e9f298f7232516a,2025-11-12T13:21:19+00:00,Human,,81,16,2,False,True,False,False,"Merge pull request #21 from 0xRadikal/codex/fix-missing-database-connection-error
+
+Improve contact API error handling"
+https://www.github.com/0xradikal/foam-sanat,16dd5c0c911322c3984480b8e0c6c436d86b8b04,2025-11-12T13:20:54+00:00,Human,,81,16,2,False,False,False,False,Improve contact route error handling
+https://www.github.com/0xradikal/foam-sanat,040af5b79dc4e71bdfed5886ee1b0ec6054e7ea7,2025-11-12T13:20:54+00:00,Human,,81,16,2,False,False,False,False,Improve contact route error handling
+https://www.github.com/0xradikal/foam-sanat,76f42d4efe01165b6a93f7a21fdf5e821dc89228,2025-11-12T13:16:57+00:00,Human,,10,2,1,False,False,False,False,"Merge pull request #20 from 0xRadikal/codex/add-loading-spinner-to-form-submission
+
+Localize mobile menu toggle aria label"
+https://www.github.com/0xradikal/foam-sanat,7817d6f0132155b868a0592c9eeef855a3f72ac0,2025-11-12T13:16:57+00:00,Human,,10,2,1,False,False,False,False,"Merge pull request #20 from 0xRadikal/codex/add-loading-spinner-to-form-submission
+
+Localize mobile menu toggle aria label"
+https://www.github.com/0xradikal/foam-sanat,26df2924894a1bd025e9ce10e04a84a8d94ec029,2025-11-12T13:16:10+00:00,Human,,10,2,1,False,False,False,False,Localize mobile menu toggle aria label
+https://www.github.com/0xradikal/foam-sanat,e70032cdc2cf8d5c5be3b4f1e71bd945502e956c,2025-11-12T13:16:10+00:00,Human,,10,2,1,False,False,False,False,Localize mobile menu toggle aria label
+https://www.github.com/0xradikal/foam-sanat,d3102faf5678593757b67cc12be27c647e1d0e65,2025-11-12T13:11:46+00:00,Human,,207,120,6,False,True,False,False,"Merge pull request #19 from 0xRadikal/codex/add-user-authentication-feature
+
+Fix lint configuration and tighten frontend typing"
+https://www.github.com/0xradikal/foam-sanat,915fe312b9f76c6d8a7f3d3824fbab4f03190d24,2025-11-12T13:11:46+00:00,Human,,207,120,6,False,True,False,False,"Merge pull request #19 from 0xRadikal/codex/add-user-authentication-feature
+
+Fix lint configuration and tighten frontend typing"
+https://www.github.com/0xradikal/foam-sanat,e16fc463c59260ad6a793aa1228d18a0782a9c17,2025-11-12T13:10:19+00:00,Human,,207,120,6,False,True,False,False,Fix lint issues with ESLint 8 compatibility
+https://www.github.com/0xradikal/foam-sanat,583b7151b9ee6f34a7f0e438b3292f1049086c69,2025-11-12T13:10:19+00:00,Human,,207,120,6,False,True,False,False,Fix lint issues with ESLint 8 compatibility
+https://www.github.com/0xradikal/foam-sanat,7fe167b5da79937212282d2f262a4557f0462f25,2025-11-12T12:57:49+00:00,Human,,115,2,2,False,False,False,False,"Merge pull request #18 from 0xRadikal/codex/task-title-5rwa2g
+
+Add server-side validation for contact form payloads"
+https://www.github.com/0xradikal/foam-sanat,cda050fbdee7bd9d1666dc213cf2152317d9871b,2025-11-12T12:57:49+00:00,Human,,115,2,2,False,False,False,False,"Merge pull request #18 from 0xRadikal/codex/task-title-5rwa2g
+
+Add server-side validation for contact form payloads"
+https://www.github.com/0xradikal/foam-sanat,76714cb3cfed69ffad978fdc7729c0cb82589774,2025-11-12T12:57:28+00:00,Human,,115,2,2,False,False,False,False,Add validation for contact API payloads
+https://www.github.com/0xradikal/foam-sanat,2db19d81e32915645739a1cde9cc4201d330dc00,2025-11-12T12:57:28+00:00,Human,,115,2,2,False,False,False,False,Add validation for contact API payloads
+https://www.github.com/0xradikal/foam-sanat,f09d26bad0506e8dc4c33150660494e811043f1c,2025-11-12T12:50:17+00:00,Human,,2,2,1,False,False,False,False,"Merge pull request #17 from 0xRadikal/codex/task-title
+
+Align ESLint dependencies with Next lint"
+https://www.github.com/0xradikal/foam-sanat,917d25dc8f3b6b04f52b61450cd56feccc4d8c30,2025-11-12T12:50:17+00:00,Human,,2,2,1,False,False,False,False,"Merge pull request #17 from 0xRadikal/codex/task-title
+
+Align ESLint dependencies with Next lint"
+https://www.github.com/0xradikal/foam-sanat,f247441e1ad9a385559627afcb40f79078356e33,2025-11-12T12:48:59+00:00,Human,,2,2,1,False,False,False,False,chore: use eslint v8 for next lint compatibility
+https://www.github.com/0xradikal/foam-sanat,ce0b29fa5016fb8a1114d1f3f4a51e22534ef6a4,2025-11-12T12:48:59+00:00,Human,,2,2,1,False,False,False,False,chore: use eslint v8 for next lint compatibility
+https://www.github.com/0xradikal/foam-sanat,62552742db9df1c44f69f1bb85ec92c49082e1c1,2025-11-12T12:44:35+00:00,Human,,3,1,1,False,True,False,False,"Merge pull request #16 from 0xRadikal/codex/add-documentation-for-new-api-features
+
+Fix RTL direction for hero slider transitions"
+https://www.github.com/0xradikal/foam-sanat,97163d8177071a6b84713e5a4be893bc91e93e6f,2025-11-12T12:44:35+00:00,Human,,3,1,1,False,True,False,False,"Merge pull request #16 from 0xRadikal/codex/add-documentation-for-new-api-features
+
+Fix RTL direction for hero slider transitions"
+https://www.github.com/0xradikal/foam-sanat,f0b861ca2c6d7bd5c6e6a298b80cf992f3c2b478,2025-11-12T12:42:58+00:00,Human,,3,1,1,False,True,False,False,Fix hero slider transition for RTL
+https://www.github.com/0xradikal/foam-sanat,148513c4d4ab309ef0637c5970a1e7e29c9fd057,2025-11-12T12:42:58+00:00,Human,,3,1,1,False,True,False,False,Fix hero slider transition for RTL
+https://www.github.com/0xradikal/foam-sanat,98a52d571ed2f6e9a5ad1ea895dfb1f9bffc556e,2025-11-10T21:29:21+00:00,Human,,2,0,1,False,False,False,False,add badge to products for fixing bug
+https://www.github.com/0xradikal/foam-sanat,3bfae48e747b6b9451496f49aeeff1d8ff2892de,2025-11-10T21:29:21+00:00,Human,,2,0,1,False,False,False,False,add badge to products for fixing bug
+https://www.github.com/0xradikal/foam-sanat,39e852af7c672eb3277cdf5c91689419b5737a73,2025-11-10T21:22:33+00:00,Human,,108,3,5,False,False,False,False,"Merge pull request #15 from 0xRadikal/codex/remove-console.log-and-update-response
+
+Sanitize contact API logging and response"
+https://www.github.com/0xradikal/foam-sanat,34445911253e36851b0b1e3021f2c2eae004fa2e,2025-11-10T21:22:33+00:00,Human,,108,3,5,False,False,False,False,"Merge pull request #15 from 0xRadikal/codex/remove-console.log-and-update-response
+
+Sanitize contact API logging and response"
+https://www.github.com/0xradikal/foam-sanat,ca430bbde947281a6c8db8961a99722ed443d352,2025-11-10T21:20:20+00:00,Human,,108,3,5,False,False,False,False,Sanitize contact API logging and add tests
+https://www.github.com/0xradikal/foam-sanat,df4f94aa38f2f7e28cfb53d351909896ca855d4f,2025-11-10T21:20:20+00:00,Human,,108,3,5,False,False,False,False,Sanitize contact API logging and add tests
+https://www.github.com/0xradikal/foam-sanat,a5d1a4b3d77f15349a66568debf493b307e47020,2025-11-10T21:09:57+00:00,Human,,1291,959,5,False,False,False,False,"Merge pull request #14 from 0xRadikal/codex/refactor-translations-and-remove-usememo
+
+Refactor about and products copy into i18n namespaces"
+https://www.github.com/0xradikal/foam-sanat,61b7d7c8e5bad81f66174f2c742e638879b19920,2025-11-10T21:09:57+00:00,Human,,1291,959,5,False,False,False,False,"Merge pull request #14 from 0xRadikal/codex/refactor-translations-and-remove-usememo
+
+Refactor about and products copy into i18n namespaces"
+https://www.github.com/0xradikal/foam-sanat,5034acaa7cd0ead8f2adf57682ec9be534f0b63f,2025-11-10T21:09:20+00:00,Human,,1291,959,5,False,False,False,False,Refactor about and products copy into i18n namespaces
+https://www.github.com/0xradikal/foam-sanat,61319ad86688d4dc0a3bf4ff4b6a8c882164bf4d,2025-11-10T21:09:20+00:00,Human,,1291,959,5,False,False,False,False,Refactor about and products copy into i18n namespaces
+https://www.github.com/0xradikal/foam-sanat,c6bea33fa70c56b998fc7b027f0a97b294b2a42c,2025-11-10T20:46:38+00:00,Human,,145,57,3,False,False,False,False,"Merge pull request #13 from 0xRadikal/codex/refactor-shared-state-into-custom-hook
+
+Refactor site chrome state into shared hook"
+https://www.github.com/0xradikal/foam-sanat,7e3c82aa1569044323f237f38ca286bed3808640,2025-11-10T20:46:38+00:00,Human,,145,57,3,False,False,False,False,"Merge pull request #13 from 0xRadikal/codex/refactor-shared-state-into-custom-hook
+
+Refactor site chrome state into shared hook"
+https://www.github.com/0xradikal/foam-sanat,64c2e3868cf961b0e7e804cdc44f93c246fb5069,2025-11-10T20:44:58+00:00,Human,,145,57,3,False,False,False,False,refactor: centralize site chrome state
+https://www.github.com/0xradikal/foam-sanat,11849e92234e4ac41766193cc35dcbc96d54e975,2025-11-10T20:44:58+00:00,Human,,145,57,3,False,False,False,False,refactor: centralize site chrome state
+https://www.github.com/0xradikal/foam-sanat,280ad042c46392bfc5582a9addee0d71d47e2818,2025-11-10T20:35:04+00:00,Human,,200,284,4,False,False,False,False,"Merge pull request #12 from 0xRadikal/codex/refactor-header-import-and-props-handling
+
+Refactor pages to use shared header component"
+https://www.github.com/0xradikal/foam-sanat,48e2aa801fe634453a15e72a1b189b921e84b263,2025-11-10T20:35:04+00:00,Human,,200,284,4,False,False,False,False,"Merge pull request #12 from 0xRadikal/codex/refactor-header-import-and-props-handling
+
+Refactor pages to use shared header component"
+https://www.github.com/0xradikal/foam-sanat,4d52da3fccd305baf0f6da998f71793f5ea6a2d3,2025-11-10T20:32:33+00:00,Human,,200,284,4,False,False,False,False,Refactor header usage across pages
+https://www.github.com/0xradikal/foam-sanat,55b37f9aded2745e8813875eec08200d51012b3d,2025-11-10T20:32:33+00:00,Human,,200,284,4,False,False,False,False,Refactor header usage across pages
+https://www.github.com/0xradikal/foam-sanat,e011eae810aa683b1c22fa8f130c2dd72ffcf355,2025-11-10T20:18:07+00:00,Human,,6,11,2,False,False,False,False,"Merge pull request #11 from 0xRadikal/codex/remove-mounted-check-and-ensure-safe-rendering
+
+Remove pre-mount guards from client pages"
+https://www.github.com/0xradikal/foam-sanat,ef58c9545d5d7cd6658818abce1977ca86285179,2025-11-10T20:18:07+00:00,Human,,6,11,2,False,False,False,False,"Merge pull request #11 from 0xRadikal/codex/remove-mounted-check-and-ensure-safe-rendering
+
+Remove pre-mount guards from client pages"
+https://www.github.com/0xradikal/foam-sanat,aa05ae1479ec481df6cc2c85c86039e3785325c9,2025-11-10T20:17:33+00:00,Human,,6,11,2,False,False,False,False,Adjust client hydration guards
+https://www.github.com/0xradikal/foam-sanat,cb059da9c0bdeec5dcd5ab57eeedc015ebdbe265,2025-11-10T20:17:33+00:00,Human,,6,11,2,False,False,False,False,Adjust client hydration guards
+https://www.github.com/0xradikal/foam-sanat,eca3fc0c5798ece7551b32426b5fcd0733148ab3,2025-11-10T20:05:35+00:00,Human,,0,1,1,False,False,False,False,m
+https://www.github.com/0xradikal/foam-sanat,73d8de6690cfb235ddc6ff5ad2fa17cac3410d92,2025-11-10T20:05:35+00:00,Human,,0,1,1,False,False,False,False,m
+https://www.github.com/0xradikal/foam-sanat,1852dc2c0dc613231c2af23b8305208092cc7940,2025-11-10T19:47:22+00:00,Human,,43,11,1,False,True,False,False,fix nav mobile
+https://www.github.com/0xradikal/foam-sanat,6b10af91eb13db76fd5082dc05f5b9f8a6663421,2025-11-10T19:47:22+00:00,Human,,43,11,1,False,True,False,False,fix nav mobile
+https://www.github.com/0xradikal/foam-sanat,f44e0507909fa9170c869c65657b352ad6e88fc9,2025-11-09T20:10:00+00:00,Human,,0,9867,1,False,False,False,False,Stop tracking package-lock.json
+https://www.github.com/0xradikal/foam-sanat,0036e81a736df92ca7ddad8e77264abca9869ac2,2025-11-09T20:10:00+00:00,Human,,0,9867,1,False,False,False,False,Stop tracking package-lock.json
+https://www.github.com/0xradikal/foam-sanat,a8a6b6bcadcdbcf102a66e2d4f0ee3d4965deef9,2025-11-09T20:07:04+00:00,Human,,39,1,2,False,False,False,False,ignore package-lock.json
+https://www.github.com/0xradikal/foam-sanat,8f1324085e7182c45c6286ff75f5e93fffdcad9b,2025-11-09T20:07:04+00:00,Human,,40,1,3,False,False,False,False,ignore package-lock.json
+https://www.github.com/0xradikal/foam-sanat,2229a0949571a264854de81f387bdb6ae1b12769,2025-11-09T19:32:16+00:00,Human,,17,17,1,False,False,False,False,complete env file
+https://www.github.com/0xradikal/foam-sanat,f7adbf9342aca73e9bc241f2ed4f12bd403a793d,2025-11-09T08:57:23+00:00,Human,,627,670,7,False,False,False,False,"Merge pull request #1 from 0xRadikal/codex/perform-full-code-audit-and-optimization
+
+Refactor homepage translations into modular i18n system"
+https://www.github.com/0xradikal/foam-sanat,7f7a43e1cf515b13ed6545b31667eb579a02e783,2025-11-09T08:57:23+00:00,Human,,627,670,7,False,False,False,False,"Merge pull request #1 from 0xRadikal/codex/perform-full-code-audit-and-optimization
+
+Refactor homepage translations into modular i18n system"
+https://www.github.com/0xradikal/foam-sanat,c788c120fc53ebc7ea45be592ac13f042fd281b6,2025-11-09T08:56:26+00:00,Human,,627,670,7,False,False,False,False,refactor: modularize i18n translations
+https://www.github.com/0xradikal/foam-sanat,0b68c09e94bcedf9efa8e105cf8067b8873f1cc0,2025-11-09T08:56:26+00:00,Human,,627,670,7,False,False,False,False,refactor: modularize i18n translations
+https://www.github.com/0xradikal/foam-sanat,2922f264323448a8d41febe9cc48884c81a996bb,2025-11-09T07:21:18+00:00,Human,,487,510,1,False,True,False,False,product fix bug
+https://www.github.com/0xradikal/foam-sanat,3e07833b9f489fc6592ec3c313ece42be1d90060,2025-11-09T07:21:18+00:00,Human,,487,510,1,False,True,False,False,product fix bug
+https://www.github.com/0xradikal/foam-sanat,97fdcbe04cd11e2f679b41c91329ba63e39b2651,2025-11-08T21:36:49+00:00,Human,,1385,0,1,False,False,False,False,add product page with bug
+https://www.github.com/0xradikal/foam-sanat,69095cfcc9e42e2a2694e4f3c17e42ff54e62b87,2025-11-08T21:36:49+00:00,Human,,1385,0,1,False,False,False,False,add product page with bug
+https://www.github.com/0xradikal/foam-sanat,83efb76a43c5cea894628dc550a6f9d6e856c7ed,2025-11-08T17:51:18+00:00,Human,,10,22,3,False,False,False,False,optimize coded
+https://www.github.com/0xradikal/foam-sanat,2fc0d84495f35fbd936baffd662f4fe3b4699e76,2025-11-08T17:51:18+00:00,Human,,10,22,3,False,False,False,False,optimize coded
+https://www.github.com/0xradikal/foam-sanat,06b8fc71ff58f7e7f91b21c0d160a80eb757f468,2025-11-08T17:37:27+00:00,Human,,1017,2,3,False,False,False,False,add About us page&linked
+https://www.github.com/0xradikal/foam-sanat,15c3b60cc0d4b27dadb932736a0712f5d811ebfe,2025-11-08T17:37:27+00:00,Human,,1017,2,3,False,False,False,False,add About us page&linked
+https://www.github.com/0xradikal/foam-sanat,66f90e68b282a1cd3e021abcbe480b544ddd98f1,2025-11-07T14:13:03+00:00,Human,,728,103,5,False,False,False,False,"update mainpage,seo,font.etc"
+https://www.github.com/0xradikal/foam-sanat,383b0b8d0b7846268365031cf1fff04cbc0d8310,2025-11-07T14:13:03+00:00,Human,,728,103,5,False,False,False,False,"update mainpage,seo,font.etc"
+https://www.github.com/0xradikal/foam-sanat,7dd439f4cc718921365f04a2250232d5b9ac8b29,2025-11-07T13:04:48+00:00,Human,,16,1,3,False,False,False,False,.
+https://www.github.com/0xradikal/foam-sanat,3c03e84c249bf613a373dcc8819f1a8bb9942371,2025-11-07T13:04:48+00:00,Human,,16,1,3,False,False,False,False,.
+https://www.github.com/0xradikal/foam-sanat,8c62aa469f9115deff6073cfdcd82477ddaca6ea,2025-11-06T15:51:51+00:00,Human,,16,6,6,False,True,False,False,"chore: fix blank page & setup Tailwind + ESLint + build pipeline
+
+- Fixed hydration issue causing blank white page
+- Configured TailwindCSS and PostCSS
+- Added ESLint base rules (core-web-vitals, typescript)
+- Cleaned build cache and validated sitemap generation
+- Verified local build and production start on port 3000"
+https://www.github.com/0xradikal/foam-sanat,4aab9b1faa0f80c4cc078ac0e30856b0ed125913,2025-11-06T15:51:51+00:00,Human,,16,6,6,False,True,False,False,"chore: fix blank page & setup Tailwind + ESLint + build pipeline
+
+- Fixed hydration issue causing blank white page
+- Configured TailwindCSS and PostCSS
+- Added ESLint base rules (core-web-vitals, typescript)
+- Cleaned build cache and validated sitemap generation
+- Verified local build and production start on port 3000"
+https://www.github.com/0xradikal/foam-sanat,2d10d424f9df3af5707ec0394a01c8af51eda1e5,2025-11-06T14:50:00+00:00,Human,,1231,1318,4,False,False,False,False,add tailwind.config.etc
+https://www.github.com/0xradikal/foam-sanat,3a353082c375c26c42cfb11ae38423b3c9a9ce22,2025-11-06T14:50:00+00:00,Human,,1231,1318,4,False,False,False,False,add tailwind.config.etc
+https://www.github.com/0xradikal/foam-sanat,f412f9a30c57545780018a50fa3e57437df6bcc9,2025-11-06T14:23:47+00:00,Human,,6043,96,14,False,True,False,False,complete and fix
+https://www.github.com/0xradikal/foam-sanat,fc03d301d4dbe8942c972e391b60faa46a942ca1,2025-11-06T14:23:47+00:00,Human,,6064,98,15,False,True,False,False,complete and fix
+https://www.github.com/0xradikal/foam-sanat,9ef374816a58065f1ee8d53e3be4a67da18bc798,2025-11-06T13:32:57+00:00,Human,,338,896,2,False,False,False,False,"foam-sanat-nextjs.tsx file delet, replace app/page.tsx"
+https://www.github.com/0xradikal/foam-sanat,8f4a24620e73ce6db6529c03c5a2543c06b82f7f,2025-11-06T13:32:57+00:00,Human,,338,896,2,False,False,False,False,"foam-sanat-nextjs.tsx file delet, replace app/page.tsx"
+https://www.github.com/0xradikal/foam-sanat,698ee770dd387e50a2da7e7a7bbdbdafbe4e27d2,2025-11-06T13:21:42+00:00,Human,,558,0,1,False,False,False,False,add page.tsx file
+https://www.github.com/0xradikal/foam-sanat,28813afe2bcb705b28210a675a84f212caf30673,2025-11-06T13:21:42+00:00,Human,,558,0,1,False,False,False,False,add page.tsx file
+https://www.github.com/0xradikal/foam-sanat,fe8c2fc22258cae3e8ab7ddeacc194e87f92ca01,2025-11-06T13:14:01+00:00,Human,,109,0,1,False,False,False,False,add README.md File
+https://www.github.com/0xradikal/foam-sanat,074954352cb509a0510e224f6adecf264b4b2e1b,2025-11-06T13:14:01+00:00,Human,,109,0,1,False,False,False,False,add README.md File
+https://www.github.com/0xradikal/foam-sanat,ca174a89cfc72b6f31e4205dc245b11384c21e48,2025-11-06T12:54:34+00:00,Human,,0,10209,70,False,False,False,False,Remove build .next files from repo
+https://www.github.com/0xradikal/foam-sanat,6298fbf36ee07c4daf7ce78de1b952e9748d70ee,2025-11-06T11:38:25+00:00,Human,,6223,0,11,False,False,False,False,create repo and basic file
+https://www.github.com/0xradikal/foam-sanat,c8e425e361558f56c270e6a5390eea649d413d6a,2025-11-06T11:38:25+00:00,Human,,16436,0,82,False,False,False,False,create repo and basic file

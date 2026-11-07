@@ -1,0 +1,214 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/201harsh/dax-portal,aca48b49bcb76bad701529350d94e1e0bc47c8c3,2026-06-14T09:32:49+00:00,Human,,1,1,1,False,False,False,False,"update not-found.tsx
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,134b8501da591f91acfdc2ad95091679f3a55437,2026-06-14T09:31:02+00:00,Human,,399,4,1,False,False,False,False,"Merge pull request #26 from 201Harsh/Feat/not-found-page
+
+Feat/not found page"
+https://www.github.com/201harsh/dax-portal,df2aba38f50b821c42a815a1b3732f924d5e4443,2026-06-14T09:30:12+00:00,Human,,1,1,1,False,False,False,False,"update not-found.tsx
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,e316d21c9ba793553302f38c0fd109f647a9744d,2026-06-14T09:29:55+00:00,Human,,5,5,1,False,False,False,False,"update not-found.tsx
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,1a3a9d4792ce9eb2c38786ba0d3188ac88dd4a13,2026-06-14T09:29:13+00:00,Human,,0,16,1,False,False,False,False,"update not-found.tsx
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,61c82c8b1a8f3f76320941ea3117afbfc4f930ed,2026-06-14T09:28:41+00:00,Human,,0,13,1,False,False,False,False,"update not-found.tsx
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,1e8b1344d1999440ce1d1e83f449aaf984028234,2026-06-14T09:27:07+00:00,Human,,428,4,1,False,False,False,False,"update not-found.tsx
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,2512c28e93da7186ff3701eb7e25e4a28ff14303,2026-06-14T09:25:13+00:00,Human,,70,57,11,False,False,False,False,"Merge pull request #25 from 201Harsh/Feat/projects-update
+
+Feat/projects update"
+https://www.github.com/201harsh/dax-portal,0a4236e50d114d325cb54891f7297623f6b477c3,2026-06-14T09:24:06+00:00,Human,,0,2,1,False,False,False,False,update not-found.tsx
+https://www.github.com/201harsh/dax-portal,c0cf60d0de134f832cf68f75ad4b96092735bea7,2026-06-14T09:19:58+00:00,Human,,0,0,1,False,False,False,False,Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>
+https://www.github.com/201harsh/dax-portal,7751cf9375d563d76db5f99cffbe8de142bab0f7,2026-06-14T09:19:19+00:00,Human,,11,2,3,False,False,False,False,"update 1 file and delete 1 file
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,c9fbd4f04125f9c8caa319203886bf64eeb965a4,2026-06-14T09:16:08+00:00,Human,,11,2,3,False,False,False,False,"update 1 file and delete 1 file
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,06132efa2ee9182cfc5dd588b2b62e278b272599,2026-06-14T09:14:34+00:00,Human,,0,0,1,False,False,False,False,"chore: delete 2.png
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,1dd82ee296ed29ff8f50852580db8db4cdd4fef5,2026-06-14T09:14:05+00:00,Human,,0,0,5,False,False,False,False,"chore: delete cobra.png, rakt.png and ravx.png"
+https://www.github.com/201harsh/dax-portal,e03019b07cce502fac2087f2caecf840d077894b,2026-06-14T09:09:52+00:00,Human,,0,2,1,False,False,False,False,"update LocationStore.ts
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,8bea7c5bc687b58f993963ae4f95375b5f30fb4d,2026-06-14T09:09:36+00:00,Human,,2,2,1,False,False,False,False,"update LocationStore.ts
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,a75a194468143c3c2916d4314ef1d50249ff2a48,2026-06-14T09:09:07+00:00,Human,,0,1,1,False,False,False,False,"update LocationStore.ts
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,cd39d9e8fb8c34aafc2c5166012bd7fa0c0856b5,2026-06-14T09:08:57+00:00,Human,,52,0,1,False,False,False,False,update LocationStore.ts
+https://www.github.com/201harsh/dax-portal,387102404b60e412862c1a7fd92b5006832f0ea2,2026-06-14T09:08:45+00:00,Human,,0,52,1,False,False,False,False,update LocationStore.ts
+https://www.github.com/201harsh/dax-portal,33ef34f013cd5e1016e7052cfab1c935747866d5,2026-06-14T09:08:15+00:00,Human,,11,11,1,False,False,False,False,"update LocationStore.ts
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,8989af2622baa7346aeae0580bdd3bc734c09bab,2026-06-14T09:06:34+00:00,Human,,12,12,1,False,False,False,False,"update LocationStore.ts
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,4d94511c780ca51ac2458ea6c73c0626a09a22d0,2026-06-14T08:59:36+00:00,Human,,1,1,1,False,False,False,False,"Test commit for Pair Extraordinaire
+
+Co-authored-by: irisdevopps <irisdevopps@users.noreply.github.com>"
+https://www.github.com/201harsh/dax-portal,cfe7d61476e6f376de6fd70acf2003a06e25546e,2026-06-12T07:38:17+00:00,Human,,9,0,1,False,False,False,False,Added a notfound page
+https://www.github.com/201harsh/dax-portal,22c5f327203db08c7edc8ae5db887b7df7ab70fd,2026-06-06T11:06:44+00:00,Human,,3,1,1,False,False,False,False,Update readme.md
+https://www.github.com/201harsh/dax-portal,18cd256450540c4b9cd545ae058f77b8fd1c7db9,2026-05-23T15:49:19+00:00,Human,,4,4,2,False,False,False,False,update Contact.tsx and MobileContact.tsx
+https://www.github.com/201harsh/dax-portal,63f4b63ee947dd3f1deaae0a6a46cf6edc05a2a0,2026-02-22T19:08:02+00:00,Human,,0,0,1,False,False,False,False,New resume with Working Links updated
+https://www.github.com/201harsh/dax-portal,a810dbe6a25c239191e0c9693f5dff359ca7d290,2026-02-22T18:59:23+00:00,Human,,0,0,1,False,False,False,False,Updated to the latest Resume
+https://www.github.com/201harsh/dax-portal,964a1313fe88a36a68165ed4426317ca8e02eac8,2026-01-21T16:32:59+00:00,Human,,2,2,1,True,True,False,False,Fix: Proper Image Path FIxed to Dev Image at Images Folder
+https://www.github.com/201harsh/dax-portal,4e2cce76f0156548ebdf675530ac1618c62e678f,2026-01-20T18:53:41+00:00,Human,,31,37,11,False,False,False,False,Feat: Updated Logic and Added More Images for the Betterment
+https://www.github.com/201harsh/dax-portal,e411c56905db27d552f4d3f9123dc0764276a9e2,2026-01-19T15:37:10+00:00,Human,,10,0,1,False,False,False,False,Wallpaper Logic Updated for Mobile Vision
+https://www.github.com/201harsh/dax-portal,781e92d5cad2666ce0913e64db12deb698ee1630,2026-01-19T15:34:58+00:00,Human,,13,3,4,False,False,False,False,"Merge pull request #24 from 201Harsh/wallpaper-update
+
+Updated WallPaper for Desktop Mode"
+https://www.github.com/201harsh/dax-portal,228945dcedec08c01b1d9e6b7db20a8a50f5c267,2026-01-19T15:33:59+00:00,Human,,13,3,4,False,False,False,False,Updated WallPaper for Desktop Mode
+https://www.github.com/201harsh/dax-portal,d3ec592a279c6f3e5388e2a5aeb7a82519e64552,2025-12-24T06:53:50+00:00,Human,,2,2,1,False,False,False,False,Updated Readme Docs
+https://www.github.com/201harsh/dax-portal,528afcef1358e73360a23df6be27073e9b9cfc59,2025-12-24T06:49:17+00:00,Human,,10,16,1,False,False,False,False,Updated Readme Docs
+https://www.github.com/201harsh/dax-portal,f4a376a99ebabddfab6b28b772363cf4cc416b35,2025-12-23T18:26:39+00:00,Human,,2,250,3,False,False,False,False,Updated COde and ITs lOgic
+https://www.github.com/201harsh/dax-portal,e9fc93cd3ccfe924c84e5617d94a877a1d8da186,2025-12-23T11:47:33+00:00,Human,,247,29,6,False,True,False,False,"Merge pull request #23 from 201Harsh/about/ani-me
+
+added Trash Code Need to Be Fixed"
+https://www.github.com/201harsh/dax-portal,db47728cfb58c198c282533f832fb593de41ffb3,2025-12-23T11:46:06+00:00,Human,,247,29,6,False,True,False,False,added Trash Code Need to Be Fixed
+https://www.github.com/201harsh/dax-portal,3417d1987e573317874ef252866f1df63001f513,2025-12-23T09:01:56+00:00,Human,,58,1,7,False,False,False,False,Added ALl Features For Deep Dive About
+https://www.github.com/201harsh/dax-portal,b1014df39ce99751ce0e8f46416a92fc285da9ac,2025-12-23T08:02:06+00:00,Human,,0,9,1,False,False,False,False,Updated Code
+https://www.github.com/201harsh/dax-portal,43fb42500827f2a86501bfd9c4422307902ccf8e,2025-12-23T07:11:10+00:00,Human,,703,13,4,False,False,False,False,Update Logic
+https://www.github.com/201harsh/dax-portal,2db9fe6e9d8f8132c3046495a2312a127a38fc3e,2025-12-22T11:44:50+00:00,Human,,9,0,1,False,False,False,False,added A about page Route for Animated page using Gsap Scroll based Animations
+https://www.github.com/201harsh/dax-portal,b0facf33e38cbf75ac7aa6152afa5cc4f3de1eff,2025-12-22T08:42:38+00:00,Human,,1,58,25,False,True,False,False,"Merge pull request #22 from 201Harsh/final/prod
+
+Bug Fixes and Completed a Production Ready Code"
+https://www.github.com/201harsh/dax-portal,7d453fa1a9746b5c39d609fad2f95fd6dfc8a5e0,2025-12-22T08:41:17+00:00,Human,,1,58,25,False,True,False,False,Bug Fixes and Completed a Production Ready Code
+https://www.github.com/201harsh/dax-portal,cad43157bee141875d5ec84935c66749b1a70d83,2025-12-22T08:35:51+00:00,Human,,42,46,5,False,True,False,False,Fixed Production Bug
+https://www.github.com/201harsh/dax-portal,268976dc668be3d9e2949fb323f68bea7ab08927,2025-12-21T23:51:34+00:00,Human,,3,3,2,False,False,False,False,SEO and Booting Animation Updated
+https://www.github.com/201harsh/dax-portal,4c310fee1460a705a61fffb8d6b5c6153a05f00e,2025-12-21T23:45:21+00:00,Human,,1,1,1,False,False,False,False,Updated Docs Readme
+https://www.github.com/201harsh/dax-portal,2993763388998bd569c3dd1f8899e8c218b3f16f,2025-12-21T23:42:51+00:00,Human,,65,2,2,False,False,False,False,added a seo Friendly metaData for DAX
+https://www.github.com/201harsh/dax-portal,a9845b37a8773d67a7d985235b697bc529a601b6,2025-12-21T23:36:47+00:00,Human,,20,6,1,False,False,False,False,Updated eslint Config File
+https://www.github.com/201harsh/dax-portal,51e67073bfc8ba9382e49a4fc8bd40fed7b934ee,2025-12-21T23:33:02+00:00,Human,,2,2,1,False,True,False,False,Updated Image Window Bug Fixed
+https://www.github.com/201harsh/dax-portal,6cacb61cfb797bd1afc35bdc4b1ed81b2953a729,2025-12-21T23:23:29+00:00,Human,,274,0,1,False,False,False,False,"Merge pull request #21 from 201Harsh/Readme/file
+
+Added Readme File"
+https://www.github.com/201harsh/dax-portal,ce8b32116701856d7daa3c870ed0e9003a9ed194,2025-12-21T23:22:42+00:00,Human,,274,0,1,False,False,False,False,Added Readme File
+https://www.github.com/201harsh/dax-portal,c9cafa564deb64b585764e992f8ec8e2eb98f07a,2025-12-21T23:09:08+00:00,Human,,0,3,3,False,True,False,False,Some Fixes Done
+https://www.github.com/201harsh/dax-portal,8b188860e8d516a49d304cee4ea1e8b3383afd53,2025-12-21T22:55:25+00:00,Human,,171,12,9,False,False,False,False,"Merge pull request #20 from 201Harsh/mobile-feat/wallpapers
+
+Mobile feat/wallpapers"
+https://www.github.com/201harsh/dax-portal,c9f8b6028c8c9c756beb135492be9574254c7f8e,2025-12-21T22:54:40+00:00,Human,,7,3,1,False,False,False,False,Added Seprate Wallpaper Logic in Mobile and Desktop and Sucessfully added Wallpaper Change in Mobile View and also Seetings
+https://www.github.com/201harsh/dax-portal,40dc60a295452762a4546e9c8ce32758c4e13154,2025-12-21T22:49:03+00:00,Human,,167,12,9,False,False,False,False,Added Seprate Wallpaper Logic in Mobile and Desktop and Sucessfully added Wallpaper Change in Mobile View
+https://www.github.com/201harsh/dax-portal,b7de30b93ee71456ece6c2ed7aeaf6e16a2e0464,2025-12-21T22:25:58+00:00,Human,,36,10,5,False,True,False,False,Basic Fixes for optimum result
+https://www.github.com/201harsh/dax-portal,23915760410b5f526e187dcdb81e934923366fbb,2025-12-21T22:10:36+00:00,Human,,22,16,5,False,True,False,False,Basic Updates Fixed
+https://www.github.com/201harsh/dax-portal,b47fefeda6e5e965de661f7750a3c1e1c04c1d5d,2025-12-21T22:03:08+00:00,Human,,1213,114,16,False,False,False,False,"Merge pull request #19 from 201Harsh/mobile-windows
+
+Added All Windows/Apps for Mobile View"
+https://www.github.com/201harsh/dax-portal,bd2759f3a00987d3a4bf187ceff401fddd95adff,2025-12-21T22:01:30+00:00,Human,,1213,114,16,False,False,False,False,Added All Windows/Apps for Mobile View
+https://www.github.com/201harsh/dax-portal,2f92d654d0643801926dae6eb0eb7c9216a9d551,2025-12-21T20:15:50+00:00,Human,,25,0,1,False,False,False,False,Addedd MobileWrapperLogic
+https://www.github.com/201harsh/dax-portal,b49caab9cc7cc5ea99f4d86c47ec9ece87f26320,2025-12-21T19:29:36+00:00,Human,,9,2,1,False,False,False,False,Updated Basic things
+https://www.github.com/201harsh/dax-portal,7e80cb0cedf175d61fcc3f5a6d4bf740afc44c65,2025-12-21T18:53:27+00:00,Human,,48,112,7,False,False,False,False,Basic Logics Updated and Changed to Booting
+https://www.github.com/201harsh/dax-portal,53b7d4cf9eeeb7d81836ebd3e7c5b92e15a10c71,2025-12-21T18:08:17+00:00,Human,,305,11,7,False,False,False,False,"Merge pull request #18 from 201Harsh/mobile
+
+Added Mobile View"
+https://www.github.com/201harsh/dax-portal,988a2c4324a474b93164bef5f2762cfc445b8dc2,2025-12-21T18:07:35+00:00,Human,,305,11,7,False,False,False,False,Added Mobile View
+https://www.github.com/201harsh/dax-portal,eb53cdb98e287f1de15603feb490ebd62dc7df44,2025-12-21T17:16:39+00:00,Human,,3,3,1,False,False,False,False,Updated Code and its Logic
+https://www.github.com/201harsh/dax-portal,f6ce9ae807186a788435b254e4c66d60ddf4a012,2025-12-21T17:05:59+00:00,Human,,356,8,6,False,False,False,False,"Merge pull request #17 from 201Harsh/window/dax-code
+
+Added Dax Code Window and its Logic"
+https://www.github.com/201harsh/dax-portal,8ba1fb4cb72b4786078e6aa7c264b45a85d1494e,2025-12-21T17:05:05+00:00,Human,,356,8,6,False,False,False,False,Added Dax Code Window and its Logic
+https://www.github.com/201harsh/dax-portal,3c3ff414b156cc993bf41918873c8598ff92caa3,2025-12-21T16:06:04+00:00,Human,,24,9,7,False,False,False,False,Updated Wallpaer Choices and Its logic
+https://www.github.com/201harsh/dax-portal,9637a6a42c6257d3f50a4801508d13aeb1431955,2025-12-21T15:53:46+00:00,Human,,9,0,9,False,False,False,False,New wallPapers Added
+https://www.github.com/201harsh/dax-portal,95e8617fbd76cd9f0fc0606b8c9202c74fbd592d,2025-12-21T10:54:45+00:00,Human,,1,1,1,False,False,False,False,updated Navbar
+https://www.github.com/201harsh/dax-portal,db4fa8b69be5054db99f8297bdb922b4079c4515,2025-12-21T10:53:52+00:00,Human,,6,6,3,False,False,False,False,Basic Updated Windows Header UI
+https://www.github.com/201harsh/dax-portal,2185a07633b67e426358aeb212811e72f6aed41a,2025-12-21T10:49:16+00:00,Human,,155,9,8,False,False,False,False,"Merge pull request #16 from 201Harsh/window/wallpaper
+
+Added Change Wallpaper Logic with its RealTime View Changes"
+https://www.github.com/201harsh/dax-portal,09620eeb947cc5934e5bbe1277aff0356c80b7aa,2025-12-21T10:48:30+00:00,Human,,155,9,8,False,False,False,False,Added Change Wallpaper Logic with its RealTime View Changes
+https://www.github.com/201harsh/dax-portal,a0d93e9f166cf666e4daeb300d15ab02a99cee36,2025-12-20T20:47:43+00:00,Human,,1,1,1,False,False,False,False,Updated Logic
+https://www.github.com/201harsh/dax-portal,b5627e6f7ac606d00ff638d4e06bbbaf6dc7717c,2025-12-20T20:46:13+00:00,Human,,160,7,6,False,False,False,False,"Merge pull request #15 from 201Harsh/Feat/dropdown_menu
+
+Added DropDown Menu with Updated Logic"
+https://www.github.com/201harsh/dax-portal,c372c5eaa11b45c0152e83f073c9002a9cb4b7c9,2025-12-20T20:45:16+00:00,Human,,160,7,6,False,False,False,False,Added DropDown Menu with Updated Logic
+https://www.github.com/201harsh/dax-portal,08b32910075f7c95438a5e134b38e939765d92e1,2025-12-20T19:15:08+00:00,Human,,1,1,1,False,False,False,False,Updated Terminal Code Ui
+https://www.github.com/201harsh/dax-portal,c46012e6b457bd21661303edb10bb7fe3d4b5e78,2025-12-20T19:05:19+00:00,Human,,70,86,8,False,True,False,False,"Merge pull request #14 from 201Harsh/fix/basics
+
+Updated and Fixed Basix Bugs with Added Gallery Image selection and Open"
+https://www.github.com/201harsh/dax-portal,a2508eb7efe4dfb6f03115d766a6a85b5b991750,2025-12-20T19:03:42+00:00,Human,,70,86,8,False,True,False,False,Updated and Fixed Basix Bugs with Added Gallery Image selection and Open
+https://www.github.com/201harsh/dax-portal,da7cbf2471b1a1bfc990710d07ab4186fa5d1df9,2025-12-20T18:17:16+00:00,Human,,237,6,4,False,False,False,False,"Merge pull request #13 from 201Harsh/loadingScreen
+
+Added a Booting Animation with a Cool Entery of Mobile and Desktop View"
+https://www.github.com/201harsh/dax-portal,50d36a4887a578529bd8fc0b164301ffb311733b,2025-12-20T18:16:04+00:00,Human,,237,6,4,False,False,False,False,Added a Booting Animation with a Cool Entery of Mobile and Desktop View
+https://www.github.com/201harsh/dax-portal,40cfc53fb41f2420cdedcf6f0f415230533e5ecd,2025-12-20T16:33:49+00:00,Human,,18,14,4,False,True,False,False,Updated some UI and Bug FIxes
+https://www.github.com/201harsh/dax-portal,c09b0d4210aa3e114ac4cb9e45e64b31c7c6e8ed,2025-12-20T08:21:45+00:00,Human,,173,5,5,False,False,False,False,"Merge pull request #12 from 201Harsh/desk/home
+
+Added Desktop Apps and also Dragabble"
+https://www.github.com/201harsh/dax-portal,5e58203439215b8defdcc17c818609fee5adfc04,2025-12-20T08:20:38+00:00,Human,,173,5,5,False,False,False,False,Added Desktop Apps and also Dragabble
+https://www.github.com/201harsh/dax-portal,252a567317522f87027ec37bc97d159567b846b3,2025-12-19T21:50:20+00:00,Human,,238,2,4,False,False,False,False,"Merge pull request #11 from 201Harsh/window/contact
+
+Added Contact WIndow with all Links"
+https://www.github.com/201harsh/dax-portal,c87d360138e3538b4d8c143f93b9ca577a2be21d,2025-12-19T21:49:28+00:00,Human,,238,2,4,False,False,False,False,Added Contact WIndow with all Links
+https://www.github.com/201harsh/dax-portal,aa29df804f6ab82d5b98d50bf15558f207092853,2025-12-19T21:15:54+00:00,Human,,4,4,5,False,False,False,False,Updated Code and Project Images Added
+https://www.github.com/201harsh/dax-portal,f6ff0e3a5ce6db147e523d93943376ce25ee3312,2025-12-19T21:06:32+00:00,Human,,70,10,5,False,False,False,False,"Merge pull request #10 from 201Harsh/window/image-win
+
+added Image Sucessfully"
+https://www.github.com/201harsh/dax-portal,19adde581dccbcd29057231cbab4d3243a671110,2025-12-19T21:05:36+00:00,Human,,70,10,5,False,False,False,False,added Image Sucessfully
+https://www.github.com/201harsh/dax-portal,ca246e88878dab94cb653edc53158ede1c30791a,2025-12-19T20:35:39+00:00,Human,,2,2,1,False,False,False,False,Updated Navbar
+https://www.github.com/201harsh/dax-portal,7813ba031cfe57447e9c760ce849c3bd54f0b1e6,2025-12-19T20:29:55+00:00,Human,,1,1,1,False,False,False,False,Updated Code and its Logic
+https://www.github.com/201harsh/dax-portal,7c6e2446b84fcc3bf4d65aab3da3d6e1ea963f74,2025-12-19T20:28:15+00:00,Human,,108,22,6,False,False,False,False,"Merge pull request #9 from 201Harsh/Feat/text-window
+
+Added Text Window Logic"
+https://www.github.com/201harsh/dax-portal,acbf40004653194c4e0be724b0517e6ebff6a453,2025-12-19T20:27:06+00:00,Human,,108,22,6,False,False,False,False,Added Text Window Logic
+https://www.github.com/201harsh/dax-portal,3087bb76fb03b3e2642b3d1d1da684a0e87c356f,2025-12-19T19:15:18+00:00,Human,,385,72,35,False,False,False,False,"Merge pull request #8 from 201Harsh/window/finder
+
+Added Dax File Manager Feature with Location Store Implemented with M…"
+https://www.github.com/201harsh/dax-portal,22c464c03050c4d61f571f61e3938ff9dfcb5f1a,2025-12-19T19:14:25+00:00,Human,,385,72,35,False,False,False,False,Added Dax File Manager Feature with Location Store Implemented with Many More Changes
+https://www.github.com/201harsh/dax-portal,b8fadb753419eadbffe5a8cf47b2eb3d693300eb,2025-12-19T11:28:08+00:00,Human,,11,3,3,False,False,False,False,Updated WIndow Code and Logic
+https://www.github.com/201harsh/dax-portal,e5fd5a9903be83b2cb252f81cba9f8d049552fb1,2025-12-19T11:22:12+00:00,Human,,90,48,2,False,False,False,False,Gallery Logic Updated
+https://www.github.com/201harsh/dax-portal,634048dff391aec28ecf95c6a55c19ad42e9d507,2025-12-19T11:11:19+00:00,Human,,104,6,9,False,False,False,False,Updated Gallery Code and Its Logic
+https://www.github.com/201harsh/dax-portal,a6ca7ef49585e8f90cf31a28faa9b61065105ef4,2025-12-19T10:49:44+00:00,Human,,1,1,7,False,False,False,False,Updated Code and its logic
+https://www.github.com/201harsh/dax-portal,2cafbb6c1947d82648309fd74df7b53a01c6a63e,2025-12-19T10:27:33+00:00,Human,,2,11,1,False,False,False,False,updated Resume
+https://www.github.com/201harsh/dax-portal,6e1786b8f74fe722b5e4eff7f780e6446bd0e0d2,2025-12-19T10:22:49+00:00,Human,,1,1,1,False,False,False,False,Updated Desk Doc UI
+https://www.github.com/201harsh/dax-portal,1b17b8e82b58663062460174f9b81a72fad6b0e7,2025-12-19T10:20:36+00:00,Human,,1,1,6,False,False,False,False,added More Features and Logic
+https://www.github.com/201harsh/dax-portal,402232d30c630272fdb30a0e99695f5deec36201,2025-12-19T09:38:08+00:00,Human,,10,10,11,False,False,False,False,Updated Code and some Little Logic of Dock and windows
+https://www.github.com/201harsh/dax-portal,7c41f41188232bb0389f103a47e8fbc9563530d7,2025-12-18T22:13:14+00:00,Human,,299,0,1,False,False,False,False,"Merge pull request #7 from 201Harsh/Feat/location-store
+
+Added LocationStore"
+https://www.github.com/201harsh/dax-portal,5a3a6b41aa3a357042e63d4d5504156a56bb0546,2025-12-18T22:10:28+00:00,Human,,299,0,1,False,False,False,False,Added LocationStore
+https://www.github.com/201harsh/dax-portal,97747a32fd3650bada5927c529c4b72b536961b3,2025-12-18T21:21:18+00:00,Human,,432,10,8,False,False,False,False,"Merge pull request #6 from 201Harsh/window/resume
+
+Added Resume PDF file with Downlaod and Live View Logic"
+https://www.github.com/201harsh/dax-portal,a1ece49f37b8b9a9ffce0fa53b59a0bf5157eea8,2025-12-18T21:19:49+00:00,Human,,432,10,8,False,False,False,False,Added Resume PDF file with Downlaod and Live View Logi
+https://www.github.com/201harsh/dax-portal,77dbdf85ae11cd4df1c449facc0ff182548ef1cf,2025-12-18T20:15:46+00:00,Human,,1,1,1,False,False,False,False,Updated Text and code
+https://www.github.com/201harsh/dax-portal,83ccbd70c4d73864d815ba73058b3bf8a112bfa4,2025-12-18T20:13:47+00:00,Human,,230,33,11,False,False,False,False,"Merge pull request #5 from 201Harsh/window/browser
+
+Added Browser/About Me Logic Sucesfully"
+https://www.github.com/201harsh/dax-portal,85cdcf89a8c9b370723c06c3cd7973282674edf2,2025-12-18T20:12:19+00:00,Human,,230,33,11,False,False,False,False,Added Browser/About Me Logic Sucesfully
+https://www.github.com/201harsh/dax-portal,8613bf0e7e696abf4513a7b51e0b1abbb4e3dbad,2025-12-18T17:27:12+00:00,Human,,2,8,8,False,False,False,False,added more icons and img's
+https://www.github.com/201harsh/dax-portal,cd9362ffb5ce7cf07a7ae128644e03d6a96b48fe,2025-12-18T16:56:14+00:00,Human,,0,0,1,False,False,False,False,added More Wallpapers
+https://www.github.com/201harsh/dax-portal,4b637bc2207b4b8395ff1594f09c568152daff2f,2025-12-18T16:52:44+00:00,Human,,3,0,1,False,False,False,False,Updated Code and its Logic now Text is also Draggable
+https://www.github.com/201harsh/dax-portal,02f59f19302b6f1e3bcdde3704b2222d019517e5,2025-12-18T15:54:35+00:00,Human,,1,1,1,False,False,False,False,Updated Code Text
+https://www.github.com/201harsh/dax-portal,e14814e81910ea2be0624b103ec5ccf6d6a956cb,2025-12-18T11:29:16+00:00,Human,,74,62,7,False,True,False,False,Updated Code for Dragging and Basic Bug Fixes
+https://www.github.com/201harsh/dax-portal,32102e8b5c59f1c00462400dcbfa85ae4fb8745d,2025-12-18T10:51:07+00:00,Human,,1,1,1,False,False,False,False,Updated Code
+https://www.github.com/201harsh/dax-portal,1b105bd5bba6e0b04a48a928bcc973c04aa3b49d,2025-12-17T20:52:56+00:00,Human,,1,2,2,False,False,False,False,updated Logic
+https://www.github.com/201harsh/dax-portal,bbd7a3c073f14cfc35e2719a6274ed9577b17c4c,2025-12-17T20:45:22+00:00,Human,,108,12,3,False,False,False,False,"Merge pull request #4 from 201Harsh/Feat/max-window
+
+Updated Minimize and Maximize Logic"
+https://www.github.com/201harsh/dax-portal,4171b6929368bc82a5fe7533da502e0c8f89e671,2025-12-17T20:41:51+00:00,Human,,108,12,3,False,False,False,False,Updated Minimize and Maximize Logic
+https://www.github.com/201harsh/dax-portal,48fee86f0dd0a77097727ca9b61bd969a19ede86,2025-12-17T19:43:56+00:00,Human,,263,22,11,False,False,False,False,"Merge pull request #3 from 201Harsh/Feat/terminal-window
+
+Added Terminal With Dragable Logic"
+https://www.github.com/201harsh/dax-portal,21d99b7018dab245107bfb49612b6ec28905066e,2025-12-17T19:40:48+00:00,Human,,263,22,11,False,False,False,False,Added Terminal With Dragable Logic
+https://www.github.com/201harsh/dax-portal,3b43612e9bcabb2ad49e5a4e95302d20c61f249a,2025-12-17T18:09:33+00:00,Human,,35,4,5,False,False,False,False,"Merge pull request #2 from 201Harsh/Feat/window-wrapper
+
+Added HOC WindowWrapper For Help and Logic"
+https://www.github.com/201harsh/dax-portal,f6fb01bfedfead754dfe4ea82b9c3abb3b4136f4,2025-12-17T17:54:35+00:00,Human,,35,4,5,False,False,False,False,Added HOC WindowWrapper For Help and Logic
+https://www.github.com/201harsh/dax-portal,9dd36d693342281a7faeba62ddf497b2699e0820,2025-12-17T16:55:46+00:00,Human,,128,9,4,False,False,False,False,"Merge pull request #1 from 201Harsh/Feat/WindowsStore
+
+Feat/windows store"
+https://www.github.com/201harsh/dax-portal,1056a3c3f6c97a6c205b7425075f8dee3cfca9a7,2025-12-17T16:54:27+00:00,Human,,37,6,2,False,False,False,False,added WindowsMangaer Logic Sucesfully
+https://www.github.com/201harsh/dax-portal,f8980f1d6488831f43077134f076b9b9e878d57d,2025-12-17T11:56:40+00:00,Human,,92,4,3,False,False,False,False,Creating WIndows State Manager
+https://www.github.com/201harsh/dax-portal,0ac4c159612afeddbf7833ee19efd4df962c8340,2025-12-17T09:19:26+00:00,Human,,9,1,1,False,False,False,False,Updated Open Dock Items Logic Instilising
+https://www.github.com/201harsh/dax-portal,f6c7534e082b7769c97de7c039f647d729ebc999,2025-12-16T23:28:00+00:00,Human,,22,10,5,False,False,False,False,added Some More Software like Spotify and VsCode
+https://www.github.com/201harsh/dax-portal,5d6ab6dd78177a0a2b869b08b21b9a571e109e00,2025-12-16T23:17:57+00:00,Human,,37,3,1,False,False,False,False,Added Pure Animations Logic to the COde
+https://www.github.com/201harsh/dax-portal,7193d3f05c792ee68e831bb1e607bdd8900efdec,2025-12-16T22:57:25+00:00,Human,,1,1,1,False,False,False,False,Added PreAnimations to the Live
+https://www.github.com/201harsh/dax-portal,9009d67f28d7e3aed23b29c8c8c0c028d39f1866,2025-12-16T22:55:35+00:00,Human,,26,2,3,False,False,False,False,Added PreAnimations to the Live
+https://www.github.com/201harsh/dax-portal,de6c18c37c8e01203a6c30dbfd1d676f67c1d64d,2025-12-16T22:24:13+00:00,Human,,61,5,2,False,False,False,False,Added Docs Animations Sucessfully
+https://www.github.com/201harsh/dax-portal,2eab4eea02de93670aa41af08a23753da8df2853,2025-12-16T21:53:21+00:00,Human,,6,7,2,False,False,False,False,Added Lazy Loading to Images at Dock
+https://www.github.com/201harsh/dax-portal,6811b114b6d8b8ff674e0bf0ab23ba476ca9dd93,2025-12-16T21:39:57+00:00,Human,,94,19,3,False,False,False,False,Added Dock To The Main
+https://www.github.com/201harsh/dax-portal,3472efb51d57004e77815411ea854960a14d6dca,2025-12-16T21:24:25+00:00,Human,,20,2,3,False,False,False,False,Updated Tooltip and Updated SEO
+https://www.github.com/201harsh/dax-portal,8f763a55b6b4223487eedbe97fdcd97a38599b02,2025-12-16T21:09:52+00:00,Human,,27,12,7,False,False,False,False,Added Logo and Updated Header and Animations
+https://www.github.com/201harsh/dax-portal,34c537e4c316e6edcbaa73cc2e4009ecb783fb35,2025-12-16T20:24:19+00:00,Human,,140,6,9,False,False,False,False,Added a Text Animation at DestopScreen
+https://www.github.com/201harsh/dax-portal,492606b6b71211350b23356482c72285c9f6b1bf,2025-12-16T18:05:03+00:00,Human,,12,2,2,False,False,False,False,added Desktop and Mobile View Fully WOrking
+https://www.github.com/201harsh/dax-portal,029d2f34aea7f5a985d4b7a94b60fc1a580d7f0c,2025-12-16T17:57:34+00:00,Human,,21,6,2,False,False,False,False,added Desktop and Mobile View Fully WOrking
+https://www.github.com/201harsh/dax-portal,a1ed78b2713d6300ab1adaa6b35e842a9dab4969,2025-12-16T17:51:55+00:00,Human,,1,1,1,False,False,False,False,added Navbar to the Desktop Code
+https://www.github.com/201harsh/dax-portal,0f526755e07bbce7a5de39a2c4e1f39b05acaa4d,2025-12-16T17:51:26+00:00,Human,,135,71,25,False,False,False,False,added Navbar to the Desktop Code
+https://www.github.com/201harsh/dax-portal,f33933b050148004fe09c569a42da625ce018cd1,2025-12-16T16:49:32+00:00,Human,,16,6,3,False,False,False,False,Updated Logic of Destop and Seprated Code
+https://www.github.com/201harsh/dax-portal,e0da5741e2d7d166b5ad2969deefab2dcdf0e0e8,2025-12-16T11:46:47+00:00,Human,,28,1,5,False,False,False,False,Added 4 Wallapers to The Desktop
+https://www.github.com/201harsh/dax-portal,3f273c98b485de6f5faa2c806a89f47920eea8af,2025-12-16T10:22:34+00:00,Human,,5,134,5,False,False,False,False,Basic Setup Done
+https://www.github.com/201harsh/dax-portal,ac7009fbd49e99d3151b049c01b7cb933058bb94,2025-12-16T10:13:19+00:00,Human,,7036,0,46,False,False,False,False,First Commit

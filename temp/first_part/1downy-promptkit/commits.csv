@@ -1,0 +1,764 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/1downy/promptkit,14e4245bb0fda525d4dc3b7daa404dfec1bfe2c5,2026-06-30T07:32:36+00:00,Human,,4,2,2,True,True,False,False,"fix: register LongCat provider, enable Chinese toggle for ERNIE-Image models"
+https://www.github.com/1downy/promptkit,b2bf90f4b21a9d120c862f598845fccf6baa8664,2026-06-30T07:06:33+00:00,Human,,539,0,1,False,True,False,False,"feat: add LongCat provider with 10 entries, fix ecosystem/source types"
+https://www.github.com/1downy/promptkit,951bd41de409b2c51780c34a8d1a5bb6ecc385b1,2026-06-30T06:04:21+00:00,Human,,1,1,1,True,True,False,False,fix: clarify Muse Spark image generation capability
+https://www.github.com/1downy/promptkit,50dd503acc2fafc4b5a70c606c0ca665f902f0f3,2026-06-30T05:22:12+00:00,Human,,303,54,1,False,True,False,False,"feat: add Emu/Emu Video/Emu Edit/Emu 3.5/Vibes entries, drop Behemoth, fix types"
+https://www.github.com/1downy/promptkit,da982061ab6227612a4e2a784cde10da6134ef0d,2026-06-30T04:59:34+00:00,Human,,60,41,1,False,False,False,False,docs: overhaul README with clean open-source layout
+https://www.github.com/1downy/promptkit,7ce4da1861add331acb6b753d0ff19bcd3eb443a,2026-06-30T04:44:45+00:00,Human,,844,516,7,True,True,False,False,"fix: remove duplicate Qwen Image 2512 entry from alibaba.ts
+
+Qwen Image 2512 was a duplicate entry — same model ID (qwen-image-max) as the existing Qwen-Image-Max entry."
+https://www.github.com/1downy/promptkit,69b8cc60a2c8c8a4d3c0ff5c3a65fa61bb655bd5,2026-06-30T04:15:23+00:00,Human,,13,214,1,True,True,False,False,"fix: correct Wan 2.6 category to image, clean up duplicate entries"
+https://www.github.com/1downy/promptkit,3a51432068590714032180b54659e4b7860b630a,2026-06-29T15:51:50+00:00,Human,,236,97,1,False,False,False,False,"feat: enhance Runway Gen-4.5 entry — add Elo rating, duration details, limitations, and cost info"
+https://www.github.com/1downy/promptkit,1134d14179a483316d60829d54a38311c60664e1,2026-06-29T15:48:05+00:00,Human,,37,90,1,True,True,False,False,"fix: update Meshy provider entries — normalize prompt guidelines, refresh references"
+https://www.github.com/1downy/promptkit,554642b360e635f0614b06964201024a7d5862b8,2026-06-29T15:44:48+00:00,Human,,414,880,1,False,False,False,False,"refactor: streamline OpenAI provider entries — consolidate prompt guidance, add section headers"
+https://www.github.com/1downy/promptkit,d4e0f80056d07a3a87082a2286637d7ce8f3f9da,2026-06-29T15:38:35+00:00,Human,,82,72,1,True,True,False,False,"fix: refresh xAI provider entries — update references, clarify Grok Build availability"
+https://www.github.com/1downy/promptkit,ec8f46ef2f8e4198524871ce40fa4e7502168fb0,2026-06-29T15:36:43+00:00,Human,,624,243,2,False,False,False,False,"feat: update GLM-5.2 entry with official parameters, add new model URLs to sitemap"
+https://www.github.com/1downy/promptkit,228c558ddbc1ca731fd28867410eb8de5080c812,2026-06-29T15:33:13+00:00,Human,,2,2,1,True,True,False,False,fix: normalize source types in Pony Diffusion entry
+https://www.github.com/1downy/promptkit,4af8771deb0fb61079437412a83f3e92595e0735,2026-06-29T15:30:04+00:00,Human,,144,122,1,False,False,False,False,"feat: update Pony Diffusion entry — add recommended settings, refresh references and sources"
+https://www.github.com/1downy/promptkit,efead515c1246889244a5478005d5a0a25156b9b,2026-06-29T15:27:05+00:00,Human,,216,130,1,False,False,False,False,"feat: update MiniMax provider — localize descriptions, add section headers, refresh references"
+https://www.github.com/1downy/promptkit,a959aa5132c3f01d1aa95af69e6f9494ee64cd71,2026-06-29T15:23:06+00:00,Human,,202,65,1,False,False,False,False,"style: format DeepSeek provider entries — add section headers, normalize reference spacing"
+https://www.github.com/1downy/promptkit,c5ea1c4a4231c5d2962e26ff51a971de229b019f,2026-06-29T15:20:33+00:00,Human,,372,84,1,False,False,False,False,"feat: update Xiaomi provider — add MiMo-V2.5-Pro-Base, refresh reference numbers"
+https://www.github.com/1downy/promptkit,1bda70c94c84fcd2416172b1672a35adea8fdc93,2026-06-29T15:14:12+00:00,Human,,1047,467,1,False,False,False,False,"feat: add Tencent provider entries — new 3D, animation, translation, and role-play models"
+https://www.github.com/1downy/promptkit,ec24e7ad6133349b4e4c0f2420da0ebb175f46e2,2026-06-29T15:07:18+00:00,Human,,257,166,2,True,True,False,False,fix: update provider entry descriptions and reference numbers
+https://www.github.com/1downy/promptkit,b3a8e81adc3ac962882ed7235bb9b272a340fac3,2026-06-29T15:04:40+00:00,Human,,858,395,1,False,False,False,False,"chore: refresh Alibaba provider entries — add Qwen3.7 series, restructure entries
+
+Major rewrite of Alibaba provider data:
+
+- Add Qwen3.7 Max, Qwen3.7, Qwen3.7 Plus entries (current flagship)
+- Add Qwen3.6/Qwen3.5 series entries
+- Restructure with proper sections for each model generation
+- Improve reference accuracy with corrected source counts
+- Remove ambiguous/stale entries"
+https://www.github.com/1downy/promptkit,4db67031030695e881500d9720fab350752b1407,2026-06-29T12:31:59+00:00,Human,,61,43,3,False,False,False,False,"perf: inline critical CSS and load remaining stylesheets async via post-build script
+
+Add scripts/optimize-css.mjs that runs Critters after next build to:
+1. Inline above-the-fold CSS into <style> in index.html
+2. Convert remaining <link rel=stylesheet> to non-blocking
+   via media=""print"" onload=""this.media='all'"""
+https://www.github.com/1downy/promptkit,740b9e0b4d9988b2508cf30bb695de3b72641a7b,2026-06-29T12:26:35+00:00,Human,,3,5,2,False,False,False,False,"perf: halve data.json payload by removing byCategory duplication
+
+- Remove redundant byCategory from data.json (was 1172KB, a complete
+  duplicate of all entries data grouped by category)
+- Compute category counts on the fly in BrowseViewInner via array filter
+- data.json: 2.3MB -> 1.1MB raw, 443KB -> 224KB gzipped"
+https://www.github.com/1downy/promptkit,807d4e19e2acd802e4c3aa0052192f8270e6634e,2026-06-29T12:13:24+00:00,Human,,301,41,9,False,True,False,False,"perf: remove 1.1MB data chunk from initial page load
+
+- Replace dynamic import of system-prompts with fetch('/data.json') for
+  browse-view data, breaking Turbopack's aggressive chunk preloading
+- Extract utility functions from system-prompts into prompt-utils.ts
+  (zero data dependency, small bundle)
+- Make DetailView dynamically imported (was static import, blocked this fix)
+- Re-route SourceQualityBadge import from system-prompts to prompt-utils
+- Add generate-data.mjs build script to produce public/data.json from source
+- Remove experimental.optimizeCss (no-op with Turbopack)
+- Gitignore generated public/data.json"
+https://www.github.com/1downy/promptkit,6f7575cd7b71c4b61c906a6bf42a7d7efe8127bf,2026-06-29T11:45:51+00:00,Human,,200,10,4,False,False,False,False,"perf: reduce JS bundle by 240KB with lazy data, kill legacy polyfills, inline CSS
+
+- Lazy-load the 226KB system-prompts data module in BrowseView
+  (module-level dynamic import + use() hook + Suspense)
+- Add browserslist targeting last 1 version of each browser
+  (eliminates 13KB of ES5 polyfills)
+- Enable experimental.optimizeCss for critters-based CSS inlining
+  (saves 590ms render-blocking CSS time)"
+https://www.github.com/1downy/promptkit,cd0088560124b94d9d6241cd254dcc936e71bb59,2026-06-29T11:38:24+00:00,Human,,1,1,1,False,False,False,False,perf: reserve viewport height for main content to eliminate CLS from footer shift
+https://www.github.com/1downy/promptkit,a2030024466a6f93b75d36cbc0b1272c456a54a5,2026-06-29T11:31:34+00:00,Human,,1147,1141,5,False,False,False,False,"perf: code-split all data-heavy views into separate chunks
+
+- Move BrowseView, SearchDialog, CompareView, and BookmarksView
+  into their own dynamically-imported components
+- page.tsx drops from 1398 to 266 lines — no longer imports
+  the 1.2MB provider data bundle (23K lines across 40+ files)
+- Each view loads its data chunk only when mounted, via next/dynamic
+- Hardcode footer count to 400 (was importing all entries just for length)"
+https://www.github.com/1downy/promptkit,f1928c29d56562dc34385aa70b3565a08ba41de6,2026-06-29T11:19:21+00:00,Human,,47,7,2,False,False,False,False,"perf: add infinite scroll to model grid and target es2022
+
+- Render 30 cards at a time with IntersectionObserver infinite scroll
+  instead of all 400+ to reduce DOM from 20K to ~800 nodes
+- Bump TypeScript target from ES2017 to ES2022 to drop legacy
+  polyfills (Array.at, Object.hasOwn, String.trimStart, etc.)"
+https://www.github.com/1downy/promptkit,3945d2355451f0e28f798e7e0c42dbe523f22a8e,2026-06-29T07:41:39+00:00,Human,,0,55,1,True,True,False,False,fix: remove duplicate Gemini 3.5 Flash entry from Google provider
+https://www.github.com/1downy/promptkit,d704ede8d45b923fb91ae1d2277c77545a00424b,2026-06-27T08:01:52+00:00,Human,,82,33,3,False,False,False,False,"feat: add shimmer animation to skeleton and search loading state
+
+- Add CSS shimmer keyframe with gradient sweep overlay on skeleton elements
+- Show animated skeleton rows in search dialog during debounce delay"
+https://www.github.com/1downy/promptkit,5a279c8d6c10fca02a213009ec913a5f8911bd62,2026-06-27T07:55:53+00:00,Human,,123,155,2,False,False,False,False,"chore: refresh CagliostroLab and Inception Labs provider entries
+
+CagliostroLab:
+  - Animagine XL 4.0/4.0 Zero: add 1other tag option, CFG 6-7 range, Euler a sampler
+  - Animagine XL 3.1: replace commit URL with model card, update example prompt
+  - Animagine XL 3.0: add Euler a, CFG 5-7, steps <30, update example
+  - All: simplify template structure, remove puffery
+
+Inception Labs:
+  - Mercury 2: remove ~5x speed claim, replace third-party source with official docs
+  - Mercury Edit 2: add new prompt tags, note streaming/tool calling not supported on edit
+  - Mercury Coder: specify /v1/apply/completions endpoint, add intro blog source"
+https://www.github.com/1downy/promptkit,ee8b62859e9b04e3801ff14fc4c09a3faf0f3d2f,2026-06-27T07:44:15+00:00,Human,,192,187,2,False,True,False,False,"chore: refresh 01.AI and community provider entries — fix capabilities, sources, version accuracy
+
+01.AI:
+  - Yi Lightning: rewrite from real-time MoE to flagship bilingual model, add arXiv/KV-caching refs
+  - Yi Coder: add reference tags, expand language support detail
+
+Community:
+  - Pony Diffusion: downgrade V7->V6 (V7 is AuraFlow, inconsistent), replace guides with model cards
+  - SDXL: remove hardcoded 3.5B params and dpmpp_2m sampler specs, add Civitai compass source
+  - SD3/SD3.5: reorder 7-element framework, flip negative prompt strategy to short/focused
+  - Illustrious XL: add optimal settings, update quality/negative tags per current community practice
+  - SD 1.5: clarify keyword style as comma-separated tags"
+https://www.github.com/1downy/promptkit,cfba5435a3210cfbbc6b4165dfe5f4b3e93d01cc,2026-06-27T07:38:54+00:00,Human,,194,210,2,False,True,False,False,"chore: refresh Adobe and DeepSeek provider entries — fix sources, revise capabilities
+
+Adobe:
+  - Image 5: rewrite capabilities (Prompt to Edit, photorealism), remove stale sources
+  - Image 4/4 Ultra: trim guidelines, remove news sources
+  - Image 3: revise focus from four variations to Fast mode
+  - Fill & Expand: drop retouching, add reference/generative expand sources
+  - Video: replace composition/motion/seed controls with resolution options
+  - Vector: simplify color control
+  - Design Intelligence: limited-time release, updated best practices
+  - Sensei: rewrite as ""now part of Adobe AI"", adobe.com sources only
+
+DeepSeek:
+  - R1-0528: system prompts now supported, max_tokens 16K→64K
+  - V3.2: add missing refs in shortVersion, drop orphaned tag
+  - V4 Pro/Flash: normalize reference numbering per entry"
+https://www.github.com/1downy/promptkit,304ec72f1de258d141d9f6d24cf3036178dc44dd,2026-06-27T07:34:26+00:00,Human,,64,70,1,False,True,False,False,"chore: refresh Anthropic provider entries — rewrite Fable 5/Opus 4.8 specs, remove stale claims
+
+Fable 5:
+  - Replace ""adaptive thinking by default"" with long-horizon autonomy and first-shot correctness
+  - Remove 128K max output token claims (not a fixed spec)
+  - Restructure ""Prompting Best Practices"" to ""Prompting Patterns Specific to...""
+  - Update references: 0-5→6-10 renumbering
+
+Mythos 5:
+  - Remove orphaned reference tag from model family context
+
+Opus 4.8:
+  - Replace capabilities with long-horizon agentic work, knowledge work, memory tasks
+  - Remove single-fixed-snapshot language
+  - Restructure prompting section with effort/tool-use/instruction-following details
+
+Opus 4.7, Opus 4.6, Sonnet 4.6, Haiku 4.5:
+  - Reference renumbering
+  - Normalize ""XML Tags (General Principles)"" → ""XML Tags"""
+https://www.github.com/1downy/promptkit,a407e10900f3586aa184a99627e2c65aa4a3f7f3,2026-06-27T07:31:39+00:00,Human,,256,587,3,False,False,False,False,"refactor: replace Midjourney entries with expanded Black Forest Labs FLUX entries
+
+Remove the entire Midjourney section (V8.1, V7, V6.1, Niji 7) and
+replace with comprehensive FLUX model family from Black Forest Labs.
+
+New BFL entries (12 models):
+  FLUX.2 [max] — highest quality, grounding search, 8-10 ref images
+  FLUX.2 [pro] — production-grade, JSON structured prompts, HEX color
+  FLUX.2 [flex] — typography specialist, tunable steps/guidance
+  FLUX.2 [klein] — sub-second inference, open-weight (4B/9B)
+  FLUX.2 [dev] — 32B open-weight for experimentation/fine-tuning
+  FLUX 1.1 [pro] Ultra — 4MP resolution mode
+  FLUX 1.1 [pro] — production-grade text-to-image
+  FLUX [pro] — high-quality, strong prompt following
+  FLUX [dev] — open-weight development model
+  FLUX [schnell] — fast, 1-4 step inference, open-weight
+  FLUX.1 Kontext [max] — premium editing, typography, 10 ref images
+  FLUX.1 Kontext [pro] — professional editing
+
+Infrastructure:
+  - Copy improved entries from midjourney.ts into black-forest-labs.ts
+  - Delete midjourney.ts (replaced entirely by BFL data)
+  - Remove stale MIDJOURNEY import/spread from index.ts"
+https://www.github.com/1downy/promptkit,7601980e3f08d8e46e65e20e852bfe4885a64731,2026-06-27T07:25:51+00:00,Human,,78,80,1,False,True,False,False,"chore: refresh Mistral AI provider entries — fix specs, mark retired models, rewrite Devstral 2
+
+Key changes across 11+ model entries:
+
+  Mistral Medium 3.5:
+    - Remove stale benchmark numbers (77.6% SWE-Bench, 91.4% τ³-Telecom)
+    - Remove ""runs on 128GB MacBook"" claim — add reference tags
+
+  Mistral Small 4:
+    - Fix activated params: 6.5B -> 6B (8B incl. embeddings)
+    - Replace ""Pixtral vision encoder"" / ""Native function calling""
+      bullets with ""Configurable reasoning effort (none/high)""
+    - Update license mention to Apache 2.0
+
+  Mistral Large 3:
+    - Add reference tags to core capability bullets
+
+  Mistral Large 2:
+    - Mark retired (March 30, 2025), replaced by Large 3
+    - Replace Hugging Face source with official Mistral docs model card
+
+  Mistral Small 3.2:
+    - Mark deprecated (April 30, 2026), replaced by Small 4
+    - Add reference tags
+
+  Ministral 3 family (14B, 8B, 3B):
+    - Fix context window: 128K -> 256K (was documented wrong)
+    - Ministral 3 14B: remove variant/AIME-scores folklore, simplify
+      to available-variant-agnostic capabilities
+
+  Codestral:
+    - Fix context window: 256K -> 128K (was documented wrong)
+    - Mark retired (November 30, 2025)
+
+  Devstral -> Devstral 2 (rename):
+    - Rewrite entry: now frontier code agents model (123B/24B, Dec 2025)
+    - Remove stale OpenHands scaffold reference
+    - Replace third-party sources (Unsloth, SiliconANGLE) with
+      official Mistral model card + launch blog
+    - Bump version string to devstral-2
+
+  Mistral OCR 3:
+    - Remove stale endpoint name from description"
+https://www.github.com/1downy/promptkit,de2aa57861c82a054e9d4dc230ec43a7175a611e,2026-06-27T07:20:39+00:00,Human,,128,122,1,False,False,False,False,"chore: refresh OpenAI provider entries — renumber references, add missing specs, remove orphaned tags
+
+Follows same cleanup pattern as recent provider batches.
+
+Key changes across 35 model entries:
+  - Renumber reference tags sequentially per entry, remove orphaned inline refs
+  - GPT-5.4 Pro: add version description, multi-turn support, background mode, window specs
+  - GPT-5.4: expand coding/reasoning/context-window bullet details
+  - GPT-5.2: rewrite core description (flagship model, instruction following, accuracy)
+  - GPT-5.2 Codex: add reasoning effort settings, 400K context, knowledge cutoff
+  - Computer Use Preview: rewrite to clarify training purpose and capabilities
+  - Omni Moderation: add text/image input acceptance, note audio not classified
+  - Older models (GPT-4.1 series, GPT-4o mini, GPT-4o): strip orphaned refs only
+  - Normalize single-quoted descriptions to double-quoted"
+https://www.github.com/1downy/promptkit,8b6acd5f432c8f04f503159513ac18a240bf9ed7,2026-06-27T07:14:24+00:00,Human,,226,213,2,False,True,False,False,"chore: refresh recraft and stepfun provider entries — fix URLs, add references, remove stale claims
+
+Recraft (5 model entries):
+  - Add predictable output description to V4.1 Utility (flat lighting, front-facing)
+  - Expand V3 artistic level control with enum values + artistic-levels docs
+  - Add Recraft V4 launch blog post and V4.1 docs page to sources
+  - Remove orphaned reference tags, renumber consistently
+  - Update Utility tip: predictable outputs for mockups/product shots
+
+StepFun (15 model entries):
+  - Fix model ID convention: sp-step-audio-25-* -> sp-stepaudio-25-*
+  - Remove stale claims: 0.17s latency (Step-2-mini), 80%+ performance, Terminal-Bench scores
+  - Replace ageing comparisons: ""GPT-4o-level"" -> ""comparable to proprietary"" (Step1X-Edit)
+  - Add missing details: reasoning_effort field, WebSocket protocol, RTF metrics,
+    routing criteria (token count/message rounds), end-to-end GUI processing,
+    inline context examples for TTS
+  - Remove overly specific benchmark numbers that age quickly
+  - Replace ar5iv with canonical arxiv.org URLs for whitepapers
+  - Add Hugging Face model cards for NextStep-1, Step-Video models
+  - Fix generic model-lab and overview URLs into specific model pages
+  - Add GitHub source for Step-Audio-2-mini"
+https://www.github.com/1downy/promptkit,ec4548e5a27129c5b87737bda325b9df818f5f22,2026-06-27T07:09:27+00:00,Human,,168,174,2,False,True,False,False,"chore: refresh meshy and meta provider entries — fix URLs, add references, update model status
+
+Meshy (3 model entries):
+  - Add reference tags for source attribution across all system prompts
+  - Fix char limit: 800 max -> 600 (API) / 800 (web)
+  - Add Meshy 6 refined geometry and PBR channel details
+  - Rename Meshy 4 two-stage workflow: ""Modeling -> Texturing"" to ""Preview -> Refine""
+  - Add Image-to-3D best practices to Meshy 5
+  - Replace stale sources with official blog posts, API docs, and Chinese mirrors
+  - Add PBR texture channels tip (Base Color, Normal, Metallic, Roughness, Emission)
+
+Meta (10 model entries):
+  - Llama 4 Behemoth: status changed from ""limited research release"" to ""not yet released, currently in training""
+  - Muse Spark: full rewrite — small/fast -> native multimodal reasoning with tool-use, visual CoT, multi-agent orchestration; replace news sources with official Meta blogs
+  - Llama 3.3: ""same format as 3.1"" -> ""supersedes Llama 3.1 70B""; remove function-calling claim
+  - Llama 3.1 70B: add ""superseded by Llama 3.3 70B"" tip; remove GPU requirements from descriptions
+  - Vision models: add supported-languages section (text-only vs image+text)
+  - Scout: add INT4-quantized qualifier and image understanding bullet
+  - Replace placeholder/vanity URLs (deeplearning.ai, kindatechnical.com, aws.amazon.com) with real sources (Groq, NVIDIA, Ollama, official model cards, TechCrunch)
+  - Clean up stale sources, remove GPU requirement noise from tips"
+https://www.github.com/1downy/promptkit,1d7c9e0383834d8d81310156647104a184085a83,2026-06-27T07:00:32+00:00,Human,,154,136,2,False,True,False,False,"chore: update ideogram and minimax provider entries — fix URLs, add references, clean stale info
+
+Ideogram:
+  - Add reference tags to description for source attribution
+  - Renumber all inline references consistently across system prompt
+  - Add technical details press release and Hugging Face docs to sources
+  - Add tip about ""trained from scratch"" model characteristic
+
+MiniMax (all model variants):
+  - Fix API docs URL: platform.minimax.io -> platform.minimaxi.com
+  - Remove stale tips (free API calls, reduced hallucinations claims)
+  - Add missing capability details (output speed, aspect ratios, parameters)
+  - Add [指令] camera control syntax guide to Hailuo 2.3 models
+  - Update Speech-2.8-HD: 300+ voices -> 32 languages + emotion control
+  - Add image-01 aspect ratios and photorealistic precision detail
+  - Add parameter tables (temperature/top_p/top_k, speed/vol/pitch/emotion)
+  - Remove deprecated/irrelevant sources, add NVIDIA NIM and official docs"
+https://www.github.com/1downy/promptkit,c29f45781a20c85efb5771e21ee91983d520fdc1,2026-06-27T06:54:16+00:00,Human,,1032,1117,7,False,True,False,False,"chore: refresh provider entries across 7 files — fix URLs, update descriptions, clean sources
+
+- Replace stale/404 source URLs with accurate official documentation
+- Remove vendor platform references (Qianfan, BytePlus etc.) from descriptions/tips
+- Update capability descriptions with current model info (Gemini Omni → Gemini Omni Flash, Qwen3.7 Max built-in tools, etc.)
+- Add missing sources (model cards, technical reports, official docs)
+- Remove inline source annotations from descriptions
+- Remove deprecated example prompts and redundant detail
+- Renumber inline reference tags consistently across all entries
+- Clean verbose or duplicated copy in system prompts and tips"
+https://www.github.com/1downy/promptkit,c5bdfb189dba05a4f713e86670adf4bc4a12fee0,2026-06-27T06:30:02+00:00,Human,,95,157,1,False,True,False,False,"chore: refresh Baidu provider entries — fix URLs, add sources, clean descriptions
+
+- Remove deprecated Qianfan-Agent-Speed-8K entry
+- Replace stale/404 source URLs with accurate official docs
+- Add missing sources (ERNIE 5.0 tech report, ERNIE-X1 official docs, etc.)
+- Fix ERNIE-Image blog URL (remove stray /zh/ path segment)
+- Update ERNIE-Image prompting guidance with CJK text quoting tips
+- Remove redundant Qianfan platform references from descriptions/tips
+- Refresh inline reference numbering to match updated source counts
+- Minor copy polish across all Baidu entries"
+https://www.github.com/1downy/promptkit,a30766da23eae9a2c8183d460067198b7ef2d31f,2026-06-27T06:22:24+00:00,Human,,195,1,2,False,False,False,False,"feat: add loading skeletons for model detail page and browse view
+
+Create src/app/model/[id]/loading.tsx with a full-page skeleton
+matching the model detail layout (header, breadcrumb, title,
+how-to-use card, prompt viewer, tips, sources, CTA).
+
+Replace the bare 2-div BrowseSkeleton with SkeletonCard components
+matching EntryCard layout plus category pill, search/filter bar,
+and results count placeholders.
+
+tsc --noEmit clean."
+https://www.github.com/1downy/promptkit,83ac1679ceff36b1e2a3451bcd753dd4555fdaaa,2026-06-27T06:13:13+00:00,Human,,899,782,6,False,False,False,False,"refactor: extract DetailView into dedicated component files
+
+Move DetailView, ArenaRankCard, OpenInDropdown, and shared configs
+(CATEGORY_CONFIG, CHAT_PLATFORMS, SOURCE_ICONS) into separate files.
+Extract CopyButton and SourceQualityBadge to src/components/ui/.
+
+Update xAI provider entries with video editing and voice API docs.
+Update Zhipu AI provider entries with official doc references,
+thinking mode controls, and improved prompt guidance.
+
+page.tsx: 1779 -> 1260 lines (-29%). tsc --noEmit clean."
+https://www.github.com/1downy/promptkit,ba6549e15de6a81139105425d2ac18a87a76eea4,2026-06-27T05:58:11+00:00,Human,,586,583,7,False,False,False,False,"feat: per-model view settings, heading-row action buttons, provider data cleanup
+
+- Persist Full/Short and Chinese/English toggle per entry in localStorage
+- Extract Open in Chat dropdown and Save button into ModelActions component
+- Place action buttons inline with ""✨ System Prompt"" heading on /model/[id]
+- Update Tencent entry descriptions (remove verbose metrics, update source URLs)
+- Add official system prompt to Xiaomi entries, add thinking mode guidance"
+https://www.github.com/1downy/promptkit,c13576deb6835701a30fea33cf96ca5c965cb2df,2026-06-27T05:40:57+00:00,Human,,263,293,3,True,True,False,False,"fix: correct line-number styling and update Alibaba model prompt guides
+
+- Fix invalid Tailwind classes (zinc-650, zinc-850) for prompt line numbers
+- Clean up reference citations in Alibaba provider prompts
+- Fix Wan 2.7 model ID slug (sp-wan-2.7-text-to-video -> sp-wan-27-text-to-video)
+- Add FIM template for Qwen-Coder-Turbo
+- Add vision-enhanced translation for Qwen3.5 Livetranslate
+- Add multi-image support to Qwen Image Edit and Qwen3-VL
+- Add chain-of-thought reasoning note for Wan2.7-Image-Pro
+- Simplify and reorganize prompt engineering rules across all Alibaba models"
+https://www.github.com/1downy/promptkit,44040b965e6de32f2453e41987d0da1f6d859c44,2026-06-27T05:37:39+00:00,Human,,679,278,7,False,False,False,False,"feat: redesign prompt display with editor-style viewer and mobile filters
+
+- Add code editor-style prompt viewer with line numbers and VS Code-like chrome
+- Implement responsive filter layout with desktop inline controls and mobile Sheet drawer
+- Add floating mobile action bar for copy/save/compare on detail view
+- Redesign hero section with gradient background and glow effects
+- Add custom CSS utilities: scrollbars, mask gradients, hover glow
+- Update comparison table with sticky row/column labels
+- Update ByteDance Seedream prompt engineering guides
+- Add cross-platform dev script with shell:true spawn
+- Update sitemap with corrected URLs and new model entries"
+https://www.github.com/1downy/promptkit,78a349445dc3531e5029adf1fc4d2380419942ae,2026-06-26T19:50:10+00:00,Human,,15,123,6,False,True,False,False,"Merge pull request #3 from E4crypt3d/chinese-toggle-fixes
+
+Add Chinese language toggle and UI fixes"
+https://www.github.com/1downy/promptkit,ab0fc9b91e79eec3774d4293d83469dd504d7140,2026-06-26T19:49:27+00:00,Human,,15,123,6,False,True,False,False,feat: add Chinese language toggle and related UI/logic fixes
+https://www.github.com/1downy/promptkit,d6073f4635538d1e26d693ac88de03b1d1022c62,2026-06-26T19:36:58+00:00,Human,,105,22,6,False,False,False,False,"Merge pull request #2 from E4crypt3d/main
+
+feat: add Chinese language toggle for Chinese image/video/3d models"
+https://www.github.com/1downy/promptkit,3dfda3eb138a787f7198bbaa0b8da21eb8f5d00c,2026-06-26T19:35:55+00:00,Human,,105,22,6,False,False,False,False,feat: add Chinese language toggle for Chinese image/video/3d models
+https://www.github.com/1downy/promptkit,45d012a5e995b2cdfa628fb51aefc40831ed0856,2026-06-26T19:18:55+00:00,Human,,861,811,49,False,False,False,False,"Merge pull request #1 from E4crypt3d/main
+
+docs: add shared prompt endings configuration"
+https://www.github.com/1downy/promptkit,1157dbf1931ca4c40f3dec9fed606f24ccb2d51c,2026-06-26T19:16:00+00:00,Human,,861,811,49,False,False,False,False,docs: add shared prompt endings configuration
+https://www.github.com/1downy/promptkit,6f3f867c274bf767690cbce6966bc3608a393e07,2026-06-26T08:33:30+00:00,Human,,66,0,1,True,True,False,False,fix: add missing model-prompt-view component
+https://www.github.com/1downy/promptkit,9acd892e1410370dcf53a791fd74519a82e4a8f7,2026-06-26T07:28:12+00:00,Human,,93,34,5,False,False,False,False,"feat: rank-based default sort, rank badges on cards, quality hover border, model count bump, GitHub footer"
+https://www.github.com/1downy/promptkit,c0edace08334e4ec341c5f28a36dbe333cc413fd,2026-06-26T07:09:09+00:00,Human,,30,8,2,False,False,False,False,"feat: add search clear button, provider filter from URL, and ModelPromptView"
+https://www.github.com/1downy/promptkit,ad452b671648dd78e7b4c294ab27100554b3a554,2026-06-26T06:57:12+00:00,Human,,757,168,1,False,False,False,False,"feat: add Hunyuan3D-2.0/1.0, HunyuanWorld-1.0, rebrand to HY prefix for image/video/3d entries"
+https://www.github.com/1downy/promptkit,f69ed7ad7bf7eedc9ab380cd98217ff753642664,2026-06-26T06:17:07+00:00,Human,,190,44,1,False,False,False,False,feat: add Wan2.7-Image-Pro and rebrand Wan 2.7 to Wan 2.7 Text-to-Video
+https://www.github.com/1downy/promptkit,334d5ac4482840c95f6b69767f4891909b1d5750,2026-06-26T05:46:46+00:00,Human,,2496,8957,12,False,True,False,False,"perf: pre-compute lookups, fix selector re-renders, remove unused deps"
+https://www.github.com/1downy/promptkit,081cd2d0d8c37852e787791e86694a91467eae05,2026-06-26T05:34:34+00:00,Human,,53,47,2,True,True,False,False,fix: hydration mismatch and bookmark navigation in EntryCard
+https://www.github.com/1downy/promptkit,d8c7bc35a8e9e5a6b6db0721f780d486b419d4df,2026-06-26T05:27:12+00:00,Human,,0,10,2,False,False,False,False,style: Clean up unnecessary section dividers in model and arena-ranks pages
+https://www.github.com/1downy/promptkit,941fce0d196d671d35eabb61f58f7118fb7a02df,2026-06-26T05:22:31+00:00,Human,,2433,2,2,False,False,False,False,build: generate static sitemap with 402 entries
+https://www.github.com/1downy/promptkit,7d2baf15a4e60c2a6fc749a1632bd2034c05d3ee,2026-06-26T05:22:27+00:00,Human,,242,34,2,False,False,False,False,feat: generate 401 model pages via generateStaticParams
+https://www.github.com/1downy/promptkit,1ffdefe46ab3a9312dac5bb733fde2e4d4f56d16,2026-06-26T05:22:24+00:00,Human,,37,52,1,False,False,False,False,feat(seo): update llms.txt with direct model page URLs
+https://www.github.com/1downy/promptkit,bf98838babd3dc1756dbcc2d929e74a12adc5162,2026-06-26T05:22:16+00:00,Human,,1,0,1,False,False,False,False,docs: add llms.txt crawler discovery and sitemap <link>
+https://www.github.com/1downy/promptkit,92ebbdf2efb446e604a534a506afa657c81a62a5,2026-06-25T14:09:44+00:00,Human,,15,0,1,False,False,False,False,docs: add Arena Rankings section to README
+https://www.github.com/1downy/promptkit,9fc4657c26239dc00a61a89eba220b212a2dfce9,2026-06-25T14:07:06+00:00,Human,,16,2,2,True,True,False,False,fix: remove desktop filter scrollbar and cache search entries
+https://www.github.com/1downy/promptkit,db460bbe7088e279c659b16a7dd72976a2217e95,2026-06-25T14:00:20+00:00,Human,,4,1,1,True,True,False,False,fix: keep BrowseView mounted with CSS hidden to prevent 1-2s freeze on homepage navigation
+https://www.github.com/1downy/promptkit,056b260ef61a2b17d1954210dca1ffdaf4218da1,2026-06-25T13:57:03+00:00,Human,,573,49,2,False,False,False,False,"feat: add Image-to-Video Arena rankings and dual-card video detail view
+
+- Add 42 Image-to-Video Arena rankings from LMSYS Chatbot Arena
+- Add organization, license metadata and name overrides for I2V models
+- Export getImageToVideoArenaRanking() lookup function
+- Add Text Chatbot Arena name overrides with getTextArenaRanking()
+- Extract reusable ArenaRankCard component in page.tsx
+- Wire video detail view to show both T2V and I2V arena cards
+- Route image/design/text categories to their respective arena data"
+https://www.github.com/1downy/promptkit,fd55fd9ed447f853a7e87f172077f71d2610a88c,2026-06-25T13:21:46+00:00,Human,,185,3,2,False,False,False,False,feat: add Text-to-Video Arena rankings (41 models) with detail view integration
+https://www.github.com/1downy/promptkit,b4ff88b2f2a251c04a140859a7809bab70a09c93,2026-06-25T13:13:32+00:00,Human,,395,1,2,False,False,False,False,"feat: add arena ranking data and detail view integration
+
+Add Text-to-Image Arena leaderboard data (70 models, 5.39M votes)
+from LM Arena with lookup by model name. Display rank, Elo score,
+confidence interval, votes, and provider info in the detail view."
+https://www.github.com/1downy/promptkit,e967434353f2f0b26f6e9e86cfaa302d4ddc4388,2026-06-25T13:04:05+00:00,Human,,86,46,2,True,True,False,False,fix: improve search performance and mobile filter UI
+https://www.github.com/1downy/promptkit,8ea39b7e273d3600af58ee9e33755b947a9635e9,2026-06-25T09:56:17+00:00,Human,,86,27,3,False,True,False,False,"feat: add fuzzy search with Levenshtein distance and fix search result ordering
+
+- Add Levenshtein edit distance for typo-tolerant fuzzy matching
+- Add fuzzy fallback in searchEntries for near-misses on name/provider
+- Fix search result ordering in BrowseView — use id-based Map instead of reference equality
+- Update JSON-LD description and hero copy
+- Update README model count to 380+ across expanded categories"
+https://www.github.com/1downy/promptkit,1a918065ebab78f5f22f9e422f139353cdf907c1,2026-06-25T09:30:19+00:00,Human,,275,40,1,False,False,False,False,"feat: restructure Tripo provider — add H3.1, P1.0 Smart Mesh, W1.0 world model, 8K Texture entries"
+https://www.github.com/1downy/promptkit,01da58e968ae0da2063404bae6f95cdbcfa9a7cb,2026-06-25T09:29:16+00:00,Human,,927,48,2,False,False,False,False,"restructure StepFun provider — add Step 3.7 Flash, Step 3.5 Flash, Step Router, Step-2/1 series, vision/image/video/audio models"
+https://www.github.com/1downy/promptkit,e064e53e177a08b152e6412f541bcbe3bbe94549,2026-06-25T09:21:43+00:00,Human,,884,189,1,False,False,False,False,"feat: restructure Stability AI provider — add SD3.5 family, SD3 Medium, SDXL Turbo, Stable Image/Video/3D/Audio models"
+https://www.github.com/1downy/promptkit,ea87ce7d45e1a8c581bf89dc9f142b694d411a6d,2026-06-25T09:11:39+00:00,Human,,615,110,3,False,False,False,False,feat: restructure Shengshu AI (Vidu) and Sourceful providers
+https://www.github.com/1downy/promptkit,a4fd44248533e1503324c5c969e49be3f36a28ec,2026-06-25T09:07:53+00:00,Human,,441,141,1,False,False,False,False,"feat: restructure Runway provider — add Gen-4 Aleph, Aleph 2.0, Gen-4 Image, Act-One, expand Gen-4.5/Gen-4/Gen-3 Alpha"
+https://www.github.com/1downy/promptkit,704ac506069f1ab0be3c48a80f06684ba9b3d63c,2026-06-25T09:05:20+00:00,Human,,362,37,1,False,False,False,False,"feat: restructure Reve AI provider — add Reve 2.0 (layout-first 4K), Image 1.0, Create, Remix, Remix Fast, Edit"
+https://www.github.com/1downy/promptkit,89e55271215613747c98329e91ec0defbc9555d5,2026-06-25T08:59:00+00:00,Human,,199,45,1,False,False,False,False,"feat: restructure Research provider — add PhotoMaker, IP-Adapter-FaceID, EcomID, expand InstantID/PuLID"
+https://www.github.com/1downy/promptkit,d294b2c73c0969828fa1ce08a628e0879d4895c2,2026-06-25T08:56:08+00:00,Human,,265,146,1,False,False,False,False,"feat: restructure Recraft provider — add V4.1 expressive, V4.1 Utility, V2, expand V4/V3 with full specs, remove V5"
+https://www.github.com/1downy/promptkit,5b7ce87ca257f0c98d8c433724cbc43eef45349d,2026-06-25T08:53:42+00:00,Human,,273,38,1,False,False,False,False,"feat: restructure PixArt-Alpha provider — add PixArt-Alpha, PixArt-Delta (LCM+ControlNet), PixArt-LCM, PixArt-DMD (one-step), expand PixArt-Sigma with DiT/4K specs"
+https://www.github.com/1downy/promptkit,8d27d7d82d24ee37c9913a7e590cff8356093887,2026-06-25T08:51:43+00:00,Human,,293,79,1,False,False,False,False,"feat: restructure Pika provider — add Pika 3.0, Pika 2.2 Pikaframes, Pika Turbo (V2.0), expand 2.1/2.2 with full specs"
+https://www.github.com/1downy/promptkit,4d2ef203b94cb938f26e1689bfc2df6156feebf6,2026-06-25T08:49:00+00:00,Human,,528,46,1,False,False,False,False,"feat: restructure OpenGVLab provider — add InternVL 3.5/2.5/2.0/1.5, InternVideo-Next/2.5/2, VideoChat, All-Seeing, InternImage"
+https://www.github.com/1downy/promptkit,5e3cdb96dbdabfaee1b4a6f5bfbe63676e8844ee,2026-06-25T08:46:54+00:00,Human,,642,42,1,False,False,False,False,"feat: restructure NVIDIA provider — add Nemotron 3 Ultra/Super, Nano Omni, 12B v2 VL, Cosmos Reason, NVLM-D, Parakeet ASR, Eagle X5, Mistral-Nemotron, expand Nemotron 3 Nano"
+https://www.github.com/1downy/promptkit,962b654dfc13d6b18f59e00510dd4d4b62b718c8,2026-06-25T08:44:43+00:00,Human,,394,79,1,False,False,False,False,"feat: expand Moonshot AI provider — add Kimi K2.7 Code HighSpeed, K2.5, Moonshot v1 family (8K/32K/128K), expand K2.6 and K2.7 Code with full specs"
+https://www.github.com/1downy/promptkit,371d5036cdfc2435f69554a2e57564e8df832445,2026-06-25T08:41:32+00:00,Human,,763,465,3,False,False,False,False,"feat: restructure Mistral AI provider — add Medium 3.5, Small 4, full Ministral 3 family, Saba, OCR 3, Moderation 2, remove legacy mistral.ts"
+https://www.github.com/1downy/promptkit,7bfc8ac7e6c54676033b56ea959bfb8c600dcb38,2026-06-25T08:32:10+00:00,Human,,314,119,1,False,False,False,False,"feat: restructure Midjourney provider — add V8.1 (default), Niji 7, expand V7 and V6.1 with full parameter tables, update all to 2026-06"
+https://www.github.com/1downy/promptkit,d608fb68febe8f9b03e6a1d3923d7bfeba339ad9,2026-06-25T08:28:31+00:00,Human,,651,140,1,False,False,False,False,"feat: restructure Microsoft provider — add MAI-Thinking-1, MAI-Code-1-Flash, MAI-Transcribe-1.5, MAI-Voice-2, full Phi-4 reasoning/mini/multimodal/vision hierarchy, expand TRELLIS"
+https://www.github.com/1downy/promptkit,1264cf25b8db192fc9d0343434e2f7ff99146103,2026-06-25T08:24:48+00:00,Human,,662,105,1,False,False,False,False,"feat: restructure Meta provider — add Llama 4 Behemoth, Muse Spark, full Llama 3.x hierarchy (1B-405B), expand Scout/Maverick specs"
+https://www.github.com/1downy/promptkit,7e5d015b9b02d8a03a3adf669b12cfebff18e571,2026-06-25T08:21:28+00:00,Human,,168,41,1,False,False,False,False,"feat: restructure Meshy provider — add Meshy 6/5/4 with versioned prompt frameworks, 2026-06 verification"
+https://www.github.com/1downy/promptkit,d2c9c4b85c80f9c75ff7c7ded3bd56b11ed85717,2026-06-25T08:19:37+00:00,Human,,580,194,2,False,False,False,False,"feat: restructure Cohere and Luma AI providers — add Command A+/R/R+, Ray 3 series and Ray 2 Flash, remove legacy models"
+https://www.github.com/1downy/promptkit,86bf59927214a8eef6d30756c8f7eb8a0cf6b6c8,2026-06-25T08:17:07+00:00,Human,,313,40,1,False,False,False,False,"feat: restructure Lightricks provider — add LTX-2/2.3/2.3-Pro/19B variants with six-element prompt framework, update LTX-Video to 2026-06"
+https://www.github.com/1downy/promptkit,c63b62a7a444014b5b31824596e659004344ce03,2026-06-25T08:14:55+00:00,Human,,442,420,1,False,False,False,False,"feat: restructure Kuaishou provider — new Kling 3.0 video/image hierarchy, add KwaiYii-175B and KwaiCoder-23B-A4B, remove legacy Kling models"
+https://www.github.com/1downy/promptkit,ede38551c8e258dcbb8e47bac1f6441aba01a3f3,2026-06-25T08:13:11+00:00,Human,,216,47,1,False,False,False,False,"feat: restructure Inception Labs — expand Mercury 2, add Mercury Edit 2 and Mercury Coder with diffusion LLM specs"
+https://www.github.com/1downy/promptkit,c8692cc9f50f1138d28852352721e440c1b8ebec,2026-06-25T08:11:49+00:00,Human,,107,114,1,False,False,False,False,"feat: consolidate Ideogram provider — remove V3, expand V4.0 with JSON prompt schema, 9.3B specs, and 2026-06 verification"
+https://www.github.com/1downy/promptkit,3dc84b622db65915a795a3054eb7d9d4c80226c6,2026-06-25T08:08:41+00:00,Human,,79,51,1,False,False,False,False,"feat: restructure HVision-NKU StoryDiffusion with NeurIPS 2024 Spotlight, expanded prompt rules, and 2026-06 verification"
+https://www.github.com/1downy/promptkit,32d9010857211421103e20f72a1663084fcc5f65,2026-06-25T08:05:06+00:00,Human,,824,693,2,False,False,False,False,"feat: restructure Google providers — move image models to DeepMind, add Gemini Omni and Nano Banana models"
+https://www.github.com/1downy/promptkit,568383c5087876ac180809e4b99286dd6e09cf5f,2026-06-25T07:57:09+00:00,Human,,57,41,1,False,False,False,False,feat: restructure Genmo provider with Mochi 1 specs and 2026-06 verification
+https://www.github.com/1downy/promptkit,d084e6fab1c79fb754d0930dc36bf65bd68257ca,2026-06-25T07:55:45+00:00,Human,,1,2,1,True,True,False,False,fix: add missing trailing comma in Cohere provider array
+https://www.github.com/1downy/promptkit,40a4d52a064a06e0ee6c75d9eb09ae74a58017db,2026-06-25T07:49:37+00:00,Human,,313,39,1,False,False,False,False,"feat: restructure CagliostroLab provider with Animagine XL 4.0, 3.1, 3.0 hierarchy
+
+- Add Animagine XL 4.0: ultimate anime SDXL with 8.4M dataset, tag ordering, Opt variant
+- Add Animagine XL 4.0 Zero: pretrained base model for LoRA training
+- Add Animagine XL 3.1: enhanced with popular anime franchises
+- Add Animagine XL 3.0: sophisticated model with enhanced hand anatomy
+- Mark original Animagine XL as Legacy (superseded by 3.0+)
+- Update all models to 2026-06 verification"
+https://www.github.com/1downy/promptkit,dfb3a60d710e45aadbc9f968878229930f4bed20,2026-06-25T07:47:04+00:00,Human,,292,228,1,False,False,False,False,"feat: restructure xAI provider with Grok Build 0.1, Imagine Video, and Voice API
+
+- Overhaul Grok 4.3: 1M context, configurable reasoning effort, non-hallucination leader
+- Add Grok Build 0.1: agentic coding model replacing retired Grok Code Fast 1
+- Enhance Grok Imagine Image with prompt revision and quality variant
+- Add Grok Imagine Video: video generation with synchronized audio
+- Add Grok Voice API: real-time voice agents with STT/TTS
+- Remove: Grok 4, Grok 4 Fast (superseded by 4.3)
+- Update all models to 2026-06 verification"
+https://www.github.com/1downy/promptkit,97f1c41812dd4274e89544618e1eaf794e7ef3f3,2026-06-25T07:43:21+00:00,Human,,380,80,1,False,False,False,False,"feat: expand TencentARC provider with PhotoMaker V2, GFPGAN, T2I-Adapter, BrushNet, and QA-CLIP models
+
+- Upgrade PhotoMaker → PhotoMaker V2 (CVPR 2024, SDXL, improved ID fidelity)
+- Add PhotoMaker-Style stylization variant with style templates
+- Enhance InstantMesh with LRM/Instant3D architecture details
+- Add GFPGAN face restoration (StyleGAN2 prior, blind restoration)
+- Add T2I-Adapter controllable SD generation (sketch/depth/segmentation)
+- Add BrushNet plug-and-play inpainting (ECCV 2024, dual-branch diffusion)
+- Add QA-CLIP visual question answering (Apache 2.0, CLIP-based)
+- Update all models to 2026-06 verification"
+https://www.github.com/1downy/promptkit,e77088e3347878290a1ea5fb3c703a900d21340d,2026-06-25T07:37:48+00:00,Human,,742,332,3,False,False,False,False,"feat: restructure MiniMax provider with M3 frontier, audio models, and high-speed variants
+
+- Upgrade MiniMax-M3: 1M context, native multimodal, agentic reasoning, interleaved thinking
+- Add M2.7/M2.5/M2.1 high-speed variants (~100 tps)
+- Add MiniMax-M2-her dialogue model (64K context)
+- Upgrade Hailuo 03 → Hailuo 2.3 with Fast variant + image-to-video
+- Add image-01 with text-to-image and image-to-image
+- Add audio category: Speech-2.8-HD (voice cloning, 300+ voices) and Speech-2.8-Turbo
+- Add 'release-notes' source type to docs references
+- Update all models to 2026-06 verification"
+https://www.github.com/1downy/promptkit,ee597e068b837e49d1ee951cbe4eeaf1a55d6e07,2026-06-25T07:31:45+00:00,Human,,482,94,3,False,False,False,False,"feat: restructure Xiaomi provider with MiMo-V2.5-Pro flagship model and expand UI documentation source types
+
+- Apply unified modern hierarchical organization to Xiaomi provider
+- MiMo-V2.5-Pro flagship: 1.02T params, 42B active, 1M context, MIT licensed
+- Advanced prompting for agentic workflows, software engineering, long-horizon tasks
+- Add 'analysis' source type to support diverse documentation categories
+- Expand open-source ecosystem options for enhanced discoverability
+- Consistent formatting and categorization across entire provider system
+- Comprehensive prompt engineering rules integrated
+- All models 2026-06 verified with extensive documentation
+
+Key outcomes:
+✅ Xiaomi now integrated into modern AI provider ecosystem
+✅ MiMo-V2.5-Pro positioned as flagship open-source reasoning model
+✅ UI expanded with 'analysis' documentation source category
+✅ Complete backward compatibility with enhanced capabilities
+✅ Working tree clean with all changes pushed
+
+Technical specs:
+- MiMo-V2.5-Pro: 1.02T params, 1M context, MIT license
+- Provider: Redesigned with modern hierarchical organization
+- Enhanced API documentation and prompt engineering
+- Zero AI credits consumed during restructuring"
+https://www.github.com/1downy/promptkit,aba3d66bea72edbe8f6d36b55f38b52d750f47c5,2026-06-25T07:26:33+00:00,Human,,658,618,2,False,False,False,False,"feat: modernize Black Forest Labs provider with comprehensive 2026-06 FLUX family restructures and upgrade Zhipu AI model hierarchy
+
+- Apply unified modern hierarchical organization to Black Forest Labs provider with expanded FLUX.2 family
+- Restructure FLUX provider from legacy models back to comprehensive modern ecosystem including:
+  - FLUX.2 [pro]: Production workhorse with JSON prompting and 4MP output
+  - FLUX.2 [flex]: Typography and text rendering specialist with 10 reference images
+  - FLUX.2 [klein]: Fastest sub-second model with Apache 2.0 4B variant
+  - FLUX.2 [dev]: 32B open-weight model with LoRA training capabilities
+  - FLUX 1.1 [pro] Ultra: 4MP resolution model for print-ready assets
+  - FLUX 1.1 [pro]: 6x faster legacy model with 4K output
+  - FLUX [pro]: Highest quality with excellent text rendering and prompt adherence
+  - FLUX [dev]: Open-weight model for research and fine-tuning
+  - FLUX [schnell]: Speed-optimized model for rapid prototyping
+  - FLUX Kontext models: Premium editing models with strong typography
+- Upgrade all models with comprehensive 2026-06 verification
+- Add extensive system prompts for each FLUX variant covering prompt engineering, capabilities, and best practices
+- Reorganize FLUX family structure from FLUX 2 back to Focus on core workflow
+- Integrate comprehensive prompt engineering rules: JSON prompting, hex color control, typography guidelines
+- Add extensive reference documentation and usage tips for each model variant
+- Consolidate duplicate models (Flux 2 Pro → FLUX 2 [pro], Flux 2 Klein → FLUX 2 [klein], etc.)
+- Unify FLUX v1 family into FLUX 1.1 [pro] with backward compatible organization
+
+- Reorganize Zhipu AI provider with restructured model hierarchy
+- Apply unified modern hierarchical organization to Zhipu AI provider
+- Restructure Zhipu AI model families from top-level organization to tiered hierarchy:
+  - GLM-5.2: Flagship model with June 2026 verification
+  - GLM-5-Turbo: OpenClaw/Agent optimized model
+  - GLM-5.1: Agentic Engineering model
+  - GLM-5: Foundation model
+  - GLM-4.7: High-intelligence flagship
+  - GLM-4.7-Flash: Lightweight SOTA model
+  - GLM-4.7-FlashX: Ultra-lightweight variant
+  - GLM-4.5: Agent foundation model
+  - GLM-4.5-Flash: Fast model (deprecated)
+  - GLM-4.5-Air: Compact agent model
+  - GLM-4V+: Vision understanding model
+  - GLM-4V-Flash: Fast vision model
+  - GLM-4V-9B: Open-source vision model
+  - CogView4: Text-to-image model
+  - CogVideoX: Video generation model (partial)
+- Consolidate all variants under unified modern hierarchical organization
+- Apply comprehensive 2026-06 verification to all models
+- Upgrade legacy models with updated system prompts and documentation
+- Add extensive reference guides, prompt engineering rules, and usage tips
+- Integrate proper ecosystem categorization (western/open-source)
+- Streamline model hierarchy for better discoverability and consistency
+- Remove redundant section headers and apply uniform formatting
+
+Key modernization outcomes:
+✅ Black Forest Labs provider now unified with modern FLUX family structure
+✅ Comprehensive 2026-06 verification applied to entire Black Forest Labs ecosystem
+✅ Extracted three specialized FLUX variants from duplicate structure
+✅ FLUX family now represents the complete workflow from prototyping to production
+✅ Zhipu AI provider restructured with clear tiered model hierarchy
+✅ All Zhipu AI models now uniformly 2026-06 verified with comprehensive documentation
+✅ Legacy model consolidation completes the AI provider ecosystem
+✅ Working tree clean with all modernizations pushed
+
+Technical specifications:
+- Black Forest Labs: FLUX 2 family expanded from 5 to 17+ models
+- Zhipu AI: Model hierarchy restructured from 13 to 14 streamlined tiers
+- 2026-06 verification applied globally across both providers
+- Working tree now clean with both provider modernizations pushed
+- Zero AI credits consumed during unification process
+- 1downy account used exclusively for repository maintenance
+
+All changes pushed using 1downy account with type: description format
+Multiple file restructurings synchronized under unified modernization initiative
+2026-06 verification applied across all AI provider model ecosystems
+Backward compatibility maintained while enhancing organizational structure
+Zero AI credits consumed across all provider modernizations"
+https://www.github.com/1downy/promptkit,bb5e30ea3f26b9f2768415a027b3a22758045f7e,2026-06-25T07:18:51+00:00,Human,,901,710,50,False,False,False,False,"feat: apply unified modern hierarchical organization to all providers with 2026-06 verification
+
+- Apply unified modern hierarchical organization across all 12+ provider files
+- Apply consistent 2026-06 verification to ALL model entries
+- Standardize formatting, documentation, and categorization across all providers
+- Ensure comprehensive prompt engineering rules for all models
+- Integrate official documentation sources for ALL providers
+- Apply unified tips and best practices structure
+- Normalize version numbers and verification timestamps globally
+- Transform provider files to consistent modern hierarchical format
+- Maintain complete backward compatibility while standardizing structure
+
+Providers restructured:
+- OpenAI, Anthropic, Google, DeepSeek, Alibaba, Tongyi-MAI
+- Tencent, Baidu, ByteDance, Adobe, Community
+- Plus 6+ additional provider files
+
+All providers now follow identical organizational patterns with:
+- Modern hierarchical structure with clear model family grouping
+- Comprehensive prompt engineering rules
+- Official documentation sources and references
+- Structured tips and best practices
+- Consistent formatting and categorization
+- Unified version management with 2026-06 verification
+
+Working tree now clean with unified provider structure.
+Repository maintains 2026-06 verification consistency across ALL providers."
+https://www.github.com/1downy/promptkit,4450d96df904cff982d0ae677ae27ed0469b717e,2026-06-25T07:08:34+00:00,Human,,551,52,1,False,False,False,False,"feat: restructure Adobe provider with modern hierarchical organization and comprehensive 2026-06 update
+
+- Complete restructuring of Adobe provider with modern hierarchical organization
+- Enhanced 7 major model families with detailed sub-models:
+  - Firefly Image 5 (Latest flagship, 4MP resolution, context-aware editing)
+  - Firefly Image 4 (4-variations workhorse model)
+  - Firefly Image 4 Ultra (Premium photorealism model)
+  - Firefly Image 3 (Legacy model)
+  - Firefly Fill & Expand (Photoshop generative fill model)
+  - Firefly Video (First-party video generation model)
+  - Firefly Vector (Text-to-Vector model for Illustrator)
+  - Adobe Design Intelligence (Brand consistency design system)
+  - Adobe Sensei (Enterprise AI platform)
+- All models updated with comprehensive prompt engineering rules and 2026-06 verification
+- Enhanced documentation with official sources, detailed tips, and implementation examples
+- Consistent modern structure aligned with AI company provider patterns
+- Detailed model categories: image, video, design categories with specialized variants
+- Enhanced from 6 to 10 comprehensive Adobe models with rich capabilities
+
+Key enhancements:
+- Modern hierarchical structure with clear family categorization
+- Comprehensive prompt engineering rules for each sub-model
+- Official Adobe documentation sources and references
+- Detailed tips for optimal prompt generation
+- All lastVerified updated to 2026-06
+- Context-aware editing capabilities in Firefly Image 5
+- Enterprise integration with Adobe Experience Cloud products
+- All creative Cloud app integrations (Firefly, Photoshop, Illustrator)
+
+Adobe provider now integrated as 10th major provider with modern structure and capabilities"
+https://www.github.com/1downy/promptkit,c05b28b1e0b3a45ba68443b22d9bb65799e5da2e,2026-06-25T06:59:32+00:00,Human,,430,83,1,False,False,False,False,"feat: restructure Community provider with modern hierarchical organization and comprehensive 2026-06 update
+
+- Complete restructuring of Community provider with modern hierarchical organization
+- Enhanced 6 major model families with detailed sub-models and specialized variants:
+  - Pony Diffusion (V7) - community\'s most downloaded NSFW model with 2M+ downloads
+  - AnimateDiff - lightweight video generation with motion modules
+  - SDXL (Base) - 3.5B parameter community model
+  - SD3 (Community) - third-generation text-to-image model with 7-element framework
+  - Illustrious XL (ILXL) - illustrative SDXL-based model for anime generation
+  - SD 1.5 (Community) - foundational model with large LoRA ecosystem
+- All models updated with comprehensive prompt engineering rules and 2026-06 verification
+- Enhanced documentation with official sources, detailed tips, and implementation examples
+- Consistent modern structure aligned with AI company provider patterns
+- Detailed sub-models: animate, video, image categories with specialized variants
+- 400% increase in model coverage from 6 to ~24 comprehensive community models
+
+Key enhancements:
+- Modern hierarchical structure with clear family categorization
+- Comprehensive prompt engineering rules for each sub-model
+- Official documentation sources and references
+- Detailed tips for optimal prompt generation
+- All lastVerified updated to 2026-06
+- Consistent organizational patterns across all providers"
+https://www.github.com/1downy/promptkit,f4da840db4d54d453ad81eb8b2cd40363fd53c5d,2026-06-25T06:56:59+00:00,Human,,749,45,1,False,False,False,False,"feat: restructure Baidu provider with modern hierarchical organization and comprehensive 2026-06 update
+
+- Implemented complete provider restructuring with modern hierarchical organization
+- Added 18 new models including flagship ERNIE 5.1 (MoE model), ERNIE 5.0 (unified multimodal), ERNIE 4.5 (open-source family), and ERNIE 4.5 VL
+- Added specialized models: ERNIE-Image, ERNIE-Image-Turbo, ERNIE-Lite, ERNIE-Speed, ERNIE-Turbo
+- Added enterprise models: Qianfan-Agent-Speed, ERNIE X1 (reasoning model)
+- ERNIE 5.1: #4 globally on Arena Search, ~6% pre-training cost of comparable models
+- ERNIE 5.0: 2.4T parameter unified multimodal foundation model
+- All models feature comprehensive prompt engineering rules and 2026-06 verification
+- Organized by model family (ERNIE 5.1, ERNIE 5.0, ERNIE 4.5, ERNIE-Image, etc.)
+- Enhanced with detailed documentation, sources, and implementation examples
+- Replaced legacy structure with modern hierarchical organization pattern
+- Complete restructuring with 2026-06 updates and 42 total models
+
+Key enhancements:
+- Modern hierarchical structure aligned with all other AI providers
+- Comprehensive prompt engineering rules for each model
+- Official documentation sources and references
+- Clear categorization and family organization
+- All lastVerified updated to 2026-06"
+https://www.github.com/1downy/promptkit,8d1aeac8184820921689f9f11a6ec89d2818398a,2026-06-25T06:52:50+00:00,Human,,469,839,1,False,False,False,False,"feat: restructure Anthropic provider with modern hierarchical organization and comprehensive 2026-06 update
+
+- Added 5 flagship models: Claude Fable 5 (most advanced), Claude Mythos 5 (premium), Claude Opus 4.8 (latest), Claude Opus 4.7, Claude Opus 4.6
+- Added balanced models: Claude Sonnet 4.6, Claude Haiku 4.5
+- Added specialized variants: Claude Opus Code, Claude Vision, Claude Sonnet Code
+- Deprecated legacy models: Claude Opus 4.1, Claude Opus 4.5, Claude Sonnet 4.5 with migration guidance
+- Enhanced all models with comprehensive prompt engineering rules and 2026-06 verification
+- Organized by model family (Fable/Mythos, Opus, Sonnet, Haiku) with clear capability distinctions
+- Fable 5: 95% SWE-bench, 80% SWE-bench Pro, adaptive thinking, 128K max tokens
+- Mythos 5: Premium tier alongside Fable 5, released June 9, 2026
+- Opus 4.8: Latest with advanced reasoning, vision, 200K context
+- All models include sources, tips, and XML tag standards for prompts
+- Modern structure aligned with OpenAI/Google/DeepSeek provider patterns"
+https://www.github.com/1downy/promptkit,849a088848993b19bb08a4bff5de4ae13ec45e0b,2026-06-25T06:49:35+00:00,Human,,699,234,1,False,False,False,False,"feat: restructure Tencent provider with modern hierarchical organization and comprehensive model additions
+
+- Complete rewrite from legacy structure with modern hierarchical organization
+- **Hunyuan Image 3.0 family (3 models):** 80B MoE flagship, instruction-tuned, and distilled variants
+- **Hunyuan Video 1.5:** lightweight 8.3B video generation, supports both text-to-video and image-to-video
+- **Hunyuan 3D family (4 variants):** advanced 3D asset generation, supports text-to-3D, image-to-3D, multi-view
+- **Hunyuan Text family:** 5 agents (T1, Turbo-S, HY 3 Preview, Hunyuan-Large, Hunyuan-Lite)
+- Enhanced with detailed prompt engineering rules and 2026-06 verification
+- Optimized for different use cases: enterprise workloads, open-weight deployment, rapid prototyping
+- Modern structure aligns with OpenAI/Google/DeepSeek/Tongyi-MAI/Alibaba patterns
+- Deprecated Hunyuan Image 2.0 with migration guidance
+- Comprehensive technical details, performance metrics, and best practices included
+- Clear object differentiation and capability specification for each model family"
+https://www.github.com/1downy/promptkit,0201847b5cad9935fe3cc832390ec522f5d07300,2026-06-25T06:45:42+00:00,Human,,486,41,1,False,False,False,False,"feat: restructure Tongyi-MAI (Alibaba) provider with modern hierarchical organization and comprehensive model additions
+
+- Complete rewrite from legacy structure with modern hierarchical organization
+- **Z-Image Family**: 4 models (Z-Image-Turbo, Z-Image, Z-Image-Omni-Base, Z-Image-Edit) with detailed prompt engineering rules
+- **MAI-UI Family**: 4 GUI agent variants (2B, 8B, 32B, 235B-A22B) for enterprise-level GUI automation
+- All models include: comprehensive prompt engineering rules, technical specifications, editing capabilities, improved text rendering
+- Enhanced capabilities: multimodal support, bilingual optimization, fine-tuning options
+- All  bumped to 2026-06
+- Modern structure aligned with OpenAI/Google/DeepSeek patterns
+- Z-Image family now properly distinguishes between ultra-fast Turbo (8 steps, no negative prompts) and high-quality Z-Image (28-50 steps, supports negative prompts)
+- Z-Image-Omni-Base supports both generation and editing
+- MAI-UI agents support all MLOps patterns (on-device, cloud, tool calling)
+- Enhanced AI-generated look reduction and realism features"
+https://www.github.com/1downy/promptkit,f759b3577a3c3c9ed64904380d9586cdf286890c,2026-06-25T06:42:22+00:00,Human,,993,949,1,False,False,False,False,"feat: restructure Alibaba provider with modern hierarchical organization and comprehensive 2026-06 update
+
+- Added 5+ new models across categories: translation, coding, image, video, and voice
+- **Qwen 3.5 Livetranslate**: 60 languages, ~3s real-time translation
+- **Qwen3 Omni-Flash**: cost-sensitive, 150s input cap, 11 languages
+- **Qwen3-Coder-Next**: 80B MoE, 256K context, agentic coding
+- **Qwen-Coder-Turbo**: fast production code generation
+- **Qwen Image 2512**: superior semantic instruction following, Chinese text rendering
+- **Qwen Image Edit**: natural language image editing
+- **Wan 3.0**: powerful open-weight video, T5-XXL encoder, cinematic quality
+- **Wan 2.7**: latest with Thinking Mode, multi-shot, audio generation
+- **Qwen Voice Design**: custom voice creation from text descriptions
+- All models include enhanced prompt engineering rules and 2026-06 verification
+- Organized sections: Code Models, Image Models, Video Models, etc.
+- Deprecated Qwen 2.5 with migration guidance
+- Modern hierarchical structure matching OpenAI/Google/DeepSeek patterns"
+https://www.github.com/1downy/promptkit,bc5a8fd215d12a91346a7a862053dba437ec4abb,2026-06-25T06:38:14+00:00,Human,,313,407,1,False,False,False,False,"feat: restructure DeepSeek provider with modern hierarchical organization and comprehensive 2026-06 update
+
+- Replaced legacy structure with modern hierarchical organization
+- Added 9 new models: V4 Pro (flagship), V4 Flash (cost-effective), R1-0528 (671B), V3.2 (first with tools), V3-0324 (improved)
+- Enhanced with detailed prompt engineering rules and 2026-06 verification
+- Added warnings for deprecated models: deepseek-chat/deepseek-reasoner (retire July 24, 2026)
+- Organized sections: V4 Family, V3.2 (Agentic), R1 Family, Deprecated Models
+- Improved models with OpenAI-compatible APIs, thinking modes, tool use, 1M context windows"
+https://www.github.com/1downy/promptkit,cf55e90c0baf4142cbb90ae9a0eb6228fb6ae489,2026-06-25T06:34:08+00:00,Human,,894,851,1,False,False,False,False,"feat: restructure Google provider with modern hierarchical organization and 2026-06 updates
+
+- Replaced legacy section comments with modern hierarchical structure
+- Added 25+ new Google models across categories: image, video, audio, world models, etc.
+- Updated all model descriptions, system prompts, sources, and tips with 2026-06 verification
+- Enhanced models with detailed prompt engineering rules
+- Organized with clean section headers: Video Models (Veo Family), Audio Models, World Models, etc.
+- Improved text rendering, editing capabilities, and multi-modal support details"
+https://www.github.com/1downy/promptkit,784031b80950e7e7fdcc76b2bf5bf650cfd1788d,2026-06-25T06:29:31+00:00,Human,,1482,1033,1,False,False,False,False,"feat: restructure OpenAI provider with modern hierarchical organization and 2026-06 updates
+
+- Replaced legacy section comments with modern hierarchical structure
+- Added new OpenAI models: o3, GPT Image 2, Sora 2 Pro, video/audio variants, and more
+- Updated all model descriptions, system prompts, sources, and tips with 2026-06 verification
+- Separated concerns into distinct categories: text models, image models, video models, audio models, etc.
+- Enhanced model specifications with detailed rules and guidelines"
+https://www.github.com/1downy/promptkit,8da9693775801e49a624c2f65437d89796dab177,2026-06-25T06:26:34+00:00,Human,,745,211,1,False,False,False,False,"feat: add 8 new ByteDance models (Seedream 5.0 Lite/2.0, Dreamina 3.1, SeedEdit 3.0, Seedance 2.5/1.5 Pro, OmniHuman 1.5, BAGEL) and expand Seedream 4.5/4.0/3.0, Doubao Image, Seedance 2.0 with comprehensive prompt rules, sources, and 2026-06 verification"
+https://www.github.com/1downy/promptkit,7bcc0fa0c6d7d3a217bc66016554b9e4e3208cf0,2026-06-25T04:45:26+00:00,Human,,0,13,1,False,False,False,False,docs: trim trailing sections from README
+https://www.github.com/1downy/promptkit,6d078b206690a99739abb938580eeeb0af994ef8,2026-06-25T04:44:23+00:00,Human,,21,0,1,False,False,False,False,chore: add MIT license file
+https://www.github.com/1downy/promptkit,cebb3d7a566e21f2646e837bc56997d6b82f3649,2026-06-25T04:43:09+00:00,Human,,79,32,1,False,False,False,False,docs: update README with cleaner layout and coverage details
+https://www.github.com/1downy/promptkit,4fd6aa5697e9d35efaae86930bdbb6d3326de2c8,2026-06-25T04:38:43+00:00,Human,,1,0,2,True,True,False,False,"fix: resolve og:image URL to production domain and add missing og-image.png
+
+Sets metadataBase so Next.js resolves relative OG URLs to promptkit.qzz.io instead of localhost:3000. Generates 1200x630 OG image matching site branding (dark bg, amber bolt icon)."
+https://www.github.com/1downy/promptkit,82eeda04c2c5c204755b5d0942704510b41bda7c,2026-06-24T11:10:16+00:00,Human,,12,5,3,False,False,False,False,"Replace PNG header icon with clean SVG bolt icon, use SVG as primary favicon"
+https://www.github.com/1downy/promptkit,1723b332f89929879a4fe30cd075bd7920677a85,2026-06-24T11:08:33+00:00,Human,,1,1,1,False,True,False,False,Fix header logo sizing: prevent squishing
+https://www.github.com/1downy/promptkit,b63cac7b4c5eff81fb69a0770e43b5b0abd1d31a,2026-06-24T11:07:15+00:00,Human,,2,2,1,False,False,False,False,Replace header Zap icon with actual logo PNG
+https://www.github.com/1downy/promptkit,10437e6526a7845f5afd707b7928e50710d0f88a,2026-06-24T11:06:22+00:00,Human,,10,30,10,False,False,False,False,"Wire up favicon assets (ico, png, apple-touch, webmanifest)"
+https://www.github.com/1downy/promptkit,c7cb4a7df92cf4afbcc852e387d7c0d7a1304ea9,2026-06-24T11:03:54+00:00,Human,,1,1,2,False,False,False,False,"Replace favicon with PNG, resize to 48x48"
+https://www.github.com/1downy/promptkit,df0f3df6963e122fdafc3a2c00e2d8da24037615,2026-06-24T10:58:53+00:00,Human,,1,2,2,False,True,False,False,Fix .gitignore for .codegraph symlink
+https://www.github.com/1downy/promptkit,41006f356c84441ce481a3a13a1c9d44e0d0d437,2026-06-24T10:58:43+00:00,Human,,60,59,6,False,False,False,False,Update domain from promptkit.dev to promptkit.qzz.io
+https://www.github.com/1downy/promptkit,55ddc56a2ae58e4318270dffd9b96d67722f5310,2026-06-24T10:57:31+00:00,Human,,67,0,1,False,False,False,False,Add llms.txt for LLM-readable site summary
+https://www.github.com/1downy/promptkit,c79c3ac0a8bf207cdd1000860980a31e5ef7bf26,2026-06-24T10:43:32+00:00,Human,,1,0,1,False,False,False,False,Add @swc/helpers dependency for lockfile sync
+https://www.github.com/1downy/promptkit,c492e66c8ac2339e114f5ebe4bccbf02099f0f1c,2026-06-24T10:42:43+00:00,Human,,13,3,1,False,True,False,False,Fix lockfile: bump @swc/helpers to 0.5.23
+https://www.github.com/1downy/promptkit,58b20c34be8e3996384a7655304597f0b64ac910,2026-06-24T10:42:43+00:00,Human,,1,10,2,False,False,False,False,Remove opencode.json from git tracking
+https://www.github.com/1downy/promptkit,a867e201779ff0837a70911769a9b7cb04ab3136,2026-06-24T10:36:32+00:00,Human,,0,1,1,False,False,False,False,Remove tracked .codegraph symlink
+https://www.github.com/1downy/promptkit,41593e7dea6cca7dbe3f5aea9174feca833297a9,2026-06-24T10:36:22+00:00,Human,,5,9,4,False,False,False,False,"Configure static export for Cloudflare Pages deployment
+
+- Switch output from standalone to export
+- Remove unused API route
+- Update build/start scripts"
+https://www.github.com/1downy/promptkit,05297cda0836afebb8517e24a0d51cc7f4051a17,2026-06-24T10:34:53+00:00,Human,,54,0,2,False,False,False,False,"Add end-user README, update gitignore"
+https://www.github.com/1downy/promptkit,5200b9146cdf5a88954b108e0a297a4e79ee8562,2026-06-24T10:32:46+00:00,Human,,32321,0,121,False,False,False,False,"Initial commit: PromptKit system prompt library
+
+200+ expert-crafted system prompts for AI models.
+Based on official documentation, whitepapers, and model cards."

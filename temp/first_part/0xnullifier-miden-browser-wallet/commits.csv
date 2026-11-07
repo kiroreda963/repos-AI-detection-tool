@@ -1,0 +1,110 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/0xnullifier/miden-browser-wallet,828759a40955714729d18c126f9192497ad6f4c5,2026-04-27T12:15:49+00:00,AI,Claude_Code,38,914,9,False,False,False,False,"refactor: remove websocket signaling, use note transport layer
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xnullifier/miden-browser-wallet,58d69d98a91b9a118c40885635018d191e70dd4e,2026-04-27T12:04:47+00:00,AI,Claude_Code,69,9,4,False,False,False,False,"feat: fetch faucet id from api with unknown fallback
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xnullifier/miden-browser-wallet,22be540113660a60f9bff9a807b5cfba1d9f30c9,2026-04-27T11:11:26+00:00,AI,Claude_Code,97,93,14,False,False,False,False,"feat: update to v14
+
+Bumps @miden-sdk/miden-sdk to ^0.14.4. The JS-wrapper class formerly
+exported as `WebClient` now ships as `WasmWebClient` (the bare WASM
+class is what `WebClient` resolves to in v14), so all client construction
+and `instanceof` checks switch over.
+
+Other v14 adaptations:
+- proveTransaction(tx, prover) is split: keep proveTransaction(tx) for
+  the default prover, use proveTransactionWithProver(tx, prover) when
+  passing one explicitly.
+- TransactionRequestBuilder.withOwnOutputNotes now takes a NoteArray of
+  raw Notes, not an OutputNoteArray of OutputNote.full(...) wrappers.
+- exportNoteFile takes the NoteExportFormat enum instead of a string.
+- Debug export/import pages move to the standalone exportStore /
+  importStore functions.
+- Bump local-storage and metadata cache keys to force a clean wallet on
+  upgrade since the underlying account format changed.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+https://www.github.com/0xnullifier/miden-browser-wallet,6517682ad3f4a7c8511f0e8f8ec73fad444a743c,2026-02-14T13:31:50+00:00,Human,,227,223,18,False,False,False,False,feat: update to v13
+https://www.github.com/0xnullifier/miden-browser-wallet,3d638b22cd9d50672cd1c8b11f23706fa7607ee1,2025-12-29T08:37:38+00:00,Human,,2,1,2,False,False,False,False,chore: add build command
+https://www.github.com/0xnullifier/miden-browser-wallet,a2c87dca311b285a440a29faa08b6a1252dc6cfa,2025-12-29T08:24:47+00:00,Human,,7175,2721,5,False,False,False,False,feat: migrate to cloudflare workers
+https://www.github.com/0xnullifier/miden-browser-wallet,8c280368a3634863e3220f53efc9c5771c11a71f,2025-12-20T19:23:26+00:00,Human,,21,8,3,False,False,False,False,feat: make ecdsa the default scheme
+https://www.github.com/0xnullifier/miden-browser-wallet,3066f5ec2a17a02820df4ce23319156603440fbe,2025-12-20T11:43:27+00:00,Human,,91,61,2,False,False,False,False,feat: change recent activity ui
+https://www.github.com/0xnullifier/miden-browser-wallet,c3d32c0dbbf5bb40b21e3f53e87c768e0b820a77,2025-12-19T19:34:48+00:00,Human,,171,86,10,False,False,False,False,feat: ui revamp for faucet and activity card
+https://www.github.com/0xnullifier/miden-browser-wallet,087a81aee2d43bf0361e1605df1115f445ace532,2025-12-19T11:51:00+00:00,Human,,120,7,2,True,True,False,False,fix: remove local miden sdk link
+https://www.github.com/0xnullifier/miden-browser-wallet,5eb6b07ede00f3efba3e4aca4403cf6eee88ed5d,2025-12-19T11:35:56+00:00,Human,,91,250,18,False,False,False,False,feat: revamp ui
+https://www.github.com/0xnullifier/miden-browser-wallet,bf7c3b0750697c4a3a34a1abc34a5c36ff131c14,2025-12-18T19:16:58+00:00,Human,,66,0,2,False,False,False,False,feat: add debug pages
+https://www.github.com/0xnullifier/miden-browser-wallet,7459a604259d207019840103999988dc73c87b36,2025-12-08T06:44:37+00:00,Human,,1999,3705,3,False,False,False,False,chore: bump deps
+https://www.github.com/0xnullifier/miden-browser-wallet,f0ff306f46d64962cb1917d6dcc86419ac4aca09,2025-11-25T02:01:04+00:00,Human,,3660,1935,6,False,False,False,False,chore: change faucet api endpoint
+https://www.github.com/0xnullifier/miden-browser-wallet,798da2250bf285046108a0d3ff0d91160c48cda8,2025-11-23T22:09:06+00:00,Human,,105,86,4,False,False,False,False,"Merge pull request #17 from 0xnullifier/private-note-integration
+
+Private note integration"
+https://www.github.com/0xnullifier/miden-browser-wallet,ce203000c8161e8f52e6d022a420264e2e318629,2025-11-23T22:05:17+00:00,Human,,60,52,3,True,True,False,False,fix: use private note integration https endpoint and make it default for send
+https://www.github.com/0xnullifier/miden-browser-wallet,58468aae74918d5da9af877ae40895e4e37ee2b0,2025-11-20T19:04:15+00:00,Human,,48,37,4,False,False,False,False,feat: add private note integration
+https://www.github.com/0xnullifier/miden-browser-wallet,0adae8a5349f097c7086a3451f175b9a0abeb2b0,2025-11-19T01:43:32+00:00,Human,,4,6,4,True,True,False,False,fix: update error message from v11 to v12
+https://www.github.com/0xnullifier/miden-browser-wallet,002391c0056544d4540e388e9afab7e7c24510a8,2025-11-19T00:50:31+00:00,Human,,387,358,16,False,False,False,False,feat: update client to v12
+https://www.github.com/0xnullifier/miden-browser-wallet,fe96d9a452d823904239768c87973a26c46d2859,2025-11-07T22:48:29+00:00,Human,,7,6,1,False,False,False,False,chore: minor changes to send
+https://www.github.com/0xnullifier/miden-browser-wallet,bb7137f5a6ee4cf81b2bfbe35732efb9d49ba6e7,2025-10-31T17:55:07+00:00,Human,,11,2,1,True,True,False,False,fix: remove bug in checking balance in one to many payment
+https://www.github.com/0xnullifier/miden-browser-wallet,8964bcd3ca1f75eb2c6f2c890164439f11e4429e,2025-10-30T20:33:49+00:00,Human,,265,202,16,False,False,False,False,feat(ui): revamp ui and bump sdk version
+https://www.github.com/0xnullifier/miden-browser-wallet,d9a7e4a253292579d8c27676abf3083aee13bd1d,2025-10-07T17:40:24+00:00,Human,,36,28,5,False,False,False,False,feat: add activity for multiple output notes as well as handle decimals more elegantly in UI
+https://www.github.com/0xnullifier/miden-browser-wallet,d5324bfd8e97ee7b1d3b9ab108b5097fe7053eb6,2025-10-07T17:12:19+00:00,Human,,1989,3728,5,True,True,False,False,fix: update activity to handle multiple input notes in a transaction
+https://www.github.com/0xnullifier/miden-browser-wallet,b8b8e4e1af2b56a953219aea6290c5f9b50d5f35,2025-10-07T16:47:59+00:00,Human,,17,12,3,True,True,False,False,fix: add correct handling for amount in decimals
+https://www.github.com/0xnullifier/miden-browser-wallet,5710e03d4293a84d0cdb74499ca06b67dd57b82e,2025-10-04T07:25:35+00:00,Human,,11422,8539,93,False,False,False,False,"feat: add better error handling, add prettier for formatting"
+https://www.github.com/0xnullifier/miden-browser-wallet,e22fcaf32cfddd252c449450ede8c74e8fa62990,2025-10-03T06:34:28+00:00,Human,,138,266,8,False,False,False,False,feat: update one to many payments and use `FaucetInfo` for managing the faucet state
+https://www.github.com/0xnullifier/miden-browser-wallet,d3f67f3742b88b6813387ca73b56986e96139514,2025-10-02T04:57:12+00:00,Human,,16,8,5,True,True,False,False,fix: update importAccount for the new api
+https://www.github.com/0xnullifier/miden-browser-wallet,56c684653440df48e4079700c18bbd09dc4bad28,2025-09-29T14:50:02+00:00,Human,,460,248,22,False,False,False,False,feat: ui revamp
+https://www.github.com/0xnullifier/miden-browser-wallet,a3b14cf8232facd7b41cd076fe89cbd7b06cfb98,2025-09-22T05:10:10+00:00,Human,,264,49,5,False,False,False,False,feat: add option to nuke db when loading takes greater than 30s
+https://www.github.com/0xnullifier/miden-browser-wallet,828d8a147f014c0ea6d855a2b9e13b29183b924d,2025-09-19T22:36:22+00:00,Human,,278,54,12,False,False,False,False,feat: add multi ticker support
+https://www.github.com/0xnullifier/miden-browser-wallet,cea3fb68dcc406b1bd6ef24e5d807c8f56b93821,2025-09-18T03:12:19+00:00,Human,,112,29,8,False,False,False,False,feat: allow users to download the notes to be shared manually
+https://www.github.com/0xnullifier/miden-browser-wallet,46fe5ccfa0b3e792787f0da18fd35fd4c6d9071f,2025-09-16T16:35:58+00:00,Human,,4,0,1,False,False,False,False,misc: add debug statement
+https://www.github.com/0xnullifier/miden-browser-wallet,b5397d7534dd59b05e170ab48e91fa4bd7cfc242,2025-09-16T16:30:28+00:00,Human,,40,71,10,False,False,False,False,"feat: address bug in one to many payments, bump up sdk version, remove uncessary console.logs"
+https://www.github.com/0xnullifier/miden-browser-wallet,c7490a35aed32e1a21210e00bf60732c4ddca386,2025-09-11T14:48:16+00:00,Human,,10,3,2,True,True,False,False,fix: remove zero value transactions in activity
+https://www.github.com/0xnullifier/miden-browser-wallet,7db008beef6e91971318034543e11a6837b27800,2025-09-10T12:59:15+00:00,Human,,4,3,2,True,True,False,False,fix: change local storage key and add toHex instead of toString
+https://www.github.com/0xnullifier/miden-browser-wallet,bba8f3566f1acb1801082b704505516bd666aa6c,2025-09-10T12:17:06+00:00,Human,,188,256,12,False,False,False,False,"Merge pull request #11 from 0xnullifier/testnet
+
+Lastest release"
+https://www.github.com/0xnullifier/miden-browser-wallet,9c95299eb96f21b2eae1ef675f69087657719eb9,2025-09-10T12:16:13+00:00,Human,,12,12,5,False,False,False,False,feat: testnet
+https://www.github.com/0xnullifier/miden-browser-wallet,f048d40096670d9b0c5339361c4b42c5ecfaf7dd,2025-09-09T15:11:25+00:00,Human,,188,256,12,False,False,False,False,"feat: migrate to v11, add unauth notes for devnet"
+https://www.github.com/0xnullifier/miden-browser-wallet,924d30bf415af11b2e0534b12822eafbb4295d42,2025-08-24T04:27:17+00:00,Human,,48,45,3,False,False,False,False,chore: refactor navbar
+https://www.github.com/0xnullifier/miden-browser-wallet,7a0c9e20e34a5149d6151be576f097377e0975a0,2025-08-22T02:18:38+00:00,Human,,12,12,4,True,True,False,False,fix: declare primary color correctly
+https://www.github.com/0xnullifier/miden-browser-wallet,b7ab2fb5151e123f63fbea723b2c829dc36d41a4,2025-08-21T15:10:21+00:00,Human,,263,256,26,False,True,False,False,chore: remove roundings and fix layout mismatches
+https://www.github.com/0xnullifier/miden-browser-wallet,25589221a0633b97ab91ed0fc59cf92af3d88086,2025-08-16T11:11:52+00:00,Human,,0,0,0,False,True,False,False,"Merge pull request #9 from 0xnullifier/feat/docs
+
+fix: make docs page mobile responsive"
+https://www.github.com/0xnullifier/miden-browser-wallet,a92a9aee5508cf0ba09c440c3cd72b2d782e4cd0,2025-08-16T11:10:58+00:00,Human,,139,107,8,True,True,False,False,fix: make docs page mobile responsive
+https://www.github.com/0xnullifier/miden-browser-wallet,d419e283f42effad86f4eefa23c7fa6873c00da5,2025-08-16T10:55:31+00:00,Human,,2411,17,25,False,False,False,False,"Merge pull request #8 from 0xnullifier/feat/docs
+
+Feat/docs"
+https://www.github.com/0xnullifier/miden-browser-wallet,8fadf1ef760ece235e05183bc26a7eff639948e2,2025-08-16T10:54:55+00:00,Human,,139,107,8,True,True,False,False,fix: make docs page mobile responsive
+https://www.github.com/0xnullifier/miden-browser-wallet,5402a5d2af98fc479e9213db7c3149347df99af2,2025-08-15T14:50:00+00:00,Human,,266,67,9,False,False,False,False,feat: complete docs page
+https://www.github.com/0xnullifier/miden-browser-wallet,9c8b66f873070450aacd8373d50162ee4b334354,2025-08-14T14:50:00+00:00,Human,,730,32,9,False,False,False,False,feat: complete quickstart with examples
+https://www.github.com/0xnullifier/miden-browser-wallet,0d7b1a8127394e30ecb5857cf4ebf343aa25f25f,2025-08-12T14:50:00+00:00,Human,,1476,11,20,False,False,False,False,feat: add quickstart for docs
+https://www.github.com/0xnullifier/miden-browser-wallet,c031448fc08c7772bf7f69ba6f8839ca75d6ecc4,2025-08-08T20:08:48+00:00,Human,,6,2,2,True,True,False,False,fix: sender copy bug and add redirects to midenscan for note ids
+https://www.github.com/0xnullifier/miden-browser-wallet,aeacb2e96e5ae7bc7f6beb7f2b525e80ad1c1725,2025-08-08T19:44:51+00:00,Human,,557,65,8,False,False,False,False,feat: add address page for dashboard
+https://www.github.com/0xnullifier/miden-browser-wallet,9e099d4ae29d11b0c78f34ac9762205f732e9838,2025-08-06T14:50:00+00:00,Human,,60,13,3,False,False,False,False,feat: implement basic search and copy buttons on transaction details
+https://www.github.com/0xnullifier/miden-browser-wallet,a92f661b2390f3824d1e1bd0d33c0fb6ee6057a1,2025-08-07T02:34:38+00:00,Human,,10,10,2,True,True,False,False,fix: add base api url and remove link caching to prevent slowing down
+https://www.github.com/0xnullifier/miden-browser-wallet,748ac35e7108ec48496766a7787887ba67633e34,2025-08-07T02:26:02+00:00,Human,,6,6,1,True,True,False,False,fix: remove env vars and use api directly
+https://www.github.com/0xnullifier/miden-browser-wallet,51660b96bed16bc4a74af5f0c2b158c749e0e9e6,2025-08-07T02:11:13+00:00,Human,,1199,65,13,False,False,False,False,feat: dashboard
+https://www.github.com/0xnullifier/miden-browser-wallet,02a75c8418ffe3a746520a269e38c05b90736ca0,2025-08-06T14:50:00+00:00,Human,,399,0,2,False,False,False,False,feat: add ui components
+https://www.github.com/0xnullifier/miden-browser-wallet,b3534bc32521110cae5e0f8f588fcc9bd1119f58,2025-08-05T14:50:00+00:00,Human,,8,4,2,False,False,False,False,feat: dashboard init
+https://www.github.com/0xnullifier/miden-browser-wallet,da77a88a552c112afd3cce2bacb614efccf0f047,2025-08-04T13:29:46+00:00,Human,,45,28,9,True,True,False,False,fix: update new faucet and use decimals for balance
+https://www.github.com/0xnullifier/miden-browser-wallet,9575fcd0f9bbaf29974082169f563c0ada0e5be8,2025-08-01T13:49:07+00:00,Human,,105,32,7,False,False,False,False,"(chore): change reciever component, change ticker and amount pills to the faucet"
+https://www.github.com/0xnullifier/miden-browser-wallet,1d9f98eccbef56edfcc64974ee84955ae2956d15,2025-08-01T12:35:39+00:00,Human,,18,15,7,False,False,False,False,(chore): change addresses to bech32
+https://www.github.com/0xnullifier/miden-browser-wallet,7c8d45392a97211f9c0eebb48621d188371930ba,2025-07-31T20:47:36+00:00,Human,,18,36,2,False,False,False,False,feat: add github feedback link to navbar
+https://www.github.com/0xnullifier/miden-browser-wallet,008e3134898d5fe42f7be86f511cccf60042368c,2025-07-31T20:20:20+00:00,Human,,10,0,1,False,False,False,False,chore: add issue template
+https://www.github.com/0xnullifier/miden-browser-wallet,347e8f8b6f606d8a5ab8a454a6c2cc16137877e6,2025-07-29T17:57:24+00:00,Human,,246,14,11,False,False,False,False,feat: home page tweaks and delegate proving
+https://www.github.com/0xnullifier/miden-browser-wallet,fcb99fdb865d3a2066f9c44ffa91173bd9b825e5,2025-07-27T16:02:20+00:00,Human,,186,9,7,False,False,False,False,feat: import export account dropdown
+https://www.github.com/0xnullifier/miden-browser-wallet,3f267dd23f792681b47a1dace0551b15b95dedb7,2025-07-27T13:55:07+00:00,Human,,943,15,8,False,False,False,False,feat: one to many payments
+https://www.github.com/0xnullifier/miden-browser-wallet,77ba47161736f5f2739f8a25dd3df7111110798b,2025-07-25T20:17:34+00:00,Human,,10,6,2,True,True,False,False,fix: handle ondatachannel correctly so that only the sender sends the ping
+https://www.github.com/0xnullifier/miden-browser-wallet,21d615e180bb186c7f70c31ce1f71fe949f936f6,2025-07-25T19:53:10+00:00,Human,,13,15,2,True,True,False,False,fix: handle case for faucet transactions correctly
+https://www.github.com/0xnullifier/miden-browser-wallet,a0b5174be0f748e1d10af30951ef60417bee7299,2025-07-25T19:37:01+00:00,Human,,21,2,3,True,True,False,False,fix: use useSearchParams to fix build errors
+https://www.github.com/0xnullifier/miden-browser-wallet,6a3bdbb3eef0b1f72a360f608728a3bf46b6cd4e,2025-07-25T18:37:35+00:00,Human,,184,85,13,False,False,False,False,feat: add client termination and private transactions fully working
+https://www.github.com/0xnullifier/miden-browser-wallet,ed8facebdbd641eaf0f0e7b5bc5c96149581528c,2025-07-25T13:06:02+00:00,Human,,133,43,8,False,False,False,False,feat: implement perfect negotiation logic and clean up transaction code
+https://www.github.com/0xnullifier/miden-browser-wallet,df815c58aca7dcd5381c6640eb69415fc14a2ea6,2025-07-24T20:54:02+00:00,Human,,19,15,1,True,True,False,False,fix: remove faulty websocket close triggers
+https://www.github.com/0xnullifier/miden-browser-wallet,3d3a5ac55198615c5ab5d2e2a4c6ce1fdf64be4b,2025-07-24T17:51:01+00:00,Human,,0,3,1,True,True,False,False,fix: remove faulty pc.close
+https://www.github.com/0xnullifier/miden-browser-wallet,6143e283648eb68bf1b4d23974383fb52c7b6ce2,2025-07-24T17:41:34+00:00,Human,,87,37,4,False,False,False,False,chore: update ws logic and private notes
+https://www.github.com/0xnullifier/miden-browser-wallet,78ccb24dc3c1df0508fe2d070243c625fc7fb20f,2025-07-24T15:44:54+00:00,Human,,2,2,2,False,False,False,False,chore: update websocket url to the hosted signaling server
+https://www.github.com/0xnullifier/miden-browser-wallet,fb6bef836ba7d2062e9bcbc7f06ae4c82e235838,2025-07-24T15:25:28+00:00,Human,,451,46,12,False,False,False,False,feat: integration of webrtc for private notes with retry mechanisms
+https://www.github.com/0xnullifier/miden-browser-wallet,d59cdd2b600dd473b909f3d78001493966165e66,2025-07-23T16:50:00+00:00,Human,,100,0,3,False,False,False,False,feat: add webrtc setup for private notes
+https://www.github.com/0xnullifier/miden-browser-wallet,f9dfa928490f7e7b24e042679aa08fd5aa22b4a7,2025-07-23T16:16:20+00:00,Human,,2,2,1,True,True,False,False,fix: remove aztec
+https://www.github.com/0xnullifier/miden-browser-wallet,116b4709252ef2b7c9ac52203e88051759e7fc41,2025-07-23T14:24:12+00:00,Human,,7428,0,52,False,False,False,False,chore: port to next

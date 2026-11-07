@@ -1,0 +1,90 @@
+github_url,sha,date,author_type,tool,additions,deletions,changed_files,is_fix_strict,is_fix_keyword,is_fix_issue_linked,is_revert,message
+https://www.github.com/007-akira/swaram,367d6b4b64a60afc555087990503b2af9b59ae84,2026-08-10T08:11:21+00:00,Human,,1,1,1,True,True,False,False,fix(api): resolve demo media from repository root
+https://www.github.com/007-akira/swaram,67d8eb892484c1c4f1e71fce3c59fec4e76a1b50,2026-08-08T08:35:15+00:00,Human,,4,0,1,False,False,False,False,"Merge pull request #4 from 007-Akira/docs/document-coauthor-credit
+
+docs: document co-author attribution"
+https://www.github.com/007-akira/swaram,3641e060737ec83f540d86cd1dc8bae1500d825b,2026-08-08T08:27:13+00:00,Human,,4,0,1,False,False,False,False,"docs: document co-author attribution
+
+Co-authored-by: godlykmathews <godlykmathews@outlook.com>"
+https://www.github.com/007-akira/swaram,ff4acfe6787d446b46f8e6278c3d8b5bb7db0451,2026-08-08T08:23:51+00:00,Human,,4,0,1,False,False,False,False,"Merge pull request #3 from 007-Akira/docs/explain-octave-filter
+
+docs(audio): explain octave filtering"
+https://www.github.com/007-akira/swaram,68a57a3a3bfefc282d78ccbdbc177eb34891254a,2026-08-08T08:19:33+00:00,Human,,1,1,1,False,True,False,False,"Merge pull request #2 from 007-Akira/godlykmathews-patch-1
+
+Fix punctuation in README.md"
+https://www.github.com/007-akira/swaram,ca23f9d293a3e7dc9172ecaabb68a30fbe770921,2026-08-08T08:17:15+00:00,Human,,1,1,1,False,True,False,False,Fix punctuation in README.md
+https://www.github.com/007-akira/swaram,a7e1818ae679ff9ed462940d6a3a8e83302646ff,2026-08-08T08:17:00+00:00,Human,,4,0,1,False,False,False,False,docs(audio): explain octave filtering
+https://www.github.com/007-akira/swaram,bb419567fe5a6d88d1cbeb171e3bcb32780c011a,2026-08-08T08:14:50+00:00,Human,,21,0,1,False,False,False,False,"Merge pull request #1 from 007-Akira/chore/add-pr-template
+
+chore: add pull request template"
+https://www.github.com/007-akira/swaram,a023d1e01b1e59f5d839e09d2ecc3fb3b2deae44,2026-08-08T08:08:47+00:00,Human,,21,0,1,False,False,False,False,chore: add pull request template
+https://www.github.com/007-akira/swaram,3dba2345be03ee970d7242885eb244b32b44423c,2026-08-07T07:55:06+00:00,Human,,299,94,1,False,False,False,False,docs: showcase Swaram architecture and workflow
+https://www.github.com/007-akira/swaram,e9ed73c9d318f86be4861fac5279d821ceaad4da,2026-08-06T18:16:58+00:00,Human,,152,38,3,False,False,False,False,feat(web): generate detailed report when practice stops
+https://www.github.com/007-akira/swaram,598d8b0c076139acdff8df057f4b722f0c80ec99,2026-08-06T18:13:36+00:00,Human,,260,255,4,False,False,False,False,feat(web): integrate supplied start session design
+https://www.github.com/007-akira/swaram,400132860a8024df9d91a5a0b9711eeeba928e92,2026-08-06T18:08:05+00:00,Human,,78,37,4,False,False,False,False,feat(dev): add opt-in demo song practice
+https://www.github.com/007-akira/swaram,aa1ef42588b4989ef2589b6e228f2e7baaa09fd3,2026-08-06T18:02:03+00:00,Human,,424,24,14,False,False,False,False,feat(web): add terminal session and device states
+https://www.github.com/007-akira/swaram,2bff81281ed556bd85f422a2ca42a80caf1589ea,2026-08-06T18:01:57+00:00,Human,,823,7,13,False,False,False,False,feat(web): add production session processing flow
+https://www.github.com/007-akira/swaram,465e2ba6d85e60a5313edca2e1c94acc22b7b514,2026-08-06T18:01:14+00:00,Human,,92,8,2,False,False,False,False,feat(api): support private processing retries
+https://www.github.com/007-akira/swaram,f732a96feb7a77ee106234897e551225cabb98e8,2026-07-27T17:39:45+00:00,Human,,45,0,3,False,False,False,False,feat(dev): open seeded test lyrics directly
+https://www.github.com/007-akira/swaram,88ff94707dd13ea7ed9f2c916dbaf29289546361,2026-07-26T10:50:30+00:00,Human,,10,14,4,False,False,False,False,style(web): format English UI tests
+https://www.github.com/007-akira/swaram,6ce07a618a34ce4a034bc8b3759d9d3b1819059c,2026-07-26T10:48:14+00:00,Human,,202,196,25,False,False,False,False,feat(i18n): make product interface English-first
+https://www.github.com/007-akira/swaram,f37263c89444d200484f22b34059a2312277f51f,2026-07-26T10:37:31+00:00,Human,,53,0,4,False,False,False,False,chore(dev): add rootless PostgreSQL controls
+https://www.github.com/007-akira/swaram,b2d1b1937d345202cff8de4e84de52db5c258cd4,2026-07-26T10:21:16+00:00,Human,,437,17,5,False,False,False,False,feat(web): add working product entry experience
+https://www.github.com/007-akira/swaram,deacea8c72b73e24c5a7b3073c3679f359d1e845,2026-07-26T10:02:23+00:00,Human,,1,1,1,True,True,False,False,fix(release): align UI package version
+https://www.github.com/007-akira/swaram,2e526c921f42ceae78b461e503ebdda5df5f7e16,2026-07-26T09:59:38+00:00,Human,,129,623,20,False,False,False,False,chore(release): prepare 0.1.0 release candidate
+https://www.github.com/007-akira/swaram,094224bad87a37303a4613c67c259d3de06c7822,2026-07-26T09:55:01+00:00,Human,,139,13,5,False,False,False,False,docs(public): publish engine and privacy guides
+https://www.github.com/007-akira/swaram,843dcf0f89aaea457514bc9559a9227a14344971,2026-07-26T09:53:28+00:00,Human,,279,12,13,False,False,False,False,feat(ops): add privacy-safe service observability
+https://www.github.com/007-akira/swaram,db4c610f8d601e0e61b358f688ab724789a5d7da,2026-07-26T09:48:02+00:00,Human,,159,17,8,False,False,False,False,feat(config): validate production privacy settings
+https://www.github.com/007-akira/swaram,b3b03addbe1480111f4093aaa74b6e124365ce6e,2026-07-26T09:46:27+00:00,Human,,366,89,13,False,False,False,False,feat(deploy): add production engine artifacts
+https://www.github.com/007-akira/swaram,ac2c90985404338aba3ba67f58c7962003dbda63,2026-07-26T09:43:47+00:00,Human,,239,4,12,False,False,False,False,feat(privacy): add accessible session data controls
+https://www.github.com/007-akira/swaram,be369bcb411dbb08aff0dcb47dee8ff74f0c8d40,2026-07-26T09:40:02+00:00,Human,,258,0,5,False,False,False,False,feat(evaluation): measure generated pitch accuracy
+https://www.github.com/007-akira/swaram,136d9a4bddebbbf20ec89447cb85afc6d6cb3f97,2026-07-26T09:36:47+00:00,Human,,202,4,9,False,False,False,False,test(e2e): add mandatory browser privacy smoke suite
+https://www.github.com/007-akira/swaram,f25a78af6ae7b36130765367fc3447437109bb0a,2026-07-26T09:31:34+00:00,Human,,226,6,8,False,False,False,False,feat(worker): add isolated deployment profiles
+https://www.github.com/007-akira/swaram,b7dd2f855ce7814663f28711a9aa66af9579ea69,2026-07-26T09:29:55+00:00,Human,,307,10,12,False,False,False,False,feat(security): harden private audio processing
+https://www.github.com/007-akira/swaram,5ea56e594ad34c6789403afeecff86f2ee5cc360,2026-07-26T09:26:30+00:00,Human,,838,9,11,False,False,False,False,feat(reports): persist private practice attempts
+https://www.github.com/007-akira/swaram,b08b634fd0c7db67c4543b4408721f228ffb447d,2026-07-26T09:20:14+00:00,Human,,283,0,3,False,False,False,False,feat(scoring): generate actionable phrase feedback
+https://www.github.com/007-akira/swaram,75e3e330c1b21b09829ad31f0e4c0ed70a5e0ed6,2026-07-26T09:19:12+00:00,Human,,255,0,3,False,False,False,False,feat(scoring): add weighted tolerance profiles
+https://www.github.com/007-akira/swaram,55521d0709ddae0874df6f08db85bfd89859113e,2026-07-26T09:18:11+00:00,Human,,266,0,3,False,False,False,False,feat(scoring): aggregate explainable phrase metrics
+https://www.github.com/007-akira/swaram,4f0c3a9500c4248b23cc4a9ad9cd0cc9b440ab7b,2026-07-26T09:17:04+00:00,Human,,283,0,3,False,False,False,False,feat(scoring): compare corrected pitch windows
+https://www.github.com/007-akira/swaram,bfb359fe84152358eb1a97bb53241c4188e9487a,2026-07-26T09:15:45+00:00,Human,,134,11,6,True,True,False,False,fix(practice): stream signed private playback
+https://www.github.com/007-akira/swaram,208d7aa423397e8afef06db05fa03950d137ce04,2026-07-26T09:13:42+00:00,Human,,156,9,5,False,False,False,False,feat(practice): complete responsive practice states
+https://www.github.com/007-akira/swaram,004b0120fea073b7163a567c798c488d7d74c932,2026-07-26T09:11:47+00:00,Human,,318,2,10,False,False,False,False,feat(practice): add loops and reduced speed
+https://www.github.com/007-akira/swaram,47df1f9514c851651ad002d3e1f8e7bedfbc6b7c,2026-07-26T09:08:36+00:00,Human,,238,16,5,False,False,False,False,feat(practice): synchronize Malayalam lyrics
+https://www.github.com/007-akira/swaram,acecb6e2ac34aad60d93c5608377ee14316adc01,2026-07-26T09:07:24+00:00,Human,,225,16,5,False,False,False,False,feat(practice): add private playback modes
+https://www.github.com/007-akira/swaram,e465fec9923e564cdb2fc20b09730c8b1826d7e2,2026-07-26T09:05:25+00:00,Human,,394,7,6,False,False,False,False,feat(practice): add windowed canvas pitch renderer
+https://www.github.com/007-akira/swaram,187393bbd28bd338f54344ee59c2e182a04e254c,2026-07-26T08:55:05+00:00,Human,,237,9,7,False,False,False,False,feat(practice): wire private calibrated audio session
+https://www.github.com/007-akira/swaram,fd09956a5486b8f66ad5460ba305a734670a3e5c,2026-07-26T08:52:38+00:00,Human,,212,0,6,False,False,False,False,feat(audio): add shared practice clock
+https://www.github.com/007-akira/swaram,0f4545207e8c1ef2d82ecdb082a4ba71f5d3b7ee,2026-07-26T08:50:44+00:00,Human,,384,11,9,False,False,False,False,feat(audio): stabilize live pitch frames
+https://www.github.com/007-akira/swaram,0ce04a3c38fa88777fc87e4ed64dbf6857a7c9eb,2026-07-26T08:45:03+00:00,Human,,191,6,6,False,False,False,False,feat(audio): add device latency correction
+https://www.github.com/007-akira/swaram,1b343e7dbf9447a9e80d319893cf8661f7e70cd7,2026-07-26T08:43:10+00:00,Human,,484,0,8,False,False,False,False,feat(audio): add headphone leakage calibration
+https://www.github.com/007-akira/swaram,69ee0526a8b78fbefdeaa99e9f512a53a83d0b52,2026-07-26T08:39:00+00:00,Human,,555,0,3,False,False,False,False,feat(audio): add practice session state machine
+https://www.github.com/007-akira/swaram,91fa6fe26fea3771988ba161a7de81f09ace80ce,2026-07-26T08:34:20+00:00,Human,,423,3,8,False,False,False,False,feat(lyrics): gate practice on session readiness
+https://www.github.com/007-akira/swaram,7b96e8c11450e61385075a6861b71f9ae5131daa,2026-07-26T08:30:17+00:00,Human,,343,45,12,False,False,False,False,feat(lyrics): add waveform marker navigation
+https://www.github.com/007-akira/swaram,459a7c76ecae58ffc4f18368474d9d885dc2f1f0,2026-07-26T08:24:48+00:00,Human,,286,2,3,False,False,False,False,feat(lyrics): add tap-to-sync line timing
+https://www.github.com/007-akira/swaram,229a576771869926439811dbf4e7de73f616fb43,2026-07-26T08:23:06+00:00,Human,,551,3,8,False,False,False,False,feat(lyrics): add responsive Malayalam lyrics editor
+https://www.github.com/007-akira/swaram,3b78e0551821fd5fdf934f3a52fffb5a91be0e2f,2026-07-26T08:20:24+00:00,Human,,437,15,7,False,False,False,False,feat(lyrics): parse Malayalam TXT LRC and SRT
+https://www.github.com/007-akira/swaram,870b4d9a5c346a0409f3c39e0ebfcc4870b6d0dd,2026-07-26T08:18:11+00:00,Human,,9,3,3,True,True,False,False,fix(worker): pin Python 3.14 audio ML runtime
+https://www.github.com/007-akira/swaram,b27edeac8272d981773d801d13ea8236e2ecfc86,2026-07-26T08:09:26+00:00,Human,,688,5,12,False,False,False,False,feat(worker): assemble durable analysis pipeline
+https://www.github.com/007-akira/swaram,e71e4e49f5c3ffecb49e4f6a95714e7798b2d6ed,2026-07-26T08:05:40+00:00,Human,,131,9,7,False,False,False,False,feat(contracts): expand analysis package metadata
+https://www.github.com/007-akira/swaram,364c883450139e264261e8c7b7dfddd8db13e1cd,2026-07-26T08:04:42+00:00,Human,,210,0,2,False,False,False,False,feat(worker): add timing and generic section analysis
+https://www.github.com/007-akira/swaram,58b16bb95663b56c76445e976b0fa4a58092b2cc,2026-07-26T08:02:45+00:00,Human,,178,12,2,False,False,False,False,feat(worker): harden reference contour extraction
+https://www.github.com/007-akira/swaram,300594a8c821f4fb3e16f9f050517c23d4d7fd2c,2026-07-26T08:01:36+00:00,Human,,216,0,4,False,False,False,False,feat(worker): integrate pretrained HTDemucs adapter
+https://www.github.com/007-akira/swaram,05d138c2597bcd7e61baeb7e3196a72197a45bf7,2026-07-26T08:00:33+00:00,Human,,301,0,4,False,False,False,False,feat(worker): add secure audio normalization
+https://www.github.com/007-akira/swaram,87e545065e8af2927991fcc1e794b61988dedff7,2026-07-26T07:58:27+00:00,Human,,209,0,4,False,False,False,False,feat(api): add private retention cleanup
+https://www.github.com/007-akira/swaram,856c306602a8f10019cd3c48d950e5eb5498c567,2026-07-26T07:57:33+00:00,Human,,493,13,9,False,False,False,False,feat(worker): add durable processing job orchestration
+https://www.github.com/007-akira/swaram,6fe6e08af36cb30d093845e226baacefabe67896,2026-07-26T07:55:25+00:00,Human,,620,0,8,False,False,False,False,feat(api): add private session and upload endpoints
+https://www.github.com/007-akira/swaram,93f0b013bfcd113d7541480dbc8030baa756e640,2026-07-26T07:47:46+00:00,Human,,284,0,2,False,False,False,False,feat(api): add private filesystem storage adapter
+https://www.github.com/007-akira/swaram,c53cde91ca168c2031f3cf06232ea7056c9e1803,2026-07-26T07:46:41+00:00,Human,,506,7,4,False,False,False,False,feat(api): add private session persistence model
+https://www.github.com/007-akira/swaram,aa87b89eb06a8a6910b0c4bc8e150840ebf11592,2026-07-26T07:40:41+00:00,Human,,226,3,5,False,False,False,False,feat: add frame pitch comparison engine
+https://www.github.com/007-akira/swaram,6a9bd6021f212bf8a093187f8c46de0a57de96f8,2026-07-26T07:38:39+00:00,Human,,577,7,16,False,False,False,False,feat: build private pitch prototype screen
+https://www.github.com/007-akira/swaram,30d30e314af0a11595dd32d5f5235131590cacfb,2026-07-26T07:32:52+00:00,Human,,402,0,5,False,False,False,False,feat: add AudioWorklet microphone capture
+https://www.github.com/007-akira/swaram,f1c59543ca4411af3c51b0c99914747e951f3c8f,2026-07-26T07:30:45+00:00,Human,,247,10,6,False,False,False,False,feat: implement browser YIN pitch detector
+https://www.github.com/007-akira/swaram,bcabdf96fd3139b8dc9c1a715bddd69350794c3f,2026-07-26T07:28:54+00:00,Human,,391,8,10,False,False,False,False,feat: add offline reference contour CLI
+https://www.github.com/007-akira/swaram,aa36a8d2909fc5d10e7b4ac1d644afe639bba0e6,2026-07-26T07:12:41+00:00,Human,,1,0,1,False,False,False,False,chore: exclude private prototype media repository
+https://www.github.com/007-akira/swaram,e324f86abecb78d575d940a9063ff96eaf7aff62,2026-07-26T06:27:27+00:00,Human,,159,11,12,False,False,False,False,feat: add PostgreSQL worker polling baseline
+https://www.github.com/007-akira/swaram,15dac27f5f33662ca11130a80cd167cb1e12a287,2026-07-26T06:23:58+00:00,Human,,111,0,2,False,False,False,False,ci: add Node Python and PostgreSQL quality gates
+https://www.github.com/007-akira/swaram,79017e84bb5e6caa434de48493bb6a7c51f9b17e,2026-07-26T06:22:39+00:00,Human,,499,8,10,False,False,False,False,feat: define versioned cross-service contracts
+https://www.github.com/007-akira/swaram,3bca76665c91cc69d9631584038ed0e72b99b88e,2026-07-26T06:20:18+00:00,Human,,153,9,8,False,False,False,False,feat: add HTTP health and readiness checks
+https://www.github.com/007-akira/swaram,8042a5fd71806718fb3986bb866794f750f4c618,2026-07-26T06:17:29+00:00,Human,,343,2,18,False,False,False,False,feat: configure PostgreSQL and initial migration
+https://www.github.com/007-akira/swaram,950e44f499fc08620b9d5a313b92eca56e0e469b,2026-07-26T06:15:38+00:00,Human,,6094,0,46,False,False,False,False,chore: establish standalone monorepo baseline
+https://www.github.com/007-akira/swaram,5d1da68313fbc1cc54e57031d4dd440f8e20afc6,2026-07-26T05:22:51+00:00,Human,,1,0,1,False,False,False,False,first commit
