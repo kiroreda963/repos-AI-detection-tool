@@ -85,7 +85,7 @@ def clone_blobless(github_url: str) -> tuple[GitRepository, Path]:
 
 def cleanup_clone(path: Path):
     if path.exists():
-        shutil.rmtree(path, onexc=cloning._clear_readonly)
+        shutil.rmtree(path, onerror=cloning._clear_readonly)
 
 
 # ---------- file list / .gitignore, read locally instead of via API ----------
