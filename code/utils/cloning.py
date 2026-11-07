@@ -112,7 +112,9 @@ def clone_repo(repo_url: str, dest_path: Path, token: str = None, shallow: bool 
                 text=True,
                 timeout=timeout,
                 encoding='utf-8',
-                errors='ignore'
+                errors='ignore',
+                stdin=subprocess.DEVNULL,
+                env={**os.environ, 'GIT_TERMINAL_PROMPT': '0'},
             )
 
             if result.returncode == 0:
